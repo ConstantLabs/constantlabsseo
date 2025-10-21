@@ -36,14 +36,20 @@ export const ProjectCard = ({ title, description, tech, link, status = "live" }:
       {/* Status badge at top right */}
       <div className="absolute top-4 right-4 z-20">
         <span className={cn(
-          "text-[10px] font-bold tracking-wider border px-2 py-1",
-          status === "live" && "border-foreground text-foreground",
+          "text-[10px] font-bold tracking-wider border px-2 py-1 font-tech",
+          status === "live" && "border-foreground text-foreground animate-pulse",
           status === "beta" && "border-muted-foreground text-muted-foreground",
-          status === "development" && "border-muted text-muted"
+          status === "development" && "border-muted text-muted opacity-60"
         )}>
           [{status.toUpperCase()}]
         </span>
       </div>
+
+      {/* Corner brackets */}
+      <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-foreground/20 group-hover:border-foreground/60 transition-colors" />
+      <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-foreground/20 group-hover:border-foreground/60 transition-colors" />
+      <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-foreground/20 group-hover:border-foreground/60 transition-colors" />
+      <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-foreground/20 group-hover:border-foreground/60 transition-colors" />
 
       {/* Comic halftone overlay */}
       <div 
@@ -56,7 +62,10 @@ export const ProjectCard = ({ title, description, tech, link, status = "live" }:
       
       <div className="relative z-10">
         <div className="mb-4">
-          <h3 className="text-2xl font-bold uppercase">
+          <div className="text-[8px] font-tech text-muted-foreground mb-1 tracking-wider">
+            [PROJECT_ID: {Math.random().toString(36).substring(2, 8).toUpperCase()}]
+          </div>
+          <h3 className="text-2xl font-bold uppercase group-hover:digital-glitch">
             {title}
           </h3>
         </div>
@@ -66,14 +75,18 @@ export const ProjectCard = ({ title, description, tech, link, status = "live" }:
         </p>
         
         <div className="flex flex-wrap gap-2">
-          {tech.map((t) => (
+          {tech.map((t, idx) => (
             <span
               key={t}
-              className="border border-border bg-secondary px-2 py-1 text-xs font-tech"
+              className="border border-border bg-secondary px-2 py-1 text-[10px] font-tech hover:border-foreground hover:bg-foreground hover:text-background transition-all cursor-default"
             >
-              {t}
+              [{String(idx + 1).padStart(2, '0')}] {t}
             </span>
           ))}
+        </div>
+        
+        <div className="mt-4 text-[8px] font-tech text-muted-foreground/40 tracking-wider">
+          // {link ? "ACCESS_GRANTED" : "RESTRICTED_ACCESS"} // ENCRYPTION_ENABLED //
         </div>
       </div>
       

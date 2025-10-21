@@ -17,7 +17,8 @@ export const GlitchText = ({
     <span 
       className={cn(
         "glitch inline-block",
-        animate && "hover-glitch",
+        // Disable hover glitch on intense mode for performance
+        animate && intensity !== "insane" && "hover-glitch",
         intensity === "insane" && "glitch-intense",
         className
       )}

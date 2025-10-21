@@ -8,31 +8,59 @@ interface TeamMemberProps {
 }
 
 export const TeamMember = ({ name, role, journey }: TeamMemberProps) => {
+  const operatorId = `OP-${Math.random().toString(36).substring(2, 6).toUpperCase()}`;
+  
   return (
-    <Card className="border-2 border-border bg-card p-6 hover:border-foreground transition-all duration-300">
-      <div className="mb-4">
-        <GlitchText className="text-2xl font-bold mb-2" animate>
-          {name}
-        </GlitchText>
-        <p className="text-sm text-muted-foreground font-tech tracking-wide">
-          [{role}]
-        </p>
-      </div>
+    <Card className="group border-2 border-border bg-card p-6 hover:border-foreground transition-all duration-300 relative overflow-hidden hover:shadow-[0_0_30px_rgba(255,255,255,0.1)]">
+      {/* Corner brackets */}
+      <div className="absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 border-foreground/20 group-hover:border-foreground/60 transition-colors" />
+      <div className="absolute top-0 right-0 w-12 h-12 border-t-2 border-r-2 border-foreground/20 group-hover:border-foreground/60 transition-colors" />
+      <div className="absolute bottom-0 left-0 w-12 h-12 border-b-2 border-l-2 border-foreground/20 group-hover:border-foreground/60 transition-colors" />
+      <div className="absolute bottom-0 right-0 w-12 h-12 border-b-2 border-r-2 border-foreground/20 group-hover:border-foreground/60 transition-colors" />
       
-      <div className="space-y-2">
-        <p className="text-xs font-bold tracking-wider text-foreground mb-3">
-          JOURNEY LOG:
-        </p>
-        {journey.map((step, idx) => (
-          <div key={idx} className="flex items-start gap-2">
-            <span className="text-muted-foreground font-tech text-xs mt-0.5">
-              {String(idx + 1).padStart(2, '0')}
-            </span>
-            <span className="text-sm text-muted-foreground leading-relaxed">
-              {step}
-            </span>
+      {/* Halftone pattern */}
+      <div 
+        className="absolute inset-0 opacity-[0.02] group-hover:opacity-[0.05] transition-opacity pointer-events-none"
+        style={{
+          backgroundImage: 'radial-gradient(circle, currentColor 1px, transparent 1px)',
+          backgroundSize: '8px 8px'
+        }}
+      />
+      
+      <div className="relative z-10">
+        <div className="mb-4">
+          <div className="text-[8px] font-tech text-muted-foreground mb-2 tracking-wider">
+            [OPERATOR_ID: {operatorId}] [CLEARANCE: MAX]
           </div>
-        ))}
+          <GlitchText className="text-2xl font-bold mb-2" animate>
+            {name}
+          </GlitchText>
+          <p className="text-sm text-muted-foreground font-tech tracking-wide">
+            [{role}]
+          </p>
+        </div>
+      
+        <div className="space-y-2">
+          <p className="text-xs font-bold tracking-wider text-foreground mb-3 font-tech">
+            // JOURNEY_LOG //
+          </p>
+          {journey.map((step, idx) => (
+            <div key={idx} className="flex items-start gap-3 group/item hover:translate-x-1 transition-transform">
+              <span className="text-muted-foreground font-tech text-[10px] mt-0.5 opacity-60 group-hover/item:opacity-100 transition-opacity">
+                [{String(idx + 1).padStart(2, '0')}]
+              </span>
+              <span className="text-sm text-muted-foreground leading-relaxed">
+                {step}
+              </span>
+            </div>
+          ))}
+          
+          <div className="mt-4 pt-4 border-t border-foreground/10">
+            <p className="text-[8px] font-tech text-muted-foreground/40 tracking-wider">
+              // NEURAL_INTERFACE_ACTIVE // BIOMETRICS_VERIFIED //
+            </p>
+          </div>
+        </div>
       </div>
     </Card>
   );
