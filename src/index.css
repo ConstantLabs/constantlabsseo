@@ -61,37 +61,79 @@ All colors MUST be HSL.
 /* Glitch Effect Animations */
 @keyframes glitch-1 {
   0%, 100% {
-    transform: translate(0);
+    transform: translate(0) skew(0deg);
+  }
+  10% {
+    transform: translate(-8px, 4px) skew(-2deg);
   }
   20% {
-    transform: translate(-2px, 2px);
+    transform: translate(-6px, -4px) skew(1deg);
+  }
+  30% {
+    transform: translate(10px, 2px) skew(-1deg);
   }
   40% {
-    transform: translate(-2px, -2px);
+    transform: translate(-4px, -6px) skew(2deg);
+  }
+  50% {
+    transform: translate(8px, 6px) skew(-2deg);
   }
   60% {
-    transform: translate(2px, 2px);
+    transform: translate(6px, -8px) skew(1deg);
+  }
+  70% {
+    transform: translate(-10px, 4px) skew(-1deg);
   }
   80% {
-    transform: translate(2px, -2px);
+    transform: translate(4px, -2px) skew(2deg);
+  }
+  90% {
+    transform: translate(-2px, 8px) skew(-2deg);
   }
 }
 
 @keyframes glitch-2 {
   0%, 100% {
-    transform: translate(0);
+    transform: translate(0) skew(0deg);
+  }
+  10% {
+    transform: translate(6px, -6px) skew(2deg);
   }
   20% {
-    transform: translate(2px, -2px);
+    transform: translate(8px, 4px) skew(-1deg);
+  }
+  30% {
+    transform: translate(-10px, -2px) skew(1deg);
   }
   40% {
-    transform: translate(2px, 2px);
+    transform: translate(6px, 8px) skew(-2deg);
+  }
+  50% {
+    transform: translate(-8px, -6px) skew(2deg);
   }
   60% {
-    transform: translate(-2px, -2px);
+    transform: translate(-4px, 10px) skew(-1deg);
+  }
+  70% {
+    transform: translate(10px, -4px) skew(1deg);
   }
   80% {
-    transform: translate(-2px, 2px);
+    transform: translate(-6px, 2px) skew(-2deg);
+  }
+  90% {
+    transform: translate(2px, -8px) skew(2deg);
+  }
+}
+
+@keyframes glitch-flicker {
+  0%, 100% {
+    opacity: 1;
+  }
+  10%, 30%, 50%, 70%, 90% {
+    opacity: 0.8;
+  }
+  20%, 40%, 60%, 80% {
+    opacity: 1;
   }
 }
 
@@ -126,21 +168,38 @@ All colors MUST be HSL.
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 .glitch::before {
   animation: glitch-1 0.3s infinite;
-  color: hsl(var(--glitch-primary));
+  color: #ff0000;
+  text-shadow: -2px 0 #ff0000;
   z-index: -1;
   clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
 }
 
 .glitch::after {
   animation: glitch-2 0.3s infinite;
-  color: hsl(var(--glitch-secondary));
+  color: #00ffff;
+  text-shadow: 2px 0 #00ffff;
   z-index: -2;
   clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+}
+
+/* Intense glitch mode */
+.glitch-intense {
+  animation: glitch-flicker 0.5s infinite;
+}
+
+.glitch-intense::before {
+  animation: glitch-1 0.1s infinite;
+  text-shadow: -4px 0 #ff0000, -8px 0 rgba(255, 0, 0, 0.5);
+}
+
+.glitch-intense::after {
+  animation: glitch-2 0.1s infinite;
+  text-shadow: 4px 0 #00ffff, 8px 0 rgba(0, 255, 255, 0.5);
 }
 
 .scanline {
@@ -160,10 +219,10 @@ All colors MUST be HSL.
   pointer-events: none;
 }
 
-.hover-glitch:hover .glitch::before {
-  animation: glitch-1 0.1s infinite;
+.hover-glitch:hover::before {
+  animation: glitch-1 0.05s infinite;
 }
 
-.hover-glitch:hover .glitch::after {
-  animation: glitch-2 0.1s infinite;
+.hover-glitch:hover::after {
+  animation: glitch-2 0.05s infinite;
 }
