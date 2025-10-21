@@ -54,7 +54,7 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground font-mono;
+    @apply bg-background text-foreground font-rajdhani;
   }
 }
 
@@ -137,6 +137,34 @@ All colors MUST be HSL.
   }
 }
 
+/* Hacker flicker effect - clean, no color distortion */
+@keyframes hacker-flicker {
+  0%, 100% {
+    opacity: 1;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  }
+  5% {
+    opacity: 0.2;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+  }
+  10% {
+    opacity: 1;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  }
+  15% {
+    opacity: 0.5;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+  }
+  20% {
+    opacity: 1;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  }
+  50% {
+    opacity: 0.9;
+    text-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
+  }
+}
+
 @keyframes scanline {
   0% {
     transform: translateY(-100%);
@@ -168,51 +196,31 @@ All colors MUST be HSL.
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: 0.9;
+  opacity: 0;
 }
 
 .glitch::before {
-  animation: glitch-1 0.3s infinite;
-  color: hsl(var(--foreground) / 0.3);
-  text-shadow: -1px 0 hsl(var(--foreground) / 0.3);
+  animation: none;
   z-index: -1;
-  clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
 }
 
 .glitch::after {
-  animation: glitch-2 0.3s infinite;
-  color: hsl(var(--foreground) / 0.2);
-  text-shadow: 1px 0 hsl(var(--foreground) / 0.2);
+  animation: none;
   z-index: -2;
-  clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
 }
 
-/* Intense glitch mode - for hero title only */
+/* Intense flicker mode - for hero title only */
 .glitch-intense {
-  animation: glitch-flicker 0.5s infinite;
+  animation: hacker-flicker 3s infinite;
   position: relative;
 }
 
-.glitch-intense::before {
-  animation: glitch-1 0.1s infinite;
-  text-shadow: -3px 0 hsl(var(--foreground) / 0.4);
-}
-
+.glitch-intense::before,
 .glitch-intense::after {
-  animation: glitch-2 0.1s infinite;
-  text-shadow: 3px 0 hsl(var(--foreground) / 0.3);
+  display: none;
 }
 
-/* Diagonal stripe pattern for DedSec style */
-.dedsec-stripes {
-  background: repeating-linear-gradient(
-    45deg,
-    transparent,
-    transparent 2px,
-    hsl(var(--foreground) / 0.1) 2px,
-    hsl(var(--foreground) / 0.1) 4px
-  );
-}
+/* Diagonal stripe pattern removed */
 
 .scanline {
   position: relative;

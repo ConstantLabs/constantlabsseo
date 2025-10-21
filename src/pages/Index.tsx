@@ -1,7 +1,7 @@
 import { GlitchText } from "@/components/GlitchText";
 import { ProjectCard } from "@/components/ProjectCard";
 import { TeamMember } from "@/components/TeamMember";
-import { WireframeBackground } from "@/components/WireframeBackground";
+import { HackerBackground } from "@/components/HackerBackground";
 import { Button } from "@/components/ui/button";
 import { Terminal, Github, Linkedin } from "lucide-react";
 
@@ -53,7 +53,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground relative">
-      <WireframeBackground />
+      <HackerBackground />
       
       {/* ENTRY POINT */}
       <section className="relative z-10 min-h-screen flex items-center justify-center overflow-hidden">
@@ -61,21 +61,21 @@ const Index = () => {
         <div className="container mx-auto px-4 text-center">
           <div className="mb-12 flex items-center justify-center gap-2 opacity-60">
             <Terminal className="w-6 h-6" />
-            <span className="text-xs font-mono tracking-[0.3em] uppercase">SYSTEM_ONLINE</span>
+            <span className="text-xs font-tech tracking-[0.3em] uppercase">SYSTEM_ONLINE</span>
           </div>
           
-          <h1 className="text-8xl md:text-[12rem] lg:text-[16rem] font-black mb-12 tracking-tighter uppercase transform -rotate-2 dedsec-stripes py-8">
+          <h1 className="text-8xl md:text-[12rem] lg:text-[16rem] font-black mb-12 tracking-tight uppercase transform -rotate-2">
             <GlitchText animate intensity="insane">CONSTANT LABS</GlitchText>
           </h1>
           
-          <p className="text-xs md:text-sm text-muted-foreground font-mono mb-12 tracking-[0.2em] uppercase">
+          <p className="text-xs md:text-sm text-muted-foreground font-tech mb-12 tracking-[0.2em] uppercase">
             WE BUILD. WE BREAK. WE OWN IT.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <Button 
               size="lg" 
-              className="border-2 border-foreground bg-transparent text-foreground hover:bg-foreground hover:text-background font-mono tracking-wide transition-all"
+              className="border-2 border-foreground bg-transparent text-foreground hover:bg-foreground hover:text-background font-tech tracking-wide transition-all"
               onClick={() => document.getElementById('vault')?.scrollIntoView({ behavior: 'smooth' })}
             >
               [ENTER_VAULT]
@@ -83,7 +83,7 @@ const Index = () => {
             <Button 
               variant="ghost" 
               size="lg"
-              className="border-2 border-border text-foreground hover:border-foreground hover:bg-transparent font-mono tracking-wide transition-all"
+              className="border-2 border-border text-foreground hover:border-foreground hover:bg-transparent font-tech tracking-wide transition-all"
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             >
               [INITIATE_CONTACT]
@@ -118,7 +118,7 @@ const Index = () => {
             <h2 className="text-4xl md:text-5xl font-black mb-2 tracking-tight uppercase">
               <GlitchText>[THE_VAULT]</GlitchText>
             </h2>
-            <p className="text-muted-foreground font-mono text-xs tracking-wide">
+            <p className="text-muted-foreground font-tech text-xs tracking-wide">
               Active projects and experiments
             </p>
           </div>
@@ -138,7 +138,7 @@ const Index = () => {
             <h2 className="text-4xl md:text-5xl font-black mb-2 tracking-tight uppercase">
               <GlitchText>[OPERATORS]</GlitchText>
             </h2>
-            <p className="text-muted-foreground font-mono text-xs tracking-wide">
+            <p className="text-muted-foreground font-tech text-xs tracking-wide">
               Core team members
             </p>
           </div>
@@ -158,7 +158,7 @@ const Index = () => {
             <h2 className="text-4xl md:text-5xl font-black mb-2 tracking-tight uppercase">
               <GlitchText>[ORIGIN_PROTOCOL]</GlitchText>
             </h2>
-            <p className="text-muted-foreground font-mono text-xs tracking-wide">
+            <p className="text-muted-foreground font-tech text-xs tracking-wide">
               Company history and mission
             </p>
           </div>
@@ -200,13 +200,13 @@ const Index = () => {
               <h2 className="text-4xl md:text-5xl font-black tracking-tight uppercase">
                 <GlitchText>[INITIATE_CONTACT]</GlitchText>
               </h2>
-              <p className="text-muted-foreground font-mono text-xs tracking-wide">
+              <p className="text-muted-foreground font-tech text-xs tracking-wide">
                 Got a project? Need a team? Let's talk.
               </p>
               
               <Button 
                 size="lg"
-                className="border-2 border-foreground bg-background text-foreground hover:bg-foreground hover:text-background font-mono tracking-wide font-bold transition-all duration-300"
+                className="border-2 border-foreground bg-background text-foreground hover:bg-foreground hover:text-background font-tech tracking-wide font-bold transition-all duration-300"
                 onClick={() => window.location.href = 'mailto:contact@constantslap.ai'}
               >
                 [SEND_MESSAGE]
@@ -214,7 +214,7 @@ const Index = () => {
             </div>
           </div>
           
-          <div className="mt-12 text-center text-xs text-muted-foreground font-mono">
+          <div className="mt-12 text-center text-xs text-muted-foreground font-tech">
             <p>CONSTANT LABS © 2025</p>
             <p className="mt-2">BUILT WITH PURPOSE. DESIGNED FOR IMPACT.</p>
           </div>

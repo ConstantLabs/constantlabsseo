@@ -14,7 +14,7 @@ export const TeamMember = ({ name, role, journey }: TeamMemberProps) => {
         <GlitchText className="text-2xl font-bold mb-2" animate>
           {name}
         </GlitchText>
-        <p className="text-sm text-muted-foreground font-mono tracking-wide">
+        <p className="text-sm text-muted-foreground font-tech tracking-wide">
           [{role}]
         </p>
       </div>
@@ -25,7 +25,7 @@ export const TeamMember = ({ name, role, journey }: TeamMemberProps) => {
         </p>
         {journey.map((step, idx) => (
           <div key={idx} className="flex items-start gap-2">
-            <span className="text-muted-foreground font-mono text-xs mt-0.5">
+            <span className="text-muted-foreground font-tech text-xs mt-0.5">
               {String(idx + 1).padStart(2, '0')}
             </span>
             <span className="text-sm text-muted-foreground leading-relaxed">

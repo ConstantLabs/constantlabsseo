@@ -63,6 +63,10 @@ export default {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      fontFamily: {
+        'rajdhani': ['Rajdhani', 'sans-serif'],
+        'tech': ['Share Tech Mono', 'monospace'],
+      },
       keyframes: {
         "accordion-down": {
           from: {

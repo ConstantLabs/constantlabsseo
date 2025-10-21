@@ -69,7 +69,7 @@ export const ProjectCard = ({ title, description, tech, link, status = "live" }:
           {tech.map((t) => (
             <span
               key={t}
-              className="border border-border bg-secondary px-2 py-1 text-xs font-mono"
+              className="border border-border bg-secondary px-2 py-1 text-xs font-tech"
             >
               {t}
             </span>
