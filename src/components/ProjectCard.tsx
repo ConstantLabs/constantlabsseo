@@ -21,10 +21,9 @@ export const ProjectCard = ({ title, description, tech, link, status = "live" }:
     <Card
       onClick={handleClick}
       className={cn(
-        "group relative overflow-hidden border-4 border-foreground bg-card p-6 transition-all duration-300",
-        "hover:shadow-[0_0_30px_rgba(255,255,255,0.3),inset_0_0_20px_rgba(255,255,255,0.1)]",
+        "group relative overflow-hidden border-2 border-border bg-card p-6 transition-all duration-300",
+        "hover:border-foreground hover:shadow-[0_0_20px_rgba(255,255,255,0.1)]",
         link && "cursor-pointer",
-        "skew-y-[-0.5deg] hover:skew-y-0",
         "before:absolute before:top-0 before:right-0 before:w-0 before:h-0",
         "before:border-l-[40px] before:border-l-transparent",
         "before:border-t-[40px] before:border-t-foreground/20",
@@ -34,9 +33,16 @@ export const ProjectCard = ({ title, description, tech, link, status = "live" }:
         "after:opacity-0 after:transition-opacity after:duration-300 hover:after:opacity-100"
       )}
     >
-      {/* CLASSIFIED stamp */}
-      <div className="absolute top-2 left-2 text-xs font-bold tracking-widest text-foreground/30 rotate-[-5deg] z-20 border-2 border-foreground/30 px-2 py-1">
-        CLASSIFIED
+      {/* Status badge at top right */}
+      <div className="absolute top-4 right-4 z-20">
+        <span className={cn(
+          "text-[10px] font-bold tracking-wider border px-2 py-1",
+          status === "live" && "border-foreground text-foreground",
+          status === "beta" && "border-muted-foreground text-muted-foreground",
+          status === "development" && "border-muted text-muted"
+        )}>
+          [{status.toUpperCase()}]
+        </span>
       </div>
 
       {/* Comic halftone overlay */}
@@ -49,22 +55,13 @@ export const ProjectCard = ({ title, description, tech, link, status = "live" }:
       />
       
       <div className="relative z-10">
-        <div className="mb-4 flex items-start justify-between gap-4">
-          <GlitchText className="text-2xl font-black uppercase leading-tight tracking-tight" animate>
+        <div className="mb-4">
+          <h3 className="text-2xl font-bold uppercase">
             {title}
-          </GlitchText>
-          <span className={cn(
-            "text-[10px] font-black tracking-widest border-2 px-2 py-1 whitespace-nowrap flex-shrink-0",
-            "skew-x-[-5deg] transition-all duration-300",
-            status === "live" && "border-foreground text-foreground bg-foreground/10 group-hover:bg-foreground/20",
-            status === "beta" && "border-muted-foreground text-muted-foreground bg-muted-foreground/10",
-            status === "development" && "border-muted text-muted bg-muted/10"
-          )}>
-            [{status.toUpperCase()}]
-          </span>
+          </h3>
         </div>
         
-        <p className="mb-6 text-sm text-muted-foreground leading-relaxed font-mono border-l-2 border-foreground/20 pl-3">
+        <p className="mb-6 text-sm text-muted-foreground leading-relaxed">
           {description}
         </p>
         
@@ -72,11 +69,7 @@ export const ProjectCard = ({ title, description, tech, link, status = "live" }:
           {tech.map((t) => (
             <span
               key={t}
-              className={cn(
-                "border-2 border-foreground bg-secondary px-3 py-1 text-xs font-mono tracking-wide font-bold",
-                "clip-path-[polygon(4px_0,100%_0,100%_calc(100%-4px),calc(100%-4px)_100%,0_100%,0_4px)]",
-                "transition-all duration-200 hover:bg-foreground hover:text-background hover:scale-105"
-              )}
+              className="border border-border bg-secondary px-2 py-1 text-xs font-mono"
             >
               {t}
             </span>
@@ -85,13 +78,7 @@ export const ProjectCard = ({ title, description, tech, link, status = "live" }:
       </div>
       
       {/* Scanline effect */}
-      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity scanline pointer-events-none z-30" />
-      
-      {/* Glitch bars on hover */}
-      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-20">
-        <div className="absolute top-[20%] left-0 right-0 h-[2px] bg-foreground/50 animate-[glitch-1_0.2s_infinite]" />
-        <div className="absolute top-[60%] left-0 right-0 h-[2px] bg-foreground/50 animate-[glitch-2_0.2s_infinite]" />
-      </div>
+      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity scanline pointer-events-none" />
     </Card>
   );
 };

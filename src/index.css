@@ -173,33 +173,45 @@ All colors MUST be HSL.
 
 .glitch::before {
   animation: glitch-1 0.3s infinite;
-  color: #ff0000;
-  text-shadow: -2px 0 #ff0000;
+  color: hsl(var(--foreground) / 0.3);
+  text-shadow: -1px 0 hsl(var(--foreground) / 0.3);
   z-index: -1;
   clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
 }
 
 .glitch::after {
   animation: glitch-2 0.3s infinite;
-  color: #00ffff;
-  text-shadow: 2px 0 #00ffff;
+  color: hsl(var(--foreground) / 0.2);
+  text-shadow: 1px 0 hsl(var(--foreground) / 0.2);
   z-index: -2;
   clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
 }
 
-/* Intense glitch mode */
+/* Intense glitch mode - for hero title only */
 .glitch-intense {
   animation: glitch-flicker 0.5s infinite;
+  position: relative;
 }
 
 .glitch-intense::before {
   animation: glitch-1 0.1s infinite;
-  text-shadow: -4px 0 #ff0000, -8px 0 rgba(255, 0, 0, 0.5);
+  text-shadow: -3px 0 hsl(var(--foreground) / 0.4);
 }
 
 .glitch-intense::after {
   animation: glitch-2 0.1s infinite;
-  text-shadow: 4px 0 #00ffff, 8px 0 rgba(0, 255, 255, 0.5);
+  text-shadow: 3px 0 hsl(var(--foreground) / 0.3);
+}
+
+/* Diagonal stripe pattern for DedSec style */
+.dedsec-stripes {
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 2px,
+    hsl(var(--foreground) / 0.1) 2px,
+    hsl(var(--foreground) / 0.1) 4px
+  );
 }
 
 .scanline {

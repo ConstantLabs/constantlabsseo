@@ -59,23 +59,23 @@ const Index = () => {
       <section className="relative z-10 min-h-screen flex items-center justify-center overflow-hidden">
         <div className="scanline absolute inset-0 pointer-events-none" />
         <div className="container mx-auto px-4 text-center">
-          <div className="mb-8 flex items-center justify-center gap-2">
-            <Terminal className="w-10 h-10" />
-            <span className="text-xs font-mono tracking-[0.5em] uppercase">SYSTEM_ONLINE</span>
+          <div className="mb-12 flex items-center justify-center gap-2 opacity-60">
+            <Terminal className="w-6 h-6" />
+            <span className="text-xs font-mono tracking-[0.3em] uppercase">SYSTEM_ONLINE</span>
           </div>
           
-          <h1 className="text-7xl md:text-9xl font-black mb-8 tracking-tighter uppercase italic">
+          <h1 className="text-8xl md:text-[12rem] lg:text-[16rem] font-black mb-12 tracking-tighter uppercase transform -rotate-2 dedsec-stripes py-8">
             <GlitchText animate intensity="insane">CONSTANT LABS</GlitchText>
           </h1>
           
-          <p className="text-sm md:text-base text-muted-foreground font-mono mb-12 tracking-[0.3em] uppercase border-l-4 border-foreground/50 pl-6 inline-block">
+          <p className="text-xs md:text-sm text-muted-foreground font-mono mb-12 tracking-[0.2em] uppercase">
             WE BUILD. WE BREAK. WE OWN IT.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <Button 
               size="lg" 
-              className="border-4 border-foreground bg-transparent text-foreground hover:bg-foreground hover:text-background font-mono tracking-wider font-black skew-x-[-2deg] hover:skew-x-0 transition-all hover:shadow-[0_0_30px_rgba(255,255,255,0.5)]"
+              className="border-2 border-foreground bg-transparent text-foreground hover:bg-foreground hover:text-background font-mono tracking-wide transition-all"
               onClick={() => document.getElementById('vault')?.scrollIntoView({ behavior: 'smooth' })}
             >
               [ENTER_VAULT]
@@ -83,29 +83,29 @@ const Index = () => {
             <Button 
               variant="ghost" 
               size="lg"
-              className="border-4 border-border text-foreground hover:border-foreground hover:bg-transparent font-mono tracking-wider font-black skew-x-[2deg] hover:skew-x-0 transition-all"
+              className="border-2 border-border text-foreground hover:border-foreground hover:bg-transparent font-mono tracking-wide transition-all"
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             >
               [INITIATE_CONTACT]
             </Button>
           </div>
           
-          <div className="flex items-center justify-center gap-6 mt-16">
+          <div className="flex items-center justify-center gap-6 mt-12">
             <a
               href="https://www.linkedin.com/company/constant-labs"
               target="_blank"
               rel="noopener noreferrer"
-              className="border-4 border-border hover:border-foreground p-4 transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] hover:skew-x-[-5deg]"
+              className="border-2 border-border hover:border-foreground p-3 transition-all duration-300"
             >
-              <Linkedin className="w-6 h-6" />
+              <Linkedin className="w-5 h-5" />
             </a>
             <a
               href="https://github.com/moobfinancial"
               target="_blank"
               rel="noopener noreferrer"
-              className="border-4 border-border hover:border-foreground p-4 transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] hover:skew-x-[5deg]"
+              className="border-2 border-border hover:border-foreground p-3 transition-all duration-300"
             >
-              <Github className="w-6 h-6" />
+              <Github className="w-5 h-5" />
             </a>
           </div>
         </div>
@@ -114,12 +114,12 @@ const Index = () => {
       {/* THE VAULT - Projects */}
       <section id="vault" className="relative z-10 py-24">
         <div className="container mx-auto px-4">
-          <div className="mb-12 border-l-8 border-foreground pl-6">
-            <h2 className="text-5xl md:text-6xl font-black mb-4 tracking-tighter uppercase italic">
-              <GlitchText animate intensity="insane">[THE_VAULT]</GlitchText>
+          <div className="mb-12">
+            <h2 className="text-4xl md:text-5xl font-black mb-2 tracking-tight uppercase">
+              <GlitchText>[THE_VAULT]</GlitchText>
             </h2>
-            <p className="text-muted-foreground font-mono text-xs tracking-widest uppercase">
-              [ACTIVE_PROJECTS_AND_EXPERIMENTS]
+            <p className="text-muted-foreground font-mono text-xs tracking-wide">
+              Active projects and experiments
             </p>
           </div>
           
@@ -134,12 +134,12 @@ const Index = () => {
       {/* OPERATORS - Team */}
       <section id="operators" className="relative z-10 py-24">
         <div className="container mx-auto px-4">
-          <div className="mb-12 border-l-8 border-foreground pl-6">
-            <h2 className="text-5xl md:text-6xl font-black mb-4 tracking-tighter uppercase italic">
-              <GlitchText animate intensity="insane">[OPERATORS]</GlitchText>
+          <div className="mb-12">
+            <h2 className="text-4xl md:text-5xl font-black mb-2 tracking-tight uppercase">
+              <GlitchText>[OPERATORS]</GlitchText>
             </h2>
-            <p className="text-muted-foreground font-mono text-xs tracking-widest uppercase">
-              [CORE_TEAM_MEMBERS]
+            <p className="text-muted-foreground font-mono text-xs tracking-wide">
+              Core team members
             </p>
           </div>
           
@@ -154,36 +154,36 @@ const Index = () => {
       {/* ORIGIN PROTOCOL - Story */}
       <section id="origin" className="relative z-10 py-24">
         <div className="container mx-auto px-4">
-          <div className="mb-12 border-l-8 border-foreground pl-6">
-            <h2 className="text-5xl md:text-6xl font-black mb-4 tracking-tighter uppercase italic">
-              <GlitchText animate intensity="insane">[ORIGIN_PROTOCOL]</GlitchText>
+          <div className="mb-12">
+            <h2 className="text-4xl md:text-5xl font-black mb-2 tracking-tight uppercase">
+              <GlitchText>[ORIGIN_PROTOCOL]</GlitchText>
             </h2>
-            <p className="text-muted-foreground font-mono text-xs tracking-widest uppercase">
-              [COMPANY_HISTORY_AND_MISSION]
+            <p className="text-muted-foreground font-mono text-xs tracking-wide">
+              Company history and mission
             </p>
           </div>
           
           <div className="max-w-4xl mx-auto space-y-8">
-            <div className="border-l-4 border-foreground/50 pl-6 hover:border-foreground transition-all duration-300">
-              <h3 className="text-xs font-black tracking-widest text-foreground mb-3 uppercase">[THE_COMMON_THREAD]</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed font-mono">
+            <div className="border-t-2 border-foreground/20 pt-6">
+              <h3 className="text-sm font-bold text-foreground mb-3 uppercase tracking-wide">The Common Thread</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
                 Two paths. Different journeys. Same destination. We've always been builders—whether it's paper models, 
                 observatories, 3D worlds, or video content. We never stopped creating. We never stopped experimenting.
               </p>
             </div>
             
-            <div className="border-l-4 border-foreground/50 pl-6 hover:border-foreground transition-all duration-300">
-              <h3 className="text-xs font-black tracking-widest text-foreground mb-3 uppercase">[THE_VISION]</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed font-mono">
+            <div className="border-t-2 border-foreground/20 pt-6">
+              <h3 className="text-sm font-bold text-foreground mb-3 uppercase tracking-wide">The Vision</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
                 Constant Labs isn't just a studio—it's a holding company for ideas that matter. We build fast, 
                 we iterate faster, and we're not afraid to break things. Each project adds to our arsenal. 
                 Each experiment increases our value. We're building something investors can't ignore.
               </p>
             </div>
             
-            <div className="border-l-4 border-foreground/50 pl-6 hover:border-foreground transition-all duration-300">
-              <h3 className="text-xs font-black tracking-widest text-foreground mb-3 uppercase">[THE_MISSION]</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed font-mono">
+            <div className="border-t-2 border-foreground/20 pt-6">
+              <h3 className="text-sm font-bold text-foreground mb-3 uppercase tracking-wide">The Mission</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
                 Build. Ship. Repeat. We're here to create a portfolio of web applications that showcase our craft, 
                 our speed, and our vision. Available for hire, ready to scale, designed for acquisition.
               </p>
@@ -196,27 +196,27 @@ const Index = () => {
       <section id="contact" className="relative z-10 py-24">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <div className="border-4 border-foreground p-12 space-y-6 bg-background/80 backdrop-blur-sm skew-y-[-0.5deg] hover:skew-y-0 transition-all duration-300 text-center">
-              <h2 className="text-4xl md:text-5xl font-black tracking-tighter uppercase italic">
-                <GlitchText animate intensity="insane">[INITIATE_CONTACT]</GlitchText>
+            <div className="border-2 border-foreground p-12 space-y-6 text-center">
+              <h2 className="text-4xl md:text-5xl font-black tracking-tight uppercase">
+                <GlitchText>[INITIATE_CONTACT]</GlitchText>
               </h2>
-              <p className="text-muted-foreground font-mono text-xs tracking-widest uppercase">
-                GOT_A_PROJECT?_NEED_A_TEAM?_LET'S_TALK.
+              <p className="text-muted-foreground font-mono text-xs tracking-wide">
+                Got a project? Need a team? Let's talk.
               </p>
               
               <Button 
                 size="lg"
-                className="border-4 border-foreground bg-background text-foreground hover:bg-foreground hover:text-background font-mono tracking-widest font-black transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,255,255,0.5)] skew-x-[-2deg] hover:skew-x-0"
+                className="border-2 border-foreground bg-background text-foreground hover:bg-foreground hover:text-background font-mono tracking-wide font-bold transition-all duration-300"
                 onClick={() => window.location.href = 'mailto:contact@constantslap.ai'}
               >
-                [SEND_TRANSMISSION]
+                [SEND_MESSAGE]
               </Button>
             </div>
           </div>
           
-          <div className="mt-16 text-center text-xs text-muted-foreground font-mono tracking-widest">
-            <p>CONSTANT_LABS_©_2025</p>
-            <p className="mt-2">BUILT_WITH_PURPOSE._DESIGNED_FOR_IMPACT.</p>
+          <div className="mt-12 text-center text-xs text-muted-foreground font-mono">
+            <p>CONSTANT LABS © 2025</p>
+            <p className="mt-2">BUILT WITH PURPOSE. DESIGNED FOR IMPACT.</p>
           </div>
         </div>
       </section>
