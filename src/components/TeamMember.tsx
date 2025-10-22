@@ -1,13 +1,15 @@
 import { Card } from "@/components/ui/card";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { GlitchText } from "./GlitchText";
 
 interface TeamMemberProps {
   name: string;
   role: string;
   journey: string[];
+  avatar?: string;
 }
 
-export const TeamMember = ({ name, role, journey }: TeamMemberProps) => {
+export const TeamMember = ({ name, role, journey, avatar }: TeamMemberProps) => {
   const operatorId = `OP-${Math.random().toString(36).substring(2, 6).toUpperCase()}`;
   
   return (
@@ -28,16 +30,27 @@ export const TeamMember = ({ name, role, journey }: TeamMemberProps) => {
       />
       
       <div className="relative z-10">
-        <div className="mb-4">
-          <div className="text-[8px] font-tech text-muted-foreground mb-2 tracking-wider">
-            [OPERATOR_ID: {operatorId}] [CLEARANCE: MAX]
+        <div className="mb-4 flex items-start gap-4">
+          <div className="flex-shrink-0">
+            <Avatar className="w-20 h-20 border-2 border-foreground/20 group-hover:border-foreground/60 transition-colors">
+              <AvatarImage src={avatar} alt={name} className="object-cover grayscale" />
+              <AvatarFallback className="bg-card text-foreground font-tech text-xl">
+                {name.split(' ').map(n => n[0]).join('')}
+              </AvatarFallback>
+            </Avatar>
           </div>
-          <GlitchText className="text-2xl font-bold mb-2" animate>
-            {name}
-          </GlitchText>
-          <p className="text-sm text-muted-foreground font-tech tracking-wide">
-            [{role}]
-          </p>
+          
+          <div className="flex-1 min-w-0">
+            <div className="text-[8px] font-tech text-muted-foreground mb-2 tracking-wider">
+              [OPERATOR_ID: {operatorId}] [CLEARANCE: MAX]
+            </div>
+            <GlitchText className="text-2xl font-bold mb-2" animate>
+              {name}
+            </GlitchText>
+            <p className="text-sm text-muted-foreground font-tech tracking-wide">
+              [{role}]
+            </p>
+          </div>
         </div>
       
         <div className="space-y-2">

@@ -4,6 +4,8 @@ import { TeamMember } from "@/components/TeamMember";
 import { HackerBackground } from "@/components/HackerBackground";
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin } from "lucide-react";
+import tamerAvatar from "@/assets/tamer-avatar.png";
+import ahmadAvatar from "@/assets/ahmad-avatar.png";
 
 const Index = () => {
   const projects = [
@@ -37,7 +39,8 @@ const Index = () => {
         "Applied Physics (dropout) → Astronomical research",
         "Built observatories for deep space observation",
         "Now: Architecting digital experiences that push boundaries"
-      ]
+      ],
+      avatar: ahmadAvatar
     },
     {
       name: "MOHAMMED TAMER",
@@ -47,7 +50,8 @@ const Index = () => {
         "3D design and modeling",
         "Marketing agency: Video production & editing",
         "Now: Crafting visual experiences that break conventions"
-      ]
+      ],
+      avatar: tamerAvatar
     }
   ];
 
