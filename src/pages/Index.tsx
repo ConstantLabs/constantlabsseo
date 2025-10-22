@@ -2,13 +2,8 @@ import { GlitchText } from "@/components/GlitchText";
 import { ProjectCard } from "@/components/ProjectCard";
 import { TeamMember } from "@/components/TeamMember";
 import { HackerBackground } from "@/components/HackerBackground";
-import { BZReactionBackground } from "@/components/BZReactionBackground";
-import { MatrixRain } from "@/components/MatrixRain";
-import { ScreenGlitch } from "@/components/ScreenGlitch";
-import { SystemOverlay } from "@/components/SystemOverlay";
-import { ASCIIDecoration } from "@/components/ASCIIDecoration";
 import { Button } from "@/components/ui/button";
-import { Terminal, Github, Linkedin, Skull, Lock, Zap, Eye, Code, Network } from "lucide-react";
+import { Github, Linkedin } from "lucide-react";
 
 const Index = () => {
   const projects = [
@@ -58,90 +53,20 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground relative overflow-hidden">
-      <BZReactionBackground />
-      <MatrixRain />
       <HackerBackground />
-      <ScreenGlitch />
-      <SystemOverlay />
-      <ASCIIDecoration />
       
       {/* ENTRY POINT */}
       <section className="relative z-10 min-h-screen flex items-center justify-center overflow-hidden">
-        <div className="scanline absolute inset-0 pointer-events-none" />
         <div className="container mx-auto px-4 text-center">
-          <div className="mb-12 flex items-center justify-center gap-4 opacity-60">
-            <Skull className="w-6 h-6 animate-pulse" />
-            <Terminal className="w-6 h-6" />
-            <Eye className="w-6 h-6 animate-pulse" />
-            <span className="text-xs font-tech tracking-[0.3em] uppercase">SYSTEM_ONLINE</span>
-          </div>
+          {/* Main title - THE STAR */}
+          <h1 className="relative text-7xl md:text-[11rem] lg:text-[16rem] font-black tracking-tight uppercase transform -rotate-3 font-dedsec mb-16">
+            <GlitchText animate intensity="insane">CONSTANT LABS</GlitchText>
+          </h1>
           
-          {/* Enhanced Hacker Title */}
-          <div className="relative mb-12">
-            {/* Top decorative brackets */}
-            <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 flex items-center gap-4 text-foreground/30 font-tech text-xs tracking-widest">
-              <span>{'>>>'}</span>
-              <span className="animate-pulse">[ACCESSING_MAINFRAME]</span>
-              <span>{'<<<'}</span>
-            </div>
-            
-            {/* Corner brackets */}
-            <div className="absolute -top-4 -left-4 w-12 h-12 border-t-2 border-l-2 border-foreground/20" />
-            <div className="absolute -top-4 -right-4 w-12 h-12 border-t-2 border-r-2 border-foreground/20" />
-            <div className="absolute -bottom-4 -left-4 w-12 h-12 border-b-2 border-l-2 border-foreground/20" />
-            <div className="absolute -bottom-4 -right-4 w-12 h-12 border-b-2 border-r-2 border-foreground/20" />
-            
-            {/* Pixelated noise overlay */}
-            <div 
-              className="absolute inset-0 opacity-[0.03] pointer-events-none"
-              style={{
-                backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'4\' height=\'4\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Crect width=\'4\' height=\'4\' fill=\'%23ffffff\'/%3E%3C/svg%3E")',
-                backgroundSize: '4px 4px',
-                imageRendering: 'pixelated'
-              }}
-            />
-            
-            {/* Main title */}
-            <h1 className="relative text-7xl md:text-[11rem] lg:text-[15rem] font-black tracking-tight uppercase transform -rotate-2 font-dedsec">
-              <div className="absolute -inset-4 bg-foreground/5 transform skew-x-2" />
-              <div className="relative">
-                <GlitchText animate intensity="insane">CONSTANT LABS</GlitchText>
-              </div>
-            </h1>
-            
-            {/* Bottom decorative code */}
-            <div className="absolute -bottom-12 left-1/2 transform -translate-x-1/2 flex items-center gap-3 text-foreground/20 font-tech text-[10px] tracking-widest">
-              <span>0x7C4A</span>
-              <span className="animate-pulse">█</span>
-              <span>INIT_SEQ_COMPLETE</span>
-              <span className="animate-pulse">█</span>
-              <span>0xFF2B</span>
-            </div>
-          </div>
-          
-          <div className="flex items-center justify-center gap-4 mb-8 opacity-40 mt-16">
-            <Lock className="w-4 h-4" />
-            <Code className="w-4 h-4" />
-            <Zap className="w-4 h-4" />
-            <Network className="w-4 h-4" />
-          </div>
-          
-          <div className="relative mb-12">
-            <p className="text-xs md:text-sm text-muted-foreground font-tech mb-4 tracking-[0.2em] uppercase">
-              <span className="inline-block mr-2 text-foreground/40">{'>'}</span>
-              WE BUILD. WE BREAK. WE OWN IT.
-              <span className="inline-block ml-2 text-foreground/40">{'<'}</span>
-            </p>
-            <p className="text-[10px] text-muted-foreground/60 font-tech tracking-[0.15em] uppercase">
-              <span className="animate-pulse mr-2">█</span>
-              UNAUTHORIZED ACCESS GRANTED
-              <span className="mx-2">║</span>
-              NEURAL INTERFACE ACTIVE
-              <span className="mx-2">║</span>
-              SECURE CONNECTION ESTABLISHED
-              <span className="animate-pulse ml-2">█</span>
-            </p>
-          </div>
+          {/* Single tagline */}
+          <p className="text-sm md:text-base text-muted-foreground font-tech tracking-[0.3em] uppercase mb-16">
+            WE BUILD. WE BREAK. WE OWN IT.
+          </p>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <Button 
@@ -186,14 +111,11 @@ const Index = () => {
       <section id="vault" className="relative z-10 py-24 border-t-2 border-foreground/10">
         <div className="container mx-auto px-4">
           <div className="mb-12">
-            <div className="flex items-center gap-4 mb-4">
-              <Lock className="w-6 h-6 animate-pulse" />
-              <h2 className="text-4xl md:text-5xl font-black tracking-tight uppercase">
-                <GlitchText>[THE_VAULT]</GlitchText>
-              </h2>
-            </div>
+            <h2 className="text-4xl md:text-5xl font-black tracking-tight uppercase mb-4">
+              [THE_VAULT]
+            </h2>
             <p className="text-muted-foreground font-tech text-xs tracking-wide uppercase">
-              // CLASSIFIED PROJECTS // UNAUTHORIZED ACCESS PROHIBITED // SURVEILLANCE ACTIVE //
+              // Active projects and experiments
             </p>
           </div>
           
@@ -209,14 +131,11 @@ const Index = () => {
       <section id="operators" className="relative z-10 py-24 border-t-2 border-foreground/10">
         <div className="container mx-auto px-4">
           <div className="mb-12">
-            <div className="flex items-center gap-4 mb-4">
-              <Skull className="w-6 h-6 animate-pulse" />
-              <h2 className="text-4xl md:text-5xl font-black tracking-tight uppercase">
-                <GlitchText>[OPERATORS]</GlitchText>
-              </h2>
-            </div>
+            <h2 className="text-4xl md:text-5xl font-black tracking-tight uppercase mb-4">
+              [OPERATORS]
+            </h2>
             <p className="text-muted-foreground font-tech text-xs tracking-wide uppercase">
-              // CORE MEMBERS // IDENTITIES VERIFIED // CLEARANCE LEVEL: MAXIMUM //
+              // Core team members
             </p>
           </div>
           
@@ -232,14 +151,11 @@ const Index = () => {
       <section id="origin" className="relative z-10 py-24 border-t-2 border-foreground/10">
         <div className="container mx-auto px-4">
           <div className="mb-16">
-            <div className="flex items-center gap-4 mb-4">
-              <Terminal className="w-6 h-6" />
-              <h2 className="text-4xl md:text-5xl font-black tracking-tight uppercase">
-                <GlitchText>[ORIGIN_PROTOCOL]</GlitchText>
-              </h2>
-            </div>
+            <h2 className="text-4xl md:text-5xl font-black tracking-tight uppercase mb-4">
+              [ORIGIN_PROTOCOL]
+            </h2>
             <p className="text-muted-foreground font-tech text-xs tracking-wide uppercase">
-              // CLASSIFIED INTEL // GENESIS SEQUENCE // MISSION DIRECTIVE //
+              // Our story and mission
             </p>
           </div>
           
@@ -339,11 +255,9 @@ const Index = () => {
                 
                 <div className="flex items-center justify-center gap-3 mb-6">
                   <div className="h-px w-16 bg-foreground/40" />
-                  <Zap className="w-6 h-6 animate-pulse" />
                   <h3 className="text-3xl font-black text-foreground uppercase tracking-wider font-tech">
                     THE MISSION
                   </h3>
-                  <Zap className="w-6 h-6 animate-pulse" />
                   <div className="h-px w-16 bg-foreground/40" />
                 </div>
                 
@@ -359,17 +273,17 @@ const Index = () => {
                   
                   <div className="flex flex-wrap items-center justify-center gap-8 pt-6">
                     <div className="text-center">
-                      <Code className="w-8 h-8 mx-auto mb-2 opacity-60" />
+                      <div className="w-8 h-8 mx-auto mb-2 border-2 border-foreground/20" />
                       <p className="text-[10px] font-tech text-muted-foreground uppercase">Build Fast</p>
                     </div>
                     <div className="w-px h-12 bg-foreground/20" />
                     <div className="text-center">
-                      <Zap className="w-8 h-8 mx-auto mb-2 opacity-60" />
+                      <div className="w-8 h-8 mx-auto mb-2 border-2 border-foreground/20" />
                       <p className="text-[10px] font-tech text-muted-foreground uppercase">Ship Faster</p>
                     </div>
                     <div className="w-px h-12 bg-foreground/20" />
                     <div className="text-center">
-                      <Network className="w-8 h-8 mx-auto mb-2 opacity-60" />
+                      <div className="w-8 h-8 mx-auto mb-2 border-2 border-foreground/20" />
                       <p className="text-[10px] font-tech text-muted-foreground uppercase">Scale Infinitely</p>
                     </div>
                   </div>
@@ -398,15 +312,11 @@ const Index = () => {
                 [SECURE_LINE_OPEN]
               </div>
               
-              <div className="flex justify-center mb-4">
-                <Network className="w-8 h-8 animate-pulse" />
-              </div>
-              
               <h2 className="text-4xl md:text-5xl font-black tracking-tight uppercase">
-                <GlitchText>[INITIATE_CONTACT]</GlitchText>
+                [INITIATE_CONTACT]
               </h2>
               <p className="text-muted-foreground font-tech text-xs tracking-wide uppercase">
-                // ENCRYPTED COMMUNICATIONS // SECURE CHANNEL // ZERO TRACE //
+                // Secure communications channel active
               </p>
               <p className="text-muted-foreground/60 font-tech text-[10px] tracking-wide">
                 Got a project? Need a team? Let's talk.
@@ -424,15 +334,7 @@ const Index = () => {
           
           <div className="mt-12 text-center text-xs text-muted-foreground font-tech space-y-2">
             <p className="uppercase tracking-wider">CONSTANT LABS © 2025</p>
-            <p className="text-[10px] uppercase tracking-wide opacity-60">// BUILT WITH PURPOSE // DESIGNED FOR IMPACT // WE ARE EVERYWHERE //</p>
-            <div className="flex items-center justify-center gap-3 mt-4 text-white/20">
-              <Code className="w-3 h-3" />
-              <span className="text-[8px]">ENCRYPTED</span>
-              <Lock className="w-3 h-3" />
-              <span className="text-[8px]">SECURE</span>
-              <Eye className="w-3 h-3" />
-              <span className="text-[8px]">WATCHING</span>
-            </div>
+            <p className="text-[10px] uppercase tracking-wide opacity-60">// BUILT WITH PURPOSE // DESIGNED FOR IMPACT //</p>
           </div>
         </div>
       </section>
