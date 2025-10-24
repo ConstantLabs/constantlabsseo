@@ -54,7 +54,7 @@ export const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
       const timer = setTimeout(() => {
         setCurrentLine(currentText.substring(0, charIndex + 1));
         setCharIndex((prev) => prev + 1);
-      }, 30); // Speed of typing
+      }, 8); // Speed of typing
       return () => clearTimeout(timer);
     } else {
       // Line complete, move to next
