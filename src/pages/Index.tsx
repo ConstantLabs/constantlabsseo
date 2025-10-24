@@ -1,13 +1,16 @@
+import { useState } from "react";
 import { GlitchText } from "@/components/GlitchText";
 import { ProjectCard } from "@/components/ProjectCard";
 import { TeamMember } from "@/components/TeamMember";
 import { HackerBackground } from "@/components/HackerBackground";
+import { LoadingScreen } from "@/components/LoadingScreen";
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin } from "lucide-react";
 import tamerAvatar from "@/assets/tamer-avatar.png";
 import ahmadAvatar from "@/assets/ahmad-avatar.png";
 
 const Index = () => {
+  const [isLoading, setIsLoading] = useState(true);
   const projects = [
     {
       title: "PROJECT_ALPHA",
@@ -55,15 +58,43 @@ const Index = () => {
     }
   ];
 
+  if (isLoading) {
+    return <LoadingScreen onComplete={() => setIsLoading(false)} />;
+  }
+
   return (
     <div className="min-h-screen bg-background text-foreground relative overflow-hidden">
       <HackerBackground />
       
+      {/* System Status Bar */}
+      <div className="fixed top-0 left-0 right-0 z-50 border-b border-foreground/20 bg-background/80 backdrop-blur-sm">
+        <div className="container mx-auto px-4 py-2 flex items-center justify-between">
+          <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-foreground animate-pulse rounded-full" />
+              <span className="text-[10px] font-tech tracking-wider text-foreground/60 uppercase">
+                SYSTEM ONLINE
+              </span>
+            </div>
+            <span className="text-[8px] font-tech text-foreground/40">
+              // SECURE CONNECTION ESTABLISHED
+            </span>
+          </div>
+          <span className="text-[8px] font-tech text-foreground/40 uppercase">
+            {new Date().toLocaleString('en-US', { 
+              hour: '2-digit', 
+              minute: '2-digit',
+              hour12: false 
+            })}
+          </span>
+        </div>
+      </div>
+      
       {/* ENTRY POINT */}
-      <section className="relative z-10 min-h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative z-10 min-h-screen flex items-center justify-center overflow-hidden pt-24">
         <div className="container mx-auto px-4 text-center">
           {/* Main title - THE STAR */}
-          <h1 className="relative text-7xl md:text-[11rem] lg:text-[16rem] font-black tracking-tight uppercase transform -rotate-3 font-dedsec mb-16">
+          <h1 className="relative text-5xl md:text-7xl lg:text-8xl font-black tracking-tight uppercase transform -rotate-3 font-dedsec mb-12">
             <GlitchText animate intensity="insane">CONSTANT LABS</GlitchText>
           </h1>
           
