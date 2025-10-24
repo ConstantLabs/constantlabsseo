@@ -94,7 +94,7 @@ const Index = () => {
       <section className="relative z-10 min-h-screen flex items-center justify-center overflow-hidden pt-24">
         <div className="container mx-auto px-4 text-center">
           {/* Main title - THE STAR */}
-          <h1 className="relative text-5xl md:text-7xl lg:text-8xl font-black tracking-tight uppercase transform -rotate-3 font-dedsec mb-12">
+          <h1 className="relative text-6xl md:text-9xl lg:text-[12rem] font-black tracking-tight uppercase transform -rotate-3 font-dedsec mb-12">
             <GlitchText animate intensity="insane">CONSTANT LABS</GlitchText>
           </h1>
           
