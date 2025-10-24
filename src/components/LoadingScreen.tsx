@@ -70,7 +70,7 @@ export const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
               className="opacity-0 animate-fade-in"
               style={{ animationDelay: `${index * 0.05}s`, animationFillMode: 'forwards' }}
             >
-              {line}
+              {line || "\u00A0"}
             </div>
           ))}
           <div className="inline-block w-2 h-5 bg-green-500 animate-pulse ml-1" />
