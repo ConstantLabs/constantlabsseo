@@ -72,11 +72,11 @@ const Index = () => {
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 bg-foreground animate-pulse rounded-full" />
-              <span className="text-[10px] font-tech tracking-wider text-foreground/60 uppercase">
+              <span className="text-[10px] font-tech tracking-wider text-foreground/60 uppercase chromatic-aberration">
                 SYSTEM ONLINE
               </span>
             </div>
-            <span className="text-[8px] font-tech text-foreground/40">
+            <span className="text-[8px] font-tech text-foreground/40 chromatic-aberration">
               // SECURE CONNECTION ESTABLISHED
             </span>
           </div>
@@ -99,14 +99,14 @@ const Index = () => {
           </h1>
           
           {/* Single tagline */}
-          <p className="text-sm md:text-base text-muted-foreground font-tech tracking-[0.3em] uppercase mb-16">
+          <p className="text-sm md:text-base text-muted-foreground font-tech tracking-[0.3em] uppercase mb-16 chromatic-aberration">
             WE BUILD. WE BREAK. WE OWN IT.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <Button 
               size="lg" 
-              className="border-2 border-foreground bg-transparent text-foreground hover:bg-foreground hover:text-background font-tech tracking-wide transition-all"
+              className="border-2 border-foreground bg-transparent text-foreground hover:bg-foreground hover:text-background font-tech tracking-wide transition-all chromatic-aberration"
               onClick={() => document.getElementById('vault')?.scrollIntoView({ behavior: 'smooth' })}
             >
               [ENTER_VAULT]
@@ -114,7 +114,7 @@ const Index = () => {
             <Button 
               variant="ghost" 
               size="lg"
-              className="border-2 border-border text-foreground hover:border-foreground hover:bg-transparent font-tech tracking-wide transition-all"
+              className="border-2 border-border text-foreground hover:border-foreground hover:bg-transparent font-tech tracking-wide transition-all chromatic-aberration"
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             >
               [INITIATE_CONTACT]
