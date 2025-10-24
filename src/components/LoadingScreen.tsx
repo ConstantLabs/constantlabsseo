@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 
 export const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
   const [lines, setLines] = useState<string[]>([]);
+  const [currentLine, setCurrentLine] = useState("");
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [charIndex, setCharIndex] = useState(0);
   
   const bootSequence = [
     "CONSTANT LABS SYSTEMS v2.4.1",
@@ -39,19 +42,37 @@ export const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
   ];
 
   useEffect(() => {
-    let currentIndex = 0;
-    const interval = setInterval(() => {
-      if (currentIndex < bootSequence.length) {
-        setLines(prev => [...prev, bootSequence[currentIndex]]);
-        currentIndex++;
-      } else {
-        clearInterval(interval);
-        setTimeout(onComplete, 500);
-      }
-    }, 120);
+    if (currentIndex >= bootSequence.length) {
+      setTimeout(onComplete, 500);
+      return;
+    }
 
-    return () => clearInterval(interval);
-  }, [onComplete]);
+    const currentText = bootSequence[currentIndex];
+    
+    // If line is empty, move to next line immediately
+    if (currentText === "") {
+      setLines(prev => [...prev, ""]);
+      setCurrentLine("");
+      setCharIndex(0);
+      setCurrentIndex(prev => prev + 1);
+      return;
+    }
+
+    // Type character by character
+    if (charIndex < currentText.length) {
+      const timer = setTimeout(() => {
+        setCurrentLine(currentText.substring(0, charIndex + 1));
+        setCharIndex(prev => prev + 1);
+      }, 30); // Speed of typing
+      return () => clearTimeout(timer);
+    } else {
+      // Line complete, move to next
+      setLines(prev => [...prev, currentText]);
+      setCurrentLine("");
+      setCharIndex(0);
+      setCurrentIndex(prev => prev + 1);
+    }
+  }, [currentIndex, charIndex, onComplete]);
 
   return (
     <div className="fixed inset-0 z-[10000] bg-black flex flex-col items-start justify-start p-8">
@@ -67,13 +88,17 @@ export const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
           {lines.map((line, index) => (
             <div 
               key={index} 
-              className="opacity-0 animate-fade-in text-green-500"
-              style={{ animationDelay: `${index * 0.05}s`, animationFillMode: 'forwards' }}
+              className="text-green-500"
             >
-              {line || "\u00A0"}
+              {line || <span>&nbsp;</span>}
             </div>
           ))}
-          <div className="inline-block w-2 h-5 bg-green-500 animate-pulse ml-1" />
+          {currentLine && (
+            <div className="text-green-500">
+              {currentLine}
+              <span className="inline-block w-2 h-5 bg-green-500 animate-pulse ml-1" />
+            </div>
+          )}
         </div>
       </div>
     </div>
