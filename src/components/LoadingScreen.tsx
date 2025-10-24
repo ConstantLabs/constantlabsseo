@@ -75,12 +75,12 @@ export const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
 
         <div className="space-y-1 font-mono text-sm">
           {lines.map((line, index) => (
-            <div key={index} className="text-green-500">
+            <div key={index} className="text-green-500 chromatic-aberration">
               {line || <span>&nbsp;</span>}
             </div>
           ))}
           {currentLine && (
-            <div className="text-green-500">
+            <div className="text-green-500 chromatic-aberration">
               {currentLine}
               <span className="inline-block w-2 h-5 bg-green-500 animate-pulse ml-1" />
             </div>
