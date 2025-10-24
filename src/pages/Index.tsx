@@ -94,7 +94,7 @@ const Index = () => {
       <section className="relative z-10 min-h-screen flex items-center justify-center overflow-hidden pt-24">
         <div className="container mx-auto px-4 text-center">
           {/* Main title - THE STAR */}
-          <h1 className="relative text-6xl md:text-9xl lg:text-[12rem] font-black tracking-tight uppercase transform -rotate-3 font-dedsec mb-12">
+          <h1 className="relative text-6xl md:text-9xl lg:text-[12rem] font-black tracking-tight uppercase transform -rotate-3 font-dedsec mb-12 chromatic-aberration-intense">
             <GlitchText animate intensity="insane">CONSTANT LABS</GlitchText>
           </h1>
           
@@ -146,7 +146,7 @@ const Index = () => {
       <section id="vault" className="relative z-10 py-24 border-t-2 border-foreground/10">
         <div className="container mx-auto px-4">
           <div className="mb-12">
-            <h2 className="text-4xl md:text-5xl font-black tracking-tight uppercase mb-4">
+            <h2 className="text-4xl md:text-5xl font-black tracking-tight uppercase mb-4 chromatic-aberration">
               [THE_VAULT]
             </h2>
             <p className="text-muted-foreground font-tech text-xs tracking-wide uppercase">
@@ -166,7 +166,7 @@ const Index = () => {
       <section id="operators" className="relative z-10 py-24 border-t-2 border-foreground/10">
         <div className="container mx-auto px-4">
           <div className="mb-12">
-            <h2 className="text-4xl md:text-5xl font-black tracking-tight uppercase mb-4">
+            <h2 className="text-4xl md:text-5xl font-black tracking-tight uppercase mb-4 chromatic-aberration">
               [OPERATORS]
             </h2>
             <p className="text-muted-foreground font-tech text-xs tracking-wide uppercase">
@@ -186,7 +186,7 @@ const Index = () => {
       <section id="origin" className="relative z-10 py-24 border-t-2 border-foreground/10">
         <div className="container mx-auto px-4">
           <div className="mb-16">
-            <h2 className="text-4xl md:text-5xl font-black tracking-tight uppercase mb-4">
+            <h2 className="text-4xl md:text-5xl font-black tracking-tight uppercase mb-4 chromatic-aberration">
               [ORIGIN_PROTOCOL]
             </h2>
             <p className="text-muted-foreground font-tech text-xs tracking-wide uppercase">
@@ -290,7 +290,7 @@ const Index = () => {
                 
                 <div className="flex items-center justify-center gap-3 mb-6">
                   <div className="h-px w-16 bg-foreground/40" />
-                  <h3 className="text-3xl font-black text-foreground uppercase tracking-wider font-tech">
+                  <h3 className="text-3xl font-black text-foreground uppercase tracking-wider font-tech chromatic-aberration">
                     THE MISSION
                   </h3>
                   <div className="h-px w-16 bg-foreground/40" />
@@ -347,7 +347,7 @@ const Index = () => {
                 [SECURE_LINE_OPEN]
               </div>
               
-              <h2 className="text-4xl md:text-5xl font-black tracking-tight uppercase">
+              <h2 className="text-4xl md:text-5xl font-black tracking-tight uppercase chromatic-aberration">
                 [INITIATE_CONTACT]
               </h2>
               <p className="text-muted-foreground font-tech text-xs tracking-wide uppercase">
