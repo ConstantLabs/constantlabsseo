@@ -63,7 +63,7 @@ const Index = () => {
   }
 
   return (
-    <div className="min-h-screen bg-background text-foreground relative overflow-hidden">
+    <div className="min-h-screen bg-background text-foreground relative overflow-hidden chromatic-page">
       <HackerBackground />
       
       {/* System Status Bar */}
@@ -72,11 +72,11 @@ const Index = () => {
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 bg-foreground animate-pulse rounded-full" />
-              <span className="text-[10px] font-tech tracking-wider text-foreground/60 uppercase chromatic-aberration">
+              <span className="text-[10px] font-tech tracking-wider text-foreground/60 uppercase">
                 SYSTEM ONLINE
               </span>
             </div>
-            <span className="text-[8px] font-tech text-foreground/40 chromatic-aberration">
+            <span className="text-[8px] font-tech text-foreground/40">
               // SECURE CONNECTION ESTABLISHED
             </span>
           </div>
@@ -94,19 +94,19 @@ const Index = () => {
       <section className="relative z-10 min-h-screen flex items-center justify-center overflow-hidden pt-24">
         <div className="container mx-auto px-4 text-center">
           {/* Main title - THE STAR */}
-          <h1 className="relative text-6xl md:text-9xl lg:text-[12rem] font-black tracking-tight uppercase transform -rotate-3 font-dedsec mb-12 chromatic-aberration-intense">
+          <h1 className="relative text-6xl md:text-9xl lg:text-[12rem] font-black tracking-tight uppercase transform -rotate-3 font-dedsec mb-12">
             <GlitchText animate intensity="insane">CONSTANT LABS</GlitchText>
           </h1>
           
           {/* Single tagline */}
-          <p className="text-sm md:text-base text-muted-foreground font-tech tracking-[0.3em] uppercase mb-16 chromatic-aberration">
+          <p className="text-sm md:text-base text-muted-foreground font-tech tracking-[0.3em] uppercase mb-16">
             WE BUILD. WE BREAK. WE OWN IT.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <Button 
               size="lg" 
-              className="border-2 border-foreground bg-transparent text-foreground hover:bg-foreground hover:text-background font-tech tracking-wide transition-all chromatic-aberration"
+              className="border-2 border-foreground bg-transparent text-foreground hover:bg-foreground hover:text-background font-tech tracking-wide transition-all"
               onClick={() => document.getElementById('vault')?.scrollIntoView({ behavior: 'smooth' })}
             >
               [ENTER_VAULT]
@@ -114,7 +114,7 @@ const Index = () => {
             <Button 
               variant="ghost" 
               size="lg"
-              className="border-2 border-border text-foreground hover:border-foreground hover:bg-transparent font-tech tracking-wide transition-all chromatic-aberration"
+              className="border-2 border-border text-foreground hover:border-foreground hover:bg-transparent font-tech tracking-wide transition-all"
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             >
               [INITIATE_CONTACT]
@@ -146,7 +146,7 @@ const Index = () => {
       <section id="vault" className="relative z-10 py-24 border-t-2 border-foreground/10">
         <div className="container mx-auto px-4">
           <div className="mb-12">
-            <h2 className="text-4xl md:text-5xl font-black tracking-tight uppercase mb-4 chromatic-aberration">
+            <h2 className="text-4xl md:text-5xl font-black tracking-tight uppercase mb-4">
               [THE_VAULT]
             </h2>
             <p className="text-muted-foreground font-tech text-xs tracking-wide uppercase">
@@ -166,7 +166,7 @@ const Index = () => {
       <section id="operators" className="relative z-10 py-24 border-t-2 border-foreground/10">
         <div className="container mx-auto px-4">
           <div className="mb-12">
-            <h2 className="text-4xl md:text-5xl font-black tracking-tight uppercase mb-4 chromatic-aberration">
+            <h2 className="text-4xl md:text-5xl font-black tracking-tight uppercase mb-4">
               [OPERATORS]
             </h2>
             <p className="text-muted-foreground font-tech text-xs tracking-wide uppercase">
@@ -186,7 +186,7 @@ const Index = () => {
       <section id="origin" className="relative z-10 py-24 border-t-2 border-foreground/10">
         <div className="container mx-auto px-4">
           <div className="mb-16">
-            <h2 className="text-4xl md:text-5xl font-black tracking-tight uppercase mb-4 chromatic-aberration">
+            <h2 className="text-4xl md:text-5xl font-black tracking-tight uppercase mb-4">
               [ORIGIN_PROTOCOL]
             </h2>
             <p className="text-muted-foreground font-tech text-xs tracking-wide uppercase">
@@ -290,7 +290,7 @@ const Index = () => {
                 
                 <div className="flex items-center justify-center gap-3 mb-6">
                   <div className="h-px w-16 bg-foreground/40" />
-                  <h3 className="text-3xl font-black text-foreground uppercase tracking-wider font-tech chromatic-aberration">
+                  <h3 className="text-3xl font-black text-foreground uppercase tracking-wider font-tech">
                     THE MISSION
                   </h3>
                   <div className="h-px w-16 bg-foreground/40" />
@@ -347,7 +347,7 @@ const Index = () => {
                 [SECURE_LINE_OPEN]
               </div>
               
-              <h2 className="text-4xl md:text-5xl font-black tracking-tight uppercase chromatic-aberration">
+              <h2 className="text-4xl md:text-5xl font-black tracking-tight uppercase">
                 [INITIATE_CONTACT]
               </h2>
               <p className="text-muted-foreground font-tech text-xs tracking-wide uppercase">

@@ -373,6 +373,30 @@ All colors MUST be HSL.
       2px 0 0 rgba(0, 255, 255, 0.6);
   }
 
+  .chromatic-page::before,
+  .chromatic-page::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+  .chromatic-page::before {
+    background: rgba(255, 0, 0, 0.03);
+    transform: translateX(-2px);
+    mix-blend-mode: screen;
+  }
+
+  .chromatic-page::after {
+    background: rgba(0, 255, 255, 0.03);
+    transform: translateX(2px);
+    mix-blend-mode: screen;
+  }
+
 @keyframes digital-glitch {
   0%, 100% {
     transform: translate(0);
