@@ -63,11 +63,11 @@ export const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
           </span>
         </div>
         
-        <div className="space-y-1 font-mono text-sm text-green-500/90">
+        <div className="space-y-1 font-mono text-sm">
           {lines.map((line, index) => (
             <div 
               key={index} 
-              className="opacity-0 animate-fade-in"
+              className="opacity-0 animate-fade-in text-green-500"
               style={{ animationDelay: `${index * 0.05}s`, animationFillMode: 'forwards' }}
             >
               {line || "\u00A0"}
