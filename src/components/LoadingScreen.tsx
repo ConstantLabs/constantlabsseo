@@ -38,28 +38,26 @@ export const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
   }, [onComplete]);
 
   return (
-    <div className="fixed inset-0 z-[10000] bg-background flex items-center justify-center">
-      <div className="w-full max-w-3xl px-8">
-        <div className="border-2 border-foreground/20 p-8 bg-background/95">
-          <div className="mb-6 flex items-center gap-2">
-            <div className="w-3 h-3 bg-foreground animate-pulse" />
-            <span className="text-xs font-tech tracking-wider text-foreground/60">
-              SYSTEM BOOT SEQUENCE
-            </span>
-          </div>
-          
-          <div className="space-y-2 font-mono text-xs text-foreground/80">
-            {lines.map((line, index) => (
-              <div 
-                key={index} 
-                className="opacity-0 animate-fade-in"
-                style={{ animationDelay: `${index * 0.05}s`, animationFillMode: 'forwards' }}
-              >
-                {line}
-              </div>
-            ))}
-            <div className="inline-block w-2 h-4 bg-foreground animate-pulse ml-1" />
-          </div>
+    <div className="fixed inset-0 z-[10000] bg-black flex flex-col items-start justify-start p-8">
+      <div className="w-full max-w-4xl">
+        <div className="mb-8">
+          <div className="w-3 h-3 bg-green-500 animate-pulse mb-2" />
+          <span className="text-sm font-mono tracking-wider text-green-500/80">
+            CONSTANT LABS SYSTEMS
+          </span>
+        </div>
+        
+        <div className="space-y-1 font-mono text-sm text-green-500/90">
+          {lines.map((line, index) => (
+            <div 
+              key={index} 
+              className="opacity-0 animate-fade-in"
+              style={{ animationDelay: `${index * 0.05}s`, animationFillMode: 'forwards' }}
+            >
+              {line}
+            </div>
+          ))}
+          <div className="inline-block w-2 h-5 bg-green-500 animate-pulse ml-1" />
         </div>
       </div>
     </div>
