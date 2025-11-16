@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://constantlabs.dev/</loc>
+    <loc>https://constantlabs.ai/</loc>
     <lastmod>2025-11-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://constantlabs.dev/#vault</loc>
+    <loc>https://constantlabs.ai/#vault</loc>
     <lastmod>2025-11-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://constantlabs.dev/#deployments</loc>
+    <loc>https://constantlabs.ai/#deployments</loc>
     <lastmod>2025-11-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://constantlabs.dev/#operators</loc>
+    <loc>https://constantlabs.ai/#operators</loc>
     <lastmod>2025-11-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://constantlabs.dev/#origin</loc>
+    <loc>https://constantlabs.ai/#origin</loc>
     <lastmod>2025-11-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://constantlabs.dev/#contact</loc>
+    <loc>https://constantlabs.ai/#contact</loc>
     <lastmod>2025-11-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

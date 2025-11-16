@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://constantlabs.dev/sitemap.xml
+Sitemap: https://constantlabs.ai/sitemap.xml
 
 # Crawl-delay (optional, helps with server load)
 Crawl-delay: 1
