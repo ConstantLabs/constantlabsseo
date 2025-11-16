@@ -46,28 +46,28 @@ const Index = () => {
       title: "SPEAK-TO-WINDOWS",
       description: "Voice-controlled Windows automation tool. Speak commands to control your desktop and manage windows with natural language processing.",
       tech: ["JavaScript", "Voice Recognition", "Windows API", "NLP"],
-      status: "live" as const,
+      status: "repository" as const,
       link: "https://github.com/Astrobubu/Speak-to-Windows"
     },
     {
       title: "ATHKAR DESKTOP",
       description: "Elegant desktop application for Islamic remembrance with notifications and beautiful UI for daily prayers.",
       tech: ["Electron", "JavaScript", "Node.js", "Cross-platform"],
-      status: "live" as const,
+      status: "repository" as const,
       link: "https://github.com/Astrobubu/Athkar-Desktop"
     },
     {
       title: "MOSQUE SILENCE",
       description: "Smart Android app that automatically silences phones in the vicinity of mosques using geolocation.",
       tech: ["Flutter", "Dart", "Geolocation", "Android"],
-      status: "live" as const,
+      status: "repository" as const,
       link: "https://github.com/Astrobubu/MosqueSilence"
     },
     {
       title: "MEDIEVAL QUEST JOURNAL",
       description: "Immersive medieval-inspired quest tracker with rich 3-column UI for tabletop RPG adventures.",
       tech: ["HTML", "CSS", "JavaScript", "Fantasy UI"],
-      status: "live" as const,
+      status: "repository" as const,
       link: "https://github.com/Astrobubu/Medieval-Quest-Journal"
     },
   ];
@@ -106,18 +106,22 @@ const Index = () => {
         "Built observatories for deep space observation",
         "Now: Architecting digital experiences that push boundaries"
       ],
-      avatar: ahmadAvatar
+      avatar: ahmadAvatar,
+      github: "https://github.com/Astrobubu",
+      linkedin: "https://www.linkedin.com/in/mohamad-rabie-b304a8203/"
     },
     {
       name: "MOHAMMED TAMER",
       role: "CO-FOUNDER / CREATIVE DIRECTOR",
       journey: [
-        "Computer Science degree → Astrophotography",
+        "Computer Engineer and Astrophotographer",
         "3D design and modeling",
         "Marketing agency: Video production & editing",
         "Now: Crafting visual experiences that break conventions"
       ],
-      avatar: tamerAvatar
+      avatar: tamerAvatar,
+      github: "https://github.com/Moenamatics",
+      linkedin: "https://www.linkedin.com/in/akhmad-hasan-32b672128/"
     }
   ];
 
@@ -167,7 +171,7 @@ const Index = () => {
           
           {/* Single tagline */}
           <p className="text-sm md:text-base text-muted-foreground font-tech tracking-[0.3em] uppercase mb-16">
-            INNOVATE. ITERATE. DOMINATE.
+            BUILD. SHIP. REPEAT.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
@@ -188,48 +192,6 @@ const Index = () => {
             >
               [INITIATE_CONTACT]
             </Button>
-          </div>
-          
-          <div className="flex items-center justify-center gap-6 mt-12">
-            {/* Ahmad's Links */}
-            <a
-              href="https://www.linkedin.com/in/mohamad-rabie-b304a8203/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="border-2 border-border hover:border-foreground p-3 transition-all duration-300 focus:ring-2 focus:ring-foreground focus:ring-offset-2 focus:ring-offset-background"
-              aria-label="Ahmad's LinkedIn"
-            >
-              <Linkedin className="w-5 h-5" aria-hidden="true" />
-            </a>
-            <a
-              href="https://github.com/Astrobubu"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="border-2 border-border hover:border-foreground p-3 transition-all duration-300 focus:ring-2 focus:ring-foreground focus:ring-offset-2 focus:ring-offset-background"
-              aria-label="Ahmad's GitHub"
-            >
-              <Github className="w-5 h-5" aria-hidden="true" />
-            </a>
-            
-            {/* Tamer's Links */}
-            <a
-              href="https://www.linkedin.com/in/akhmad-hasan-32b672128/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="border-2 border-border hover:border-foreground p-3 transition-all duration-300 focus:ring-2 focus:ring-foreground focus:ring-offset-2 focus:ring-offset-background"
-              aria-label="Tamer's LinkedIn"
-            >
-              <Linkedin className="w-5 h-5" aria-hidden="true" />
-            </a>
-            <a
-              href="https://github.com/Moenamatics"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="border-2 border-border hover:border-foreground p-3 transition-all duration-300 focus:ring-2 focus:ring-foreground focus:ring-offset-2 focus:ring-offset-background"
-              aria-label="Tamer's GitHub"
-            >
-              <Github className="w-5 h-5" aria-hidden="true" />
-            </a>
           </div>
         </div>
       </section>

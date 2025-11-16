@@ -1,15 +1,18 @@
 import { Card } from "@/components/ui/card";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { GlitchText } from "./GlitchText";
+import { Github, Linkedin } from "lucide-react";
 
 interface TeamMemberProps {
   name: string;
   role: string;
   journey: string[];
   avatar?: string;
+  github?: string;
+  linkedin?: string;
 }
 
-export const TeamMember = ({ name, role, journey, avatar }: TeamMemberProps) => {
+export const TeamMember = ({ name, role, journey, avatar, github, linkedin }: TeamMemberProps) => {
   const operatorId = `OP-${Math.random().toString(36).substring(2, 6).toUpperCase()}`;
   
   return (
@@ -47,9 +50,37 @@ export const TeamMember = ({ name, role, journey, avatar }: TeamMemberProps) => 
             <GlitchText className="text-2xl font-bold mb-2" animate>
               {name}
             </GlitchText>
-            <p className="text-sm text-muted-foreground font-tech tracking-wide">
+            <p className="text-sm text-muted-foreground font-tech tracking-wide mb-3">
               [{role}]
             </p>
+            
+            {/* Social Links */}
+            {(github || linkedin) && (
+              <div className="flex items-center gap-2">
+                {linkedin && (
+                  <a
+                    href={linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="border border-border hover:border-foreground p-2 transition-all duration-300"
+                    aria-label={`${name}'s LinkedIn`}
+                  >
+                    <Linkedin className="w-4 h-4" aria-hidden="true" />
+                  </a>
+                )}
+                {github && (
+                  <a
+                    href={github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="border border-border hover:border-foreground p-2 transition-all duration-300"
+                    aria-label={`${name}'s GitHub`}
+                  >
+                    <Github className="w-4 h-4" aria-hidden="true" />
+                  </a>
+                )}
+              </div>
+            )}
           </div>
         </div>
       
