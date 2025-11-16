@@ -1,5 +1,6 @@
 import { useState, useEffect, lazy, Suspense } from "react";
 import { GlitchText } from "@/components/GlitchText";
+import { GlitchTitle } from "@/components/GlitchTitle";
 import { ProjectCard } from "@/components/ProjectCard";
 import { TeamMember } from "@/components/TeamMember";
 import { LoadingScreen } from "@/components/LoadingScreen";
@@ -160,13 +161,13 @@ const Index = () => {
       <section className="relative z-10 min-h-screen flex items-center justify-center overflow-hidden pt-24">
         <div className="container mx-auto px-4 text-center">
           {/* Main title - THE STAR */}
-          <h1 className="relative text-6xl md:text-9xl lg:text-[12rem] font-black tracking-tight uppercase transform -rotate-3 font-dedsec mb-12">
+          <h1 className="relative text-7xl sm:text-8xl md:text-9xl lg:text-[12rem] font-black tracking-tight uppercase transform -rotate-3 font-dedsec mb-12">
             <GlitchText animate intensity="insane">CONSTANT LABS</GlitchText>
           </h1>
           
           {/* Single tagline */}
           <p className="text-sm md:text-base text-muted-foreground font-tech tracking-[0.3em] uppercase mb-16">
-            WE BUILD. WE BREAK. WE OWN IT.
+            INNOVATE. ITERATE. DOMINATE.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
