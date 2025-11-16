@@ -41,21 +41,24 @@ export const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
 
   useEffect(() => {
     if (currentIndex >= bootSequence.length) {
-      setTimeout(onComplete, 500);
+      setTimeout(onComplete, 800);
       return;
     }
 
     const currentText = bootSequence[currentIndex];
 
-    // ASCII art lines (lines 1-6) appear instantly
+    // ASCII art lines (lines 1-6) appear instantly but with slight delay between them
     const isAsciiArt = currentIndex >= 1 && currentIndex <= 6;
 
-    // If line is empty or ASCII art, move to next line immediately
+    // If line is empty or ASCII art, move to next line with small delay
     if (currentText === "" || isAsciiArt) {
-      setLines((prev) => [...prev, currentText]);
-      setCurrentLine("");
-      setCharIndex(0);
-      setCurrentIndex((prev) => prev + 1);
+      const delay = isAsciiArt ? 50 : 0; // 50ms delay for ASCII lines to see them render
+      setTimeout(() => {
+        setLines((prev) => [...prev, currentText]);
+        setCurrentLine("");
+        setCharIndex(0);
+        setCurrentIndex((prev) => prev + 1);
+      }, delay);
       return;
     }
 
