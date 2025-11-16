@@ -132,8 +132,8 @@ const Index = () => {
         </Suspense>
       )}
       
-      {/* System Status Bar */}
-      <div className="fixed top-0 left-0 right-0 z-50 border-b border-foreground/20 bg-background/80 backdrop-blur-sm">
+      {/* System Status Bar - Hidden during loading */}
+      <div className={`fixed top-0 left-0 right-0 z-50 border-b border-foreground/20 bg-background/80 backdrop-blur-sm transition-opacity duration-500 ${isLoading ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
         <div className="container mx-auto px-4 py-2 flex items-center justify-between">
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2">
