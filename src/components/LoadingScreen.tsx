@@ -91,6 +91,7 @@ export const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
               <div 
                 key={index} 
                 className={`text-green-500 chromatic-aberration ${needsSpacing ? 'mt-1' : ''}`}
+                style={isAsciiArt ? { whiteSpace: 'pre', fontFamily: 'monospace' } : undefined}
               >
                 {line || <span>&nbsp;</span>}
               </div>
