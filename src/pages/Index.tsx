@@ -191,21 +191,42 @@ const Index = () => {
           </div>
           
           <div className="flex items-center justify-center gap-6 mt-12">
+            {/* Ahmad's Links */}
             <a
-              href="https://www.linkedin.com/company/constant-labs"
+              href="https://www.linkedin.com/in/mohamad-rabie-b304a8203/"
               target="_blank"
               rel="noopener noreferrer"
               className="border-2 border-border hover:border-foreground p-3 transition-all duration-300 focus:ring-2 focus:ring-foreground focus:ring-offset-2 focus:ring-offset-background"
-              aria-label="Visit Constant Labs LinkedIn profile"
+              aria-label="Ahmad's LinkedIn"
             >
               <Linkedin className="w-5 h-5" aria-hidden="true" />
             </a>
             <a
-              href="https://github.com/moobfinancial"
+              href="https://github.com/Astrobubu"
               target="_blank"
               rel="noopener noreferrer"
               className="border-2 border-border hover:border-foreground p-3 transition-all duration-300 focus:ring-2 focus:ring-foreground focus:ring-offset-2 focus:ring-offset-background"
-              aria-label="Visit Constant Labs GitHub profile"
+              aria-label="Ahmad's GitHub"
+            >
+              <Github className="w-5 h-5" aria-hidden="true" />
+            </a>
+            
+            {/* Tamer's Links */}
+            <a
+              href="https://www.linkedin.com/in/akhmad-hasan-32b672128/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="border-2 border-border hover:border-foreground p-3 transition-all duration-300 focus:ring-2 focus:ring-foreground focus:ring-offset-2 focus:ring-offset-background"
+              aria-label="Tamer's LinkedIn"
+            >
+              <Linkedin className="w-5 h-5" aria-hidden="true" />
+            </a>
+            <a
+              href="https://github.com/Moenamatics"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="border-2 border-border hover:border-foreground p-3 transition-all duration-300 focus:ring-2 focus:ring-foreground focus:ring-offset-2 focus:ring-offset-background"
+              aria-label="Tamer's GitHub"
             >
               <Github className="w-5 h-5" aria-hidden="true" />
             </a>
