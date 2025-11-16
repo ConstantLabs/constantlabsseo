@@ -49,12 +49,12 @@ export const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
       return;
     }
 
-    // Type character by character
+    // Type character by character - 3x faster
     if (charIndex < currentText.length) {
       const timer = setTimeout(() => {
         setCurrentLine(currentText.substring(0, charIndex + 1));
         setCharIndex((prev) => prev + 1);
-      }, 8); // Speed of typing
+      }, 3); // Speed of typing (faster: 8ms -> 3ms)
       return () => clearTimeout(timer);
     } else {
       // Line complete, move to next
@@ -70,7 +70,7 @@ export const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
       <div className="w-full max-w-4xl">
         <div className="mb-8">
           <div className="w-3 h-3 bg-green-500 animate-pulse mb-2" />
-          <span className="text-sm font-mono tracking-wider text-green-500/80">CONSTANT LABS SYSTEMS</span>
+          <span className="text-sm font-mono tracking-wider text-green-500/80 font-dedsec">CONSTANT LABS SYSTEMS</span>
         </div>
 
         <div className="space-y-1 font-mono text-sm">
