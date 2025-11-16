@@ -108,7 +108,7 @@ const Index = () => {
       ],
       avatar: ahmadAvatar,
       github: "https://github.com/Astrobubu",
-      linkedin: "https://www.linkedin.com/in/mohamad-rabie-b304a8203/"
+      linkedin: "https://www.linkedin.com/in/akhmad-hasan-32b672128/"
     },
     {
       name: "MOHAMMED TAMER",
@@ -121,7 +121,7 @@ const Index = () => {
       ],
       avatar: tamerAvatar,
       github: "https://github.com/Moenamatics",
-      linkedin: "https://www.linkedin.com/in/akhmad-hasan-32b672128/"
+      linkedin: "https://www.linkedin.com/in/mohamad-rabie-b304a8203/"
     }
   ];
 
