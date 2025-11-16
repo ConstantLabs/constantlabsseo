@@ -71,27 +71,27 @@ const Index = () => {
     },
   ];
 
-  const customSites = [
+  const clientProjects = [
     {
-      title: "BUSINESS PORTFOLIO",
-      description: "Professional business portfolio showcasing services, expertise, and client testimonials with modern design.",
-      tech: ["React", "Tailwind CSS", "Responsive Design", "SEO"],
+      title: "FZN DINING EXPERIENCE",
+      description: "Three Michelin-starred fine dining experience by Chef Björn Frantzén. Nordic Kaiseki meets Japanese precision in Dubai. Elegant reservation system with immersive visual storytelling.",
+      tech: ["React", "Framer Motion", "Luxury UI/UX", "Responsive"],
       status: "live" as const,
-      link: "#"
+      link: "https://fzn-dining-experience.pages.dev/"
     },
     {
-      title: "E-COMMERCE PLATFORM",
-      description: "Full-stack e-commerce solution with payment integration, inventory management, and analytics dashboard.",
-      tech: ["Next.js", "Stripe", "PostgreSQL", "Admin Panel"],
+      title: "TOIT HOT CHICKEN",
+      description: "Dubai's most craveable fried chicken burgers. Full menu showcase with online ordering integration, location finder, and Instagram-worthy visuals. Nashville-style meets modern web.",
+      tech: ["React", "Vercel", "Maps API", "E-commerce"],
       status: "live" as const,
-      link: "#"
+      link: "https://toit.vercel.app/"
     },
     {
-      title: "STARTUP LANDING",
-      description: "High-converting landing page for tech startup with animations, lead capture, and A/B testing capabilities.",
-      tech: ["Astro", "GSAP", "Analytics", "CMS"],
+      title: "CUT IN HALF",
+      description: "Premium Wagyu burger restaurant chain with 4 locations. Interactive menu, milkshake builder, multi-location ordering through Talabat integration. Double-fried perfection, digitized.",
+      tech: ["React", "Leaflet Maps", "Vercel", "Restaurant Tech"],
       status: "live" as const,
-      link: "#"
+      link: "https://cut-in-half.vercel.app/"
     },
   ];
 
@@ -240,13 +240,13 @@ const Index = () => {
               [CLIENT_DEPLOYMENTS]
             </h2>
             <p className="text-muted-foreground font-tech text-xs tracking-wide uppercase">
-              // Custom solutions deployed for our clients
+              // Restaurant brands & hospitality experiences built for Dubai's finest
             </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {customSites.map((site, idx) => (
-              <ProjectCard key={idx} {...site} />
+            {clientProjects.map((project, idx) => (
+              <ProjectCard key={idx} {...project} />
             ))}
           </div>
         </div>
