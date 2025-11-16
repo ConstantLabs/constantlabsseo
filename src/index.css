@@ -458,3 +458,29 @@ All colors MUST be HSL.
     text-shadow: 0 0 25px rgba(255, 255, 255, 0.9), 0 0 50px rgba(255, 255, 255, 0.5);
   }
 }
+
+/* ACCESSIBILITY: Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  /* Keep minimal effects for visual feedback */
+  .glitch-intense {
+    animation: none !important;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+  }
+  
+  #root {
+    animation: none !important;
+  }
+  
+  body::before {
+    opacity: 0.5;
+  }
+}

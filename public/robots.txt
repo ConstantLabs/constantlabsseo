@@ -1,14 +1,9 @@
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: facebookexternalhit
-Allow: /
-
+# Constant Labs - robots.txt
 User-agent: *
 Allow: /
+
+# Sitemaps
+Sitemap: https://constantlabs.dev/sitemap.xml
+
+# Crawl-delay (optional, helps with server load)
+Crawl-delay: 1

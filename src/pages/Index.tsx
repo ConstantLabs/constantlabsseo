@@ -1,16 +1,31 @@
-import { useState } from "react";
+import { useState, useEffect, lazy, Suspense } from "react";
 import { GlitchText } from "@/components/GlitchText";
 import { ProjectCard } from "@/components/ProjectCard";
 import { TeamMember } from "@/components/TeamMember";
-import { HackerBackground } from "@/components/HackerBackground";
 import { LoadingScreen } from "@/components/LoadingScreen";
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin } from "lucide-react";
 import tamerAvatar from "@/assets/tamer-avatar.png";
 import ahmadAvatar from "@/assets/ahmad-avatar.png";
 
+// Lazy load HackerBackground for better performance
+const HackerBackground = lazy(() => import("@/components/HackerBackground").then(module => ({ default: module.HackerBackground })));
+
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const [shouldLoadBackground, setShouldLoadBackground] = useState(false);
+
+  // Only load background on desktop or after initial render
+  useEffect(() => {
+    const isMobile = window.innerWidth < 768;
+    if (!isMobile) {
+      setShouldLoadBackground(true);
+    } else {
+      // Load after 1 second on mobile to prioritize content
+      const timer = setTimeout(() => setShouldLoadBackground(true), 1000);
+      return () => clearTimeout(timer);
+    }
+  }, []);
   const projects = [
     {
       title: "MUFAKKIR",
@@ -111,7 +126,11 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground relative overflow-hidden chromatic-page">
-      <HackerBackground />
+      {shouldLoadBackground && (
+        <Suspense fallback={null}>
+          <HackerBackground />
+        </Suspense>
+      )}
       
       {/* System Status Bar */}
       <div className="fixed top-0 left-0 right-0 z-50 border-b border-foreground/20 bg-background/80 backdrop-blur-sm">
@@ -153,16 +172,18 @@ const Index = () => {
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <Button 
               size="lg" 
-              className="border-2 border-foreground bg-transparent text-foreground hover:bg-foreground hover:text-background font-tech tracking-wide transition-all"
+              className="border-2 border-foreground bg-transparent text-foreground hover:bg-foreground hover:text-background font-tech tracking-wide transition-all focus:ring-2 focus:ring-foreground focus:ring-offset-2 focus:ring-offset-background"
               onClick={() => document.getElementById('vault')?.scrollIntoView({ behavior: 'smooth' })}
+              aria-label="Navigate to projects section"
             >
               [ENTER_VAULT]
             </Button>
             <Button 
               variant="ghost" 
               size="lg"
-              className="border-2 border-border text-foreground hover:border-foreground hover:bg-transparent font-tech tracking-wide transition-all"
+              className="border-2 border-border text-foreground hover:border-foreground hover:bg-transparent font-tech tracking-wide transition-all focus:ring-2 focus:ring-foreground focus:ring-offset-2 focus:ring-offset-background"
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              aria-label="Navigate to contact section"
             >
               [INITIATE_CONTACT]
             </Button>
@@ -173,17 +194,19 @@ const Index = () => {
               href="https://www.linkedin.com/company/constant-labs"
               target="_blank"
               rel="noopener noreferrer"
-              className="border-2 border-border hover:border-foreground p-3 transition-all duration-300"
+              className="border-2 border-border hover:border-foreground p-3 transition-all duration-300 focus:ring-2 focus:ring-foreground focus:ring-offset-2 focus:ring-offset-background"
+              aria-label="Visit Constant Labs LinkedIn profile"
             >
-              <Linkedin className="w-5 h-5" />
+              <Linkedin className="w-5 h-5" aria-hidden="true" />
             </a>
             <a
               href="https://github.com/moobfinancial"
               target="_blank"
               rel="noopener noreferrer"
-              className="border-2 border-border hover:border-foreground p-3 transition-all duration-300"
+              className="border-2 border-border hover:border-foreground p-3 transition-all duration-300 focus:ring-2 focus:ring-foreground focus:ring-offset-2 focus:ring-offset-background"
+              aria-label="Visit Constant Labs GitHub profile"
             >
-              <Github className="w-5 h-5" />
+              <Github className="w-5 h-5" aria-hidden="true" />
             </a>
           </div>
         </div>
