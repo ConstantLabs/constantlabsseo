@@ -5,7 +5,7 @@ import { ProjectCard } from "@/components/ProjectCard";
 import { TeamMember } from "@/components/TeamMember";
 import { LoadingScreen } from "@/components/LoadingScreen";
 import { Button } from "@/components/ui/button";
-import { Github, Linkedin } from "lucide-react";
+import { Github, Linkedin, Zap, Rocket, TrendingUp } from "lucide-react";
 import tamerAvatar from "@/assets/tamer-avatar.png";
 import ahmadAvatar from "@/assets/ahmad-avatar.png";
 
@@ -382,17 +382,23 @@ const Index = () => {
                   
                   <div className="flex flex-wrap items-center justify-center gap-8 pt-6">
                     <div className="text-center">
-                      <div className="w-8 h-8 mx-auto mb-2 border-2 border-foreground/20" />
+                      <div className="w-8 h-8 mx-auto mb-2 border-2 border-foreground/20 flex items-center justify-center">
+                        <Zap className="w-4 h-4 text-foreground/40" />
+                      </div>
                       <p className="text-[10px] font-tech text-muted-foreground uppercase">Build Fast</p>
                     </div>
                     <div className="w-px h-12 bg-foreground/20" />
                     <div className="text-center">
-                      <div className="w-8 h-8 mx-auto mb-2 border-2 border-foreground/20" />
+                      <div className="w-8 h-8 mx-auto mb-2 border-2 border-foreground/20 flex items-center justify-center">
+                        <Rocket className="w-4 h-4 text-foreground/40" />
+                      </div>
                       <p className="text-[10px] font-tech text-muted-foreground uppercase">Ship Faster</p>
                     </div>
                     <div className="w-px h-12 bg-foreground/20" />
                     <div className="text-center">
-                      <div className="w-8 h-8 mx-auto mb-2 border-2 border-foreground/20" />
+                      <div className="w-8 h-8 mx-auto mb-2 border-2 border-foreground/20 flex items-center justify-center">
+                        <TrendingUp className="w-4 h-4 text-foreground/40" />
+                      </div>
                       <p className="text-[10px] font-tech text-muted-foreground uppercase">Scale Infinitely</p>
                     </div>
                   </div>
