@@ -76,14 +76,28 @@ export const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
     <div className="fixed inset-0 z-[10000]  flex flex-col items-start justify-start p-8">
       <div className="w-full max-w-4xl">
 
-        <div className="space-y-1 font-mono text-sm">
-          {lines.map((line, index) => (
-            <div key={index} className="text-green-500 chromatic-aberration">
-              {line || <span>&nbsp;</span>}
-            </div>
-          ))}
+        <div className="font-mono text-sm leading-tight">
+          {lines.map((line, index) => {
+            // ASCII art lines are indices 3-8 (no spacing)
+            // Empty lines before/after ASCII also no spacing
+            const isAsciiArt = index >= 3 && index <= 8;
+            const isEmpty = line === "";
+            const prevLineIsAsciiOrEmpty = index > 0 && (lines[index - 1] === "" || (index > 3 && index <= 9));
+            
+            // Only add spacing if it's not ASCII art, not empty, and previous line wasn't ASCII/empty
+            const needsSpacing = !isAsciiArt && !isEmpty && index > 0 && !prevLineIsAsciiOrEmpty;
+            
+            return (
+              <div 
+                key={index} 
+                className={`text-green-500 chromatic-aberration ${needsSpacing ? 'mt-1' : ''}`}
+              >
+                {line || <span>&nbsp;</span>}
+              </div>
+            );
+          })}
           {currentLine && (
-            <div className="text-green-500 chromatic-aberration">
+            <div className="text-green-500 chromatic-aberration mt-1">
               {currentLine}
               <span className="inline-block w-2 h-5 bg-green-500 animate-pulse ml-1" />
             </div>
