@@ -132,29 +132,31 @@ const Index = () => {
         </Suspense>
       )}
       
-      {/* System Status Bar - Hidden during loading */}
-      <div className={`fixed top-0 left-0 right-0 z-50 border-b border-foreground/20 bg-background/80 backdrop-blur-sm transition-opacity duration-500 ${isLoading ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
-        <div className="container mx-auto px-4 py-2 flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-foreground animate-pulse rounded-full" />
-              <span className="text-[10px] font-tech tracking-wider text-foreground/60 uppercase">
-                SYSTEM ONLINE
+      {/* System Status Bar - Only render after loading completes */}
+      {!isLoading && (
+        <div className="fixed top-0 left-0 right-0 z-50 border-b border-foreground/20 bg-background/80 backdrop-blur-sm">
+          <div className="container mx-auto px-4 py-2 flex items-center justify-between">
+            <div className="flex items-center gap-4">
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-foreground animate-pulse rounded-full" />
+                <span className="text-[10px] font-tech tracking-wider text-foreground/60 uppercase">
+                  SYSTEM ONLINE
+                </span>
+              </div>
+              <span className="text-[8px] font-tech text-foreground/40">
+                // SECURE CONNECTION ESTABLISHED
               </span>
             </div>
-            <span className="text-[8px] font-tech text-foreground/40">
-              // SECURE CONNECTION ESTABLISHED
+            <span className="text-[8px] font-tech text-foreground/40 uppercase">
+              {new Date().toLocaleString('en-US', { 
+                hour: '2-digit', 
+                minute: '2-digit',
+                hour12: false 
+              })}
             </span>
           </div>
-          <span className="text-[8px] font-tech text-foreground/40 uppercase">
-            {new Date().toLocaleString('en-US', { 
-              hour: '2-digit', 
-              minute: '2-digit',
-              hour12: false 
-            })}
-          </span>
         </div>
-      </div>
+      )}
       
       {/* ENTRY POINT */}
       <section className="relative z-10 min-h-screen flex items-center justify-center overflow-hidden pt-24">
