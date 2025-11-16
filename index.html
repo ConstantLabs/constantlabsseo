@@ -5,16 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Preload critical fonts for immediate display -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;700&family=Share+Tech+Mono&family=Orbitron:wght@700;900&display=swap" as="style">
-    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&family=Orbitron:wght@400;500;600;700;800;900&family=Audiowide&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.cdnfonts.com">
+    <!-- Preload critical fonts with font-display block -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;700&family=Share+Tech+Mono&family=Orbitron:wght@700;900&display=block" as="style">
+    <link rel="preload" href="https://fonts.cdnfonts.com/css/hacked" as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&family=Orbitron:wght@400;500;600;700;800;900&family=Audiowide&display=block" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/hacked" rel="stylesheet">
     <style>
-      /* Immediate font fallback to prevent FOIT (Flash of Invisible Text) */
-      body { font-family: 'Rajdhani', -apple-system, system-ui, sans-serif; }
-      .font-mono { font-family: 'Share Tech Mono', 'Courier New', monospace; }
-      .font-dedsec { font-family: 'HACKED', 'Orbitron', sans-serif; }
+      /* Force immediate font rendering - block FOIT and FOUT */
+      body { font-family: 'Rajdhani', -apple-system, system-ui, sans-serif; font-display: block; }
+      .font-mono { font-family: 'Share Tech Mono', 'Courier New', monospace; font-display: block; }
+      .font-dedsec { font-family: 'HACKED', 'Orbitron', 'Impact', sans-serif; font-display: block; }
+      
+      /* Hide body until fonts loaded to prevent font flash */
+      html { visibility: hidden; }
+      html.fonts-loaded { visibility: visible; }
     </style>
+    <script>
+      // Mark fonts as loaded immediately when available
+      if (document.fonts) {
+        document.fonts.ready.then(() => {
+          document.documentElement.classList.add('fonts-loaded');
+        });
+      } else {
+        // Fallback for older browsers
+        document.documentElement.classList.add('fonts-loaded');
+      }
+    </script>
     <title>Constant Labs - Building Digital Experiences That Break Boundaries</title>
     <meta name="description" content="Constant Labs: We build fast, ship faster, scale infinitely. From AI-powered voice transcription to universal translators, we create innovative web applications with cutting-edge technology. Available for hire, ready to scale.">
     <meta name="author" content="Constant Labs" />
