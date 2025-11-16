@@ -13,23 +13,70 @@ const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
   const projects = [
     {
-      title: "PROJECT_ALPHA",
-      description: "Revolutionary web application that transforms how users interact with digital spaces. Built with cutting-edge technology.",
-      tech: ["React", "TypeScript", "Supabase"],
+      title: "MUFAKKIR",
+      description: "Voice-to-text Arabic transcription app with AI. Real-time speech recognition supporting 50+ languages and 10+ Arabic dialects. Transform thoughts into organized notes.",
+      tech: ["AI", "Speech-to-Text", "Arabic", "Multi-dialect"],
       status: "live" as const,
-      link: "https://example.com"
+      link: "https://mufakkir.app"
     },
     {
-      title: "PROJECT_BETA",
-      description: "Experimental platform pushing the boundaries of what's possible in modern web development.",
-      tech: ["Next.js", "AI", "Edge Functions"],
-      status: "beta" as const,
+      title: "MOTARGEM",
+      description: "Universal translator breaking language barriers. Real-time translation with voice, text, and camera input. Natural conversations across different languages.",
+      tech: ["Translation AI", "Real-time", "Voice Input", "Multi-language"],
+      status: "live" as const,
+      link: "https://motargem.vercel.app"
     },
     {
-      title: "PROJECT_GAMMA",
-      description: "Next-generation solution designed for scalability and performance at enterprise level.",
-      tech: ["React", "Cloud", "Real-time"],
-      status: "development" as const,
+      title: "SPEAK-TO-WINDOWS",
+      description: "Voice-controlled Windows automation tool. Speak commands to control your desktop and manage windows with natural language processing.",
+      tech: ["JavaScript", "Voice Recognition", "Windows API", "NLP"],
+      status: "live" as const,
+      link: "https://github.com/Astrobubu/Speak-to-Windows"
+    },
+    {
+      title: "ATHKAR DESKTOP",
+      description: "Elegant desktop application for Islamic remembrance with notifications and beautiful UI for daily prayers.",
+      tech: ["Electron", "JavaScript", "Node.js", "Cross-platform"],
+      status: "live" as const,
+      link: "https://github.com/Astrobubu/Athkar-Desktop"
+    },
+    {
+      title: "MOSQUE SILENCE",
+      description: "Smart Android app that automatically silences phones in the vicinity of mosques using geolocation.",
+      tech: ["Flutter", "Dart", "Geolocation", "Android"],
+      status: "live" as const,
+      link: "https://github.com/Astrobubu/MosqueSilence"
+    },
+    {
+      title: "MEDIEVAL QUEST JOURNAL",
+      description: "Immersive medieval-inspired quest tracker with rich 3-column UI for tabletop RPG adventures.",
+      tech: ["HTML", "CSS", "JavaScript", "Fantasy UI"],
+      status: "live" as const,
+      link: "https://github.com/Astrobubu/Medieval-Quest-Journal"
+    },
+  ];
+
+  const customSites = [
+    {
+      title: "BUSINESS PORTFOLIO",
+      description: "Professional business portfolio showcasing services, expertise, and client testimonials with modern design.",
+      tech: ["React", "Tailwind CSS", "Responsive Design", "SEO"],
+      status: "live" as const,
+      link: "#"
+    },
+    {
+      title: "E-COMMERCE PLATFORM",
+      description: "Full-stack e-commerce solution with payment integration, inventory management, and analytics dashboard.",
+      tech: ["Next.js", "Stripe", "PostgreSQL", "Admin Panel"],
+      status: "live" as const,
+      link: "#"
+    },
+    {
+      title: "STARTUP LANDING",
+      description: "High-converting landing page for tech startup with animations, lead capture, and A/B testing capabilities.",
+      tech: ["Astro", "GSAP", "Analytics", "CMS"],
+      status: "live" as const,
+      link: "#"
     },
   ];
 
@@ -157,6 +204,26 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {projects.map((project, idx) => (
               <ProjectCard key={idx} {...project} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CLIENT DEPLOYMENTS - Custom Sites */}
+      <section id="deployments" className="relative z-10 py-24 border-t-2 border-foreground/10">
+        <div className="container mx-auto px-4">
+          <div className="mb-12">
+            <h2 className="text-4xl md:text-5xl font-black tracking-tight uppercase mb-4">
+              [CLIENT_DEPLOYMENTS]
+            </h2>
+            <p className="text-muted-foreground font-tech text-xs tracking-wide uppercase">
+              // Custom solutions deployed for our clients
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {customSites.map((site, idx) => (
+              <ProjectCard key={idx} {...site} />
             ))}
           </div>
         </div>
