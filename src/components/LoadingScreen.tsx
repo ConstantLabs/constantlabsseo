@@ -8,14 +8,14 @@ export const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
 
   const bootSequence = [
     "",
+    "Booting up...",
+    "",
     " ██████╗ ██████╗ ███╗   ██╗███████╗████████╗ █████╗ ███╗   ██╗████████╗    ██╗      █████╗ ██████╗ ███████╗",
     "██╔════╝██╔═══██╗████╗  ██║██╔════╝╚══██╔══╝██╔══██╗████╗  ██║╚══██╔══╝    ██║     ██╔══██╗██╔══██╗██╔════╝",
     "██║     ██║   ██║██╔██╗ ██║███████╗   ██║   ███████║██╔██╗ ██║   ██║       ██║     ███████║██████╔╝███████╗",
     "██║     ██║   ██║██║╚██╗██║╚════██║   ██║   ██╔══██║██║╚██╗██║   ██║       ██║     ██╔══██║██╔══██╗╚════██║",
     "╚██████╗╚██████╔╝██║ ╚████║███████║   ██║   ██║  ██║██║ ╚████║   ██║       ███████╗██║  ██║██████╔╝███████║",
     " ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝       ╚══════╝╚═╝  ╚═╝╚═════╝ ╚══════╝",
-    "",
-    "Booting up...",
     "",
     "[BIOS] Initializing hardware components...",
     "",
@@ -41,24 +41,18 @@ export const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
 
   useEffect(() => {
     if (currentIndex >= bootSequence.length) {
-      setTimeout(onComplete, 800);
+      setTimeout(onComplete, 500);
       return;
     }
 
     const currentText = bootSequence[currentIndex];
 
-    // ASCII art lines (lines 1-6) appear instantly but with slight delay between them
-    const isAsciiArt = currentIndex >= 1 && currentIndex <= 6;
-
-    // If line is empty or ASCII art, move to next line with small delay
-    if (currentText === "" || isAsciiArt) {
-      const delay = isAsciiArt ? 50 : 0; // 50ms delay for ASCII lines to see them render
-      setTimeout(() => {
-        setLines((prev) => [...prev, currentText]);
-        setCurrentLine("");
-        setCharIndex(0);
-        setCurrentIndex((prev) => prev + 1);
-      }, delay);
+    // If line is empty, move to next line immediately
+    if (currentText === "") {
+      setLines((prev) => [...prev, ""]);
+      setCurrentLine("");
+      setCharIndex(0);
+      setCurrentIndex((prev) => prev + 1);
       return;
     }
 
@@ -79,27 +73,15 @@ export const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
   }, [currentIndex, charIndex, onComplete]);
 
   return (
-    <div className="fixed inset-0 z-[10000] bg-black flex flex-col items-start justify-start p-8 overflow-hidden">
-      <div className="w-full max-w-6xl">
-        <div className="mb-8">
-          <div className="w-3 h-3 bg-green-500 animate-pulse mb-2" />
-          <span className="text-sm font-mono tracking-wider text-green-500/80 font-dedsec">CONSTANT LABS SYSTEMS</span>
-        </div>
+    <div className="fixed inset-0 z-[10000]  flex flex-col items-start justify-start p-8">
+      <div className="w-full max-w-4xl">
 
-        <div className="space-y-1 font-mono text-[10px] md:text-xs leading-tight">
-          {lines.map((line, index) => {
-            // Check if this is an ASCII art line
-            const isAsciiArt = index >= 1 && index <= 6;
-            return (
-              <div 
-                key={index} 
-                className={`text-green-500 ${isAsciiArt ? 'font-bold' : 'chromatic-aberration'}`}
-                style={isAsciiArt ? { letterSpacing: '-0.05em' } : undefined}
-              >
-                {line || <span>&nbsp;</span>}
-              </div>
-            );
-          })}
+        <div className="space-y-1 font-mono text-sm">
+          {lines.map((line, index) => (
+            <div key={index} className="text-green-500 chromatic-aberration">
+              {line || <span>&nbsp;</span>}
+            </div>
+          ))}
           {currentLine && (
             <div className="text-green-500 chromatic-aberration">
               {currentLine}
