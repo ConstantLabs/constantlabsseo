@@ -2,6 +2,7 @@ import { useRef, useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ArrowUpRight, Quote, ExternalLink, Zap, Download, Play, Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
+import { SmartRoadsArchitecture } from "@/components/SmartRoadsArchitecture";
 
 const stats = [
   { value: "2cm", label: "Positioning Accuracy" },
@@ -151,6 +152,9 @@ const SmartRoads = () => {
             </div>
           </div>
         </section>
+
+        {/* How It Works - Architecture Diagram */}
+        <SmartRoadsArchitecture />
 
         {/* Video Overview */}
         <section className="py-10 md:py-20 px-4 md:px-6">
