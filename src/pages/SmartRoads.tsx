@@ -28,7 +28,7 @@ const researchQuotes = [
     text: "Connected vehicles represent the most significant opportunity to improve road safety since the invention of the seatbelt.",
     author: "Virginia Tech",
     affiliation: "Transportation Institute",
-    link: "https://doi.org/10.1177/0361198120912756",
+    link: "https://safed.vtti.vt.edu/projects/connected-vehicle-data-safety-applications/",
   },
 ];
 

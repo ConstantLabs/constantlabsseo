@@ -10,16 +10,16 @@ const keyFindings = [
 ];
 
 const keyPapers = [
-  { title: "Dissipation of stop-and-go waves via control of autonomous vehicles", authors: "Stern, R.E., Cui, S., et al.", journal: "Transportation Research Part C", year: "2018", link: "https://doi.org/10.1016/j.trc.2018.02.005", finding: "A single AV can dampen stop-and-go waves in experiments with 20+ drivers." },
-  { title: "Flow: A Modular Learning Framework for Mixed Autonomy Traffic", authors: "Wu, C., Kreidieh, A.R., et al.", journal: "IEEE Transactions on Robotics", year: "2021", link: "https://doi.org/10.1109/TRO.2021.3087314", finding: "Deep RL can optimize traffic with 5-10% penetration rate." },
-  { title: "Suppressing traffic flow instabilities", authors: "Horn, B.K.P.", journal: "IEEE ITSC", year: "2013", link: "https://doi.org/10.1109/ITSC.2013.6728296", finding: "Bilateral control algorithms eliminate phantom jams." },
-  { title: "Stabilizing Traffic Flow via a Single Autonomous Vehicle", authors: "Cui, S., Seibold, B., et al.", journal: "Transportation Research Part B", year: "2017", link: "https://doi.org/10.1016/j.trb.2017.07.004", finding: "Single AV can stabilize traffic with arbitrarily many human drivers." },
+  { title: "Dissipation of stop-and-go waves via control of autonomous vehicles", authors: "Stern, R.E., Cui, S., et al.", journal: "Transportation Research Part C", year: "2018", link: "/smartroads/dissipation-stop-go-waves.pdf", finding: "A single AV can dampen stop-and-go waves in experiments with 20+ drivers." },
+  { title: "Flow: A Modular Learning Framework for Mixed Autonomy Traffic", authors: "Wu, C., Kreidieh, A.R., et al.", journal: "IEEE Transactions on Robotics", year: "2021", link: "/smartroads/flow-framework.pdf", finding: "Deep RL can optimize traffic with 5-10% penetration rate." },
+  { title: "Suppressing traffic flow instabilities", authors: "Horn, B.K.P.", journal: "IEEE ITSC", year: "2013", link: "https://arxiv.org/pdf/1710.08893", finding: "Bilateral control algorithms eliminate phantom jams." },
+  { title: "Stabilizing Traffic Flow via a Single Autonomous Vehicle", authors: "Cui, S., Seibold, B., et al.", journal: "Transportation Research Part B", year: "2017", link: "/smartroads/stabilizing-traffic-flow.pdf", finding: "Single AV can stabilize traffic with arbitrarily many human drivers." },
 ];
 
 const quotes = [
   { text: "Our experiments show that a single autonomous vehicle can eliminate stop-and-go waves caused by human drivers.", author: "Dr. Daniel Work", affiliation: "Vanderbilt University", link: "https://doi.org/10.1016/j.trc.2018.02.005" },
   { text: "5% penetration rate of coordinated vehicles produced measurable improvements for 100% of road users.", author: "Northwestern University", affiliation: "Traffic Lab", link: "https://doi.org/10.1016/j.trb.2020.06.001" },
-  { text: "Connected vehicles represent the most significant opportunity to improve road safety since the seatbelt.", author: "Virginia Tech", affiliation: "Transportation Institute", link: "https://doi.org/10.1177/0361198120912756" },
+  { text: "Connected vehicles represent the most significant opportunity to improve road safety since the seatbelt.", author: "Virginia Tech", affiliation: "Transportation Institute", link: "https://safed.vtti.vt.edu/projects/connected-vehicle-data-safety-applications/" },
 ];
 
 const economicData = [
