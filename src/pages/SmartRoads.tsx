@@ -124,12 +124,12 @@ const SmartRoads = () => {
               <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
                 <div>
                   <h1 className="sr-heading-xl text-white mb-6">
-                    Transform UAE Roads Into{" "}
-                    <span className="text-[#5CFF3D]">Intelligent</span> Networks
+                    Control <span className="text-[#5CFF3D]">5%</span> of Vehicles.
+                    <br />Fix <span className="text-[#5CFF3D]">100%</span> of Traffic.
                   </h1>
                   <p className="text-[#BEBEBE] text-lg mb-10 leading-relaxed max-w-lg">
-                    A comprehensive system using RTK precision positioning and AI to eliminate 
-                    traffic congestion, prevent accidents, and lead smart mobility.
+                    2cm precision positioning enables real-time vehicle coordination. 
+                    Research proves this eliminates congestion for everyone.
                   </p>
                   <div className="flex items-center gap-3 md:gap-4">
                     <Link to="/smartroads/implementation" className="sr-btn-primary text-xs md:text-sm px-3 py-2 md:px-4 md:py-2">
