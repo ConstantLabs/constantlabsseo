@@ -64,7 +64,7 @@ export function SmartRoadsArchitecture() {
             </Circle>
 
             {/* RTK Network */}
-            <Circle ref={rtkTowerRef} label="RTK Network" sublabel="200-300 towers">
+            <Circle ref={rtkTowerRef} label="RTK Network" sublabel="200-300 nodes">
               <Radio className="h-7 w-7 md:h-8 md:w-8 text-[#5CFF3D]" />
             </Circle>
 
