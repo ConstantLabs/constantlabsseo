@@ -197,16 +197,15 @@ const SmartRoads = () => {
               <div className="sr-card p-6 md:p-8">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-12 h-12 rounded-full bg-[#5CFF3D]/10 flex items-center justify-center">
-                    {/* OBD Port Icon */}
+                    {/* USB Icon */}
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5CFF3D" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M4 8h16l-2 8H6L4 8z" />
-                      <circle cx="8" cy="12" r="0.5" fill="#5CFF3D" />
-                      <circle cx="10.5" cy="12" r="0.5" fill="#5CFF3D" />
-                      <circle cx="13.5" cy="12" r="0.5" fill="#5CFF3D" />
-                      <circle cx="16" cy="12" r="0.5" fill="#5CFF3D" />
-                      <circle cx="9" cy="14" r="0.5" fill="#5CFF3D" />
-                      <circle cx="12" cy="14" r="0.5" fill="#5CFF3D" />
-                      <circle cx="15" cy="14" r="0.5" fill="#5CFF3D" />
+                      <circle cx="10" cy="7" r="1" />
+                      <circle cx="4" cy="20" r="1" />
+                      <path d="M4.5 19.5 10 13V7" />
+                      <polyline points="12 7 12 3 20 3 20 7" />
+                      <line x1="12" y1="22" x2="12" y2="13" />
+                      <path d="m17 13-5 5" />
+                      <circle cx="17" cy="13" r="2" />
                     </svg>
                   </div>
                   <h3 className="text-xl font-semibold text-white">App Integration</h3>
