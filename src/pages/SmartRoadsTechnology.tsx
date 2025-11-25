@@ -33,18 +33,20 @@ const SmartRoadsTechnology = () => {
   return (
     <div className="min-h-screen text-white smartroads-page">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-transparent">
-        <div className="max-w-7xl mx-auto px-6 py-4">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0d0d0d]/90 backdrop-blur-sm md:bg-transparent md:backdrop-blur-none">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4">
           <div className="flex items-center justify-between">
             <Link to="/smartroads" className="flex items-center gap-2">
-              <img src="/smartroads/logo.png" alt="SmartRoads" className="w-9 h-9" />
-              <span className="font-semibold text-white text-lg">SmartRoads</span>
+              <img src="/smartroads/logo.png" alt="SmartRoads" className="w-8 h-8 md:w-9 md:h-9" />
+              <span className="font-semibold text-white text-base md:text-lg">SmartRoads</span>
             </Link>
-            <div className="hidden md:flex items-center gap-8">
-              <Link to="/smartroads/technology" className="text-white text-sm">Technology</Link>
-              <Link to="/smartroads/capabilities" className="text-[#BEBEBE] hover:text-white transition-colors text-sm">Capabilities</Link>
-              <Link to="/smartroads/research" className="text-[#BEBEBE] hover:text-white transition-colors text-sm">Research</Link>
-              <Link to="/smartroads/implementation" className="sr-btn-primary">View Plan</Link>
+            <div className="flex items-center gap-4 md:gap-8">
+              <div className="hidden md:flex items-center gap-8">
+                <Link to="/smartroads/technology" className="text-white text-sm">Technology</Link>
+                <Link to="/smartroads/capabilities" className="text-[#BEBEBE] hover:text-white transition-colors text-sm">Capabilities</Link>
+                <Link to="/smartroads/research" className="text-[#BEBEBE] hover:text-white transition-colors text-sm">Research</Link>
+              </div>
+              <Link to="/smartroads/implementation" className="sr-btn-primary text-sm px-4 py-2">View Plan</Link>
             </div>
           </div>
         </div>

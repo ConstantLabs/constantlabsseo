@@ -49,18 +49,20 @@ const SmartRoadsImplementation = () => {
   return (
     <div className="min-h-screen text-white smartroads-page">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-transparent">
-        <div className="max-w-7xl mx-auto px-6 py-4">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0d0d0d]/90 backdrop-blur-sm md:bg-transparent md:backdrop-blur-none">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4">
           <div className="flex items-center justify-between">
             <Link to="/smartroads" className="flex items-center gap-2">
-              <img src="/smartroads/logo.png" alt="SmartRoads" className="w-9 h-9" />
-              <span className="font-semibold text-white text-lg">SmartRoads</span>
+              <img src="/smartroads/logo.png" alt="SmartRoads" className="w-8 h-8 md:w-9 md:h-9" />
+              <span className="font-semibold text-white text-base md:text-lg">SmartRoads</span>
             </Link>
-            <div className="hidden md:flex items-center gap-8">
-              <Link to="/smartroads/technology" className="text-[#BEBEBE] hover:text-white transition-colors text-sm">Technology</Link>
-              <Link to="/smartroads/capabilities" className="text-[#BEBEBE] hover:text-white transition-colors text-sm">Capabilities</Link>
-              <Link to="/smartroads/research" className="text-[#BEBEBE] hover:text-white transition-colors text-sm">Research</Link>
-              <Link to="/smartroads/implementation" className="sr-btn-primary">View Plan</Link>
+            <div className="flex items-center gap-4 md:gap-8">
+              <div className="hidden md:flex items-center gap-8">
+                <Link to="/smartroads/technology" className="text-[#BEBEBE] hover:text-white transition-colors text-sm">Technology</Link>
+                <Link to="/smartroads/capabilities" className="text-[#BEBEBE] hover:text-white transition-colors text-sm">Capabilities</Link>
+                <Link to="/smartroads/research" className="text-[#BEBEBE] hover:text-white transition-colors text-sm">Research</Link>
+              </div>
+              <Link to="/smartroads/implementation" className="sr-btn-primary text-sm px-4 py-2">View Plan</Link>
             </div>
           </div>
         </div>
@@ -83,24 +85,24 @@ const SmartRoadsImplementation = () => {
         </section>
 
         {/* Visual Banner */}
-        <section className="py-12 px-6">
+        <section className="py-8 md:py-12 px-4 md:px-6">
           <div className="max-w-7xl mx-auto">
-            <div className="sr-hero-card p-8 relative overflow-hidden">
-              <div className="sr-img-box aspect-[21/9] relative">
+            <div className="sr-hero-card p-4 md:p-8 relative overflow-hidden">
+              <div className="sr-img-box aspect-[16/9] md:aspect-[21/9] relative">
                 <img src="/smartroads/rta_hero_background.jpg" alt="UAE Infrastructure" className="w-full h-full object-cover" />
-                <div className="absolute inset-0 flex items-center justify-center bg-black/60">
-                  <div className="grid grid-cols-3 gap-8 text-center">
+                <div className="absolute inset-0 flex items-center justify-center bg-black/60 p-4">
+                  <div className="grid grid-cols-3 gap-2 md:gap-8 text-center w-full">
                     <div>
-                      <div className="text-4xl font-bold text-[#5CFF3D] mb-2">3.5M+</div>
-                      <div className="text-sm text-white">Vehicles to Equip</div>
+                      <div className="text-xl md:text-4xl font-bold text-[#5CFF3D] mb-1 md:mb-2">3.5M+</div>
+                      <div className="text-[10px] md:text-sm text-white">Vehicles to Equip</div>
                     </div>
                     <div>
-                      <div className="text-4xl font-bold text-[#5CFF3D] mb-2">200-300</div>
-                      <div className="text-sm text-white">RTK Base Stations</div>
+                      <div className="text-xl md:text-4xl font-bold text-[#5CFF3D] mb-1 md:mb-2">200-300</div>
+                      <div className="text-[10px] md:text-sm text-white">RTK Base Stations</div>
                     </div>
                     <div>
-                      <div className="text-4xl font-bold text-[#5CFF3D] mb-2">100%</div>
-                      <div className="text-sm text-white">National Coverage</div>
+                      <div className="text-xl md:text-4xl font-bold text-[#5CFF3D] mb-1 md:mb-2">100%</div>
+                      <div className="text-[10px] md:text-sm text-white">National Coverage</div>
                     </div>
                   </div>
                 </div>
