@@ -37,16 +37,14 @@ const SmartRoadsTechnology = () => {
         <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4">
           <div className="flex items-center justify-between">
             <Link to="/smartroads" className="flex items-center gap-2">
-              <img src="/smartroads/logo.png" alt="SmartRoads" className="w-8 h-8 md:w-9 md:h-9" />
-              <span className="font-semibold text-white text-base md:text-lg">SmartRoads</span>
+              <img src="/smartroads/logo.png" alt="SmartRoads" className="w-7 h-7 md:w-9 md:h-9" />
+              <span className="font-semibold text-white text-sm md:text-lg hidden sm:inline">SmartRoads</span>
             </Link>
-            <div className="flex items-center gap-4 md:gap-8">
-              <div className="hidden md:flex items-center gap-8">
-                <Link to="/smartroads/technology" className="text-white text-sm">Technology</Link>
-                <Link to="/smartroads/capabilities" className="text-[#BEBEBE] hover:text-white transition-colors text-sm">Capabilities</Link>
-                <Link to="/smartroads/research" className="text-[#BEBEBE] hover:text-white transition-colors text-sm">Research</Link>
-              </div>
-              <Link to="/smartroads/implementation" className="sr-btn-primary text-sm px-4 py-2">View Plan</Link>
+            <div className="flex items-center gap-3 md:gap-8">
+              <Link to="/smartroads/technology" className="text-white text-xs md:text-sm">Technology</Link>
+              <Link to="/smartroads/capabilities" className="text-[#BEBEBE] hover:text-white transition-colors text-xs md:text-sm">Capabilities</Link>
+              <Link to="/smartroads/research" className="text-[#BEBEBE] hover:text-white transition-colors text-xs md:text-sm">Research</Link>
+              <Link to="/smartroads/implementation" className="sr-btn-primary text-xs md:text-sm px-3 py-1.5 md:px-4 md:py-2">View Plan</Link>
             </div>
           </div>
         </div>
