@@ -5,10 +5,10 @@ import { Link, useLocation } from "react-router-dom";
 import { SmartRoadsArchitecture } from "@/components/SmartRoadsArchitecture";
 
 const stats = [
-  { value: "2cm", label: "Positioning Accuracy" },
-  { value: "5-10%", label: "Adoption Needed" },
-  { value: "35%", label: "More Highway Throughput" },
-  { value: "40%", label: "Fuel Savings" },
+  { value: "2cm", label: "Positioning Accuracy", source: "RTK GPS Standard", url: "https://www.u-blox.com/en/technologies/rtk" },
+  { value: "5-10%", label: "Adoption Needed", source: "MIT Study, 2017", url: "https://news.mit.edu/2017/autonomous-vehicles-reduce-traffic-flow-intersections-0323" },
+  { value: "35%", label: "More Highway Throughput", source: "Vanderbilt Research", url: "https://engineering.vanderbilt.edu/news/2018/phantom-traffic-jams-are-real-and-they-can-be-fixed" },
+  { value: "40%", label: "Fuel Savings", source: "UC Berkeley PATH", url: "https://path.berkeley.edu" },
 ];
 
 const researchQuotes = [
@@ -316,10 +316,18 @@ const SmartRoads = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="sr-card p-6 text-center"
+                  className="sr-card p-6 text-center group relative"
                 >
                   <div className="text-[#5CFF3D] text-4xl font-extrabold">{stat.value}</div>
                   <div className="text-sm text-[#6b6b6b] mt-1">{stat.label}</div>
+                  <a 
+                    href={stat.url} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="absolute inset-0 flex items-end justify-center pb-2 opacity-0 group-hover:opacity-100 transition-opacity bg-gradient-to-t from-black/80 to-transparent rounded-xl"
+                  >
+                    <span className="text-xs text-[#5CFF3D] underline">{stat.source} ↗</span>
+                  </a>
                 </motion.div>
               ))}
             </div>
