@@ -1,7 +1,7 @@
-import { useEffect } from "react";
-import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Satellite, Cpu, Camera, Smartphone, Radio, Cloud, Brain, ArrowRight, Target, Wifi, Server } from "lucide-react";
+import { Satellite, Cpu, Camera, Smartphone, Radio, Cloud, Brain, ArrowRight, Target, Wifi, Server, Menu, X } from "lucide-react";
 
 const vehicleHardware = [
   { icon: Satellite, title: "RTK GPS Receiver", description: "Centimeter-level positioning accuracy, far superior to standard GPS.", specs: ["2cm accuracy", "Real-time corrections"] },
@@ -24,6 +24,8 @@ const rtkComparison = [
 ];
 
 const SmartRoadsTechnology = () => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   useEffect(() => {
     document.body.classList.add('no-crt', 'smartroads-bg');
     window.scrollTo(0, 0);
@@ -33,21 +35,36 @@ const SmartRoadsTechnology = () => {
   return (
     <div className="min-h-screen text-white smartroads-page">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0d0d0d]/90 backdrop-blur-sm md:bg-transparent md:backdrop-blur-none">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0d0d0d]/95 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4">
           <div className="flex items-center justify-between">
             <Link to="/smartroads" className="flex items-center gap-2">
-              <img src="/smartroads/logo.png" alt="SmartRoads" className="w-7 h-7 md:w-9 md:h-9" />
-              <span className="font-semibold text-white text-sm md:text-lg hidden sm:inline">SmartRoads</span>
+              <img src="/smartroads/logo.png" alt="SmartRoads" className="w-8 h-8 md:w-9 md:h-9" />
+              <span className="font-semibold text-white text-base md:text-lg">SmartRoads</span>
             </Link>
-            <div className="flex items-center gap-3 md:gap-8">
-              <Link to="/smartroads/technology" className="text-white text-xs md:text-sm">Technology</Link>
-              <Link to="/smartroads/capabilities" className="text-[#BEBEBE] hover:text-white transition-colors text-xs md:text-sm">Capabilities</Link>
-              <Link to="/smartroads/research" className="text-[#BEBEBE] hover:text-white transition-colors text-xs md:text-sm">Research</Link>
-              <Link to="/smartroads/implementation" className="sr-btn-primary text-xs md:text-sm px-3 py-1.5 md:px-4 md:py-2">View Plan</Link>
+            <div className="hidden md:flex items-center gap-8">
+              <Link to="/smartroads/technology" className="text-white text-sm">Technology</Link>
+              <Link to="/smartroads/capabilities" className="text-[#BEBEBE] hover:text-white transition-colors text-sm">Capabilities</Link>
+              <Link to="/smartroads/research" className="text-[#BEBEBE] hover:text-white transition-colors text-sm">Research</Link>
+              <Link to="/smartroads/implementation" className="sr-btn-primary">View Plan</Link>
             </div>
+            <button className="md:hidden p-2 text-white" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
           </div>
         </div>
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} className="md:hidden bg-[#0d0d0d] border-t border-white/10">
+              <div className="flex flex-col px-4 py-4 gap-4 text-center">
+                <Link to="/smartroads/technology" className="text-white text-sm py-2" onClick={() => setMobileMenuOpen(false)}>Technology</Link>
+                <Link to="/smartroads/capabilities" className="text-[#BEBEBE] hover:text-white transition-colors text-sm py-2" onClick={() => setMobileMenuOpen(false)}>Capabilities</Link>
+                <Link to="/smartroads/research" className="text-[#BEBEBE] hover:text-white transition-colors text-sm py-2" onClick={() => setMobileMenuOpen(false)}>Research</Link>
+                <Link to="/smartroads/implementation" className="sr-btn-primary justify-center" onClick={() => setMobileMenuOpen(false)}>View Plan</Link>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </nav>
 
       <main className="pt-28">
