@@ -121,8 +121,34 @@ const SmartRoads = () => {
         {/* Hero */}
         <section className="py-6 md:py-12 px-4 md:px-6">
           <div className="max-w-7xl mx-auto">
+            {/* Mobile: Text + Image stacked */}
+            <div className="md:hidden sr-hero-card p-6 overflow-hidden">
+              <div className="mb-6">
+                <h1 className="sr-heading-xl text-white mb-4">
+                  End Traffic Jams.
+                  <br /><span className="text-[#5CFF3D]">Forever.</span>
+                </h1>
+                <p className="text-[#BEBEBE] text-base mb-6 leading-relaxed">
+                  MIT research proves: coordinate 5% of vehicles, eliminate congestion for everyone. 
+                  We built the system to do it.
+                </p>
+                <div className="flex items-center gap-3">
+                  <Link to="/smartroads/implementation" className="sr-btn-primary text-xs px-3 py-2">
+                    View Plan
+                  </Link>
+                  <Link to="/smartroads/research" className="sr-btn-secondary text-xs px-3 py-2">
+                    Research
+                  </Link>
+                </div>
+              </div>
+              <div className="rounded-xl overflow-hidden -mx-2">
+                <img src="/smartroads/front car.png" alt="SmartRoads Vehicle" className="w-full h-auto" />
+              </div>
+            </div>
+
+            {/* Desktop: Background image */}
             <div 
-              className="sr-hero-card p-8 md:p-16 relative overflow-hidden min-h-[500px] md:min-h-[650px] flex items-center"
+              className="hidden md:flex sr-hero-card p-16 relative overflow-hidden min-h-[650px] items-center"
               style={{
                 backgroundImage: "linear-gradient(to right, rgba(13,13,13,0.95) 0%, rgba(13,13,13,0.7) 50%, rgba(13,13,13,0.3) 100%), url('/smartroads/front car.png')",
                 backgroundSize: "cover",
@@ -139,11 +165,11 @@ const SmartRoads = () => {
                     MIT research proves: coordinate 5% of vehicles, eliminate congestion for everyone. 
                     We built the system to do it.
                   </p>
-                  <div className="flex items-center gap-3 md:gap-4">
-                    <Link to="/smartroads/implementation" className="sr-btn-primary text-xs md:text-sm px-3 py-2 md:px-4 md:py-2">
+                  <div className="flex items-center gap-4">
+                    <Link to="/smartroads/implementation" className="sr-btn-primary text-sm px-4 py-2">
                       View Plan
                     </Link>
-                    <Link to="/smartroads/research" className="sr-btn-secondary text-xs md:text-sm px-3 py-2 md:px-4 md:py-2">
+                    <Link to="/smartroads/research" className="sr-btn-secondary text-sm px-4 py-2">
                       Research
                     </Link>
                   </div>
