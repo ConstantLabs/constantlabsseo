@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, ExternalLink, Menu, X, Download } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const SmartRoadsCircles = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     document.body.classList.add("no-crt", "smartroads-bg");
@@ -16,10 +17,10 @@ const SmartRoadsCircles = () => {
       {/* Navigation */}
       <nav className={`fixed top-0 left-0 right-0 z-50 px-4 md:px-8 py-4 ${mobileMenuOpen ? 'bg-[#0d0d0d]' : 'bg-transparent'}`}>
         <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <Link to="/smartroads" className="flex items-center gap-2 text-[#5CFF3D] hover:opacity-80">
+          <button onClick={() => navigate(-1)} className="flex items-center gap-2 text-[#5CFF3D] hover:opacity-80">
             <ArrowLeft className="w-4 h-4" />
-            <span className="text-sm font-medium">Back to SmartRoads</span>
-          </Link>
+            <span className="text-sm font-medium">Back</span>
+          </button>
           
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-6">
