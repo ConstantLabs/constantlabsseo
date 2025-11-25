@@ -8,6 +8,7 @@ const SmartRoadsFHWA = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     document.body.classList.add("no-crt", "smartroads-bg");
     return () => document.body.classList.remove("no-crt", "smartroads-bg");
   }, []);
@@ -30,7 +31,7 @@ const SmartRoadsFHWA = () => {
               href="https://ops.fhwa.dot.gov/publications/fhwahop10023/chap4.htm" 
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2 bg-[#5CFF3D] text-black text-sm font-semibold rounded-lg hover:bg-[#4de632] flex items-center gap-2"
+              className="px-4 py-2 bg-[#5CFF3D] text-black text-sm font-semibold rounded-full hover:bg-[#4de632] flex items-center gap-2"
             >
               <ExternalLink className="w-4 h-4" />
               Original Source
@@ -62,7 +63,7 @@ const SmartRoadsFHWA = () => {
                   href="https://ops.fhwa.dot.gov/publications/fhwahop10023/chap4.htm" 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mx-auto px-4 py-2 bg-[#5CFF3D] text-black text-sm font-semibold rounded-lg hover:bg-[#4de632] flex items-center justify-center gap-2"
+                  className="mx-auto px-4 py-2 bg-[#5CFF3D] text-black text-sm font-semibold rounded-full hover:bg-[#4de632] flex items-center justify-center gap-2"
                 >
                   <ExternalLink className="w-4 h-4" />
                   Original Source

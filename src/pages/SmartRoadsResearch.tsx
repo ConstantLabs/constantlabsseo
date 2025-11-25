@@ -153,7 +153,7 @@ const SmartRoadsResearch = () => {
                   </div>
                   <p className="text-sm text-[#6b6b6b] mb-2">{paper.authors}</p>
                   <p className="text-sm text-[#5CFF3D]/70 mb-4">{paper.journal}, {paper.year}</p>
-                  <div className="p-3 rounded-lg bg-[#0d0d0d]">
+                  <div className="p-3 rounded-xl bg-[#0d0d0d]">
                     <p className="text-sm text-[#BEBEBE]"><span className="text-[#5CFF3D]">Key Finding:</span> {paper.finding}</p>
                   </div>
                 </motion.a>

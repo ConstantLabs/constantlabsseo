@@ -8,6 +8,7 @@ const SmartRoadsResearchPaper = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     document.body.classList.add("no-crt", "smartroads-bg");
     return () => document.body.classList.remove("no-crt", "smartroads-bg");
   }, []);
@@ -29,7 +30,7 @@ const SmartRoadsResearchPaper = () => {
             <a 
               href="/smartroads/dissipation-stop-go-waves.pdf" 
               download
-              className="px-4 py-2 bg-[#5CFF3D] text-black text-sm font-semibold rounded-lg hover:bg-[#4de632] flex items-center gap-2"
+              className="px-4 py-2 bg-[#5CFF3D] text-black text-sm font-semibold rounded-full hover:bg-[#4de632] flex items-center gap-2"
             >
               <Download className="w-4 h-4" />
               Download PDF
@@ -60,7 +61,7 @@ const SmartRoadsResearchPaper = () => {
                 <a 
                   href="/smartroads/dissipation-stop-go-waves.pdf" 
                   download
-                  className="mx-auto px-4 py-2 bg-[#5CFF3D] text-black text-sm font-semibold rounded-lg hover:bg-[#4de632] flex items-center justify-center gap-2"
+                  className="mx-auto px-4 py-2 bg-[#5CFF3D] text-black text-sm font-semibold rounded-full hover:bg-[#4de632] flex items-center justify-center gap-2"
                 >
                   <Download className="w-4 h-4" />
                   Download PDF

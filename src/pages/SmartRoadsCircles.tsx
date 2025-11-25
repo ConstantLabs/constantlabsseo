@@ -8,6 +8,7 @@ const SmartRoadsCircles = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     document.body.classList.add("no-crt", "smartroads-bg");
     return () => document.body.classList.remove("no-crt", "smartroads-bg");
   }, []);
@@ -29,7 +30,7 @@ const SmartRoadsCircles = () => {
             <a 
               href="/smartroads/SmartRoads_Pitch.pdf" 
               target="_blank"
-              className="px-4 py-2 bg-[#5CFF3D] text-black text-sm font-semibold rounded-lg hover:bg-[#4de632]"
+              className="px-4 py-2 bg-[#5CFF3D] text-black text-sm font-semibold rounded-full hover:bg-[#4de632]"
             >
               <Download className="w-4 h-4 inline mr-2" />
               Pitch Deck
@@ -60,7 +61,7 @@ const SmartRoadsCircles = () => {
                 <a 
                   href="/smartroads/SmartRoads_Pitch.pdf" 
                   target="_blank"
-                  className="mx-auto px-4 py-2 bg-[#5CFF3D] text-black text-sm font-semibold rounded-lg hover:bg-[#4de632] flex items-center justify-center"
+                  className="mx-auto px-4 py-2 bg-[#5CFF3D] text-black text-sm font-semibold rounded-full hover:bg-[#4de632] flex items-center justify-center"
                 >
                   <Download className="w-4 h-4 mr-2" />
                   Pitch Deck
@@ -226,7 +227,7 @@ const SmartRoadsCircles = () => {
             <div className="flex flex-wrap justify-center gap-4">
               <Link 
                 to="/smartroads/implementation" 
-                className="px-6 py-3 bg-[#5CFF3D] text-black font-semibold rounded-lg hover:bg-[#4de632]"
+                className="px-6 py-3 bg-[#5CFF3D] text-black font-semibold rounded-full hover:bg-[#4de632]"
               >
                 View Implementation Plan
               </Link>
@@ -234,7 +235,7 @@ const SmartRoadsCircles = () => {
                 href="https://arxiv.org/pdf/1705.01693" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="px-6 py-3 border border-white/20 text-white font-semibold rounded-lg hover:bg-white/5 flex items-center gap-2"
+                className="px-6 py-3 border border-white/20 text-white font-semibold rounded-full hover:bg-white/5 flex items-center gap-2"
               >
                 Read Original Paper <ExternalLink className="w-4 h-4" />
               </a>
