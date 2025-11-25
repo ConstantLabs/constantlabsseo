@@ -7,8 +7,8 @@ const SmartRoadsFHWA = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    document.body.classList.add("smartroads-bg");
-    return () => document.body.classList.remove("smartroads-bg");
+    document.body.classList.add("no-crt", "smartroads-bg");
+    return () => document.body.classList.remove("no-crt", "smartroads-bg");
   }, []);
 
   return (
