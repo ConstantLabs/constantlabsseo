@@ -594,11 +594,14 @@ body.no-crt .chromatic-page::after {
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  position: relative;
 }
 
-.smartroads-page::before {
-  content: '';
+.smartroads-page * {
+  font-family: inherit;
+}
+
+/* Fixed dot grid background overlay */
+.smartroads-dot-bg {
   position: fixed;
   top: 0;
   left: 0;
@@ -610,13 +613,10 @@ body.no-crt .chromatic-page::after {
   z-index: 0;
 }
 
-.smartroads-page > * {
+.smartroads-page main,
+.smartroads-page footer {
   position: relative;
   z-index: 1;
-}
-
-.smartroads-page * {
-  font-family: inherit;
 }
 
 .sr-card {

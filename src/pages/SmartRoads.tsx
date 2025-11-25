@@ -71,6 +71,9 @@ const SmartRoads = () => {
 
   return (
     <div className="min-h-screen bg-[#0d0d0d] text-white smartroads-page">
+      {/* Fixed dot grid background */}
+      <div className="smartroads-dot-bg" />
+      
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0d0d0d]/90 backdrop-blur-sm md:bg-transparent md:backdrop-blur-none">
         <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4">
