@@ -330,7 +330,7 @@ const SmartRoads = () => {
                       href={stat.url} 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="text-black text-xs font-semibold underline hover:no-underline"
+                      className="text-black text-xs font-semibold hover:opacity-70"
                     >
                       Read more →
                     </a>
