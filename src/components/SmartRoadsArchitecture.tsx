@@ -46,10 +46,10 @@ export function SmartRoadsArchitecture() {
     <section className="py-10 md:py-20 px-4 md:px-6">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-8 md:mb-12">
-          <h2 className="sr-heading-lg text-white mb-4">One Device. One Network.</h2>
+          <h2 className="sr-heading-lg text-white mb-4">One Unit. One Network.</h2>
           <p className="text-[#BEBEBE] text-base md:text-lg max-w-2xl mx-auto">
-            Every vehicle gets a small device installed. That's it. RTK receivers for precision, 
-            sensors for safety, display for guidance. ~AED 1,000 per car.
+            Every vehicle gets a SmartRoads Unit installed. RTK receivers for precision, 
+            sensors for safety, live navigation for guidance.
           </p>
         </div>
 
@@ -69,13 +69,13 @@ export function SmartRoadsArchitecture() {
               <Radio className="h-7 w-7 md:h-8 md:w-8 text-[#5CFF3D]" />
             </Circle>
 
-            {/* Car Device */}
-            <Circle ref={carDeviceRef} label="Car Device" sublabel="~AED 1,000">
+            {/* SmartRoads Unit */}
+            <Circle ref={carDeviceRef} label="SmartRoads Unit" sublabel="In-vehicle hardware">
               <Car className="h-7 w-7 md:h-8 md:w-8 text-[#5CFF3D]" />
             </Circle>
 
-            {/* Driver Display */}
-            <Circle ref={driverDisplayRef} label="Driver Display" sublabel="Real-time guidance">
+            {/* Live Navigation */}
+            <Circle ref={driverDisplayRef} label="Live Navigation" sublabel="Real-time guidance">
               <Monitor className="h-7 w-7 md:h-8 md:w-8 text-[#5CFF3D]" />
             </Circle>
           </div>
