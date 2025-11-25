@@ -22,6 +22,7 @@ export interface AnimatedBeamProps {
   startYOffset?: number
   endXOffset?: number
   endYOffset?: number
+  vertical?: boolean
 }
 
 export const AnimatedBeam: React.FC<AnimatedBeamProps> = ({
@@ -42,6 +43,7 @@ export const AnimatedBeam: React.FC<AnimatedBeamProps> = ({
   startYOffset = 0,
   endXOffset = 0,
   endYOffset = 0,
+  vertical = false,
 }) => {
   const id = useId()
   const [pathD, setPathD] = useState("")
@@ -81,10 +83,14 @@ export const AnimatedBeam: React.FC<AnimatedBeamProps> = ({
         const endY =
           rectB.top - containerRect.top + rectB.height / 2 + endYOffset
 
-        const controlY = startY - curvature
-        const d = `M ${startX},${startY} Q ${
-          (startX + endX) / 2
-        },${controlY} ${endX},${endY}`
+        let d: string
+        if (vertical) {
+          const controlX = startX + curvature
+          d = `M ${startX},${startY} Q ${controlX},${(startY + endY) / 2} ${endX},${endY}`
+        } else {
+          const controlY = startY - curvature
+          d = `M ${startX},${startY} Q ${(startX + endX) / 2},${controlY} ${endX},${endY}`
+        }
         setPathD(d)
       }
     }
@@ -111,6 +117,7 @@ export const AnimatedBeam: React.FC<AnimatedBeamProps> = ({
     startYOffset,
     endXOffset,
     endYOffset,
+    vertical,
   ])
 
   return (
