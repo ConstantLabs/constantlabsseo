@@ -224,7 +224,7 @@ const SmartRoadsImplementation = () => {
                 <h2 className="text-2xl font-bold text-black">First-Mover Advantage</h2>
               </div>
               <p className="text-black/80 text-lg mb-8">
-                The global market for intelligent traffic solutions is nascent, giving the UAE a 
+                The global market for intelligent traffic solutions is just getting started, giving the UAE a 
                 critical <span className="font-semibold">3-5 year first-mover advantage</span>.
               </p>
               <div className="grid md:grid-cols-3 gap-6">
