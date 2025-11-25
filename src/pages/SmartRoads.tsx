@@ -5,10 +5,10 @@ import { Link, useLocation } from "react-router-dom";
 import { SmartRoadsArchitecture } from "@/components/SmartRoadsArchitecture";
 
 const stats = [
-  { value: "2cm", label: "Positioning Accuracy", quote: "...centimeter-level positioning accuracy enables precise vehicle coordination...", url: "/smartroads/research" },
-  { value: "<5%", label: "Adoption Needed", quote: "...controlling the speed of just one autonomous vehicle can significantly dampen stop-and-go waves...", url: "https://arxiv.org/pdf/1705.01693" },
-  { value: "25%", label: "More Highway Capacity", quote: "...temporary increase of up to 25 percent in freeway capacity...", url: "https://ops.fhwa.dot.gov/publications/fhwahop10023/chap4.htm" },
-  { value: "40%", label: "Fuel Savings", quote: "...adding just one smart vehicle smoothed human-caused waves, leading to 40% fuel savings overall...", url: "/smartroads/circles" },
+  { value: "2cm", label: "Positioning Accuracy", quote: "...RTK uses carrier phase measurements to achieve centimeter-level accuracy...", url: "https://en.wikipedia.org/wiki/Real-time_kinematic_positioning" },
+  { value: "<5%", label: "Adoption Needed", quote: "...controlling the speed of just one autonomous vehicle can significantly dampen stop-and-go waves...", url: "/smartroads/research-paper" },
+  { value: "25%", label: "More Highway Capacity", quote: "...temporary increase of up to 25 percent in freeway capacity...", url: "/smartroads/fhwa-report" },
+  { value: "40%", label: "Fuel Savings", quote: "...adding just one smart vehicle smoothed human-caused waves, leading to 40% fuel savings overall...", url: "/smartroads/research-paper" },
 ];
 
 const researchQuotes = [
@@ -558,6 +558,57 @@ const SmartRoads = () => {
                 View All Research
                 <ArrowRight className="w-4 h-4" />
               </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* UC Berkeley Proof */}
+        <section className="py-10 md:py-24 px-4 md:px-6 bg-[#0a0a0a]">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-8 md:gap-16 items-center">
+              <div>
+                <span className="text-[#5CFF3D] text-sm font-medium uppercase tracking-wider mb-4 block">Proven in the Real World</span>
+                <h2 className="sr-heading-xl text-white mb-4 md:mb-6">
+                  UC Berkeley Already<br />Tested This
+                </h2>
+                <p className="text-[#BEBEBE] text-base md:text-lg leading-relaxed mb-6">
+                  In November 2022, the CIRCLES Consortium deployed 100 AI-equipped vehicles on Nashville's I-24 highway. 
+                  The result? <strong className="text-white">40% fuel savings</strong> and elimination of phantom traffic jams.
+                </p>
+                <div className="space-y-4 mb-8">
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 rounded-full bg-[#5CFF3D] mt-2 flex-shrink-0"></div>
+                    <p className="text-[#888]">100 Nissan, Toyota, and Cadillac vehicles equipped with AI cruise control</p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 rounded-full bg-[#5CFF3D] mt-2 flex-shrink-0"></div>
+                    <p className="text-[#888]">143,010 miles driven in 5 days during morning commute</p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 rounded-full bg-[#5CFF3D] mt-2 flex-shrink-0"></div>
+                    <p className="text-[#888]">First large-scale proof that small % of coordinated vehicles improves traffic for everyone</p>
+                  </div>
+                </div>
+                <Link to="/smartroads/circles" className="inline-flex items-center gap-2 text-[#5CFF3D] hover:underline font-medium">
+                  Read the Full Study
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+              <div className="sr-card p-4">
+                <div className="aspect-video rounded-xl overflow-hidden bg-black">
+                  <iframe 
+                    width="100%" 
+                    height="100%" 
+                    src="https://www.youtube.com/embed/PA3lyoCZnP0" 
+                    title="UC Berkeley CIRCLES Traffic Experiment"
+                    frameBorder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowFullScreen
+                    className="w-full h-full"
+                  />
+                </div>
+                <p className="text-[#666] text-xs mt-3 text-center">UC Berkeley CIRCLES Consortium • Nashville I-24 Experiment</p>
+              </div>
             </div>
           </div>
         </section>

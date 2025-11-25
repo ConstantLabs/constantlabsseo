@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 import { ExternalLink, ArrowRight, GraduationCap, Quote, Menu, X } from "lucide-react";
 
 const keyFindings = [
-  { stat: "5-10%", title: "Vehicle Adoption Threshold", description: "Controlling just 5-10% of vehicles can eliminate stop-and-go waves.", source: "MIT, UC Berkeley Studies" },
-  { stat: "40%", title: "Fuel Reduction", description: "A single AI-guided vehicle smoothed flow and reduced fuel consumption by 40%.", source: "Vanderbilt Field Test" },
-  { stat: "20-40%", title: "Throughput Improvement", description: "Highway throughput improvements through coordinated vehicle control.", source: "Multiple Studies" },
+  { stat: "<5%", title: "Vehicle Adoption Threshold", description: "Controlling just 5% of vehicles can eliminate stop-and-go waves.", source: "MIT, UC Berkeley Studies", url: "/smartroads/research-paper", quote: "...controlling the speed of just one autonomous vehicle can significantly dampen stop-and-go waves..." },
+  { stat: "40%", title: "Fuel Reduction", description: "A single AI-guided vehicle smoothed flow and reduced fuel consumption by 40%.", source: "Vanderbilt Field Test", url: "/smartroads/research-paper", quote: "...adding just one smart vehicle smoothed human-caused waves, leading to 40% fuel savings overall..." },
+  { stat: "25%", title: "Capacity Improvement", description: "Highway capacity improvements through coordinated vehicle control.", source: "FHWA Report to Congress", url: "/smartroads/fhwa-report", quote: "...temporary increase of up to 25 percent in freeway capacity..." },
 ];
 
 const keyPapers = [
@@ -101,15 +101,29 @@ const SmartRoadsResearch = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="sr-card p-6"
                 >
-                  <div className="text-4xl font-bold text-[#5CFF3D] mb-4">{finding.stat}</div>
-                  <h3 className="text-lg font-semibold text-white mb-3">{finding.title}</h3>
-                  <p className="text-[#BEBEBE] text-sm mb-4">{finding.description}</p>
-                  <div className="flex items-center gap-2 text-xs text-[#5CFF3D]">
-                    <GraduationCap className="w-4 h-4" />
-                    {finding.source}
-                  </div>
+                  <Link 
+                    to={finding.url}
+                    className="sr-card p-6 block group relative overflow-hidden cursor-pointer h-full"
+                  >
+                    {/* Default state */}
+                    <div className="group-hover:opacity-0 transition-opacity duration-200">
+                      <div className="text-4xl font-bold text-[#5CFF3D] mb-4">{finding.stat}</div>
+                      <h3 className="text-lg font-semibold text-white mb-3">{finding.title}</h3>
+                      <p className="text-[#BEBEBE] text-sm mb-4">{finding.description}</p>
+                      <div className="flex items-center gap-2 text-xs text-[#5CFF3D]">
+                        <GraduationCap className="w-4 h-4" />
+                        {finding.source}
+                      </div>
+                    </div>
+                    {/* Hover state */}
+                    <div className="absolute inset-0 p-6 flex flex-col justify-center items-center bg-[#5CFF3D] rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                      <p className="text-black text-sm text-center leading-relaxed italic mb-3">"{finding.quote}"</p>
+                      <span className="text-black text-xs font-semibold">
+                        Read more →
+                      </span>
+                    </div>
+                  </Link>
                 </motion.div>
               ))}
             </div>
