@@ -24,12 +24,6 @@ const researchQuotes = [
     affiliation: "UC Berkeley",
     link: "/smartroads/flow-paper",
   },
-  {
-    text: "Hard braking and acceleration data from connected vehicles significantly improves crash prediction accuracy across all 25 Texas districts tested.",
-    author: "Safe-D Research",
-    affiliation: "Texas A&M Transportation Institute",
-    link: "/smartroads/virginia-tech",
-  },
 ];
 
 const SmartRoads = () => {
@@ -523,7 +517,7 @@ const SmartRoads = () => {
                 Backed by <span className="text-[#5CFF3D]">Research</span>
               </h2>
               <p className="text-[#BEBEBE] text-base md:text-lg max-w-xl leading-relaxed">
-                Leading researchers from MIT, UC Berkeley, Vanderbilt have validated these approaches.
+                Leading researchers from MIT, UC Berkeley, and Vanderbilt have proven these approaches work.
               </p>
             </div>
 
