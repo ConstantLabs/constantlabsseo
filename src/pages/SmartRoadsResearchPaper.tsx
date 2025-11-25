@@ -99,9 +99,22 @@ const SmartRoadsResearchPaper = () => {
         </div>
       </section>
 
+      {/* Summary */}
+      <section className="pb-8 px-4 md:px-8">
+        <div className="max-w-5xl mx-auto">
+          <div className="bg-[#5CFF3D]/10 border border-[#5CFF3D]/30 rounded-xl p-6 md:p-8">
+            <h2 className="text-xl font-bold text-white mb-4">Summary</h2>
+            <p className="text-[#ccc] leading-relaxed">
+              This landmark field experiment proved that a single autonomous vehicle can eliminate stop-and-go traffic waves caused by human drivers. Researchers conducted real-world tests with 20+ vehicles on a circular track, demonstrating that one intelligently-controlled car smoothed traffic flow for everyone - reducing fuel consumption by 40% and virtually eliminating hard braking events.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Key Findings */}
       <section className="pb-8 px-4 md:px-8">
         <div className="max-w-5xl mx-auto">
+          <h2 className="text-xl font-bold text-white mb-6">Key Findings</h2>
           <div className="grid md:grid-cols-3 gap-4">
             <div className="bg-[#5CFF3D]/10 border border-[#5CFF3D]/30 rounded-xl p-6">
               <div className="text-[#5CFF3D] text-3xl font-bold mb-2">&lt;5%</div>
@@ -117,6 +130,33 @@ const SmartRoadsResearchPaper = () => {
               <div className="text-[#5CFF3D] text-3xl font-bold mb-2">99%</div>
               <div className="text-white font-medium mb-2">Less Braking</div>
               <p className="text-[#888] text-sm">Dramatic reduction in hard braking events improves safety and comfort.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Key Takeaways */}
+      <section className="pb-8 px-4 md:px-8">
+        <div className="max-w-5xl mx-auto">
+          <div className="bg-white/5 border border-white/10 rounded-xl p-6 md:p-8">
+            <h2 className="text-xl font-bold text-white mb-6">Key Takeaways</h2>
+            <div className="space-y-4">
+              <div className="flex items-start gap-3">
+                <div className="w-2 h-2 rounded-full bg-[#5CFF3D] mt-2 flex-shrink-0"></div>
+                <p className="text-[#ccc]"><strong className="text-white">One car changes everything:</strong> A single autonomous vehicle among 20+ human drivers eliminated phantom traffic jams that naturally form in dense traffic.</p>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="w-2 h-2 rounded-full bg-[#5CFF3D] mt-2 flex-shrink-0"></div>
+                <p className="text-[#ccc]"><strong className="text-white">Benefits for all drivers:</strong> The 40% fuel savings applied to every vehicle in the experiment, not just the controlled one.</p>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="w-2 h-2 rounded-full bg-[#5CFF3D] mt-2 flex-shrink-0"></div>
+                <p className="text-[#ccc]"><strong className="text-white">Simple control algorithm:</strong> The AV didn't need complex AI - just maintaining consistent speed and proper following distance was enough.</p>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="w-2 h-2 rounded-full bg-[#5CFF3D] mt-2 flex-shrink-0"></div>
+                <p className="text-[#ccc]"><strong className="text-white">Scalable to real highways:</strong> The math shows this effect scales - more controlled vehicles means even better results on real roads.</p>
+              </div>
             </div>
           </div>
         </div>

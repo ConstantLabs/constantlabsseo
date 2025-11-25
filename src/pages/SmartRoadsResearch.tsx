@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ExternalLink, ArrowRight, GraduationCap, Quote, Menu, X } from "lucide-react";
+import { ArrowRight, GraduationCap, Quote, Menu, X } from "lucide-react";
 
 const keyFindings = [
   { stat: "<5%", title: "Vehicle Adoption Threshold", description: "Controlling just 5% of vehicles can eliminate stop-and-go waves.", source: "MIT, UC Berkeley Studies", url: "/smartroads/research-paper", quote: "...controlling the speed of just one autonomous vehicle can significantly dampen stop-and-go waves..." },
@@ -14,11 +14,6 @@ const keyPapers = [
   { title: "Flow: A Modular Learning Framework for Mixed Autonomy Traffic", authors: "Wu, C., Kreidieh, A.R., et al.", journal: "IEEE Transactions on Robotics", year: "2021", link: "/smartroads/flow-paper", finding: "Deep RL can optimize traffic with 5-10% penetration rate." },
   { title: "Suppressing traffic flow instabilities", authors: "Horn, B.K.P.", journal: "IEEE ITSC", year: "2013", link: "/smartroads/suppressing-paper", finding: "Bilateral control algorithms eliminate phantom jams." },
   { title: "Stabilizing Traffic Flow via a Single Autonomous Vehicle", authors: "Cui, S., Seibold, B., et al.", journal: "Transportation Research Part B", year: "2017", link: "/smartroads/stabilizing-paper", finding: "Single AV can stabilize traffic with arbitrarily many human drivers." },
-];
-
-const quotes = [
-  { text: "Our experiments show that a single autonomous vehicle can eliminate stop-and-go waves caused by human drivers.", author: "Dr. Daniel Work", affiliation: "Vanderbilt University", link: "/smartroads/research-paper" },
-  { text: "5% penetration rate of coordinated vehicles produced measurable improvements for 100% of road users.", author: "Flow Framework", affiliation: "UC Berkeley", link: "/smartroads/flow-paper" },
 ];
 
 const economicData = [
@@ -178,38 +173,6 @@ const SmartRoadsResearch = () => {
                   <div className="text-black/70">Vanderbilt University</div>
                 </div>
               </div>
-            </div>
-          </div>
-        </section>
-
-        {/* More Quotes */}
-        <section className="py-16 px-6">
-          <div className="max-w-7xl mx-auto">
-            <h2 className="sr-heading-lg text-white mb-12">Expert Insights</h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              {quotes.slice(1).map((quote, index) => (
-                <motion.a
-                  key={index}
-                  href={quote.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="sr-card p-6 hover:bg-[#1c1c1c] transition-colors group block"
-                >
-                  <Quote className="w-6 h-6 text-[#5CFF3D]/40 mb-4" />
-                  <p className="text-[#BEBEBE] mb-6 leading-relaxed">"{quote.text}"</p>
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <div className="font-medium text-white">{quote.author}</div>
-                      <div className="text-xs text-[#6b6b6b]">{quote.affiliation}</div>
-                    </div>
-                    <ExternalLink className="w-4 h-4 text-[#6b6b6b] group-hover:text-[#5CFF3D] transition-colors" />
-                  </div>
-                </motion.a>
-              ))}
             </div>
           </div>
         </section>
