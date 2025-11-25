@@ -310,13 +310,16 @@ const SmartRoads = () => {
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
               {stats.map((stat, index) => (
-                <motion.div
+                <motion.a
                   key={stat.label}
+                  href={stat.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="sr-card p-6 text-center group relative overflow-hidden cursor-pointer"
+                  className="sr-card p-6 text-center group relative overflow-hidden cursor-pointer block"
                 >
                   {/* Default state */}
                   <div className="group-hover:opacity-0 transition-opacity duration-200">
@@ -326,16 +329,11 @@ const SmartRoads = () => {
                   {/* Hover state */}
                   <div className="absolute inset-0 p-4 flex flex-col justify-center items-center bg-[#5CFF3D] rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-200">
                     <p className="text-black text-xs md:text-sm text-center leading-relaxed italic mb-3">"{stat.quote}"</p>
-                    <a 
-                      href={stat.url} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="text-black text-xs font-semibold hover:opacity-70"
-                    >
+                    <span className="text-black text-xs font-semibold">
                       Read more →
-                    </a>
+                    </span>
                   </div>
-                </motion.div>
+                </motion.a>
               ))}
             </div>
           </div>
