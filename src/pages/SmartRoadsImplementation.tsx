@@ -6,22 +6,22 @@ import { Car, Satellite, CheckCircle, ArrowRight, Building, Zap, Menu, X } from 
 const deploymentSteps = [
   {
     icon: Car,
-    title: "Vehicle Equipment",
+    title: "The SmartRoads Unit",
     items: [
-      "Smart display with RTK receivers, IMU sensors, AI cameras",
-      "Estimated cost: ~AED 1,000 per vehicle",
-      "50-70% cost reduction at scale",
-      "Standard installation at service centers",
+      "Two deployment options: App Integration or Full Display",
+      "App Integration: OBD device + CarPlay/Android Auto",
+      "Full Display: Standalone tablet with built-in sensors",
+      "Standard installation at any service center",
     ],
   },
   {
     icon: Satellite,
     title: "RTK Network Infrastructure",
     items: [
-      "200-300 RTK base stations across UAE",
-      "Mounted on existing telecom towers",
-      "Few million dirhams for national coverage",
-      "Foundation for future autonomous systems",
+      "200-300 RTK nodes across UAE",
+      "Leverages existing telecom infrastructure",
+      "Enables centimeter-level positioning nationwide",
+      "Foundation for autonomous vehicles & drones",
     ],
   },
 ];
@@ -104,16 +104,16 @@ const SmartRoadsImplementation = () => {
           <div className="max-w-7xl mx-auto">
             <div className="sr-hero-card p-4 md:p-8 relative overflow-hidden">
               <div className="sr-img-box aspect-[16/9] md:aspect-[21/9] relative">
-                <img src="/smartroads/front car.png" alt="UAE Infrastructure" className="w-full h-full object-cover" />
+                <img src="/smartroads/front car.png" alt="UAE Infrastructure" className="w-full h-full object-cover blur-sm" />
                 <div className="absolute inset-0 flex items-center justify-center bg-black/60 p-4">
                   <div className="grid grid-cols-3 gap-2 md:gap-8 text-center w-full">
                     <div>
-                      <div className="text-xl md:text-4xl font-bold text-[#5CFF3D] mb-1 md:mb-2">3.5M+</div>
-                      <div className="text-[10px] md:text-sm text-white">Vehicles to Equip</div>
+                      <div className="text-xl md:text-4xl font-bold text-[#5CFF3D] mb-1 md:mb-2">2</div>
+                      <div className="text-[10px] md:text-sm text-white">Deployment Options</div>
                     </div>
                     <div>
                       <div className="text-xl md:text-4xl font-bold text-[#5CFF3D] mb-1 md:mb-2">200-300</div>
-                      <div className="text-[10px] md:text-sm text-white">RTK Base Stations</div>
+                      <div className="text-[10px] md:text-sm text-white">RTK Nodes</div>
                     </div>
                     <div>
                       <div className="text-xl md:text-4xl font-bold text-[#5CFF3D] mb-1 md:mb-2">100%</div>
