@@ -68,16 +68,13 @@ const capabilities = [
 
 const SmartRoadsCapabilities = () => {
   useEffect(() => {
-    document.body.classList.add('no-crt');
+    document.body.classList.add('no-crt', 'smartroads-bg');
     window.scrollTo(0, 0);
-    return () => document.body.classList.remove('no-crt');
+    return () => document.body.classList.remove('no-crt', 'smartroads-bg');
   }, []);
 
   return (
     <div className="min-h-screen bg-[#0d0d0d] text-white smartroads-page">
-      {/* Fixed dot grid background */}
-      <div className="smartroads-dot-bg" />
-      
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-transparent">
         <div className="max-w-7xl mx-auto px-6 py-4">

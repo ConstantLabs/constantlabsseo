@@ -600,23 +600,12 @@ body.no-crt .chromatic-page::after {
   font-family: inherit;
 }
 
-/* Fixed dot grid background overlay */
-.smartroads-dot-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+/* Fixed dot background - applied to body */
+body.smartroads-bg {
+  background-color: #0d0d0d;
   background-image: radial-gradient(circle, rgba(92, 255, 61, 0.08) 1px, transparent 1px);
   background-size: 24px 24px;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.smartroads-page main,
-.smartroads-page footer {
-  position: relative;
-  z-index: 1;
+  background-attachment: fixed;
 }
 
 .sr-card {
