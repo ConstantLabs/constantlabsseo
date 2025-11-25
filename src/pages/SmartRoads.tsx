@@ -7,8 +7,8 @@ import { SmartRoadsArchitecture } from "@/components/SmartRoadsArchitecture";
 const stats = [
   { value: "2cm", label: "Positioning Accuracy" },
   { value: "5-10%", label: "Adoption Needed" },
+  { value: "35%", label: "More Highway Throughput" },
   { value: "40%", label: "Fuel Savings" },
-  { value: "<100ms", label: "Response Time" },
 ];
 
 const researchQuotes = [
