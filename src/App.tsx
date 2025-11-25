@@ -11,6 +11,7 @@ import SmartRoadsFHWA from "./pages/SmartRoadsFHWA";
 import SmartRoadsFlowPaper from "./pages/SmartRoadsFlowPaper";
 import SmartRoadsStabilizingPaper from "./pages/SmartRoadsStabilizingPaper";
 import SmartRoadsSuppressingPaper from "./pages/SmartRoadsSuppressingPaper";
+import SmartRoadsVirginiaTech from "./pages/SmartRoadsVirginiaTech";
 import NotFound from "./pages/NotFound";
 
 const App = () => (
@@ -28,6 +29,7 @@ const App = () => (
       <Route path="/smartroads/flow-paper" element={<SmartRoadsFlowPaper />} />
       <Route path="/smartroads/stabilizing-paper" element={<SmartRoadsStabilizingPaper />} />
       <Route path="/smartroads/suppressing-paper" element={<SmartRoadsSuppressingPaper />} />
+      <Route path="/smartroads/virginia-tech" element={<SmartRoadsVirginiaTech />} />
       {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
       <Route path="*" element={<NotFound />} />
     </Routes>
