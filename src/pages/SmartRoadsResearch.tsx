@@ -1,0 +1,247 @@
+import { useEffect } from "react";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { ExternalLink, ArrowRight, GraduationCap, Quote } from "lucide-react";
+
+const keyFindings = [
+  { stat: "5-10%", title: "Vehicle Adoption Threshold", description: "Controlling just 5-10% of vehicles can eliminate stop-and-go waves.", source: "MIT, UC Berkeley Studies" },
+  { stat: "40%", title: "Fuel Reduction", description: "A single AI-guided vehicle smoothed flow and reduced fuel consumption by 40%.", source: "Vanderbilt Field Test" },
+  { stat: "20-40%", title: "Throughput Improvement", description: "Highway throughput improvements through coordinated vehicle control.", source: "Multiple Studies" },
+];
+
+const keyPapers = [
+  { title: "Dissipation of stop-and-go waves via control of autonomous vehicles", authors: "Stern, R.E., Cui, S., et al.", journal: "Transportation Research Part C", year: "2018", link: "https://doi.org/10.1016/j.trc.2018.02.005", finding: "A single AV can dampen stop-and-go waves in experiments with 20+ drivers." },
+  { title: "Flow: A Modular Learning Framework for Mixed Autonomy Traffic", authors: "Wu, C., Kreidieh, A.R., et al.", journal: "IEEE Transactions on Robotics", year: "2021", link: "https://doi.org/10.1109/TRO.2021.3087314", finding: "Deep RL can optimize traffic with 5-10% penetration rate." },
+  { title: "Suppressing traffic flow instabilities", authors: "Horn, B.K.P.", journal: "IEEE ITSC", year: "2013", link: "https://doi.org/10.1109/ITSC.2013.6728296", finding: "Bilateral control algorithms eliminate phantom jams." },
+  { title: "Stabilizing Traffic Flow via a Single Autonomous Vehicle", authors: "Cui, S., Seibold, B., et al.", journal: "Transportation Research Part B", year: "2017", link: "https://doi.org/10.1016/j.trb.2017.07.004", finding: "Single AV can stabilize traffic with arbitrarily many human drivers." },
+];
+
+const quotes = [
+  { text: "Our experiments show that a single autonomous vehicle can eliminate stop-and-go waves caused by human drivers.", author: "Dr. Daniel Work", affiliation: "Vanderbilt University", link: "https://doi.org/10.1016/j.trc.2018.02.005" },
+  { text: "5% penetration rate of coordinated vehicles produced measurable improvements for 100% of road users.", author: "Northwestern University", affiliation: "Traffic Lab", link: "https://doi.org/10.1016/j.trb.2020.06.001" },
+  { text: "Connected vehicles represent the most significant opportunity to improve road safety since the seatbelt.", author: "Virginia Tech", affiliation: "Transportation Institute", link: "https://doi.org/10.1177/0361198120912756" },
+];
+
+const economicData = [
+  { metric: "Annual Congestion Cost (Dubai)", value: "AED 3.5B" },
+  { metric: "Annual Road Fatalities (UAE)", value: "1,200+" },
+  { metric: "Fuel Wasted in Congestion", value: "15-20%" },
+  { metric: "Productivity Hours Lost", value: "Millions" },
+];
+
+const SmartRoadsResearch = () => {
+  useEffect(() => {
+    document.body.classList.add('no-crt');
+    window.scrollTo(0, 0);
+    return () => document.body.classList.remove('no-crt');
+  }, []);
+
+  return (
+    <div className="min-h-screen bg-[#0d0d0d] text-white smartroads-page">
+      {/* Navigation */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-transparent">
+        <div className="max-w-7xl mx-auto px-6 py-4">
+          <div className="flex items-center justify-between">
+            <Link to="/smartroads" className="flex items-center gap-2">
+              <img src="/smartroads/logo.png" alt="SmartRoads" className="w-9 h-9" />
+              <span className="font-semibold text-white text-lg">SmartRoads</span>
+            </Link>
+            <div className="hidden md:flex items-center gap-8">
+              <Link to="/smartroads/technology" className="text-[#BEBEBE] hover:text-white transition-colors text-sm">Technology</Link>
+              <Link to="/smartroads/capabilities" className="text-[#BEBEBE] hover:text-white transition-colors text-sm">Capabilities</Link>
+              <Link to="/smartroads/research" className="text-white text-sm">Research</Link>
+              <Link to="/smartroads/implementation" className="sr-btn-primary">View Plan</Link>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <main className="pt-28">
+        {/* Hero */}
+        <section className="py-16 px-6">
+          <div className="max-w-7xl mx-auto">
+            <div className="max-w-3xl">
+              <h1 className="sr-heading-xl text-white mb-6">
+                Research-Backed <span className="text-[#5CFF3D]">Innovation</span>
+              </h1>
+              <p className="text-[#BEBEBE] text-lg leading-relaxed">
+                This proposal is built on decades of research from leading institutions. 
+                The science is proven. The technology exists. The results are validated.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Key Findings */}
+        <section className="py-16 px-6">
+          <div className="max-w-7xl mx-auto">
+            <h2 className="sr-heading-lg text-white mb-12">Key Findings</h2>
+            <div className="grid md:grid-cols-3 gap-6">
+              {keyFindings.map((finding, index) => (
+                <motion.div
+                  key={finding.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="sr-card p-6"
+                >
+                  <div className="text-4xl font-bold text-[#5CFF3D] mb-4">{finding.stat}</div>
+                  <h3 className="text-lg font-semibold text-white mb-3">{finding.title}</h3>
+                  <p className="text-[#BEBEBE] text-sm mb-4">{finding.description}</p>
+                  <div className="flex items-center gap-2 text-xs text-[#5CFF3D]">
+                    <GraduationCap className="w-4 h-4" />
+                    {finding.source}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Key Papers */}
+        <section className="py-16 px-6">
+          <div className="max-w-7xl mx-auto">
+            <h2 className="sr-heading-lg text-white mb-12">Foundational Papers</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              {keyPapers.map((paper, index) => (
+                <motion.a
+                  key={paper.title}
+                  href={paper.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="sr-card p-6 hover:bg-[#1c1c1c] transition-colors group block"
+                >
+                  <div className="flex items-start justify-between gap-4 mb-3">
+                    <h3 className="font-semibold text-white group-hover:text-[#5CFF3D] transition-colors">{paper.title}</h3>
+                    <ExternalLink className="w-4 h-4 text-[#6b6b6b] group-hover:text-[#5CFF3D] transition-colors flex-shrink-0" />
+                  </div>
+                  <p className="text-sm text-[#6b6b6b] mb-2">{paper.authors}</p>
+                  <p className="text-sm text-[#5CFF3D]/70 mb-4">{paper.journal}, {paper.year}</p>
+                  <div className="p-3 rounded-lg bg-[#0d0d0d]">
+                    <p className="text-sm text-[#BEBEBE]"><span className="text-[#5CFF3D]">Key Finding:</span> {paper.finding}</p>
+                  </div>
+                </motion.a>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Featured Quote */}
+        <section className="py-20 px-6">
+          <div className="max-w-5xl mx-auto">
+            <div className="bg-[#5CFF3D] rounded-[1.25rem] p-10 md:p-14">
+              <Quote className="w-12 h-12 text-black/30 mb-6" />
+              <p className="text-2xl md:text-3xl text-black font-medium mb-8 leading-relaxed">
+                "Our experiments show that a single autonomous vehicle can eliminate stop-and-go 
+                waves caused by human drivers, with profound implications for fuel economy and traffic flow."
+              </p>
+              <div className="flex items-center gap-4">
+                <div className="w-14 h-14 rounded-full flex items-center justify-center text-xl font-bold bg-black/20 text-black">DW</div>
+                <div>
+                  <div className="text-lg font-semibold text-black">Dr. Daniel Work</div>
+                  <div className="text-black/70">Vanderbilt University</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* More Quotes */}
+        <section className="py-16 px-6">
+          <div className="max-w-7xl mx-auto">
+            <h2 className="sr-heading-lg text-white mb-12">Expert Insights</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              {quotes.slice(1).map((quote, index) => (
+                <motion.a
+                  key={index}
+                  href={quote.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="sr-card p-6 hover:bg-[#1c1c1c] transition-colors group block"
+                >
+                  <Quote className="w-6 h-6 text-[#5CFF3D]/40 mb-4" />
+                  <p className="text-[#BEBEBE] mb-6 leading-relaxed">"{quote.text}"</p>
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <div className="font-medium text-white">{quote.author}</div>
+                      <div className="text-xs text-[#6b6b6b]">{quote.affiliation}</div>
+                    </div>
+                    <ExternalLink className="w-4 h-4 text-[#6b6b6b] group-hover:text-[#5CFF3D] transition-colors" />
+                  </div>
+                </motion.a>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Economic Impact */}
+        <section className="py-16 px-6">
+          <div className="max-w-7xl mx-auto">
+            <h2 className="sr-heading-lg text-white mb-12">Economic Imperative</h2>
+            <div className="grid md:grid-cols-4 gap-4">
+              {economicData.map((item, index) => (
+                <motion.div
+                  key={item.metric}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="sr-card p-6 text-center"
+                >
+                  <div className="text-2xl font-bold text-[#5CFF3D] mb-2">{item.value}</div>
+                  <div className="text-sm text-[#6b6b6b]">{item.metric}</div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* CTA */}
+        <section className="py-20 px-6">
+          <div className="max-w-4xl mx-auto">
+            <div className="sr-hero-card p-12 text-center">
+              <h2 className="sr-heading-lg text-white mb-6">Ready to See the Implementation?</h2>
+              <p className="text-[#BEBEBE] mb-8">A straightforward deployment leveraging proven government models.</p>
+              <Link to="/smartroads/implementation" className="sr-btn-primary">
+                View Implementation Plan
+                <ArrowRight className="w-5 h-5" />
+              </Link>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      {/* Footer */}
+      <footer className="py-10 px-6 bg-[#0a0a0a]">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col items-center gap-6 text-center">
+            <div className="flex items-center gap-2">
+              <img src="/smartroads/logo.png" alt="SmartRoads" className="w-9 h-9" />
+              <span className="font-semibold text-white">SmartRoads</span>
+            </div>
+            <div className="text-xs text-[#6b6b6b] max-w-2xl leading-relaxed">
+              © 2025 SmartRoads. All rights reserved. This proposal, including all concepts, 
+              methodologies, technical specifications, and intellectual property contained herein, 
+              is confidential and proprietary. Unauthorized reproduction, distribution, or use 
+              of this material without express written consent is strictly prohibited.
+            </div>
+            <div className="text-xs text-[#4a4a4a]">
+              Protected under UAE Federal Law No. 38 of 2021 on Copyrights and Related Rights
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+};
+
+export default SmartRoadsResearch;

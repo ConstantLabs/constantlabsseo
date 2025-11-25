@@ -569,3 +569,126 @@ All colors MUST be HSL.
     opacity: 0.5;
   }
 }
+
+/* Disable CRT effects */
+body.no-crt::before,
+body.no-crt::after {
+  display: none !important;
+}
+
+body.no-crt #root {
+  animation: none !important;
+  filter: none !important;
+}
+
+body.no-crt .chromatic-page::before,
+body.no-crt .chromatic-page::after {
+  display: none !important;
+}
+
+/* SmartRoads Page Styles */
+
+/* SmartRoads uses Geist font */
+.smartroads-page {
+  font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+}
+
+.smartroads-page::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(circle, rgba(92, 255, 61, 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.smartroads-page > * {
+  position: relative;
+  z-index: 1;
+}
+
+.smartroads-page * {
+  font-family: inherit;
+}
+
+.sr-card {
+  background: #161616;
+  border-radius: 1.25rem;
+}
+
+.sr-hero-card {
+  background: #161616;
+  border-radius: 1.5rem;
+}
+
+.sr-btn-primary {
+  background: #5CFF3D;
+  color: #000000;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: opacity 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sr-btn-primary:hover {
+  opacity: 0.9;
+}
+
+.sr-btn-secondary {
+  background: transparent;
+  color: #ffffff;
+  padding: 0.75rem 1.5rem;
+  font-weight: 500;
+  font-size: 0.875rem;
+  transition: color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sr-btn-secondary:hover {
+  color: #5CFF3D;
+}
+
+.sr-img-box {
+  border-radius: 1rem;
+  overflow: hidden;
+  background: #1a1a1a;
+}
+
+.sr-heading-xl {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+@media (min-width: 768px) {
+  .sr-heading-xl {
+    font-size: 3.5rem;
+  }
+}
+
+.sr-heading-lg {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+  .sr-heading-lg {
+    font-size: 2.5rem;
+  }
+}

@@ -5,17 +5,53 @@ export const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
   const [currentLine, setCurrentLine] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
+  const [fontsLoaded, setFontsLoaded] = useState(false);
+  const [sequenceComplete, setSequenceComplete] = useState(false);
+
+  // Explicitly preload all fonts during boot sequence
+  useEffect(() => {
+    const loadFonts = async () => {
+      if (document.fonts) {
+        try {
+          // Force load all the fonts we use
+          await Promise.all([
+            document.fonts.load('400 1em Rajdhani'),
+            document.fonts.load('500 1em Rajdhani'),
+            document.fonts.load('600 1em Rajdhani'),
+            document.fonts.load('700 1em Rajdhani'),
+            document.fonts.load('400 1em "Share Tech Mono"'),
+            document.fonts.load('700 1em Orbitron'),
+            document.fonts.load('900 1em Orbitron'),
+            document.fonts.load('400 1em HACKED'),
+            document.fonts.load('400 1em Audiowide'),
+          ]);
+          // Wait for all fonts to be ready
+          await document.fonts.ready;
+        } catch (e) {
+          console.log('Font loading error:', e);
+        }
+      }
+      setFontsLoaded(true);
+    };
+    loadFonts();
+  }, []);
+
+  // Only complete when both sequence is done AND fonts are loaded
+  useEffect(() => {
+    if (sequenceComplete && fontsLoaded) {
+      setTimeout(onComplete, 300);
+    }
+  }, [sequenceComplete, fontsLoaded, onComplete]);
 
   const bootSequence = [
     "",
     "Booting up...",
     "",
-    " ██████╗ ██████╗ ███╗   ██╗███████╗████████╗ █████╗ ███╗   ██╗████████╗    ██╗      █████╗ ██████╗ ███████╗",
-    "██╔════╝██╔═══██╗████╗  ██║██╔════╝╚══██╔══╝██╔══██╗████╗  ██║╚══██╔══╝    ██║     ██╔══██╗██╔══██╗██╔════╝",
-    "██║     ██║   ██║██╔██╗ ██║███████╗   ██║   ███████║██╔██╗ ██║   ██║       ██║     ███████║██████╔╝███████╗",
-    "██║     ██║   ██║██║╚██╗██║╚════██║   ██║   ██╔══██║██║╚██╗██║   ██║       ██║     ██╔══██║██╔══██╗╚════██║",
-    "╚██████╗╚██████╔╝██║ ╚████║███████║   ██║   ██║  ██║██║ ╚████║   ██║       ███████╗██║  ██║██████╔╝███████║",
-    " ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝       ╚══════╝╚═╝  ╚═╝╚═════╝ ╚══════╝",
+    "   ______                 __              __     __          __          ",
+    "  / ____/___  ____  _____/ /_____ _____  / /_   / /   ____ _/ /_  _____  ",
+    " / /   / __ \\/ __ \\/ ___/ __/ __ `/ __ \\/ __/  / /   / __ `/ __ \\/ ___/  ",
+    "/ /___/ /_/ / / / (__  ) /_/ /_/ / / / / /_   / /___/ /_/ / /_/ (__  )   ",
+    "\\____/\\____/_/ /_/____/\\__/\\__,_/_/ /_/\\__/  /_____/\\__,_/_.___/____/    ",
     "",
     "[BIOS] Initializing hardware components...",
     "",
@@ -41,7 +77,7 @@ export const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
 
   useEffect(() => {
     if (currentIndex >= bootSequence.length) {
-      setTimeout(onComplete, 500);
+      setSequenceComplete(true);
       return;
     }
 
@@ -70,7 +106,7 @@ export const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
       setCharIndex(0);
       setCurrentIndex((prev) => prev + 1);
     }
-  }, [currentIndex, charIndex, onComplete]);
+  }, [currentIndex, charIndex]);
 
   return (
     <div className="fixed inset-0 z-[10000]  flex flex-col items-start justify-start p-8">
@@ -78,11 +114,11 @@ export const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
 
         <div className="font-mono text-sm leading-tight">
           {lines.map((line, index) => {
-            // ASCII art lines are indices 3-8 (no spacing)
+            // ASCII art lines are indices 3-7 (no spacing)
             // Empty lines before/after ASCII also no spacing
-            const isAsciiArt = index >= 3 && index <= 8;
+            const isAsciiArt = index >= 3 && index <= 7;
             const isEmpty = line === "";
-            const prevLineIsAsciiOrEmpty = index > 0 && (lines[index - 1] === "" || (index > 3 && index <= 9));
+            const prevLineIsAsciiOrEmpty = index > 0 && (lines[index - 1] === "" || (index > 3 && index <= 8));
             
             // Only add spacing if it's not ASCII art, not empty, and previous line wasn't ASCII/empty
             const needsSpacing = !isAsciiArt && !isEmpty && index > 0 && !prevLineIsAsciiOrEmpty;
@@ -100,6 +136,12 @@ export const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
           {currentLine && (
             <div className="text-green-500 chromatic-aberration mt-1">
               {currentLine}
+              <span className="inline-block w-2 h-5 bg-green-500 animate-pulse ml-1" />
+            </div>
+          )}
+          {sequenceComplete && !fontsLoaded && (
+            <div className="text-green-500 chromatic-aberration mt-2">
+              [SYS] Loading display fonts...
               <span className="inline-block w-2 h-5 bg-green-500 animate-pulse ml-1" />
             </div>
           )}
