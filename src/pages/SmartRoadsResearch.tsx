@@ -19,7 +19,7 @@ const keyPapers = [
 const quotes = [
   { text: "Our experiments show that a single autonomous vehicle can eliminate stop-and-go waves caused by human drivers.", author: "Dr. Daniel Work", affiliation: "Vanderbilt University", link: "https://doi.org/10.1016/j.trc.2018.02.005" },
   { text: "5% penetration rate of coordinated vehicles produced measurable improvements for 100% of road users.", author: "Northwestern University", affiliation: "Traffic Lab", link: "https://doi.org/10.1016/j.trb.2020.06.001" },
-  { text: "Connected vehicles represent the most significant opportunity to improve road safety since the seatbelt.", author: "Virginia Tech", affiliation: "Transportation Institute", link: "/smartroads/virginia-tech" },
+  { text: "Hard braking and acceleration data from connected vehicles significantly improves crash prediction accuracy.", author: "Safe-D Research", affiliation: "Texas A&M Transportation Institute", link: "/smartroads/virginia-tech" },
 ];
 
 const economicData = [

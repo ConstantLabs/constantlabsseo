@@ -25,9 +25,9 @@ const researchQuotes = [
     link: "/smartroads/flow-paper",
   },
   {
-    text: "Connected vehicles represent the most significant opportunity to improve road safety since the invention of the seatbelt.",
-    author: "Virginia Tech",
-    affiliation: "Transportation Institute",
+    text: "Hard braking and acceleration data from connected vehicles significantly improves crash prediction accuracy across all 25 Texas districts tested.",
+    author: "Safe-D Research",
+    affiliation: "Texas A&M Transportation Institute",
     link: "/smartroads/virginia-tech",
   },
 ];

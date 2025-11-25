@@ -71,39 +71,29 @@ const SmartRoadsVirginiaTech = () => {
       <section className="pt-24 md:pt-32 pb-8 px-4 md:px-8">
         <div className="max-w-4xl mx-auto">
           <div className="mb-4">
-            <span className="text-[#5CFF3D] text-sm font-medium uppercase tracking-wider">Research Institution</span>
+            <span className="text-[#5CFF3D] text-sm font-medium uppercase tracking-wider">Research Report • Safe-D</span>
           </div>
           <h1 className="text-2xl md:text-4xl font-bold mb-4 leading-tight">
-            Virginia Tech Transportation Institute
+            Connected Vehicle Data Safety Applications
           </h1>
           <p className="text-[#888] mb-6">
-            One of the world's leading transportation research centers
+            Martin, M., Wu, L., Ramezani, M., Li, X., Turner, S., Stutes, S., Hasan, F., Potter, M.
           </p>
+          <div className="flex flex-wrap gap-4 text-sm text-[#666]">
+            <span>Texas A&M Transportation Institute</span>
+            <span>•</span>
+            <span>September 2023</span>
+          </div>
         </div>
       </section>
 
-      {/* Key Quote */}
+      {/* Summary */}
       <section className="pb-8 px-4 md:px-8">
         <div className="max-w-4xl mx-auto">
           <div className="bg-[#5CFF3D]/10 border border-[#5CFF3D]/30 rounded-xl p-6 md:p-8">
-            <p className="text-xl md:text-2xl text-white font-medium leading-relaxed italic">
-              "Connected vehicles represent the most significant opportunity to improve road safety since the invention of the seatbelt."
-            </p>
-            <p className="text-[#5CFF3D] mt-4">— Virginia Tech Transportation Institute</p>
-          </div>
-        </div>
-      </section>
-
-      {/* About VTTI */}
-      <section className="pb-8 px-4 md:px-8">
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-white/5 border border-white/10 rounded-xl p-6 md:p-8">
-            <h2 className="text-xl font-bold text-white mb-4">About VTTI</h2>
-            <p className="text-[#ccc] leading-relaxed mb-4">
-              The Virginia Tech Transportation Institute (VTTI) is one of the largest and most comprehensive transportation research institutes in the world. Located in Blacksburg, Virginia, VTTI conducts research in all modes of transportation - from cars and trucks to trains and planes.
-            </p>
+            <h2 className="text-xl font-bold text-white mb-4">Summary</h2>
             <p className="text-[#ccc] leading-relaxed">
-              Their connected vehicle research focuses on using data from vehicles to improve safety, reduce congestion, and make transportation more efficient. They've conducted extensive real-world studies showing how connected vehicle technology can prevent crashes and save lives.
+              This Safe-D research project evaluated the viability of connected vehicle (CV) data in roadway safety applications. The team analyzed massive volumes of driving behavior data from vehicles across Texas to improve crash prediction methods. The key finding: adding hard braking and acceleration data from connected vehicles significantly improves the accuracy of crash prediction models.
             </p>
           </div>
         </div>
@@ -112,48 +102,48 @@ const SmartRoadsVirginiaTech = () => {
       {/* Key Stats */}
       <section className="pb-8 px-4 md:px-8">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-xl font-bold text-white mb-6">Connected Vehicle Safety Benefits</h2>
+          <h2 className="text-xl font-bold text-white mb-6">Key Findings</h2>
           <div className="grid md:grid-cols-3 gap-4">
             <div className="sr-card p-6 text-center">
-              <div className="text-[#5CFF3D] text-3xl font-bold mb-2">80%</div>
-              <div className="text-white font-medium mb-2">Crash Reduction</div>
-              <p className="text-[#888] text-sm">Potential to prevent up to 80% of non-impaired crashes.</p>
+              <div className="text-[#5CFF3D] text-3xl font-bold mb-2">25/25</div>
+              <div className="text-white font-medium mb-2">Districts Improved</div>
+              <p className="text-[#888] text-sm">All 25 Texas districts showed improved crash prediction with CV data.</p>
             </div>
             <div className="sr-card p-6 text-center">
-              <div className="text-[#5CFF3D] text-3xl font-bold mb-2">V2V</div>
-              <div className="text-white font-medium mb-2">Vehicle-to-Vehicle</div>
-              <p className="text-[#888] text-sm">Direct communication between vehicles for collision avoidance.</p>
+              <div className="text-[#5CFF3D] text-3xl font-bold mb-2">134%</div>
+              <div className="text-white font-medium mb-2">Crash Correlation</div>
+              <p className="text-[#888] text-sm">Each 100 hard brake events correlates to 134% more crashes.</p>
             </div>
             <div className="sr-card p-6 text-center">
-              <div className="text-[#5CFF3D] text-3xl font-bold mb-2">V2I</div>
-              <div className="text-white font-medium mb-2">Vehicle-to-Infrastructure</div>
-              <p className="text-[#888] text-sm">Communication with traffic signals and road infrastructure.</p>
+              <div className="text-[#5CFF3D] text-3xl font-bold mb-2">60%</div>
+              <div className="text-white font-medium mb-2">ML Accuracy</div>
+              <p className="text-[#888] text-sm">Machine learning model explained 60% of crash variance.</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Key Research Areas */}
+      {/* Key Takeaways */}
       <section className="pb-8 px-4 md:px-8">
         <div className="max-w-4xl mx-auto">
           <div className="bg-white/5 border border-white/10 rounded-xl p-6 md:p-8">
-            <h2 className="text-xl font-bold text-white mb-6">Key Research Areas</h2>
+            <h2 className="text-xl font-bold text-white mb-6">Key Takeaways</h2>
             <div className="space-y-4">
               <div className="flex items-start gap-3">
                 <div className="w-2 h-2 rounded-full bg-[#5CFF3D] mt-2 flex-shrink-0"></div>
-                <p className="text-[#ccc]"><strong className="text-white">Crash prediction:</strong> Using connected vehicle data to predict and prevent crashes before they happen.</p>
+                <p className="text-[#ccc]"><strong className="text-white">CV data improves crash prediction:</strong> Hard braking and acceleration counts significantly improve Safety Performance Functions (SPFs) for both rural segments and urban intersections.</p>
               </div>
               <div className="flex items-start gap-3">
                 <div className="w-2 h-2 rounded-full bg-[#5CFF3D] mt-2 flex-shrink-0"></div>
-                <p className="text-[#ccc]"><strong className="text-white">Traffic flow optimization:</strong> Leveraging real-time data to improve traffic efficiency.</p>
+                <p className="text-[#ccc]"><strong className="text-white">Massive data scale:</strong> The study analyzed 49-59 billion vehicle movements and 400-500 million driver events across Texas.</p>
               </div>
               <div className="flex items-start gap-3">
                 <div className="w-2 h-2 rounded-full bg-[#5CFF3D] mt-2 flex-shrink-0"></div>
-                <p className="text-[#ccc]"><strong className="text-white">Driver behavior analysis:</strong> Understanding how drivers interact with connected vehicle systems.</p>
+                <p className="text-[#ccc]"><strong className="text-white">Hard braking = crash risk:</strong> All 25 Texas districts showed positive, statistically significant correlation between hard brake counts and crashes.</p>
               </div>
               <div className="flex items-start gap-3">
                 <div className="w-2 h-2 rounded-full bg-[#5CFF3D] mt-2 flex-shrink-0"></div>
-                <p className="text-[#ccc]"><strong className="text-white">Automated vehicles:</strong> Research on the transition to autonomous driving.</p>
+                <p className="text-[#ccc]"><strong className="text-white">Speed data available:</strong> Various speed measures (mean, median, percentiles) can be derived from CV data across entire road networks.</p>
               </div>
             </div>
           </div>
@@ -166,7 +156,7 @@ const SmartRoadsVirginiaTech = () => {
           <div className="bg-[#5CFF3D] rounded-xl p-6 md:p-8">
             <h2 className="text-xl font-bold text-black mb-4">Why This Matters for SmartRoads</h2>
             <p className="text-black/80 leading-relaxed">
-              VTTI's research validates our core premise: connected vehicles are transformative for road safety. SmartRoads takes this further by adding RTK precision positioning, enabling not just communication but precise coordination. When VTTI says connected vehicles are the biggest safety opportunity since seatbelts, they're talking about exactly what we're building.
+              This research proves that connected vehicle data directly improves crash prediction. SmartRoads generates exactly this type of data - hard braking events, acceleration patterns, speed metrics - but with centimeter-level RTK precision. If CV data from consumer vehicles improves safety models, imagine what purpose-built coordination systems can achieve.
             </p>
           </div>
         </div>
