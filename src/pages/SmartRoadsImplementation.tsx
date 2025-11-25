@@ -104,7 +104,7 @@ const SmartRoadsImplementation = () => {
           <div className="max-w-7xl mx-auto">
             <div className="sr-hero-card p-4 md:p-8 relative overflow-hidden">
               <div className="sr-img-box aspect-[16/9] md:aspect-[21/9] relative">
-                <img src="/smartroads/rta_hero_background.jpg" alt="UAE Infrastructure" className="w-full h-full object-cover" />
+                <img src="/smartroads/front car.png" alt="UAE Infrastructure" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 flex items-center justify-center bg-black/60 p-4">
                   <div className="grid grid-cols-3 gap-2 md:gap-8 text-center w-full">
                     <div>

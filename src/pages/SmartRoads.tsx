@@ -122,15 +122,15 @@ const SmartRoads = () => {
         <section className="py-6 md:py-12 px-4 md:px-6">
           <div className="max-w-7xl mx-auto">
             <div 
-              className="sr-hero-card p-6 md:p-14 relative overflow-hidden"
+              className="sr-hero-card p-8 md:p-16 relative overflow-hidden min-h-[500px] md:min-h-[650px] flex items-center"
               style={{
-                backgroundImage: "linear-gradient(to right, rgba(13,13,13,0.95) 0%, rgba(13,13,13,0.8) 50%, rgba(13,13,13,0.4) 100%), url('/smartroads/front car.png')",
+                backgroundImage: "linear-gradient(to right, rgba(13,13,13,0.95) 0%, rgba(13,13,13,0.7) 50%, rgba(13,13,13,0.3) 100%), url('/smartroads/front car.png')",
                 backgroundSize: "cover",
-                backgroundPosition: "right center"
+                backgroundPosition: "center center"
               }}
             >
-              <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
-                <div>
+              <div>
+                <div className="max-w-xl">
                   <h1 className="sr-heading-xl text-white mb-6">
                     End Traffic Jams.
                     <br /><span className="text-[#5CFF3D]">Forever.</span>
@@ -147,13 +147,6 @@ const SmartRoads = () => {
                       Research
                     </Link>
                   </div>
-                </div>
-                <div className="sr-img-box aspect-square relative">
-                  <img
-                    src="/smartroads/rta_hero_background.jpg"
-                    alt="UAE Smart Traffic"
-                    className="w-full h-full object-cover"
-                  />
                 </div>
               </div>
             </div>
