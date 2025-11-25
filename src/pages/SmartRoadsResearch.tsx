@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight, GraduationCap, Quote, Menu, X } from "lucide-react";
+import { ArrowRight, GraduationCap, Menu, X } from "lucide-react";
 
 const keyFindings = [
   { stat: "<5%", title: "Vehicle Adoption Threshold", description: "Controlling just 5% of vehicles can eliminate stop-and-go waves.", source: "MIT, UC Berkeley Studies", url: "/smartroads/research-paper", quote: "...controlling the speed of just one autonomous vehicle can significantly dampen stop-and-go waves..." },
@@ -14,6 +14,8 @@ const keyPapers = [
   { title: "Flow: A Modular Learning Framework for Mixed Autonomy Traffic", authors: "Wu, C., Kreidieh, A.R., et al.", journal: "IEEE Transactions on Robotics", year: "2021", link: "/smartroads/flow-paper", finding: "Deep RL can optimize traffic with 5-10% penetration rate." },
   { title: "Suppressing traffic flow instabilities", authors: "Horn, B.K.P.", journal: "IEEE ITSC", year: "2013", link: "/smartroads/suppressing-paper", finding: "Bilateral control algorithms eliminate phantom jams." },
   { title: "Stabilizing Traffic Flow via a Single Autonomous Vehicle", authors: "Cui, S., Seibold, B., et al.", journal: "Transportation Research Part B", year: "2017", link: "/smartroads/stabilizing-paper", finding: "Single AV can stabilize traffic with arbitrarily many human drivers." },
+  { title: "Freeway Operations and Intelligent Transportation Systems", authors: "Federal Highway Administration", journal: "FHWA Report to Congress", year: "2018", link: "/smartroads/fhwa-report", finding: "Real-world deployments in Germany achieved 25% capacity increase." },
+  { title: "The Circles Experiment: Reducing Traffic Waves", authors: "UC Berkeley, Vanderbilt, Temple", journal: "Multi-University Field Study", year: "2022", link: "/smartroads/circles", finding: "100-car I-24 experiment validated AV wave dampening at highway scale." },
 ];
 
 const economicData = [
@@ -153,26 +155,6 @@ const SmartRoadsResearch = () => {
                   </Link>
                 </motion.div>
               ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Featured Quote */}
-        <section className="py-20 px-6">
-          <div className="max-w-5xl mx-auto">
-            <div className="bg-[#5CFF3D] rounded-[1.25rem] p-10 md:p-14">
-              <Quote className="w-12 h-12 text-black/30 mb-6" />
-              <p className="text-2xl md:text-3xl text-black font-medium mb-8 leading-relaxed">
-                "Our experiments show that a single autonomous vehicle can eliminate stop-and-go 
-                waves caused by human drivers, with profound implications for fuel economy and traffic flow."
-              </p>
-              <div className="flex items-center gap-4">
-                <div className="w-14 h-14 rounded-full flex items-center justify-center text-xl font-bold bg-black/20 text-black">DW</div>
-                <div>
-                  <div className="text-lg font-semibold text-black">Dr. Daniel Work</div>
-                  <div className="text-black/70">Vanderbilt University</div>
-                </div>
-              </div>
             </div>
           </div>
         </section>
