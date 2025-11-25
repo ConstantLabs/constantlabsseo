@@ -197,15 +197,13 @@ const SmartRoads = () => {
               <div className="sr-card p-6 md:p-8">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-12 h-12 rounded-full bg-[#5CFF3D]/10 flex items-center justify-center">
-                    {/* USB Icon */}
+                    {/* USB Plug Icon */}
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5CFF3D" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                      <circle cx="10" cy="7" r="1" />
-                      <circle cx="4" cy="20" r="1" />
-                      <path d="M4.5 19.5 10 13V7" />
-                      <polyline points="12 7 12 3 20 3 20 7" />
-                      <line x1="12" y1="22" x2="12" y2="13" />
-                      <path d="m17 13-5 5" />
-                      <circle cx="17" cy="13" r="2" />
+                      <rect x="7" y="2" width="10" height="8" rx="1" />
+                      <rect x="9" y="10" width="6" height="4" />
+                      <line x1="10" y1="5" x2="10" y2="7" />
+                      <line x1="14" y1="5" x2="14" y2="7" />
+                      <line x1="12" y1="14" x2="12" y2="22" />
                     </svg>
                   </div>
                   <h3 className="text-xl font-semibold text-white">App Integration</h3>
