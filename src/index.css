@@ -669,7 +669,7 @@ body.no-crt .chromatic-page::after {
 }
 
 .sr-heading-xl {
-  font-size: 2.5rem;
+  font-size: 1.75rem;
   font-weight: 800;
   line-height: 1.1;
   letter-spacing: -0.02em;
@@ -682,7 +682,7 @@ body.no-crt .chromatic-page::after {
 }
 
 .sr-heading-lg {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 700;
   line-height: 1.2;
 }
