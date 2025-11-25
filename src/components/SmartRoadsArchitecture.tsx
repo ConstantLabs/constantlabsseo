@@ -79,7 +79,9 @@ export function SmartRoadsArchitecture() {
             containerRef={containerRef}
             fromRef={aiCloudRef}
             toRef={rtkTowerRef}
-            curvature={isDesktop ? -30 : -40}
+            curvature={isDesktop ? -30 : 0}
+            startXOffset={isDesktop ? 0 : -20}
+            endXOffset={isDesktop ? 0 : -20}
             pathColor="#5CFF3D"
             pathOpacity={0.15}
             gradientStartColor="#5CFF3D"
@@ -90,7 +92,9 @@ export function SmartRoadsArchitecture() {
             containerRef={containerRef}
             fromRef={rtkTowerRef}
             toRef={aiCloudRef}
-            curvature={isDesktop ? 30 : 40}
+            curvature={isDesktop ? 30 : 0}
+            startXOffset={isDesktop ? 0 : 20}
+            endXOffset={isDesktop ? 0 : 20}
             reverse
             pathColor="#5CFF3D"
             pathOpacity={0.15}
@@ -105,7 +109,9 @@ export function SmartRoadsArchitecture() {
             containerRef={containerRef}
             fromRef={rtkTowerRef}
             toRef={smartroadsUnitRef}
-            curvature={isDesktop ? -30 : -40}
+            curvature={isDesktop ? -30 : 0}
+            startXOffset={isDesktop ? 0 : -20}
+            endXOffset={isDesktop ? 0 : -20}
             pathColor="#5CFF3D"
             pathOpacity={0.15}
             gradientStartColor="#5CFF3D"
@@ -116,7 +122,9 @@ export function SmartRoadsArchitecture() {
             containerRef={containerRef}
             fromRef={smartroadsUnitRef}
             toRef={rtkTowerRef}
-            curvature={isDesktop ? 30 : 40}
+            curvature={isDesktop ? 30 : 0}
+            startXOffset={isDesktop ? 0 : 20}
+            endXOffset={isDesktop ? 0 : 20}
             reverse
             pathColor="#5CFF3D"
             pathOpacity={0.15}
