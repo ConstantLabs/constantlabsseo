@@ -2,20 +2,18 @@ import { useRef, useState, useEffect } from "react";
 import { AnimatedBeam } from "@/components/ui/animated-beam";
 import { Car, Radio, Brain, Monitor } from "lucide-react";
 
-const Circle = ({ 
-  className, 
-  children, 
-  label,
-  sublabel
-}: { 
+import React from "react";
+
+const Circle = React.forwardRef<HTMLDivElement, { 
   className?: string; 
   children: React.ReactNode;
   label: string;
   sublabel?: string;
-}) => {
+}>(({ className, children, label, sublabel }, ref) => {
   return (
     <div className="flex flex-col items-center gap-2">
       <div
+        ref={ref}
         className={`z-10 flex h-14 w-14 md:h-16 md:w-16 items-center justify-center rounded-full border-2 border-[#5CFF3D]/30 bg-[#161616] shadow-[0_0_20px_rgba(92,255,61,0.15)] ${className}`}
       >
         {children}
@@ -26,7 +24,7 @@ const Circle = ({
       </div>
     </div>
   );
-};
+});
 
 export function SmartRoadsArchitecture() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -62,32 +60,24 @@ export function SmartRoadsArchitecture() {
           {/* Mobile: Vertical | Desktop: Horizontal */}
           <div className="flex flex-col md:flex-row items-center justify-between h-full w-full gap-8 md:gap-6">
             {/* AI Cloud */}
-            <div ref={aiCloudRef}>
-              <Circle label="AI Platform" sublabel="Coordinates all vehicles">
-                <Brain className="h-7 w-7 md:h-8 md:w-8 text-[#5CFF3D]" />
-              </Circle>
-            </div>
+            <Circle ref={aiCloudRef} label="AI Platform" sublabel="Coordinates all vehicles">
+              <Brain className="h-7 w-7 md:h-8 md:w-8 text-[#5CFF3D]" />
+            </Circle>
 
             {/* RTK Tower */}
-            <div ref={rtkTowerRef}>
-              <Circle label="RTK Network" sublabel="200-300 towers">
-                <Radio className="h-7 w-7 md:h-8 md:w-8 text-[#5CFF3D]" />
-              </Circle>
-            </div>
+            <Circle ref={rtkTowerRef} label="RTK Network" sublabel="200-300 towers">
+              <Radio className="h-7 w-7 md:h-8 md:w-8 text-[#5CFF3D]" />
+            </Circle>
 
             {/* Car Device */}
-            <div ref={carDeviceRef}>
-              <Circle label="Car Device" sublabel="~AED 1,000">
-                <Car className="h-7 w-7 md:h-8 md:w-8 text-[#5CFF3D]" />
-              </Circle>
-            </div>
+            <Circle ref={carDeviceRef} label="Car Device" sublabel="~AED 1,000">
+              <Car className="h-7 w-7 md:h-8 md:w-8 text-[#5CFF3D]" />
+            </Circle>
 
             {/* Driver Display */}
-            <div ref={driverDisplayRef}>
-              <Circle label="Driver Display" sublabel="Real-time guidance">
-                <Monitor className="h-7 w-7 md:h-8 md:w-8 text-[#5CFF3D]" />
-              </Circle>
-            </div>
+            <Circle ref={driverDisplayRef} label="Driver Display" sublabel="Real-time guidance">
+              <Monitor className="h-7 w-7 md:h-8 md:w-8 text-[#5CFF3D]" />
+            </Circle>
           </div>
 
           {/* Animated Beams - AI to RTK */}
