@@ -8,6 +8,9 @@ import SmartRoadsImplementation from "./pages/SmartRoadsImplementation";
 import SmartRoadsCircles from "./pages/SmartRoadsCircles";
 import SmartRoadsResearchPaper from "./pages/SmartRoadsResearchPaper";
 import SmartRoadsFHWA from "./pages/SmartRoadsFHWA";
+import SmartRoadsFlowPaper from "./pages/SmartRoadsFlowPaper";
+import SmartRoadsStabilizingPaper from "./pages/SmartRoadsStabilizingPaper";
+import SmartRoadsSuppressingPaper from "./pages/SmartRoadsSuppressingPaper";
 import NotFound from "./pages/NotFound";
 
 const App = () => (
@@ -22,6 +25,9 @@ const App = () => (
       <Route path="/smartroads/circles" element={<SmartRoadsCircles />} />
       <Route path="/smartroads/research-paper" element={<SmartRoadsResearchPaper />} />
       <Route path="/smartroads/fhwa-report" element={<SmartRoadsFHWA />} />
+      <Route path="/smartroads/flow-paper" element={<SmartRoadsFlowPaper />} />
+      <Route path="/smartroads/stabilizing-paper" element={<SmartRoadsStabilizingPaper />} />
+      <Route path="/smartroads/suppressing-paper" element={<SmartRoadsSuppressingPaper />} />
       {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
       <Route path="*" element={<NotFound />} />
     </Routes>

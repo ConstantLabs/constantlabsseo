@@ -10,10 +10,10 @@ const keyFindings = [
 ];
 
 const keyPapers = [
-  { title: "Dissipation of stop-and-go waves via control of autonomous vehicles", authors: "Stern, R.E., Cui, S., et al.", journal: "Transportation Research Part C", year: "2018", link: "/smartroads/dissipation-stop-go-waves.pdf", finding: "A single AV can dampen stop-and-go waves in experiments with 20+ drivers." },
-  { title: "Flow: A Modular Learning Framework for Mixed Autonomy Traffic", authors: "Wu, C., Kreidieh, A.R., et al.", journal: "IEEE Transactions on Robotics", year: "2021", link: "/smartroads/flow-framework.pdf", finding: "Deep RL can optimize traffic with 5-10% penetration rate." },
-  { title: "Suppressing traffic flow instabilities", authors: "Horn, B.K.P.", journal: "IEEE ITSC", year: "2013", link: "https://arxiv.org/pdf/1710.08893", finding: "Bilateral control algorithms eliminate phantom jams." },
-  { title: "Stabilizing Traffic Flow via a Single Autonomous Vehicle", authors: "Cui, S., Seibold, B., et al.", journal: "Transportation Research Part B", year: "2017", link: "/smartroads/stabilizing-traffic-flow.pdf", finding: "Single AV can stabilize traffic with arbitrarily many human drivers." },
+  { title: "Dissipation of stop-and-go waves via control of autonomous vehicles", authors: "Stern, R.E., Cui, S., et al.", journal: "Transportation Research Part C", year: "2018", link: "/smartroads/research-paper", finding: "A single AV can dampen stop-and-go waves in experiments with 20+ drivers." },
+  { title: "Flow: A Modular Learning Framework for Mixed Autonomy Traffic", authors: "Wu, C., Kreidieh, A.R., et al.", journal: "IEEE Transactions on Robotics", year: "2021", link: "/smartroads/flow-paper", finding: "Deep RL can optimize traffic with 5-10% penetration rate." },
+  { title: "Suppressing traffic flow instabilities", authors: "Horn, B.K.P.", journal: "IEEE ITSC", year: "2013", link: "/smartroads/suppressing-paper", finding: "Bilateral control algorithms eliminate phantom jams." },
+  { title: "Stabilizing Traffic Flow via a Single Autonomous Vehicle", authors: "Cui, S., Seibold, B., et al.", journal: "Transportation Research Part B", year: "2017", link: "/smartroads/stabilizing-paper", finding: "Single AV can stabilize traffic with arbitrarily many human drivers." },
 ];
 
 const quotes = [
@@ -136,27 +136,28 @@ const SmartRoadsResearch = () => {
             <h2 className="sr-heading-lg text-white mb-12">Foundational Papers</h2>
             <div className="grid md:grid-cols-2 gap-6">
               {keyPapers.map((paper, index) => (
-                <motion.a
+                <motion.div
                   key={paper.title}
-                  href={paper.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="sr-card p-6 hover:bg-[#1c1c1c] transition-colors group block"
                 >
-                  <div className="flex items-start justify-between gap-4 mb-3">
-                    <h3 className="font-semibold text-white group-hover:text-[#5CFF3D] transition-colors">{paper.title}</h3>
-                    <ExternalLink className="w-4 h-4 text-[#6b6b6b] group-hover:text-[#5CFF3D] transition-colors flex-shrink-0" />
-                  </div>
-                  <p className="text-sm text-[#6b6b6b] mb-2">{paper.authors}</p>
-                  <p className="text-sm text-[#5CFF3D]/70 mb-4">{paper.journal}, {paper.year}</p>
-                  <div className="p-3 rounded-xl bg-[#0d0d0d]">
-                    <p className="text-sm text-[#BEBEBE]"><span className="text-[#5CFF3D]">Key Finding:</span> {paper.finding}</p>
-                  </div>
-                </motion.a>
+                  <Link
+                    to={paper.link}
+                    className="sr-card p-6 hover:bg-[#1c1c1c] transition-colors group block h-full"
+                  >
+                    <div className="flex items-start justify-between gap-4 mb-3">
+                      <h3 className="font-semibold text-white group-hover:text-[#5CFF3D] transition-colors">{paper.title}</h3>
+                      <ArrowRight className="w-4 h-4 text-[#6b6b6b] group-hover:text-[#5CFF3D] transition-colors flex-shrink-0" />
+                    </div>
+                    <p className="text-sm text-[#6b6b6b] mb-2">{paper.authors}</p>
+                    <p className="text-sm text-[#5CFF3D]/70 mb-4">{paper.journal}, {paper.year}</p>
+                    <div className="p-3 rounded-xl bg-[#0d0d0d]">
+                      <p className="text-sm text-[#BEBEBE]"><span className="text-[#5CFF3D]">Key Finding:</span> {paper.finding}</p>
+                    </div>
+                  </Link>
+                </motion.div>
               ))}
             </div>
           </div>

@@ -16,13 +16,13 @@ const researchQuotes = [
     text: "A single autonomous vehicle can eliminate stop-and-go waves caused by human drivers, with profound implications for fuel economy and traffic flow.",
     author: "Dr. Daniel Work",
     affiliation: "Vanderbilt University",
-    link: "https://doi.org/10.1016/j.trc.2018.02.005",
+    link: "/smartroads/research-paper",
   },
   {
     text: "5% penetration rate of coordinated vehicles produced measurable improvements for 100% of road users.",
-    author: "Northwestern University",
-    affiliation: "Traffic Lab",
-    link: "https://doi.org/10.1016/j.trb.2020.06.001",
+    author: "Flow Framework",
+    affiliation: "UC Berkeley",
+    link: "/smartroads/flow-paper",
   },
   {
     text: "Connected vehicles represent the most significant opportunity to improve road safety since the invention of the seatbelt.",
@@ -528,29 +528,49 @@ const SmartRoads = () => {
             </div>
 
             <div className="grid md:grid-cols-3 gap-4 md:gap-6">
-              {researchQuotes.map((quote, index) => (
-                <motion.a
-                  key={index}
-                  href={quote.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="sr-card p-6 hover:bg-[#1c1c1c] transition-colors group block"
-                >
-                  <Quote className="w-6 h-6 text-[#5CFF3D]/40 mb-4" />
-                  <p className="text-[#BEBEBE] mb-6 text-sm leading-relaxed">"{quote.text}"</p>
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <div className="font-medium text-white text-sm">{quote.author}</div>
-                      <div className="text-xs text-[#6b6b6b]">{quote.affiliation}</div>
+              {researchQuotes.map((quote, index) => {
+                const isInternal = quote.link.startsWith('/');
+                const CardContent = (
+                  <>
+                    <Quote className="w-6 h-6 text-[#5CFF3D]/40 mb-4" />
+                    <p className="text-[#BEBEBE] mb-6 text-sm leading-relaxed">"{quote.text}"</p>
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <div className="font-medium text-white text-sm">{quote.author}</div>
+                        <div className="text-xs text-[#6b6b6b]">{quote.affiliation}</div>
+                      </div>
+                      <ArrowRight className="w-4 h-4 text-[#6b6b6b] group-hover:text-[#5CFF3D] transition-colors" />
                     </div>
-                    <ExternalLink className="w-4 h-4 text-[#6b6b6b] group-hover:text-[#5CFF3D] transition-colors" />
-                  </div>
-                </motion.a>
-              ))}
+                  </>
+                );
+                return isInternal ? (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                  >
+                    <Link to={quote.link} className="sr-card p-6 hover:bg-[#1c1c1c] transition-colors group block h-full">
+                      {CardContent}
+                    </Link>
+                  </motion.div>
+                ) : (
+                  <motion.a
+                    key={index}
+                    href={quote.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    className="sr-card p-6 hover:bg-[#1c1c1c] transition-colors group block"
+                  >
+                    {CardContent}
+                  </motion.a>
+                );
+              })}
             </div>
 
             <div className="mt-8 md:mt-14">
