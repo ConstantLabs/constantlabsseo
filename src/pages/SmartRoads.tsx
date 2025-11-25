@@ -6,8 +6,8 @@ import { SmartRoadsArchitecture } from "@/components/SmartRoadsArchitecture";
 
 const stats = [
   { value: "2cm", label: "Positioning Accuracy", quote: "...RTK positioning achieves centimeter-level accuracy in real-time...", url: "https://www.u-blox.com/en/technologies/rtk" },
-  { value: "5-10%", label: "Adoption Needed", quote: "...controlling just 5% of vehicles can eliminate stop-and-go waves caused by human drivers...", url: "https://arxiv.org/abs/1705.01693" },
-  { value: "35%", label: "More Highway Throughput", quote: "...optimizing traffic flow can increase highway throughput by up to 35%...", url: "https://news.berkeley.edu/2022/11/22/massive-traffic-experiment-pits-machine-learning-against-phantom-traffic-jams" },
+  { value: "<5%", label: "Adoption Needed", quote: "...controlling the speed of just one autonomous vehicle can significantly dampen stop-and-go waves...", url: "https://arxiv.org/abs/1705.01693" },
+  { value: "25%", label: "More Highway Capacity", quote: "...temporary increase of up to 25 percent in freeway capacity...", url: "https://ops.fhwa.dot.gov/publications/fhwahop10023/chap4.htm" },
   { value: "40%", label: "Fuel Savings", quote: "...smoothing traffic flow reduces total fuel consumption by up to 40%...", url: "https://phys.org/news/2018-02-autonomous-vehicles-traffic.html" },
 ];
 
