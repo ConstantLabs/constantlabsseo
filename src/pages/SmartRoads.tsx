@@ -197,7 +197,17 @@ const SmartRoads = () => {
               <div className="sr-card p-6 md:p-8">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-12 h-12 rounded-full bg-[#5CFF3D]/10 flex items-center justify-center">
-                    <Zap className="w-6 h-6 text-[#5CFF3D]" />
+                    {/* OBD Port Icon */}
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5CFF3D" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M4 8h16l-2 8H6L4 8z" />
+                      <circle cx="8" cy="12" r="0.5" fill="#5CFF3D" />
+                      <circle cx="10.5" cy="12" r="0.5" fill="#5CFF3D" />
+                      <circle cx="13.5" cy="12" r="0.5" fill="#5CFF3D" />
+                      <circle cx="16" cy="12" r="0.5" fill="#5CFF3D" />
+                      <circle cx="9" cy="14" r="0.5" fill="#5CFF3D" />
+                      <circle cx="12" cy="14" r="0.5" fill="#5CFF3D" />
+                      <circle cx="15" cy="14" r="0.5" fill="#5CFF3D" />
+                    </svg>
                   </div>
                   <h3 className="text-xl font-semibold text-white">App Integration</h3>
                 </div>
@@ -226,7 +236,12 @@ const SmartRoads = () => {
               <div className="sr-card p-6 md:p-8">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-12 h-12 rounded-full bg-[#5CFF3D]/10 flex items-center justify-center">
-                    <Play className="w-6 h-6 text-[#5CFF3D]" />
+                    {/* Monitor Icon */}
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5CFF3D" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                      <rect x="2" y="3" width="20" height="14" rx="2" />
+                      <line x1="8" y1="21" x2="16" y2="21" />
+                      <line x1="12" y1="17" x2="12" y2="21" />
+                    </svg>
                   </div>
                   <h3 className="text-xl font-semibold text-white">Full Display</h3>
                 </div>
