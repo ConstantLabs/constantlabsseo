@@ -521,7 +521,7 @@ const SmartRoads = () => {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-4 md:gap-6">
+            <div className="grid md:grid-cols-2 gap-4 md:gap-6">
               {researchQuotes.map((quote, index) => {
                 const isInternal = quote.link.startsWith('/');
                 const CardContent = (
