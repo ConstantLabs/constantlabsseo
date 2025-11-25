@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from "react";
 import { AnimatedBeam } from "@/components/ui/animated-beam";
-import { Car, Radio, Brain, Monitor } from "lucide-react";
+import { Car, Radio, Brain } from "lucide-react";
 
 import React from "react";
 
@@ -28,10 +28,9 @@ const Circle = React.forwardRef<HTMLDivElement, {
 
 export function SmartRoadsArchitecture() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const carDeviceRef = useRef<HTMLDivElement>(null);
-  const rtkTowerRef = useRef<HTMLDivElement>(null);
   const aiCloudRef = useRef<HTMLDivElement>(null);
-  const driverDisplayRef = useRef<HTMLDivElement>(null);
+  const rtkTowerRef = useRef<HTMLDivElement>(null);
+  const smartroadsUnitRef = useRef<HTMLDivElement>(null);
   
   const [isDesktop, setIsDesktop] = useState(false);
 
@@ -58,34 +57,31 @@ export function SmartRoadsArchitecture() {
           ref={containerRef}
         >
           {/* Mobile: Vertical | Desktop: Horizontal */}
-          <div className="flex flex-col md:flex-row items-center justify-between h-full w-full gap-8 md:gap-6">
-            {/* AI Cloud */}
+          <div className="flex flex-col md:flex-row items-center justify-around h-full w-full gap-10 md:gap-8">
+            {/* AI Platform */}
             <Circle ref={aiCloudRef} label="AI Platform" sublabel="Coordinates all vehicles">
               <Brain className="h-7 w-7 md:h-8 md:w-8 text-[#5CFF3D]" />
             </Circle>
 
-            {/* RTK Tower */}
+            {/* RTK Network */}
             <Circle ref={rtkTowerRef} label="RTK Network" sublabel="200-300 towers">
               <Radio className="h-7 w-7 md:h-8 md:w-8 text-[#5CFF3D]" />
             </Circle>
 
             {/* SmartRoads Unit */}
-            <Circle ref={carDeviceRef} label="SmartRoads Unit" sublabel="In-vehicle hardware">
+            <Circle ref={smartroadsUnitRef} label="SmartRoads Unit" sublabel="In-vehicle hardware">
               <Car className="h-7 w-7 md:h-8 md:w-8 text-[#5CFF3D]" />
-            </Circle>
-
-            {/* Live Navigation */}
-            <Circle ref={driverDisplayRef} label="Live Navigation" sublabel="Real-time guidance">
-              <Monitor className="h-7 w-7 md:h-8 md:w-8 text-[#5CFF3D]" />
             </Circle>
           </div>
 
-          {/* Animated Beams - AI to RTK */}
+          {/* Animated Beams - AI to RTK (bidirectional) */}
           <AnimatedBeam
             containerRef={containerRef}
             fromRef={aiCloudRef}
             toRef={rtkTowerRef}
             curvature={isDesktop ? -30 : 0}
+            startXOffset={isDesktop ? 0 : -8}
+            endXOffset={isDesktop ? 0 : -8}
             pathColor="#5CFF3D"
             pathOpacity={0.15}
             gradientStartColor="#5CFF3D"
@@ -97,6 +93,8 @@ export function SmartRoadsArchitecture() {
             fromRef={rtkTowerRef}
             toRef={aiCloudRef}
             curvature={isDesktop ? 30 : 0}
+            startXOffset={isDesktop ? 0 : 8}
+            endXOffset={isDesktop ? 0 : 8}
             reverse
             pathColor="#5CFF3D"
             pathOpacity={0.15}
@@ -106,12 +104,14 @@ export function SmartRoadsArchitecture() {
             delay={1.5}
           />
           
-          {/* RTK to Car Device */}
+          {/* RTK to SmartRoads Unit (bidirectional) */}
           <AnimatedBeam
             containerRef={containerRef}
             fromRef={rtkTowerRef}
-            toRef={carDeviceRef}
+            toRef={smartroadsUnitRef}
             curvature={isDesktop ? -30 : 0}
+            startXOffset={isDesktop ? 0 : -8}
+            endXOffset={isDesktop ? 0 : -8}
             pathColor="#5CFF3D"
             pathOpacity={0.15}
             gradientStartColor="#5CFF3D"
@@ -120,9 +120,11 @@ export function SmartRoadsArchitecture() {
           />
           <AnimatedBeam
             containerRef={containerRef}
-            fromRef={carDeviceRef}
+            fromRef={smartroadsUnitRef}
             toRef={rtkTowerRef}
             curvature={isDesktop ? 30 : 0}
+            startXOffset={isDesktop ? 0 : 8}
+            endXOffset={isDesktop ? 0 : 8}
             reverse
             pathColor="#5CFF3D"
             pathOpacity={0.15}
@@ -130,19 +132,6 @@ export function SmartRoadsArchitecture() {
             gradientStopColor="#00ff88"
             duration={2.5}
             delay={1}
-          />
-          
-          {/* Car Device to Driver Display */}
-          <AnimatedBeam
-            containerRef={containerRef}
-            fromRef={carDeviceRef}
-            toRef={driverDisplayRef}
-            curvature={isDesktop ? -30 : 0}
-            pathColor="#5CFF3D"
-            pathOpacity={0.15}
-            gradientStartColor="#5CFF3D"
-            gradientStopColor="#00ff88"
-            duration={2}
           />
         </div>
 
