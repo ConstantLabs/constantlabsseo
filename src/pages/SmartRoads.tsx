@@ -182,6 +182,78 @@ const SmartRoads = () => {
         {/* How It Works - Architecture Diagram */}
         <SmartRoadsArchitecture />
 
+        {/* The SmartRoads Unit */}
+        <section className="py-10 md:py-20 px-4 md:px-6">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-8 md:mb-12">
+              <h2 className="sr-heading-lg text-white mb-4">The SmartRoads Unit</h2>
+              <p className="text-[#BEBEBE] text-base md:text-lg max-w-2xl mx-auto">
+                Two ways to bring precision navigation to any vehicle.
+              </p>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-6">
+              {/* Option 1: App Integration */}
+              <div className="sr-card p-6 md:p-8">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 rounded-full bg-[#5CFF3D]/10 flex items-center justify-center">
+                    <Zap className="w-6 h-6 text-[#5CFF3D]" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-white">App Integration</h3>
+                </div>
+                <p className="text-[#BEBEBE] mb-4">
+                  A compact device connects to your vehicle's OBD port. The SmartRoads app runs through 
+                  <span className="text-white font-medium"> Apple CarPlay</span> or 
+                  <span className="text-white font-medium"> Android Auto</span> - no extra screens needed.
+                </p>
+                <ul className="space-y-2 text-sm text-[#6b6b6b]">
+                  <li className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#5CFF3D]" />
+                    Works with existing car displays
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#5CFF3D]" />
+                    Plug-and-play installation
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#5CFF3D]" />
+                    Seamless smartphone integration
+                  </li>
+                </ul>
+              </div>
+
+              {/* Option 2: Full Display */}
+              <div className="sr-card p-6 md:p-8">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 rounded-full bg-[#5CFF3D]/10 flex items-center justify-center">
+                    <Play className="w-6 h-6 text-[#5CFF3D]" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-white">Full Display</h3>
+                </div>
+                <p className="text-[#BEBEBE] mb-4">
+                  A standalone smart display with built-in RTK receiver. Perfect for vehicles without 
+                  CarPlay/Android Auto, or for 
+                  <span className="text-white font-medium"> fleet deployments</span>.
+                </p>
+                <ul className="space-y-2 text-sm text-[#6b6b6b]">
+                  <li className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#5CFF3D]" />
+                    All-in-one solution
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#5CFF3D]" />
+                    Works in any vehicle
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#5CFF3D]" />
+                    Optimized for commercial fleets
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Video Overview */}
         <section className="py-10 md:py-20 px-4 md:px-6">
           <div className="max-w-5xl mx-auto">
