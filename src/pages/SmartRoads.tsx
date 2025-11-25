@@ -5,10 +5,10 @@ import { Link, useLocation } from "react-router-dom";
 import { SmartRoadsArchitecture } from "@/components/SmartRoadsArchitecture";
 
 const stats = [
-  { value: "2cm", label: "Positioning Accuracy", quote: "...RTK positioning achieves centimeter-level accuracy in real-time...", url: "https://www.u-blox.com/en/technologies/rtk" },
-  { value: "<5%", label: "Adoption Needed", quote: "...controlling the speed of just one autonomous vehicle can significantly dampen stop-and-go waves...", url: "https://arxiv.org/abs/1705.01693" },
+  { value: "2cm", label: "Positioning Accuracy", quote: "...centimeter-level positioning accuracy enables precise vehicle coordination...", url: "/smartroads/research" },
+  { value: "<5%", label: "Adoption Needed", quote: "...controlling the speed of just one autonomous vehicle can significantly dampen stop-and-go waves...", url: "https://arxiv.org/pdf/1705.01693" },
   { value: "25%", label: "More Highway Capacity", quote: "...temporary increase of up to 25 percent in freeway capacity...", url: "https://ops.fhwa.dot.gov/publications/fhwahop10023/chap4.htm" },
-  { value: "40%", label: "Fuel Savings", quote: "...smoothing traffic flow reduces total fuel consumption by up to 40%...", url: "https://phys.org/news/2018-02-autonomous-vehicles-traffic.html" },
+  { value: "40%", label: "Fuel Savings", quote: "...adding just one smart vehicle smoothed human-caused waves, leading to 40% fuel savings overall...", url: "/smartroads/circles" },
 ];
 
 const researchQuotes = [
@@ -309,32 +309,54 @@ const SmartRoads = () => {
         <section className="py-8 md:py-16 px-4 md:px-6">
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
-              {stats.map((stat, index) => (
-                <motion.a
-                  key={stat.label}
-                  href={stat.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="sr-card p-6 text-center group relative overflow-hidden cursor-pointer block"
-                >
-                  {/* Default state */}
-                  <div className="group-hover:opacity-0 transition-opacity duration-200">
-                    <div className="text-[#5CFF3D] text-4xl font-extrabold">{stat.value}</div>
-                    <div className="text-sm text-[#6b6b6b] mt-1">{stat.label}</div>
-                  </div>
-                  {/* Hover state */}
-                  <div className="absolute inset-0 p-4 flex flex-col justify-center items-center bg-[#5CFF3D] rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                    <p className="text-black text-xs md:text-sm text-center leading-relaxed italic mb-3">"{stat.quote}"</p>
-                    <span className="text-black text-xs font-semibold">
-                      Read more →
-                    </span>
-                  </div>
-                </motion.a>
-              ))}
+              {stats.map((stat, index) => {
+                const isInternal = stat.url.startsWith('/');
+                const CardContent = (
+                  <>
+                    {/* Default state */}
+                    <div className="group-hover:opacity-0 transition-opacity duration-200">
+                      <div className="text-[#5CFF3D] text-4xl font-extrabold">{stat.value}</div>
+                      <div className="text-sm text-[#6b6b6b] mt-1">{stat.label}</div>
+                    </div>
+                    {/* Hover state */}
+                    <div className="absolute inset-0 p-4 flex flex-col justify-center items-center bg-[#5CFF3D] rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                      <p className="text-black text-xs md:text-sm text-center leading-relaxed italic mb-3">"{stat.quote}"</p>
+                      <span className="text-black text-xs font-semibold">
+                        Read more →
+                      </span>
+                    </div>
+                  </>
+                );
+                const className = "sr-card p-6 text-center group relative overflow-hidden cursor-pointer block";
+                
+                return isInternal ? (
+                  <motion.div
+                    key={stat.label}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                  >
+                    <Link to={stat.url} className={className}>
+                      {CardContent}
+                    </Link>
+                  </motion.div>
+                ) : (
+                  <motion.a
+                    key={stat.label}
+                    href={stat.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    className={className}
+                  >
+                    {CardContent}
+                  </motion.a>
+                );
+              })}
             </div>
           </div>
         </section>
