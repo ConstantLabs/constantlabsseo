@@ -6,9 +6,9 @@ import { SmartRoadsArchitecture } from "@/components/SmartRoadsArchitecture";
 
 const stats = [
   { value: "2cm", label: "Positioning Accuracy", quote: "...RTK positioning achieves centimeter-level accuracy in real-time...", url: "https://www.u-blox.com/en/technologies/rtk" },
-  { value: "5-10%", label: "Adoption Needed", quote: "...even a small percentage of autonomous vehicles can eliminate stop-and-go waves...", url: "https://news.mit.edu/2017/autonomous-vehicles-reduce-traffic-flow-intersections-0323" },
-  { value: "35%", label: "More Highway Throughput", quote: "...dissipating phantom jams can increase highway throughput by up to 35%...", url: "https://engineering.vanderbilt.edu/news/2018/phantom-traffic-jams-are-real-and-they-can-be-fixed" },
-  { value: "40%", label: "Fuel Savings", quote: "...eliminating stop-and-go traffic reduces fuel consumption by up to 40%...", url: "https://path.berkeley.edu" },
+  { value: "5-10%", label: "Adoption Needed", quote: "...controlling just 5% of vehicles can eliminate stop-and-go waves caused by human drivers...", url: "https://arxiv.org/abs/1705.01693" },
+  { value: "35%", label: "More Highway Throughput", quote: "...optimizing traffic flow can increase highway throughput by up to 35%...", url: "https://news.berkeley.edu/2022/11/22/massive-traffic-experiment-pits-machine-learning-against-phantom-traffic-jams" },
+  { value: "40%", label: "Fuel Savings", quote: "...smoothing traffic flow reduces total fuel consumption by up to 40%...", url: "https://phys.org/news/2018-02-autonomous-vehicles-traffic.html" },
 ];
 
 const researchQuotes = [
