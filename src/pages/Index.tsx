@@ -111,12 +111,13 @@ const Index = () => {
       linkedin: "https://www.linkedin.com/in/astrobubu"
     },
     {
-      name: "MOHAMMED TAMER",
+      name: "MOHAMAD TAMER",
       role: "CO-FOUNDER / CREATIVE DIRECTOR",
       journey: [
         "Computer Engineer and Astrophotographer",
         "3D design and modeling",
-        "Marketing agency: Video production & editing",
+        "Motion graphics and video editing",
+        "Full-stack development and system architecture",
         "Now: Crafting visual experiences that break conventions"
       ],
       avatar: tamerAvatar,
