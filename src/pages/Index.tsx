@@ -20,6 +20,9 @@ import medievalQuestImg from "@/assets/projects/medieval-quest.png";
 import fznDiningImg from "@/assets/projects/fzn-dining.png";
 import toitImg from "@/assets/projects/toit.png";
 import cutInHalfImg from "@/assets/projects/cut-in-half.png";
+import sinaaiyaImg from "@/assets/projects/sinaaiya.png";
+import guideonImg from "@/assets/projects/guideon.jpg";
+import naviiImg from "@/assets/projects/navii.png";
 
 // Lazy load HackerBackground for better performance
 const HackerBackground = lazy(() => import("@/components/HackerBackground").then(module => ({ default: module.HackerBackground })));
@@ -87,6 +90,30 @@ const Index = () => {
       status: "repository" as const,
       link: "https://github.com/Astrobubu/Medieval-Quest-Journal",
       image: medievalQuestImg
+    },
+    {
+      title: "SINAAIYA",
+      description: "Making UAE industrial areas accessible. Find specialized shops, parts, services, and craftsmen across industrial zones.",
+      tech: ["React", "Maps", "Arabic", "Vercel"],
+      status: "live" as const,
+      link: "https://sinaaiya.vercel.app/",
+      image: sinaaiyaImg
+    },
+    {
+      title: "GUIDEON",
+      description: "Modular AI-powered kiosk robot. 3D-printed, fully autonomous, handles roles from coffee-serving to reception with expressive gestures and smart chat.",
+      tech: ["Robotics", "AI", "3D Printing", "ROS"],
+      status: "development" as const,
+      link: "https://astrobubu.github.io/AhmadRobotics/",
+      image: guideonImg
+    },
+    {
+      title: "NAVII",
+      description: "AR indoor navigation for malls, airports, and large indoor spaces. Turn-by-turn guidance without GPS.",
+      tech: ["AR", "Indoor Navigation", "React", "Vercel"],
+      status: "development" as const,
+      link: "https://navii-demo.vercel.app/",
+      image: naviiImg
     },
   ];
 
