@@ -103,7 +103,7 @@ const Index = () => {
       title: "GUIDEON",
       description: "Modular AI-powered kiosk robot. 3D-printed, fully autonomous, handles roles from coffee-serving to reception with expressive gestures and smart chat.",
       tech: ["Robotics", "AI", "3D Printing", "ROS"],
-      status: "development" as const,
+      status: "repository" as const,
       link: "https://astrobubu.github.io/AhmadRobotics/",
       image: guideonImg
     },
@@ -187,15 +187,7 @@ const Index = () => {
     }
   ];
 
-  /* Loading state restored for font optimization */
-  if (isLoading) {
-    return (
-      <>
-        <SEO title="Home" description="Build. Ship. Repeat. Constant Labs portfolio." />
-        <PageLoader onComplete={() => setIsLoading(false)} />
-      </>
-    );
-  }
+  /* Loading disabled - show content immediately */
 
   return (
     <div className="min-h-screen bg-background text-foreground relative overflow-hidden chromatic-page">

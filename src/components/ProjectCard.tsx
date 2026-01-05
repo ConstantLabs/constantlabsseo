@@ -50,15 +50,10 @@ export const ProjectCard = ({ title, description, tech, status, link, image, ind
 
       {image && (
         <div className="relative h-48 w-full overflow-hidden mb-6 border border-foreground/10 group-hover:border-foreground/20 transition-colors z-10">
-          <motion.img
+          <img
             src={image}
             alt={title}
-            className="h-full w-full object-cover grayscale"
-            whileHover={{
-              filter: "grayscale(0%)",
-              scale: 1.05
-            }}
-            transition={{ duration: 0.5 }}
+            className="h-full w-full object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-500"
             loading="lazy"
           />
           {/* Image scanline overlay */}
