@@ -13,7 +13,7 @@ import tjAvatar from "@/assets/tj-avatar.jpeg";
 
 import mufakkirImg from "@/assets/projects/mufakkir.png";
 import motargemImg from "@/assets/projects/motargem.png";
-import speakWindowsImg from "@/assets/projects/speak-windows.png";
+import speakWindowsImg from "@/assets/projects/speak-windows.jpg";
 import athkarImg from "@/assets/projects/athkar.png";
 import mosqueSilenceImg from "@/assets/projects/mosque-silence.png";
 import medievalQuestImg from "@/assets/projects/medieval-quest.png";
