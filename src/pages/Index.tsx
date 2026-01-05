@@ -3,7 +3,7 @@ import { GlitchTextFramer } from "@/components/GlitchTextFramer";
 
 import { ProjectCard } from "@/components/ProjectCard";
 import { TeamMember } from "@/components/TeamMember";
-
+import { LoadingScreen } from "@/components/LoadingScreen";
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Zap, Rocket, TrendingUp } from "lucide-react";
 import { SEO } from "@/components/SEO";
@@ -24,7 +24,7 @@ import cutInHalfImg from "@/assets/projects/cut-in-half.png";
 const HackerBackground = lazy(() => import("@/components/HackerBackground").then(module => ({ default: module.HackerBackground })));
 
 const Index = () => {
-
+  const [isLoading, setIsLoading] = useState(true);
   const [shouldLoadBackground, setShouldLoadBackground] = useState(false);
 
   // Only load background on desktop or after initial render
@@ -146,7 +146,15 @@ const Index = () => {
     }
   ];
 
-  /* Loading state removed to show content immediately */
+  /* Loading state restored for font optimization */
+  if (isLoading) {
+    return (
+      <>
+        <SEO title="Home" description="Build. Ship. Repeat. Constant Labs portfolio." />
+        <LoadingScreen onComplete={() => setIsLoading(false)} />
+      </>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-background text-foreground relative overflow-hidden chromatic-page">

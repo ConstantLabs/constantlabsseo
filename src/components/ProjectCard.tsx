@@ -24,6 +24,7 @@ export const ProjectCard = ({ title, description, tech, status, link, image, ind
         borderColor: "rgba(255, 255, 255, 0.4)",
         boxShadow: "0 0 30px rgba(255, 255, 255, 0.05)"
       }}
+      whileTap={{ scale: 0.98 }}
       transition={{ duration: 0.3 }}
     >
       {/* Corner decorations */}

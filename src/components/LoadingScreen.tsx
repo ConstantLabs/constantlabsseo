@@ -45,34 +45,12 @@ export const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
 
   const bootSequence = [
     "",
-    "Booting up...",
+    "INITIALIZING SYSTEM...",
+    "[BIOS] Hardware Check... OK",
+    "[SYS] Loading Assets...",
+    "[NET] Connection Established",
     "",
-    "   ______                 __              __     __          __          ",
-    "  / ____/___  ____  _____/ /_____ _____  / /_   / /   ____ _/ /_  _____  ",
-    " / /   / __ \\/ __ \\/ ___/ __/ __ `/ __ \\/ __/  / /   / __ `/ __ \\/ ___/  ",
-    "/ /___/ /_/ / / / (__  ) /_/ /_/ / / / / /_   / /___/ /_/ / /_/ (__  )   ",
-    "\\____/\\____/_/ /_/____/\\__/\\__,_/_/ /_/\\__/  /_____/\\__,_/_.___/____/    ",
-    "",
-    "[BIOS] Initializing hardware components...",
-    "",
-    "[BOOT] Loading CONSTANT LABS operating system...",
-    "[BOOT] Mounting file systems... OK",
-    "",
-    "[KERN] Loading kernel modules...",
-    "[KERN] Security protocols... ACTIVE",
-    "[KERN] Neural network processors... READY",
-    "",
-    "[NET] Establishing network connections...",
-    "[NET] Secure tunnel established",
-    "[NET] Firewall: ACTIVE | IDS: MONITORING",
-    "",
-    "[SYS] Loading CONSTANT LABS interface...",
-    "[SYS] Initializing quantum processors...",
-    "[SYS] AI systems: ONLINE",
-    "[SYS] All systems nominal",
-    "",
-    "[READY] CONSTANT LABS ONLINE",
-    "[READY] Welcome back, operator.",
+    "READY."
   ];
 
   useEffect(() => {
@@ -92,12 +70,12 @@ export const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
       return;
     }
 
-    // Type character by character - 3x faster
+    // Type character by character - ultra fast
     if (charIndex < currentText.length) {
       const timer = setTimeout(() => {
         setCurrentLine(currentText.substring(0, charIndex + 1));
         setCharIndex((prev) => prev + 1);
-      }, 3); // Speed of typing (faster: 8ms -> 3ms)
+      }, 1); // 1ms typing speed
       return () => clearTimeout(timer);
     } else {
       // Line complete, move to next
@@ -119,13 +97,13 @@ export const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
             const isAsciiArt = index >= 3 && index <= 7;
             const isEmpty = line === "";
             const prevLineIsAsciiOrEmpty = index > 0 && (lines[index - 1] === "" || (index > 3 && index <= 8));
-            
+
             // Only add spacing if it's not ASCII art, not empty, and previous line wasn't ASCII/empty
             const needsSpacing = !isAsciiArt && !isEmpty && index > 0 && !prevLineIsAsciiOrEmpty;
-            
+
             return (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 className={`text-green-500 chromatic-aberration ${needsSpacing ? 'mt-1' : ''}`}
                 style={isAsciiArt ? { whiteSpace: 'pre', fontFamily: 'monospace' } : undefined}
               >
