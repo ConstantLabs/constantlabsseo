@@ -53,7 +53,7 @@ export const ProjectCard = ({ title, description, tech, status, link, image, ind
           <img
             src={image}
             alt={title}
-            className="h-full w-full object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-500"
+            className="h-full w-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
             loading="lazy"
           />
           {/* Image scanline overlay */}

@@ -56,7 +56,7 @@ const Index = () => {
       description: "Universal translator breaking language barriers. Real-time translation with voice, text, and camera input. Natural conversations across different languages.",
       tech: ["Translation AI", "Real-time", "Voice Input", "Multi-language"],
       status: "live" as const,
-      link: "https://motargem.vercel.app",
+      link: "https://motargem-v2.vercel.app/",
       image: motargemImg
     },
     {
@@ -92,7 +92,7 @@ const Index = () => {
       image: medievalQuestImg
     },
     {
-      title: "SINAAIYA",
+      title: "SANAYE",
       description: "Making UAE industrial areas accessible. Find specialized shops, parts, services, and craftsmen across industrial zones.",
       tech: ["React", "Maps", "Arabic", "Vercel"],
       status: "live" as const,
