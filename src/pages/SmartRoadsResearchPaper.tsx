@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowLeft, ExternalLink, Menu, X, Download } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
+import { SEO } from "@/components/SEO";
+import { ArrowLeft, ExternalLink, Menu, X, Download } from "lucide-react";
 
 const SmartRoadsResearchPaper = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -15,6 +16,10 @@ const SmartRoadsResearchPaper = () => {
 
   return (
     <div className="smartroads-page min-h-screen text-white">
+      <SEO
+        title="Smart Roads - Research Paper"
+        description="Dissipation of Stop-and-Go Waves via Control of Autonomous Vehicles: Field Experiments."
+      />
       {/* Navigation */}
       <nav className={`fixed top-0 left-0 right-0 z-50 px-4 md:px-8 py-4 ${mobileMenuOpen ? 'bg-[#0d0d0d]' : 'bg-transparent'}`}>
         <div className="max-w-7xl mx-auto flex items-center justify-between">
@@ -22,13 +27,13 @@ const SmartRoadsResearchPaper = () => {
             <ArrowLeft className="w-4 h-4" />
             <span className="text-sm font-medium">Back</span>
           </button>
-          
+
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-6">
             <Link to="/smartroads/circles" className="text-sm text-[#888] hover:text-white">UC Berkeley Study</Link>
             <Link to="/smartroads/fhwa-report" className="text-sm text-[#888] hover:text-white">FHWA Report</Link>
-            <a 
-              href="/smartroads/dissipation-stop-go-waves.pdf" 
+            <a
+              href="/smartroads/dissipation-stop-go-waves.pdf"
               download
               className="px-4 py-2 bg-[#5CFF3D] text-black text-sm font-semibold rounded-full hover:bg-[#4de632] flex items-center gap-2"
             >
@@ -38,7 +43,7 @@ const SmartRoadsResearchPaper = () => {
           </div>
 
           {/* Mobile hamburger */}
-          <button 
+          <button
             className="md:hidden text-white p-2"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
@@ -58,8 +63,8 @@ const SmartRoadsResearchPaper = () => {
               <div className="flex flex-col gap-4 pt-4">
                 <Link to="/smartroads/circles" className="text-sm text-[#888] hover:text-white">UC Berkeley Study</Link>
                 <Link to="/smartroads/fhwa-report" className="text-sm text-[#888] hover:text-white">FHWA Report</Link>
-                <a 
-                  href="/smartroads/dissipation-stop-go-waves.pdf" 
+                <a
+                  href="/smartroads/dissipation-stop-go-waves.pdf"
                   download
                   className="mx-auto px-4 py-2 bg-[#5CFF3D] text-black text-sm font-semibold rounded-full hover:bg-[#4de632] flex items-center justify-center gap-2"
                 >
@@ -87,9 +92,9 @@ const SmartRoadsResearchPaper = () => {
           <div className="flex flex-wrap gap-4 text-sm text-[#666]">
             <span>Transportation Research Part C, 2018</span>
             <span>•</span>
-            <a 
-              href="https://arxiv.org/abs/1705.01693" 
-              target="_blank" 
+            <a
+              href="https://arxiv.org/abs/1705.01693"
+              target="_blank"
               rel="noopener noreferrer"
               className="text-[#5CFF3D] hover:underline flex items-center gap-1"
             >
@@ -166,15 +171,15 @@ const SmartRoadsResearchPaper = () => {
       <section className="pb-20 px-4 md:px-8">
         <div className="max-w-5xl mx-auto">
           <div className="bg-[#1a1a1a] rounded-xl overflow-hidden border border-white/10">
-            <iframe 
+            <iframe
               src="/smartroads/dissipation-stop-go-waves.pdf"
               className="w-full h-[80vh]"
               title="Research Paper PDF"
             />
           </div>
           <div className="mt-4 text-center">
-            <a 
-              href="/smartroads/dissipation-stop-go-waves.pdf" 
+            <a
+              href="/smartroads/dissipation-stop-go-waves.pdf"
               download
               className="inline-flex items-center gap-2 text-[#5CFF3D] hover:underline"
             >

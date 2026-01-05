@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
+import { SEO } from "@/components/SEO";
 import { ArrowRight, GraduationCap, Menu, X } from "lucide-react";
 
 const keyFindings = [
@@ -36,6 +37,10 @@ const SmartRoadsResearch = () => {
 
   return (
     <div className="min-h-screen text-white smartroads-page">
+      <SEO
+        title="Smart Roads Research - Backed by Science"
+        description="SmartRoads is built on validated research from MIT, UC Berkeley, and Vanderbilt proving traffic waves can be eliminated."
+      />
       {/* Navigation */}
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-colors ${mobileMenuOpen ? 'bg-[#0d0d0d]' : 'bg-transparent'}`}>
         <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4">
@@ -78,7 +83,7 @@ const SmartRoadsResearch = () => {
                 Research-Backed <span className="text-[#5CFF3D]">Innovation</span>
               </h1>
               <p className="text-[#BEBEBE] text-lg leading-relaxed">
-                This proposal is built on decades of research from leading institutions. 
+                This proposal is built on decades of research from leading institutions.
                 The science is proven. The technology exists. The results are validated.
               </p>
             </div>
@@ -98,7 +103,7 @@ const SmartRoadsResearch = () => {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
                 >
-                  <Link 
+                  <Link
                     to={finding.url}
                     className="sr-card p-6 block group relative overflow-hidden cursor-pointer h-full"
                   >
@@ -205,9 +210,9 @@ const SmartRoadsResearch = () => {
               <span className="font-semibold text-white">SmartRoads</span>
             </div>
             <div className="text-xs text-[#6b6b6b] max-w-2xl leading-relaxed">
-              © 2025 SmartRoads. All rights reserved. This proposal, including all concepts, 
-              methodologies, technical specifications, and intellectual property contained herein, 
-              is confidential and proprietary. Unauthorized reproduction, distribution, or use 
+              © 2025 SmartRoads. All rights reserved. This proposal, including all concepts,
+              methodologies, technical specifications, and intellectual property contained herein,
+              is confidential and proprietary. Unauthorized reproduction, distribution, or use
               of this material without express written consent is strictly prohibited.
             </div>
             <div className="text-xs text-[#4a4a4a]">

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
+import { SEO } from "@/components/SEO";
 import { Car, Satellite, CheckCircle, ArrowRight, Building, Zap, Menu, X } from "lucide-react";
 
 const deploymentSteps = [
@@ -50,6 +51,10 @@ const SmartRoadsImplementation = () => {
 
   return (
     <div className="min-h-screen text-white smartroads-page">
+      <SEO
+        title="Smart Roads Implementation - Straightforward Deployment"
+        description="SmartRoads implementation plan using proven government deployment models and nationwide RTK infrastructure."
+      />
       {/* Navigation */}
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-colors ${mobileMenuOpen ? 'bg-[#0d0d0d]' : 'bg-transparent'}`}>
         <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4">
@@ -92,7 +97,7 @@ const SmartRoadsImplementation = () => {
                 Straightforward <span className="text-[#5CFF3D]">Deployment</span>
               </h1>
               <p className="text-[#BEBEBE] text-lg leading-relaxed">
-                This is not a complex multi-year project. It's a straightforward infrastructure 
+                This is not a complex multi-year project. It's a straightforward infrastructure
                 deployment using proven government implementation models.
               </p>
             </div>
@@ -182,7 +187,7 @@ const SmartRoadsImplementation = () => {
             </div>
             <div className="mt-12 sr-card p-8 text-center">
               <p className="text-xl text-white">
-                SmartRoads follows the <span className="text-[#5CFF3D] font-semibold">exact same model</span>: 
+                SmartRoads follows the <span className="text-[#5CFF3D] font-semibold">exact same model</span>:
                 deploy infrastructure, mandate adoption, achieve universal coverage.
               </p>
             </div>
@@ -224,7 +229,7 @@ const SmartRoadsImplementation = () => {
                 <h2 className="text-2xl font-bold text-black">First-Mover Advantage</h2>
               </div>
               <p className="text-black/80 text-lg mb-8">
-                The global market for intelligent traffic solutions is just getting started, giving the UAE a 
+                The global market for intelligent traffic solutions is just getting started, giving the UAE a
                 critical <span className="font-semibold">3-5 year first-mover advantage</span>.
               </p>
               <div className="grid md:grid-cols-3 gap-6">
@@ -255,7 +260,7 @@ const SmartRoadsImplementation = () => {
                 The Time is Now.
               </h2>
               <p className="text-[#BEBEBE] text-lg mb-10 max-w-xl mx-auto">
-                By executing this vision, the UAE will define the global standard 
+                By executing this vision, the UAE will define the global standard
                 for intelligent transportation.
               </p>
               <Link to="/smartroads" className="sr-btn-primary">
@@ -276,9 +281,9 @@ const SmartRoadsImplementation = () => {
               <span className="font-semibold text-white">SmartRoads</span>
             </div>
             <div className="text-xs text-[#6b6b6b] max-w-2xl leading-relaxed">
-              © 2025 SmartRoads. All rights reserved. This proposal, including all concepts, 
-              methodologies, technical specifications, and intellectual property contained herein, 
-              is confidential and proprietary. Unauthorized reproduction, distribution, or use 
+              © 2025 SmartRoads. All rights reserved. This proposal, including all concepts,
+              methodologies, technical specifications, and intellectual property contained herein,
+              is confidential and proprietary. Unauthorized reproduction, distribution, or use
               of this material without express written consent is strictly prohibited.
             </div>
             <div className="text-xs text-[#4a4a4a]">

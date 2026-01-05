@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
+import { SEO } from "@/components/SEO";
 import { Car, MapPin, Zap, Cloud, Eye, TrendingUp, ArrowRight, Menu, X } from "lucide-react";
 
 const capabilities = [
@@ -77,6 +78,10 @@ const SmartRoadsCapabilities = () => {
 
   return (
     <div className="min-h-screen text-white smartroads-page">
+      <SEO
+        title="Smart Roads Capabilities - 9 Integrated Core Features"
+        description="Explore the 9 core capabilities of SmartRoads: Traffic Management, Road Health Intelligence, Emergency Response, and more."
+      />
       {/* Navigation */}
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-colors ${mobileMenuOpen ? 'bg-[#0d0d0d]' : 'bg-transparent'}`}>
         <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4">
@@ -119,7 +124,7 @@ const SmartRoadsCapabilities = () => {
                 Nine Integrated <span className="text-[#5CFF3D]">Capabilities</span>
               </h1>
               <p className="text-[#BEBEBE] text-lg leading-relaxed">
-                Each capability delivers standalone value, but their true power is realized 
+                Each capability delivers standalone value, but their true power is realized
                 through network effects—creating a self-reinforcing ecosystem.
               </p>
             </div>
@@ -194,7 +199,7 @@ const SmartRoadsCapabilities = () => {
             <div className="sr-card p-10 text-center">
               <h2 className="sr-heading-lg text-white mb-6">Network Effects</h2>
               <p className="text-[#BEBEBE] text-lg mb-8 leading-relaxed">
-                When integrated, these capabilities create a self-reinforcing ecosystem 
+                When integrated, these capabilities create a self-reinforcing ecosystem
                 where the whole is far greater than the sum of its parts.
               </p>
               <Link to="/smartroads/implementation" className="sr-btn-primary">
@@ -215,9 +220,9 @@ const SmartRoadsCapabilities = () => {
               <span className="font-semibold text-white">SmartRoads</span>
             </div>
             <div className="text-xs text-[#6b6b6b] max-w-2xl leading-relaxed">
-              © 2025 SmartRoads. All rights reserved. This proposal, including all concepts, 
-              methodologies, technical specifications, and intellectual property contained herein, 
-              is confidential and proprietary. Unauthorized reproduction, distribution, or use 
+              © 2025 SmartRoads. All rights reserved. This proposal, including all concepts,
+              methodologies, technical specifications, and intellectual property contained herein,
+              is confidential and proprietary. Unauthorized reproduction, distribution, or use
               of this material without express written consent is strictly prohibited.
             </div>
             <div className="text-xs text-[#4a4a4a]">

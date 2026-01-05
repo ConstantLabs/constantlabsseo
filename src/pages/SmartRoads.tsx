@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ArrowUpRight, Quote, ExternalLink, Zap, Download, Play, Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { SmartRoadsArchitecture } from "@/components/SmartRoadsArchitecture";
+import { SEO } from "@/components/SEO";
 
 const stats = [
   { value: "2cm", label: "Positioning Accuracy", quote: "...RTK uses carrier phase measurements to achieve centimeter-level accuracy...", url: "https://en.wikipedia.org/wiki/Real-time_kinematic_positioning" },
@@ -67,6 +68,10 @@ const SmartRoads = () => {
 
   return (
     <div className="min-h-screen text-white smartroads-page">
+      <SEO
+        title="Smart Roads - End Traffic Jams Forever"
+        description="Revolutionary traffic management system proven to eliminate congestion with just 5% adoption using RTK precision positioning."
+      />
       {/* Navigation */}
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-colors ${mobileMenuOpen ? 'bg-[#0d0d0d]' : 'bg-transparent'}`}>
         <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4">
@@ -83,7 +88,7 @@ const SmartRoads = () => {
               <Link to="/smartroads/implementation" className="sr-btn-primary">View Plan</Link>
             </div>
             {/* Mobile hamburger */}
-            <button 
+            <button
               className="md:hidden p-2 text-white"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
@@ -123,7 +128,7 @@ const SmartRoads = () => {
                   <br /><span className="text-[#5CFF3D]">Forever.</span>
                 </h1>
                 <p className="text-[#BEBEBE] text-base mb-6 leading-relaxed">
-                  MIT research proves: coordinate 5% of vehicles, eliminate congestion for everyone. 
+                  MIT research proves: coordinate 5% of vehicles, eliminate congestion for everyone.
                   We built the system to do it.
                 </p>
                 <div className="flex items-center gap-3">
@@ -141,7 +146,7 @@ const SmartRoads = () => {
             </div>
 
             {/* Desktop: Background image */}
-            <div 
+            <div
               className="hidden md:flex sr-hero-card p-16 relative overflow-hidden min-h-[650px] items-center"
               style={{
                 backgroundImage: "linear-gradient(to right, rgba(13,13,13,0.95) 0%, rgba(13,13,13,0.7) 50%, rgba(13,13,13,0.3) 100%), url('/smartroads/front car.png')",
@@ -156,7 +161,7 @@ const SmartRoads = () => {
                     <br /><span className="text-[#5CFF3D]">Forever.</span>
                   </h1>
                   <p className="text-[#BEBEBE] text-lg mb-10 leading-relaxed max-w-lg">
-                    MIT research proves: coordinate 5% of vehicles, eliminate congestion for everyone. 
+                    MIT research proves: coordinate 5% of vehicles, eliminate congestion for everyone.
                     We built the system to do it.
                   </p>
                   <div className="flex items-center gap-4">
@@ -185,7 +190,7 @@ const SmartRoads = () => {
                 Two ways to bring precision navigation to any vehicle.
               </p>
             </div>
-            
+
             <div className="grid md:grid-cols-2 gap-6">
               {/* Option 1: App Integration */}
               <div className="sr-card p-6 md:p-8">
@@ -203,8 +208,8 @@ const SmartRoads = () => {
                   <h3 className="text-xl font-semibold text-white">App Integration</h3>
                 </div>
                 <p className="text-[#BEBEBE] mb-4">
-                  A compact device connects to your vehicle's OBD port. The SmartRoads app runs through 
-                  <span className="text-white font-medium"> Apple CarPlay</span> or 
+                  A compact device connects to your vehicle's OBD port. The SmartRoads app runs through
+                  <span className="text-white font-medium"> Apple CarPlay</span> or
                   <span className="text-white font-medium"> Android Auto</span> - no extra screens needed.
                 </p>
                 <ul className="space-y-2 text-sm text-[#6b6b6b]">
@@ -237,8 +242,8 @@ const SmartRoads = () => {
                   <h3 className="text-xl font-semibold text-white">Full Display</h3>
                 </div>
                 <p className="text-[#BEBEBE] mb-4">
-                  A standalone smart display with built-in RTK receiver. Perfect for vehicles without 
-                  CarPlay/Android Auto, or for 
+                  A standalone smart display with built-in RTK receiver. Perfect for vehicles without
+                  CarPlay/Android Auto, or for
                   <span className="text-white font-medium"> fleet deployments</span>.
                 </p>
                 <ul className="space-y-2 text-sm text-[#6b6b6b]">
@@ -269,9 +274,9 @@ const SmartRoads = () => {
             </div>
             <div className="sr-card p-4">
               <div className="aspect-video relative">
-                <video 
+                <video
                   ref={videoRef}
-                  controls 
+                  controls
                   playsInline
                   className="w-full h-full rounded-xl object-cover"
                   poster="/smartroads/smart road.jpg"
@@ -322,7 +327,7 @@ const SmartRoads = () => {
                   </>
                 );
                 const className = "sr-card p-6 text-center group relative overflow-hidden cursor-pointer block";
-                
+
                 return isInternal ? (
                   <motion.div
                     key={stat.label}
@@ -364,8 +369,8 @@ const SmartRoads = () => {
                   Eliminate Traffic<br />Congestion
                 </h2>
                 <p className="text-[#BEBEBE] text-base md:text-lg leading-relaxed max-w-md">
-                  Research proves that controlling just 5-10% of vehicles can eliminate 
-                  stop-and-go waves for everyone. Gentle, coordinated guidance prevents 
+                  Research proves that controlling just 5-10% of vehicles can eliminate
+                  stop-and-go waves for everyone. Gentle, coordinated guidance prevents
                   the hard braking that triggers congestion.
                 </p>
               </div>
@@ -410,7 +415,7 @@ const SmartRoads = () => {
                   Sub-Second<br />Emergency Response
                 </h2>
                 <p className="text-[#BEBEBE] text-base md:text-lg leading-relaxed max-w-md">
-                  Crash detection in under 100ms with automatic dispatch. The network 
+                  Crash detection in under 100ms with automatic dispatch. The network
                   instructs surrounding vehicles to clear a path for responders.
                 </p>
               </div>
@@ -427,7 +432,7 @@ const SmartRoads = () => {
                   Weather-Adaptive<br />Safety
                 </h2>
                 <p className="text-[#BEBEBE] text-base md:text-lg leading-relaxed max-w-md">
-                  During near-zero visibility, the display renders virtual visualization 
+                  During near-zero visibility, the display renders virtual visualization
                   of nearby vehicles. Coordinated speed reductions prevent pileups.
                 </p>
               </div>
@@ -448,7 +453,7 @@ const SmartRoads = () => {
                 Transforming Roads Into <span className="text-[#5CFF3D]">Reality</span>
               </h2>
               <p className="text-[#BEBEBE] text-lg max-w-xl leading-relaxed">
-                Unlock the full potential of UAE's road network with RTK precision 
+                Unlock the full potential of UAE's road network with RTK precision
                 positioning and AI-powered coordination.
               </p>
             </div>
@@ -457,7 +462,7 @@ const SmartRoads = () => {
               <Link to="/smartroads/research" className="rounded-[1.25rem] p-6 md:p-8 flex flex-col justify-between min-h-[260px] md:min-h-[320px] group cursor-pointer transition-all duration-300 bg-[#161616] hover:bg-[#5CFF3D]">
                 <div className="flex justify-between items-start">
                   <p className="text-[#BEBEBE] leading-relaxed max-w-sm group-hover:text-black transition-colors">
-                    Research proves controlling just 5-10% of vehicles eliminates congestion 
+                    Research proves controlling just 5-10% of vehicles eliminates congestion
                     for everyone. The benefits cascade to all road users.
                   </p>
                   <span className="w-10 h-10 rounded-full flex items-center justify-center bg-[#5CFF3D]/20 text-[#5CFF3D] group-hover:bg-black group-hover:text-[#5CFF3D] flex-shrink-0 ml-4 transition-colors">
@@ -470,7 +475,7 @@ const SmartRoads = () => {
               <Link to="/smartroads/technology" className="rounded-[1.25rem] p-6 md:p-8 flex flex-col justify-between min-h-[260px] md:min-h-[320px] group cursor-pointer transition-all duration-300 bg-[#161616] hover:bg-[#5CFF3D]">
                 <div className="flex justify-between items-start">
                   <p className="text-[#BEBEBE] leading-relaxed max-w-sm group-hover:text-black transition-colors">
-                    RTK GPS provides centimeter-level accuracy - 100x better than standard GPS. 
+                    RTK GPS provides centimeter-level accuracy - 100x better than standard GPS.
                     Know exact lane position for true coordination.
                   </p>
                   <span className="w-10 h-10 rounded-full flex items-center justify-center bg-[#5CFF3D]/20 text-[#5CFF3D] group-hover:bg-black group-hover:text-[#5CFF3D] flex-shrink-0 ml-4 transition-colors">
@@ -483,7 +488,7 @@ const SmartRoads = () => {
               <Link to="/smartroads/capabilities" className="rounded-[1.25rem] p-8 flex flex-col justify-between min-h-[280px] group cursor-pointer transition-all duration-300 bg-[#161616] hover:bg-[#5CFF3D]">
                 <div className="flex justify-between items-start">
                   <p className="text-[#BEBEBE] leading-relaxed max-w-sm group-hover:text-black transition-colors">
-                    Creates a complete, real-time digital mirror of UAE's entire road 
+                    Creates a complete, real-time digital mirror of UAE's entire road
                     network for planning and decision-making.
                   </p>
                   <span className="w-10 h-10 rounded-full flex items-center justify-center bg-[#5CFF3D]/20 text-[#5CFF3D] group-hover:bg-black group-hover:text-[#5CFF3D] flex-shrink-0 ml-4 transition-colors">
@@ -496,7 +501,7 @@ const SmartRoads = () => {
               <Link to="/smartroads/capabilities" className="rounded-[1.25rem] p-6 md:p-8 flex flex-col justify-between min-h-[240px] md:min-h-[280px] group cursor-pointer transition-all duration-300 bg-[#161616] hover:bg-[#5CFF3D]">
                 <div className="flex justify-between items-start">
                   <p className="text-[#BEBEBE] leading-relaxed max-w-sm group-hover:text-black transition-colors">
-                    AI continuously learns from millions of interactions, improving 
+                    AI continuously learns from millions of interactions, improving
                     predictions and guidance over time.
                   </p>
                   <span className="w-10 h-10 rounded-full flex items-center justify-center bg-[#5CFF3D]/20 text-[#5CFF3D] group-hover:bg-black group-hover:text-[#5CFF3D] flex-shrink-0 ml-4 transition-colors">
@@ -586,7 +591,7 @@ const SmartRoads = () => {
                   UC Berkeley Already<br />Tested This
                 </h2>
                 <p className="text-[#BEBEBE] text-base md:text-lg leading-relaxed mb-6">
-                  In November 2022, the CIRCLES Consortium deployed 100 AI-equipped vehicles on Nashville's I-24 highway. 
+                  In November 2022, the CIRCLES Consortium deployed 100 AI-equipped vehicles on Nashville's I-24 highway.
                   The result? <strong className="text-white">40% fuel savings</strong> and elimination of phantom traffic jams.
                 </p>
                 <div className="space-y-4 mb-8">
@@ -610,13 +615,13 @@ const SmartRoads = () => {
               </div>
               <div className="sr-card p-4">
                 <div className="aspect-video rounded-xl overflow-hidden bg-black">
-                  <iframe 
-                    width="100%" 
-                    height="100%" 
-                    src="https://www.youtube.com/embed/PA3lyoCZnP0" 
+                  <iframe
+                    width="100%"
+                    height="100%"
+                    src="https://www.youtube.com/embed/PA3lyoCZnP0"
                     title="UC Berkeley CIRCLES Traffic Experiment"
-                    frameBorder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
                     className="w-full h-full"
                   />
@@ -635,7 +640,7 @@ const SmartRoads = () => {
                 Start Your Journey Today
               </h2>
               <p className="text-[#BEBEBE] text-base md:text-lg mb-6 md:mb-10 max-w-lg mx-auto leading-relaxed">
-                The technology exists. The research is proven. The UAE has a 3-5 year 
+                The technology exists. The research is proven. The UAE has a 3-5 year
                 first-mover advantage. The time to act is now.
               </p>
               <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4">
@@ -662,9 +667,9 @@ const SmartRoads = () => {
               <span className="font-semibold text-white text-sm md:text-base">SmartRoads</span>
             </div>
             <div className="text-xs text-[#6b6b6b] max-w-2xl leading-relaxed">
-              © 2025 SmartRoads. All rights reserved. This proposal, including all concepts, 
-              methodologies, technical specifications, and intellectual property contained herein, 
-              is confidential and proprietary. Unauthorized reproduction, distribution, or use 
+              © 2025 SmartRoads. All rights reserved. This proposal, including all concepts,
+              methodologies, technical specifications, and intellectual property contained herein,
+              is confidential and proprietary. Unauthorized reproduction, distribution, or use
               of this material without express written consent is strictly prohibited.
             </div>
             <div className="text-xs text-[#4a4a4a]">

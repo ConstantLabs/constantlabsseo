@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowLeft, ExternalLink, Menu, X, Download } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
+import { SEO } from "@/components/SEO";
+import { ArrowLeft, ExternalLink, Menu, X, Download } from "lucide-react";
 
 const SmartRoadsCircles = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -15,6 +16,10 @@ const SmartRoadsCircles = () => {
 
   return (
     <div className="smartroads-page min-h-screen text-white">
+      <SEO
+        title="Smart Roads - CIRCLES Experiment"
+        description="UC Berkeley's massive field test proving AI can smooth traffic flow and reduce fuel consumption by 40%."
+      />
       {/* Navigation */}
       <nav className={`fixed top-0 left-0 right-0 z-50 px-4 md:px-8 py-4 ${mobileMenuOpen ? 'bg-[#0d0d0d]' : 'bg-transparent'}`}>
         <div className="max-w-7xl mx-auto flex items-center justify-between">
@@ -22,13 +27,13 @@ const SmartRoadsCircles = () => {
             <ArrowLeft className="w-4 h-4" />
             <span className="text-sm font-medium">Back</span>
           </button>
-          
+
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-6">
             <Link to="/smartroads/research" className="text-sm text-[#888] hover:text-white">Research</Link>
             <Link to="/smartroads/implementation" className="text-sm text-[#888] hover:text-white">Implementation</Link>
-            <a 
-              href="/smartroads/SmartRoads_Pitch.pdf" 
+            <a
+              href="/smartroads/SmartRoads_Pitch.pdf"
               target="_blank"
               className="px-4 py-2 bg-[#5CFF3D] text-black text-sm font-semibold rounded-full hover:bg-[#4de632]"
             >
@@ -38,7 +43,7 @@ const SmartRoadsCircles = () => {
           </div>
 
           {/* Mobile hamburger */}
-          <button 
+          <button
             className="md:hidden text-white p-2"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
@@ -58,8 +63,8 @@ const SmartRoadsCircles = () => {
               <div className="flex flex-col gap-4 pt-4">
                 <Link to="/smartroads/research" className="text-sm text-[#888] hover:text-white">Research</Link>
                 <Link to="/smartroads/implementation" className="text-sm text-[#888] hover:text-white">Implementation</Link>
-                <a 
-                  href="/smartroads/SmartRoads_Pitch.pdf" 
+                <a
+                  href="/smartroads/SmartRoads_Pitch.pdf"
                   target="_blank"
                   className="mx-auto px-4 py-2 bg-[#5CFF3D] text-black text-sm font-semibold rounded-full hover:bg-[#4de632] flex items-center justify-center"
                 >
@@ -89,9 +94,9 @@ const SmartRoadsCircles = () => {
             <span>•</span>
             <span>November 22, 2022</span>
             <span>•</span>
-            <a 
-              href="https://news.berkeley.edu/2022/11/22/massive-traffic-experiment-pits-machine-learning-against-phantom-jams/" 
-              target="_blank" 
+            <a
+              href="https://news.berkeley.edu/2022/11/22/massive-traffic-experiment-pits-machine-learning-against-phantom-jams/"
+              target="_blank"
               rel="noopener noreferrer"
               className="text-[#5CFF3D] hover:underline flex items-center gap-1"
             >
@@ -105,13 +110,13 @@ const SmartRoadsCircles = () => {
       <section className="pb-12 px-4 md:px-8">
         <div className="max-w-4xl mx-auto">
           <div className="aspect-video rounded-xl overflow-hidden bg-black/50">
-            <iframe 
-              width="100%" 
-              height="100%" 
-              src="https://www.youtube.com/embed/PA3lyoCZnP0" 
+            <iframe
+              width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed/PA3lyoCZnP0"
               title="Massive field test showing how AI smooths traffic flow"
-              frameBorder="0" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
               className="w-full h-full"
             />
@@ -225,15 +230,15 @@ const SmartRoadsCircles = () => {
               Our system uses the same principles proven by CIRCLES — precise vehicle coordination to eliminate phantom jams — but with RTK positioning for centimeter-level accuracy.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Link 
-                to="/smartroads/implementation" 
+              <Link
+                to="/smartroads/implementation"
                 className="px-6 py-3 bg-[#5CFF3D] text-black font-semibold rounded-full hover:bg-[#4de632]"
               >
                 View Implementation Plan
               </Link>
-              <a 
-                href="https://arxiv.org/pdf/1705.01693" 
-                target="_blank" 
+              <a
+                href="https://arxiv.org/pdf/1705.01693"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="px-6 py-3 border border-white/20 text-white font-semibold rounded-full hover:bg-white/5 flex items-center gap-2"
               >

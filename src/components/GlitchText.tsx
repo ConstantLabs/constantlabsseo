@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { useState, useEffect } from "react";
 
 interface GlitchTextProps {
   children: string;
@@ -7,19 +8,27 @@ interface GlitchTextProps {
   intensity?: "normal" | "insane";
 }
 
-export const GlitchText = ({ 
-  children, 
-  className, 
+export const GlitchText = ({
+  children,
+  className,
   animate = false,
-  intensity = "normal" 
+  intensity = "normal"
 }: GlitchTextProps) => {
+  const [isReady, setIsReady] = useState(false);
+
+  useEffect(() => {
+    // Small delay to allow LCP paint before heavy animation starts
+    const timer = setTimeout(() => setIsReady(true), 100);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <span 
+    <span
       className={cn(
         "glitch inline-block",
         // Disable hover glitch on intense mode for performance
         animate && intensity !== "insane" && "hover-glitch",
-        intensity === "insane" && "glitch-intense",
+        intensity === "insane" && isReady && "glitch-intense",
         className
       )}
       data-text={children}

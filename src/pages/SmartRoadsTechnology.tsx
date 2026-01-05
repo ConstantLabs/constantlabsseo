@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
+import { SEO } from "@/components/SEO";
 import { Satellite, Cpu, Camera, Smartphone, Radio, Cloud, Brain, ArrowRight, Target, Wifi, Server, Menu, X } from "lucide-react";
 
 const vehicleHardware = [
@@ -34,6 +35,10 @@ const SmartRoadsTechnology = () => {
 
   return (
     <div className="min-h-screen text-white smartroads-page">
+      <SEO
+        title="Smart Roads Technology - Precision Meets Intelligence"
+        description="The technology behind SmartRoads: RTK GPS, 5G V2X communication, and AI-powered traffic coordination."
+      />
       {/* Navigation */}
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-colors ${mobileMenuOpen ? 'bg-[#0d0d0d]' : 'bg-transparent'}`}>
         <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4">
@@ -76,7 +81,7 @@ const SmartRoadsTechnology = () => {
                 Precision Meets <span className="text-[#5CFF3D]">Intelligence</span>
               </h1>
               <p className="text-[#BEBEBE] text-lg leading-relaxed">
-                A synergistic stack of advanced hardware, robust network infrastructure, 
+                A synergistic stack of advanced hardware, robust network infrastructure,
                 and powerful AI working together to transform traffic management.
               </p>
             </div>
@@ -90,7 +95,7 @@ const SmartRoadsTechnology = () => {
               <div>
                 <h2 className="sr-heading-lg text-white mb-6">The RTK Advantage</h2>
                 <p className="text-[#BEBEBE] text-lg mb-8 leading-relaxed">
-                  Real-Time Kinematic GPS achieves centimeter-level accuracy—100x better 
+                  Real-Time Kinematic GPS achieves centimeter-level accuracy—100x better
                   than standard GPS—by using correction signals from base stations.
                 </p>
                 <div className="space-y-4">
@@ -206,7 +211,7 @@ const SmartRoadsTechnology = () => {
               <div>
                 <h2 className="sr-heading-lg text-white mb-6">AI Cloud Platform</h2>
                 <p className="text-[#BEBEBE] text-lg mb-8 leading-relaxed">
-                  The brain of the network. Advanced machine learning processes millions 
+                  The brain of the network. Advanced machine learning processes millions
                   of data points per second to optimize traffic flow.
                 </p>
                 <div className="space-y-4">
@@ -252,9 +257,9 @@ const SmartRoadsTechnology = () => {
               <span className="font-semibold text-white">SmartRoads</span>
             </div>
             <div className="text-xs text-[#6b6b6b] max-w-2xl leading-relaxed">
-              © 2025 SmartRoads. All rights reserved. This proposal, including all concepts, 
-              methodologies, technical specifications, and intellectual property contained herein, 
-              is confidential and proprietary. Unauthorized reproduction, distribution, or use 
+              © 2025 SmartRoads. All rights reserved. This proposal, including all concepts,
+              methodologies, technical specifications, and intellectual property contained herein,
+              is confidential and proprietary. Unauthorized reproduction, distribution, or use
               of this material without express written consent is strictly prohibited.
             </div>
             <div className="text-xs text-[#4a4a4a]">
