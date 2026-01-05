@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
-import { Github } from "lucide-react";
+import { useState } from "react";
 
 interface ProjectCardProps {
   title: string;
@@ -13,18 +13,24 @@ interface ProjectCardProps {
 }
 
 export const ProjectCard = ({ title, description, tech, status, link, image, index }: ProjectCardProps) => {
+  const [isTouched, setIsTouched] = useState(false);
   return (
     <motion.a
       href={link}
       target="_blank"
       rel="noopener noreferrer"
-      className="group relative flex flex-col bg-background p-6 border-2 border-foreground/20 overflow-hidden"
+      className={cn(
+        "group relative flex flex-col bg-background p-6 border-2 border-foreground/20 overflow-hidden",
+        isTouched && "border-foreground/40"
+      )}
       whileHover={{
         scale: 1.01,
         borderColor: "rgba(255, 255, 255, 0.4)",
         boxShadow: "0 0 30px rgba(255, 255, 255, 0.05)"
       }}
       whileTap={{ scale: 0.98 }}
+      onTouchStart={() => setIsTouched(true)}
+      onTouchEnd={() => setTimeout(() => setIsTouched(false), 300)}
       transition={{ duration: 0.3 }}
     >
       {/* Corner decorations */}

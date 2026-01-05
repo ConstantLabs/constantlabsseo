@@ -3,12 +3,13 @@ import { GlitchTextFramer } from "@/components/GlitchTextFramer";
 
 import { ProjectCard } from "@/components/ProjectCard";
 import { TeamMember } from "@/components/TeamMember";
-import { LoadingScreen } from "@/components/LoadingScreen";
+import { PageLoader } from "@/components/PageLoader";
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Zap, Rocket, TrendingUp } from "lucide-react";
 import { SEO } from "@/components/SEO";
 import tamerAvatar from "@/assets/tamer-avatar.png";
 import ahmadAvatar from "@/assets/ahmad-avatar.png";
+import tjAvatar from "@/assets/tj-avatar.jpeg";
 
 import mufakkirImg from "@/assets/projects/mufakkir.png";
 import motargemImg from "@/assets/projects/motargem.png";
@@ -143,6 +144,19 @@ const Index = () => {
       avatar: tamerAvatar,
       github: "https://github.com/Moenamatics",
       linkedin: "https://www.linkedin.com/in/mohamad-rabie-b304a8203/"
+    },
+    {
+      name: "MOHAMMAD TIJANI",
+      role: "SOFTWARE ENGINEER",
+      journey: [
+        "BSc Computer Engineering",
+        "MSc Computer Science (University of York)",
+        "Web development and programming",
+        "Now: Building robust software solutions"
+      ],
+      avatar: tjAvatar,
+      github: "",
+      linkedin: "https://www.linkedin.com/in/altigani-501599235/"
     }
   ];
 
@@ -151,7 +165,7 @@ const Index = () => {
     return (
       <>
         <SEO title="Home" description="Build. Ship. Repeat. Constant Labs portfolio." />
-        <LoadingScreen onComplete={() => setIsLoading(false)} />
+        <PageLoader onComplete={() => setIsLoading(false)} />
       </>
     );
   }
