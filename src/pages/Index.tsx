@@ -7,22 +7,22 @@ import { PageLoader } from "@/components/PageLoader";
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Zap, Rocket, TrendingUp } from "lucide-react";
 import { SEO } from "@/components/SEO";
-import tamerAvatar from "@/assets/tamer-avatar.png";
-import ahmadAvatar from "@/assets/ahmad-avatar.png";
-import tjAvatar from "@/assets/tj-avatar.jpeg";
+import tamerAvatar from "@/assets/tamer-avatar.webp";
+import ahmadAvatar from "@/assets/ahmad-avatar.webp";
+import tjAvatar from "@/assets/tj-avatar.webp";
 
-import mufakkirImg from "@/assets/projects/mufakkir.png";
-import motargemImg from "@/assets/projects/motargem.png";
-import speakWindowsImg from "@/assets/projects/speak-windows.jpg";
-import athkarImg from "@/assets/projects/athkar.png";
-import mosqueSilenceImg from "@/assets/projects/mosque-silence.png";
-import medievalQuestImg from "@/assets/projects/medieval-quest.png";
-import fznDiningImg from "@/assets/projects/fzn-dining.png";
-import toitImg from "@/assets/projects/toit.png";
-import cutInHalfImg from "@/assets/projects/cut-in-half.png";
-import sinaaiyaImg from "@/assets/projects/sinaaiya.png";
-import guideonImg from "@/assets/projects/guideon.jpg";
-import naviiImg from "@/assets/projects/navii.png";
+import mufakkirImg from "@/assets/projects/mufakkir.webp";
+import motargemImg from "@/assets/projects/motargem.webp";
+import speakWindowsImg from "@/assets/projects/speak-windows.webp";
+import athkarImg from "@/assets/projects/athkar.webp";
+import mosqueSilenceImg from "@/assets/projects/mosque-silence.webp";
+import medievalQuestImg from "@/assets/projects/medieval-quest.webp";
+import fznDiningImg from "@/assets/projects/fzn-dining.webp";
+import toitImg from "@/assets/projects/toit.webp";
+import cutInHalfImg from "@/assets/projects/cut-in-half.webp";
+import sinaaiyaImg from "@/assets/projects/sinaaiya.webp";
+import guideonImg from "@/assets/projects/guideon.webp";
+import naviiImg from "@/assets/projects/navii.webp";
 
 // Lazy load HackerBackground for better performance
 const HackerBackground = lazy(() => import("@/components/HackerBackground").then(module => ({ default: module.HackerBackground })));
@@ -208,6 +208,9 @@ const Index = () => {
                 SYSTEM ONLINE
               </span>
             </div>
+            <span className="text-[10px] font-tech text-foreground/80 font-bold tracking-wider">
+              CONSTANT_LABS
+            </span>
             <span className="text-[8px] font-tech text-foreground/40">
               // SECURE CONNECTION ESTABLISHED
             </span>
@@ -404,7 +407,7 @@ const Index = () => {
       <section id="contact" className="relative z-10 py-24 border-t-2 border-foreground/10">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <div className="border-2 border-foreground p-12 space-y-6 text-center relative overflow-hidden">
+            <div className="border-2 border-foreground p-12 space-y-6 text-center relative overflow-hidden bg-card">
               <div className="absolute top-4 right-4 text-[10px] font-tech text-white/20">
                 [ENCRYPTED_CHANNEL]
               </div>

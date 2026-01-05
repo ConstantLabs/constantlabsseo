@@ -1,5 +1,3 @@
-import { motion } from "framer-motion";
-
 export const CRTOverlayFramer = () => {
     return (
         <>
@@ -11,19 +9,12 @@ export const CRTOverlayFramer = () => {
                 }}
             />
 
-            {/* Subtle Screen Glow */}
-            <motion.div
+            {/* Static Screen Glow - no animation for performance */}
+            <div
                 className="fixed inset-0 pointer-events-none z-[9999] mix-blend-overlay"
-                animate={{
-                    opacity: [0.03, 0.05, 0.03]
-                }}
-                transition={{
-                    duration: 4,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                }}
                 style={{
-                    background: "rgba(255, 255, 255, 0.05)"
+                    background: "rgba(255, 255, 255, 0.05)",
+                    opacity: 0.04
                 }}
             />
         </>
