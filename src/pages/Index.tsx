@@ -99,14 +99,7 @@ const Index = () => {
       link: "https://sinaaiya.vercel.app/",
       image: sinaaiyaImg
     },
-    {
-      title: "GUIDEON",
-      description: "Modular AI-powered kiosk robot. 3D-printed, fully autonomous, handles roles from coffee-serving to reception with expressive gestures and smart chat.",
-      tech: ["Robotics", "AI", "3D Printing", "ROS"],
-      status: "repository" as const,
-      link: "https://astrobubu.github.io/AhmadRobotics/",
-      image: guideonImg
-    },
+
     {
       title: "NAVII",
       description: "AR indoor navigation for malls, airports, and large indoor spaces. Turn-by-turn guidance without GPS.",
@@ -141,6 +134,25 @@ const Index = () => {
       status: "live" as const,
       link: "https://cut-in-half.vercel.app/",
       image: cutInHalfImg
+    },
+  ];
+
+  const hardwareProjects = [
+    {
+      title: "SMARTROADS",
+      description: "Revolutionary traffic management system. Coordinate 5% of vehicles to eliminate congestion for everyone. RTK precision positioning with AI-powered coordination.",
+      tech: ["Traffic AI", "RTK GPS", "IoT", "V2X"],
+      status: "development" as const,
+      link: "/smartroads",
+      image: "/smartroads/smart road.jpg"
+    },
+    {
+      title: "GUIDEON",
+      description: "Modular AI-powered kiosk robot. 3D-printed, fully autonomous, handles roles from coffee-serving to reception with expressive gestures and smart chat.",
+      tech: ["Robotics", "AI", "3D Printing", "ROS"],
+      status: "live" as const,
+      link: "/robotics",
+      image: guideonImg
     },
   ];
 
@@ -343,7 +355,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* THE VAULT - Projects */}
+      {/* THE VAULT - All Projects */}
       <section id="vault" className="relative z-10 py-24 border-t-2 border-foreground/10">
         <div className="container mx-auto px-4">
           <div className="mb-12">
@@ -355,15 +367,41 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {projects.map((project, idx) => (
-              <ProjectCard key={idx} {...project} index={idx} />
-            ))}
+          {/* SOFTWARE SECTION */}
+          <div className="mb-16">
+            <div className="flex items-center gap-4 mb-8">
+              <div className="h-px flex-1 bg-foreground/20" />
+              <h3 className="text-lg font-tech text-foreground/60 uppercase tracking-wider">
+                // SOFTWARE
+              </h3>
+              <div className="h-px flex-1 bg-foreground/20" />
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {projects.map((project, idx) => (
+                <ProjectCard key={idx} {...project} index={idx} />
+              ))}
+            </div>
+          </div>
+
+          {/* HARDWARE SECTION */}
+          <div>
+            <div className="flex items-center gap-4 mb-8">
+              <div className="h-px flex-1 bg-foreground/20" />
+              <h3 className="text-lg font-tech text-foreground/60 uppercase tracking-wider">
+                // HARDWARE
+              </h3>
+              <div className="h-px flex-1 bg-foreground/20" />
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {hardwareProjects.map((project, idx) => (
+                <ProjectCard key={idx} {...project} index={idx} />
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* CLIENT DEPLOYMENTS - Custom Sites */}
+      {/* CLIENT DEPLOYMENTS - Hidden for now
       <section id="deployments" className="relative z-10 py-24 border-t-2 border-foreground/10">
         <div className="container mx-auto px-4">
           <div className="mb-12">
@@ -382,6 +420,7 @@ const Index = () => {
           </div>
         </div>
       </section>
+      */}
 
       {/* OPERATORS - Team */}
       <section id="operators" className="relative z-10 py-24 border-t-2 border-foreground/10">
