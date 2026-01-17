@@ -299,15 +299,19 @@ const Robotics = () => {
             </main>
 
             {/* Footer */}
-            <footer className="py-8 md:py-10 px-4 md:px-6 bg-[#080a0d]">
+            <footer className="py-8 md:py-10 px-4 md:px-6 bg-[#080a0d] border-t border-white/5">
                 <div className="max-w-7xl mx-auto">
                     <div className="flex flex-col items-center gap-4 md:gap-6 text-center">
                         <div className="flex items-center gap-2">
-                            <Bot className="w-8 h-8 text-[#00D9FF]" />
                             <span className="font-semibold text-white text-sm md:text-base">Constant Labs Robotics</span>
                         </div>
                         <div className="text-xs text-[#666] max-w-2xl leading-relaxed">
                             © 2025 Constant Labs. All rights reserved.
+                        </div>
+                        <div className="flex items-center gap-4">
+                            <Link to="/privacy" className="text-[10px] uppercase tracking-wide text-[#666] hover:text-[#00D9FF] transition-colors">Privacy Policy</Link>
+                            <span className="text-[10px] text-[#333]">|</span>
+                            <Link to="/terms" className="text-[10px] uppercase tracking-wide text-[#666] hover:text-[#00D9FF] transition-colors">Terms of Service</Link>
                         </div>
                         <Link to="/" className="text-xs text-[#00D9FF] hover:underline">
                             ← Back to Constant Labs

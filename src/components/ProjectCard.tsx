@@ -9,10 +9,11 @@ interface ProjectCardProps {
   status: "live" | "beta" | "development" | "repository";
   link: string;
   image?: string;
+  imagePosition?: "top" | "center";
   index: number;
 }
 
-export const ProjectCard = ({ title, description, tech, status, link, image, index }: ProjectCardProps) => {
+export const ProjectCard = ({ title, description, tech, status, link, image, imagePosition = "center", index }: ProjectCardProps) => {
   const [isTouched, setIsTouched] = useState(false);
   return (
     <motion.a
@@ -53,7 +54,7 @@ export const ProjectCard = ({ title, description, tech, status, link, image, ind
           <img
             src={image}
             alt={title}
-            className="h-full w-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+            className={`h-full w-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 ${imagePosition === "top" ? "object-top" : "object-center"}`}
             loading="lazy"
           />
           {/* Image scanline overlay */}

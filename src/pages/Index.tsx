@@ -144,7 +144,8 @@ const Index = () => {
       tech: ["Traffic AI", "RTK GPS", "IoT", "V2X"],
       status: "development" as const,
       link: "/smartroads",
-      image: "/smartroads/smart road.jpg"
+      image: "/smartroads/front car.png",
+      imagePosition: "top" as const
     },
     {
       title: "GUIDEON",
@@ -152,7 +153,8 @@ const Index = () => {
       tech: ["Robotics", "AI", "3D Printing", "ROS"],
       status: "live" as const,
       link: "/robotics",
-      image: guideonImg
+      image: "/robotics/guideon/01.jpg",
+      imagePosition: "top" as const
     },
   ];
 
@@ -486,6 +488,11 @@ const Index = () => {
           <div className="mt-12 text-center text-xs text-muted-foreground font-tech space-y-2">
             <p className="uppercase tracking-wider">CONSTANT LABS © 2025</p>
             <p className="text-[10px] uppercase tracking-wide opacity-60">// BUILT WITH PURPOSE // DESIGNED FOR IMPACT //</p>
+            <div className="flex items-center justify-center gap-4 pt-2">
+              <a href="/privacy" className="text-[10px] uppercase tracking-wide opacity-40 hover:opacity-80 transition-opacity">Privacy Policy</a>
+              <span className="text-[10px] opacity-20">|</span>
+              <a href="/terms" className="text-[10px] uppercase tracking-wide opacity-40 hover:opacity-80 transition-opacity">Terms of Service</a>
+            </div>
           </div>
         </div>
       </section>

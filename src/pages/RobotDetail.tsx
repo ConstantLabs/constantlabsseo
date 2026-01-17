@@ -199,8 +199,8 @@ const RobotDetail = () => {
                                                     key={idx}
                                                     onClick={() => { setCurrentImageIndex(idx); scrollToThumbnail(idx); }}
                                                     className={`flex-shrink-0 w-16 h-12 md:w-20 md:h-14 rounded-xl overflow-hidden border-2 transition-all ${idx === currentImageIndex
-                                                            ? 'border-[#00D9FF] scale-110'
-                                                            : 'border-transparent opacity-60 hover:opacity-100'
+                                                        ? 'border-[#00D9FF] scale-110'
+                                                        : 'border-transparent opacity-60 hover:opacity-100'
                                                         }`}
                                                 >
                                                     <img
@@ -283,7 +283,7 @@ const RobotDetail = () => {
                     </section>
                 )}
 
-                {/* Features/Specs - Redesigned */}
+                {/* Features/Specs - SmartRoads Card Style */}
                 <section className="py-12 md:py-20 px-4 md:px-6">
                     <div className="max-w-7xl mx-auto">
                         <div className="text-center mb-12">
@@ -291,8 +291,8 @@ const RobotDetail = () => {
                             <p className="text-[#888] max-w-2xl mx-auto">Detailed breakdown of {robot.name}'s capabilities and features.</p>
                         </div>
 
-                        {/* Specs as full-width sections */}
-                        <div className="space-y-6">
+                        {/* Cards Grid - 2 columns like SmartRoads */}
+                        <div className="grid gap-6 md:grid-cols-2">
                             {robot.features.map((feature, idx) => (
                                 <motion.div
                                     key={feature.title}
@@ -300,31 +300,24 @@ const RobotDetail = () => {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ delay: idx * 0.1 }}
-                                    className="rb-card overflow-hidden"
+                                    className="bg-[#0d1117] rounded-2xl p-6 border border-[#1a1f26] hover:border-[#00D9FF]/30 transition-colors"
                                 >
-                                    {/* Section Header */}
-                                    <div className="bg-gradient-to-r from-[#00D9FF]/10 to-transparent px-6 py-4 border-b border-[#00D9FF]/20">
-                                        <h3 className="text-xl font-bold text-white flex items-center gap-3">
-                                            <span className="w-8 h-8 rounded-lg bg-[#00D9FF]/20 flex items-center justify-center text-[#00D9FF] text-sm font-bold">
-                                                {idx + 1}
-                                            </span>
-                                            {feature.title}
-                                        </h3>
+                                    {/* Icon + Title */}
+                                    <div className="flex items-center gap-3 mb-4">
+                                        <div className="w-10 h-10 rounded-xl bg-[#00D9FF]/10 border border-[#00D9FF]/30 flex items-center justify-center">
+                                            <span className="text-[#00D9FF] text-lg">⚙</span>
+                                        </div>
+                                        <h3 className="text-xl font-semibold text-white">{feature.title}</h3>
                                     </div>
 
-                                    {/* Section Content */}
-                                    <div className="p-6">
-                                        <div className="grid gap-3 sm:grid-cols-2">
-                                            {feature.items.map((item, itemIdx) => (
-                                                <div
-                                                    key={itemIdx}
-                                                    className="flex items-start gap-3 py-2"
-                                                >
-                                                    <div className="w-2 h-2 rounded-full bg-[#00D9FF] mt-2 flex-shrink-0" />
-                                                    <span className="text-[#BEBEBE] text-sm leading-relaxed">{item}</span>
-                                                </div>
-                                            ))}
-                                        </div>
+                                    {/* Bullet Points */}
+                                    <div className="space-y-2 mt-4">
+                                        {feature.items.map((item, itemIdx) => (
+                                            <div key={itemIdx} className="flex items-start gap-3">
+                                                <div className="w-1.5 h-1.5 rounded-full bg-[#00D9FF] mt-2 flex-shrink-0" />
+                                                <span className="text-[#9CA3AF] text-sm leading-relaxed">{item}</span>
+                                            </div>
+                                        ))}
                                     </div>
                                 </motion.div>
                             ))}
