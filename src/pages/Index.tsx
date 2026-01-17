@@ -144,8 +144,7 @@ const Index = () => {
       tech: ["Traffic AI", "RTK GPS", "IoT", "V2X"],
       status: "development" as const,
       link: "/smartroads",
-      image: "/smartroads/front car.png",
-      imagePosition: "top" as const
+      image: "/smartroads/front car.png"
     },
     {
       title: "GUIDEON",

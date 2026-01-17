@@ -23,6 +23,8 @@ const SmartRoadsSuppressingPaper = lazy(() => import("./pages/SmartRoadsSuppress
 const SmartRoadsVirginiaTech = lazy(() => import("./pages/SmartRoadsVirginiaTech"));
 const Robotics = lazy(() => import("./pages/Robotics"));
 const RobotDetail = lazy(() => import("./pages/RobotDetail"));
+const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
+const TermsOfService = lazy(() => import("./pages/TermsOfService"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const AnimatedRoutes = () => {
@@ -46,6 +48,8 @@ const AnimatedRoutes = () => {
         <Route path="/smartroads/virginia-tech" element={<PageTransition><SmartRoadsVirginiaTech /></PageTransition>} />
         <Route path="/robotics" element={<PageTransition><Robotics /></PageTransition>} />
         <Route path="/robotics/:slug" element={<PageTransition><RobotDetail /></PageTransition>} />
+        <Route path="/privacy" element={<PageTransition><PrivacyPolicy /></PageTransition>} />
+        <Route path="/terms" element={<PageTransition><TermsOfService /></PageTransition>} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
       </Routes>
