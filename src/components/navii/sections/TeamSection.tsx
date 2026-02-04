@@ -2,7 +2,8 @@ import { motion } from "framer-motion";
 import { SectionWrapper } from "../ui/SectionWrapper";
 import { FounderCard } from "../ui/FounderCard";
 import { Badge } from "@/components/ui/badge";
-import tjAvatar from "@/assets/tj-avatar.webp";
+
+const founderPhotoUrl = "https://media.licdn.com/dms/image/v2/D4D03AQGSHb_eGlvVEA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1725214890942?e=1772064000&v=beta&t=L5dALn1dW_HnaaM073MwTvpAosRL0HaHJJ2cW60HWzA";
 
 export const TeamSection = () => {
   return (
@@ -41,7 +42,7 @@ export const TeamSection = () => {
             title="Founder & Developer"
             background="Computer Engineer | Building the future of indoor navigation"
             quote="After spending 20 minutes looking for a single store in Dubai Mall, I knew there had to be a better way. That frustration became Navii."
-            photoUrl={tjAvatar}
+            photoUrl={founderPhotoUrl}
             linkedinUrl="https://www.linkedin.com/in/mohamad-rabie-b304a8203/"
             instagramUrl="https://instagram.com/m7md.t_"
           />
