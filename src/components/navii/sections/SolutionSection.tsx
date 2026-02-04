@@ -44,15 +44,15 @@ export const SolutionSection = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-12 md:mb-16"
         >
-          <Badge className="mb-4 bg-navii-cyan/10 text-navii-cyan border-navii-cyan/30 font-tech">
+          <Badge className="mb-3 sm:mb-4 bg-navii-cyan/10 text-navii-cyan border-navii-cyan/30 font-tech text-xs sm:text-sm">
             How It Works
           </Badge>
-          <h2 className="text-3xl md:text-5xl font-bold mb-4 font-rajdhani text-white">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-3 sm:mb-4 font-rajdhani text-white">
             Three Steps to Your Destination
           </h2>
-          <p className="text-gray-400 max-w-xl mx-auto">
+          <p className="text-gray-400 max-w-xl mx-auto text-sm sm:text-base">
             No more asking for directions. No more wandering. Just point, follow, and arrive.
           </p>
         </motion.div>
@@ -63,7 +63,7 @@ export const SolutionSection = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
-          className="grid md:grid-cols-3 gap-8 md:gap-4 relative"
+          className="grid md:grid-cols-3 gap-4 md:gap-4 relative"
         >
           {/* Connection line (desktop only) */}
           <div className="hidden md:block absolute top-1/3 left-[20%] right-[20%] h-px bg-gradient-to-r from-navii-cyan via-navii-magenta to-navii-purple" />
@@ -75,11 +75,11 @@ export const SolutionSection = () => {
               className="relative flex flex-col items-center text-center"
             >
               {/* Step number badge */}
-              <div className="relative mb-4 sm:mb-6">
+              <div className="relative mb-3 sm:mb-6">
                 <motion.div
                   whileHover={{ scale: 1.1, rotate: 360 }}
                   transition={{ type: "spring", stiffness: 200 }}
-                  className={`w-14 h-14 sm:w-20 sm:h-20 rounded-xl sm:rounded-2xl bg-${step.color}/20
+                  className={`w-12 h-12 sm:w-20 sm:h-20 rounded-xl sm:rounded-2xl bg-${step.color}/20
                              border-2 border-${step.color}/30
                              flex items-center justify-center relative z-10`}
                   style={{
@@ -91,37 +91,77 @@ export const SolutionSection = () => {
                       : 'rgba(157, 0, 255, 0.2)'
                   } as React.CSSProperties}
                 >
-                  <step.icon className={`w-6 h-6 sm:w-8 sm:h-8 text-${step.color}`} />
+                  <step.icon className={`w-5 h-5 sm:w-8 sm:h-8 text-${step.color}`} />
                 </motion.div>
 
                 {/* Step number */}
                 <Badge
-                  className={`absolute -top-2 -right-2 w-8 h-8 p-0 flex items-center justify-center
-                             bg-${step.color} text-black font-bold text-lg border-0`}
+                  className={`absolute -top-1.5 -right-1.5 sm:-top-2 sm:-right-2 w-6 h-6 sm:w-8 sm:h-8 p-0 flex items-center justify-center
+                             bg-${step.color} text-black font-bold text-sm sm:text-lg border-0`}
                 >
                   {step.number}
                 </Badge>
               </div>
 
-              {/* Phone preview placeholder */}
-              <div className="w-24 h-40 sm:w-32 sm:h-56 mb-4 sm:mb-6 rounded-xl sm:rounded-2xl border-2 border-white/10
+              {/* Phone preview placeholder - hidden on mobile */}
+              <div className="hidden sm:block w-32 h-56 mb-6 rounded-2xl border-2 border-white/10
                             bg-navii-bg-secondary overflow-hidden
                             hover:border-white/20 transition-colors">
                 <div className="w-full h-full flex items-center justify-center bg-gradient-to-b from-white/5 to-transparent">
-                  <step.icon className={`w-8 h-8 sm:w-10 sm:h-10 text-${step.color}/50`} />
+                  <step.icon className={`w-10 h-10 text-${step.color}/50`} />
                 </div>
               </div>
 
               {/* Content */}
-              <h3 className={`text-xl sm:text-2xl font-bold text-${step.color} mb-1 font-rajdhani tracking-wide`}>
+              <h3 className={`text-lg sm:text-2xl font-bold text-${step.color} mb-0.5 sm:mb-1 font-rajdhani tracking-wide`}>
                 {step.title}
               </h3>
-              <p className="text-white font-medium mb-2">{step.subtitle}</p>
-              <p className="text-gray-400 text-sm max-w-[240px]">
+              <p className="text-white font-medium text-sm sm:text-base mb-1 sm:mb-2">{step.subtitle}</p>
+              <p className="text-gray-400 text-xs sm:text-sm max-w-[240px]">
                 {step.description}
               </p>
 
-              {/* Arrow (hidden on last and mobile) */}
+              {/* Mobile: Down arrow between steps */}
+              {index < steps.length - 1 && (
+                <div className="md:hidden flex flex-col items-center my-3">
+                  <div
+                    className="w-px h-6 mb-1"
+                    style={{
+                      background: `linear-gradient(to bottom, ${
+                        step.color === 'navii-cyan' ? 'rgba(0, 229, 255, 0.5)' :
+                        step.color === 'navii-magenta' ? 'rgba(255, 0, 229, 0.5)' :
+                        'rgba(157, 0, 255, 0.5)'
+                      }, ${
+                        steps[index + 1].color === 'navii-cyan' ? 'rgba(0, 229, 255, 0.5)' :
+                        steps[index + 1].color === 'navii-magenta' ? 'rgba(255, 0, 229, 0.5)' :
+                        'rgba(157, 0, 255, 0.5)'
+                      })`
+                    }}
+                  />
+                  <motion.svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    animate={{ y: [0, 4, 0] }}
+                    transition={{ repeat: Infinity, duration: 1.2 }}
+                  >
+                    <path
+                      d="M12 5V19M12 19L5 12M12 19L19 12"
+                      stroke={
+                        steps[index + 1].color === 'navii-cyan' ? 'rgba(0, 229, 255, 0.7)' :
+                        steps[index + 1].color === 'navii-magenta' ? 'rgba(255, 0, 229, 0.7)' :
+                        'rgba(157, 0, 255, 0.7)'
+                      }
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </motion.svg>
+                </div>
+              )}
+
+              {/* Desktop: Right arrow between steps */}
               {index < steps.length - 1 && (
                 <div className="hidden md:block absolute top-1/3 -right-4 transform -translate-y-1/2 z-20">
                   <motion.svg
