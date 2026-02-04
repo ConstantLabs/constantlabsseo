@@ -97,8 +97,6 @@ export const ProblemSection = () => {
             </div>
           </div>
 
-          {/* Decorative line */}
-          <div className="absolute top-0 left-8 w-px h-full bg-gradient-to-b from-navii-cyan/50 via-navii-magenta/50 to-transparent -translate-y-full" />
         </motion.div>
       </div>
     </SectionWrapper>
