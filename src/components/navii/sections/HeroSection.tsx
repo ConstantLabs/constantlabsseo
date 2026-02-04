@@ -5,8 +5,6 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { PhoneMockup } from "../ui/PhoneMockup";
 
-const DEMO_URL = "https://navii-demo.vercel.app/";
-
 interface HeroSectionProps {
   onWaitlistClick?: () => void;
   onPartnerClick?: () => void;
@@ -85,21 +83,24 @@ export const HeroSection = ({ onWaitlistClick, onPartnerClick }: HeroSectionProp
           >
             <Link to="/navii/demo" className="block group">
               <PhoneMockup enableParallax={true}>
-                {/* Live Demo Embed */}
-                <div className="w-full h-full relative">
-                  <iframe
-                    src={DEMO_URL}
-                    className="w-full h-full border-0 pointer-events-none"
-                    title="Navii Demo Preview"
-                  />
-                  {/* Hover overlay */}
-                  <div className="absolute inset-0 bg-navii-bg/0 group-hover:bg-navii-bg/40 transition-colors duration-300 flex items-center justify-center">
-                    <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center">
-                      <div className="bg-navii-cyan/20 backdrop-blur-sm px-4 py-2 rounded-full border border-navii-cyan/30">
-                        <span className="text-navii-cyan font-tech text-sm">Try Full Demo</span>
-                      </div>
+                {/* Demo Preview */}
+                <div className="w-full h-full relative bg-gradient-to-br from-navii-bg to-navii-bg-secondary">
+                  {/* AR visualization placeholder */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="text-center">
+                      <motion.div
+                        className="w-20 h-20 mx-auto mb-4 rounded-full bg-navii-cyan/20 flex items-center justify-center"
+                        animate={{ scale: [1, 1.1, 1] }}
+                        transition={{ duration: 2, repeat: Infinity }}
+                      >
+                        <Sparkles className="w-8 h-8 text-navii-cyan" />
+                      </motion.div>
+                      <p className="text-navii-cyan font-tech text-sm">Interactive Demo</p>
+                      <p className="text-gray-500 text-xs mt-1">Click to explore</p>
                     </div>
                   </div>
+                  {/* Hover overlay */}
+                  <div className="absolute inset-0 bg-navii-bg/0 group-hover:bg-navii-cyan/10 transition-colors duration-300" />
                 </div>
               </PhoneMockup>
             </Link>

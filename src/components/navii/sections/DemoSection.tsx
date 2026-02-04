@@ -1,11 +1,10 @@
 import { motion } from "framer-motion";
-import { Smartphone } from "lucide-react";
+import { Smartphone, Play } from "lucide-react";
 import { Link } from "react-router-dom";
 import { SectionWrapper } from "../ui/SectionWrapper";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
-const DEMO_SOURCE_URL = "https://navii-demo.vercel.app/";
 const DEMO_ROUTE = "/navii/demo";
 
 export const DemoSection = () => {
@@ -63,27 +62,25 @@ export const DemoSection = () => {
               {/* Notch */}
               <div className="absolute top-2 left-1/2 -translate-x-1/2 w-28 h-7 bg-black rounded-full z-20" />
 
-              {/* Screen with iframe */}
-              <div className="absolute inset-[6px] rounded-[2.4rem] overflow-hidden bg-navii-bg">
-                <iframe
-                  src={DEMO_SOURCE_URL}
-                  className="w-full h-full border-0 pointer-events-none"
-                  title="Navii Demo Preview"
-                />
-
-                {/* Overlay for click handling */}
-                <div className="absolute inset-0 bg-transparent group-hover:bg-navii-cyan/5 transition-colors duration-300 flex items-center justify-center">
-                  <motion.div
-                    className="opacity-0 group-hover:opacity-100 transition-opacity duration-300
-                               bg-navii-bg/90 backdrop-blur-sm px-6 py-4 rounded-2xl border border-navii-cyan/30"
-                    whileHover={{ scale: 1.05 }}
-                  >
-                    <div className="flex items-center gap-3 text-navii-cyan">
-                      <ExternalLink className="w-5 h-5" />
-                      <span className="font-semibold">Open Demo</span>
-                    </div>
-                  </motion.div>
+              {/* Screen with demo preview */}
+              <div className="absolute inset-[6px] rounded-[2.4rem] overflow-hidden bg-gradient-to-br from-navii-bg to-navii-bg-secondary">
+                {/* Demo preview content */}
+                <div className="w-full h-full flex items-center justify-center">
+                  <div className="text-center">
+                    <motion.div
+                      className="w-24 h-24 mx-auto mb-4 rounded-full bg-navii-cyan/20 flex items-center justify-center
+                                 group-hover:bg-navii-cyan/30 transition-colors"
+                      whileHover={{ scale: 1.1 }}
+                    >
+                      <Play className="w-10 h-10 text-navii-cyan ml-1" />
+                    </motion.div>
+                    <p className="text-white font-semibold mb-1">Try the Demo</p>
+                    <p className="text-gray-400 text-sm">Click to explore</p>
+                  </div>
                 </div>
+
+                {/* Hover overlay */}
+                <div className="absolute inset-0 bg-transparent group-hover:bg-navii-cyan/5 transition-colors duration-300" />
               </div>
 
               {/* Glass reflection */}
