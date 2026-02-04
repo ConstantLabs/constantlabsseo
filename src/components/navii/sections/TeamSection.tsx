@@ -27,7 +27,7 @@ export const TeamSection = () => {
             The Team
           </Badge>
           <h2 className="text-3xl md:text-5xl font-bold mb-4 font-rajdhani text-white">
-            Built by Someone Who <span className="text-navii-cyan">Gets Lost Too</span>
+            From Frustration to <span className="text-navii-cyan">Innovation</span>
           </h2>
         </motion.div>
 
