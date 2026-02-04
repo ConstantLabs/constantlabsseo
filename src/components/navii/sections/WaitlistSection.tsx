@@ -13,26 +13,64 @@ export const WaitlistSection = () => {
   const [venueEmail, setVenueEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState<"shopper" | "venue" | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
   const handleShopperSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    setIsSubmitting(false);
-    setSubmitted("shopper");
-    setShopperEmail("");
+    setError(null);
+
+    try {
+      const response = await fetch("/api/waitlist", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          type: "shopper",
+          email: shopperEmail,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to submit");
+      }
+
+      setSubmitted("shopper");
+      setShopperEmail("");
+    } catch (err) {
+      setError("Something went wrong. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleVenueSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    setIsSubmitting(false);
-    setSubmitted("venue");
-    setVenueCompany("");
-    setVenueEmail("");
+    setError(null);
+
+    try {
+      const response = await fetch("/api/waitlist", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          type: "venue",
+          email: venueEmail,
+          company: venueCompany,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to submit");
+      }
+
+      setSubmitted("venue");
+      setVenueCompany("");
+      setVenueEmail("");
+    } catch (err) {
+      setError("Something went wrong. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -136,6 +174,9 @@ export const WaitlistSection = () => {
                                 rounded-xl text-white placeholder:text-gray-500"
                     />
                   </div>
+                  {error && (
+                    <p className="text-red-400 text-sm text-center">{error}</p>
+                  )}
                   <Button
                     type="submit"
                     disabled={isSubmitting}
@@ -191,6 +232,9 @@ export const WaitlistSection = () => {
                               focus:border-navii-magenta focus:ring-navii-magenta/20
                               rounded-xl text-white placeholder:text-gray-500"
                   />
+                  {error && (
+                    <p className="text-red-400 text-sm text-center">{error}</p>
+                  )}
                   <Button
                     type="submit"
                     disabled={isSubmitting}
