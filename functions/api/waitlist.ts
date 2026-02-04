@@ -1,8 +1,9 @@
 // Cloudflare Pages Function for Navii Waitlist
-// Sends email notifications via Resend API
+// Sends email notifications via Resend API and stores contacts in Resend Audiences
 
 interface Env {
   RESEND_API_KEY: string;
+  RESEND_AUDIENCE_ID: string;
 }
 
 interface WaitlistRequest {
@@ -31,12 +32,37 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
     }
 
     const apiKey = context.env.RESEND_API_KEY;
+    const audienceId = context.env.RESEND_AUDIENCE_ID;
+
     if (!apiKey) {
       console.error("RESEND_API_KEY not configured");
       return new Response(
         JSON.stringify({ error: "Server configuration error" }),
         { status: 500, headers: corsHeaders }
       );
+    }
+
+    // Save contact to Resend Audience (lead database)
+    if (audienceId) {
+      try {
+        await fetch(`https://api.resend.com/audiences/${audienceId}/contacts`, {
+          method: "POST",
+          headers: {
+            "Authorization": `Bearer ${apiKey}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: email,
+            first_name: company || type, // Store company name or type as first_name
+            last_name: type === "venue" ? "Venue Partner" : "Waitlist", // Identify lead type
+            unsubscribed: false,
+          }),
+        });
+        console.log(`Contact saved to audience: ${email} (${type})`);
+      } catch (audienceError) {
+        // Don't fail the request if audience save fails, just log it
+        console.error("Failed to save to audience:", audienceError);
+      }
     }
 
     // Send notification email to admin
