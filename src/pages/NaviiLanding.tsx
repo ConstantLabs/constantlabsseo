@@ -1,154 +1,199 @@
-import { motion } from "framer-motion";
-import { MapPin, Navigation, Smartphone, Globe, Zap, Shield } from "lucide-react";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+
+// Section imports
+import { HeroSection } from "@/components/navii/sections/HeroSection";
+import { ProblemSection } from "@/components/navii/sections/ProblemSection";
+import { SolutionSection } from "@/components/navii/sections/SolutionSection";
+import { FeaturesSection } from "@/components/navii/sections/FeaturesSection";
+import { DemoSection } from "@/components/navii/sections/DemoSection";
+import { MarketSection } from "@/components/navii/sections/MarketSection";
+import { B2BSection } from "@/components/navii/sections/B2BSection";
+import { TeamSection } from "@/components/navii/sections/TeamSection";
+import { WaitlistSection } from "@/components/navii/sections/WaitlistSection";
+import { NaviiFooter } from "@/components/navii/NaviiFooter";
+
+const navLinks = [
+  { label: "Features", href: "#features" },
+  { label: "Demo", href: "#demo" },
+  { label: "Market", href: "#market" },
+  { label: "Partners", href: "#partners" },
+  { label: "Team", href: "#team" },
+];
 
 const NaviiLanding = () => {
-  return (
-    <div className="min-h-screen bg-navii-bg text-white">
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-b from-navii-purple/20 via-transparent to-navii-cyan/10" />
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-        {/* Grid pattern */}
-        <div
-          className="absolute inset-0 opacity-20"
-          style={{
-            backgroundImage: 'linear-gradient(rgba(0, 229, 255, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 229, 255, 0.1) 1px, transparent 1px)',
-            backgroundSize: '50px 50px'
-          }}
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToSection = (href: string) => {
+    const element = document.querySelector(href);
+    element?.scrollIntoView({ behavior: "smooth" });
+    setIsMobileMenuOpen(false);
+  };
+
+  const scrollToWaitlist = () => {
+    scrollToSection("#waitlist");
+  };
+
+  const scrollToPartners = () => {
+    scrollToSection("#partners");
+  };
+
+  return (
+    <div className="min-h-screen bg-navii-bg text-white overflow-x-hidden">
+      {/* Sticky Navigation */}
+      <motion.nav
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isScrolled
+            ? "bg-navii-bg/90 backdrop-blur-lg border-b border-white/10"
+            : "bg-transparent"
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-6 py-4">
+          <div className="flex items-center justify-between">
+            {/* Logo */}
+            <button
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="text-2xl font-bold bg-gradient-to-r from-navii-cyan via-white to-navii-magenta
+                         bg-clip-text text-transparent font-rajdhani tracking-wider"
+            >
+              NAVII
+            </button>
+
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center gap-8">
+              {navLinks.map((link) => (
+                <button
+                  key={link.label}
+                  onClick={() => scrollToSection(link.href)}
+                  className="text-gray-400 hover:text-white transition-colors text-sm font-medium"
+                >
+                  {link.label}
+                </button>
+              ))}
+            </div>
+
+            {/* CTA Buttons */}
+            <div className="hidden md:flex items-center gap-4">
+              <Button
+                onClick={scrollToWaitlist}
+                variant="ghost"
+                className="text-gray-300 hover:text-white hover:bg-white/5"
+              >
+                Join Waitlist
+              </Button>
+              <Button
+                onClick={scrollToPartners}
+                className="bg-gradient-to-r from-navii-cyan to-navii-magenta text-black font-semibold
+                           hover:opacity-90 transition-opacity"
+              >
+                Partner With Us
+              </Button>
+            </div>
+
+            {/* Mobile menu button */}
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="md:hidden w-10 h-10 flex items-center justify-center rounded-lg
+                         border border-white/10 hover:bg-white/5"
+            >
+              {isMobileMenuOpen ? (
+                <X className="w-5 h-5" />
+              ) : (
+                <Menu className="w-5 h-5" />
+              )}
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Navigation */}
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              className="md:hidden border-t border-white/10 bg-navii-bg/95 backdrop-blur-lg"
+            >
+              <div className="px-6 py-4 space-y-4">
+                {navLinks.map((link) => (
+                  <button
+                    key={link.label}
+                    onClick={() => scrollToSection(link.href)}
+                    className="block w-full text-left text-gray-300 hover:text-white
+                               transition-colors py-2"
+                  >
+                    {link.label}
+                  </button>
+                ))}
+                <div className="pt-4 border-t border-white/10 space-y-3">
+                  <Button
+                    onClick={scrollToWaitlist}
+                    variant="outline"
+                    className="w-full border-white/20 text-white"
+                  >
+                    Join Waitlist
+                  </Button>
+                  <Button
+                    onClick={scrollToPartners}
+                    className="w-full bg-gradient-to-r from-navii-cyan to-navii-magenta text-black font-semibold"
+                  >
+                    Partner With Us
+                  </Button>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </motion.nav>
+
+      {/* Main Content */}
+      <main>
+        {/* 1. Hero Section */}
+        <HeroSection
+          onWaitlistClick={scrollToWaitlist}
+          onPartnerClick={scrollToPartners}
         />
 
-        <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-navii-cyan/30 bg-navii-cyan/10 mb-8">
-              <Zap className="w-4 h-4 text-navii-cyan" />
-              <span className="text-sm text-navii-cyan">AI-Powered Navigation</span>
-            </div>
+        {/* 2. Problem Section */}
+        <ProblemSection />
 
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight">
-              <span className="bg-gradient-to-r from-navii-cyan via-white to-navii-magenta bg-clip-text text-transparent">
-                Navii
-              </span>
-            </h1>
+        {/* 3. Solution Section (How It Works) */}
+        <SolutionSection />
 
-            <p className="text-xl md:text-2xl text-gray-400 mb-8 max-w-2xl mx-auto">
-              Navigate the world with AR precision. Real-time directions overlaid on your reality.
-            </p>
+        {/* 4. Features Section (Bento Grid) */}
+        <FeaturesSection />
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="px-8 py-4 bg-gradient-to-r from-navii-cyan to-navii-magenta rounded-xl font-semibold text-black hover:opacity-90 transition-opacity">
-                Join Waitlist
-              </button>
-              <button className="px-8 py-4 border border-white/20 rounded-xl font-semibold hover:bg-white/5 transition-colors">
-                Learn More
-              </button>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+        {/* 5. Demo Section */}
+        <DemoSection />
 
-      {/* Features Section */}
-      <section className="py-24 px-6">
-        <div className="max-w-6xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              The Future of Navigation
-            </h2>
-            <p className="text-gray-400 max-w-2xl mx-auto">
-              Navii combines augmented reality with AI to transform how you explore the world.
-            </p>
-          </motion.div>
+        {/* 6. Market Stats Section */}
+        <MarketSection />
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                icon: Navigation,
-                title: "AR Directions",
-                description: "See turn-by-turn directions overlaid directly on the real world through your camera.",
-                color: "navii-cyan"
-              },
-              {
-                icon: Globe,
-                title: "Offline Maps",
-                description: "Download entire cities for navigation without internet connection.",
-                color: "navii-magenta"
-              },
-              {
-                icon: Shield,
-                title: "Privacy First",
-                description: "Your location data stays on your device. We never track or sell your information.",
-                color: "navii-purple"
-              }
-            ].map((feature, index) => (
-              <motion.div
-                key={feature.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="p-6 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm hover:border-white/20 transition-colors"
-              >
-                <div className={`w-12 h-12 rounded-xl bg-${feature.color}/20 flex items-center justify-center mb-4`}>
-                  <feature.icon className={`w-6 h-6 text-${feature.color}`} />
-                </div>
-                <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-                <p className="text-gray-400">{feature.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+        {/* 7. B2B Section */}
+        <B2BSection onScheduleClick={scrollToWaitlist} />
 
-      {/* CTA Section */}
-      <section className="py-24 px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="p-12 rounded-3xl border border-white/10 bg-gradient-to-br from-navii-purple/20 to-navii-cyan/20"
-          >
-            <MapPin className="w-12 h-12 text-navii-cyan mx-auto mb-6" />
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Ready to Navigate the Future?
-            </h2>
-            <p className="text-gray-400 mb-8 max-w-xl mx-auto">
-              Be among the first to experience Navii. Join our waitlist for early access.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 px-4 py-3 rounded-xl bg-white/10 border border-white/20 focus:border-navii-cyan focus:outline-none"
-              />
-              <button className="px-6 py-3 bg-navii-cyan text-black font-semibold rounded-xl hover:opacity-90 transition-opacity">
-                Join Waitlist
-              </button>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+        {/* 8. Team Section */}
+        <TeamSection />
 
-      {/* Footer */}
-      <footer className="py-8 px-6 border-t border-white/10">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="text-2xl font-bold bg-gradient-to-r from-navii-cyan to-navii-magenta bg-clip-text text-transparent">
-            Navii
-          </div>
-          <p className="text-gray-500 text-sm">
-            © 2025 Navii. All rights reserved.
-          </p>
-        </div>
-      </footer>
+        {/* 9. Waitlist CTA Section */}
+        <WaitlistSection />
+      </main>
+
+      {/* 11. Footer */}
+      <NaviiFooter />
     </div>
   );
 };
