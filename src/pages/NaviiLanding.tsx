@@ -12,13 +12,14 @@ import { DemoSection } from "@/components/navii/sections/DemoSection";
 import { MarketSection } from "@/components/navii/sections/MarketSection";
 import { B2BSection } from "@/components/navii/sections/B2BSection";
 import { TeamSection } from "@/components/navii/sections/TeamSection";
+import { ProgressSection } from "@/components/navii/sections/ProgressSection";
 import { WaitlistSection } from "@/components/navii/sections/WaitlistSection";
 import { NaviiFooter } from "@/components/navii/NaviiFooter";
 
 const navLinks = [
   { label: "Features", href: "#features" },
   { label: "Demo", href: "#demo" },
-  { label: "Market", href: "#market" },
+  { label: "Progress", href: "#progress" },
   { label: "Partners", href: "#partners" },
   { label: "Team", href: "#team" },
 ];
@@ -179,10 +180,13 @@ const NaviiLanding = () => {
         {/* 5. Demo Section */}
         <DemoSection />
 
-        {/* 6. Market Stats Section */}
+        {/* 6. Progress Section - Tech & Roadmap */}
+        <ProgressSection />
+
+        {/* 7. Market Stats Section */}
         <MarketSection />
 
-        {/* 7. B2B Section */}
+        {/* 8. B2B Section */}
         <B2BSection onScheduleClick={scrollToWaitlist} />
 
         {/* 8. Team Section */}
