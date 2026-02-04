@@ -3,15 +3,14 @@ import {
   Cpu,
   Eye,
   Map,
-  Smartphone,
   CheckCircle2,
   Clock,
-  AlertTriangle,
   Lightbulb,
   ArrowRight,
   Layers,
   ScanLine,
-  Route
+  Route,
+  Sparkles
 } from "lucide-react";
 import { SectionWrapper, containerVariants, itemVariants } from "../ui/SectionWrapper";
 import { Badge } from "@/components/ui/badge";
@@ -70,18 +69,18 @@ const roadmapItems = [
   },
 ];
 
-const limitations = [
+const activeWork = [
   {
-    title: "Venue Mapping Required",
-    description: "Each mall needs initial mapping before navigation works",
+    title: "Venue Onboarding",
+    description: "Streamlining the process to bring new venues online quickly",
   },
   {
-    title: "Lighting Conditions",
-    description: "Depth estimation accuracy varies in very dark areas",
+    title: "AR Overlay Polish",
+    description: "Refining the visual experience and arrow placement accuracy",
   },
   {
-    title: "Phone Holding",
-    description: "Requires holding phone up to see AR arrows (2D fallback available)",
+    title: "Multi-Floor Support",
+    description: "Seamless navigation across different levels and elevators",
   },
 ];
 
@@ -147,62 +146,24 @@ export const ProgressSection = () => {
                 Navii uses state-of-the-art monocular depth estimation to understand 3D space from a single phone camera — no special sensors needed.
               </p>
 
-              {/* Depth Anything 3 Demo GIF */}
-              <div className="mb-4">
-                <a
-                  href="https://depth-anything-3.github.io/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group block relative rounded-xl border border-white/10 bg-navii-bg overflow-hidden hover:border-navii-cyan/40 transition-colors"
-                >
+              {/* Depth Estimation Demo GIF */}
+              <div className="relative rounded-xl border border-white/10 bg-navii-bg overflow-hidden">
+                <div className="relative h-[280px] sm:h-[350px] overflow-hidden">
                   <img
                     src="https://raw.githubusercontent.com/ByteDance-Seed/Depth-Anything-3/main/assets/images/demo320-2.gif"
-                    alt="Depth Anything 3 - Real-time depth estimation demo"
-                    className="w-full h-auto"
+                    alt="Real-time depth estimation demo"
+                    className="w-full h-[140%] object-cover object-bottom"
                   />
-                  <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/80 to-transparent">
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <p className="text-white font-semibold text-sm">Depth Anything 3 in Action</p>
-                        <p className="text-gray-400 text-xs">Real-time monocular depth estimation →</p>
-                      </div>
-                      <Badge className="bg-navii-cyan/20 text-navii-cyan border-0 text-[10px]">Live Demo</Badge>
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/80 to-transparent">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="text-white font-semibold text-sm">Depth Estimation in Action</p>
+                      <p className="text-gray-400 text-xs">Real-time monocular depth from camera</p>
                     </div>
+                    <Badge className="bg-navii-cyan/20 text-navii-cyan border-0 text-[10px]">Live Tech</Badge>
                   </div>
-                </a>
-              </div>
-
-              {/* Links to research */}
-              <div className="grid grid-cols-2 gap-3">
-                <a
-                  href="https://depth-anything-3.github.io/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-center gap-3 p-3 rounded-xl border border-white/10 bg-white/5 hover:border-navii-cyan/40 hover:bg-navii-cyan/5 transition-colors"
-                >
-                  <div className="w-10 h-10 rounded-lg bg-navii-cyan/20 flex items-center justify-center group-hover:bg-navii-cyan/30 transition-colors">
-                    <Eye className="w-5 h-5 text-navii-cyan" />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <p className="text-white font-semibold text-sm truncate">Depth Anything 3</p>
-                    <p className="text-gray-500 text-xs">Project Page →</p>
-                  </div>
-                </a>
-
-                <a
-                  href="https://github.com/DepthAnything/Video-Depth-Anything"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-center gap-3 p-3 rounded-xl border border-white/10 bg-white/5 hover:border-navii-magenta/40 hover:bg-navii-magenta/5 transition-colors"
-                >
-                  <div className="w-10 h-10 rounded-lg bg-navii-magenta/20 flex items-center justify-center group-hover:bg-navii-magenta/30 transition-colors">
-                    <Smartphone className="w-5 h-5 text-navii-magenta" />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <p className="text-white font-semibold text-sm truncate">Video Depth</p>
-                    <p className="text-gray-500 text-xs">CVPR 2025 →</p>
-                  </div>
-                </a>
+                </div>
               </div>
             </div>
           </div>
@@ -302,27 +263,27 @@ export const ProgressSection = () => {
             </div>
           </motion.div>
 
-          {/* Limitations - Honest & Transparent */}
+          {/* Active Development */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
             <h3 className="text-lg sm:text-xl font-bold text-white mb-4 sm:mb-6 font-rajdhani flex items-center gap-2">
-              <AlertTriangle className="w-5 h-5 text-navii-orange" />
-              Current Limitations
+              <Sparkles className="w-5 h-5 text-navii-cyan" />
+              Active Development
             </h3>
 
-            <div className="p-4 sm:p-5 rounded-xl border border-navii-orange/20 bg-navii-orange/5">
+            <div className="p-4 sm:p-5 rounded-xl border border-navii-cyan/20 bg-navii-cyan/5">
               <p className="text-gray-400 text-xs sm:text-sm mb-4">
-                We believe in transparency. Here's what we're still working on:
+                What we're actively building and improving:
               </p>
 
               <div className="space-y-3">
-                {limitations.map((item, index) => (
+                {activeWork.map((item, index) => (
                   <div key={item.title} className="flex items-start gap-3">
-                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-navii-orange/20 flex items-center justify-center mt-0.5">
-                      <span className="text-navii-orange text-xs font-bold">{index + 1}</span>
+                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-navii-cyan/20 flex items-center justify-center mt-0.5">
+                      <span className="text-navii-cyan text-xs font-bold">{index + 1}</span>
                     </div>
                     <div>
                       <h4 className="text-sm font-semibold text-white">{item.title}</h4>
@@ -336,7 +297,7 @@ export const ProgressSection = () => {
                 <div className="flex items-start gap-2">
                   <Lightbulb className="w-4 h-4 text-navii-cyan mt-0.5 flex-shrink-0" />
                   <p className="text-xs text-gray-300">
-                    <span className="text-navii-cyan font-semibold">Our approach:</span> We're tackling these challenges iteratively — starting with well-lit, high-traffic mall areas and expanding from there.
+                    <span className="text-navii-cyan font-semibold">Our approach:</span> Iterative development — starting with high-traffic mall areas and expanding coverage based on feedback.
                   </p>
                 </div>
               </div>
