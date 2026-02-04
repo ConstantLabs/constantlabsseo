@@ -125,19 +125,19 @@ export const HeroSection = ({ onWaitlistClick, onPartnerClick }: HeroSectionProp
             </motion.div>
 
             {/* Headline */}
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-4 tracking-tight font-rajdhani">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 tracking-tight font-rajdhani">
               <span className="bg-gradient-to-r from-navii-cyan via-white to-navii-magenta bg-clip-text text-transparent">
                 NAVII
               </span>
             </h1>
 
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 font-rajdhani">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 font-rajdhani">
               Indoor Navigation,
               <br />
               <span className="text-navii-cyan">Reinvented.</span>
             </h2>
 
-            <p className="text-lg md:text-xl text-gray-400 mb-8 max-w-md mx-auto lg:mx-0">
+            <p className="text-base sm:text-lg md:text-xl text-gray-400 mb-6 sm:mb-8 max-w-md mx-auto lg:mx-0">
               Google Maps for inside buildings. AR arrows guide you through malls, airports, and hospitals.
             </p>
 
@@ -145,8 +145,8 @@ export const HeroSection = ({ onWaitlistClick, onPartnerClick }: HeroSectionProp
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Button
                 onClick={onWaitlistClick}
-                className="px-8 py-6 bg-gradient-to-r from-navii-cyan to-navii-magenta
-                           text-black font-semibold text-lg rounded-xl
+                className="px-6 sm:px-8 py-4 sm:py-5 bg-gradient-to-r from-navii-cyan to-navii-magenta
+                           text-black font-semibold text-base sm:text-lg rounded-xl
                            hover:opacity-90 transition-opacity shadow-lg shadow-navii-cyan/20"
               >
                 Join Waitlist
@@ -154,7 +154,7 @@ export const HeroSection = ({ onWaitlistClick, onPartnerClick }: HeroSectionProp
               <Button
                 onClick={onPartnerClick}
                 variant="outline"
-                className="px-8 py-6 border-white/20 text-white font-semibold text-lg rounded-xl
+                className="px-6 sm:px-8 py-4 sm:py-5 border-white/20 text-white font-semibold text-base sm:text-lg rounded-xl
                            hover:bg-white/5 hover:border-white/40 transition-colors"
               >
                 Partner With Us

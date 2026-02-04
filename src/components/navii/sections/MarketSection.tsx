@@ -54,7 +54,7 @@ export const MarketSection = () => {
   return (
     <SectionWrapper
       id="market"
-      className="py-24 px-6 relative overflow-hidden"
+      className="py-16 sm:py-24 px-4 sm:px-6 relative overflow-hidden"
     >
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-navii-cyan/5 to-transparent" />
@@ -107,17 +107,17 @@ export const MarketSection = () => {
                 key={stat.label}
                 variants={itemVariants}
                 whileHover={{ scale: 1.02, y: -4 }}
-                className={`relative p-8 rounded-3xl border ${styles.border}
+                className={`relative p-5 sm:p-8 rounded-2xl sm:rounded-3xl border ${styles.border}
                            ${styles.bg} backdrop-blur-sm overflow-hidden group`}
                 style={{ boxShadow: styles.glow }}
               >
                 {/* Icon */}
-                <div className={`w-14 h-14 rounded-2xl ${styles.bg} flex items-center justify-center mb-6`}>
-                  <stat.icon className={`w-7 h-7 ${styles.text}`} />
+                <div className={`w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl ${styles.bg} flex items-center justify-center mb-4 sm:mb-6`}>
+                  <stat.icon className={`w-5 h-5 sm:w-7 sm:h-7 ${styles.text}`} />
                 </div>
 
                 {/* Value */}
-                <div className={`text-5xl md:text-6xl font-bold ${styles.text} mb-2`}>
+                <div className={`text-3xl sm:text-5xl md:text-6xl font-bold ${styles.text} mb-2`}>
                   <AnimatedCounter
                     target={stat.value}
                     prefix={stat.prefix}
@@ -147,14 +147,14 @@ export const MarketSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
-          className="relative p-8 md:p-12 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-sm text-center"
+          className="relative p-6 sm:p-8 md:p-12 rounded-2xl sm:rounded-3xl border border-white/10 bg-white/5 backdrop-blur-sm text-center"
         >
-          <div className="absolute top-6 left-8 text-6xl text-navii-cyan/20 font-serif">"</div>
-          <blockquote className="text-xl md:text-2xl text-gray-300 italic max-w-3xl mx-auto relative z-10">
+          <div className="absolute top-4 left-4 sm:top-6 sm:left-8 text-4xl sm:text-6xl text-navii-cyan/20 font-serif">"</div>
+          <blockquote className="text-base sm:text-xl md:text-2xl text-gray-300 italic max-w-3xl mx-auto relative z-10">
             Dubai Mall is the most visited place on Earth, yet there's no universal way to navigate it.
             Navii aims to change that — starting with the UAE, then the world.
           </blockquote>
-          <div className="absolute bottom-6 right-8 text-6xl text-navii-magenta/20 font-serif rotate-180">"</div>
+          <div className="absolute bottom-4 right-4 sm:bottom-6 sm:right-8 text-4xl sm:text-6xl text-navii-magenta/20 font-serif rotate-180">"</div>
         </motion.div>
       </div>
     </SectionWrapper>

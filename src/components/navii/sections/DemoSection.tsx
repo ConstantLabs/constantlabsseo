@@ -11,7 +11,7 @@ export const DemoSection = () => {
   return (
     <SectionWrapper
       id="demo"
-      className="py-24 px-6 relative overflow-hidden"
+      className="py-16 sm:py-24 px-4 sm:px-6 relative overflow-hidden"
     >
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-navii-bg via-navii-purple/5 to-navii-bg" />
@@ -47,14 +47,14 @@ export const DemoSection = () => {
             to={DEMO_ROUTE}
             className="block md:hidden relative group"
           >
-            <div className="relative p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm">
+            <div className="relative p-6 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm">
               <div className="text-center">
                 <motion.div
-                  className="w-20 h-20 mx-auto mb-4 rounded-full bg-navii-cyan/20 flex items-center justify-center
+                  className="w-16 h-16 mx-auto mb-3 rounded-full bg-navii-cyan/20 flex items-center justify-center
                              group-hover:bg-navii-cyan/30 transition-colors"
                   whileHover={{ scale: 1.1 }}
                 >
-                  <Play className="w-8 h-8 text-navii-cyan ml-1" />
+                  <Play className="w-6 h-6 text-navii-cyan ml-1" />
                 </motion.div>
                 <p className="text-white font-semibold mb-1">Try the Demo</p>
                 <p className="text-gray-400 text-sm">Tap to explore</p>
@@ -137,8 +137,8 @@ export const DemoSection = () => {
           >
             <Button
               asChild
-              className="px-8 py-6 bg-gradient-to-r from-navii-cyan to-navii-magenta
-                         text-black font-semibold text-lg rounded-xl
+              className="px-6 sm:px-8 py-4 sm:py-5 bg-gradient-to-r from-navii-cyan to-navii-magenta
+                         text-black font-semibold text-base sm:text-lg rounded-xl
                          hover:opacity-90 transition-opacity shadow-lg shadow-navii-cyan/20"
             >
               <Link to={DEMO_ROUTE}>

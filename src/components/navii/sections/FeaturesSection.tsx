@@ -78,7 +78,7 @@ export const FeaturesSection = () => {
   return (
     <SectionWrapper
       id="features"
-      className="py-24 px-6 relative overflow-hidden"
+      className="py-16 sm:py-24 px-4 sm:px-6 relative overflow-hidden"
     >
       {/* Background pattern */}
       <div className="absolute inset-0 opacity-5">

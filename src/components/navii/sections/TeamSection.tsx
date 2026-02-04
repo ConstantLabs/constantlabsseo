@@ -9,7 +9,7 @@ export const TeamSection = () => {
   return (
     <SectionWrapper
       id="team"
-      className="py-24 px-6 relative overflow-hidden"
+      className="py-16 sm:py-24 px-4 sm:px-6 relative overflow-hidden"
     >
       {/* Background accent */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full blur-3xl opacity-20">

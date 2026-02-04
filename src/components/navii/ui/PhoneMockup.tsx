@@ -36,7 +36,7 @@ export const PhoneMockup = ({
       }}
     >
       <motion.div
-        className="relative w-[280px] sm:w-[320px] h-[560px] sm:h-[640px] rounded-[40px] border-4 border-white/20
+        className="relative w-[220px] sm:w-[280px] md:w-[320px] h-[440px] sm:h-[560px] md:h-[640px] rounded-[32px] sm:rounded-[40px] border-4 border-white/20
                    bg-navii-bg shadow-2xl overflow-hidden"
         animate={{
           rotateY: mouse.x * 15,

@@ -76,7 +76,7 @@ export const WaitlistSection = () => {
   return (
     <SectionWrapper
       id="waitlist"
-      className="py-24 px-6 relative overflow-hidden"
+      className="py-16 sm:py-24 px-4 sm:px-6 relative overflow-hidden"
     >
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-navii-purple/10 to-navii-bg" />
@@ -125,7 +125,7 @@ export const WaitlistSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="p-8 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-sm"
+          className="p-5 sm:p-8 rounded-2xl sm:rounded-3xl border border-white/10 bg-white/5 backdrop-blur-sm"
         >
           <Tabs defaultValue="shopper" className="w-full">
             <TabsList className="w-full grid grid-cols-2 bg-white/5 p-1 rounded-xl mb-6">
@@ -169,7 +169,7 @@ export const WaitlistSection = () => {
                       value={shopperEmail}
                       onChange={(e) => setShopperEmail(e.target.value)}
                       required
-                      className="w-full px-4 py-6 bg-white/5 border-white/10
+                      className="w-full px-4 py-4 sm:py-5 bg-white/5 border-white/10
                                 focus:border-navii-cyan focus:ring-navii-cyan/20
                                 rounded-xl text-white placeholder:text-gray-500"
                     />
@@ -180,8 +180,8 @@ export const WaitlistSection = () => {
                   <Button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full py-6 bg-gradient-to-r from-navii-cyan to-navii-cyan/80
-                             text-black font-semibold text-lg rounded-xl
+                    className="w-full py-4 sm:py-5 bg-gradient-to-r from-navii-cyan to-navii-cyan/80
+                             text-black font-semibold text-base sm:text-lg rounded-xl
                              hover:opacity-90 transition-opacity disabled:opacity-50"
                   >
                     {isSubmitting ? (
@@ -218,7 +218,7 @@ export const WaitlistSection = () => {
                     value={venueCompany}
                     onChange={(e) => setVenueCompany(e.target.value)}
                     required
-                    className="w-full px-4 py-6 bg-white/5 border-white/10
+                    className="w-full px-4 py-4 sm:py-5 bg-white/5 border-white/10
                               focus:border-navii-magenta focus:ring-navii-magenta/20
                               rounded-xl text-white placeholder:text-gray-500"
                   />
@@ -228,7 +228,7 @@ export const WaitlistSection = () => {
                     value={venueEmail}
                     onChange={(e) => setVenueEmail(e.target.value)}
                     required
-                    className="w-full px-4 py-6 bg-white/5 border-white/10
+                    className="w-full px-4 py-4 sm:py-5 bg-white/5 border-white/10
                               focus:border-navii-magenta focus:ring-navii-magenta/20
                               rounded-xl text-white placeholder:text-gray-500"
                   />
@@ -238,8 +238,8 @@ export const WaitlistSection = () => {
                   <Button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full py-6 bg-gradient-to-r from-navii-magenta to-navii-purple
-                             text-white font-semibold text-lg rounded-xl
+                    className="w-full py-4 sm:py-5 bg-gradient-to-r from-navii-magenta to-navii-purple
+                             text-white font-semibold text-base sm:text-lg rounded-xl
                              hover:opacity-90 transition-opacity disabled:opacity-50"
                   >
                     {isSubmitting ? (

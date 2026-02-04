@@ -58,7 +58,7 @@ export const B2BSection = ({ onScheduleClick }: B2BSectionProps) => {
   return (
     <SectionWrapper
       id="partners"
-      className="py-24 px-6 relative overflow-hidden"
+      className="py-16 sm:py-24 px-4 sm:px-6 relative overflow-hidden"
     >
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-navii-purple/10 via-transparent to-navii-cyan/5" />
@@ -107,8 +107,8 @@ export const B2BSection = ({ onScheduleClick }: B2BSectionProps) => {
             {/* CTA */}
             <Button
               onClick={onScheduleClick}
-              className="px-8 py-6 bg-gradient-to-r from-navii-magenta to-navii-purple
-                         text-white font-semibold text-lg rounded-xl
+              className="px-6 sm:px-8 py-4 sm:py-5 bg-gradient-to-r from-navii-magenta to-navii-purple
+                         text-white font-semibold text-base sm:text-lg rounded-xl
                          hover:opacity-90 transition-opacity shadow-lg shadow-navii-magenta/20"
             >
               <Calendar className="w-5 h-5 mr-2" />
@@ -123,7 +123,7 @@ export const B2BSection = ({ onScheduleClick }: B2BSectionProps) => {
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
-            <div className="p-8 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-sm">
+            <div className="p-5 sm:p-8 rounded-2xl sm:rounded-3xl border border-white/10 bg-white/5 backdrop-blur-sm">
               <h3 className="text-xl font-bold text-white mb-6 font-rajdhani">
                 Revenue Model Preview
               </h3>

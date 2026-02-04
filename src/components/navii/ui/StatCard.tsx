@@ -45,7 +45,7 @@ export const StatCard = ({
   return (
     <motion.div
       whileHover={{ scale: 1.02, y: -4 }}
-      className={`relative p-6 rounded-2xl border ${colors.border} ${colors.bg}
+      className={`relative p-4 sm:p-6 rounded-xl sm:rounded-2xl border ${colors.border} ${colors.bg}
                   backdrop-blur-sm overflow-hidden group`}
       style={{
         boxShadow: `0 0 40px ${colors.glow}`,
@@ -61,12 +61,12 @@ export const StatCard = ({
 
       <div className="relative z-10">
         {Icon && (
-          <div className={`w-10 h-10 rounded-xl ${colors.bg} flex items-center justify-center mb-4`}>
-            <Icon className={`w-5 h-5 ${colors.text}`} />
+          <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl ${colors.bg} flex items-center justify-center mb-3 sm:mb-4`}>
+            <Icon className={`w-4 h-4 sm:w-5 sm:h-5 ${colors.text}`} />
           </div>
         )}
 
-        <div className={`text-4xl md:text-5xl font-bold ${colors.text} mb-2`}>
+        <div className={`text-2xl sm:text-4xl md:text-5xl font-bold ${colors.text} mb-2`}>
           <AnimatedCounter
             target={value}
             suffix={suffix}

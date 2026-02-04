@@ -34,7 +34,7 @@ export const SolutionSection = () => {
   return (
     <SectionWrapper
       id="how-it-works"
-      className="py-24 px-6 relative overflow-hidden"
+      className="py-16 sm:py-24 px-4 sm:px-6 relative overflow-hidden"
     >
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-navii-cyan/5 to-transparent" />
@@ -75,11 +75,11 @@ export const SolutionSection = () => {
               className="relative flex flex-col items-center text-center"
             >
               {/* Step number badge */}
-              <div className="relative mb-6">
+              <div className="relative mb-4 sm:mb-6">
                 <motion.div
                   whileHover={{ scale: 1.1, rotate: 360 }}
                   transition={{ type: "spring", stiffness: 200 }}
-                  className={`w-20 h-20 rounded-2xl bg-${step.color}/20
+                  className={`w-14 h-14 sm:w-20 sm:h-20 rounded-xl sm:rounded-2xl bg-${step.color}/20
                              border-2 border-${step.color}/30
                              flex items-center justify-center relative z-10`}
                   style={{
@@ -91,7 +91,7 @@ export const SolutionSection = () => {
                       : 'rgba(157, 0, 255, 0.2)'
                   } as React.CSSProperties}
                 >
-                  <step.icon className={`w-8 h-8 text-${step.color}`} />
+                  <step.icon className={`w-6 h-6 sm:w-8 sm:h-8 text-${step.color}`} />
                 </motion.div>
 
                 {/* Step number */}
@@ -104,16 +104,16 @@ export const SolutionSection = () => {
               </div>
 
               {/* Phone preview placeholder */}
-              <div className="w-32 h-56 mb-6 rounded-2xl border-2 border-white/10
+              <div className="w-24 h-40 sm:w-32 sm:h-56 mb-4 sm:mb-6 rounded-xl sm:rounded-2xl border-2 border-white/10
                             bg-navii-bg-secondary overflow-hidden
                             hover:border-white/20 transition-colors">
                 <div className="w-full h-full flex items-center justify-center bg-gradient-to-b from-white/5 to-transparent">
-                  <step.icon className={`w-10 h-10 text-${step.color}/50`} />
+                  <step.icon className={`w-8 h-8 sm:w-10 sm:h-10 text-${step.color}/50`} />
                 </div>
               </div>
 
               {/* Content */}
-              <h3 className={`text-2xl font-bold text-${step.color} mb-1 font-rajdhani tracking-wide`}>
+              <h3 className={`text-xl sm:text-2xl font-bold text-${step.color} mb-1 font-rajdhani tracking-wide`}>
                 {step.title}
               </h3>
               <p className="text-white font-medium mb-2">{step.subtitle}</p>
