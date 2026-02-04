@@ -42,10 +42,30 @@ export const DemoSection = () => {
           transition={{ duration: 0.6 }}
           className="relative mx-auto max-w-md"
         >
-          {/* Phone frame - clickable */}
+          {/* Mobile: Simple card without phone frame */}
           <Link
             to={DEMO_ROUTE}
-            className="block relative group"
+            className="block md:hidden relative group"
+          >
+            <div className="relative p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm">
+              <div className="text-center">
+                <motion.div
+                  className="w-20 h-20 mx-auto mb-4 rounded-full bg-navii-cyan/20 flex items-center justify-center
+                             group-hover:bg-navii-cyan/30 transition-colors"
+                  whileHover={{ scale: 1.1 }}
+                >
+                  <Play className="w-8 h-8 text-navii-cyan ml-1" />
+                </motion.div>
+                <p className="text-white font-semibold mb-1">Try the Demo</p>
+                <p className="text-gray-400 text-sm">Tap to explore</p>
+              </div>
+            </div>
+          </Link>
+
+          {/* Desktop: Phone frame */}
+          <Link
+            to={DEMO_ROUTE}
+            className="hidden md:block relative group"
           >
             {/* Phone body */}
             <div
