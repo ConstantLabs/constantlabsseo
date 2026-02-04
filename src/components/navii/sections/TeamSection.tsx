@@ -21,12 +21,12 @@ export const TeamSection = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className="text-center mb-6 sm:mb-10 md:mb-12"
         >
-          <Badge className="mb-4 bg-white/10 text-white border-white/20 font-tech">
+          <Badge className="mb-3 sm:mb-4 bg-white/10 text-white border-white/20 font-tech text-xs sm:text-sm">
             The Team
           </Badge>
-          <h2 className="text-3xl md:text-5xl font-bold mb-4 font-rajdhani text-white">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-3 sm:mb-4 font-rajdhani text-white">
             From Frustration to <span className="text-navii-cyan">Innovation</span>
           </h2>
         </motion.div>

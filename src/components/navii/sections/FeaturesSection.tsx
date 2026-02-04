@@ -96,12 +96,12 @@ export const FeaturesSection = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-12 md:mb-16"
         >
-          <Badge className="mb-4 bg-navii-magenta/10 text-navii-magenta border-navii-magenta/30 font-tech">
+          <Badge className="mb-3 sm:mb-4 bg-navii-magenta/10 text-navii-magenta border-navii-magenta/30 font-tech text-xs sm:text-sm">
             Features
           </Badge>
-          <h2 className="text-3xl md:text-5xl font-bold mb-4 font-rajdhani text-white">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-3 sm:mb-4 font-rajdhani text-white">
             Built for the <span className="text-navii-cyan">Real World</span>
           </h2>
           <p className="text-gray-400 max-w-xl mx-auto">
@@ -115,7 +115,7 @@ export const FeaturesSection = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-fr"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4"
         >
           {features.map((feature) => {
             const styles = colorStyles[feature.color as keyof typeof colorStyles];
@@ -126,10 +126,10 @@ export const FeaturesSection = () => {
                 key={feature.title}
                 variants={itemVariants}
                 whileHover={{ scale: 1.02, y: -4 }}
-                className={`relative p-6 rounded-2xl border ${styles.border}
+                className={`relative p-3 sm:p-4 md:p-5 rounded-xl sm:rounded-2xl border ${styles.border}
                            bg-white/5 backdrop-blur-sm overflow-hidden
                            transition-all duration-300 group
-                           ${isLarge ? "md:col-span-2 lg:col-span-1 lg:row-span-2" : ""}`}
+                           ${isLarge ? "sm:col-span-2 lg:col-span-1 lg:row-span-2" : ""}`}
               >
                 {/* Hover glow */}
                 <div
@@ -139,30 +139,31 @@ export const FeaturesSection = () => {
                   }}
                 />
 
-                <div className={`relative z-10 h-full flex flex-col ${isLarge ? "justify-between" : ""}`}>
-                  <div>
-                    <div className={`w-12 h-12 rounded-xl ${styles.iconBg} flex items-center justify-center mb-4`}>
-                      <feature.icon className={`w-6 h-6 ${styles.text}`} />
+                <div className={`relative z-10 h-full flex ${isLarge ? "flex-col justify-between" : "flex-row items-start gap-3 sm:flex-col sm:items-stretch sm:gap-0"}`}>
+                  <div className={`${isLarge ? "" : "flex-shrink-0 sm:mb-3"}`}>
+                    <div className={`w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-lg sm:rounded-xl ${styles.iconBg} flex items-center justify-center ${isLarge ? "mb-3 sm:mb-4" : ""}`}>
+                      <feature.icon className={`w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 ${styles.text}`} />
                     </div>
+                  </div>
 
-                    <h3 className={`font-bold text-white mb-2 font-rajdhani ${isLarge ? "text-2xl" : "text-xl"}`}>
+                  <div className="flex-1 min-w-0">
+                    <h3 className={`font-bold text-white mb-1 font-rajdhani ${isLarge ? "text-lg sm:text-xl md:text-2xl" : "text-base sm:text-lg"}`}>
                       {feature.title}
                     </h3>
 
-                    <p className={`text-gray-400 ${isLarge ? "text-base" : "text-sm"}`}>
+                    <p className={`text-gray-400 ${isLarge ? "text-sm sm:text-base" : "text-xs sm:text-sm"} line-clamp-3 sm:line-clamp-none`}>
                       {feature.description}
                     </p>
                   </div>
 
-                  {/* Large card extra visual */}
+                  {/* Large card extra visual - hidden on mobile */}
                   {isLarge && (
-                    <div className="mt-6 relative">
+                    <div className="hidden sm:block mt-4 sm:mt-6 relative">
                       <div className="aspect-video rounded-xl bg-navii-bg border border-white/10 overflow-hidden">
                         <div className="w-full h-full flex items-center justify-center">
-                          {/* AR preview placeholder */}
                           <div className="relative">
                             <motion.div
-                              className="w-16 h-16 rounded-full border-2 border-navii-cyan/50"
+                              className="w-12 h-12 sm:w-16 sm:h-16 rounded-full border-2 border-navii-cyan/50"
                               animate={{
                                 scale: [1, 1.2, 1],
                                 opacity: [0.5, 1, 0.5],
@@ -172,7 +173,7 @@ export const FeaturesSection = () => {
                                 repeat: Infinity,
                               }}
                             />
-                            <Navigation className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 text-navii-cyan" />
+                            <Navigation className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-6 h-6 sm:w-8 sm:h-8 text-navii-cyan" />
                           </div>
                         </div>
                       </div>
@@ -186,12 +187,12 @@ export const FeaturesSection = () => {
           {/* Coming soon card */}
           <motion.div
             variants={itemVariants}
-            className="relative p-6 rounded-2xl border border-dashed border-white/20
-                       bg-white/[0.02] overflow-hidden flex items-center justify-center"
+            className="relative p-3 sm:p-4 md:p-5 rounded-xl sm:rounded-2xl border border-dashed border-white/20
+                       bg-white/[0.02] overflow-hidden flex items-center justify-center min-h-[80px] sm:min-h-0"
           >
             <div className="text-center">
-              <Building2 className="w-8 h-8 text-gray-600 mx-auto mb-2" />
-              <p className="text-gray-500 text-sm">More features coming soon</p>
+              <Building2 className="w-6 h-6 sm:w-8 sm:h-8 text-gray-600 mx-auto mb-1 sm:mb-2" />
+              <p className="text-gray-500 text-xs sm:text-sm">More coming soon</p>
             </div>
           </motion.div>
         </motion.div>
