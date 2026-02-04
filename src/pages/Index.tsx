@@ -105,7 +105,7 @@ const Index = () => {
       description: "AR indoor navigation for malls, airports, and large indoor spaces. Turn-by-turn guidance without GPS.",
       tech: ["AR", "Indoor Navigation", "React", "Vercel"],
       status: "development" as const,
-      link: "https://navii-demo.vercel.app/",
+      link: "https://constantlabs.ai/navii",
       image: naviiImg
     },
   ];
