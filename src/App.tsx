@@ -2,8 +2,6 @@ import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { HelmetProvider } from "react-helmet-async";
-import { CRTOverlayFramer } from "@/components/CRTOverlayFramer";
-import { ScanlineFramer } from "@/components/ScanlineFramer";
 import { PageTransition } from "./components/PageTransition";
 import { PageLoader } from "./components/PageLoader";
 
@@ -63,8 +61,6 @@ const AnimatedRoutes = () => {
 
 const App = () => (
   <HelmetProvider>
-    <CRTOverlayFramer />
-    <ScanlineFramer />
     <BrowserRouter>
       <Suspense fallback={<PageLoader />}>
         <AnimatedRoutes />
