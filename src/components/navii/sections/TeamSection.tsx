@@ -3,7 +3,7 @@ import { SectionWrapper } from "../ui/SectionWrapper";
 import { FounderCard } from "../ui/FounderCard";
 import { Badge } from "@/components/ui/badge";
 
-const founderPhotoUrl = "https://media.licdn.com/dms/image/v2/D4D03AQGSHb_eGlvVEA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1725214890942?e=1772064000&v=beta&t=L5dALn1dW_HnaaM073MwTvpAosRL0HaHJJ2cW60HWzA";
+const founderPhotoUrl = "/images/founder-mohamad-tamer.jpg";
 
 export const TeamSection = () => {
   return (
