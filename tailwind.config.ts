@@ -57,6 +57,16 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        navii: {
+          bg: "#050505",
+          "bg-secondary": "#0A0A0A",
+          cyan: "#00E5FF",
+          magenta: "#FF00E5",
+          purple: "#9D00FF",
+          orange: "#FF4D00",
+          glass: "rgba(255, 255, 255, 0.05)",
+          "glass-border": "rgba(255, 255, 255, 0.1)",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",

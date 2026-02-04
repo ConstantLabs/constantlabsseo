@@ -25,6 +25,7 @@ const Robotics = lazy(() => import("./pages/Robotics"));
 const RobotDetail = lazy(() => import("./pages/RobotDetail"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const TermsOfService = lazy(() => import("./pages/TermsOfService"));
+const NaviiLanding = lazy(() => import("./pages/NaviiLanding"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const AnimatedRoutes = () => {
@@ -34,6 +35,7 @@ const AnimatedRoutes = () => {
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<PageTransition><Index /></PageTransition>} />
+        <Route path="/navii" element={<PageTransition><NaviiLanding /></PageTransition>} />
         <Route path="/smartroads" element={<PageTransition><SmartRoads /></PageTransition>} />
         <Route path="/smartroads/capabilities" element={<PageTransition><SmartRoadsCapabilities /></PageTransition>} />
         <Route path="/smartroads/technology" element={<PageTransition><SmartRoadsTechnology /></PageTransition>} />
