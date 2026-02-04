@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { SectionWrapper } from "../ui/SectionWrapper";
 import { FounderCard } from "../ui/FounderCard";
 import { Badge } from "@/components/ui/badge";
+import tjAvatar from "@/assets/tj-avatar.webp";
 
 export const TeamSection = () => {
   return (
@@ -40,8 +41,9 @@ export const TeamSection = () => {
             title="Founder & Developer"
             background="Computer Engineer | Building the future of indoor navigation"
             quote="After spending 20 minutes looking for a single store in Dubai Mall, I knew there had to be a better way. That frustration became Navii."
-            linkedinUrl="https://linkedin.com/in/mohamadtamer"
-            instagramUrl="https://instagram.com/mohamadtamer"
+            photoUrl={tjAvatar}
+            linkedinUrl="https://www.linkedin.com/in/mohamad-rabie-b304a8203/"
+            instagramUrl="https://instagram.com/m7md.t_"
           />
         </motion.div>
       </div>
