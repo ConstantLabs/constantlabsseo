@@ -43,9 +43,10 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
     }
 
     // Save contact to Resend Audience (lead database)
+    console.log(`Audience ID configured: ${audienceId || "NOT SET"}`);
     if (audienceId) {
       try {
-        await fetch(`https://api.resend.com/audiences/${audienceId}/contacts`, {
+        const audienceResponse = await fetch(`https://api.resend.com/audiences/${audienceId}/contacts`, {
           method: "POST",
           headers: {
             "Authorization": `Bearer ${apiKey}`,
@@ -53,16 +54,23 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
           },
           body: JSON.stringify({
             email: email,
-            first_name: company || type, // Store company name or type as first_name
-            last_name: type === "venue" ? "Venue Partner" : "Waitlist", // Identify lead type
+            first_name: company || type,
+            last_name: type === "venue" ? "Venue Partner" : "Waitlist",
             unsubscribed: false,
           }),
         });
-        console.log(`Contact saved to audience: ${email} (${type})`);
+        const audienceResult = await audienceResponse.text();
+        console.log(`Audience API response (${audienceResponse.status}):`, audienceResult);
+        if (audienceResponse.ok) {
+          console.log(`Contact saved to audience: ${email} (${type})`);
+        } else {
+          console.error(`Audience API error: ${audienceResult}`);
+        }
       } catch (audienceError) {
-        // Don't fail the request if audience save fails, just log it
         console.error("Failed to save to audience:", audienceError);
       }
+    } else {
+      console.log("RESEND_AUDIENCE_ID not configured, skipping audience save");
     }
 
     // Send notification email to admin
