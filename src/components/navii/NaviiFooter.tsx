@@ -117,7 +117,7 @@ export const NaviiFooter = () => {
       {/* Made with love */}
       <div className="border-t border-white/5 py-4">
         <p className="text-gray-600 text-xs text-center flex items-center justify-center gap-1">
-          Made with <Heart className="w-3 h-3 text-navii-magenta" /> in Dubai
+          Made with <Heart className="w-3 h-3 text-navii-magenta fill-navii-magenta" /> in Dubai
         </p>
       </div>
     </footer>
