@@ -29,7 +29,7 @@ const footerLinks = {
 
 const socialLinks = [
   { icon: Twitter, href: "https://twitter.com/naviiapp", label: "Twitter" },
-  { icon: Linkedin, href: "https://linkedin.com/company/navii", label: "LinkedIn" },
+  { icon: Linkedin, href: "", label: "LinkedIn" },
   { icon: Instagram, href: "https://instagram.com/naviiapp", label: "Instagram" },
 ];
 
@@ -56,21 +56,34 @@ export const NaviiFooter = () => {
             </p>
             {/* Social links */}
             <div className="flex items-center gap-3">
-              {socialLinks.map((social) => (
-                <motion.a
-                  key={social.label}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.1 }}
-                  className="w-10 h-10 rounded-full border border-white/10
-                           flex items-center justify-center
-                           hover:border-navii-cyan/50 hover:bg-navii-cyan/10
-                           transition-colors"
-                >
-                  <social.icon className="w-4 h-4 text-gray-400 hover:text-navii-cyan" />
-                </motion.a>
-              ))}
+              {socialLinks.map((social) =>
+                social.href ? (
+                  <motion.a
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.1 }}
+                    className="w-10 h-10 rounded-full border border-white/10
+                             flex items-center justify-center
+                             hover:border-navii-cyan/50 hover:bg-navii-cyan/10
+                             transition-colors"
+                  >
+                    <social.icon className="w-4 h-4 text-gray-400 hover:text-navii-cyan" />
+                  </motion.a>
+                ) : (
+                  <motion.div
+                    key={social.label}
+                    whileHover={{ scale: 1.1 }}
+                    className="w-10 h-10 rounded-full border border-white/10
+                             flex items-center justify-center
+                             hover:border-navii-cyan/50 hover:bg-navii-cyan/10
+                             transition-colors cursor-default"
+                  >
+                    <social.icon className="w-4 h-4 text-gray-400" />
+                  </motion.div>
+                )
+              )}
             </div>
           </div>
 
