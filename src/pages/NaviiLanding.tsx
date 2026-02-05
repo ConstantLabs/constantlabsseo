@@ -91,14 +91,14 @@ const NaviiLanding = () => {
               <Button
                 onClick={scrollToWaitlist}
                 variant="ghost"
-                className="text-gray-300 hover:text-white hover:bg-white/5"
+                className="text-gray-300 hover:text-white hover:bg-white/5 rounded-full"
               >
                 Join Waitlist
               </Button>
               <Button
                 onClick={scrollToPartners}
                 className="bg-gradient-to-r from-navii-cyan to-navii-magenta text-black font-semibold
-                           hover:opacity-90 transition-opacity"
+                           hover:opacity-90 transition-opacity rounded-full"
               >
                 Partner With Us
               </Button>
@@ -143,13 +143,13 @@ const NaviiLanding = () => {
                   <Button
                     onClick={scrollToWaitlist}
                     variant="outline"
-                    className="w-full border-white/20 text-white"
+                    className="w-full border-white/20 text-white rounded-full"
                   >
                     Join Waitlist
                   </Button>
                   <Button
                     onClick={scrollToPartners}
-                    className="w-full bg-gradient-to-r from-navii-cyan to-navii-magenta text-black font-semibold"
+                    className="w-full bg-gradient-to-r from-navii-cyan to-navii-magenta text-black font-semibold rounded-full"
                   >
                     Partner With Us
                   </Button>
