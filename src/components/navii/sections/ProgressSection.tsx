@@ -240,7 +240,7 @@ export const ProgressSection = () => {
                   }`}
                 >
                   <div className="flex items-start gap-3">
-                    <div className={`flex-shrink-0 w-12 sm:w-14 text-center py-1 rounded-lg text-xs sm:text-sm font-bold font-tech ${
+                    <div className={`flex-shrink-0 w-12 sm:w-14 text-center py-1.5 rounded-full text-xs sm:text-sm font-bold font-tech ${
                       item.status === "done"
                         ? "bg-green-500/20 text-green-400"
                         : item.status === "next"
