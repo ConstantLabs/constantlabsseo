@@ -19,6 +19,7 @@ const SmartRoadsFlowPaper = lazy(() => import("./pages/SmartRoadsFlowPaper"));
 const SmartRoadsStabilizingPaper = lazy(() => import("./pages/SmartRoadsStabilizingPaper"));
 const SmartRoadsSuppressingPaper = lazy(() => import("./pages/SmartRoadsSuppressingPaper"));
 const SmartRoadsVirginiaTech = lazy(() => import("./pages/SmartRoadsVirginiaTech"));
+const SmartRoadsLite = lazy(() => import("./pages/SmartRoadsLite"));
 const Robotics = lazy(() => import("./pages/Robotics"));
 const RobotDetail = lazy(() => import("./pages/RobotDetail"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
@@ -48,6 +49,7 @@ const AnimatedRoutes = () => {
         <Route path="/smartroads/stabilizing-paper" element={<PageTransition><SmartRoadsStabilizingPaper /></PageTransition>} />
         <Route path="/smartroads/suppressing-paper" element={<PageTransition><SmartRoadsSuppressingPaper /></PageTransition>} />
         <Route path="/smartroads/virginia-tech" element={<PageTransition><SmartRoadsVirginiaTech /></PageTransition>} />
+        <Route path="/smartroads/lite" element={<PageTransition><SmartRoadsLite /></PageTransition>} />
         <Route path="/robotics" element={<PageTransition><Robotics /></PageTransition>} />
         <Route path="/robotics/:slug" element={<PageTransition><RobotDetail /></PageTransition>} />
         <Route path="/privacy" element={<PageTransition><PrivacyPolicy /></PageTransition>} />
