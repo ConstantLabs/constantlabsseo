@@ -187,12 +187,50 @@ const SmartRoads = () => {
             <div className="text-center mb-8 md:mb-12">
               <h2 className="sr-heading-lg text-white mb-4">The SmartRoads Unit</h2>
               <p className="text-[#BEBEBE] text-base md:text-lg max-w-2xl mx-auto">
-                Two ways to bring precision navigation to any vehicle.
+                Three ways to bring smart navigation to any vehicle.
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-6">
-              {/* Option 1: App Integration */}
+            <div className="grid md:grid-cols-3 gap-6">
+              {/* Option 1: SmartRoads Lite */}
+              <Link to="/smartroads/lite" className="sr-card p-6 md:p-8 group hover:bg-[#1c1c1c] transition-colors block">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 rounded-full bg-[#5CFF3D]/10 flex items-center justify-center">
+                    {/* Phone Icon */}
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5CFF3D" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                      <rect x="5" y="2" width="14" height="20" rx="2" />
+                      <line x1="12" y1="18" x2="12" y2="18.01" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-white">SmartRoads Lite</h3>
+                    <span className="text-xs text-[#5CFF3D] font-medium">Low Cost</span>
+                  </div>
+                </div>
+                <p className="text-[#BEBEBE] mb-4">
+                  A phone app or compact display with a basic sensor. The fastest way to join the network
+                  and start <span className="text-white font-medium">killing traffic jams</span>.
+                </p>
+                <ul className="space-y-2 text-sm text-[#6b6b6b] mb-4">
+                  <li className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#5CFF3D]" />
+                    Phone app or small display
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#5CFF3D]" />
+                    Speed guidance & hazard alerts
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#5CFF3D]" />
+                    Zero to minimal hardware cost
+                  </li>
+                </ul>
+                <span className="text-[#5CFF3D] text-sm font-medium inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+                  Learn more <ArrowRight className="w-4 h-4" />
+                </span>
+              </Link>
+
+              {/* Option 2: App Integration */}
               <div className="sr-card p-6 md:p-8">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-12 h-12 rounded-full bg-[#5CFF3D]/10 flex items-center justify-center">
@@ -228,7 +266,7 @@ const SmartRoads = () => {
                 </ul>
               </div>
 
-              {/* Option 2: Full Display */}
+              {/* Option 3: Full Display */}
               <div className="sr-card p-6 md:p-8">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-12 h-12 rounded-full bg-[#5CFF3D]/10 flex items-center justify-center">
