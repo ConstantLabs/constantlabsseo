@@ -181,18 +181,19 @@ const SmartRoads = () => {
         {/* How It Works - Architecture Diagram */}
         <SmartRoadsArchitecture />
 
-        {/* The SmartRoads Unit */}
+        {/* Multi-Tier Product */}
         <section className="py-10 md:py-20 px-4 md:px-6">
-          <div className="max-w-5xl mx-auto">
+          <div className="max-w-6xl mx-auto">
             <div className="text-center mb-8 md:mb-12">
-              <h2 className="sr-heading-lg text-white mb-4">The SmartRoads Unit</h2>
+              <h2 className="sr-heading-lg text-white mb-4">A Multi-Tier Product</h2>
               <p className="text-[#BEBEBE] text-base md:text-lg max-w-2xl mx-auto">
-                Three ways to bring smart navigation to any vehicle.
+                Same RTK precision, same 9 capabilities — three form factors at different price points
+                to accelerate adoption across every segment.
               </p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-6">
-              {/* Option 1: SmartRoads Lite */}
+              {/* Tier 1: SmartRoads Lite */}
               <Link to="/smartroads/lite" className="sr-card p-6 md:p-8 group hover:bg-[#1c1c1c] transition-colors block">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-12 h-12 rounded-full bg-[#5CFF3D]/10 flex items-center justify-center">
@@ -204,25 +205,25 @@ const SmartRoads = () => {
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold text-white">SmartRoads Lite</h3>
-                    <span className="text-xs text-[#5CFF3D] font-medium">Low Cost</span>
+                    <span className="text-xs text-[#5CFF3D] font-medium">Lowest Cost</span>
                   </div>
                 </div>
                 <p className="text-[#BEBEBE] mb-4">
-                  A phone app or compact display with a basic sensor. The fastest way to join the network
-                  and start <span className="text-white font-medium">killing traffic jams</span>.
+                  RTK module paired with your phone or a small LCD display. Full precision,
+                  <span className="text-white font-medium"> all 9 capabilities</span> — no tablet or cameras needed.
                 </p>
                 <ul className="space-y-2 text-sm text-[#6b6b6b] mb-4">
                   <li className="flex items-center gap-2">
                     <div className="w-1.5 h-1.5 rounded-full bg-[#5CFF3D]" />
-                    Phone app or small display
+                    Phone app or compact LCD screen
                   </li>
                   <li className="flex items-center gap-2">
                     <div className="w-1.5 h-1.5 rounded-full bg-[#5CFF3D]" />
-                    Speed guidance & hazard alerts
+                    Full RTK 2cm precision
                   </li>
                   <li className="flex items-center gap-2">
                     <div className="w-1.5 h-1.5 rounded-full bg-[#5CFF3D]" />
-                    Zero to minimal hardware cost
+                    Cameras & OBD-II optional
                   </li>
                 </ul>
                 <span className="text-[#5CFF3D] text-sm font-medium inline-flex items-center gap-1 group-hover:gap-2 transition-all">
@@ -230,7 +231,7 @@ const SmartRoads = () => {
                 </span>
               </Link>
 
-              {/* Option 2: App Integration */}
+              {/* Tier 2: App Integration */}
               <div className="sr-card p-6 md:p-8">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-12 h-12 rounded-full bg-[#5CFF3D]/10 flex items-center justify-center">
@@ -246,9 +247,9 @@ const SmartRoads = () => {
                   <h3 className="text-xl font-semibold text-white">App Integration</h3>
                 </div>
                 <p className="text-[#BEBEBE] mb-4">
-                  A compact device connects to your vehicle's OBD port. The SmartRoads app runs through
+                  RTK device with OBD-II connection. The SmartRoads app runs through
                   <span className="text-white font-medium"> Apple CarPlay</span> or
-                  <span className="text-white font-medium"> Android Auto</span> - no extra screens needed.
+                  <span className="text-white font-medium"> Android Auto</span> on your existing car display.
                 </p>
                 <ul className="space-y-2 text-sm text-[#6b6b6b]">
                   <li className="flex items-center gap-2">
@@ -257,7 +258,7 @@ const SmartRoads = () => {
                   </li>
                   <li className="flex items-center gap-2">
                     <div className="w-1.5 h-1.5 rounded-full bg-[#5CFF3D]" />
-                    Plug-and-play installation
+                    OBD-II plug-and-play
                   </li>
                   <li className="flex items-center gap-2">
                     <div className="w-1.5 h-1.5 rounded-full bg-[#5CFF3D]" />
@@ -266,7 +267,7 @@ const SmartRoads = () => {
                 </ul>
               </div>
 
-              {/* Option 3: Full Display */}
+              {/* Tier 3: Full Display */}
               <div className="sr-card p-6 md:p-8">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-12 h-12 rounded-full bg-[#5CFF3D]/10 flex items-center justify-center">
@@ -277,21 +278,23 @@ const SmartRoads = () => {
                       <line x1="12" y1="17" x2="12" y2="21" />
                     </svg>
                   </div>
-                  <h3 className="text-xl font-semibold text-white">Full Display</h3>
+                  <div>
+                    <h3 className="text-xl font-semibold text-white">Full Display</h3>
+                    <span className="text-xs text-[#6b6b6b] font-medium">Premium</span>
+                  </div>
                 </div>
                 <p className="text-[#BEBEBE] mb-4">
-                  A standalone smart display with built-in RTK receiver. Perfect for vehicles without
-                  CarPlay/Android Auto, or for
+                  Standalone smart tablet with built-in RTK, dual AI cameras, and OBD-II. The complete package for
                   <span className="text-white font-medium"> fleet deployments</span>.
                 </p>
                 <ul className="space-y-2 text-sm text-[#6b6b6b]">
                   <li className="flex items-center gap-2">
                     <div className="w-1.5 h-1.5 rounded-full bg-[#5CFF3D]" />
-                    All-in-one solution
+                    All-in-one with tablet display
                   </li>
                   <li className="flex items-center gap-2">
                     <div className="w-1.5 h-1.5 rounded-full bg-[#5CFF3D]" />
-                    Works in any vehicle
+                    Dual AI cameras included
                   </li>
                   <li className="flex items-center gap-2">
                     <div className="w-1.5 h-1.5 rounded-full bg-[#5CFF3D]" />
