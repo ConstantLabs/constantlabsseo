@@ -1,11 +1,16 @@
 import { useState, useEffect, lazy, Suspense } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { GlitchTextFramer } from "@/components/GlitchTextFramer";
 
 import { ProjectCard } from "@/components/ProjectCard";
 import { TeamMember } from "@/components/TeamMember";
 import { PageLoader } from "@/components/PageLoader";
 import { Button } from "@/components/ui/button";
-import { Github, Linkedin, Zap, Rocket, TrendingUp } from "lucide-react";
+import {
+  Github, Linkedin, Zap, Rocket, TrendingUp,
+  ShoppingCart, Smartphone, Plug, Users, Globe, Database, Monitor, Bot, Cpu,
+  Search, Wrench, CheckCircle
+} from "lucide-react";
 import { SEO } from "@/components/SEO";
 import tamerAvatar from "@/assets/tamer-avatar.webp";
 import ahmadAvatar from "@/assets/ahmad-avatar.webp";
@@ -27,6 +32,81 @@ import naviiImg from "@/assets/projects/navii.webp";
 // Lazy load HackerBackground for better performance
 const HackerBackground = lazy(() => import("@/components/HackerBackground").then(module => ({ default: module.HackerBackground })));
 
+const SERVICES = [
+  {
+    id: "E_COMMERCE",
+    title: "E-Commerce",
+    icon: ShoppingCart,
+    description: "Full-stack online stores, payment integrations, and inventory systems that convert visitors into customers.",
+    tags: ["Shopify", "Custom Carts", "Payment APIs"],
+    oneLiner: "Online stores that convert",
+  },
+  {
+    id: "MOBILE_WEB_APPS",
+    title: "Mobile & Web Apps",
+    icon: Smartphone,
+    description: "Native and cross-platform apps for iOS, Android, and the web — built from scratch around your users' needs.",
+    tags: ["React Native", "Flutter", "PWA"],
+    oneLiner: "Apps your users actually want",
+  },
+  {
+    id: "DASHBOARDS_INTERNAL_TOOLS",
+    title: "Dashboards & Internal Tools",
+    icon: Monitor,
+    description: "Admin panels, analytics dashboards, and business tools that give your team real-time visibility and control.",
+    tags: ["Admin Panels", "Analytics", "Business Intelligence"],
+    oneLiner: "Your data, at a glance",
+  },
+  {
+    id: "AI_AGENTS",
+    title: "AI Agents & Automation",
+    icon: Bot,
+    description: "Deploy AI agents that read emails, answer customers, generate reports, and make decisions autonomously — so your team focuses on what humans do best.",
+    tags: ["AI Agents", "LLMs", "Autonomous Ops"],
+    oneLiner: "AI that works while you sleep",
+  },
+  {
+    id: "SYSTEM_INTEGRATION",
+    title: "System Integration",
+    icon: Plug,
+    description: "Connect your existing tools and eliminate data silos. We wire your CRM, payments, and third-party services into one unified pipeline.",
+    tags: ["APIs", "Webhooks", "Middleware"],
+    oneLiner: "Wire your systems together",
+  },
+  {
+    id: "B2B_B2C_PLATFORMS",
+    title: "B2B/B2C Platforms",
+    icon: Users,
+    description: "Multi-sided platforms that serve your business partners and end customers with tailored experiences under one roof.",
+    tags: ["Portals", "Marketplaces", "Multi-tenant"],
+    oneLiner: "Platforms for every audience",
+  },
+  {
+    id: "DIGITAL_PRESENCE",
+    title: "Digital Presence",
+    icon: Globe,
+    description: "Websites, landing pages, and digital identities that make your brand impossible to ignore.",
+    tags: ["Web Design", "SEO", "Branding"],
+    oneLiner: "Brands that stand out online",
+  },
+  {
+    id: "IOT_EMBEDDED",
+    title: "IoT & Embedded Systems",
+    icon: Cpu,
+    description: "Connected devices, sensor networks, and embedded firmware — from prototype to deployment in the field.",
+    tags: ["Hardware", "Sensors", "Firmware"],
+    oneLiner: "Smart devices, real world",
+  },
+  {
+    id: "ERP_INTEGRATIONS",
+    title: "ERP Integrations",
+    icon: Database,
+    description: "Seamless connections to SAP, Oracle, Odoo and other enterprise systems. Your data, unified.",
+    tags: ["SAP", "Oracle", "Odoo", "Custom ERP"],
+    oneLiner: "Enterprise systems, unified",
+  },
+];
+
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [shouldLoadBackground, setShouldLoadBackground] = useState(false);
@@ -42,6 +122,16 @@ const Index = () => {
       return () => clearTimeout(timer);
     }
   }, []);
+
+  const [currentService, setCurrentService] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentService((prev) => (prev + 1) % SERVICES.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
+
   const projects = [
     {
       title: "MUFAKKIR",
@@ -204,7 +294,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground relative overflow-hidden chromatic-page">
-      <SEO title="Home" description="Build. Ship. Repeat. Constant Labs portfolio." />
+      <SEO title="Home" description="Build. Integrate. Scale. Constant Labs portfolio." />
       {shouldLoadBackground && (
         <Suspense fallback={null}>
           <HackerBackground />
@@ -242,23 +332,62 @@ const Index = () => {
       <section className="relative z-10 min-h-screen flex items-center justify-center overflow-hidden pt-24">
         <div className="container mx-auto px-4 text-center">
           {/* Main title - THE STAR */}
-          <h1 className="relative text-7xl sm:text-8xl md:text-9xl lg:text-[12rem] font-black tracking-tight uppercase transform -rotate-3 font-dedsec mb-12">
+          <h1 className="relative text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] font-black tracking-tight uppercase transform -rotate-3 font-dedsec mb-12">
             <GlitchTextFramer>CONSTANT LABS</GlitchTextFramer>
           </h1>
 
           {/* Single tagline */}
-          <p className="text-sm md:text-base text-muted-foreground font-tech tracking-[0.3em] uppercase mb-16">
-            BUILD. SHIP. REPEAT.
+          <p className="text-sm md:text-base text-muted-foreground font-tech tracking-[0.3em] uppercase mb-8">
+            BUILD. INTEGRATE. SCALE.
           </p>
+
+          {/* Rotating service highlight */}
+          <div className="h-12 mb-6 flex items-center justify-center">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentService}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.4 }}
+                className="flex items-center justify-center gap-3"
+              >
+                {(() => {
+                  const ActiveIcon = SERVICES[currentService].icon;
+                  return <ActiveIcon className="w-4 h-4 text-foreground/60" />;
+                })()}
+                <span className="text-xs sm:text-sm font-tech text-foreground/80 uppercase tracking-wider">
+                  [{SERVICES[currentService].id}]
+                </span>
+                <span className="hidden sm:inline text-xs text-muted-foreground font-tech">
+                  — {SERVICES[currentService].oneLiner}
+                </span>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+
+          {/* Progress dots */}
+          <div className="flex gap-2 justify-center mb-12">
+            {SERVICES.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => setCurrentService(idx)}
+                className={`h-1.5 rounded-full transition-all duration-300 ${
+                  idx === currentService ? 'bg-foreground w-6' : 'bg-foreground/30 w-1.5'
+                }`}
+                aria-label={`View service ${idx + 1}`}
+              />
+            ))}
+          </div>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <Button
               size="lg"
               className="border-2 border-foreground bg-transparent text-foreground hover:bg-foreground hover:text-background font-tech tracking-wide transition-all focus:ring-2 focus:ring-foreground focus:ring-offset-2 focus:ring-offset-background"
-              onClick={() => document.getElementById('vault')?.scrollIntoView({ behavior: 'smooth' })}
-              aria-label="Navigate to projects section"
+              onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
+              aria-label="Navigate to services section"
             >
-              [ENTER_VAULT]
+              [VIEW_SERVICES]
             </Button>
             <Button
               variant="ghost"
@@ -273,7 +402,54 @@ const Index = () => {
         </div>
       </section>
 
-      {/* MISSION STATEMENT */}
+      {/* SERVICES */}
+      <section id="services" className="relative z-10 py-24 border-t-2 border-foreground/10">
+        <div className="container mx-auto px-4">
+          <div className="mb-12">
+            <h2 className="text-4xl md:text-5xl font-black tracking-tight uppercase mb-4">
+              [OUR_SERVICES]
+            </h2>
+            <p className="text-muted-foreground font-tech text-xs tracking-wide uppercase">
+              // What we build for our clients
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {SERVICES.map((service, idx) => {
+              const Icon = service.icon;
+              return (
+                <motion.div
+                  key={service.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.1, duration: 0.4 }}
+                  className="group border border-foreground/10 border-l-4 border-l-foreground/30 hover:border-l-foreground bg-foreground/[0.02] hover:bg-foreground/[0.05] p-6 transition-all duration-300"
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <Icon className="w-5 h-5 text-foreground/60 group-hover:text-foreground transition-colors" />
+                    <h3 className="text-lg font-bold font-tech uppercase tracking-wider text-foreground">
+                      {service.title}
+                    </h3>
+                  </div>
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                    {service.description}
+                  </p>
+                  <div className="flex flex-wrap gap-3">
+                    {service.tags.map((tag) => (
+                      <span key={tag} className="text-[10px] font-tech text-foreground/40 uppercase tracking-wider">
+                        // {tag}
+                      </span>
+                    ))}
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* WHO WE ARE — Mission + Approach */}
       <section id="mission" className="relative z-10 py-24 border-t-2 border-foreground/10">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
@@ -308,7 +484,7 @@ const Index = () => {
 
                 <div className="space-y-6">
                   <p className="text-lg md:text-xl text-foreground leading-relaxed">
-                    We are a group of builders pushing the boundaries of what's possible.
+                    We don't just write code — we solve problems.
                   </p>
 
                   <p className="text-base text-muted-foreground leading-relaxed max-w-3xl mx-auto">
@@ -320,8 +496,44 @@ const Index = () => {
                   <p className="text-base text-muted-foreground leading-relaxed max-w-3xl mx-auto">
                     Hardware and software. No limits. No stopping until it's done.
                   </p>
+                </div>
 
-                  <div className="flex flex-wrap items-center justify-center gap-8 pt-6">
+                {/* How we work — Diagnose / Engineer / Deliver */}
+                <div className="mt-10 pt-8 border-t border-foreground/10">
+                  <p className="text-[10px] font-tech text-foreground/40 mb-6 tracking-widest">// OUR APPROACH</p>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div className="text-center">
+                      <div className="w-12 h-12 mx-auto mb-3 border-2 border-foreground/40 flex items-center justify-center">
+                        <Search className="w-5 h-5 text-foreground/60" />
+                      </div>
+                      <h3 className="text-sm font-tech font-bold uppercase tracking-wider mb-2">Diagnose</h3>
+                      <p className="text-xs text-muted-foreground leading-relaxed">
+                        We start with your challenge, not our tech stack
+                      </p>
+                    </div>
+                    <div className="text-center">
+                      <div className="w-12 h-12 mx-auto mb-3 border-2 border-foreground/40 flex items-center justify-center">
+                        <Wrench className="w-5 h-5 text-foreground/60" />
+                      </div>
+                      <h3 className="text-sm font-tech font-bold uppercase tracking-wider mb-2">Engineer</h3>
+                      <p className="text-xs text-muted-foreground leading-relaxed">
+                        We build what works, not what's trending
+                      </p>
+                    </div>
+                    <div className="text-center">
+                      <div className="w-12 h-12 mx-auto mb-3 border-2 border-foreground/40 flex items-center justify-center">
+                        <CheckCircle className="w-5 h-5 text-foreground/60" />
+                      </div>
+                      <h3 className="text-sm font-tech font-bold uppercase tracking-wider mb-2">Deliver</h3>
+                      <p className="text-xs text-muted-foreground leading-relaxed">
+                        We stay until it runs and your team owns it
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mt-8 pt-6 border-t border-foreground/20">
+                  <div className="flex flex-wrap items-center justify-center gap-8 mb-6">
                     <div className="text-center">
                       <div className="w-10 h-10 mx-auto mb-2 border-2 border-foreground/40 flex items-center justify-center">
                         <span className="text-foreground/60 font-tech text-lg">H</span>
@@ -343,9 +555,6 @@ const Index = () => {
                       <p className="text-[10px] font-tech text-muted-foreground uppercase">No Limits</p>
                     </div>
                   </div>
-                </div>
-
-                <div className="mt-8 pt-6 border-t border-foreground/20">
                   <p className="text-[10px] font-tech text-muted-foreground/40 uppercase tracking-wider">
                     // SCI-FI TODAY // REALITY TOMORROW //
                   </p>
