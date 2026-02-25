@@ -15,6 +15,7 @@ import { SEO } from "@/components/SEO";
 import tamerAvatar from "@/assets/tamer-avatar.webp";
 import ahmadAvatar from "@/assets/ahmad-avatar.webp";
 import tjAvatar from "@/assets/tj-avatar.webp";
+import wahabAvatar from "@/assets/wahab-avatar.webp";
 
 import mufakkirImg from "@/assets/projects/mufakkir.webp";
 import motargemImg from "@/assets/projects/motargem.webp";
@@ -287,6 +288,19 @@ const Index = () => {
       avatar: tjAvatar,
       github: "",
       linkedin: "https://www.linkedin.com/in/altigani-501599235/"
+    },
+    {
+      name: "MOHAMED ABDELWAHAB",
+      role: "MARKETING & MEDIA LEAD",
+      journey: [
+        "MSc Biotechnology → Published cancer researcher → COVID frontline lab tech",
+        "Pivoted into marketing at Dubai Astronomy Group",
+        "Scaled Drub Media's brand and content ops across Dubai's top exhibitions",
+        "Now: Digital strategy, ad campaigns, and content that converts"
+      ],
+      avatar: wahabAvatar,
+      github: "",
+      linkedin: "https://www.linkedin.com/in/abdulwahab1996/"
     }
   ];
 
