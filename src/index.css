@@ -76,6 +76,15 @@ All colors MUST be HSL.
   }
 }
 
+/* RTL Arabic font override */
+[dir="rtl"] body {
+  font-family: 'Noto Sans Arabic', 'Rajdhani', -apple-system, system-ui, sans-serif;
+}
+
+[dir="rtl"] .font-mono {
+  font-family: 'Noto Sans Arabic', 'Share Tech Mono', monospace;
+}
+
 /* SmartRoads Page Styles */
 
 /* SmartRoads uses Geist font */

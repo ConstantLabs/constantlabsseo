@@ -1,130 +1,44 @@
 import { useState, useEffect, lazy, Suspense } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { GlitchTextFramer } from "@/components/GlitchTextFramer";
-
 import { ProjectCard } from "@/components/ProjectCard";
+import { ProjectDetailModal } from "@/components/ProjectDetailModal";
 import { TeamMember } from "@/components/TeamMember";
-import { PageLoader } from "@/components/PageLoader";
 import { Button } from "@/components/ui/button";
-import {
-  Github, Linkedin, Zap, Rocket, TrendingUp,
-  ShoppingCart, Smartphone, Plug, Users, Globe, Database, Monitor, Bot, Cpu,
-  Search, Wrench, CheckCircle
-} from "lucide-react";
+import { Search, Wrench, CheckCircle } from "lucide-react";
 import { SEO } from "@/components/SEO";
+import { useLanguage } from "@/i18n/LanguageContext";
+import { SERVICES, softwareProjects, clientProjects, hardwareProjects } from "@/data/projectsData";
+import type { Project } from "@/data/projectsData";
+import { cn } from "@/lib/utils";
+
 import tamerAvatar from "@/assets/tamer-avatar.webp";
 import ahmadAvatar from "@/assets/ahmad-avatar.webp";
 import tjAvatar from "@/assets/tj-avatar.webp";
 import wahabAvatar from "@/assets/wahab-avatar.webp";
 
-import mufakkirImg from "@/assets/projects/mufakkir.webp";
-import motargemImg from "@/assets/projects/motargem.webp";
-import speakWindowsImg from "@/assets/projects/speak-windows.webp";
-import athkarImg from "@/assets/projects/athkar.webp";
-import mosqueSilenceImg from "@/assets/projects/mosque-silence.webp";
-import medievalQuestImg from "@/assets/projects/medieval-quest.webp";
-import fznDiningImg from "@/assets/projects/fzn-dining.webp";
-import toitImg from "@/assets/projects/toit.webp";
-import cutInHalfImg from "@/assets/projects/cut-in-half.webp";
-import sinaaiyaImg from "@/assets/projects/sinaaiya.webp";
-import guideonImg from "@/assets/projects/guideon.webp";
-import naviiImg from "@/assets/projects/navii.webp";
-
 // Lazy load HackerBackground for better performance
 const HackerBackground = lazy(() => import("@/components/HackerBackground").then(module => ({ default: module.HackerBackground })));
 
-const SERVICES = [
-  {
-    id: "E_COMMERCE",
-    title: "E-Commerce",
-    icon: ShoppingCart,
-    description: "Full-stack online stores, payment integrations, and inventory systems that convert visitors into customers.",
-    tags: ["Shopify", "Custom Carts", "Payment APIs"],
-    oneLiner: "Online stores that convert",
-  },
-  {
-    id: "MOBILE_WEB_APPS",
-    title: "Mobile & Web Apps",
-    icon: Smartphone,
-    description: "Native and cross-platform apps for iOS, Android, and the web — built from scratch around your users' needs.",
-    tags: ["React Native", "Flutter", "PWA"],
-    oneLiner: "Apps your users actually want",
-  },
-  {
-    id: "DASHBOARDS_INTERNAL_TOOLS",
-    title: "Dashboards & Internal Tools",
-    icon: Monitor,
-    description: "Admin panels, analytics dashboards, and business tools that give your team real-time visibility and control.",
-    tags: ["Admin Panels", "Analytics", "Business Intelligence"],
-    oneLiner: "Your data, at a glance",
-  },
-  {
-    id: "AI_AGENTS",
-    title: "AI Agents & Automation",
-    icon: Bot,
-    description: "Deploy AI agents that read emails, answer customers, generate reports, and make decisions autonomously — so your team focuses on what humans do best.",
-    tags: ["AI Agents", "LLMs", "Autonomous Ops"],
-    oneLiner: "AI that works while you sleep",
-  },
-  {
-    id: "SYSTEM_INTEGRATION",
-    title: "System Integration",
-    icon: Plug,
-    description: "Connect your existing tools and eliminate data silos. We wire your CRM, payments, and third-party services into one unified pipeline.",
-    tags: ["APIs", "Webhooks", "Middleware"],
-    oneLiner: "Wire your systems together",
-  },
-  {
-    id: "B2B_B2C_PLATFORMS",
-    title: "B2B/B2C Platforms",
-    icon: Users,
-    description: "Multi-sided platforms that serve your business partners and end customers with tailored experiences under one roof.",
-    tags: ["Portals", "Marketplaces", "Multi-tenant"],
-    oneLiner: "Platforms for every audience",
-  },
-  {
-    id: "DIGITAL_PRESENCE",
-    title: "Digital Presence",
-    icon: Globe,
-    description: "Websites, landing pages, and digital identities that make your brand impossible to ignore.",
-    tags: ["Web Design", "SEO", "Branding"],
-    oneLiner: "Brands that stand out online",
-  },
-  {
-    id: "IOT_EMBEDDED",
-    title: "IoT & Embedded Systems",
-    icon: Cpu,
-    description: "Connected devices, sensor networks, and embedded firmware — from prototype to deployment in the field.",
-    tags: ["Hardware", "Sensors", "Firmware"],
-    oneLiner: "Smart devices, real world",
-  },
-  {
-    id: "ERP_INTEGRATIONS",
-    title: "ERP Integrations",
-    icon: Database,
-    description: "Seamless connections to SAP, Oracle, Odoo and other enterprise systems. Your data, unified.",
-    tags: ["SAP", "Oracle", "Odoo", "Custom ERP"],
-    oneLiner: "Enterprise systems, unified",
-  },
-];
-
 const Index = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [shouldLoadBackground, setShouldLoadBackground] = useState(false);
+  const { t, lang, toggleLang } = useLanguage();
+  const navigate = useNavigate();
+  const isAr = lang === "ar";
 
-  // Only load background on desktop or after initial render
+  const [shouldLoadBackground, setShouldLoadBackground] = useState(false);
+  const [currentService, setCurrentService] = useState(0);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+
   useEffect(() => {
     const isMobile = window.innerWidth < 768;
     if (!isMobile) {
       setShouldLoadBackground(true);
     } else {
-      // Load after 1 second on mobile to prioritize content
       const timer = setTimeout(() => setShouldLoadBackground(true), 1000);
       return () => clearTimeout(timer);
     }
   }, []);
-
-  const [currentService, setCurrentService] = useState(0);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -133,182 +47,98 @@ const Index = () => {
     return () => clearInterval(timer);
   }, []);
 
-  const projects = [
-    {
-      title: "MUFAKKIR",
-      description: "Voice-to-text Arabic transcription app with AI. Real-time speech recognition supporting 50+ languages and 10+ Arabic dialects. Transform thoughts into organized notes.",
-      tech: ["AI", "Speech-to-Text", "Arabic", "Multi-dialect"],
-      status: "live" as const,
-      link: "https://mufakkir.app",
-      image: mufakkirImg
-    },
-    {
-      title: "MOTARGEM",
-      description: "Universal translator breaking language barriers. Real-time translation with voice, text, and camera input. Natural conversations across different languages.",
-      tech: ["Translation AI", "Real-time", "Voice Input", "Multi-language"],
-      status: "live" as const,
-      link: "https://motargem-v2.vercel.app/",
-      image: motargemImg
-    },
-    {
-      title: "SPEAK-TO-WINDOWS",
-      description: "Voice-controlled Windows automation tool. Speak commands to control your desktop and manage windows with natural language processing.",
-      tech: ["JavaScript", "Voice Recognition", "Windows API", "NLP"],
-      status: "repository" as const,
-      link: "https://github.com/Astrobubu/Speak-to-Windows",
-      image: speakWindowsImg
-    },
-    {
-      title: "ATHKAR DESKTOP",
-      description: "Elegant desktop application for Islamic remembrance with notifications and beautiful UI for daily prayers.",
-      tech: ["Electron", "JavaScript", "Node.js", "Cross-platform"],
-      status: "repository" as const,
-      link: "https://github.com/Astrobubu/Athkar-Desktop",
-      image: athkarImg
-    },
-    {
-      title: "MOSQUE SILENCE",
-      description: "Smart Android app that automatically silences phones in the vicinity of mosques using geolocation.",
-      tech: ["Flutter", "Dart", "Geolocation", "Android"],
-      status: "repository" as const,
-      link: "https://github.com/Astrobubu/MosqueSilence",
-      image: mosqueSilenceImg
-    },
-    {
-      title: "MEDIEVAL QUEST JOURNAL",
-      description: "Immersive medieval-inspired quest tracker with rich 3-column UI for tabletop RPG adventures.",
-      tech: ["HTML", "CSS", "JavaScript", "Fantasy UI"],
-      status: "repository" as const,
-      link: "https://github.com/Astrobubu/Medieval-Quest-Journal",
-      image: medievalQuestImg
-    },
-    {
-      title: "SANAYE",
-      description: "Making UAE industrial areas accessible. Find specialized shops, parts, services, and craftsmen across industrial zones.",
-      tech: ["React", "Maps", "Arabic", "Vercel"],
-      status: "live" as const,
-      link: "https://sinaaiya.vercel.app/",
-      image: sinaaiyaImg
-    },
-
-    {
-      title: "NAVII",
-      description: "AR indoor navigation for malls, airports, and large indoor spaces. Turn-by-turn guidance without GPS.",
-      tech: ["AR", "Indoor Navigation", "React", "Vercel"],
-      status: "development" as const,
-      link: "https://constantlabs.ai/navii",
-      image: naviiImg
-    },
-  ];
-
-  const clientProjects = [
-    {
-      title: "FZN DINING EXPERIENCE",
-      description: "Three Michelin-starred fine dining experience by Chef Björn Frantzén. Nordic Kaiseki meets Japanese precision in Dubai. Elegant reservation system with immersive visual storytelling.",
-      tech: ["React", "Framer Motion", "Luxury UI/UX", "Responsive"],
-      status: "live" as const,
-      link: "https://fzn-dining-experience.pages.dev/",
-      image: fznDiningImg
-    },
-    {
-      title: "TOIT HOT CHICKEN",
-      description: "Dubai's most craveable fried chicken burgers. Full menu showcase with online ordering integration, location finder, and Instagram-worthy visuals. Nashville-style meets modern web.",
-      tech: ["React", "Vercel", "Maps API", "E-commerce"],
-      status: "live" as const,
-      link: "https://toit.vercel.app/",
-      image: toitImg
-    },
-    {
-      title: "CUT IN HALF",
-      description: "Premium Wagyu burger restaurant chain with 4 locations. Interactive menu, milkshake builder, multi-location ordering through Talabat integration. Double-fried perfection, digitized.",
-      tech: ["React", "Leaflet Maps", "Vercel", "Restaurant Tech"],
-      status: "live" as const,
-      link: "https://cut-in-half.vercel.app/",
-      image: cutInHalfImg
-    },
-  ];
-
-  const hardwareProjects = [
-    {
-      title: "SMARTROADS",
-      description: "Revolutionary traffic management system. Coordinate 5% of vehicles to eliminate congestion for everyone. RTK precision positioning with AI-powered coordination.",
-      tech: ["Traffic AI", "RTK GPS", "IoT", "V2X"],
-      status: "development" as const,
-      link: "/smartroads",
-      image: "/smartroads/front car.png"
-    },
-    {
-      title: "GUIDEON",
-      description: "Modular AI-powered kiosk robot. 3D-printed, fully autonomous, handles roles from coffee-serving to reception with expressive gestures and smart chat.",
-      tech: ["Robotics", "AI", "3D Printing", "ROS"],
-      status: "live" as const,
-      link: "/robotics",
-      image: "/robotics/guideon/01.jpg",
-      imagePosition: "top" as const
-    },
-  ];
-
   const team = [
     {
       name: "AHMAD HASAN",
-      role: "CO-FOUNDER / ARCHITECT",
-      journey: [
-        "3D fabrication and physical prototyping → Hardware engineering",
-        "Applied Physics (dropout) → Astronomical research",
-        "Built observatories for deep space observation",
-        "Now: Architecting digital experiences that push boundaries"
-      ],
+      role: isAr ? "مؤسس مشارك / مهندس معماري" : "CO-FOUNDER / ARCHITECT",
+      journey: isAr
+        ? [
+            "تصنيع ثلاثي الأبعاد ونماذج أولية مادية ← هندسة الأجهزة",
+            "فيزياء تطبيقية ← بحث فلكي",
+            "بناء مراصد لرصد الفضاء العميق",
+            "الآن: تصميم تجارب رقمية تتخطى الحدود"
+          ]
+        : [
+            "3D fabrication and physical prototyping → Hardware engineering",
+            "Applied Physics (dropout) → Astronomical research",
+            "Built observatories for deep space observation",
+            "Now: Architecting digital experiences that push boundaries"
+          ],
       avatar: ahmadAvatar,
       github: "https://github.com/Astrobubu",
       linkedin: "https://www.linkedin.com/in/astrobubu"
     },
     {
       name: "MOHAMAD TAMER",
-      role: "CO-FOUNDER / CREATIVE DIRECTOR",
-      journey: [
-        "Computer Engineer and Astrophotographer",
-        "3D design and modeling",
-        "Motion graphics and video editing",
-        "Full-stack development and system architecture",
-        "Now: Crafting visual experiences that break conventions"
-      ],
+      role: isAr ? "مؤسس مشارك / مدير إبداعي" : "CO-FOUNDER / CREATIVE DIRECTOR",
+      journey: isAr
+        ? [
+            "مهندس حاسوب ومصور فلكي",
+            "تصميم ونمذجة ثلاثية الأبعاد",
+            "رسوم متحركة ومونتاج فيديو",
+            "تطوير كامل وهندسة أنظمة",
+            "الآن: صياغة تجارب بصرية تكسر المألوف"
+          ]
+        : [
+            "Computer Engineer and Astrophotographer",
+            "3D design and modeling",
+            "Motion graphics and video editing",
+            "Full-stack development and system architecture",
+            "Now: Crafting visual experiences that break conventions"
+          ],
       avatar: tamerAvatar,
       github: "https://github.com/Moenamatics",
       linkedin: "https://www.linkedin.com/in/mohamad-rabie-b304a8203/"
     },
     {
       name: "MOHAMMAD TIJANI",
-      role: "SOFTWARE ENGINEER",
-      journey: [
-        "BSc Computer Engineering",
-        "MSc Computer Science (University of York)",
-        "Web development and programming",
-        "Now: Building robust software solutions"
-      ],
+      role: isAr ? "مهندس برمجيات" : "SOFTWARE ENGINEER",
+      journey: isAr
+        ? [
+            "بكالوريوس هندسة حاسوب",
+            "ماجستير علوم حاسوب (جامعة يورك)",
+            "تطوير ويب وبرمجة",
+            "الآن: بناء حلول برمجية متينة"
+          ]
+        : [
+            "BSc Computer Engineering",
+            "MSc Computer Science (University of York)",
+            "Web development and programming",
+            "Now: Building robust software solutions"
+          ],
       avatar: tjAvatar,
       github: "",
       linkedin: "https://www.linkedin.com/in/altigani-501599235/"
     },
     {
       name: "MOHAMED ABDELWAHAB",
-      role: "MARKETING & MEDIA LEAD",
-      journey: [
-        "MSc Biotechnology → Published cancer researcher → COVID frontline lab tech",
-        "Pivoted into marketing at Dubai Astronomy Group",
-        "Scaled Drub Media's brand and content ops across Dubai's top exhibitions",
-        "Now: Digital strategy, ad campaigns, and content that converts"
-      ],
+      role: isAr ? "مدير التسويق والإعلام" : "MARKETING & MEDIA LEAD",
+      journey: isAr
+        ? [
+            "ماجستير تكنولوجيا حيوية ← باحث سرطان منشور ← فني مختبر كوفيد",
+            "انتقل إلى التسويق في مجموعة دبي الفلكية",
+            "وسّع علامة Drub Media عبر أرقى معارض دبي",
+            "الآن: استراتيجية رقمية وحملات إعلانية ومحتوى يحقق النتائج"
+          ]
+        : [
+            "MSc Biotechnology → Published cancer researcher → COVID frontline lab tech",
+            "Pivoted into marketing at Dubai Astronomy Group",
+            "Scaled Drub Media's brand and content ops across Dubai's top exhibitions",
+            "Now: Digital strategy, ad campaigns, and content that converts"
+          ],
       avatar: wahabAvatar,
       github: "",
       linkedin: "https://www.linkedin.com/in/abdulwahab1996/"
     }
   ];
 
-  /* Loading disabled - show content immediately */
-
   return (
     <div className="min-h-screen bg-background text-foreground relative overflow-hidden chromatic-page">
-      <SEO title="Home" description="Build. Integrate. Scale. Constant Labs portfolio." path="/" />
+      <SEO
+        title="Home"
+        description="Constant Labs — Dubai-based technology studio. AI solutions, web applications, robotics, and smart systems for businesses across the UAE and the Emirates."
+        path="/"
+      />
       {shouldLoadBackground && (
         <Suspense fallback={null}>
           <HackerBackground />
@@ -322,37 +152,66 @@ const Index = () => {
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 bg-foreground animate-pulse rounded-full" />
               <span className="text-[10px] font-tech tracking-wider text-foreground/60 uppercase">
-                SYSTEM ONLINE
+                {t("status.online")}
               </span>
             </div>
             <span className="text-[10px] font-tech text-foreground/80 font-bold tracking-wider">
-              CONSTANT_LABS
+              {t("status.brand")}
             </span>
-            <span className="text-[8px] font-tech text-foreground/40">
-              // SECURE CONNECTION ESTABLISHED
+            <span className="hidden sm:inline text-[8px] font-tech text-foreground/40">
+              {t("status.connection")}
             </span>
           </div>
-          <span className="text-[8px] font-tech text-foreground/40 uppercase">
-            {new Date().toLocaleString('en-US', {
-              hour: '2-digit',
-              minute: '2-digit',
-              hour12: false
-            })}
-          </span>
+          <div className="flex items-center gap-3">
+            {/* Language Toggle */}
+            <div className="flex items-center gap-1 border border-foreground/20 px-2 py-0.5">
+              <button
+                onClick={() => !isAr && toggleLang()}
+                className={cn(
+                  "text-[10px] font-tech tracking-wider px-1 transition-colors",
+                  !isAr ? "text-foreground" : "text-foreground/40 hover:text-foreground/60"
+                )}
+              >
+                EN
+              </button>
+              <span className="text-[10px] text-foreground/20">|</span>
+              <button
+                onClick={() => isAr || toggleLang()}
+                className={cn(
+                  "text-[10px] font-tech tracking-wider px-1 transition-colors",
+                  isAr ? "text-foreground" : "text-foreground/40 hover:text-foreground/60"
+                )}
+              >
+                AR
+              </button>
+            </div>
+            <span className="text-[8px] font-tech text-foreground/40 uppercase">
+              {new Date().toLocaleString(isAr ? 'ar-AE' : 'en-US', {
+                hour: '2-digit',
+                minute: '2-digit',
+                hour12: false
+              })}
+            </span>
+          </div>
         </div>
       </div>
 
       {/* ENTRY POINT */}
       <section className="relative z-10 min-h-screen flex items-center justify-center overflow-hidden pt-24">
         <div className="container mx-auto px-4 text-center">
-          {/* Main title - THE STAR */}
-          <h1 className="relative text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] font-black tracking-tight uppercase transform -rotate-3 font-dedsec mb-12">
+          {/* Main title */}
+          <h1 className="relative text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] font-black tracking-tight uppercase transform -rotate-3 font-dedsec mb-4">
             <GlitchTextFramer>CONSTANT LABS</GlitchTextFramer>
           </h1>
 
-          {/* Single tagline */}
+          {/* Arabic transliteration */}
+          <p className="text-lg md:text-xl text-foreground/40 font-tech tracking-widest mb-8">
+            كونستانت لابز
+          </p>
+
+          {/* Tagline */}
           <p className="text-sm md:text-base text-muted-foreground font-tech tracking-[0.3em] uppercase mb-8">
-            BUILD. INTEGRATE. SCALE.
+            {t("hero.tagline")}
           </p>
 
           {/* Rotating service highlight */}
@@ -374,7 +233,7 @@ const Index = () => {
                   [{SERVICES[currentService].id}]
                 </span>
                 <span className="hidden sm:inline text-xs text-muted-foreground font-tech">
-                  — {SERVICES[currentService].oneLiner}
+                  — {t(`service.${SERVICES[currentService].id}.oneLiner`)}
                 </span>
               </motion.div>
             </AnimatePresence>
@@ -401,7 +260,7 @@ const Index = () => {
               onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
               aria-label="Navigate to services section"
             >
-              [VIEW_SERVICES]
+              {t("hero.viewServices")}
             </Button>
             <Button
               variant="ghost"
@@ -410,7 +269,7 @@ const Index = () => {
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
               aria-label="Navigate to contact section"
             >
-              [INITIATE_CONTACT]
+              {t("hero.contact")}
             </Button>
           </div>
         </div>
@@ -421,16 +280,17 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="mb-12">
             <h2 className="text-4xl md:text-5xl font-black tracking-tight uppercase mb-4">
-              [OUR_SERVICES]
+              {t("services.title")}
             </h2>
             <p className="text-muted-foreground font-tech text-xs tracking-wide uppercase">
-              // What we build for our clients
+              {t("services.subtitle")}
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {SERVICES.map((service, idx) => {
               const Icon = service.icon;
+              const isClickable = !!service.link;
               return (
                 <motion.div
                   key={service.id}
@@ -438,16 +298,21 @@ const Index = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.1, duration: 0.4 }}
-                  className="group border border-foreground/10 border-l-4 border-l-foreground/30 hover:border-l-foreground bg-foreground/[0.02] hover:bg-foreground/[0.05] p-6 transition-all duration-300"
+                  className={cn(
+                    "group border border-foreground/10 border-s-4 border-s-foreground/30 hover:border-s-foreground bg-foreground/[0.02] hover:bg-foreground/[0.05] p-6 transition-all duration-300",
+                    isClickable && "cursor-pointer"
+                  )}
+                  onClick={() => isClickable && navigate(service.link!)}
+                  role={isClickable ? "link" : undefined}
                 >
                   <div className="flex items-center gap-3 mb-4">
                     <Icon className="w-5 h-5 text-foreground/60 group-hover:text-foreground transition-colors" />
                     <h3 className="text-lg font-bold font-tech uppercase tracking-wider text-foreground">
-                      {service.title}
+                      {t(`service.${service.id}.title`)}
                     </h3>
                   </div>
                   <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                    {service.description}
+                    {t(`service.${service.id}.description`)}
                   </p>
                   <div className="flex flex-wrap gap-3">
                     {service.tags.map((tag) => (
@@ -456,6 +321,11 @@ const Index = () => {
                       </span>
                     ))}
                   </div>
+                  {isClickable && (
+                    <div className="mt-4 text-[10px] font-tech text-foreground/40 uppercase tracking-wider group-hover:text-foreground/60 transition-colors">
+                      {t("project.viewWork")}
+                    </div>
+                  )}
                 </motion.div>
               );
             })}
@@ -485,62 +355,60 @@ const Index = () => {
 
               <div className="relative z-10 text-center">
                 <div className="text-[10px] font-tech text-foreground/40 mb-6 tracking-widest">
-                  [WHO_WE_ARE]
+                  {t("mission.label")}
                 </div>
 
                 <div className="flex items-center justify-center gap-3 mb-8">
                   <div className="h-px w-16 bg-foreground/40" />
                   <h2 className="text-3xl md:text-4xl font-black text-foreground uppercase tracking-wider font-tech">
-                    THE MISSION
+                    {t("mission.title")}
                   </h2>
                   <div className="h-px w-16 bg-foreground/40" />
                 </div>
 
                 <div className="space-y-6">
                   <p className="text-lg md:text-xl text-foreground leading-relaxed">
-                    We don't just write code — we solve problems.
+                    {t("mission.line1")}
                   </p>
 
                   <p className="text-base text-muted-foreground leading-relaxed max-w-3xl mx-auto">
-                    Our goal is to create a new wave of technology—the kind most would call sci-fi.
-                    We're here to make it real. To make it achievable. To make it something you can touch,
-                    use, and rely on.
+                    {t("mission.line2")}
                   </p>
 
                   <p className="text-base text-muted-foreground leading-relaxed max-w-3xl mx-auto">
-                    Hardware and software. No limits. No stopping until it's done.
+                    {t("mission.line3")}
                   </p>
                 </div>
 
                 {/* How we work — Diagnose / Engineer / Deliver */}
                 <div className="mt-10 pt-8 border-t border-foreground/10">
-                  <p className="text-[10px] font-tech text-foreground/40 mb-6 tracking-widest">// OUR APPROACH</p>
+                  <p className="text-[10px] font-tech text-foreground/40 mb-6 tracking-widest">{t("mission.approach")}</p>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <div className="text-center">
                       <div className="w-12 h-12 mx-auto mb-3 border-2 border-foreground/40 flex items-center justify-center">
                         <Search className="w-5 h-5 text-foreground/60" />
                       </div>
-                      <h3 className="text-sm font-tech font-bold uppercase tracking-wider mb-2">Diagnose</h3>
+                      <h3 className="text-sm font-tech font-bold uppercase tracking-wider mb-2">{t("mission.diagnose")}</h3>
                       <p className="text-xs text-muted-foreground leading-relaxed">
-                        We start with your challenge, not our tech stack
+                        {t("mission.diagnose.desc")}
                       </p>
                     </div>
                     <div className="text-center">
                       <div className="w-12 h-12 mx-auto mb-3 border-2 border-foreground/40 flex items-center justify-center">
                         <Wrench className="w-5 h-5 text-foreground/60" />
                       </div>
-                      <h3 className="text-sm font-tech font-bold uppercase tracking-wider mb-2">Engineer</h3>
+                      <h3 className="text-sm font-tech font-bold uppercase tracking-wider mb-2">{t("mission.engineer")}</h3>
                       <p className="text-xs text-muted-foreground leading-relaxed">
-                        We build what works, not what's trending
+                        {t("mission.engineer.desc")}
                       </p>
                     </div>
                     <div className="text-center">
                       <div className="w-12 h-12 mx-auto mb-3 border-2 border-foreground/40 flex items-center justify-center">
                         <CheckCircle className="w-5 h-5 text-foreground/60" />
                       </div>
-                      <h3 className="text-sm font-tech font-bold uppercase tracking-wider mb-2">Deliver</h3>
+                      <h3 className="text-sm font-tech font-bold uppercase tracking-wider mb-2">{t("mission.deliver")}</h3>
                       <p className="text-xs text-muted-foreground leading-relaxed">
-                        We stay until it runs and your team owns it
+                        {t("mission.deliver.desc")}
                       </p>
                     </div>
                   </div>
@@ -552,25 +420,25 @@ const Index = () => {
                       <div className="w-10 h-10 mx-auto mb-2 border-2 border-foreground/40 flex items-center justify-center">
                         <span className="text-foreground/60 font-tech text-lg">H</span>
                       </div>
-                      <p className="text-[10px] font-tech text-muted-foreground uppercase">Hardware</p>
+                      <p className="text-[10px] font-tech text-muted-foreground uppercase">{t("mission.hardware")}</p>
                     </div>
                     <div className="text-[10px] font-tech text-foreground/40">+</div>
                     <div className="text-center">
                       <div className="w-10 h-10 mx-auto mb-2 border-2 border-foreground/40 flex items-center justify-center">
                         <span className="text-foreground/60 font-tech text-lg">S</span>
                       </div>
-                      <p className="text-[10px] font-tech text-muted-foreground uppercase">Software</p>
+                      <p className="text-[10px] font-tech text-muted-foreground uppercase">{t("mission.software")}</p>
                     </div>
                     <div className="text-[10px] font-tech text-foreground/40">=</div>
                     <div className="text-center">
                       <div className="w-10 h-10 mx-auto mb-2 border-2 border-foreground flex items-center justify-center">
                         <span className="text-foreground font-tech text-lg">∞</span>
                       </div>
-                      <p className="text-[10px] font-tech text-muted-foreground uppercase">No Limits</p>
+                      <p className="text-[10px] font-tech text-muted-foreground uppercase">{t("mission.noLimits")}</p>
                     </div>
                   </div>
                   <p className="text-[10px] font-tech text-muted-foreground/40 uppercase tracking-wider">
-                    // SCI-FI TODAY // REALITY TOMORROW //
+                    {t("mission.tagline")}
                   </p>
                 </div>
               </div>
@@ -584,10 +452,10 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="mb-12">
             <h2 className="text-4xl md:text-5xl font-black tracking-tight uppercase mb-4">
-              [THE_VAULT]
+              {t("vault.title")}
             </h2>
             <p className="text-muted-foreground font-tech text-xs tracking-wide uppercase">
-              // Active projects and experiments
+              {t("vault.subtitle")}
             </p>
           </div>
 
@@ -596,13 +464,24 @@ const Index = () => {
             <div className="flex items-center gap-4 mb-8">
               <div className="h-px flex-1 bg-foreground/20" />
               <h3 className="text-lg font-tech text-foreground/60 uppercase tracking-wider">
-                // SOFTWARE
+                {t("vault.software")}
               </h3>
               <div className="h-px flex-1 bg-foreground/20" />
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {projects.map((project, idx) => (
-                <ProjectCard key={idx} {...project} index={idx} />
+              {softwareProjects.map((project, idx) => (
+                <ProjectCard
+                  key={project.slug}
+                  title={project.title}
+                  description={project.description}
+                  tech={project.tech}
+                  status={project.status}
+                  link={project.link}
+                  image={project.image}
+                  imagePosition={project.imagePosition}
+                  index={idx}
+                  onCardClick={() => setSelectedProject(project)}
+                />
               ))}
             </div>
           </div>
@@ -612,49 +491,69 @@ const Index = () => {
             <div className="flex items-center gap-4 mb-8">
               <div className="h-px flex-1 bg-foreground/20" />
               <h3 className="text-lg font-tech text-foreground/60 uppercase tracking-wider">
-                // HARDWARE
+                {t("vault.hardware")}
               </h3>
               <div className="h-px flex-1 bg-foreground/20" />
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {hardwareProjects.map((project, idx) => (
-                <ProjectCard key={idx} {...project} index={idx} />
+                <ProjectCard
+                  key={project.slug}
+                  title={project.title}
+                  description={project.description}
+                  tech={project.tech}
+                  status={project.status}
+                  link={project.link}
+                  image={project.image}
+                  imagePosition={project.imagePosition}
+                  index={idx}
+                  onCardClick={() => setSelectedProject(project)}
+                />
               ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* CLIENT DEPLOYMENTS - Hidden for now
+      {/* CLIENT DEPLOYMENTS */}
       <section id="deployments" className="relative z-10 py-24 border-t-2 border-foreground/10">
         <div className="container mx-auto px-4">
           <div className="mb-12">
             <h2 className="text-4xl md:text-5xl font-black tracking-tight uppercase mb-4">
-              [CLIENT_DEPLOYMENTS]
+              {t("clients.title")}
             </h2>
             <p className="text-muted-foreground font-tech text-xs tracking-wide uppercase">
-              // Restaurant brands & hospitality experiences built for Dubai's finest
+              {t("clients.subtitle")}
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {clientProjects.map((project, idx) => (
-              <ProjectCard key={idx} {...project} index={idx} />
+              <ProjectCard
+                key={project.slug}
+                title={project.title}
+                description={project.description}
+                tech={project.tech}
+                status={project.status}
+                link={project.link}
+                image={project.image}
+                index={idx}
+                onCardClick={() => setSelectedProject(project)}
+              />
             ))}
           </div>
         </div>
       </section>
-      */}
 
       {/* OPERATORS - Team */}
       <section id="operators" className="relative z-10 py-24 border-t-2 border-foreground/10">
         <div className="container mx-auto px-4">
           <div className="mb-12">
             <h2 className="text-4xl md:text-5xl font-black tracking-tight uppercase mb-4">
-              [OPERATORS]
+              {t("operators.title")}
             </h2>
             <p className="text-muted-foreground font-tech text-xs tracking-wide uppercase">
-              // Core team members
+              {t("operators.subtitle")}
             </p>
           </div>
 
@@ -671,21 +570,24 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="border-2 border-foreground p-12 space-y-6 text-center relative overflow-hidden bg-card">
-              <div className="absolute top-4 right-4 text-[10px] font-tech text-white/20">
-                [ENCRYPTED_CHANNEL]
+              <div className="absolute top-4 end-4 text-[10px] font-tech text-white/20">
+                {t("contact.encrypted")}
               </div>
-              <div className="absolute bottom-4 left-4 text-[10px] font-tech text-white/20">
-                [SECURE_LINE_OPEN]
+              <div className="absolute bottom-4 start-4 text-[10px] font-tech text-white/20">
+                {t("contact.secureLine")}
               </div>
 
               <h2 className="text-4xl md:text-5xl font-black tracking-tight uppercase">
-                [INITIATE_CONTACT]
+                {t("contact.title")}
               </h2>
               <p className="text-muted-foreground font-tech text-xs tracking-wide uppercase">
-                // Secure communications channel active
+                {t("contact.subtitle")}
               </p>
               <p className="text-muted-foreground/60 font-tech text-[10px] tracking-wide">
-                Got a project? Need a team? Let's talk.
+                {t("contact.cta")}
+              </p>
+              <p className="text-foreground/40 font-tech text-[10px] tracking-widest uppercase">
+                {t("contact.location")}
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -694,30 +596,37 @@ const Index = () => {
                   className="border-2 border-foreground bg-background text-foreground hover:bg-foreground hover:text-background font-tech tracking-wide font-bold transition-all duration-300"
                   onClick={() => window.location.href = 'mailto:akhmad6093@gmail.com'}
                 >
-                  [EMAIL]
+                  {t("contact.email")}
                 </Button>
                 <Button
                   size="lg"
                   className="border-2 border-foreground bg-background text-foreground hover:bg-foreground hover:text-background font-tech tracking-wide font-bold transition-all duration-300"
                   onClick={() => window.open('https://wa.me/971561495656', '_blank')}
                 >
-                  [WHATSAPP]
+                  {t("contact.whatsapp")}
                 </Button>
               </div>
             </div>
           </div>
 
           <div className="mt-12 text-center text-xs text-muted-foreground font-tech space-y-2">
-            <p className="uppercase tracking-wider">CONSTANT LABS © 2025</p>
-            <p className="text-[10px] uppercase tracking-wide opacity-60">// BUILT WITH PURPOSE // DESIGNED FOR IMPACT //</p>
+            <p className="uppercase tracking-wider">{t("footer.copyright")}</p>
+            <p className="text-[10px] uppercase tracking-wide opacity-60">{t("footer.tagline")}</p>
             <div className="flex items-center justify-center gap-4 pt-2">
-              <a href="/privacy" className="text-[10px] uppercase tracking-wide opacity-40 hover:opacity-80 transition-opacity">Privacy Policy</a>
+              <a href="/privacy" className="text-[10px] uppercase tracking-wide opacity-40 hover:opacity-80 transition-opacity">{t("footer.privacy")}</a>
               <span className="text-[10px] opacity-20">|</span>
-              <a href="/terms" className="text-[10px] uppercase tracking-wide opacity-40 hover:opacity-80 transition-opacity">Terms of Service</a>
+              <a href="/terms" className="text-[10px] uppercase tracking-wide opacity-40 hover:opacity-80 transition-opacity">{t("footer.terms")}</a>
             </div>
           </div>
         </div>
       </section>
+
+      {/* Project Detail Modal */}
+      <ProjectDetailModal
+        project={selectedProject}
+        open={!!selectedProject}
+        onOpenChange={(open) => { if (!open) setSelectedProject(null); }}
+      />
     </div>
   );
 };

@@ -2,11 +2,16 @@ import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { HelmetProvider } from "react-helmet-async";
+import { LanguageProvider } from "./i18n/LanguageContext";
 import { PageTransition } from "./components/PageTransition";
 import { PageLoader } from "./components/PageLoader";
 
 // Lazy Load Pages
 const Index = lazy(() => import("./pages/Index"));
+const ProjectDetail = lazy(() => import("./pages/ProjectDetail"));
+const PrivateAI = lazy(() => import("./pages/PrivateAI"));
+const CustomAIAgents = lazy(() => import("./pages/CustomAIAgents"));
+const WebsitesShowcase = lazy(() => import("./pages/WebsitesShowcase"));
 const SmartRoads = lazy(() => import("./pages/SmartRoads"));
 const SmartRoadsCapabilities = lazy(() => import("./pages/SmartRoadsCapabilities"));
 const SmartRoadsTechnology = lazy(() => import("./pages/SmartRoadsTechnology"));
@@ -52,6 +57,10 @@ const AnimatedRoutes = () => {
         <Route path="/smartroads/lite" element={<PageTransition><SmartRoadsLite /></PageTransition>} />
         <Route path="/robotics" element={<PageTransition><Robotics /></PageTransition>} />
         <Route path="/robotics/:slug" element={<PageTransition><RobotDetail /></PageTransition>} />
+        <Route path="/projects/:slug" element={<PageTransition><ProjectDetail /></PageTransition>} />
+        <Route path="/services/private-ai" element={<PageTransition><PrivateAI /></PageTransition>} />
+        <Route path="/services/custom-ai-agents" element={<PageTransition><CustomAIAgents /></PageTransition>} />
+        <Route path="/services/websites" element={<PageTransition><WebsitesShowcase /></PageTransition>} />
         <Route path="/privacy" element={<PageTransition><PrivacyPolicy /></PageTransition>} />
         <Route path="/terms" element={<PageTransition><TermsOfService /></PageTransition>} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
@@ -63,11 +72,13 @@ const AnimatedRoutes = () => {
 
 const App = () => (
   <HelmetProvider>
-    <BrowserRouter>
-      <Suspense fallback={<PageLoader />}>
-        <AnimatedRoutes />
-      </Suspense>
-    </BrowserRouter>
+    <LanguageProvider>
+      <BrowserRouter>
+        <Suspense fallback={<PageLoader />}>
+          <AnimatedRoutes />
+        </Suspense>
+      </BrowserRouter>
+    </LanguageProvider>
   </HelmetProvider>
 );
 

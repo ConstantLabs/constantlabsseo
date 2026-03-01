@@ -11,17 +11,19 @@ interface ProjectCardProps {
   image?: string;
   imagePosition?: "top" | "center";
   index: number;
+  onCardClick?: () => void;
 }
 
-export const ProjectCard = ({ title, description, tech, status, link, image, imagePosition = "center", index }: ProjectCardProps) => {
+export const ProjectCard = ({ title, description, tech, status, image, imagePosition = "center", index, onCardClick }: ProjectCardProps) => {
   const [isTouched, setIsTouched] = useState(false);
   return (
-    <motion.a
-      href={link}
-      target="_blank"
-      rel="noopener noreferrer"
+    <motion.div
+      role="button"
+      tabIndex={0}
+      onClick={() => onCardClick?.()}
+      onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") onCardClick?.(); }}
       className={cn(
-        "group relative flex flex-col bg-background p-6 border-2 border-foreground/20 overflow-hidden",
+        "group relative flex flex-col bg-background p-6 border-2 border-foreground/20 overflow-hidden cursor-pointer",
         isTouched && "border-foreground/40"
       )}
       whileHover={{
@@ -95,16 +97,16 @@ export const ProjectCard = ({ title, description, tech, status, link, image, ima
         </p>
 
         <div className="flex flex-wrap gap-2 mt-auto">
-          {tech.map((t) => (
+          {tech.map((tag) => (
             <span
-              key={t}
+              key={tag}
               className="text-[10px] font-tech text-foreground/60 uppercase tracking-wider"
             >
-             // {t}
+             // {tag}
             </span>
           ))}
         </div>
       </div>
-    </motion.a>
+    </motion.div>
   );
 };
