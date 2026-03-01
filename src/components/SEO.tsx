@@ -12,18 +12,23 @@ const DEFAULT_IMAGE = `${BASE_URL}/og-image.png`;
 
 export const SEO = ({
   title,
-  description = 'Constant Labs: We build fast, ship faster, scale infinitely. From AI-powered voice transcription to universal translators, we create innovative web applications with cutting-edge technology.',
+  description = 'Constant Labs — Dubai-based technology studio. We build AI-powered applications, web platforms, robotics, and smart systems for businesses across the UAE and the Emirates.',
   path = '/',
   image = DEFAULT_IMAGE,
 }: SEOProps) => {
   const url = `${BASE_URL}${path}`;
-  const fullTitle = path === '/' ? 'Constant Labs - Building Digital Experiences That Break Boundaries' : `${title} | Constant Labs`;
+  const fullTitle = path === '/' ? 'Constant Labs — Dubai Tech Studio | AI, Web & Hardware Solutions in UAE' : `${title} | Constant Labs — Dubai`;
 
   return (
     <Helmet>
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
       <link rel="canonical" href={url} />
+
+      {/* Geo tags */}
+      <meta name="geo.region" content="AE-DU" />
+      <meta name="geo.placename" content="Dubai" />
+      <meta name="geo.country" content="United Arab Emirates" />
 
       {/* Open Graph */}
       <meta property="og:type" content="website" />

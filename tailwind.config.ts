@@ -74,8 +74,9 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        'rajdhani': ['Rajdhani', 'sans-serif'],
+        'rajdhani': ['Rajdhani', 'Noto Sans Arabic', 'sans-serif'],
         'tech': ['Share Tech Mono', 'monospace'],
+        'arabic': ['Noto Sans Arabic', 'sans-serif'],
       },
       keyframes: {
         "accordion-down": {
