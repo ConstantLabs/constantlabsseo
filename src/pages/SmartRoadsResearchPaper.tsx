@@ -19,6 +19,7 @@ const SmartRoadsResearchPaper = () => {
       <SEO
         title="Smart Roads - Research Paper"
         description="Dissipation of Stop-and-Go Waves via Control of Autonomous Vehicles: Field Experiments."
+        path="/smartroads/research-paper"
       />
       {/* Navigation */}
       <nav className={`fixed top-0 left-0 right-0 z-50 px-4 md:px-8 py-4 ${mobileMenuOpen ? 'bg-[#0d0d0d]' : 'bg-transparent'}`}>

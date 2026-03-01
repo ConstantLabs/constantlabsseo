@@ -70,6 +70,7 @@ const RobotDetail = () => {
             <SEO
                 title={`${robot.name} - Robotics`}
                 description={robot.description}
+                path={`/robotics/${robot.slug}`}
             />
 
             {/* Lightbox */}

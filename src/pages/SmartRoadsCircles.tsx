@@ -19,6 +19,7 @@ const SmartRoadsCircles = () => {
       <SEO
         title="Smart Roads - CIRCLES Experiment"
         description="UC Berkeley's massive field test proving AI can smooth traffic flow and reduce fuel consumption by 40%."
+        path="/smartroads/circles"
       />
       {/* Navigation */}
       <nav className={`fixed top-0 left-0 right-0 z-50 px-4 md:px-8 py-4 ${mobileMenuOpen ? 'bg-[#0d0d0d]' : 'bg-transparent'}`}>

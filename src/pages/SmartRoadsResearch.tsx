@@ -40,6 +40,7 @@ const SmartRoadsResearch = () => {
       <SEO
         title="Smart Roads Research - Backed by Science"
         description="SmartRoads is built on validated research from MIT, UC Berkeley, and Vanderbilt proving traffic waves can be eliminated."
+        path="/smartroads/research"
       />
       {/* Navigation */}
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-colors ${mobileMenuOpen ? 'bg-[#0d0d0d]' : 'bg-transparent'}`}>

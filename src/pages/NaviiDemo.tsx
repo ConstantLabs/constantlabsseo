@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { ArrowLeft, Maximize2, Minimize2, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { SEO } from "@/components/SEO";
 
 const DEMO_SOURCE_URL = "https://navii-demo.vercel.app/";
 
@@ -21,6 +22,11 @@ const NaviiDemo = () => {
 
   return (
     <div className="min-h-screen bg-navii-bg flex flex-col">
+      <SEO
+        title="Navii Demo"
+        description="Try Navii's AI-powered indoor navigation demo. Experience real-time wayfinding in action."
+        path="/navii/demo"
+      />
       {/* Header */}
       <motion.header
         initial={{ y: -50, opacity: 0 }}

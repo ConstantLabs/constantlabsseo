@@ -23,6 +23,7 @@ const Robotics = () => {
             <SEO
                 title="Robotics - AI-Powered Service Robots"
                 description="Modular, AI-powered kiosk robots for hospitality, education, and service industries. From reception to coffee-serving - fully autonomous."
+                path="/robotics"
             />
 
             {/* Navigation */}

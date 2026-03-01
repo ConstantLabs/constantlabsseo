@@ -71,6 +71,7 @@ const SmartRoads = () => {
       <SEO
         title="Smart Roads - End Traffic Jams Forever"
         description="Revolutionary traffic management system proven to eliminate congestion with just 5% adoption using RTK precision positioning."
+        path="/smartroads"
       />
       {/* Navigation */}
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-colors ${mobileMenuOpen ? 'bg-[#0d0d0d]' : 'bg-transparent'}`}>

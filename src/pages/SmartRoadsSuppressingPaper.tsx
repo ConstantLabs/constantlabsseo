@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, ExternalLink, Menu, X } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
+import { SEO } from "@/components/SEO";
 
 const SmartRoadsSuppressingPaper = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -15,6 +16,11 @@ const SmartRoadsSuppressingPaper = () => {
 
   return (
     <div className="smartroads-page min-h-screen text-white">
+      <SEO
+        title="SmartRoads - Suppressing Traffic Waves Paper"
+        description="Research on suppressing stop-and-go traffic waves using connected autonomous vehicles."
+        path="/smartroads/suppressing-paper"
+      />
       {/* Navigation */}
       <nav className={`fixed top-0 left-0 right-0 z-50 px-4 md:px-8 py-4 ${mobileMenuOpen ? 'bg-[#0d0d0d]' : 'bg-transparent'}`}>
         <div className="max-w-7xl mx-auto flex items-center justify-between">

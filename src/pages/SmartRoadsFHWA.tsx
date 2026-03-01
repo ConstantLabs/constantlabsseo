@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, ExternalLink, Menu, X } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
+import { SEO } from "@/components/SEO";
 
 const SmartRoadsFHWA = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -15,6 +16,11 @@ const SmartRoadsFHWA = () => {
 
   return (
     <div className="smartroads-page min-h-screen text-white">
+      <SEO
+        title="SmartRoads - FHWA Report"
+        description="Federal Highway Administration report on traffic flow optimization and intelligent transportation systems."
+        path="/smartroads/fhwa-report"
+      />
       {/* Navigation */}
       <nav className={`fixed top-0 left-0 right-0 z-50 px-4 md:px-8 py-4 ${mobileMenuOpen ? 'bg-[#0d0d0d]' : 'bg-transparent'}`}>
         <div className="max-w-7xl mx-auto flex items-center justify-between">

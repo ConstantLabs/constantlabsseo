@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { SEO } from "@/components/SEO";
 
 // Section imports
 import { HeroSection } from "@/components/navii/sections/HeroSection";
@@ -52,6 +53,11 @@ const NaviiLanding = () => {
 
   return (
     <div className="min-h-screen bg-navii-bg text-white overflow-x-hidden">
+      <SEO
+        title="Navii - AI-Powered Navigation"
+        description="Navii: AI-powered indoor navigation and wayfinding for airports, malls, hospitals, and large venues. Never get lost again."
+        path="/navii"
+      />
       {/* Sticky Navigation */}
       <motion.nav
         initial={{ y: -100 }}

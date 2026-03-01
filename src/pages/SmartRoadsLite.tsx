@@ -87,6 +87,7 @@ const SmartRoadsLite = () => {
       <SEO
         title="SmartRoads Lite - Full RTK Power, Smaller Package"
         description="All the precision and intelligence of SmartRoads in a compact, affordable form factor. Phone app or small LCD display with RTK positioning."
+        path="/smartroads/lite"
       />
 
       {/* Navigation */}

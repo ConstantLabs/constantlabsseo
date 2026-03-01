@@ -81,6 +81,7 @@ const SmartRoadsCapabilities = () => {
       <SEO
         title="Smart Roads Capabilities - 9 Integrated Core Features"
         description="Explore the 9 core capabilities of SmartRoads: Traffic Management, Road Health Intelligence, Emergency Response, and more."
+        path="/smartroads/capabilities"
       />
       {/* Navigation */}
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-colors ${mobileMenuOpen ? 'bg-[#0d0d0d]' : 'bg-transparent'}`}>

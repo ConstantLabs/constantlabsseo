@@ -54,6 +54,7 @@ const SmartRoadsImplementation = () => {
       <SEO
         title="Smart Roads Implementation - Straightforward Deployment"
         description="SmartRoads implementation plan using proven government deployment models and nationwide RTK infrastructure."
+        path="/smartroads/implementation"
       />
       {/* Navigation */}
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-colors ${mobileMenuOpen ? 'bg-[#0d0d0d]' : 'bg-transparent'}`}>

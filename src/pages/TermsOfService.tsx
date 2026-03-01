@@ -7,7 +7,7 @@ const TermsOfService = () => {
 
     return (
         <div className="min-h-screen bg-background text-foreground">
-            <SEO title="Terms of Service" description="Terms of Service for Constant Labs applications and services." />
+            <SEO title="Terms of Service" description="Terms of Service for Constant Labs applications and services." path="/terms" />
 
             {/* Header */}
             <div className="border-b border-foreground/20 bg-background/80 backdrop-blur-sm sticky top-0 z-50">
