@@ -2,49 +2,60 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
 All colors MUST be HSL.
 */
 
 @layer base {
   :root {
-    /* Watch Dogs inspired monochrome palette */
-    --background: 0 0% 7%;
-    --foreground: 0 0% 98%;
+    /* Dark base with electric accent palette */
+    --background: 230 15% 6%;
+    --foreground: 210 20% 96%;
 
-    --card: 0 0% 10%;
-    --card-foreground: 0 0% 98%;
+    --card: 230 15% 9%;
+    --card-foreground: 210 20% 96%;
 
-    --popover: 0 0% 8%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 230 15% 7%;
+    --popover-foreground: 210 20% 96%;
 
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 7%;
+    --primary: 170 50% 45%;
+    --primary-foreground: 230 15% 6%;
 
-    --secondary: 0 0% 15%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 230 12% 14%;
+    --secondary-foreground: 210 20% 96%;
 
-    --muted: 0 0% 20%;
-    --muted-foreground: 0 0% 60%;
+    --muted: 230 10% 18%;
+    --muted-foreground: 215 15% 55%;
 
-    --accent: 0 0% 25%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 260 40% 55%;
+    --accent-foreground: 210 20% 96%;
 
     --destructive: 0 85% 60%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive-foreground: 210 20% 96%;
 
-    --border: 0 0% 20%;
-    --input: 0 0% 15%;
-    --ring: 0 0% 98%;
+    --border: 230 12% 18%;
+    --input: 230 12% 14%;
+    --ring: 170 50% 45%;
 
     --radius: 0rem;
 
-    /* Glitch colors */
-    --glitch-primary: 0 0% 98%;
-    --glitch-secondary: 0 0% 50%;
+    /* Glitch colors — matte cyan + magenta */
+    --glitch-primary: 170 50% 45%;
+    --glitch-secondary: 320 45% 45%;
 
     /* Hover effects */
-    --hover-glow: 0 0% 100%;
+    --hover-glow: 170 50% 50%;
+
+    /* Accent palette — matte, desaturated tones */
+    --cl-cyan: 170 50% 45%;
+    --cl-magenta: 320 45% 45%;
+    --cl-purple: 260 40% 55%;
+    --cl-amber: 38 55% 50%;
+    --cl-green: 150 45% 42%;
   }
 }
 

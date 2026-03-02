@@ -87,6 +87,14 @@ export const translations: TranslationMap = {
   },
   "service.DIGITAL_PRESENCE.oneLiner": { en: "Brands that stand out online", ar: "علامات تجارية تبرز رقمياً" },
 
+  // Digital Marketing
+  "service.DIGITAL_MARKETING.title": { en: "Digital Marketing", ar: "تسويق رقمي" },
+  "service.DIGITAL_MARKETING.description": {
+    en: "SEO, paid ads, social media management, and content strategy that drive real traffic and measurable ROI.",
+    ar: "SEO، إعلانات مدفوعة، إدارة سوشال ميديا، واستراتيجية محتوى تجيب زيارات حقيقية ونتائج تنقاس."
+  },
+  "service.DIGITAL_MARKETING.oneLiner": { en: "Growth you can measure", ar: "نمو تقدر تقيسه" },
+
   // IoT & Embedded
   "service.IOT_EMBEDDED.title": { en: "IoT & Embedded Systems", ar: "IoT وأنظمة مدمجة" },
   "service.IOT_EMBEDDED.description": {
@@ -136,16 +144,20 @@ export const translations: TranslationMap = {
   "vault.software": { en: "// SOFTWARE", ar: "// سوفتوير" },
   "vault.hardware": { en: "// HARDWARE", ar: "// هاردوير" },
 
-  // ─── Client Deployments ──────────────────────────────────────
-  "clients.title": { en: "[CLIENT_DEPLOYMENTS]", ar: "[أعمال العملاء]" },
+  // ─── Client Work ─────────────────────────────────────────────
+  "clients.title": { en: "[CLIENT_WORK]", ar: "[أعمال العملاء]" },
   "clients.subtitle": {
-    en: "// Restaurant brands & hospitality experiences built for Dubai's finest",
-    ar: "// مطاعم وتجارب ضيافة لأرقى العلامات في دبي"
+    en: "// Brands and digital experiences we put up for our clients",
+    ar: "// علامات تجارية وتجارب رقمية نفّذناها لعملائنا"
   },
 
   // ─── Operators ───────────────────────────────────────────────
   "operators.title": { en: "[OPERATORS]", ar: "[الفريق]" },
   "operators.subtitle": { en: "// Core team members", ar: "// أعضاء الفريق" },
+  "operators.bilingual": {
+    en: "A bilingual Arabic-English team on a mission to bring the world's best tools to the Arabic market.",
+    ar: "فريق ثنائي اللغة عربي-إنجليزي، هدفنا نجيب أفضل الأدوات العالمية للسوق العربي."
+  },
   "operators.journeyLog": { en: "// JOURNEY_LOG //", ar: "// JOURNEY_LOG //" },
   "operators.footer": { en: "// NEURAL_INTERFACE_ACTIVE // BIOMETRICS_VERIFIED //", ar: "// NEURAL_INTERFACE_ACTIVE // BIOMETRICS_VERIFIED //" },
 

@@ -1,21 +1,32 @@
 import {
   ShoppingCart, Smartphone, Plug, Users, Globe, Database, Monitor, Bot, Cpu,
-  Shield, Brain
+  Shield, Brain, Megaphone
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 import mufakkirImg from "@/assets/projects/mufakkir.webp";
 import motargemImg from "@/assets/projects/motargem.webp";
-import speakWindowsImg from "@/assets/projects/speak-windows.webp";
+import speechToTextPcImg from "@/assets/projects/speech-to-text-pc.webp";
 import athkarImg from "@/assets/projects/athkar.webp";
 import mosqueSilenceImg from "@/assets/projects/mosque-silence.webp";
 import medievalQuestImg from "@/assets/projects/medieval-quest.webp";
 import fznDiningImg from "@/assets/projects/fzn-dining.webp";
-import toitImg from "@/assets/projects/toit.webp";
+
 import cutInHalfImg from "@/assets/projects/cut-in-half.webp";
 import sinaaiyaImg from "@/assets/projects/sinaaiya.webp";
 import guideonImg from "@/assets/projects/guideon.webp";
 import naviiImg from "@/assets/projects/navii.webp";
+import darwishCafeImg from "@/assets/projects/darwish-cafe.webp";
+import varietyCoffeeImg from "@/assets/projects/variety-coffee.webp";
+import delhiDarbarImg from "@/assets/projects/delhi-darbar.webp";
+import topwatchesImg from "@/assets/projects/topwatches.webp";
+import driveforlessImg from "@/assets/projects/driveforless.webp";
+import papertoproductImg from "@/assets/projects/papertoproduct.webp";
+import gccDentalImg from "@/assets/projects/gcc-dental.webp";
+import crescentWatchImg from "@/assets/projects/crescent-watch.webp";
+
+import beHealthyImg from "@/assets/projects/be-healthy.webp";
+import parfumcentralImg from "@/assets/projects/parfumcentral.webp";
 
 // ─── Service Types ───────────────────────────────────────────────
 
@@ -35,7 +46,7 @@ export const SERVICES: Service[] = [
     title: "E-Commerce",
     icon: ShoppingCart,
     description: "Full-stack online stores, payment integrations, and inventory systems that convert visitors into customers.",
-    tags: ["Shopify", "Custom Carts", "Payment APIs"],
+    tags: ["Shopify Integration", "Custom Carts", "Payment APIs"],
     oneLiner: "Online stores that convert",
   },
   {
@@ -99,8 +110,16 @@ export const SERVICES: Service[] = [
     title: "Digital Presence",
     icon: Globe,
     description: "Websites, landing pages, and digital identities that make your brand impossible to ignore.",
-    tags: ["Web Design", "SEO", "Branding"],
+    tags: ["Web Design", "Motion Graphics", "Branding"],
     oneLiner: "Brands that stand out online",
+  },
+  {
+    id: "DIGITAL_MARKETING",
+    title: "Digital Marketing",
+    icon: Megaphone,
+    description: "SEO, paid ads, social media management, and content strategy that drive real traffic and measurable ROI.",
+    tags: ["SEO", "Google Ads", "Social Media", "Content"],
+    oneLiner: "Growth you can measure",
   },
   {
     id: "IOT_EMBEDDED",
@@ -180,21 +199,21 @@ export const softwareProjects: Project[] = [
     ],
   },
   {
-    slug: "speak-to-windows",
-    title: "SPEAK-TO-WINDOWS",
+    slug: "voicetype",
+    title: "VOICETYPE",
     category: "software",
-    description: "Voice-controlled Windows automation tool. Speak commands to control your desktop and manage windows with natural language processing.",
-    longDescription: "Speak-to-Windows is a voice-controlled automation tool that lets you command your Windows desktop using natural language. Open apps, manage windows, control media, and execute system tasks — all hands-free. Built for power users and accessibility, it turns your voice into a productivity tool.",
-    tech: ["JavaScript", "Voice Recognition", "Windows API", "NLP"],
+    description: "Dictate anywhere on your PC with a keyboard shortcut. Real-time speech-to-text that types directly into any app — no copy-pasting needed.",
+    longDescription: "Speech to Text PC turns your voice into typed text anywhere on Windows. Hit a keyboard shortcut, speak, and your words appear wherever your cursor is — any app, any text field, no copy-paste. Built for speed and convenience, it uses real-time speech recognition to let you dictate emails, messages, code comments, and documents hands-free.",
+    tech: ["JavaScript", "Speech Recognition", "Windows API", "Hotkeys"],
     status: "repository",
     link: "https://github.com/Astrobubu/Speak-to-Windows",
-    image: speakWindowsImg,
+    image: speechToTextPcImg,
     features: [
-      "Natural language voice commands for Windows",
-      "App launching and window management",
-      "Media playback control",
-      "System task automation",
-      "Extensible command vocabulary",
+      "Global keyboard shortcut to start dictation",
+      "Types directly into any active application",
+      "Real-time speech-to-text recognition",
+      "Works with any text field on Windows",
+      "Lightweight and runs in the background",
     ],
   },
   {
@@ -288,6 +307,42 @@ export const softwareProjects: Project[] = [
     ],
     internalRoute: "/navii",
   },
+  {
+    slug: "paper-to-product",
+    title: "PAPER TO PRODUCT",
+    category: "software",
+    description: "Research intelligence platform. Search 225M+ papers and 12M+ patents, find expired patents, and convert research into product specs with AI.",
+    longDescription: "PaperToProduct is a research intelligence platform that lets users search 225M+ research papers and 12M+ patents, discover expired patents ready for commercialization, and use AI to convert academic documents into actionable product specifications. A powerful, clean interface for navigating deep tech research and turning ideas into real products.",
+    tech: ["React", "AI", "Search", "SaaS"],
+    status: "live",
+    link: "https://papertoproduct.vercel.app/",
+    image: papertoproductImg,
+    features: [
+      "225M+ research paper search engine",
+      "12M+ patent database with expired patent finder",
+      "AI-powered document-to-product conversion",
+      "Clean, powerful SaaS interface",
+      "Research commercialization workflows",
+    ],
+  },
+  {
+    slug: "crescent-watch",
+    title: "CRESCENT WATCH",
+    category: "software",
+    description: "Islamic lunar crescent visibility tool. Precision moon tracking and simulation for determining Ramadan, Eid, and Islamic calendar dates worldwide.",
+    longDescription: "Crescent Watch is a precision tool for Islamic lunar crescent visibility mapping and simulation. It helps users track when and where the new moon crescent will be visible — critical for determining the start of Ramadan, Eid, and other Islamic calendar dates. An interactive, data-rich interface that serves the global Muslim community with scientific accuracy.",
+    tech: ["React", "Astronomy Data", "Maps", "Simulation"],
+    status: "live",
+    link: "https://crescent-watch.vercel.app/",
+    image: crescentWatchImg,
+    features: [
+      "Lunar crescent visibility mapping",
+      "Worldwide moon simulation",
+      "Islamic calendar date determination",
+      "Interactive data-rich interface",
+      "Serves the global Muslim community",
+    ],
+  },
 ];
 
 // ─── Client Projects ────────────────────────────────────────────
@@ -312,24 +367,6 @@ export const clientProjects: Project[] = [
     ],
   },
   {
-    slug: "toit-hot-chicken",
-    title: "TOIT HOT CHICKEN",
-    category: "client",
-    description: "Dubai's most craveable fried chicken burgers. Full menu showcase with online ordering integration, location finder, and Instagram-worthy visuals. Nashville-style meets modern web.",
-    longDescription: "Toit Hot Chicken is Dubai's most craveable fried chicken burger brand. We built their digital presence from scratch — a bold, Instagram-worthy website with a full interactive menu, online ordering integration, and a location finder. Nashville hot chicken meets modern web design with vibrant visuals, smooth UX, and seamless Talabat ordering integration. The site captures the energy and flavor of the brand perfectly.",
-    tech: ["React", "Vercel", "Maps API", "E-commerce"],
-    status: "live",
-    link: "https://toit.vercel.app/",
-    image: toitImg,
-    features: [
-      "Full interactive menu showcase",
-      "Online ordering via Talabat integration",
-      "Location finder with Maps API",
-      "Instagram-worthy food photography layout",
-      "Mobile-first responsive design",
-    ],
-  },
-  {
     slug: "cut-in-half",
     title: "CUT IN HALF",
     category: "client",
@@ -345,6 +382,148 @@ export const clientProjects: Project[] = [
       "Multi-location map with Leaflet",
       "Talabat ordering integration per location",
       "Bold, brand-aligned visual design",
+    ],
+  },
+  {
+    slug: "darwish-cafe",
+    title: "DARWISH CAFE",
+    category: "client",
+    description: "Premium coffee shop website with elegant branding and a warm, inviting digital presence.",
+    longDescription: "Darwish Cafe is a premium coffee shop brand. We built a clean, elegant website that captures the warmth and quality of their coffee experience — from rich visuals to smooth navigation. Designed to reflect the cafe's identity and draw customers in before they even walk through the door.",
+    tech: ["React", "Vercel", "Responsive Design"],
+    status: "live",
+    link: "https://darwish-cafe-static.vercel.app/",
+    image: darwishCafeImg,
+    features: [
+      "Warm, inviting brand-aligned design",
+      "Menu showcase with rich visuals",
+      "Fully responsive across all devices",
+      "Fast static deployment",
+    ],
+  },
+  {
+    slug: "variety-coffee",
+    title: "VARIETY COFFEE",
+    category: "client",
+    description: "Specialty coffee brand website with modern aesthetics and a focus on the craft behind every cup.",
+    longDescription: "Variety Coffee is a specialty coffee brand that celebrates the craft behind every cup. We designed and built a modern, visually rich website that showcases their coffee offerings, brand story, and locations. Clean layout, bold imagery, and smooth interactions — a digital experience as refined as their brew.",
+    tech: ["React", "Vercel", "Modern UI"],
+    status: "live",
+    link: "https://variety-coffee-sage.vercel.app/",
+    image: varietyCoffeeImg,
+    features: [
+      "Modern specialty coffee brand design",
+      "Product and menu showcase",
+      "Brand storytelling through visuals",
+      "Mobile-first responsive layout",
+    ],
+  },
+  {
+    slug: "delhi-darbar",
+    title: "DELHI DARBAR",
+    category: "client",
+    description: "Legendary Mughlai restaurant chain (est. 1946) with 8 outlets across Dubai and Mumbai. Full menu, catering, and multi-location support.",
+    longDescription: "Delhi Darbar is a legendary Mughlai restaurant chain established in 1946, serving authentic butter chicken, biryani, and tandoori across 8 outlets in Dubai and Mumbai. We built a digital presence that honors their rich heritage — full interactive menu, catering services, and multi-location support with a design that feels as warm and authentic as their food.",
+    tech: ["React", "Vercel", "Multi-location", "Restaurant Tech"],
+    status: "live",
+    link: "https://delhi-darbar-website.vercel.app/",
+    image: delhiDarbarImg,
+    features: [
+      "Heritage-inspired restaurant design",
+      "Full interactive menu with categories",
+      "Multi-location outlet finder",
+      "Catering services showcase",
+      "Responsive across all devices",
+    ],
+  },
+  {
+    slug: "topwatches",
+    title: "TOPWATCHES",
+    category: "client",
+    description: "Curated marketplace for pre-owned luxury timepieces — Rolex, Patek Philippe, AP. Authenticated, insured, shipped worldwide.",
+    longDescription: "TopWatches is a curated marketplace for pre-owned luxury timepieces. From Rolex to Patek Philippe and Audemars Piguet, every piece is authenticated by certified watchmakers with insured shipping to 120+ countries and a 14-day return guarantee. We built a premium e-commerce experience that matches the caliber of the watches themselves.",
+    tech: ["React", "E-commerce", "Vercel", "Luxury UI"],
+    status: "live",
+    link: "https://topwatches.vercel.app/",
+    image: topwatchesImg,
+    features: [
+      "Luxury-grade product showcase",
+      "Authentication and trust badges",
+      "Global shipping integration",
+      "Premium e-commerce experience",
+      "Mobile-responsive catalog",
+    ],
+  },
+  {
+    slug: "drive-for-less",
+    title: "DRIVE FOR LESS DUBAI",
+    category: "client",
+    description: "Luxury car rental in Dubai — Mercedes Brabus, Lamborghini, Bentley at below-market rates. Free delivery, full insurance.",
+    longDescription: "Drive For Less Dubai offers premium luxury car rentals — Mercedes Brabus, Lamborghini Urus, Bentley, and more — at below-market rates with free delivery and comprehensive insurance. We designed a sleek, high-impact website that showcases their fleet with bold visuals, easy booking flow, and the luxury feel their clients expect.",
+    tech: ["React", "Vercel", "Booking UI", "Responsive"],
+    status: "live",
+    link: "https://driveforlessdubai.vercel.app/",
+    image: driveforlessImg,
+    features: [
+      "Premium fleet showcase with bold visuals",
+      "Easy booking and inquiry flow",
+      "Vehicle specs and pricing display",
+      "Free delivery and insurance highlights",
+      "Mobile-optimized luxury experience",
+    ],
+  },
+  {
+    slug: "parfum-central",
+    title: "PARFUM CENTRAL",
+    category: "client",
+    description: "Fully customized Shopify perfume store. Premium fragrance e-commerce with curated collections and seamless checkout.",
+    longDescription: "Parfum Central is a premium online perfume store built on a fully customized Shopify theme. We designed and developed a luxury e-commerce experience with curated fragrance collections, detailed product pages, and a seamless checkout flow. Every element was tailored to match the brand's premium positioning in the fragrance market.",
+    tech: ["Shopify", "Custom Theme", "E-commerce", "Liquid"],
+    status: "live",
+    link: "https://parfumcentral.com/",
+    image: parfumcentralImg,
+    features: [
+      "Fully customized Shopify theme",
+      "Premium fragrance product showcase",
+      "Curated collections and filtering",
+      "Seamless checkout experience",
+      "Mobile-optimized luxury design",
+    ],
+  },
+  {
+    slug: "gcc-dental",
+    title: "GCC DENTAL CLINIC",
+    category: "client",
+    description: "Professional dental clinic website for the UAE. Services, team profiles, and appointment booking with a clean healthcare aesthetic.",
+    longDescription: "GCC Dental Clinic is a professional dental care practice operating in the UAE. We designed and built a clean, trust-inspiring website that showcases their services, introduces the team, and makes booking appointments effortless. The design reflects the precision and care of modern dentistry.",
+    tech: ["React", "Vercel", "Healthcare UI", "Responsive"],
+    status: "live",
+    link: "https://gcc-dental-clinic.vercel.app/",
+    image: gccDentalImg,
+    features: [
+      "Clean, professional healthcare design",
+      "Service and treatment showcase",
+      "Team profile section",
+      "Appointment booking integration",
+      "Mobile-friendly patient experience",
+    ],
+  },
+  {
+    slug: "be-healthy",
+    title: "BE HEALTHY FOOD",
+    category: "client",
+    description: "Arabic health food brand website. Clean, fresh design for a healthy lifestyle brand in the UAE.",
+    longDescription: "Be Healthy Food (بي هيلثي فود) is a health-focused food brand serving the UAE market. We designed a clean, fresh Arabic website that captures the brand's commitment to healthy living — from product showcases to nutritional information. The design is as clean and refreshing as the food itself.",
+    tech: ["React", "Vercel", "Arabic", "Responsive"],
+    status: "live",
+    link: "https://be-healthy-website.vercel.app/",
+    image: beHealthyImg,
+    features: [
+      "Clean, health-inspired brand design",
+      "Full Arabic language support",
+      "Product and nutrition showcase",
+      "Fresh, modern visual identity",
+      "Mobile-responsive layout",
     ],
   },
 ];

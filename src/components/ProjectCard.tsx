@@ -23,7 +23,7 @@ export const ProjectCard = ({ title, description, tech, status, image, imagePosi
       onClick={() => onCardClick?.()}
       onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") onCardClick?.(); }}
       className={cn(
-        "group relative flex flex-col bg-background p-6 border-2 border-foreground/20 overflow-hidden cursor-pointer",
+        "group relative flex flex-col bg-background/60 backdrop-blur-sm p-3 md:p-6 border-2 border-foreground/20 overflow-hidden cursor-pointer",
         isTouched && "border-foreground/40"
       )}
       whileHover={{
@@ -37,22 +37,14 @@ export const ProjectCard = ({ title, description, tech, status, image, imagePosi
       transition={{ duration: 0.3 }}
     >
       {/* Corner decorations */}
-      <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-foreground/20 group-hover:border-foreground/60 transition-colors z-20" />
-      <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-foreground/20 group-hover:border-foreground/60 transition-colors z-20" />
-      <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-foreground/20 group-hover:border-foreground/60 transition-colors z-20" />
-      <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-foreground/20 group-hover:border-foreground/60 transition-colors z-20" />
+      <div className="absolute top-0 left-0 w-4 h-4 md:w-8 md:h-8 border-t-2 border-l-2 border-foreground/20 group-hover:border-foreground/60 transition-colors z-20" />
+      <div className="absolute top-0 right-0 w-4 h-4 md:w-8 md:h-8 border-t-2 border-r-2 border-foreground/20 group-hover:border-foreground/60 transition-colors z-20" />
+      <div className="absolute bottom-0 left-0 w-4 h-4 md:w-8 md:h-8 border-b-2 border-l-2 border-foreground/20 group-hover:border-foreground/60 transition-colors z-20" />
+      <div className="absolute bottom-0 right-0 w-4 h-4 md:w-8 md:h-8 border-b-2 border-r-2 border-foreground/20 group-hover:border-foreground/60 transition-colors z-20" />
 
-      {/* Halftone background */}
-      <div
-        className="absolute inset-0 opacity-[0.03] group-hover:opacity-[0.06] transition-opacity pointer-events-none"
-        style={{
-          backgroundImage: 'radial-gradient(circle, currentColor 1px, transparent 1px)',
-          backgroundSize: '8px 8px'
-        }}
-      />
 
       {image && (
-        <div className="relative h-48 w-full overflow-hidden mb-6 border border-foreground/10 group-hover:border-foreground/20 transition-colors z-10">
+        <div className="relative h-28 md:h-48 w-full overflow-hidden mb-3 md:mb-6 border border-foreground/10 group-hover:border-foreground/20 transition-colors z-10">
           <img
             src={image}
             alt={title}
@@ -65,7 +57,7 @@ export const ProjectCard = ({ title, description, tech, status, image, imagePosi
       )}
 
       <div className="flex flex-col flex-1 relative z-10">
-        <div className="flex justify-between items-start mb-4">
+        <div className="flex justify-between items-start mb-2 md:mb-4">
           <div className="text-[10px] font-tech text-foreground/40 tracking-widest">
             [00{index + 1}]
           </div>
@@ -80,23 +72,23 @@ export const ProjectCard = ({ title, description, tech, status, image, imagePosi
           </span>
         </div>
 
-        <div className="mb-4">
-          <h3 className="text-xl font-bold uppercase group-hover:text-white transition-colors font-tech tracking-wide">
+        <div className="mb-2 md:mb-4">
+          <h3 className="text-sm md:text-xl font-bold uppercase group-hover:text-white transition-colors font-tech tracking-wide">
             {title}
           </h3>
           <motion.div
-            className="h-px bg-foreground/40 my-3"
+            className="h-px bg-foreground/40 my-2 md:my-3"
             initial={{ width: 48 }}
             whileHover={{ width: 96 }}
             transition={{ duration: 0.5 }}
           />
         </div>
 
-        <p className="mb-6 text-sm text-muted-foreground leading-relaxed font-mono">
+        <p className="mb-3 md:mb-6 text-xs md:text-sm text-muted-foreground leading-relaxed font-mono line-clamp-3 md:line-clamp-none">
           {description}
         </p>
 
-        <div className="flex flex-wrap gap-2 mt-auto">
+        <div className="hidden md:flex flex-wrap gap-2 mt-auto">
           {tech.map((tag) => (
             <span
               key={tag}

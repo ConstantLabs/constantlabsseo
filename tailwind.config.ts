@@ -57,6 +57,13 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        cl: {
+          cyan: "hsl(var(--cl-cyan))",
+          magenta: "hsl(var(--cl-magenta))",
+          purple: "hsl(var(--cl-purple))",
+          amber: "hsl(var(--cl-amber))",
+          green: "hsl(var(--cl-green))",
+        },
         navii: {
           bg: "#050505",
           "bg-secondary": "#0A0A0A",
