@@ -2,218 +2,218 @@ export type TranslationMap = Record<string, { en: string; ar: string }>;
 
 export const translations: TranslationMap = {
   // ─── Status Bar ──────────────────────────────────────────────
-  "status.online": { en: "SYSTEM ONLINE", ar: "النظام متصل" },
+  "status.online": { en: "SYSTEM ONLINE", ar: "SYSTEM ONLINE" },
   "status.brand": { en: "CONSTANT_LABS", ar: "CONSTANT_LABS" },
-  "status.connection": { en: "// SECURE CONNECTION ESTABLISHED", ar: "// تم إنشاء اتصال آمن" },
+  "status.connection": { en: "// SECURE CONNECTION ESTABLISHED", ar: "// SECURE CONNECTION ESTABLISHED" },
 
   // ─── Hero ────────────────────────────────────────────────────
-  "hero.tagline": { en: "BUILD. INTEGRATE. SCALE.", ar: "ابنِ. ادمِج. وسِّع." },
-  "hero.viewServices": { en: "[VIEW_SERVICES]", ar: "[عرض_الخدمات]" },
-  "hero.contact": { en: "[INITIATE_CONTACT]", ar: "[تواصل_معنا]" },
+  "hero.tagline": { en: "BUILD. INTEGRATE. SCALE.", ar: "نبني. ندمج. نوسّع." },
+  "hero.viewServices": { en: "[VIEW_SERVICES]", ar: "[الخدمات]" },
+  "hero.contact": { en: "[INITIATE_CONTACT]", ar: "[تواصل معنا]" },
 
   // ─── Services ────────────────────────────────────────────────
   "services.title": { en: "[OUR_SERVICES]", ar: "[خدماتنا]" },
-  "services.subtitle": { en: "// What we build for our clients", ar: "// ما نبنيه لعملائنا" },
+  "services.subtitle": { en: "// What we build for our clients", ar: "// ما نقدّمه لعملائنا" },
 
   // E-Commerce
   "service.E_COMMERCE.title": { en: "E-Commerce", ar: "التجارة الإلكترونية" },
   "service.E_COMMERCE.description": {
     en: "Full-stack online stores, payment integrations, and inventory systems that convert visitors into customers.",
-    ar: "متاجر إلكترونية متكاملة، تكامل أنظمة الدفع، وإدارة المخزون لتحويل الزوار إلى عملاء."
+    ar: "متاجر إلكترونية متكاملة مع بوابات الدفع وأنظمة إدارة المخزون."
   },
-  "service.E_COMMERCE.oneLiner": { en: "Online stores that convert", ar: "متاجر إلكترونية تحقق النتائج" },
+  "service.E_COMMERCE.oneLiner": { en: "Online stores that convert", ar: "متاجر تحوّل الزائر إلى عميل" },
 
   // Mobile & Web Apps
-  "service.MOBILE_WEB_APPS.title": { en: "Mobile & Web Apps", ar: "تطبيقات الجوال والويب" },
+  "service.MOBILE_WEB_APPS.title": { en: "Mobile & Web Apps", ar: "تطبيقات الموبايل والويب" },
   "service.MOBILE_WEB_APPS.description": {
     en: "Native and cross-platform apps for iOS, Android, and the web — built from scratch around your users' needs.",
-    ar: "تطبيقات أصلية ومتعددة المنصات لـ iOS وAndroid والويب — مصممة من الصفر حول احتياجات مستخدميك."
+    ar: "تطبيقات iOS وAndroid وويب مبنية من الصفر حسب متطلبات مشروعك."
   },
-  "service.MOBILE_WEB_APPS.oneLiner": { en: "Apps your users actually want", ar: "تطبيقات يريدها مستخدموك فعلاً" },
+  "service.MOBILE_WEB_APPS.oneLiner": { en: "Apps your users actually want", ar: "تطبيقات مصممة لمستخدميك" },
 
   // Dashboards & Internal Tools
-  "service.DASHBOARDS_INTERNAL_TOOLS.title": { en: "Dashboards & Internal Tools", ar: "لوحات التحكم والأدوات الداخلية" },
+  "service.DASHBOARDS_INTERNAL_TOOLS.title": { en: "Dashboards & Internal Tools", ar: "لوحات تحكم وأدوات داخلية" },
   "service.DASHBOARDS_INTERNAL_TOOLS.description": {
     en: "Admin panels, analytics dashboards, and business tools that give your team real-time visibility and control.",
-    ar: "لوحات إدارة، تحليلات بيانات، وأدوات أعمال تمنح فريقك الرؤية والتحكم في الوقت الفعلي."
+    ar: "لوحات إدارة وتحليل بيانات تعطي فريقك رؤية كاملة وتحكم لحظي."
   },
-  "service.DASHBOARDS_INTERNAL_TOOLS.oneLiner": { en: "Your data, at a glance", ar: "بياناتك، بنظرة واحدة" },
+  "service.DASHBOARDS_INTERNAL_TOOLS.oneLiner": { en: "Your data, at a glance", ar: "بياناتك، بلمحة" },
 
   // AI Agents & Automation
-  "service.AI_AGENTS.title": { en: "AI Agents & Automation", ar: "وكلاء الذكاء الاصطناعي والأتمتة" },
+  "service.AI_AGENTS.title": { en: "AI Agents & Automation", ar: "أتمتة بالذكاء الاصطناعي" },
   "service.AI_AGENTS.description": {
     en: "Deploy AI agents that read emails, answer customers, generate reports, and make decisions autonomously — so your team focuses on what humans do best.",
-    ar: "انشر وكلاء ذكاء اصطناعي يقرأون البريد، يردون على العملاء، ويولدون التقارير تلقائياً — ليتفرغ فريقك لما يتقنه البشر."
+    ar: "أنظمة AI تقرأ الإيميلات، ترد على العملاء، وتنشئ التقارير تلقائياً — فريقك يركّز على الأهم."
   },
-  "service.AI_AGENTS.oneLiner": { en: "AI that works while you sleep", ar: "ذكاء اصطناعي يعمل وأنت نائم" },
+  "service.AI_AGENTS.oneLiner": { en: "AI that works while you sleep", ar: "AI يشتغل وانت نايم" },
 
   // Custom AI Agents
-  "service.CUSTOM_AI_AGENTS.title": { en: "Custom AI Agents", ar: "وكلاء ذكاء اصطناعي مخصصون" },
+  "service.CUSTOM_AI_AGENTS.title": { en: "Custom AI Agents", ar: "أنظمة AI مخصصة" },
   "service.CUSTOM_AI_AGENTS.description": {
     en: "Purpose-built AI agents tailored to your workflows. From customer support bots to autonomous data processors, we build agents that understand your business.",
-    ar: "وكلاء ذكاء اصطناعي مصممون خصيصاً لسير عملك. من روبوتات خدمة العملاء إلى معالجات البيانات المستقلة، نبني وكلاء يفهمون عملك."
+    ar: "بوتات وأنظمة ذكاء اصطناعي مصممة خصيصاً لعملك — من خدمة العملاء إلى معالجة البيانات."
   },
-  "service.CUSTOM_AI_AGENTS.oneLiner": { en: "Your business, automated", ar: "عملك، مؤتمت" },
+  "service.CUSTOM_AI_AGENTS.oneLiner": { en: "Your business, automated", ar: "أتمتة مخصصة لعملك" },
 
   // Privacy-First Local AI
-  "service.PRIVATE_AI.title": { en: "Privacy-First Local AI", ar: "ذكاء اصطناعي محلي وخاص" },
+  "service.PRIVATE_AI.title": { en: "Privacy-First Local AI", ar: "AI محلي وآمن" },
   "service.PRIVATE_AI.description": {
     en: "Deploy AI models on-premise. Your data never leaves your servers. Custom LLMs, RAG pipelines, and inference engines running locally for compliance-sensitive businesses.",
-    ar: "انشر نماذج الذكاء الاصطناعي داخل مقر شركتك. بياناتك لا تغادر خوادمك أبداً. نماذج لغوية مخصصة وأنظمة RAG تعمل محلياً للشركات الحساسة للامتثال."
+    ar: "نماذج AI تعمل على سيرفراتك. بياناتك ما تطلع بره. حلول LLM محلية للشركات اللي تحتاج خصوصية عالية."
   },
-  "service.PRIVATE_AI.oneLiner": { en: "AI that stays in-house", ar: "ذكاء اصطناعي يبقى داخلياً" },
+  "service.PRIVATE_AI.oneLiner": { en: "AI that stays in-house", ar: "AI يبقى عندك" },
 
   // System Integration
-  "service.SYSTEM_INTEGRATION.title": { en: "System Integration", ar: "تكامل الأنظمة" },
+  "service.SYSTEM_INTEGRATION.title": { en: "System Integration", ar: "ربط الأنظمة" },
   "service.SYSTEM_INTEGRATION.description": {
     en: "Connect your existing tools and eliminate data silos. We wire your CRM, payments, and third-party services into one unified pipeline.",
-    ar: "اربط أدواتك الحالية وتخلص من صوامع البيانات. نوصل نظام CRM والمدفوعات والخدمات الخارجية في مسار موحد."
+    ar: "نربط أنظمتك الحالية مع بعض — CRM، بوابات الدفع، وخدمات الطرف الثالث في مسار واحد."
   },
-  "service.SYSTEM_INTEGRATION.oneLiner": { en: "Wire your systems together", ar: "اربط أنظمتك معاً" },
+  "service.SYSTEM_INTEGRATION.oneLiner": { en: "Wire your systems together", ar: "نربط أنظمتك ببعض" },
 
   // B2B/B2C Platforms
   "service.B2B_B2C_PLATFORMS.title": { en: "B2B/B2C Platforms", ar: "منصات B2B/B2C" },
   "service.B2B_B2C_PLATFORMS.description": {
     en: "Multi-sided platforms that serve your business partners and end customers with tailored experiences under one roof.",
-    ar: "منصات متعددة الأطراف تخدم شركاءك وعملاءك النهائيين بتجارب مخصصة تحت سقف واحد."
+    ar: "منصات تخدم شركاءك وعملاءك بتجربة مخصصة لكل طرف تحت سقف واحد."
   },
-  "service.B2B_B2C_PLATFORMS.oneLiner": { en: "Platforms for every audience", ar: "منصات لكل جمهور" },
+  "service.B2B_B2C_PLATFORMS.oneLiner": { en: "Platforms for every audience", ar: "منصة لكل جمهور" },
 
   // Digital Presence
-  "service.DIGITAL_PRESENCE.title": { en: "Digital Presence", ar: "الحضور الرقمي" },
+  "service.DIGITAL_PRESENCE.title": { en: "Digital Presence", ar: "الهوية الرقمية" },
   "service.DIGITAL_PRESENCE.description": {
     en: "Websites, landing pages, and digital identities that make your brand impossible to ignore.",
-    ar: "مواقع ويب، صفحات هبوط، وهويات رقمية تجعل علامتك التجارية مستحيلة التجاهل."
+    ar: "مواقع ويب وصفحات هبوط وهوية رقمية تخلي علامتك التجارية ما تنتسى."
   },
-  "service.DIGITAL_PRESENCE.oneLiner": { en: "Brands that stand out online", ar: "علامات تجارية تتألق رقمياً" },
+  "service.DIGITAL_PRESENCE.oneLiner": { en: "Brands that stand out online", ar: "علامات تجارية تبرز رقمياً" },
 
   // IoT & Embedded
-  "service.IOT_EMBEDDED.title": { en: "IoT & Embedded Systems", ar: "إنترنت الأشياء والأنظمة المدمجة" },
+  "service.IOT_EMBEDDED.title": { en: "IoT & Embedded Systems", ar: "IoT وأنظمة مدمجة" },
   "service.IOT_EMBEDDED.description": {
     en: "Connected devices, sensor networks, and embedded firmware — from prototype to deployment in the field.",
-    ar: "أجهزة متصلة، شبكات استشعار، وبرمجيات مدمجة — من النموذج الأولي إلى النشر الميداني."
+    ar: "أجهزة متصلة وشبكات حساسات وبرمجيات مدمجة — من النموذج الأولي للتشغيل الميداني."
   },
-  "service.IOT_EMBEDDED.oneLiner": { en: "Smart devices, real world", ar: "أجهزة ذكية، عالم حقيقي" },
+  "service.IOT_EMBEDDED.oneLiner": { en: "Smart devices, real world", ar: "أجهزة ذكية، تطبيق حقيقي" },
 
   // ERP Integrations
-  "service.ERP_INTEGRATIONS.title": { en: "ERP Integrations", ar: "تكامل أنظمة ERP" },
+  "service.ERP_INTEGRATIONS.title": { en: "ERP Integrations", ar: "ربط أنظمة ERP" },
   "service.ERP_INTEGRATIONS.description": {
     en: "Seamless connections to SAP, Oracle, Odoo and other enterprise systems. Your data, unified.",
-    ar: "ربط سلس بأنظمة SAP وOracle وOdoo وأنظمة المؤسسات الأخرى. بياناتك، موحدة."
+    ar: "ربط سلس مع SAP وOracle وOdoo وغيرها. بياناتك في مكان واحد."
   },
-  "service.ERP_INTEGRATIONS.oneLiner": { en: "Enterprise systems, unified", ar: "أنظمة المؤسسات، موحدة" },
+  "service.ERP_INTEGRATIONS.oneLiner": { en: "Enterprise systems, unified", ar: "أنظمتك، موحدة" },
 
   // ─── Mission ─────────────────────────────────────────────────
-  "mission.label": { en: "[WHO_WE_ARE]", ar: "[من_نحن]" },
-  "mission.title": { en: "THE MISSION", ar: "المهمة" },
+  "mission.label": { en: "[WHO_WE_ARE]", ar: "[من نحن]" },
+  "mission.title": { en: "THE MISSION", ar: "رسالتنا" },
   "mission.line1": {
     en: "We don't just write code — we solve problems.",
-    ar: "نحن لا نكتب أكواداً فحسب — نحن نحل مشكلات."
+    ar: "ما نكتب كود وبس — نحل مشاكل."
   },
   "mission.line2": {
     en: "Based in Dubai, building for the world. Our goal is to create a new wave of technology—the kind most would call sci-fi. We're here to make it real. To make it achievable. To make it something you can touch, use, and rely on.",
-    ar: "من دبي، نبني للعالم. هدفنا هو إنشاء موجة جديدة من التكنولوجيا — من النوع الذي يسميه معظمهم خيالاً علمياً. نحن هنا لنجعله حقيقياً. قابلاً للتحقيق. شيئاً يمكنك لمسه واستخدامه والاعتماد عليه."
+    ar: "من دبي، نبني للعالم. هدفنا نصنع موجة تقنية جديدة — اللي يسمونها خيال علمي. نحن هنا نحوّلها واقع. شي تقدر تلمسه وتستخدمه وتعتمد عليه."
   },
   "mission.line3": {
     en: "Hardware and software. No limits. No stopping until it's done.",
-    ar: "أجهزة وبرمجيات. بلا حدود. لا توقف حتى يتم الإنجاز."
+    ar: "هاردوير وسوفتوير. بلا حدود. ما نوقف إلا لما يخلص."
   },
-  "mission.approach": { en: "// OUR APPROACH", ar: "// نهجنا" },
-  "mission.diagnose": { en: "Diagnose", ar: "تشخيص" },
-  "mission.diagnose.desc": { en: "We start with your challenge, not our tech stack", ar: "نبدأ بتحديك، لا بأدواتنا التقنية" },
-  "mission.engineer": { en: "Engineer", ar: "هندسة" },
-  "mission.engineer.desc": { en: "We build what works, not what's trending", ar: "نبني ما يعمل، لا ما هو رائج" },
+  "mission.approach": { en: "// OUR APPROACH", ar: "// طريقتنا" },
+  "mission.diagnose": { en: "Diagnose", ar: "تحليل" },
+  "mission.diagnose.desc": { en: "We start with your challenge, not our tech stack", ar: "نبدأ من مشكلتك، مو من أدواتنا" },
+  "mission.engineer": { en: "Engineer", ar: "بناء" },
+  "mission.engineer.desc": { en: "We build what works, not what's trending", ar: "نبني اللي يشتغل، مو اللي ترند" },
   "mission.deliver": { en: "Deliver", ar: "تسليم" },
-  "mission.deliver.desc": { en: "We stay until it runs and your team owns it", ar: "نبقى حتى يعمل النظام ويتملكه فريقك" },
-  "mission.hardware": { en: "Hardware", ar: "أجهزة" },
-  "mission.software": { en: "Software", ar: "برمجيات" },
+  "mission.deliver.desc": { en: "We stay until it runs and your team owns it", ar: "نبقى لين يشتغل النظام وفريقك يتملكه" },
+  "mission.hardware": { en: "Hardware", ar: "هاردوير" },
+  "mission.software": { en: "Software", ar: "سوفتوير" },
   "mission.noLimits": { en: "No Limits", ar: "بلا حدود" },
-  "mission.tagline": { en: "// SCI-FI TODAY // REALITY TOMORROW //", ar: "// خيال علمي اليوم // واقع الغد //" },
+  "mission.tagline": { en: "// SCI-FI TODAY // REALITY TOMORROW //", ar: "// خيال علمي اليوم // واقع بكرة //" },
 
   // ─── Vault ───────────────────────────────────────────────────
-  "vault.title": { en: "[THE_VAULT]", ar: "[الخزنة]" },
-  "vault.subtitle": { en: "// Active projects and experiments", ar: "// مشاريع وتجارب نشطة" },
-  "vault.software": { en: "// SOFTWARE", ar: "// البرمجيات" },
-  "vault.hardware": { en: "// HARDWARE", ar: "// الأجهزة" },
+  "vault.title": { en: "[THE_VAULT]", ar: "[المشاريع]" },
+  "vault.subtitle": { en: "// Active projects and experiments", ar: "// مشاريع وتجارب حالية" },
+  "vault.software": { en: "// SOFTWARE", ar: "// سوفتوير" },
+  "vault.hardware": { en: "// HARDWARE", ar: "// هاردوير" },
 
   // ─── Client Deployments ──────────────────────────────────────
-  "clients.title": { en: "[CLIENT_DEPLOYMENTS]", ar: "[مشاريع_العملاء]" },
+  "clients.title": { en: "[CLIENT_DEPLOYMENTS]", ar: "[أعمال العملاء]" },
   "clients.subtitle": {
     en: "// Restaurant brands & hospitality experiences built for Dubai's finest",
-    ar: "// علامات مطاعم وتجارب ضيافة صُممت لأرقى مطاعم دبي"
+    ar: "// مطاعم وتجارب ضيافة لأرقى العلامات في دبي"
   },
 
   // ─── Operators ───────────────────────────────────────────────
   "operators.title": { en: "[OPERATORS]", ar: "[الفريق]" },
-  "operators.subtitle": { en: "// Core team members", ar: "// أعضاء الفريق الأساسي" },
-  "operators.journeyLog": { en: "// JOURNEY_LOG //", ar: "// سجل_الرحلة //" },
-  "operators.footer": { en: "// NEURAL_INTERFACE_ACTIVE // BIOMETRICS_VERIFIED //", ar: "// الواجهة_العصبية_نشطة // التحقق_البيومتري //" },
+  "operators.subtitle": { en: "// Core team members", ar: "// أعضاء الفريق" },
+  "operators.journeyLog": { en: "// JOURNEY_LOG //", ar: "// JOURNEY_LOG //" },
+  "operators.footer": { en: "// NEURAL_INTERFACE_ACTIVE // BIOMETRICS_VERIFIED //", ar: "// NEURAL_INTERFACE_ACTIVE // BIOMETRICS_VERIFIED //" },
 
   // ─── Contact ─────────────────────────────────────────────────
-  "contact.title": { en: "[INITIATE_CONTACT]", ar: "[تواصل_معنا]" },
-  "contact.subtitle": { en: "// Secure communications channel active", ar: "// قناة الاتصال الآمنة مفعلة" },
+  "contact.title": { en: "[INITIATE_CONTACT]", ar: "[تواصل معنا]" },
+  "contact.subtitle": { en: "// Secure communications channel active", ar: "// قناة اتصال آمنة" },
   "contact.cta": {
     en: "Got a project in the UAE? Need a Dubai-based tech team? Let's talk.",
-    ar: "لديك مشروع في الإمارات؟ تحتاج فريقاً تقنياً في دبي؟ لنتحدث."
+    ar: "عندك مشروع في الإمارات؟ تحتاج فريق تقني في دبي؟ كلّمنا."
   },
-  "contact.email": { en: "[EMAIL]", ar: "[البريد]" },
+  "contact.email": { en: "[EMAIL]", ar: "[إيميل]" },
   "contact.whatsapp": { en: "[WHATSAPP]", ar: "[واتساب]" },
-  "contact.encrypted": { en: "[ENCRYPTED_CHANNEL]", ar: "[قناة_مشفرة]" },
-  "contact.secureLine": { en: "[SECURE_LINE_OPEN]", ar: "[خط_آمن_مفتوح]" },
+  "contact.encrypted": { en: "[ENCRYPTED_CHANNEL]", ar: "[ENCRYPTED_CHANNEL]" },
+  "contact.secureLine": { en: "[SECURE_LINE_OPEN]", ar: "[SECURE_LINE_OPEN]" },
   "contact.location": { en: "Dubai, United Arab Emirates", ar: "دبي، الإمارات العربية المتحدة" },
 
   // ─── Footer ──────────────────────────────────────────────────
   "footer.copyright": { en: "CONSTANT LABS © 2025 — DUBAI, UAE", ar: "CONSTANT LABS © 2025 — دبي، الإمارات" },
-  "footer.tagline": { en: "// BUILT WITH PURPOSE // DESIGNED FOR IMPACT //", ar: "// بُني بهدف // صُمم للتأثير //" },
+  "footer.tagline": { en: "// BUILT WITH PURPOSE // DESIGNED FOR IMPACT //", ar: "// بُني بهدف // صُمم للأثر //" },
   "footer.privacy": { en: "Privacy Policy", ar: "سياسة الخصوصية" },
-  "footer.terms": { en: "Terms of Service", ar: "شروط الخدمة" },
+  "footer.terms": { en: "Terms of Service", ar: "الشروط والأحكام" },
 
   // ─── Project Detail ──────────────────────────────────────────
-  "project.viewFullPage": { en: "VIEW FULL PAGE", ar: "عرض الصفحة الكاملة" },
+  "project.viewFullPage": { en: "VIEW FULL PAGE", ar: "عرض الصفحة" },
   "project.visitSite": { en: "VISIT SITE", ar: "زيارة الموقع" },
-  "project.viewRepo": { en: "VIEW REPOSITORY", ar: "عرض المستودع" },
-  "project.techStack": { en: "// TECH STACK", ar: "// التقنيات المستخدمة" },
+  "project.viewRepo": { en: "VIEW REPOSITORY", ar: "عرض الكود" },
+  "project.techStack": { en: "// TECH STACK", ar: "// التقنيات" },
   "project.features": { en: "// FEATURES", ar: "// المميزات" },
   "project.back": { en: "BACK", ar: "رجوع" },
   "project.viewWork": { en: "// VIEW OUR WORK →", ar: "// شاهد أعمالنا ←" },
 
   // ─── Service Pages ───────────────────────────────────────────
-  "privateAI.hero.title": { en: "Privacy-First Local AI", ar: "ذكاء اصطناعي محلي وخاص" },
+  "privateAI.hero.title": { en: "Privacy-First Local AI", ar: "AI محلي وآمن" },
   "privateAI.hero.subtitle": {
     en: "Your data never leaves your servers. AI that runs entirely on-premise.",
-    ar: "بياناتك لا تغادر خوادمك أبداً. ذكاء اصطناعي يعمل بالكامل داخل مقرك."
+    ar: "بياناتك ما تطلع من سيرفراتك. AI يشتغل بالكامل عندك."
   },
-  "privateAI.why.title": { en: "WHY LOCAL AI?", ar: "لماذا الذكاء الاصطناعي المحلي؟" },
+  "privateAI.why.title": { en: "WHY LOCAL AI?", ar: "ليش AI محلي؟" },
   "privateAI.why.sovereignty": { en: "Data Sovereignty", ar: "سيادة البيانات" },
   "privateAI.why.sovereignty.desc": {
     en: "Full control over your data. Compliant with UAE data protection regulations, GDPR, and industry-specific mandates.",
-    ar: "تحكم كامل ببياناتك. متوافق مع قوانين حماية البيانات في الإمارات وGDPR واللوائح الخاصة بالقطاع."
+    ar: "تحكم كامل ببياناتك. متوافق مع قوانين حماية البيانات في الإمارات وGDPR."
   },
   "privateAI.why.speed": { en: "Zero Latency", ar: "بدون تأخير" },
   "privateAI.why.speed.desc": {
     en: "No round-trips to cloud APIs. Inference runs on your hardware at maximum speed.",
-    ar: "لا رحلات ذهاب وإياب لواجهات السحابة. الاستدلال يعمل على أجهزتك بأقصى سرعة."
+    ar: "بدون اتصال بالكلاود. المعالجة تتم على أجهزتك بأقصى سرعة."
   },
-  "privateAI.why.cost": { en: "Predictable Costs", ar: "تكاليف متوقعة" },
+  "privateAI.why.cost": { en: "Predictable Costs", ar: "تكاليف ثابتة" },
   "privateAI.why.cost.desc": {
     en: "No per-token billing. Deploy once, run forever. Your hardware, your budget.",
-    ar: "بدون فواتير لكل رمز. انشر مرة واحدة، شغّل للأبد. أجهزتك، ميزانيتك."
+    ar: "بدون فواتير لكل طلب. شغّل مرة، يشتغل دائماً. أجهزتك، ميزانيتك."
   },
-  "privateAI.useCases.title": { en: "USE CASES", ar: "حالات الاستخدام" },
-  "privateAI.cta": { en: "Get a Consultation", ar: "احصل على استشارة" },
+  "privateAI.useCases.title": { en: "USE CASES", ar: "أمثلة تطبيقية" },
+  "privateAI.cta": { en: "Get a Consultation", ar: "احجز استشارة" },
 
-  "customAgents.hero.title": { en: "Custom AI Agents", ar: "وكلاء ذكاء اصطناعي مخصصون" },
+  "customAgents.hero.title": { en: "Custom AI Agents", ar: "أنظمة AI مخصصة" },
   "customAgents.hero.subtitle": {
     en: "Purpose-built agents that understand your business and automate your workflows.",
-    ar: "وكلاء مصممون خصيصاً يفهمون عملك ويؤتمتون سير عملك."
+    ar: "بوتات وأنظمة مصممة لعملك تفهم احتياجاتك وتأتمت سير العمل."
   },
-  "customAgents.what.title": { en: "WHAT WE BUILD", ar: "ما نبنيه" },
-  "customAgents.how.title": { en: "HOW IT WORKS", ar: "كيف يعمل" },
-  "customAgents.cta": { en: "Discuss Your Agent Needs", ar: "ناقش احتياجاتك" },
+  "customAgents.what.title": { en: "WHAT WE BUILD", ar: "وش نبني" },
+  "customAgents.how.title": { en: "HOW IT WORKS", ar: "كيف نشتغل" },
+  "customAgents.cta": { en: "Discuss Your Agent Needs", ar: "كلّمنا عن مشروعك" },
 
-  "websites.title": { en: "[WEBSITES_WE_BUILT]", ar: "[مواقع_أنشأناها]" },
+  "websites.title": { en: "[WEBSITES_WE_BUILT]", ar: "[مواقع بنيناها]" },
   "websites.subtitle": {
     en: "// Digital experiences crafted for Dubai's finest brands",
-    ar: "// تجارب رقمية صُنعت لأرقى العلامات التجارية في دبي"
+    ar: "// تجارب رقمية لأفضل العلامات التجارية في دبي"
   },
 };

@@ -76,13 +76,11 @@ All colors MUST be HSL.
   }
 }
 
-/* RTL Arabic font override */
-[dir="rtl"] body {
-  font-family: 'Noto Sans Arabic', 'Rajdhani', -apple-system, system-ui, sans-serif;
-}
-
-[dir="rtl"] .font-mono {
-  font-family: 'Noto Sans Arabic', 'Share Tech Mono', monospace;
+/* RTL Arabic font override — !important to beat Tailwind's font-rajdhani */
+/* Exclude .font-dedsec so the HACKED logo font stays untouched */
+[dir="rtl"] body,
+[dir="rtl"] body *:not(.font-dedsec):not(.font-dedsec *) {
+  font-family: 'Changa', 'Rajdhani', -apple-system, system-ui, sans-serif !important;
 }
 
 /* SmartRoads Page Styles */

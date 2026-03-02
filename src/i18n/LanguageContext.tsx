@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect, type ReactNode } from "react";
+import { createContext, useContext, useState, useEffect, useCallback, type ReactNode } from "react";
 import { translations } from "./translations";
 
 export type Locale = "en" | "ar";
@@ -9,6 +9,7 @@ interface LanguageContextType {
   toggleLang: () => void;
   t: (key: string) => string;
   isAr: boolean;
+  isTransitioning: boolean;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
@@ -21,6 +22,7 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
       return "en";
     }
   });
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   const setLang = (newLang: Locale) => {
     setLangState(newLang);
@@ -29,7 +31,13 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
     } catch { /* localStorage unavailable */ }
   };
 
-  const toggleLang = () => setLang(lang === "en" ? "ar" : "en");
+  const toggleLang = useCallback(() => {
+    setIsTransitioning(true);
+    setTimeout(() => {
+      setLang(lang === "en" ? "ar" : "en");
+      setTimeout(() => setIsTransitioning(false), 50);
+    }, 300);
+  }, [lang]);
 
   useEffect(() => {
     document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
@@ -43,7 +51,7 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   };
 
   return (
-    <LanguageContext.Provider value={{ lang, setLang, toggleLang, t, isAr: lang === "ar" }}>
+    <LanguageContext.Provider value={{ lang, setLang, toggleLang, t, isAr: lang === "ar", isTransitioning }}>
       {children}
     </LanguageContext.Provider>
   );

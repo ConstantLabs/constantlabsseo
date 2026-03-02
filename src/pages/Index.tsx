@@ -1,5 +1,4 @@
 import { useState, useEffect, lazy, Suspense } from "react";
-import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { GlitchTextFramer } from "@/components/GlitchTextFramer";
 import { ProjectCard } from "@/components/ProjectCard";
@@ -22,8 +21,7 @@ import wahabAvatar from "@/assets/wahab-avatar.webp";
 const HackerBackground = lazy(() => import("@/components/HackerBackground").then(module => ({ default: module.HackerBackground })));
 
 const Index = () => {
-  const { t, lang, toggleLang } = useLanguage();
-  const navigate = useNavigate();
+  const { t, lang, toggleLang, isTransitioning } = useLanguage();
   const isAr = lang === "ar";
 
   const [shouldLoadBackground, setShouldLoadBackground] = useState(false);
@@ -133,7 +131,15 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background text-foreground relative overflow-hidden chromatic-page">
+    <div
+      className="min-h-screen bg-background text-foreground relative overflow-hidden chromatic-page transition-all duration-300 ease-out"
+      style={{
+        opacity: isTransitioning ? 0 : 1,
+        transform: isTransitioning
+          ? `translateX(${isAr ? '-60px' : '60px'})`
+          : 'translateX(0)',
+      }}
+    >
       <SEO
         title="Home"
         description="Constant Labs — Dubai-based technology studio. AI solutions, web applications, robotics, and smart systems for businesses across the UAE and the Emirates."
@@ -148,25 +154,25 @@ const Index = () => {
       {/* System Status Bar */}
       <div className="fixed top-0 left-0 right-0 z-50 border-b border-foreground/20 bg-background">
         <div className="container mx-auto px-4 py-2 flex items-center justify-between">
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4" dir="ltr">
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 bg-foreground animate-pulse rounded-full" />
-              <span className="text-[10px] font-tech tracking-wider text-foreground/60 uppercase">
-                {t("status.online")}
+              <span className="text-[10px] tracking-wider text-foreground/60 uppercase" style={{ fontFamily: "'Share Tech Mono', monospace" }}>
+                SYSTEM ONLINE
               </span>
             </div>
-            <span className="text-[10px] font-tech text-foreground/80 font-bold tracking-wider">
-              {t("status.brand")}
+            <span className="text-[10px] text-foreground/80 font-bold tracking-wider" style={{ fontFamily: "'Share Tech Mono', monospace" }}>
+              CONSTANT_LABS
             </span>
-            <span className="hidden sm:inline text-[8px] font-tech text-foreground/40">
-              {t("status.connection")}
+            <span className="hidden sm:inline text-[8px] text-foreground/40" style={{ fontFamily: "'Share Tech Mono', monospace" }}>
+              // SECURE CONNECTION ESTABLISHED
             </span>
           </div>
           <div className="flex items-center gap-3">
             {/* Language Toggle */}
             <div className="flex items-center gap-1 border border-foreground/20 px-2 py-0.5">
               <button
-                onClick={() => !isAr && toggleLang()}
+                onClick={() => isAr && toggleLang()}
                 className={cn(
                   "text-[10px] font-tech tracking-wider px-1 transition-colors",
                   !isAr ? "text-foreground" : "text-foreground/40 hover:text-foreground/60"
@@ -176,7 +182,7 @@ const Index = () => {
               </button>
               <span className="text-[10px] text-foreground/20">|</span>
               <button
-                onClick={() => isAr || toggleLang()}
+                onClick={() => !isAr && toggleLang()}
                 className={cn(
                   "text-[10px] font-tech tracking-wider px-1 transition-colors",
                   isAr ? "text-foreground" : "text-foreground/40 hover:text-foreground/60"
@@ -204,10 +210,6 @@ const Index = () => {
             <GlitchTextFramer>CONSTANT LABS</GlitchTextFramer>
           </h1>
 
-          {/* Arabic transliteration */}
-          <p className="text-lg md:text-xl text-foreground/40 font-tech tracking-widest mb-8">
-            كونستانت لابز
-          </p>
 
           {/* Tagline */}
           <p className="text-sm md:text-base text-muted-foreground font-tech tracking-[0.3em] uppercase mb-8">
@@ -230,7 +232,7 @@ const Index = () => {
                   return <ActiveIcon className="w-4 h-4 text-foreground/60" />;
                 })()}
                 <span className="text-xs sm:text-sm font-tech text-foreground/80 uppercase tracking-wider">
-                  [{SERVICES[currentService].id}]
+                  [{t(`service.${SERVICES[currentService].id}.title`)}]
                 </span>
                 <span className="hidden sm:inline text-xs text-muted-foreground font-tech">
                   — {t(`service.${SERVICES[currentService].id}.oneLiner`)}
@@ -239,19 +241,7 @@ const Index = () => {
             </AnimatePresence>
           </div>
 
-          {/* Progress dots */}
-          <div className="flex gap-2 justify-center mb-12">
-            {SERVICES.map((_, idx) => (
-              <button
-                key={idx}
-                onClick={() => setCurrentService(idx)}
-                className={`h-1.5 rounded-full transition-all duration-300 ${
-                  idx === currentService ? 'bg-foreground w-6' : 'bg-foreground/30 w-1.5'
-                }`}
-                aria-label={`View service ${idx + 1}`}
-              />
-            ))}
-          </div>
+          <div className="mb-12" />
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <Button
@@ -290,7 +280,6 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {SERVICES.map((service, idx) => {
               const Icon = service.icon;
-              const isClickable = !!service.link;
               return (
                 <motion.div
                   key={service.id}
@@ -298,12 +287,7 @@ const Index = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.1, duration: 0.4 }}
-                  className={cn(
-                    "group border border-foreground/10 border-s-4 border-s-foreground/30 hover:border-s-foreground bg-foreground/[0.02] hover:bg-foreground/[0.05] p-6 transition-all duration-300",
-                    isClickable && "cursor-pointer"
-                  )}
-                  onClick={() => isClickable && navigate(service.link!)}
-                  role={isClickable ? "link" : undefined}
+                  className="group border border-foreground/10 border-s-4 border-s-foreground/30 hover:border-s-foreground bg-foreground/[0.02] hover:bg-foreground/[0.05] p-6 transition-all duration-300"
                 >
                   <div className="flex items-center gap-3 mb-4">
                     <Icon className="w-5 h-5 text-foreground/60 group-hover:text-foreground transition-colors" />
@@ -321,11 +305,6 @@ const Index = () => {
                       </span>
                     ))}
                   </div>
-                  {isClickable && (
-                    <div className="mt-4 text-[10px] font-tech text-foreground/40 uppercase tracking-wider group-hover:text-foreground/60 transition-colors">
-                      {t("project.viewWork")}
-                    </div>
-                  )}
                 </motion.div>
               );
             })}

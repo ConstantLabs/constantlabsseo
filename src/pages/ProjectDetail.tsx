@@ -32,7 +32,7 @@ const ProjectDetail = () => {
       />
 
       {/* Nav Bar */}
-      <div className="fixed top-0 left-0 right-0 z-50 border-b border-foreground/20 bg-background">
+      <div className="fixed top-0 left-0 right-0 z-50 border-b border-foreground/20 bg-background" dir="ltr">
         <div className="container mx-auto px-4 py-3 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2 text-foreground/60 hover:text-foreground transition-colors">
             <ArrowLeft className="w-4 h-4" />
@@ -169,13 +169,13 @@ const ProjectDetail = () => {
                 </Button>
               </a>
             )}
-            <Link to="/">
+            <Link to="/" dir="ltr">
               <Button
                 size="lg"
                 variant="ghost"
                 className="border-2 border-border text-foreground hover:border-foreground hover:bg-transparent font-tech tracking-wide"
               >
-                <ArrowLeft className="w-4 h-4 me-2" />
+                <ArrowLeft className="w-4 h-4 mr-2" />
                 {t("project.back")}
               </Button>
             </Link>

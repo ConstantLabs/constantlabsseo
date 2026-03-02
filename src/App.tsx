@@ -9,9 +9,6 @@ import { PageLoader } from "./components/PageLoader";
 // Lazy Load Pages
 const Index = lazy(() => import("./pages/Index"));
 const ProjectDetail = lazy(() => import("./pages/ProjectDetail"));
-const PrivateAI = lazy(() => import("./pages/PrivateAI"));
-const CustomAIAgents = lazy(() => import("./pages/CustomAIAgents"));
-const WebsitesShowcase = lazy(() => import("./pages/WebsitesShowcase"));
 const SmartRoads = lazy(() => import("./pages/SmartRoads"));
 const SmartRoadsCapabilities = lazy(() => import("./pages/SmartRoadsCapabilities"));
 const SmartRoadsTechnology = lazy(() => import("./pages/SmartRoadsTechnology"));
@@ -58,9 +55,6 @@ const AnimatedRoutes = () => {
         <Route path="/robotics" element={<PageTransition><Robotics /></PageTransition>} />
         <Route path="/robotics/:slug" element={<PageTransition><RobotDetail /></PageTransition>} />
         <Route path="/projects/:slug" element={<PageTransition><ProjectDetail /></PageTransition>} />
-        <Route path="/services/private-ai" element={<PageTransition><PrivateAI /></PageTransition>} />
-        <Route path="/services/custom-ai-agents" element={<PageTransition><CustomAIAgents /></PageTransition>} />
-        <Route path="/services/websites" element={<PageTransition><WebsitesShowcase /></PageTransition>} />
         <Route path="/privacy" element={<PageTransition><PrivacyPolicy /></PageTransition>} />
         <Route path="/terms" element={<PageTransition><TermsOfService /></PageTransition>} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

@@ -69,7 +69,6 @@ export const SERVICES: Service[] = [
     description: "Purpose-built AI agents tailored to your workflows. From customer support bots to autonomous data processors, we build agents that understand your business.",
     tags: ["Custom Agents", "LLM Ops", "Workflow AI"],
     oneLiner: "Your business, automated",
-    link: "/services/custom-ai-agents",
   },
   {
     id: "PRIVATE_AI",
@@ -78,7 +77,6 @@ export const SERVICES: Service[] = [
     description: "Deploy AI models on-premise. Your data never leaves your servers. Custom LLMs, RAG pipelines, and inference engines running locally for compliance-sensitive businesses.",
     tags: ["On-Premise AI", "Local LLMs", "Data Privacy"],
     oneLiner: "AI that stays in-house",
-    link: "/services/private-ai",
   },
   {
     id: "SYSTEM_INTEGRATION",
@@ -103,7 +101,6 @@ export const SERVICES: Service[] = [
     description: "Websites, landing pages, and digital identities that make your brand impossible to ignore.",
     tags: ["Web Design", "SEO", "Branding"],
     oneLiner: "Brands that stand out online",
-    link: "/services/websites",
   },
   {
     id: "IOT_EMBEDDED",
