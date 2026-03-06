@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { useWebHaptics } from "web-haptics/react";
 
 interface ProjectCardProps {
   title: string;
@@ -16,11 +17,12 @@ interface ProjectCardProps {
 
 export const ProjectCard = ({ title, description, tech, status, image, imagePosition = "center", index, onCardClick }: ProjectCardProps) => {
   const [isTouched, setIsTouched] = useState(false);
+  const { trigger } = useWebHaptics();
   return (
     <motion.div
       role="button"
       tabIndex={0}
-      onClick={() => onCardClick?.()}
+      onClick={() => { trigger("selection"); onCardClick?.(); }}
       onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") onCardClick?.(); }}
       className={cn(
         "group relative flex flex-col bg-background/60 backdrop-blur-sm p-3 md:p-6 border-2 border-foreground/20 overflow-hidden cursor-pointer",
