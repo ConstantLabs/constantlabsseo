@@ -24,7 +24,8 @@
     "react-helmet-async": "^2.0.5",
     "react-router-dom": "^6.30.1",
     "tailwind-merge": "^2.6.0",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "web-haptics": "^0.0.6"
   },
   "devDependencies": {
     "@eslint/js": "^9.32.0",
