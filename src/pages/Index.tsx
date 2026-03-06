@@ -1,5 +1,6 @@
 import { useState, useEffect, lazy, Suspense } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import { GlitchTextFramer } from "@/components/GlitchTextFramer";
 import { ProjectCard } from "@/components/ProjectCard";
 import { ProjectDetailModal } from "@/components/ProjectDetailModal";
@@ -25,10 +26,19 @@ const HackerBackground = lazy(() => import("@/components/HackerBackground").then
 const Index = () => {
   const { t, lang, toggleLang, isTransitioning } = useLanguage();
   const isAr = lang === "ar";
+  const navigate = useNavigate();
 
   const [shouldLoadBackground, setShouldLoadBackground] = useState(false);
   const [currentService, setCurrentService] = useState(0);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+
+  const handleProjectClick = (project: Project) => {
+    if (project.internalRoute) {
+      navigate(project.internalRoute);
+    } else {
+      setSelectedProject(project);
+    }
+  };
 
   useEffect(() => {
     const isMobile = window.innerWidth < 768;
@@ -577,7 +587,7 @@ const Index = () => {
                     image={project.image}
                     imagePosition={project.imagePosition}
                     index={idx}
-                    onCardClick={() => setSelectedProject(project)}
+                    onCardClick={() => handleProjectClick(project)}
                   />
                 ))}
               </div>
@@ -603,7 +613,7 @@ const Index = () => {
                     image={project.image}
                     imagePosition={project.imagePosition}
                     index={idx}
-                    onCardClick={() => setSelectedProject(project)}
+                    onCardClick={() => handleProjectClick(project)}
                   />
                 ))}
               </div>
@@ -629,7 +639,7 @@ const Index = () => {
                     image={project.image}
                     imagePosition={project.imagePosition}
                     index={idx}
-                    onCardClick={() => setSelectedProject(project)}
+                    onCardClick={() => handleProjectClick(project)}
                   />
                 ))}
               </div>
@@ -657,7 +667,7 @@ const Index = () => {
                   image={project.image}
                   imagePosition={project.imagePosition}
                   index={idx}
-                  onCardClick={() => setSelectedProject(project)}
+                  onCardClick={() => handleProjectClick(project)}
                 />
               ))}
             </div>
@@ -699,7 +709,7 @@ const Index = () => {
                   link={project.link}
                   image={project.image}
                   index={idx}
-                  onCardClick={() => setSelectedProject(project)}
+                  onCardClick={() => handleProjectClick(project)}
                 />
               ))}
             </div>
@@ -724,7 +734,7 @@ const Index = () => {
                   link={project.link}
                   image={project.image}
                   index={idx}
-                  onCardClick={() => setSelectedProject(project)}
+                  onCardClick={() => handleProjectClick(project)}
                 />
               ))}
             </div>
@@ -749,7 +759,7 @@ const Index = () => {
                   link={project.link}
                   image={project.image}
                   index={idx}
-                  onCardClick={() => setSelectedProject(project)}
+                  onCardClick={() => handleProjectClick(project)}
                 />
               ))}
             </div>
