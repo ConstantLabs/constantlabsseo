@@ -12,6 +12,7 @@ import { useLanguage } from "@/i18n/LanguageContext";
 import { SERVICES, softwareProjects, clientProjects, hardwareProjects } from "@/data/projectsData";
 import type { Project } from "@/data/projectsData";
 import { cn } from "@/lib/utils";
+import { useWebHaptics } from "web-haptics/react";
 
 import tamerAvatar from "@/assets/tamer-avatar.webp";
 import ahmadAvatar from "@/assets/ahmad-avatar.webp";
@@ -28,6 +29,7 @@ const Index = () => {
   const isAr = lang === "ar";
   const navigate = useNavigate();
 
+  const { trigger } = useWebHaptics();
   const [shouldLoadBackground, setShouldLoadBackground] = useState(false);
   const [currentService, setCurrentService] = useState(0);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -318,7 +320,8 @@ const Index = () => {
                 return (
                   <div
                     key={service.id}
-                    className="group flex flex-col border border-foreground/10 border-s-4 border-s-cl-cyan bg-foreground/[0.02] hover:bg-foreground/[0.05] backdrop-blur-sm p-3 md:p-6 transition-all duration-300"
+                    onClick={() => trigger("light")}
+                    className="group flex flex-col border border-foreground/10 border-s-4 border-s-cl-cyan bg-foreground/[0.02] hover:bg-foreground/[0.05] backdrop-blur-sm p-3 md:p-6 transition-all duration-300 cursor-pointer"
                   >
                     <div className="flex items-center gap-2 md:gap-3 mb-2 md:mb-4">
                       <Icon className="w-4 h-4 md:w-5 md:h-5 shrink-0 text-foreground/60 group-hover:text-cl-cyan transition-colors" />
@@ -358,7 +361,8 @@ const Index = () => {
                 return (
                   <div
                     key={service.id}
-                    className="group flex flex-col border border-foreground/10 border-s-4 border-s-cl-purple bg-foreground/[0.02] hover:bg-foreground/[0.05] backdrop-blur-sm p-3 md:p-6 transition-all duration-300"
+                    onClick={() => trigger("rigid")}
+                    className="group flex flex-col border border-foreground/10 border-s-4 border-s-cl-purple bg-foreground/[0.02] hover:bg-foreground/[0.05] backdrop-blur-sm p-3 md:p-6 transition-all duration-300 cursor-pointer"
                   >
                     <div className="flex items-center gap-2 md:gap-3 mb-2 md:mb-4">
                       <Icon className="w-4 h-4 md:w-5 md:h-5 shrink-0 text-foreground/60 group-hover:text-cl-purple transition-colors" />
@@ -398,7 +402,8 @@ const Index = () => {
                 return (
                   <div
                     key={service.id}
-                    className="group flex flex-col border border-foreground/10 border-s-4 border-s-cl-amber bg-foreground/[0.02] hover:bg-foreground/[0.05] backdrop-blur-sm p-3 md:p-6 transition-all duration-300"
+                    onClick={() => trigger("medium")}
+                    className="group flex flex-col border border-foreground/10 border-s-4 border-s-cl-amber bg-foreground/[0.02] hover:bg-foreground/[0.05] backdrop-blur-sm p-3 md:p-6 transition-all duration-300 cursor-pointer"
                   >
                     <div className="flex items-center gap-2 md:gap-3 mb-2 md:mb-4">
                       <Icon className="w-4 h-4 md:w-5 md:h-5 shrink-0 text-foreground/60 group-hover:text-cl-amber transition-colors" />
@@ -826,14 +831,14 @@ const Index = () => {
                 <Button
                   size="lg"
                   className="border-2 border-cl-cyan bg-transparent text-cl-cyan hover:bg-cl-cyan hover:text-background font-tech tracking-wide font-bold transition-all duration-300"
-                  onClick={() => window.location.href = 'mailto:akhmad6093@gmail.com'}
+                  onClick={() => { trigger("medium"); window.location.href = 'mailto:akhmad6093@gmail.com'; }}
                 >
                   {t("contact.email")}
                 </Button>
                 <Button
                   size="lg"
                   className="border-2 border-cl-green bg-transparent text-cl-green hover:bg-cl-green hover:text-background font-tech tracking-wide font-bold transition-all duration-300"
-                  onClick={() => window.open('https://wa.me/971561495656', '_blank')}
+                  onClick={() => { trigger("soft"); window.open('https://wa.me/971561495656', '_blank'); }}
                 >
                   {t("contact.whatsapp")}
                 </Button>

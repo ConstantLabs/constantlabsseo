@@ -8,7 +8,6 @@ import { PageLoader } from "./components/PageLoader";
 
 // Lazy Load Pages
 const Index = lazy(() => import("./pages/Index"));
-const ProjectDetail = lazy(() => import("./pages/ProjectDetail"));
 const SmartRoads = lazy(() => import("./pages/SmartRoads"));
 const SmartRoadsCapabilities = lazy(() => import("./pages/SmartRoadsCapabilities"));
 const SmartRoadsTechnology = lazy(() => import("./pages/SmartRoadsTechnology"));
@@ -54,7 +53,6 @@ const AnimatedRoutes = () => {
         <Route path="/smartroads/lite" element={<PageTransition><SmartRoadsLite /></PageTransition>} />
         <Route path="/robotics" element={<PageTransition><Robotics /></PageTransition>} />
         <Route path="/robotics/:slug" element={<PageTransition><RobotDetail /></PageTransition>} />
-        <Route path="/projects/:slug" element={<PageTransition><ProjectDetail /></PageTransition>} />
         <Route path="/privacy" element={<PageTransition><PrivacyPolicy /></PageTransition>} />
         <Route path="/terms" element={<PageTransition><TermsOfService /></PageTransition>} />
 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

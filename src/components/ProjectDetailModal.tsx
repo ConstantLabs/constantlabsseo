@@ -1,5 +1,4 @@
-import { Link } from "react-router-dom";
-import { ExternalLink, ArrowRight } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/i18n/LanguageContext";
 import type { Project } from "@/data/projectsData";
@@ -24,7 +23,6 @@ export const ProjectDetailModal = ({ project, open, onOpenChange }: ProjectDetai
   if (!project) return null;
 
   const isExternal = project.link.startsWith("http");
-  const detailPath = project.internalRoute || `/projects/${project.slug}`;
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
@@ -104,36 +102,23 @@ export const ProjectDetailModal = ({ project, open, onOpenChange }: ProjectDetai
           )}
 
           {/* Actions */}
-          <div className="flex flex-col sm:flex-row gap-3">
-            <Link
-              to={detailPath}
-              onClick={() => onOpenChange(false)}
-              className="flex-1"
-            >
-              <Button
-                className="w-full border-2 border-foreground bg-transparent text-foreground hover:bg-foreground hover:text-background font-tech tracking-wide"
-              >
-                <ArrowRight className="w-4 h-4 me-2" />
-                {t("project.viewFullPage")}
-              </Button>
-            </Link>
-
-            {isExternal && (
+          {isExternal && (
+            <div className="flex">
               <a
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1"
+                className="w-full"
               >
                 <Button
-                  className="w-full border-2 border-foreground/40 bg-transparent text-foreground/80 hover:bg-foreground hover:text-background font-tech tracking-wide"
+                  className="w-full border-2 border-foreground bg-transparent text-foreground hover:bg-foreground hover:text-background font-tech tracking-wide"
                 >
                   <ExternalLink className="w-4 h-4 me-2" />
                   {project.status === "repository" ? t("project.viewRepo") : t("project.visitSite")}
                 </Button>
               </a>
-            )}
-          </div>
+            </div>
+          )}
         </div>
       </DialogContent>
     </Dialog>
