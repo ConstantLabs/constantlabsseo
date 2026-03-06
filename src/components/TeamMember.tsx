@@ -2,6 +2,7 @@ import { Card } from "@/components/ui/card";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { GlitchText } from "./GlitchText";
 import { Github, Linkedin } from "lucide-react";
+import { useWebHaptics } from "web-haptics/react";
 
 interface TeamMemberProps {
   name: string;
@@ -14,9 +15,10 @@ interface TeamMemberProps {
 
 export const TeamMember = ({ name, role, journey, avatar, github, linkedin }: TeamMemberProps) => {
   const operatorId = `OP-${Math.random().toString(36).substring(2, 6).toUpperCase()}`;
-  
+  const { trigger } = useWebHaptics();
+
   return (
-    <Card className="group border-2 border-border bg-card/60 backdrop-blur-sm p-6 hover:border-foreground transition-all duration-300 relative overflow-hidden hover:shadow-[0_0_30px_rgba(255,255,255,0.1)]">
+    <Card onClick={() => trigger("light")} className="group border-2 border-border bg-card/60 backdrop-blur-sm p-6 hover:border-foreground transition-all duration-300 relative overflow-hidden hover:shadow-[0_0_30px_rgba(255,255,255,0.1)] cursor-pointer">
       {/* Corner brackets */}
       <div className="absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 border-foreground/20 group-hover:border-foreground/60 transition-colors" />
       <div className="absolute top-0 right-0 w-12 h-12 border-t-2 border-r-2 border-foreground/20 group-hover:border-foreground/60 transition-colors" />
@@ -54,6 +56,7 @@ export const TeamMember = ({ name, role, journey, avatar, github, linkedin }: Te
                     href={linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={(e) => { e.stopPropagation(); trigger("rigid"); }}
                     className="border border-border hover:border-foreground p-2 transition-all duration-300"
                     aria-label={`${name}'s LinkedIn`}
                   >
@@ -65,6 +68,7 @@ export const TeamMember = ({ name, role, journey, avatar, github, linkedin }: Te
                     href={github}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={(e) => { e.stopPropagation(); trigger("rigid"); }}
                     className="border border-border hover:border-foreground p-2 transition-all duration-300"
                     aria-label={`${name}'s GitHub`}
                   >

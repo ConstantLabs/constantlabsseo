@@ -1,4 +1,4 @@
-import { useState, useEffect, lazy, Suspense } from "react";
+import { useState, useEffect, useCallback, useRef, lazy, Suspense } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { GlitchTextFramer } from "@/components/GlitchTextFramer";
@@ -34,11 +34,38 @@ const Index = () => {
   const [currentService, setCurrentService] = useState(0);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
+  const modalOpenRef = useRef(false);
+
+  const openModal = useCallback((project: Project) => {
+    setSelectedProject(project);
+    modalOpenRef.current = true;
+    window.history.pushState({ modal: true }, "");
+  }, []);
+
+  const closeModal = useCallback(() => {
+    if (modalOpenRef.current) {
+      modalOpenRef.current = false;
+      setSelectedProject(null);
+    }
+  }, []);
+
+  // Close modal on browser back button
+  useEffect(() => {
+    const onPopState = (e: PopStateEvent) => {
+      if (modalOpenRef.current) {
+        e.preventDefault();
+        closeModal();
+      }
+    };
+    window.addEventListener("popstate", onPopState);
+    return () => window.removeEventListener("popstate", onPopState);
+  }, [closeModal]);
+
   const handleProjectClick = (project: Project) => {
     if (project.internalRoute) {
       navigate(project.internalRoute);
     } else {
-      setSelectedProject(project);
+      openModal(project);
     }
   };
 
@@ -436,7 +463,7 @@ const Index = () => {
         <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-cl-purple/5 rounded-full blur-[100px] pointer-events-none" />
         <div className="container mx-auto px-4 relative">
           <div className="max-w-4xl mx-auto">
-            <div className="relative border-2 border-foreground/20 bg-background p-6 md:p-12 overflow-hidden group hover:shadow-[0_0_40px_rgba(255,255,255,0.1)] transition-all">
+            <div onClick={() => trigger("soft")} className="relative border-2 border-foreground/20 bg-background p-6 md:p-12 overflow-hidden group hover:shadow-[0_0_40px_rgba(255,255,255,0.1)] transition-all cursor-pointer">
               {/* Corner decorations */}
               <div className="absolute top-0 left-0 w-12 h-12 md:w-24 md:h-24 border-t-2 border-l-2 border-foreground/20" />
               <div className="absolute top-0 right-0 w-12 h-12 md:w-24 md:h-24 border-t-2 border-r-2 border-foreground/20" />
@@ -838,7 +865,7 @@ const Index = () => {
                 <Button
                   size="lg"
                   className="border-2 border-cl-green bg-transparent text-cl-green hover:bg-cl-green hover:text-background font-tech tracking-wide font-bold transition-all duration-300"
-                  onClick={() => { trigger("soft"); window.open('https://wa.me/971561495656', '_blank'); }}
+                  onClick={() => { trigger("medium"); window.open('https://wa.me/971561495656', '_blank'); }}
                 >
                   {t("contact.whatsapp")}
                 </Button>
@@ -862,7 +889,7 @@ const Index = () => {
       <ProjectDetailModal
         project={selectedProject}
         open={!!selectedProject}
-        onOpenChange={(open) => { if (!open) setSelectedProject(null); }}
+        onOpenChange={(open) => { if (!open) { if (modalOpenRef.current) window.history.back(); closeModal(); } }}
       />
     </div>
   );
