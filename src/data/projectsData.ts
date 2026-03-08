@@ -27,6 +27,7 @@ import crescentWatchImg from "@/assets/projects/crescent-watch.webp";
 
 import beHealthyImg from "@/assets/projects/be-healthy.webp";
 import parfumcentralImg from "@/assets/projects/parfumcentral.webp";
+import firstwayImg from "@/assets/projects/firstway.webp";
 
 // ─── Service Types ───────────────────────────────────────────────
 
@@ -524,6 +525,24 @@ export const clientProjects: Project[] = [
       "Product and nutrition showcase",
       "Fresh, modern visual identity",
       "Mobile-responsive layout",
+    ],
+  },
+  {
+    slug: "firstway",
+    title: "FIRST WAY CAR ACCESSORIES",
+    category: "client",
+    description: "Automotive accessories shop in Sharjah. Performance upgrades, nano-ceramic tinting, off-road gear, and 5,000+ products — everything your car needs under one roof.",
+    longDescription: "First Way Car Accessories (فرست واي زينة السيارات) is a full-service automotive shop in Industrial Area 13, Sharjah, UAE. With 10+ years of experience and 5,000+ products, they offer performance upgrades (exhaust systems, brake kits, suspension), aesthetic enhancements (nano-ceramic tinting, ambient lighting, LED headlights), off-road equipment under their proprietary EXKING brand, and professional maintenance services. We built a bilingual Arabic-English website with vehicle-specific parts filtering, product catalog, and service booking — a complete digital storefront for one of Sharjah's go-to car accessory destinations.",
+    tech: ["Next.js", "React", "Arabic/English", "E-commerce"],
+    status: "live",
+    link: "https://firstway.vercel.app/",
+    image: firstwayImg,
+    features: [
+      "Vehicle-specific parts filtering by make, model, and year",
+      "5,000+ product catalog with categories",
+      "Bilingual Arabic and English support",
+      "Service booking and labor estimates",
+      "Proprietary EXKING off-road brand showcase",
     ],
   },
 ];
