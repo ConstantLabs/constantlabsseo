@@ -157,7 +157,7 @@ export interface Project {
   status: ProjectStatus;
   link: string;
   image: string;
-  imagePosition?: "top" | "center";
+  imagePosition?: "top" | "center" | "bottom";
   features: string[];
   internalRoute?: string;
 }
@@ -356,6 +356,7 @@ export const softwareProjects: Project[] = [
     status: "live",
     link: "https://play.google.com/store/apps/details?id=com.mohammed.flutter_projects",
     image: ramadanTrackerImg,
+    imagePosition: "top",
     features: [
       "Fasting tracker with streaks and makeup day management",
       "Complete prayer tracking — Fard, Sunnah, and Nafl",
@@ -374,6 +375,7 @@ export const softwareProjects: Project[] = [
     status: "live",
     link: "https://play.google.com/store/apps/details?id=com.astrobubu.tripbillsplitter",
     image: tripBillSplitterImg,
+    imagePosition: "top",
     features: [
       "Add expenses with payer, amount, and description",
       "Automatic per-person settlement calculation",

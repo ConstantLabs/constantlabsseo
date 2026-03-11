@@ -51,7 +51,7 @@ const ProjectDetail = () => {
             <img
               src={project.image}
               alt={project.title}
-              className={`h-full w-full object-cover ${project.imagePosition === "top" ? "object-top" : "object-center"}`}
+              className={`h-full w-full object-cover ${project.imagePosition === "top" ? "object-top" : project.imagePosition === "bottom" ? "object-bottom" : "object-center"}`}
             />
             <div className="absolute inset-0 bg-[linear-gradient(to_bottom,transparent_50%,rgba(0,0,0,0.5)_50%)] bg-[length:100%_4px] opacity-20 pointer-events-none" />
             <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />

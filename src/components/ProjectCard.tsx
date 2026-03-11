@@ -10,7 +10,7 @@ interface ProjectCardProps {
   status: "live" | "beta" | "development" | "repository";
   link: string;
   image?: string;
-  imagePosition?: "top" | "center";
+  imagePosition?: "top" | "center" | "bottom";
   index: number;
   onCardClick?: () => void;
 }
@@ -50,7 +50,7 @@ export const ProjectCard = ({ title, description, tech, status, image, imagePosi
           <img
             src={image}
             alt={title}
-            className={`h-full w-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 ${imagePosition === "top" ? "object-top" : "object-center"}`}
+            className={`h-full w-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 ${imagePosition === "top" ? "object-top" : imagePosition === "bottom" ? "object-bottom" : "object-center"}`}
             loading="lazy"
           />
           {/* Image scanline overlay */}
