@@ -29,6 +29,7 @@ import beHealthyImg from "@/assets/projects/be-healthy.webp";
 import parfumcentralImg from "@/assets/projects/parfumcentral.webp";
 import firstwayImg from "@/assets/projects/firstway.webp";
 import ramadanTrackerImg from "@/assets/projects/ramadan-tracker.webp";
+import tripBillSplitterImg from "@/assets/projects/trip-bill-splitter.webp";
 
 // ─── Service Types ───────────────────────────────────────────────
 
@@ -361,6 +362,24 @@ export const softwareProjects: Project[] = [
       "Quran progress with page counts and surah navigation",
       "Personalized daily goals and achievements",
       "Beautiful dark mode with Islamic-themed design",
+    ],
+  },
+  {
+    slug: "trip-bill-splitter",
+    title: "TRIP BILL SPLITTER",
+    category: "software",
+    description: "Split trip expenses effortlessly. Track who paid what, settle debts fairly, and keep group trips stress-free with multi-currency support.",
+    longDescription: "Trip Bill Splitter is a clean, intuitive expense-splitting app for group trips and outings. Add participants, log expenses with payer names and descriptions, and the app automatically calculates fair settlements — who owes whom and how much. Supports multiple currencies including AED, features trip history and analytics, and makes group finances transparent. No more awkward money conversations after a trip.",
+    tech: ["Flutter", "Dart", "Android", "Material Design"],
+    status: "live",
+    link: "https://play.google.com/store/apps/details?id=com.astrobubu.tripbillsplitter",
+    image: tripBillSplitterImg,
+    features: [
+      "Add expenses with payer, amount, and description",
+      "Automatic per-person settlement calculation",
+      "Multi-currency support (AED, USD, etc.)",
+      "Trip history and expense analytics",
+      "Share settlement summaries with the group",
     ],
   },
 ];

@@ -702,6 +702,32 @@ const Index = () => {
                 ))}
               </div>
             </div>
+
+            {/* UTILITIES & PRODUCTIVITY */}
+            <div className="mb-12">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-8 h-px bg-cl-cyan" />
+                <span className="text-sm font-tech uppercase tracking-widest text-cl-cyan">
+                  {isAr ? "// أدوات وإنتاجية" : "// UTILITIES & PRODUCTIVITY"}
+                </span>
+              </div>
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+                {softwareProjects.filter(p => ["trip-bill-splitter"].includes(p.slug)).map((project, idx) => (
+                  <ProjectCard
+                    key={project.slug}
+                    title={project.title}
+                    description={project.description}
+                    tech={project.tech}
+                    status={project.status}
+                    link={project.link}
+                    image={project.image}
+                    imagePosition={project.imagePosition}
+                    index={idx}
+                    onCardClick={() => handleProjectClick(project)}
+                  />
+                ))}
+              </div>
+            </div>
           </div>
 
           {/* HARDWARE SECTION */}
