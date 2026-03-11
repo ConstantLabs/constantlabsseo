@@ -625,16 +625,16 @@ const Index = () => {
               </div>
             </div>
 
-            {/* MOBILE APPS */}
+            {/* ISLAMIC & SPIRITUAL */}
             <div className="mb-12">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-8 h-px bg-cl-green" />
                 <span className="text-sm font-tech uppercase tracking-widest text-cl-green">
-                  {isAr ? "// تطبيقات موبايل" : "// MOBILE APPS"}
+                  {isAr ? "// إسلامي وروحاني" : "// ISLAMIC & SPIRITUAL"}
                 </span>
               </div>
               <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-                {softwareProjects.filter(p => ["mosque-silence"].includes(p.slug)).map((project, idx) => (
+                {softwareProjects.filter(p => ["athkar-desktop", "mosque-silence", "crescent-watch", "ramadan-tracker"].includes(p.slug)).map((project, idx) => (
                   <ProjectCard
                     key={project.slug}
                     title={project.title}
@@ -651,16 +651,42 @@ const Index = () => {
               </div>
             </div>
 
-            {/* TOOLS & PLATFORMS */}
+            {/* NAVIGATION & DISCOVERY */}
             <div className="mb-12">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-8 h-px bg-cl-amber" />
                 <span className="text-sm font-tech uppercase tracking-widest text-cl-amber">
-                  {isAr ? "// أدوات ومنصات" : "// TOOLS & PLATFORMS"}
+                  {isAr ? "// تنقل واستكشاف" : "// NAVIGATION & DISCOVERY"}
                 </span>
               </div>
               <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-                {softwareProjects.filter(p => ["athkar-desktop", "sanaye", "navii", "paper-to-product", "crescent-watch", "medieval-quest-journal"].includes(p.slug)).map((project, idx) => (
+                {softwareProjects.filter(p => ["navii", "sanaye"].includes(p.slug)).map((project, idx) => (
+                  <ProjectCard
+                    key={project.slug}
+                    title={project.title}
+                    description={project.description}
+                    tech={project.tech}
+                    status={project.status}
+                    link={project.link}
+                    image={project.image}
+                    imagePosition={project.imagePosition}
+                    index={idx}
+                    onCardClick={() => handleProjectClick(project)}
+                  />
+                ))}
+              </div>
+            </div>
+
+            {/* RESEARCH & CREATIVE */}
+            <div className="mb-12">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-8 h-px bg-cl-purple" />
+                <span className="text-sm font-tech uppercase tracking-widest text-cl-purple">
+                  {isAr ? "// بحث وإبداع" : "// RESEARCH & CREATIVE"}
+                </span>
+              </div>
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+                {softwareProjects.filter(p => ["paper-to-product", "medieval-quest-journal"].includes(p.slug)).map((project, idx) => (
                   <ProjectCard
                     key={project.slug}
                     title={project.title}
@@ -722,16 +748,16 @@ const Index = () => {
             </p>
           </div>
 
-          {/* FOOD & DINING */}
+          {/* RESTAURANTS & CAFES */}
           <div className="mb-12">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-8 h-px bg-cl-amber" />
               <span className="text-sm font-tech uppercase tracking-widest text-cl-amber">
-                {isAr ? "// مطاعم ومأكولات" : "// FOOD & DINING"}
+                {isAr ? "// مطاعم ومقاهي" : "// RESTAURANTS & CAFES"}
               </span>
             </div>
             <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-              {clientProjects.filter(p => ["fzn-dining", "cut-in-half", "darwish-cafe", "variety-coffee", "delhi-darbar", "be-healthy"].includes(p.slug)).map((project, idx) => (
+              {clientProjects.filter(p => ["fzn-dining", "cut-in-half", "darwish-cafe", "variety-coffee", "delhi-darbar"].includes(p.slug)).map((project, idx) => (
                 <ProjectCard
                   key={project.slug}
                   title={project.title}
@@ -747,16 +773,41 @@ const Index = () => {
             </div>
           </div>
 
-          {/* LUXURY & LIFESTYLE */}
+          {/* E-COMMERCE & RETAIL */}
           <div className="mb-12">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-8 h-px bg-cl-purple" />
               <span className="text-sm font-tech uppercase tracking-widest text-cl-purple">
-                {isAr ? "// فخامة وأسلوب حياة" : "// LUXURY & LIFESTYLE"}
+                {isAr ? "// تجارة إلكترونية وتجزئة" : "// E-COMMERCE & RETAIL"}
               </span>
             </div>
             <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-              {clientProjects.filter(p => ["topwatches", "drive-for-less", "parfum-central"].includes(p.slug)).map((project, idx) => (
+              {clientProjects.filter(p => ["topwatches", "parfum-central", "firstway", "be-healthy"].includes(p.slug)).map((project, idx) => (
+                <ProjectCard
+                  key={project.slug}
+                  title={project.title}
+                  description={project.description}
+                  tech={project.tech}
+                  status={project.status}
+                  link={project.link}
+                  image={project.image}
+                  index={idx}
+                  onCardClick={() => handleProjectClick(project)}
+                />
+              ))}
+            </div>
+          </div>
+
+          {/* AUTOMOTIVE & MOBILITY */}
+          <div className="mb-12">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-8 h-px bg-cl-cyan" />
+              <span className="text-sm font-tech uppercase tracking-widest text-cl-cyan">
+                {isAr ? "// سيارات وتنقل" : "// AUTOMOTIVE & MOBILITY"}
+              </span>
+            </div>
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+              {clientProjects.filter(p => ["drive-for-less"].includes(p.slug)).map((project, idx) => (
                 <ProjectCard
                   key={project.slug}
                   title={project.title}
@@ -782,31 +833,6 @@ const Index = () => {
             </div>
             <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
               {clientProjects.filter(p => ["gcc-dental"].includes(p.slug)).map((project, idx) => (
-                <ProjectCard
-                  key={project.slug}
-                  title={project.title}
-                  description={project.description}
-                  tech={project.tech}
-                  status={project.status}
-                  link={project.link}
-                  image={project.image}
-                  index={idx}
-                  onCardClick={() => handleProjectClick(project)}
-                />
-              ))}
-            </div>
-          </div>
-
-          {/* AUTOMOTIVE */}
-          <div className="mb-12">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-8 h-px bg-cl-amber" />
-              <span className="text-sm font-tech uppercase tracking-widest text-cl-amber">
-                {isAr ? "// سيارات" : "// AUTOMOTIVE"}
-              </span>
-            </div>
-            <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-              {clientProjects.filter(p => ["firstway"].includes(p.slug)).map((project, idx) => (
                 <ProjectCard
                   key={project.slug}
                   title={project.title}

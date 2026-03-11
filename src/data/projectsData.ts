@@ -28,6 +28,7 @@ import crescentWatchImg from "@/assets/projects/crescent-watch.webp";
 import beHealthyImg from "@/assets/projects/be-healthy.webp";
 import parfumcentralImg from "@/assets/projects/parfumcentral.webp";
 import firstwayImg from "@/assets/projects/firstway.webp";
+import ramadanTrackerImg from "@/assets/projects/ramadan-tracker.webp";
 
 // ─── Service Types ───────────────────────────────────────────────
 
@@ -342,6 +343,24 @@ export const softwareProjects: Project[] = [
       "Islamic calendar date determination",
       "Interactive data-rich interface",
       "Serves the global Muslim community",
+    ],
+  },
+  {
+    slug: "ramadan-tracker",
+    title: "RAMADAN TRACKER",
+    category: "software",
+    description: "Track your Ramadan journey — fasting progress, prayer tracking, Quran reading goals, and daily streaks all in one beautiful app.",
+    longDescription: "Ramadan Tracker is a comprehensive companion app for the holy month. Track your fasting days with streak monitoring and makeup day management, log all five daily prayers plus Sunnah and Nafl prayers with motivational progress updates, monitor your Quran reading with page counts and surah bookmarks, and set personalized daily goals. With a stunning dark mode featuring mosque silhouettes and an intuitive interface, it keeps your spiritual journey organized and motivated throughout Ramadan.",
+    tech: ["Flutter", "Dart", "Android", "Material Design"],
+    status: "live",
+    link: "https://play.google.com/store/apps/details?id=com.mohammed.flutter_projects",
+    image: ramadanTrackerImg,
+    features: [
+      "Fasting tracker with streaks and makeup day management",
+      "Complete prayer tracking — Fard, Sunnah, and Nafl",
+      "Quran progress with page counts and surah navigation",
+      "Personalized daily goals and achievements",
+      "Beautiful dark mode with Islamic-themed design",
     ],
   },
 ];
