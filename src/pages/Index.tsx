@@ -19,8 +19,12 @@ import ahmadAvatar from "@/assets/ahmad-avatar.webp";
 import tjAvatar from "@/assets/tj-avatar.webp";
 import wahabAvatar from "@/assets/wahab-avatar.webp";
 
-// Lazy load HackerBackground for better performance
-const HackerBackground = lazy(() => import("@/components/HackerBackground").then(module => ({ default: module.HackerBackground })));
+// Lazy load HackerBackground for better performance, with fallback on load failure
+const HackerBackground = lazy(() =>
+  import("@/components/HackerBackground")
+    .then(module => ({ default: module.HackerBackground }))
+    .catch(() => ({ default: () => null as React.ReactElement | null }))
+);
 
 
 
