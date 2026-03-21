@@ -7,7 +7,8 @@ export const translations: TranslationMap = {
   "status.connection": { en: "// SECURE CONNECTION ESTABLISHED", ar: "// SECURE CONNECTION ESTABLISHED" },
 
   // ─── Hero ────────────────────────────────────────────────────
-  "hero.tagline": { en: "BUILD. INTEGRATE. SCALE.", ar: "نبني. ندمج. نوسّع." },
+  "hero.tagline": { en: "FROM IDEA TO REALITY.", ar: "من الفكرة إلى الواقع." },
+  "hero.freeConsultation": { en: "Free 30-min consultation — book now", ar: "استشارة مجانية 30 دقيقة — احجز الآن" },
   "hero.viewServices": { en: "[VIEW_SERVICES]", ar: "[الخدمات]" },
   "hero.contact": { en: "[INITIATE_CONTACT]", ar: "[تواصل معنا]" },
 
@@ -138,11 +139,25 @@ export const translations: TranslationMap = {
   "mission.noLimits": { en: "No Limits", ar: "بلا حدود" },
   "mission.tagline": { en: "// SCI-FI TODAY // REALITY TOMORROW //", ar: "// خيال علمي اليوم // واقع بكرة //" },
 
+  // ─── Calendly / Booking ────────────────────────────────────────
+  "calendly.title": { en: "[BOOK_A_CALL]", ar: "[احجز مكالمة]" },
+  "calendly.subtitle": {
+    en: "// Schedule a free 30-minute call to discuss your project.",
+    ar: "// احجز مكالمة مجانية لمدة 30 دقيقة لمناقشة مشروعك."
+  },
+  "calendly.free": { en: "100% FREE", ar: "مجانية 100%" },
+
+  // ─── Featured Work ─────────────────────────────────────────────
+  "featured.title": { en: "[FEATURED_WORK]", ar: "[أعمال مميزة]" },
+  "featured.subtitle": { en: "// Our best projects and client work", ar: "// أفضل مشاريعنا وأعمال عملائنا" },
+
   // ─── Vault ───────────────────────────────────────────────────
   "vault.title": { en: "[THE_VAULT]", ar: "[المشاريع]" },
   "vault.subtitle": { en: "// Active projects and experiments", ar: "// مشاريع وتجارب حالية" },
   "vault.software": { en: "// SOFTWARE", ar: "// سوفتوير" },
   "vault.hardware": { en: "// HARDWARE", ar: "// هاردوير" },
+  "vault.viewAll": { en: "[VIEW_ALL_PROJECTS]", ar: "[عرض جميع المشاريع]" },
+  "vault.hide": { en: "[HIDE_PROJECTS]", ar: "[إخفاء المشاريع]" },
 
   // ─── Client Work ─────────────────────────────────────────────
   "clients.title": { en: "[CLIENT_WORK]", ar: "[أعمال العملاء]" },

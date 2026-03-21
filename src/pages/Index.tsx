@@ -13,6 +13,8 @@ import { SERVICES, softwareProjects, clientProjects, hardwareProjects } from "@/
 import type { Project } from "@/data/projectsData";
 import { cn } from "@/lib/utils";
 import { useWebHaptics } from "web-haptics/react";
+import { CalendlySection } from "@/components/CalendlySection";
+import { FeaturedCarousel } from "@/components/FeaturedCarousel";
 
 import tamerAvatar from "@/assets/tamer-avatar.webp";
 import ahmadAvatar from "@/assets/ahmad-avatar.webp";
@@ -295,7 +297,16 @@ const Index = () => {
             </AnimatePresence>
           </div>
 
-          <div className="mb-12" />
+          {/* Free consultation badge */}
+          <div className="mb-8 flex justify-center">
+            <span
+              className="inline-flex items-center gap-2 text-[10px] md:text-xs font-tech text-cl-green uppercase tracking-widest border border-cl-green/30 px-4 py-1.5 cursor-pointer hover:bg-cl-green/10 transition-all"
+              onClick={() => document.getElementById('book')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              <span className="w-1.5 h-1.5 bg-cl-green rounded-full animate-pulse" />
+              {t("hero.freeConsultation")}
+            </span>
+          </div>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <Button
@@ -460,6 +471,9 @@ const Index = () => {
         </div>
       </section>
 
+      {/* BOOK A CALL */}
+      <CalendlySection />
+
       {/* WHO WE ARE — Mission + Approach */}
       <section id="mission" className="relative z-10 py-12 md:py-24 border-t-2 border-foreground/10 overflow-hidden">
         {/* Dark gradients only */}
@@ -584,6 +598,9 @@ const Index = () => {
         <div className="absolute top-1/4 left-0 w-96 h-96 bg-cl-green/4 rounded-full blur-[120px] pointer-events-none" />
         <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-cl-cyan/5 rounded-full blur-[100px] pointer-events-none" />
         <div className="container mx-auto px-4 relative">
+          {/* Featured Projects Carousel - hidden for now */}
+          {/* <FeaturedCarousel /> */}
+
           <div className="mb-12">
             <h2 className="text-4xl md:text-5xl font-black tracking-tight uppercase mb-4">
               {t("vault.title")}
@@ -760,15 +777,9 @@ const Index = () => {
               ))}
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* CLIENT DEPLOYMENTS */}
-      <section id="deployments" className="relative z-10 py-24 border-t-2 border-foreground/10 overflow-hidden">
-        {/* Dark gradients only */}
-        <div className="absolute top-1/3 right-0 w-[500px] h-[500px] bg-cl-magenta/10 rounded-full blur-[150px] pointer-events-none" />
-        <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-cl-amber/10 rounded-full blur-[120px] pointer-events-none" />
-        <div className="container mx-auto px-4 relative">
+          {/* CLIENT DEPLOYMENTS */}
+          <div className="mt-16">
           <div className="mb-12">
             <h2 className="text-4xl md:text-5xl font-black tracking-tight uppercase mb-4">
               {t("clients.title")}
@@ -877,6 +888,8 @@ const Index = () => {
               ))}
             </div>
           </div>
+          </div>
+
         </div>
       </section>
 
