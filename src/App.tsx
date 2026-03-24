@@ -27,6 +27,7 @@ const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const TermsOfService = lazy(() => import("./pages/TermsOfService"));
 const NaviiLanding = lazy(() => import("./pages/NaviiLanding"));
 const NaviiDemo = lazy(() => import("./pages/NaviiDemo"));
+const LogoExplorer = lazy(() => import("./pages/LogoExplorer"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const AnimatedRoutes = () => {
@@ -55,6 +56,7 @@ const AnimatedRoutes = () => {
         <Route path="/robotics/:slug" element={<PageTransition><RobotDetail /></PageTransition>} />
         <Route path="/privacy" element={<PageTransition><PrivacyPolicy /></PageTransition>} />
         <Route path="/terms" element={<PageTransition><TermsOfService /></PageTransition>} />
+        <Route path="/logo-explorer" element={<PageTransition><LogoExplorer /></PageTransition>} />
 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
       </Routes>
