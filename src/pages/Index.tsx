@@ -778,6 +778,36 @@ const Index = () => {
             </div>
           </div>
 
+          {/* CLIENT WORK */}
+          <div className="mt-16">
+          <div className="mb-12">
+            <h2 className="text-4xl md:text-5xl font-black tracking-tight uppercase mb-4">
+              {t("clientWork.title")}
+            </h2>
+            <p className="text-muted-foreground font-tech text-sm tracking-wide uppercase">
+              {t("clientWork.subtitle")}
+            </p>
+          </div>
+
+          <div className="mb-12">
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+              {clientProjects.filter(p => ["topwatches", "parfum-central", "be-healthy", "gcc-dental"].includes(p.slug)).map((project, idx) => (
+                <ProjectCard
+                  key={project.slug}
+                  title={project.title}
+                  description={project.description}
+                  tech={project.tech}
+                  status={project.status}
+                  link={project.link}
+                  image={project.image}
+                  index={idx}
+                  onCardClick={() => handleProjectClick(project)}
+                />
+              ))}
+            </div>
+          </div>
+          </div>
+
           {/* CONCEPT BUILDS */}
           <div className="mt-16">
           <div className="mb-12">
@@ -814,66 +844,16 @@ const Index = () => {
             </div>
           </div>
 
-          {/* E-COMMERCE & RETAIL */}
-          <div className="mb-12">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-8 h-px bg-cl-purple" />
-              <span className="text-sm font-tech uppercase tracking-widest text-cl-purple">
-                {isAr ? "// تجارة إلكترونية وتجزئة" : "// E-COMMERCE & RETAIL"}
-              </span>
-            </div>
-            <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-              {clientProjects.filter(p => ["topwatches", "parfum-central", "firstway", "be-healthy"].includes(p.slug)).map((project, idx) => (
-                <ProjectCard
-                  key={project.slug}
-                  title={project.title}
-                  description={project.description}
-                  tech={project.tech}
-                  status={project.status}
-                  link={project.link}
-                  image={project.image}
-                  index={idx}
-                  onCardClick={() => handleProjectClick(project)}
-                />
-              ))}
-            </div>
-          </div>
-
-          {/* AUTOMOTIVE & MOBILITY */}
+          {/* AUTOMOTIVE & RETAIL */}
           <div className="mb-12">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-8 h-px bg-cl-cyan" />
               <span className="text-sm font-tech uppercase tracking-widest text-cl-cyan">
-                {isAr ? "// سيارات وتنقل" : "// AUTOMOTIVE & MOBILITY"}
+                {isAr ? "// سيارات وتجزئة" : "// AUTOMOTIVE & RETAIL"}
               </span>
             </div>
             <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-              {clientProjects.filter(p => ["drive-for-less"].includes(p.slug)).map((project, idx) => (
-                <ProjectCard
-                  key={project.slug}
-                  title={project.title}
-                  description={project.description}
-                  tech={project.tech}
-                  status={project.status}
-                  link={project.link}
-                  image={project.image}
-                  index={idx}
-                  onCardClick={() => handleProjectClick(project)}
-                />
-              ))}
-            </div>
-          </div>
-
-          {/* HEALTHCARE */}
-          <div className="mb-12">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-8 h-px bg-cl-green" />
-              <span className="text-sm font-tech uppercase tracking-widest text-cl-green">
-                {isAr ? "// رعاية صحية" : "// HEALTHCARE"}
-              </span>
-            </div>
-            <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-              {clientProjects.filter(p => ["gcc-dental"].includes(p.slug)).map((project, idx) => (
+              {clientProjects.filter(p => ["drive-for-less", "firstway"].includes(p.slug)).map((project, idx) => (
                 <ProjectCard
                   key={project.slug}
                   title={project.title}

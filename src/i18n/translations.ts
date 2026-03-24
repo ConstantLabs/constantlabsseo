@@ -159,6 +159,13 @@ export const translations: TranslationMap = {
   "vault.viewAll": { en: "[VIEW_ALL_PROJECTS]", ar: "[عرض جميع المشاريع]" },
   "vault.hide": { en: "[HIDE_PROJECTS]", ar: "[إخفاء المشاريع]" },
 
+  // ─── Client Work ─────────────────────────────────────────────
+  "clientWork.title": { en: "[CLIENT_WORK]", ar: "[أعمال العملاء]" },
+  "clientWork.subtitle": {
+    en: "// Live projects delivered for real clients",
+    ar: "// مشاريع حقيقية نفّذناها لعملاء فعليين"
+  },
+
   // ─── Concept Builds ──────────────────────────────────────────
   "clients.title": { en: "[CONCEPT_BUILDS]", ar: "[نماذج تجريبية]" },
   "clients.subtitle": {
