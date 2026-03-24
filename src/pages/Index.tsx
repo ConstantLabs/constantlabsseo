@@ -298,14 +298,16 @@ const Index = () => {
           </div>
 
           {/* Free consultation badge */}
-          <div className="mb-8 flex justify-center">
-            <span
-              className="inline-flex items-center gap-2 text-[10px] md:text-xs font-tech text-cl-green uppercase tracking-widest border border-cl-green/30 px-4 py-1.5 cursor-pointer hover:bg-cl-green/10 transition-all"
+          <div className="mb-10 flex justify-center">
+            <motion.span
+              animate={{ scale: [1, 1.03, 1] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              className="inline-flex items-center gap-3 text-base md:text-xl font-tech font-bold text-cl-green uppercase tracking-widest border-2 border-cl-green bg-cl-green/10 px-8 md:px-10 py-4 md:py-5 cursor-pointer hover:bg-cl-green/20 transition-all shadow-[0_0_20px_rgba(34,197,94,0.15)] hover:shadow-[0_0_30px_rgba(34,197,94,0.3)]"
               onClick={() => document.getElementById('book')?.scrollIntoView({ behavior: 'smooth' })}
             >
-              <span className="w-1.5 h-1.5 bg-cl-green rounded-full animate-pulse" />
+              <span className="w-3 h-3 bg-cl-green rounded-full animate-pulse" />
               {t("hero.freeConsultation")}
-            </span>
+            </motion.span>
           </div>
 
           <div className="flex flex-col items-center gap-6">
