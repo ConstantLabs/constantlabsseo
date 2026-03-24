@@ -6,7 +6,7 @@ import { ProjectCard } from "@/components/ProjectCard";
 import { ProjectDetailModal } from "@/components/ProjectDetailModal";
 import { TeamMember } from "@/components/TeamMember";
 import { Button } from "@/components/ui/button";
-import { Search, Wrench, CheckCircle } from "lucide-react";
+import { Search, Wrench, CheckCircle, ChevronDown } from "lucide-react";
 import { SEO } from "@/components/SEO";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { SERVICES, softwareProjects, clientProjects, hardwareProjects } from "@/data/projectsData";
@@ -308,15 +308,7 @@ const Index = () => {
             </span>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <Button
-              size="lg"
-              className="border-2 border-cl-cyan bg-transparent text-cl-cyan hover:bg-cl-cyan hover:text-background font-tech tracking-wide transition-all focus:ring-2 focus:ring-cl-cyan focus:ring-offset-2 focus:ring-offset-background"
-              onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
-              aria-label="Navigate to services section"
-            >
-              {t("hero.viewServices")}
-            </Button>
+          <div className="flex flex-col items-center gap-6">
             <Button
               variant="ghost"
               size="lg"
@@ -326,6 +318,20 @@ const Index = () => {
             >
               {t("hero.contact")}
             </Button>
+
+            <button
+              onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
+              aria-label="Scroll to services"
+              className="mt-4 flex flex-col items-center gap-1 text-foreground/40 hover:text-cl-cyan transition-colors cursor-pointer"
+            >
+              <span className="text-[10px] font-tech uppercase tracking-widest">{t("hero.viewServices")}</span>
+              <motion.div
+                animate={{ y: [0, 8, 0] }}
+                transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+              >
+                <ChevronDown className="w-6 h-6" />
+              </motion.div>
+            </button>
           </div>
         </div>
       </section>
@@ -779,18 +785,18 @@ const Index = () => {
           </div>
 
           {/* CLIENT WORK */}
-          <div className="mt-16">
-          <div className="mb-12">
-            <h2 className="text-4xl md:text-5xl font-black tracking-tight uppercase mb-4">
+          <div className="mt-20 mb-16">
+          <div className="mb-14 border-l-4 border-cl-cyan pl-6">
+            <h2 className="text-5xl md:text-7xl font-black tracking-tight uppercase mb-4">
               {t("clientWork.title")}
             </h2>
-            <p className="text-muted-foreground font-tech text-sm tracking-wide uppercase">
+            <p className="text-muted-foreground font-tech text-base tracking-wide uppercase">
               {t("clientWork.subtitle")}
             </p>
           </div>
 
           <div className="mb-12">
-            <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
               {clientProjects.filter(p => ["topwatches", "parfum-central"].includes(p.slug)).map((project, idx) => (
                 <ProjectCard
                   key={project.slug}
