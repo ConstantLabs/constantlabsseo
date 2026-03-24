@@ -778,7 +778,7 @@ const Index = () => {
             </div>
           </div>
 
-          {/* CLIENT DEPLOYMENTS */}
+          {/* CONCEPT BUILDS */}
           <div className="mt-16">
           <div className="mb-12">
             <h2 className="text-4xl md:text-5xl font-black tracking-tight uppercase mb-4">

@@ -14,7 +14,7 @@ const WebsitesShowcase = () => {
     <div className="min-h-screen bg-background text-foreground relative overflow-hidden chromatic-page">
       <SEO
         title="Websites We Built"
-        description="Web development portfolio by Constant Labs, Dubai. Restaurant websites, hospitality brands, and digital experiences built for Dubai's finest businesses."
+        description="Concept builds by Constant Labs, Dubai. Restaurant websites, hospitality brands, and digital experiences showcasing our design and development capabilities."
         path="/services/websites"
       />
 

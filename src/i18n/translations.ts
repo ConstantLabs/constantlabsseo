@@ -159,11 +159,11 @@ export const translations: TranslationMap = {
   "vault.viewAll": { en: "[VIEW_ALL_PROJECTS]", ar: "[عرض جميع المشاريع]" },
   "vault.hide": { en: "[HIDE_PROJECTS]", ar: "[إخفاء المشاريع]" },
 
-  // ─── Client Work ─────────────────────────────────────────────
-  "clients.title": { en: "[CLIENT_WORK]", ar: "[أعمال العملاء]" },
+  // ─── Concept Builds ──────────────────────────────────────────
+  "clients.title": { en: "[CONCEPT_BUILDS]", ar: "[نماذج تجريبية]" },
   "clients.subtitle": {
-    en: "// Brands and digital experiences we put up for our clients",
-    ar: "// علامات تجارية وتجارب رقمية نفّذناها لعملائنا"
+    en: "// Concept builds showcasing our design and development capabilities",
+    ar: "// نماذج تجريبية تعرض قدراتنا في التصميم والتطوير"
   },
 
   // ─── Operators ───────────────────────────────────────────────
@@ -238,9 +238,9 @@ export const translations: TranslationMap = {
   "customAgents.how.title": { en: "HOW IT WORKS", ar: "كيف نشتغل" },
   "customAgents.cta": { en: "Discuss Your Agent Needs", ar: "كلّمنا عن مشروعك" },
 
-  "websites.title": { en: "[WEBSITES_WE_BUILT]", ar: "[مواقع بنيناها]" },
+  "websites.title": { en: "[CONCEPT_BUILDS]", ar: "[نماذج تجريبية]" },
   "websites.subtitle": {
-    en: "// Digital experiences crafted for Dubai's finest brands",
-    ar: "// تجارب رقمية لأفضل العلامات التجارية في دبي"
+    en: "// Concept builds demonstrating what we can deliver",
+    ar: "// نماذج تجريبية توضّح اللي نقدر نسوّيه"
   },
 };
