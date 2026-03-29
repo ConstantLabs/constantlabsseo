@@ -7,7 +7,7 @@ const WhatsAppButton = () => {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat on WhatsApp"
-      className="group fixed bottom-5 right-4 sm:bottom-6 sm:right-6 z-50 block"
+      className="group fixed bottom-5 right-4 sm:bottom-6 sm:right-6 z-50 block transition-transform duration-200 hover:scale-110 active:scale-95"
     >
       {/* Tooltip */}
       <span className="pointer-events-none absolute bottom-full right-0 mb-2 whitespace-nowrap rounded-md bg-slate-900 px-3 py-1.5 text-xs font-medium text-white opacity-0 shadow-lg transition-opacity duration-200 group-hover:opacity-100">
@@ -19,7 +19,7 @@ const WhatsAppButton = () => {
 
       {/* Button */}
       <div
-        className="relative flex h-14 w-14 items-center justify-center rounded-full shadow-xl transition-transform duration-200 group-hover:scale-110 active:scale-95"
+        className="relative flex h-14 w-14 items-center justify-center rounded-full shadow-xl"
         style={{ backgroundColor: "#25D366" }}
       >
         <FaWhatsapp className="h-8 w-8 text-white" aria-hidden="true" />
