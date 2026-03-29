@@ -61,11 +61,6 @@ export const TestimonialsSection = () => {
               className="bg-white rounded-[20px] p-8 shadow-lg flex flex-col"
             >
               <Quote className="w-8 h-8 text-[#7143E0]/15 mb-3" />
-              <div className="flex items-center gap-1 mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 text-[#FECD4D] fill-[#FECD4D]" />
-                ))}
-              </div>
               <blockquote className="text-base text-slate-700 leading-relaxed mb-6 flex-1">
                 "{t(`${key}.quote`)}"
               </blockquote>
