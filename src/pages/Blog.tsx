@@ -9,7 +9,7 @@ const Blog = () => {
   return (
     <div className="min-h-screen bg-white text-slate-900">
       <SEO
-        title="Blog — ConstantSEO"
+        title="Blog - ConstantSEO"
         description="SEO insights, AI trends, and digital marketing tips from the ConstantSEO team. Stay updated on the latest in AI-powered search optimization."
         path="/blog"
       />

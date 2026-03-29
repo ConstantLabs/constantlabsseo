@@ -11,7 +11,7 @@ const CaseStudies = () => {
   return (
     <div className="min-h-screen bg-white text-slate-900">
       <SEO
-        title="Case Studies — ConstantSEO"
+        title="Case Studies - ConstantSEO"
         description="See how ConstantSEO has helped businesses across the GCC achieve measurable SEO results with AI-powered optimization strategies."
         path="/case-studies"
       />

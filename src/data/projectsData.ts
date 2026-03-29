@@ -106,7 +106,7 @@ export const caseStudies: CaseStudy[] = [
     industry: "AI-Powered Build",
     market: "Any Market",
     metric: "50+ pages in 4 hours",
-    description: "Using agentic AI, we deploy entire SEO-optimized websites with 50+ pages in hours — including service pages, location-specific content, schema markup, internal linking, and full technical optimization. What traditional agencies take months to deliver, our technology completes before lunch.",
+    description: "Using agentic AI, we deploy entire SEO-optimized websites with 50+ pages in hours - including service pages, location-specific content, schema markup, internal linking, and full technical optimization. What traditional agencies take months to deliver, our technology completes before lunch.",
     tags: ["Agentic AI", "Rapid Deployment", "Technical SEO", "Automation"],
   },
   {
@@ -128,7 +128,7 @@ export const caseStudies: CaseStudy[] = [
     industry: "Arabic SEO",
     market: "UAE · KSA · Oman",
     metric: "Arabic + English",
-    description: "Most agencies in the region only do English SEO. We deliver native Arabic content with proper RTL optimization, Arabic keyword research, and culturally relevant content — alongside English. Targeting UAE, Saudi Arabia, and Oman with content that actually resonates with local audiences.",
+    description: "Most agencies in the region only do English SEO. We deliver native Arabic content with proper RTL optimization, Arabic keyword research, and culturally relevant content - alongside English. Targeting UAE, Saudi Arabia, and Oman with content that actually resonates with local audiences.",
     tags: ["Arabic SEO", "RTL", "GCC Markets", "Bilingual Content"],
   },
 ];
@@ -242,17 +242,17 @@ export const faqItems: FAQItem[] = [
   {
     id: "faq-2",
     question: "How is AI SEO different from traditional SEO?",
-    answer: "Traditional SEO focuses on keyword rankings and backlinks for Google. AI SEO goes further — it optimizes your content for how large language models (LLMs) read, understand, and recommend businesses. This includes structured data optimization, authority building across trusted sources, and ensuring your brand appears in AI-generated answers.",
+    answer: "Traditional SEO focuses on keyword rankings and backlinks for Google. AI SEO goes further - it optimizes your content for how large language models (LLMs) read, understand, and recommend businesses. This includes structured data optimization, authority building across trusted sources, and ensuring your brand appears in AI-generated answers.",
   },
   {
     id: "faq-3",
     question: "Do you work with Arabic content?",
-    answer: "Absolutely. Arabic content strategy is one of our core strengths. We have native Arabic speakers who create culturally authentic, SEO-optimized content for GCC audiences. This is not machine-translated content — it is written by people who understand Gulf culture, dialects, and consumer behavior.",
+    answer: "Absolutely. Arabic content strategy is one of our core strengths. We have native Arabic speakers who create culturally authentic, SEO-optimized content for GCC audiences. This is not machine-translated content - it is written by people who understand Gulf culture, dialects, and consumer behavior.",
   },
   {
     id: "faq-4",
     question: "How long does it take to see SEO results?",
-    answer: "Most clients see measurable improvements within 60-90 days, with significant results by month 4-6. SEO is a compounding investment — the longer you invest, the stronger the returns. AI search optimization can show faster results since the AI recommendation landscape is less competitive than traditional Google rankings.",
+    answer: "Most clients see measurable improvements within 60-90 days, with significant results by month 4-6. SEO is a compounding investment - the longer you invest, the stronger the returns. AI search optimization can show faster results since the AI recommendation landscape is less competitive than traditional Google rankings.",
   },
   {
     id: "faq-5",
@@ -267,22 +267,22 @@ export const faqItems: FAQItem[] = [
   {
     id: "faq-7",
     question: "Can you build our website too?",
-    answer: "Yes. We build SEO-first websites using agentic AI, delivering 50+ optimized pages in days rather than months. Every site we build is designed for search performance from the ground up — fast load times, clean architecture, proper schema markup, and conversion-optimized design.",
+    answer: "Yes. We build SEO-first websites using agentic AI, delivering 50+ optimized pages in days rather than months. Every site we build is designed for search performance from the ground up - fast load times, clean architecture, proper schema markup, and conversion-optimized design.",
   },
   {
     id: "faq-8",
     question: "How do you report on progress?",
-    answer: "Every client gets access to a real-time dashboard tracking keyword rankings, organic traffic, AI search mentions, backlink growth, and conversion metrics. Depending on your plan, you also receive weekly or monthly strategy reports with clear insights and next steps. No vanity metrics — only data that matters to your revenue.",
+    answer: "Every client gets access to a real-time dashboard tracking keyword rankings, organic traffic, AI search mentions, backlink growth, and conversion metrics. Depending on your plan, you also receive weekly or monthly strategy reports with clear insights and next steps. No vanity metrics - only data that matters to your revenue.",
   },
   {
     id: "faq-9",
     question: "Do you require long-term contracts?",
-    answer: "We offer month-to-month agreements with a recommended minimum of 6 months for meaningful SEO results. SEO is a long-term strategy, and we are transparent about that. However, you are never locked in — our 98% client retention rate speaks for itself.",
+    answer: "We offer month-to-month agreements with a recommended minimum of 6 months for meaningful SEO results. SEO is a long-term strategy, and we are transparent about that. However, you are never locked in - our 98% client retention rate speaks for itself.",
   },
   {
     id: "faq-10",
     question: "What makes ConstantSEO different from other SEO agencies?",
-    answer: "Three things: First, we are AI-native — we do not just do SEO, we optimize for the AI search revolution happening right now. Second, we are built for the GCC — native Arabic speakers, regional expertise, and an office in Dubai. Third, we use agentic AI internally to move faster and deliver more than agencies ten times our size.",
+    answer: "Three things: First, we are AI-native - we do not just do SEO, we optimize for the AI search revolution happening right now. Second, we are built for the GCC - native Arabic speakers, regional expertise, and an office in Dubai. Third, we use agentic AI internally to move faster and deliver more than agencies ten times our size.",
   },
 ];
 

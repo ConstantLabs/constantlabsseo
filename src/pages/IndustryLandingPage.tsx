@@ -277,7 +277,7 @@ export const IndustryLandingPage = ({ industry }: IndustryLandingPageProps) => {
               Common Questions
             </p>
             <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900">
-              {industry.industry} SEO — FAQs
+              {industry.industry} SEO - FAQs
             </h2>
           </div>
 

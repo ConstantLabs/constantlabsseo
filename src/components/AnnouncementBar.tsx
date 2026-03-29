@@ -22,7 +22,7 @@ export const AnnouncementBar = () => {
           <div className="relative max-w-7xl mx-auto px-4 py-2.5 flex items-center justify-center gap-2 text-sm font-medium">
             <Sparkles className="w-4 h-4 shrink-0 animate-pulse text-amber-200" />
             <span>{t("announcement.text")}</span>
-            <span className="hidden sm:inline">—</span>
+            <span className="hidden sm:inline">-</span>
             <a
               href="#services"
               className="hidden sm:inline underline underline-offset-2 hover:text-amber-200 transition-colors font-semibold"

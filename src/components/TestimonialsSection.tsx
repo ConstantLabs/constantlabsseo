@@ -1,5 +1,5 @@
 import { useLanguage } from "@/i18n/LanguageContext";
-import { Star, Quote } from "lucide-react";
+import { Quote } from "lucide-react";
 
 const testimonialKeys = ["testimonial1", "testimonial2", "testimonial3"];
 
@@ -28,11 +28,6 @@ export const TestimonialsSection = () => {
                 style={{ width: "82vw", maxWidth: "340px" }}
               >
                 <Quote className="w-8 h-8 text-[#7143E0]/15 mb-3" />
-                <div className="flex items-center gap-1 mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 text-[#FECD4D] fill-[#FECD4D]" />
-                  ))}
-                </div>
                 <blockquote className="text-sm text-slate-700 leading-relaxed mb-6 select-none">
                   "{t(`${key}.quote`)}"
                 </blockquote>
@@ -43,7 +38,7 @@ export const TestimonialsSection = () => {
                   <div>
                     <div className="font-bold text-slate-900 text-sm" dir="ltr">{t(`${key}.name`)}</div>
                     <div className="text-xs text-slate-500" dir="ltr">
-                      {t(`${key}.title`)} — {t(`${key}.company`)}
+                      {t(`${key}.title`)} - {t(`${key}.company`)}
                     </div>
                   </div>
                 </div>
@@ -81,7 +76,7 @@ export const TestimonialsSection = () => {
                 <div>
                   <div className="font-bold text-slate-900 text-sm" dir="ltr">{t(`${key}.name`)}</div>
                   <div className="text-xs text-slate-500" dir="ltr">
-                    {t(`${key}.title`)} — {t(`${key}.company`)}
+                    {t(`${key}.title`)} - {t(`${key}.company`)}
                   </div>
                 </div>
               </div>

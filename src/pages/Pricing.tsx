@@ -13,7 +13,7 @@ const Pricing = () => {
   return (
     <div className="min-h-screen bg-white text-slate-900">
       <SEO
-        title="Pricing — ConstantSEO"
+        title="Pricing - ConstantSEO"
         description="Transparent AI SEO pricing for businesses of all sizes. Choose from our flexible plans designed for the GCC market. Pricing in AED."
         path="/pricing"
       />

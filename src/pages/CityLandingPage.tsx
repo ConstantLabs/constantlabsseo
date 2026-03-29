@@ -296,7 +296,7 @@ export const CityLandingPage = ({ city }: CityLandingPageProps) => {
               Common Questions
             </p>
             <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">
-              {city.city} SEO — FAQ
+              {city.city} SEO - FAQ
             </h2>
             <p className="text-slate-500 max-w-xl mx-auto">
               Answers to the most common questions from {city.city} businesses considering SEO.

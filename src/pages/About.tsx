@@ -8,7 +8,7 @@ import { Zap, Globe, Users, Target, Code, BarChart3 } from "lucide-react";
 
 const values = [
   { icon: Zap, titleKey: "AI-First", descKey: "Every strategy starts with AI. We use agentic AI to do in hours what traditional agencies take months to deliver." },
-  { icon: Globe, titleKey: "Arabic-Native", descKey: "Not an afterthought — Arabic SEO is core to what we do. Native speakers, RTL expertise, GCC market understanding." },
+  { icon: Globe, titleKey: "Arabic-Native", descKey: "Not an afterthought - Arabic SEO is core to what we do. Native speakers, RTL expertise, GCC market understanding." },
   { icon: Target, titleKey: "Results-Obsessed", descKey: "We don't sell reports. We deliver rankings, traffic, and revenue. If it doesn't move the needle, we don't do it." },
   { icon: Code, titleKey: "Tech-Forward", descKey: "Built by engineers, not just marketers. We understand the technical foundations that make SEO actually work." },
   { icon: Users, titleKey: "GCC-Focused", descKey: "Dubai-based, serving the entire Gulf. We understand the market, the culture, and what GCC businesses need to grow." },
@@ -21,8 +21,8 @@ const About = () => {
   return (
     <div className="min-h-screen bg-white text-slate-900">
       <SEO
-        title="About Us — ConstantSEO"
-        description="Learn about ConstantSEO by Constant Labs — Dubai's AI-powered SEO agency. We combine agentic AI with deep SEO expertise to deliver results across the GCC market."
+        title="About Us - ConstantSEO"
+        description="Learn about ConstantSEO by Constant Labs - Dubai's AI-powered SEO agency. We combine agentic AI with deep SEO expertise to deliver results across the GCC market."
         path="/about"
       />
       <Navbar />
@@ -45,7 +45,7 @@ const About = () => {
           <p
             className="mt-6 text-lg text-gray-200 max-w-2xl mx-auto"
           >
-            ConstantSEO is a Dubai-based SEO agency that uses agentic AI to build, optimize, and dominate search — across Google, ChatGPT, Gemini, and every platform that matters.
+            ConstantSEO is a Dubai-based SEO agency that uses agentic AI to build, optimize, and dominate search - across Google, ChatGPT, Gemini, and every platform that matters.
           </p>
         </div>
       </section>
@@ -62,7 +62,7 @@ const About = () => {
               We saw an opportunity: use the same agentic AI technology that's transforming software development to revolutionize SEO. Build 50+ optimized pages in hours instead of months. Run comprehensive audits instantly. Optimize for both Google AND AI platforms like ChatGPT and Gemini simultaneously.
             </p>
             <p>
-              ConstantSEO was built by Constant Labs — a Dubai tech company with deep roots in AI, robotics, and software development. We're not another marketing agency that added "AI" to their name. We're engineers who built the AI-first approach from the ground up.
+              ConstantSEO was built by Constant Labs - a Dubai tech company with deep roots in AI, robotics, and software development. We're not another marketing agency that added "AI" to their name. We're engineers who built the AI-first approach from the ground up.
             </p>
           </div>
         </div>

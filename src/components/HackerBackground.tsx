@@ -40,7 +40,7 @@ export const HackerBackground = () => {
     const init = () => {
       resize();
       particles.length = 0;
-      // Scale particle count to screen — ~150 on 1080p, fewer on mobile
+      // Scale particle count to screen - ~150 on 1080p, fewer on mobile
       const count = Math.floor((w * h) / 12000);
       for (let i = 0; i < count; i++) {
         particles.push({

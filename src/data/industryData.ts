@@ -18,9 +18,9 @@ export const industries: IndustryData[] = [
     slug: "real-estate-seo-dubai",
     industry: "Real Estate",
     location: "Dubai & UAE",
-    metaTitle: "Real Estate SEO Dubai — Rank for Property Searches in UAE",
+    metaTitle: "Real Estate SEO Dubai - Rank for Property Searches in UAE",
     metaDescription:
-      "ConstantSEO helps Dubai real estate agencies, developers, and brokers rank on Google for high-intent property searches. Neighborhood pages, off-plan project SEO, Arabic investor content — all done by AI-assisted experts.",
+      "ConstantSEO helps Dubai real estate agencies, developers, and brokers rank on Google for high-intent property searches. Neighborhood pages, off-plan project SEO, Arabic investor content - all done by AI-assisted experts.",
     heroHeadline: "Real Estate SEO That Puts Your Properties in Front of Buyers",
     heroSub:
       "Emaar, DAMAC, and Nakheel dominate the first page of Google. We build the technical foundation, content depth, and local authority to get your real estate brand ranking for the property searches that actually convert.",
@@ -38,7 +38,7 @@ export const industries: IndustryData[] = [
       {
         title: "Arabic-Speaking Investors Are Being Ignored",
         body:
-          "A large share of Dubai's property buyers communicate and search in Arabic — from Saudi Arabia, Egypt, and locally. Most real estate websites have no Arabic pages, no RTL UX, and zero keyword research in Arabic. This is an enormous untapped traffic pool your competitors haven't claimed yet.",
+          "A large share of Dubai's property buyers communicate and search in Arabic - from Saudi Arabia, Egypt, and locally. Most real estate websites have no Arabic pages, no RTL UX, and zero keyword research in Arabic. This is an enormous untapped traffic pool your competitors haven't claimed yet.",
       },
     ],
     ourApproach: [
@@ -52,13 +52,13 @@ export const industries: IndustryData[] = [
         step: "02",
         title: "Off-Plan Project SEO",
         body:
-          "Off-plan searches ('Emaar Palmiera launch', 'off-plan villas Dubai Hills 2025') are high intent and underserved. We create dedicated project pages with launch timelines, payment plan details, developer credentials, and FAQ schema — capturing buyers at the earliest stage of their decision.",
+          "Off-plan searches ('Emaar Palmiera launch', 'off-plan villas Dubai Hills 2025') are high intent and underserved. We create dedicated project pages with launch timelines, payment plan details, developer credentials, and FAQ schema - capturing buyers at the earliest stage of their decision.",
       },
       {
         step: "03",
         title: "Arabic Investor Content",
         body:
-          "We produce fully translated, culturally adapted Arabic pages targeting GCC investor keyword sets. This includes Arabic property guides, market reports, and neighborhood overviews — all with proper hreflang tags, RTL layout signals, and Arabic schema to rank in Google.ae Arabic SERPs.",
+          "We produce fully translated, culturally adapted Arabic pages targeting GCC investor keyword sets. This includes Arabic property guides, market reports, and neighborhood overviews - all with proper hreflang tags, RTL layout signals, and Arabic schema to rank in Google.ae Arabic SERPs.",
       },
       {
         step: "04",
@@ -91,11 +91,11 @@ export const industries: IndustryData[] = [
       },
       {
         q: "Can you help us rank against Bayut and Property Finder?",
-        a: "We don't try to outrank aggregators on generic terms — that's a losing battle. Instead, we focus on your unique brand advantage: specific developments you list exclusively, hyperlocal community guides, off-plan project pages, and agent-specific search queries where aggregators have thin content.",
+        a: "We don't try to outrank aggregators on generic terms - that's a losing battle. Instead, we focus on your unique brand advantage: specific developments you list exclusively, hyperlocal community guides, off-plan project pages, and agent-specific search queries where aggregators have thin content.",
       },
       {
         q: "Do you handle Arabic SEO for real estate?",
-        a: "Yes. We conduct separate Arabic keyword research, write original Arabic content (not Google Translate), implement hreflang correctly, and test RTL rendering. Arabic SEO is a distinct service, not an afterthought — and it's one of the highest-ROI opportunities in Dubai real estate right now.",
+        a: "Yes. We conduct separate Arabic keyword research, write original Arabic content (not Google Translate), implement hreflang correctly, and test RTL rendering. Arabic SEO is a distinct service, not an afterthought - and it's one of the highest-ROI opportunities in Dubai real estate right now.",
       },
       {
         q: "What makes real estate SEO in Dubai different from other markets?",
@@ -108,17 +108,17 @@ export const industries: IndustryData[] = [
     slug: "restaurant-seo-dubai",
     industry: "Restaurants & F&B",
     location: "Dubai & UAE",
-    metaTitle: "Restaurant SEO Dubai — Rank for Brunch, Cuisine & Location Searches",
+    metaTitle: "Restaurant SEO Dubai - Rank for Brunch, Cuisine & Location Searches",
     metaDescription:
-      "ConstantSEO helps Dubai restaurants, cafes, and F&B groups rank on Google for high-intent dining searches. Google Maps optimization, menu schema, cuisine + neighborhood pages — proven F&B SEO for the UAE market.",
+      "ConstantSEO helps Dubai restaurants, cafes, and F&B groups rank on Google for high-intent dining searches. Google Maps optimization, menu schema, cuisine + neighborhood pages - proven F&B SEO for the UAE market.",
     heroHeadline: "Restaurant SEO That Fills Tables, Not Just Feeds Algorithms",
     heroSub:
-      "Your restaurant is buried under Zomato, TripAdvisor, and Time Out Dubai. We optimize your Google presence so hungry diners searching for 'brunch Dubai' or 'Italian restaurant Marina' find you first — and walk through your door.",
+      "Your restaurant is buried under Zomato, TripAdvisor, and Time Out Dubai. We optimize your Google presence so hungry diners searching for 'brunch Dubai' or 'Italian restaurant Marina' find you first - and walk through your door.",
     painPoints: [
       {
         title: "Zomato and TripAdvisor Own the First Page",
         body:
-          "For almost every restaurant keyword in Dubai, aggregator websites take 5–6 of the top 10 results. Your restaurant's own website ranks on page 3 or doesn't rank at all. This means you pay Zomato commission every time a customer books — even one who Googled your name. Owning your SEO stops this leakage.",
+          "For almost every restaurant keyword in Dubai, aggregator websites take 5–6 of the top 10 results. Your restaurant's own website ranks on page 3 or doesn't rank at all. This means you pay Zomato commission every time a customer books - even one who Googled your name. Owning your SEO stops this leakage.",
       },
       {
         title: "Zero Google Maps Visibility",
@@ -142,7 +142,7 @@ export const industries: IndustryData[] = [
         step: "02",
         title: "Menu & Restaurant Schema Markup",
         body:
-          "We implement Restaurant, Menu, MenuSection, and MenuItem structured data on your website. This tells Google exactly what you serve, at what price, and where — making your listing eligible for rich results (star ratings, price range, menu items) directly in search results before anyone clicks.",
+          "We implement Restaurant, Menu, MenuSection, and MenuItem structured data on your website. This tells Google exactly what you serve, at what price, and where - making your listing eligible for rich results (star ratings, price range, menu items) directly in search results before anyone clicks.",
       },
       {
         step: "03",
@@ -154,7 +154,7 @@ export const industries: IndustryData[] = [
         step: "04",
         title: "Review Generation & Reputation Strategy",
         body:
-          "Reviews are a direct ranking signal for local SEO. We build a systematic post-visit review request flow — WhatsApp follow-ups, QR codes on receipts, NFC tags on tables — targeting Google reviews specifically. More recent, high-quality reviews push you up in the local pack rankings.",
+          "Reviews are a direct ranking signal for local SEO. We build a systematic post-visit review request flow - WhatsApp follow-ups, QR codes on receipts, NFC tags on tables - targeting Google reviews specifically. More recent, high-quality reviews push you up in the local pack rankings.",
       },
     ],
     targetKeywords: [
@@ -177,15 +177,15 @@ export const industries: IndustryData[] = [
     faq: [
       {
         q: "How does SEO help my restaurant when most bookings come from Instagram?",
-        a: "Instagram builds brand awareness; Google captures purchase intent. Someone who sees your restaurant on Instagram will Google you before booking — and if you don't rank well or your GBP looks sparse, you lose the conversion. SEO also captures entirely new customers who've never seen your social media: people actively searching for a restaurant type right now.",
+        a: "Instagram builds brand awareness; Google captures purchase intent. Someone who sees your restaurant on Instagram will Google you before booking - and if you don't rank well or your GBP looks sparse, you lose the conversion. SEO also captures entirely new customers who've never seen your social media: people actively searching for a restaurant type right now.",
       },
       {
-        q: "Can you help us rank for 'best brunch Dubai' — that's extremely competitive?",
+        q: "Can you help us rank for 'best brunch Dubai' - that's extremely competitive?",
         a: "We target a portfolio of keywords at different competition levels. 'Best brunch Dubai' is hard, but 'Friday brunch JBR views', 'outdoor brunch Dubai Creek Harbour', and 'bottomless brunch Dubai under 300 AED' are much more achievable and often convert better because they're more specific. We build rankings from the bottom up.",
       },
       {
         q: "How important is Google Maps vs. organic search for restaurants?",
-        a: "For restaurants, Google Maps (local pack) is often more important than traditional organic results — especially for 'near me' and location + cuisine queries. We optimize both in parallel because they reinforce each other: your website's SEO authority strengthens your Maps ranking and vice versa.",
+        a: "For restaurants, Google Maps (local pack) is often more important than traditional organic results - especially for 'near me' and location + cuisine queries. We optimize both in parallel because they reinforce each other: your website's SEO authority strengthens your Maps ranking and vice versa.",
       },
       {
         q: "We have multiple branches. Can you do SEO for each location?",
@@ -198,17 +198,17 @@ export const industries: IndustryData[] = [
     slug: "legal-seo-uae",
     industry: "Legal & Law Firms",
     location: "UAE",
-    metaTitle: "Legal SEO UAE — SEO for Law Firms & Lawyers in Dubai & Abu Dhabi",
+    metaTitle: "Legal SEO UAE - SEO for Law Firms & Lawyers in Dubai & Abu Dhabi",
     metaDescription:
-      "ConstantSEO helps UAE law firms and lawyers rank on Google for specific legal queries — employment disputes, company formation, visa issues, and more. Bilingual EN+AR legal content built within UAE Bar guidelines.",
-    heroHeadline: "Legal SEO That Brings Clients to Your Firm — Not Your Competitors",
+      "ConstantSEO helps UAE law firms and lawyers rank on Google for specific legal queries - employment disputes, company formation, visa issues, and more. Bilingual EN+AR legal content built within UAE Bar guidelines.",
+    heroHeadline: "Legal SEO That Brings Clients to Your Firm - Not Your Competitors",
     heroSub:
       "In the UAE, legal clients search Google before they call a lawyer. If your firm doesn't appear for 'employment lawyer Dubai' or 'company formation UAE', your competitors are taking clients that should be yours. We fix that.",
     painPoints: [
       {
         title: "Legal Advertising Restrictions Create a Content Gap",
         body:
-          "UAE legal advertising guidelines are restrictive — no guarantees, no testimonials in certain formats, strict rules on claims. Most law firm websites default to vague, generic pages that say nothing useful. Google rewards depth and usefulness; thin 'We handle all legal matters' pages rank at the bottom while informative guides rank at the top.",
+          "UAE legal advertising guidelines are restrictive - no guarantees, no testimonials in certain formats, strict rules on claims. Most law firm websites default to vague, generic pages that say nothing useful. Google rewards depth and usefulness; thin 'We handle all legal matters' pages rank at the bottom while informative guides rank at the top.",
       },
       {
         title: "Too Broad, No Specificity",
@@ -218,7 +218,7 @@ export const industries: IndustryData[] = [
       {
         title: "Not Visible for the Searches That Matter",
         body:
-          "Labour disputes, visa cancellations, cheque bounce cases, company formation, DIFC litigation, family law — each of these is a distinct search market with its own keyword set and user intent. Firms that treat their website as a digital brochure miss all of it. We've seen law firm blogs with legal guides outrank established firms on high-value queries in under six months.",
+          "Labour disputes, visa cancellations, cheque bounce cases, company formation, DIFC litigation, family law - each of these is a distinct search market with its own keyword set and user intent. Firms that treat their website as a digital brochure miss all of it. We've seen law firm blogs with legal guides outrank established firms on high-value queries in under six months.",
       },
     ],
     ourApproach: [
@@ -226,7 +226,7 @@ export const industries: IndustryData[] = [
         step: "01",
         title: "Practice Area Landing Pages",
         body:
-          "We build a dedicated, SEO-optimized page for every practice area: Employment Law, Company Formation, Real Estate Law, Criminal Defence, Family Law, DIFC/ADGM Litigation, IP, and Immigration. Each page targets the specific keyword clusters clients use, includes FAQs, and links to supporting guide content — creating a content cluster that builds topical authority.",
+          "We build a dedicated, SEO-optimized page for every practice area: Employment Law, Company Formation, Real Estate Law, Criminal Defence, Family Law, DIFC/ADGM Litigation, IP, and Immigration. Each page targets the specific keyword clusters clients use, includes FAQs, and links to supporting guide content - creating a content cluster that builds topical authority.",
       },
       {
         step: "02",
@@ -238,7 +238,7 @@ export const industries: IndustryData[] = [
         step: "03",
         title: "Bilingual EN + AR Legal Pages",
         body:
-          "A substantial portion of legal clients in the UAE search in Arabic — especially for labour disputes, family matters, and criminal cases. We translate and locally adapt your practice area pages and guides into Arabic, implementing correct hreflang, RTL layout signals, and Arabic-specific keyword targeting so you capture both language markets.",
+          "A substantial portion of legal clients in the UAE search in Arabic - especially for labour disputes, family matters, and criminal cases. We translate and locally adapt your practice area pages and guides into Arabic, implementing correct hreflang, RTL layout signals, and Arabic-specific keyword targeting so you capture both language markets.",
       },
       {
         step: "04",
@@ -267,7 +267,7 @@ export const industries: IndustryData[] = [
     faq: [
       {
         q: "Is SEO for law firms different from other industries?",
-        a: "Yes, significantly. Google applies heightened scrutiny to legal content under its YMYL (Your Money or Your Life) guidelines, meaning E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness) signals are critical. Pages must demonstrate real legal expertise — attorney author bios, credentials, up-to-date legal references — not just keyword density. We build content that satisfies both Google's quality standards and UAE legal advertising rules.",
+        a: "Yes, significantly. Google applies heightened scrutiny to legal content under its YMYL (Your Money or Your Life) guidelines, meaning E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness) signals are critical. Pages must demonstrate real legal expertise - attorney author bios, credentials, up-to-date legal references - not just keyword density. We build content that satisfies both Google's quality standards and UAE legal advertising rules.",
       },
       {
         q: "Can you help a boutique firm compete with large international law firms?",
@@ -279,7 +279,7 @@ export const industries: IndustryData[] = [
       },
       {
         q: "How long before a law firm sees SEO results in UAE?",
-        a: "Long-tail practice area queries (e.g., 'employment visa cancellation lawyer Dubai') typically rank within 3–5 months. More competitive terms like 'lawyer Dubai' can take 12+ months. We set realistic expectations from the start and track rankings, organic traffic, and — most importantly — enquiry volume so you see the business impact.",
+        a: "Long-tail practice area queries (e.g., 'employment visa cancellation lawyer Dubai') typically rank within 3–5 months. More competitive terms like 'lawyer Dubai' can take 12+ months. We set realistic expectations from the start and track rankings, organic traffic, and - most importantly - enquiry volume so you see the business impact.",
       },
     ],
   },
@@ -288,7 +288,7 @@ export const industries: IndustryData[] = [
     slug: "healthcare-seo-uae",
     industry: "Healthcare & Medical",
     location: "UAE",
-    metaTitle: "Healthcare SEO UAE — SEO for Medical Clinics & Specialists in Dubai",
+    metaTitle: "Healthcare SEO UAE - SEO for Medical Clinics & Specialists in Dubai",
     metaDescription:
       "ConstantSEO helps UAE medical clinics, specialist doctors, and healthcare groups rank on Google for patient searches. Specialty service pages, Arabic medical content, Google Maps optimization, and review strategy.",
     heroHeadline: "Healthcare SEO That Connects Patients to the Right Specialist",
@@ -298,12 +298,12 @@ export const industries: IndustryData[] = [
       {
         title: "Specialist Clinics Are Invisible in Search",
         body:
-          "A patient needing an orthopedic surgeon types 'orthopedic surgeon Dubai JLT' into Google. If your clinic doesn't have a specialty-specific page with the right structure, keywords, and local signals, you won't appear — even if you're the best in the area. Most clinic websites have one generic 'Our Services' page covering everything, which ranks for nothing specific.",
+          "A patient needing an orthopedic surgeon types 'orthopedic surgeon Dubai JLT' into Google. If your clinic doesn't have a specialty-specific page with the right structure, keywords, and local signals, you won't appear - even if you're the best in the area. Most clinic websites have one generic 'Our Services' page covering everything, which ranks for nothing specific.",
       },
       {
         title: "Missing 'Near Me' and Location Searches",
         body:
-          "Over 60% of medical searches on Google include a location or 'near me' qualifier. These are the highest-converting searches — the patient is ready to book. Yet most clinics in the UAE have incomplete Google Business Profiles, no location-specific pages, and no local citation strategy, meaning they're invisible for the searches that would fill their appointment books.",
+          "Over 60% of medical searches on Google include a location or 'near me' qualifier. These are the highest-converting searches - the patient is ready to book. Yet most clinics in the UAE have incomplete Google Business Profiles, no location-specific pages, and no local citation strategy, meaning they're invisible for the searches that would fill their appointment books.",
       },
       {
         title: "No Arabic Healthcare Content",
@@ -316,13 +316,13 @@ export const industries: IndustryData[] = [
         step: "01",
         title: "Specialty-Specific Service Pages",
         body:
-          "We build individual optimized pages for every medical specialty and condition you treat: Dermatology, Dentistry, Pediatrics, Orthopedics, Gynecology, Plastic Surgery, General Practice, and more. Each page targets the specific queries patients use — not just specialty names but condition-level searches: 'acne treatment Dubai', 'teeth whitening cost Abu Dhabi', 'knee replacement surgeon UAE'.",
+          "We build individual optimized pages for every medical specialty and condition you treat: Dermatology, Dentistry, Pediatrics, Orthopedics, Gynecology, Plastic Surgery, General Practice, and more. Each page targets the specific queries patients use - not just specialty names but condition-level searches: 'acne treatment Dubai', 'teeth whitening cost Abu Dhabi', 'knee replacement surgeon UAE'.",
       },
       {
         step: "02",
         title: "Location Pages per Clinic & Area",
         body:
-          "If you have multiple branches — or even one clinic in a specific neighbourhood — we create location-specific pages targeting 'Clinic in [Area]' keyword patterns. We also optimize for the surrounding neighborhoods to capture patients who search by proximity. Each location page gets its own structured data (MedicalClinic, Physician schemas) and GBP linkage.",
+          "If you have multiple branches - or even one clinic in a specific neighbourhood - we create location-specific pages targeting 'Clinic in [Area]' keyword patterns. We also optimize for the surrounding neighborhoods to capture patients who search by proximity. Each location page gets its own structured data (MedicalClinic, Physician schemas) and GBP linkage.",
       },
       {
         step: "03",
@@ -357,11 +357,11 @@ export const industries: IndustryData[] = [
     faq: [
       {
         q: "What SEO regulations apply to healthcare marketing in UAE?",
-        a: "UAE healthcare advertising is regulated by the Ministry of Health and Prevention (MoHAP) and DHA in Dubai. Rules prohibit before/after photos in certain contexts, false claims, and misleading statistics. Our content strategy is built around factual, educational information that ranks well precisely because it's genuinely useful — we never produce content that puts your DHA license at risk.",
+        a: "UAE healthcare advertising is regulated by the Ministry of Health and Prevention (MoHAP) and DHA in Dubai. Rules prohibit before/after photos in certain contexts, false claims, and misleading statistics. Our content strategy is built around factual, educational information that ranks well precisely because it's genuinely useful - we never produce content that puts your DHA license at risk.",
       },
       {
         q: "We're a multi-specialty clinic. Should we have a page per specialty or one services page?",
-        a: "Definitely one page per specialty — and ideally one page per major condition you treat within each specialty. Google cannot rank a single 'services' page for 20 different medical specialties. Dedicated pages with focused content, appropriate schema markup, and internal linking to related conditions perform vastly better and allow each specialty to build its own search authority.",
+        a: "Definitely one page per specialty - and ideally one page per major condition you treat within each specialty. Google cannot rank a single 'services' page for 20 different medical specialties. Dedicated pages with focused content, appropriate schema markup, and internal linking to related conditions perform vastly better and allow each specialty to build its own search authority.",
       },
       {
         q: "How do reviews affect our clinic's Google ranking?",

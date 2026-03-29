@@ -17,7 +17,7 @@ const Services = () => {
   return (
     <div className="min-h-screen bg-white text-slate-900">
       <SEO
-        title="AI SEO Services — ConstantSEO"
+        title="AI SEO Services - ConstantSEO"
         description="Explore ConstantSEO's comprehensive AI-powered SEO services by Constant Labs. From technical audits to Arabic content strategy, we optimize your search presence across the GCC."
         path="/services"
       />
