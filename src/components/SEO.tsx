@@ -7,17 +7,17 @@ interface SEOProps {
   image?: string;
 }
 
-const BASE_URL = 'https://constantlabs.ai';
+const BASE_URL = 'https://seo.constantlabs.ai';
 const DEFAULT_IMAGE = `${BASE_URL}/og-image.png`;
 
 export const SEO = ({
   title,
-  description = 'Constant Labs — Dubai-based technology studio. We build AI-powered applications, web platforms, robotics, and smart systems for businesses across the UAE and the Emirates.',
+  description = 'ConstantSEO by Constant Labs — Dubai\'s leading AI-powered SEO agency. We deploy intelligent AI agents to automate and optimize your search engine rankings across the GCC market.',
   path = '/',
   image = DEFAULT_IMAGE,
 }: SEOProps) => {
   const url = `${BASE_URL}${path}`;
-  const fullTitle = path === '/' ? 'Constant Labs — Dubai Tech Studio | AI, Web & Hardware Solutions in UAE' : `${title} | Constant Labs — Dubai`;
+  const fullTitle = path === '/' ? 'ConstantSEO | AI-Powered SEO by Constant Labs' : `${title} | ConstantSEO`;
 
   return (
     <Helmet>
