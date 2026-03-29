@@ -43,7 +43,14 @@ export const HeroSection = () => {
   const [domain, setDomain] = useState("");
 
   return (
-    <section className="relative min-h-[100dvh] flex flex-col bg-[#2B124C] pt-20 pb-0">
+    <section className="relative min-h-[100dvh] flex flex-col bg-[#2B124C] pt-20 pb-0 overflow-hidden">
+      {/* Mountain silhouette — right side background */}
+      <img
+        src="/mountain.svg"
+        aria-hidden="true"
+        className="absolute right-0 bottom-0 h-[60%] w-auto pointer-events-none select-none"
+        style={{ zIndex: 0, opacity: 0.6 }}
+      />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 w-full flex-1 flex flex-col justify-center">
         <div className="text-center max-w-4xl mx-auto">
@@ -54,14 +61,15 @@ export const HeroSection = () => {
             <span className="block text-white">
               {t("hero.headline").split(".")[0]}.
             </span>
-            <span className="block">
+            <span className="block mt-1">
               <span
                 className="text-[#FECD4D]"
                 style={{
-                  backgroundColor: "#7143E0",
-                  padding: "2px 10px 4px",
-                  boxDecorationBreak: "clone",
+                  display: "inline",
+                  background: "linear-gradient(to top, #7143E0 50%, transparent 50%)",
+                  padding: "0 0.4em",
                   WebkitBoxDecorationBreak: "clone",
+                  boxDecorationBreak: "clone",
                 }}
               >
                 {t("hero.headline").split(".").slice(1).join(".").trim() || "Powered by AI."}
