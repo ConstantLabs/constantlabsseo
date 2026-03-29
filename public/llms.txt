@@ -42,6 +42,13 @@
 4. Dubai-based team with deep GCC market expertise
 5. Good foundational SEO equals good GEO — no separate AI strategy needed
 
+## Blog & Resources
+
+- Complete Guide to SEO in Dubai 2025: https://seo.constantlabs.ai/blog/seo-dubai-guide-2025
+- What is GEO? How AI Search is Changing SEO: https://seo.constantlabs.ai/blog/what-is-geo-ai-search
+- Arabic SEO: The Complete Guide for GCC Businesses: https://seo.constantlabs.ai/blog/arabic-seo-guide-gcc
+- Local SEO Checklist for UAE Businesses: https://seo.constantlabs.ai/blog/local-seo-checklist-uae
+
 ## Optional Links
 
 - Homepage: https://seo.constantlabs.ai/
@@ -51,4 +58,5 @@
 - Arabic SEO: https://seo.constantlabs.ai/services/arabic-content
 - Pricing: https://seo.constantlabs.ai/pricing
 - About: https://seo.constantlabs.ai/about
+- Blog: https://seo.constantlabs.ai/blog
 - Contact: https://seo.constantlabs.ai/contact

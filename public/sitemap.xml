@@ -179,6 +179,32 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Blog Posts -->
+  <url>
+    <loc>https://seo.constantlabs.ai/blog/seo-dubai-guide-2025</loc>
+    <lastmod>2025-03-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://seo.constantlabs.ai/blog/what-is-geo-ai-search</loc>
+    <lastmod>2025-03-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://seo.constantlabs.ai/blog/arabic-seo-guide-gcc</loc>
+    <lastmod>2025-03-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://seo.constantlabs.ai/blog/local-seo-checklist-uae</loc>
+    <lastmod>2025-03-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Legal -->
   <url>
     <loc>https://seo.constantlabs.ai/privacy</loc>

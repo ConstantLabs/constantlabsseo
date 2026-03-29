@@ -39,6 +39,7 @@ export const ProjectDetailModal = ({ project, open, onOpenChange }: ProjectDetai
             <img
               src={project.image}
               alt={project.title}
+              loading="lazy"
               className={`h-full w-full object-cover ${project.imagePosition === "top" ? "object-top" : project.imagePosition === "bottom" ? "object-bottom" : "object-center"}`}
             />
             <div className="absolute inset-0 bg-[linear-gradient(to_bottom,transparent_50%,rgba(0,0,0,0.5)_50%)] bg-[length:100%_4px] opacity-20 pointer-events-none" />
