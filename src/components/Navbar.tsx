@@ -32,7 +32,7 @@ export const Navbar = () => {
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
         scrolled
           ? "bg-white shadow-md"
-          : "bg-[#2B124C]"
+          : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6">

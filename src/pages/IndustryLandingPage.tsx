@@ -5,6 +5,7 @@ import { SEO } from "@/components/SEO";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { CTASection } from "@/components/CTASection";
+import { useLanguage } from "@/i18n/LanguageContext";
 import type { IndustryData } from "@/data/industryData";
 import {
   AlertTriangle,
@@ -49,9 +50,19 @@ function FAQItem({ q, a }: { q: string; a: string }) {
 }
 
 export const IndustryLandingPage = ({ industry }: IndustryLandingPageProps) => {
+  const { t, isAr } = useLanguage();
+
+  const industryName = isAr ? (industry.industryAr ?? industry.industry) : industry.industry;
+  const headline = isAr ? (industry.heroHeadlineAr ?? industry.heroHeadline) : industry.heroHeadline;
+  const sub = isAr ? (industry.heroSubAr ?? industry.heroSub) : industry.heroSub;
+  const painPoints = isAr ? (industry.painPointsAr ?? industry.painPoints) : industry.painPoints;
+  const ourApproach = isAr ? (industry.ourApproachAr ?? industry.ourApproach) : industry.ourApproach;
+  const results = isAr ? (industry.resultsAr ?? industry.results) : industry.results;
+  const faqItems = isAr ? (industry.faqAr ?? industry.faq) : industry.faq;
+
   const breadcrumbs = [
-    { name: "Services", path: "/services" },
-    { name: `${industry.industry} SEO`, path: `/${industry.slug}` },
+    { name: t("industryPage.breadcrumb.services"), path: "/services" },
+    { name: `${industryName} SEO`, path: `/${industry.slug}` },
   ];
 
   const faqSchema = {
@@ -82,15 +93,13 @@ export const IndustryLandingPage = ({ industry }: IndustryLandingPageProps) => {
   };
 
   return (
-    <div className="min-h-screen bg-white text-slate-900">
-      {/* SEO meta tags */}
+    <div className="min-h-screen bg-white text-slate-900" dir={isAr ? "rtl" : "ltr"}>
       <SEO
         title={industry.metaTitle}
         description={industry.metaDescription}
         path={`/${industry.slug}`}
       />
 
-      {/* Additional structured data */}
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
@@ -98,9 +107,8 @@ export const IndustryLandingPage = ({ industry }: IndustryLandingPageProps) => {
 
       <Navbar />
 
-      {/* ── Hero ───────────────────────────────────────────────── */}
+      {/* Hero */}
       <section className="relative pt-32 pb-24 bg-gradient-to-b from-[#2B124C] via-[#1e0d38] to-[#1a0a30] text-white overflow-hidden">
-        {/* Subtle grid background */}
         <div
           className="absolute inset-0 opacity-[0.04] pointer-events-none"
           style={{
@@ -109,34 +117,33 @@ export const IndustryLandingPage = ({ industry }: IndustryLandingPageProps) => {
             backgroundSize: "60px 60px",
           }}
         />
-        {/* Glow */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-[#7143E0]/15 rounded-full blur-[120px] pointer-events-none" />
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
           {/* Breadcrumb */}
-          <nav className="flex items-center justify-center gap-2 text-xs text-gray-400 mb-8">
+          <nav className="flex items-center justify-center gap-2 text-xs text-gray-400 mb-8" dir="ltr">
             <Link to="/" className="hover:text-white transition-colors">
-              Home
+              {t("nav.home")}
             </Link>
             <span>/</span>
             <Link to="/services" className="hover:text-white transition-colors">
-              Services
+              {t("industryPage.breadcrumb.services")}
             </Link>
             <span>/</span>
-            <span className="text-gray-300">{industry.industry} SEO</span>
+            <span className="text-gray-300">{industryName} SEO</span>
           </nav>
 
           {/* Industry badge */}
           <span className="inline-flex items-center gap-2 bg-[#7143E0]/20 border border-[#7143E0]/40 text-cyan-300 text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
-            {industry.industry} · {industry.location}
+            {industryName} · {industry.location}
           </span>
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-white mb-6">
-            {industry.heroHeadline}
+            {headline}
           </h1>
 
           <p className="text-lg text-gray-300 max-w-2xl mx-auto mb-10 leading-relaxed">
-            {industry.heroSub}
+            {sub}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -144,7 +151,7 @@ export const IndustryLandingPage = ({ industry }: IndustryLandingPageProps) => {
               to="/contact"
               className="inline-flex items-center gap-2 bg-[#FECD4D] hover:bg-[#ffe066] text-[#2B124C] font-bold text-sm px-8 py-4 rounded-full uppercase tracking-wide shadow-lg shadow-[#FECD4D]/25 hover:shadow-[#FECD4D]/40 transition-all"
             >
-              Get Free SEO Audit
+              {t("industryPage.cta.audit")}
               <ArrowRight className="w-4 h-4" />
             </Link>
             <a
@@ -153,17 +160,17 @@ export const IndustryLandingPage = ({ industry }: IndustryLandingPageProps) => {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 border border-white/20 hover:border-white/40 text-white text-sm font-semibold px-8 py-4 rounded-full transition-all hover:bg-white/5"
             >
-              WhatsApp Us
+              {t("industryPage.cta.whatsapp")}
             </a>
           </div>
         </div>
       </section>
 
-      {/* ── Results Stats Bar ───────────────────────────────────── */}
+      {/* Results Stats Bar */}
       <section className="bg-[#7143E0] py-10">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center text-white">
-            {industry.results.map((result) => (
+            {results.map((result) => (
               <div key={result.label} className="flex flex-col gap-1">
                 <span className="text-4xl font-extrabold text-[#FECD4D]">{result.metric}</span>
                 <span className="text-sm text-purple-200 leading-snug max-w-[200px] mx-auto">
@@ -175,20 +182,20 @@ export const IndustryLandingPage = ({ industry }: IndustryLandingPageProps) => {
         </div>
       </section>
 
-      {/* ── Pain Points ─────────────────────────────────────────── */}
+      {/* Pain Points */}
       <section className="py-20 bg-slate-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-14">
             <p className="text-sm font-semibold text-[#7143E0] uppercase tracking-wider mb-3">
-              Why This Is Hard
+              {t("industryPage.pain.label")}
             </p>
             <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900">
-              The SEO Challenges in {industry.industry}
+              {t("industryPage.pain.titlePrefix")} {industryName}
             </h2>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
-            {industry.painPoints.map((point, i) => {
+            {painPoints.map((point, i) => {
               const Icon = PAIN_ICONS[i] ?? AlertTriangle;
               return (
                 <div
@@ -207,20 +214,20 @@ export const IndustryLandingPage = ({ industry }: IndustryLandingPageProps) => {
         </div>
       </section>
 
-      {/* ── Our Approach ─────────────────────────────────────────── */}
+      {/* Our Approach */}
       <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-14">
             <p className="text-sm font-semibold text-[#7143E0] uppercase tracking-wider mb-3">
-              Our Process
+              {t("industryPage.approach.label")}
             </p>
             <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900">
-              How We Fix It
+              {t("industryPage.approach.title")}
             </h2>
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">
-            {industry.ourApproach.map((step) => (
+            {ourApproach.map((step) => (
               <div
                 key={step.step}
                 className="flex gap-5 p-7 rounded-2xl border border-slate-200 hover:border-[#7143E0]/30 hover:shadow-md transition-all"
@@ -240,18 +247,18 @@ export const IndustryLandingPage = ({ industry }: IndustryLandingPageProps) => {
         </div>
       </section>
 
-      {/* ── Target Keywords ──────────────────────────────────────── */}
+      {/* Target Keywords */}
       <section className="py-20 bg-[#2B124C]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-14">
             <p className="text-sm font-semibold text-cyan-400 uppercase tracking-wider mb-3">
-              Keyword Intelligence
+              {t("industryPage.keywords.label")}
             </p>
             <h2 className="text-3xl md:text-4xl font-extrabold text-white">
-              Keywords We Help You Rank For
+              {t("industryPage.keywords.title")}
             </h2>
             <p className="mt-4 text-gray-300 max-w-xl mx-auto text-[15px]">
-              These are real, high-intent search queries your target customers use. Ranking for these means ranking for revenue.
+              {t("industryPage.keywords.subtitle")}
             </p>
           </div>
 
@@ -260,6 +267,7 @@ export const IndustryLandingPage = ({ industry }: IndustryLandingPageProps) => {
               <div
                 key={kw}
                 className="flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl px-5 py-3.5 hover:bg-white/10 transition-colors"
+                dir="ltr"
               >
                 <CheckCircle2 className="w-5 h-5 text-[#20B2AA] shrink-0" />
                 <span className="text-white text-[15px] font-medium">{kw}</span>
@@ -269,20 +277,20 @@ export const IndustryLandingPage = ({ industry }: IndustryLandingPageProps) => {
         </div>
       </section>
 
-      {/* ── FAQ ─────────────────────────────────────────────────── */}
+      {/* FAQ */}
       <section className="py-20 bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-14">
             <p className="text-sm font-semibold text-[#7143E0] uppercase tracking-wider mb-3">
-              Common Questions
+              {t("industryPage.faq.label")}
             </p>
             <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900">
-              {industry.industry} SEO - FAQs
+              {industryName} {t("industryPage.faq.titleSuffix")}
             </h2>
           </div>
 
           <div className="space-y-3">
-            {industry.faq.map((item) => (
+            {faqItems.map((item) => (
               <FAQItem key={item.q} q={item.q} a={item.a} />
             ))}
           </div>

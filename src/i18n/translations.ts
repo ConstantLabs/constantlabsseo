@@ -28,7 +28,7 @@ export const translations: TranslationMap = {
   "hero.headline": { en: "Rank Higher. Get More Customers.", ar: "تصدّر أعلى. اجذب عملاء أكثر." },
   "hero.subtitle": {
     en: "AI-powered SEO that fills your phone with calls and your business with buyers - on Google, ChatGPT, Gemini, and everywhere your customers search.",
-    ar: "سيو بالذكاء الاصطناعي يملأ هاتفك بالمكالمات وعملك بالعملاء - على Google وChatGPT وGemini وكل مكان يبحث فيه عملاؤك."
+    ar: "SEO بالذكاء الاصطناعي يملأ هاتفك بالمكالمات وعملك بالعملاء - على Google وChatGPT وGemini وكل مكان يبحث فيه عملاؤك."
   },
   "hero.inputPlaceholder": { en: "Enter your website...", ar: "أدخل موقعك الإلكتروني..." },
   "hero.cta": { en: "Get Free Audit", ar: "احصل على تدقيق مجاني" },
@@ -40,7 +40,7 @@ export const translations: TranslationMap = {
   "hero.stat3.number": { en: "24/7", ar: "24/7" },
   "hero.stat3.label": { en: "AI Monitoring", ar: "مراقبة ذكية" },
   "hero.stat4.number": { en: "EN+AR", ar: "EN+عربي" },
-  "hero.stat4.label": { en: "Bilingual SEO", ar: "سيو ثنائي اللغة" },
+  "hero.stat4.label": { en: "Bilingual SEO", ar: "SEO ثنائي اللغة" },
 
   // ─── Hero (legacy keys still used by Index.tsx) ─────────────
   "hero.tagline": { en: "Rank Higher. Get More Customers.", ar: "تصدّر أعلى. اجذب عملاء أكثر." },
@@ -63,7 +63,7 @@ export const translations: TranslationMap = {
   "problem.point1": { en: "Competitors are stealing your customers on Google every day", ar: "المنافسون يسرقون عملاءك على جوجل كل يوم" },
   "problem.point2": { en: "AI tools like ChatGPT recommend your competitors, not you", ar: "أدوات الذكاء الاصطناعي كـ ChatGPT توصي بمنافسيك وليس بك" },
   "problem.point3": { en: "You're paying for ads but organic traffic brings zero calls", ar: "تدفع على الإعلانات لكن البحث العضوي لا يجلب مكالمات" },
-  "problem.point4": { en: "Old SEO agencies take 12 months and deliver no real revenue", ar: "وكالات السيو القديمة تأخذ 12 شهراً ولا تحقق إيرادات حقيقية" },
+  "problem.point4": { en: "Old SEO agencies take 12 months and deliver no real revenue", ar: "وكالات SEO القديمة تأخذ 12 شهراً ولا تحقق إيرادات حقيقية" },
 
   "solution.label": { en: "Our Solution", ar: "الحل" },
   "solution.title": { en: "AI-Powered SEO That Brings Real Customers", ar: "SEO بالذكاء الاصطناعي يجلب عملاء حقيقيين" },
@@ -122,7 +122,7 @@ export const translations: TranslationMap = {
   },
   "service.AI_SEARCH_OPTIMIZATION.oneLiner": { en: "Get recommended by AI", ar: "خلّ الذكاء الاصطناعي يوصي بك" },
 
-  "service.TECHNICAL_SEO.title": { en: "Technical SEO Mastery", ar: "إتقان السيو التقني" },
+  "service.TECHNICAL_SEO.title": { en: "Technical SEO Mastery", ar: "إتقان SEO التقني" },
   "service.TECHNICAL_SEO.description": {
     en: "Lightning-fast, technically flawless websites that search engines love. From Core Web Vitals to schema markup, we handle every technical detail.",
     ar: "مواقع سريعة وخالية من الأخطاء التقنية تعشقها محركات البحث. من Core Web Vitals إلى البيانات المنظمة، نتولى كل التفاصيل."
@@ -150,7 +150,7 @@ export const translations: TranslationMap = {
   },
   "service.AI_LINK_BUILDING.oneLiner": { en: "Authority search engines trust", ar: "سلطة تثق بها محركات البحث" },
 
-  "service.SEO_AUDITS.title": { en: "SEO Audits & Analytics", ar: "تدقيق السيو والتحليلات" },
+  "service.SEO_AUDITS.title": { en: "SEO Audits & Analytics", ar: "تدقيق SEO والتحليلات" },
   "service.SEO_AUDITS.description": {
     en: "Comprehensive AI-driven audits that find and fix every issue. Real-time dashboards tracking your performance across Google AND AI platforms.",
     ar: "تدقيق شامل بالذكاء الاصطناعي يكتشف ويصلح كل مشكلة. لوحات بيانات لحظية تتابع أداءك في جوجل ومنصات الذكاء الاصطناعي."
@@ -160,9 +160,9 @@ export const translations: TranslationMap = {
   "service.WEBSITE_DEVELOPMENT.title": { en: "Website Development", ar: "تطوير المواقع" },
   "service.WEBSITE_DEVELOPMENT.description": {
     en: "SEO-first websites built with agentic AI in days, not months. 50+ optimized pages deployed before your competitors finish their first draft.",
-    ar: "مواقع مبنية بأولوية السيو باستخدام الذكاء الاصطناعي في أيام وليس أشهر. 50+ صفحة مُحسّنة جاهزة قبل ما ينتهي منافسك من مسودته الأولى."
+    ar: "مواقع مبنية بأولوية SEO باستخدام الذكاء الاصطناعي في أيام وليس أشهر. 50+ صفحة مُحسّنة جاهزة قبل ما ينتهي منافسك من مسودته الأولى."
   },
-  "service.WEBSITE_DEVELOPMENT.oneLiner": { en: "SEO-first sites, built fast", ar: "مواقع سيو أولاً، بسرعة فائقة" },
+  "service.WEBSITE_DEVELOPMENT.oneLiner": { en: "SEO-first sites, built fast", ar: "مواقع SEO أولاً، بسرعة فائقة" },
 
   "service.CRO.title": { en: "Conversion Rate Optimization", ar: "تحسين معدل التحويل" },
   "service.CRO.description": {
@@ -236,7 +236,7 @@ export const translations: TranslationMap = {
   "mission.hardware": { en: "AI-Native", ar: "ذكاء اصطناعي" },
   "mission.software": { en: "Arabic-First", ar: "عربي أولاً" },
   "mission.noLimits": { en: "Results-Driven", ar: "نتائج ملموسة" },
-  "mission.tagline": { en: "// AI-POWERED SEO // FOR THE GCC MARKET //", ar: "// سيو بالذكاء الاصطناعي // لسوق الخليج //" },
+  "mission.tagline": { en: "// AI-POWERED SEO // FOR THE GCC MARKET //", ar: "// SEO بالذكاء الاصطناعي // لسوق الخليج //" },
 
   // ─── Case Studies (new keys) ────────────────────────────────
   "caseStudies.label": { en: "What We Do", ar: "ماذا نقدم" },
@@ -322,11 +322,11 @@ export const translations: TranslationMap = {
   },
   "testimonial2.name": { en: "The AI Advantage", ar: "ميزة الذكاء الاصطناعي" },
   "testimonial2.title": { en: "Our Technology", ar: "تقنيتنا" },
-  "testimonial2.company": { en: "Agentic AI SEO", ar: "سيو بالذكاء الاصطناعي" },
+  "testimonial2.company": { en: "Agentic AI SEO", ar: "SEO بالذكاء الاصطناعي" },
 
   "testimonial3.quote": {
     en: "Good foundational SEO equals good GEO. There's no secret strategy for appearing in ChatGPT or Gemini - it's about having a technically flawless site with the right content and authority. That's exactly what our AI builds, automatically.",
-    ar: "السيو الأساسي الجيد يعني GEO جيد. لا توجد استراتيجية سرية للظهور في ChatGPT أو Gemini - الأمر يتعلق بموقع تقني مثالي بالمحتوى الصحيح والسلطة. وهذا بالضبط ما يبنيه الذكاء الاصطناعي تلقائياً."
+    ar: "SEO الأساسي الجيد يعني GEO جيد. لا توجد استراتيجية سرية للظهور في ChatGPT أو Gemini - الأمر يتعلق بموقع تقني مثالي بالمحتوى الصحيح والسلطة. وهذا بالضبط ما يبنيه الذكاء الاصطناعي تلقائياً."
   },
   "testimonial3.name": { en: "Industry Insight", ar: "رؤية الصناعة" },
   "testimonial3.title": { en: "SEO + GEO Strategy", ar: "استراتيجية SEO + GEO" },
@@ -376,13 +376,13 @@ export const translations: TranslationMap = {
   "faq7.q": { en: "Do you require long-term contracts?", ar: "هل تتطلبون عقوداً طويلة الأمد؟" },
   "faq7.a": {
     en: "We offer month-to-month agreements with a recommended minimum of 6 months for meaningful SEO results. SEO is a long-term strategy, and we are transparent about that. You are never locked in - we earn your business every month.",
-    ar: "نقدم اتفاقيات شهرية مع توصية بحد أدنى 6 أشهر لنتائج SEO ذات معنى. السيو استراتيجية طويلة المدى ونحن صريحون بهذا. لست مقيداً أبداً - نكسب ثقتك كل شهر."
+    ar: "نقدم اتفاقيات شهرية مع توصية بحد أدنى 6 أشهر لنتائج SEO ذات معنى. SEO استراتيجية طويلة المدى ونحن صريحون بهذا. لست مقيداً أبداً - نكسب ثقتك كل شهر."
   },
 
   "faq8.q": { en: "Can you build our website too?", ar: "هل يمكنكم بناء موقعنا أيضاً؟" },
   "faq8.a": {
     en: "Yes. We build SEO-first websites using agentic AI, delivering 50+ optimized pages in days rather than months. Every site we build is designed for search performance from the ground up.",
-    ar: "نعم. نبني مواقع بأولوية السيو باستخدام الذكاء الاصطناعي، وننشر 50+ صفحة محسّنة في أيام وليس أشهر. كل موقع نبنيه مصمم لأداء البحث من الأساس."
+    ar: "نعم. نبني مواقع بأولوية SEO باستخدام الذكاء الاصطناعي، وننشر 50+ صفحة محسّنة في أيام وليس أشهر. كل موقع نبنيه مصمم لأداء البحث من الأساس."
   },
 
   // ─── CTA Section ────────────────────────────────────────────
@@ -432,7 +432,7 @@ export const translations: TranslationMap = {
   "clients.title": { en: "[OUR_WORK]", ar: "[أعمالنا]" },
   "clients.subtitle": {
     en: "// Case studies showcasing our SEO and AI search results",
-    ar: "// دراسات حالة تعرض نتائجنا في السيو والبحث الذكي"
+    ar: "// دراسات حالة تعرض نتائجنا في SEO والبحث الذكي"
   },
 
   // ─── Operators / Team (used by Index.tsx) ───────────────────
@@ -460,7 +460,7 @@ export const translations: TranslationMap = {
 
   // ─── Footer (used by Index.tsx and new pages) ───────────────
   "footer.copyright": { en: "CONSTANTSEO \u00A9 2026 \u2014 A Constant Labs Product \u2014 DUBAI, UAE", ar: "CONSTANTSEO \u00A9 2026 \u2014 منتج من Constant Labs \u2014 دبي، الإمارات" },
-  "footer.tagline": { en: "// AI-POWERED SEO // FOR THE GCC MARKET //", ar: "// سيو بالذكاء الاصطناعي // لسوق الخليج //" },
+  "footer.tagline": { en: "// AI-POWERED SEO // FOR THE GCC MARKET //", ar: "// SEO بالذكاء الاصطناعي // لسوق الخليج //" },
   "footer.privacy": { en: "Privacy Policy", ar: "سياسة الخصوصية" },
   "footer.terms": { en: "Terms of Service", ar: "الشروط والأحكام" },
   "footer.brand": { en: "ConstantSEO", ar: "ConstantSEO" },
@@ -532,6 +532,57 @@ export const translations: TranslationMap = {
   "websites.title": { en: "[OUR_SERVICES]", ar: "[خدماتنا]" },
   "websites.subtitle": {
     en: "// Comprehensive AI-powered SEO solutions for GCC businesses",
-    ar: "// حلول سيو شاملة بالذكاء الاصطناعي لشركات الخليج"
+    ar: "// حلول SEO شاملة بالذكاء الاصطناعي لشركات الخليج"
   },
+
+  // ─── City Landing Pages ──────────────────────────────────────
+  "cityPage.breadcrumb.services": { en: "SEO Services", ar: "خدمات SEO" },
+  "cityPage.cta.audit": { en: "Get Free Audit", ar: "احصل على تدقيق مجاني" },
+  "cityPage.cta.services": { en: "View Services", ar: "عرض الخدمات" },
+  "cityPage.opportunity.label": { en: "Local Opportunity", ar: "الفرصة المحلية" },
+  "cityPage.why.titlePrefix": { en: "Why SEO Matters in", ar: "لماذا يهم SEO في" },
+  "cityPage.industries.label": { en: "Sector Expertise", ar: "خبرة القطاعات" },
+  "cityPage.industries.titlePrefix": { en: "Industries We Serve in", ar: "القطاعات التي نخدمها في" },
+  "cityPage.industries.subtitle": {
+    en: "From established sectors to Vision-era growth industries, we have deep SEO expertise across the key verticals.",
+    ar: "من القطاعات الراسخة إلى صناعات النمو في عهد الرؤية، لدينا خبرة SEO عميقة في أبرز المجالات."
+  },
+  "cityPage.keywords.label": { en: "Search Visibility", ar: "ظهور البحث" },
+  "cityPage.keywords.title": { en: "Keywords We Help You Rank For", ar: "الكلمات المفتاحية التي نساعدك على التصدر" },
+  "cityPage.keywords.subtitle": {
+    en: "Real, high-intent search terms your customers are already typing. We build your authority to rank for each one.",
+    ar: "كلمات بحث حقيقية ذات نية عالية يكتبها عملاؤك فعلاً. نبني سلطتك للتصدر على كل واحدة منها."
+  },
+  "cityPage.local.label": { en: "Local Intelligence", ar: "الذكاء المحلي" },
+  "cityPage.local.titlePrefix": { en: "What Makes", ar: "ما يجعل" },
+  "cityPage.local.titleSuffix": { en: "SEO Unique", ar: "SEO فريداً" },
+  "cityPage.local.subtitle": {
+    en: "Generic SEO agencies apply cookie-cutter tactics. We build strategies around the specific commercial realities of your market.",
+    ar: "وكالات SEO العادية تطبق أساليب جاهزة. نحن نبني استراتيجيات حول الواقع التجاري المحدد لسوقك."
+  },
+  "cityPage.faq.label": { en: "Common Questions", ar: "أسئلة شائعة" },
+  "cityPage.faq.titleSuffix": { en: "SEO - FAQ", ar: "SEO - الأسئلة الشائعة" },
+  "cityPage.faq.subtitlePrefix": { en: "Answers to the most common questions from", ar: "إجابات على أكثر الأسئلة شيوعاً من شركات" },
+  "cityPage.faq.subtitleSuffix": { en: "businesses considering SEO.", ar: "التي تفكر في SEO." },
+  "cityPage.trust.clients": { en: "GCC Clients", ar: "عملاء الخليج" },
+  "cityPage.trust.visits": { en: "Organic Visits Driven", ar: "زيارات عضوية" },
+  "cityPage.trust.keywords": { en: "Keywords Ranked", ar: "كلمات مفتاحية متصدرة" },
+  "cityPage.trust.markets": { en: "GCC Markets", ar: "أسواق الخليج" },
+
+  // ─── Industry Landing Pages ──────────────────────────────────
+  "industryPage.breadcrumb.services": { en: "Services", ar: "الخدمات" },
+  "industryPage.cta.audit": { en: "Get Free SEO Audit", ar: "احصل على تدقيق SEO مجاني" },
+  "industryPage.cta.whatsapp": { en: "WhatsApp Us", ar: "تواصل عبر واتساب" },
+  "industryPage.pain.label": { en: "Why This Is Hard", ar: "لماذا هذا صعب" },
+  "industryPage.pain.titlePrefix": { en: "The SEO Challenges in", ar: "تحديات SEO في قطاع" },
+  "industryPage.approach.label": { en: "Our Process", ar: "طريقتنا" },
+  "industryPage.approach.title": { en: "How We Fix It", ar: "كيف نحل المشكلة" },
+  "industryPage.keywords.label": { en: "Keyword Intelligence", ar: "ذكاء الكلمات المفتاحية" },
+  "industryPage.keywords.title": { en: "Keywords We Help You Rank For", ar: "الكلمات المفتاحية التي نساعدك على التصدر" },
+  "industryPage.keywords.subtitle": {
+    en: "Real, high-intent search queries your target customers use. Ranking for these means ranking for revenue.",
+    ar: "استعلامات بحث حقيقية ذات نية عالية يستخدمها عملاؤك المستهدفون. التصدر عليها يعني التصدر للإيرادات."
+  },
+  "industryPage.faq.label": { en: "Common Questions", ar: "أسئلة شائعة" },
+  "industryPage.faq.titleSuffix": { en: "SEO - FAQs", ar: "SEO - الأسئلة الشائعة" },
 };

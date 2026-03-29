@@ -6,6 +6,7 @@ import { LanguageProvider } from "./i18n/LanguageContext";
 import { PageTransition } from "./components/PageTransition";
 import { PageLoader } from "./components/PageLoader";
 import { WhatsAppButton } from "./components/WhatsAppButton";
+import { CookieConsent } from "./components/CookieConsent";
 import { cities } from "./data/cityData";
 import { industries } from "./data/industryData";
 
@@ -85,6 +86,7 @@ const App = () => (
           <AnimatedRoutes />
         </Suspense>
         <WhatsAppButton />
+        <CookieConsent />
       </BrowserRouter>
     </LanguageProvider>
   </HelmetProvider>
