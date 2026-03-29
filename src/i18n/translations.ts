@@ -252,7 +252,7 @@ export const translations: TranslationMap = {
   "case2.title": { en: "Customers Recommend You on AI", ar: "العملاء يجدونك على أدوات الذكاء الاصطناعي" },
   "case2.industry": { en: "Next-Gen SEO", ar: "SEO الجيل القادم" },
   "case2.market": { en: "GCC Region", ar: "منطقة الخليج" },
-  "case2.desc": { en: "When customers ask ChatGPT, Gemini, or Perplexity \"who's the best AC repair company in Dubai?\", your business is the recommended answer - not your competitor's", ar: "عندما يسأل العملاء ChatGPT أو Gemini \"من أفضل شركة تصليح تكييف في دبي؟\"، عملك هو الجواب الموصى به - وليس منافسك" },
+  "case2.desc": { en: "When customers ask ChatGPT, Gemini, or Perplexity \"who's the best AC repair company in Mirdif?\", your business is the recommended answer - not your competitor's", ar: "عندما يسأل العملاء ChatGPT أو Gemini \"من أفضل شركة تصليح تكييف في مردف؟\"، عملك هو الجواب الموصى به - وليس منافسك" },
 
   "case3.metric": { en: "AR+EN", ar: "عر+EN" },
   "case3.title": { en: "Reach Every Gulf Customer", ar: "اوصل لكل عميل خليجي" },
