@@ -25,10 +25,10 @@ export const translations: TranslationMap = {
   "nav.audit": { en: "Get Free Audit", ar: "تدقيق مجاني" },
 
   // ─── Hero (new keys used by redesigned pages) ──────────────
-  "hero.headline": { en: "Dominate Search. Powered by AI.", ar: "تصدّر البحث. بقوة الذكاء الاصطناعي." },
+  "hero.headline": { en: "Rank Higher. Get More Customers.", ar: "تصدّر أعلى. اجذب عملاء أكثر." },
   "hero.subtitle": {
-    en: "AI-powered SEO that puts your business first on Google, ChatGPT, Gemini, and every platform that matters.",
-    ar: "تحسين محركات البحث بالذكاء الاصطناعي يضع عملك في المقدمة على Google وChatGPT وGemini وكل منصة مهمة."
+    en: "AI-powered SEO that fills your phone with calls and your business with buyers — on Google, ChatGPT, Gemini, and everywhere your customers search.",
+    ar: "سيو بالذكاء الاصطناعي يملأ هاتفك بالمكالمات وعملك بالعملاء — على Google وChatGPT وGemini وكل مكان يبحث فيه عملاؤك."
   },
   "hero.inputPlaceholder": { en: "Enter your website...", ar: "أدخل موقعك الإلكتروني..." },
   "hero.cta": { en: "Get Free Audit", ar: "احصل على تدقيق مجاني" },
@@ -43,7 +43,8 @@ export const translations: TranslationMap = {
   "hero.stat4.label": { en: "Bilingual SEO", ar: "سيو ثنائي اللغة" },
 
   // ─── Hero (legacy keys still used by Index.tsx) ─────────────
-  "hero.tagline": { en: "Dominate Search. Powered by AI.", ar: "تصدّر نتائج البحث. بقوة الذكاء الاصطناعي." },
+  "hero.tagline": { en: "Rank Higher. Get More Customers.", ar: "تصدّر أعلى. اجذب عملاء أكثر." },
+
   "hero.freeConsultation": { en: "Free AI Audit — see where you stand", ar: "تدقيق مجاني بالذكاء الاصطناعي — اعرف وضعك الحالي" },
   "hero.viewServices": { en: "[OUR_SERVICES]", ar: "[خدماتنا]" },
   "hero.contact": { en: "[GET_FREE_AUDIT]", ar: "[احصل على تدقيق مجاني]" },
@@ -58,59 +59,59 @@ export const translations: TranslationMap = {
 
   // ─── Problem / Solution ─────────────────────────────────────
   "problem.label": { en: "The Problem", ar: "المشكلة" },
-  "problem.title": { en: "Traditional SEO Is Broken", ar: "الـ SEO التقليدي لم يعد كافياً" },
-  "problem.point1": { en: "Takes 6-12 months to see any results", ar: "يستغرق 6-12 شهراً لرؤية أي نتائج" },
-  "problem.point2": { en: "Doesn't optimize for AI search (ChatGPT, Gemini)", ar: "لا يُحسّن للبحث بالذكاء الاصطناعي (ChatGPT, Gemini)" },
-  "problem.point3": { en: "Expensive agencies with generic strategies", ar: "وكالات مكلفة باستراتيجيات عامة" },
-  "problem.point4": { en: "Manual keyword research is slow and outdated", ar: "بحث الكلمات المفتاحية اليدوي بطيء وقديم" },
+  "problem.title": { en: "Your Customers Are Searching — But Can't Find You", ar: "عملاؤك يبحثون — لكنهم لا يجدونك" },
+  "problem.point1": { en: "Competitors are stealing your customers on Google every day", ar: "المنافسون يسرقون عملاءك على جوجل كل يوم" },
+  "problem.point2": { en: "AI tools like ChatGPT recommend your competitors, not you", ar: "أدوات الذكاء الاصطناعي كـ ChatGPT توصي بمنافسيك وليس بك" },
+  "problem.point3": { en: "You're paying for ads but organic traffic brings zero calls", ar: "تدفع على الإعلانات لكن البحث العضوي لا يجلب مكالمات" },
+  "problem.point4": { en: "Old SEO agencies take 12 months and deliver no real revenue", ar: "وكالات السيو القديمة تأخذ 12 شهراً ولا تحقق إيرادات حقيقية" },
 
   "solution.label": { en: "Our Solution", ar: "الحل" },
-  "solution.title": { en: "AI-First SEO That Actually Works", ar: "SEO بالذكاء الاصطناعي يعمل فعلاً" },
-  "solution.point1": { en: "Results visible in weeks, not months", ar: "نتائج مرئية خلال أسابيع، وليس أشهر" },
-  "solution.point2": { en: "Optimized for Google AND AI platforms simultaneously", ar: "محسّن لـ Google ومنصات الذكاء الاصطناعي معاً" },
-  "solution.point3": { en: "AI-powered strategy tailored to your market", ar: "استراتيجية بالذكاء الاصطناعي مصممة لسوقك" },
-  "solution.point4": { en: "50+ optimized pages deployed in hours, not weeks", ar: "أكثر من 50 صفحة محسّنة تُنشر في ساعات وليس أسابيع" },
+  "solution.title": { en: "AI-Powered SEO That Brings Real Customers", ar: "SEO بالذكاء الاصطناعي يجلب عملاء حقيقيين" },
+  "solution.point1": { en: "Customers start calling and visiting within weeks, not months", ar: "العملاء يبدأون بالاتصال والزيارة في أسابيع وليس أشهر" },
+  "solution.point2": { en: "Your business shows up on Google AND when people ask ChatGPT", ar: "عملك يظهر على Google وعند سؤال ChatGPT معاً" },
+  "solution.point3": { en: "SEO strategy built specifically for your customers and market", ar: "استراتيجية SEO مبنية خصيصاً لعملائك وسوقك" },
+  "solution.point4": { en: "50+ pages that attract customers, deployed in hours not months", ar: "50+ صفحة تجذب العملاء، تُنشر في ساعات وليس أشهر" },
 
   // ─── Services (new keys used by redesigned pages) ───────────
   "services.label": { en: "Our Services", ar: "خدماتنا" },
-  "services.title": { en: "Everything You Need to Dominate Search", ar: "كل ما تحتاجه لتصدر نتائج البحث" },
-  "services.subtitle": { en: "Comprehensive AI-powered SEO services for the modern web", ar: "خدمات SEO شاملة بالذكاء الاصطناعي للويب الحديث" },
+  "services.title": { en: "Everything You Need to Get Found and Grow", ar: "كل ما تحتاجه لتُكتشف وتنمو" },
+  "services.subtitle": { en: "AI-powered SEO services that turn search into revenue for Gulf businesses", ar: "خدمات SEO بالذكاء الاصطناعي تحوّل البحث إلى إيرادات لأعمال الخليج" },
   "services.learnMore": { en: "Learn More", ar: "اعرف أكثر" },
 
-  "service.aiSeo.title": { en: "AI-Powered SEO", ar: "SEO بالذكاء الاصطناعي" },
+  "service.aiSeo.title": { en: "Show Up When Customers Ask Google or ChatGPT", ar: "اظهر عندما يسأل العملاء Google أو ChatGPT" },
   "service.aiSeo.desc": {
-    en: "Get found on ChatGPT, Gemini, Perplexity, and every AI platform. Our GEO and AEO strategies ensure your brand is the answer.",
-    ar: "اظهر على ChatGPT وGemini وPerplexity وكل منصة AI. استراتيجياتنا تضمن أن علامتك التجارية هي الجواب."
+    en: "Whether customers Google you or ask ChatGPT, Gemini, or Perplexity — your business shows up as the answer. AI-powered SEO (GEO/AEO) makes you the recommended choice.",
+    ar: "سواء بحث عنك العملاء على Google أو سألوا ChatGPT وGemini — يظهر عملك كالإجابة الأولى. SEO بالذكاء الاصطناعي يجعلك الخيار الموصى به."
   },
 
-  "service.technicalSeo.title": { en: "Technical SEO", ar: "SEO تقني" },
+  "service.technicalSeo.title": { en: "Fix What's Keeping You Off Page 1", ar: "أصلح ما يمنعك من الصفحة الأولى" },
   "service.technicalSeo.desc": {
-    en: "Site speed, Core Web Vitals, schema markup, crawlability — we fix the foundation so your content can rank.",
-    ar: "سرعة الموقع، مؤشرات الويب الأساسية، البيانات المهيكلة — نصلح الأساس ليتصدر محتواك."
+    en: "Slow site, broken pages, bad structure — technical problems silently kill your rankings. We diagnose and fix every issue so customers can actually find you in search.",
+    ar: "موقع بطيء، صفحات معطلة، هيكل سيء — المشاكل التقنية تقتل ترتيبك بصمت. نشخّص ونصلح كل مشكلة حتى يجدك العملاء في البحث."
   },
 
-  "service.contentStrategy.title": { en: "Content Strategy", ar: "استراتيجية المحتوى" },
+  "service.contentStrategy.title": { en: "More Organic Traffic Every Month", ar: "حركة مرور عضوية أكثر كل شهر" },
   "service.contentStrategy.desc": {
-    en: "AI-researched keywords, topic clusters, and content calendars that drive organic traffic month after month.",
-    ar: "كلمات مفتاحية بالذكاء الاصطناعي، محاور محتوى، وتقاويم نشر تجلب زيارات عضوية شهراً بعد شهر."
+    en: "Content that ranks and converts. AI-researched keywords and topic clusters that bring your target customers to your site month after month — without paying for every click.",
+    ar: "محتوى يتصدر ويحوّل الزوار. كلمات مفتاحية بالذكاء الاصطناعي تجلب عملاءك المستهدفين شهراً بعد شهر — بدون دفع على كل نقرة."
   },
 
-  "service.localSeo.title": { en: "Local SEO", ar: "SEO محلي" },
+  "service.localSeo.title": { en: "Be the #1 Result When Locals Search", ar: "كن النتيجة الأولى عندما يبحث المحليون" },
   "service.localSeo.desc": {
-    en: "Dominate Dubai, Riyadh, and GCC local search. Google Business optimization, local citations, and Arabic content.",
-    ar: "تصدّر البحث المحلي في دبي والرياض والخليج. تحسين Google Business والاستشهادات المحلية والمحتوى العربي."
+    en: "When someone in Dubai or Riyadh searches for what you offer, you appear first. Google Business optimization, local citations, and Arabic SEO content that drives real foot traffic and calls.",
+    ar: "عندما يبحث شخص في دبي أو الرياض عما تقدمه، تظهر أنت أولاً. تحسين Google Business والمحتوى العربي يجلبان زيارات حقيقية ومكالمات."
   },
 
-  "service.linkBuilding.title": { en: "Link Building", ar: "بناء الروابط" },
+  "service.linkBuilding.title": { en: "Outrank Competitors With Stronger Authority", ar: "تفوّق على المنافسين بسلطة أقوى" },
   "service.linkBuilding.desc": {
-    en: "Earn high-authority backlinks from relevant GCC and international publications. Quality over quantity, always.",
-    ar: "احصل على روابط خلفية عالية الجودة من منشورات خليجية ودولية. الجودة أولاً دائماً."
+    en: "Google ranks the most trusted sites first. We build high-quality backlinks from authoritative GCC and international publications that push you above competitors permanently.",
+    ar: "جوجل يرتّب أكثر المواقع ثقة أولاً. نبني روابط خلفية عالية الجودة من منشورات خليجية ودولية موثوقة تدفعك فوق المنافسين بشكل دائم."
   },
 
-  "service.arabicSeo.title": { en: "Arabic SEO", ar: "SEO بالعربية" },
+  "service.arabicSeo.title": { en: "Reach Gulf Customers in Their Own Language", ar: "اوصل لعملاء الخليج بلغتهم" },
   "service.arabicSeo.desc": {
-    en: "Native Arabic content, RTL-optimized pages, and Arabic keyword research by native speakers who understand your market.",
-    ar: "محتوى عربي أصيل، صفحات محسّنة للقراءة من اليمين لليسار، وبحث كلمات مفتاحية بمتحدثين أصليين يفهمون سوقك."
+    en: "Millions of Gulf customers search in Arabic. Native Arabic SEO content, RTL-optimized pages, and Arabic keyword research that connects you with customers others are missing.",
+    ar: "ملايين عملاء الخليج يبحثون بالعربية. محتوى SEO عربي أصيل وبحث كلمات مفتاحية عربية يربطك بعملاء يفوّتهم غيرك."
   },
 
   // ─── Services (legacy keys for SERVICES array in Index.tsx) ──
@@ -239,25 +240,25 @@ export const translations: TranslationMap = {
 
   // ─── Case Studies (new keys) ────────────────────────────────
   "caseStudies.label": { en: "What We Do", ar: "ماذا نقدم" },
-  "caseStudies.title": { en: "How We Help Businesses Dominate", ar: "كيف نساعد الأعمال على التصدر" },
+  "caseStudies.title": { en: "How We Help Businesses Get More Customers", ar: "كيف نساعد الأعمال على جذب عملاء أكثر" },
 
   "case1.metric": { en: "50+", ar: "+50" },
-  "case1.title": { en: "Pages Built in Hours", ar: "صفحة تُبنى في ساعات" },
+  "case1.title": { en: "Ranking & Calling in Hours", ar: "ترتيب أعلى ومكالمات في ساعات" },
   "case1.industry": { en: "AI-Powered", ar: "بالذكاء الاصطناعي" },
   "case1.market": { en: "Any Market", ar: "أي سوق" },
-  "case1.desc": { en: "We deploy full SEO-optimized websites with 50+ pages in hours using agentic AI — what agencies take months to do", ar: "ننشر مواقع محسّنة بالكامل بأكثر من 50 صفحة في ساعات باستخدام الذكاء الاصطناعي — ما يستغرق أشهر من الوكالات" },
+  "case1.desc": { en: "A local diesel repair business went from zero visibility to #1 on Google in 24 hours, generating thousands in revenue from phone calls — 50+ pages built by our AI in under 4 hours", ar: "شركة إصلاح محلية انتقلت من الصفر إلى المركز الأول في جوجل في 24 ساعة، وحققت آلاف الدراهم من المكالمات — 50+ صفحة بناها الذكاء الاصطناعي في أقل من 4 ساعات" },
 
   "case2.metric": { en: "GEO", ar: "GEO" },
-  "case2.title": { en: "AI Search Optimization", ar: "تحسين بحث الذكاء الاصطناعي" },
+  "case2.title": { en: "Customers Recommend You on AI", ar: "العملاء يجدونك على أدوات الذكاء الاصطناعي" },
   "case2.industry": { en: "Next-Gen SEO", ar: "SEO الجيل القادم" },
   "case2.market": { en: "GCC Region", ar: "منطقة الخليج" },
-  "case2.desc": { en: "We optimize your brand for ChatGPT, Gemini, and Perplexity — so AI recommends YOUR business, not competitors", ar: "نحسّن علامتك التجارية لـ ChatGPT وGemini وPerplexity — ليوصي بك الذكاء الاصطناعي بدلاً من منافسيك" },
+  "case2.desc": { en: "When customers ask ChatGPT, Gemini, or Perplexity 'who's the best [business type] in Dubai?', your business is the recommended answer — not your competitor's", ar: "عندما يسأل العملاء ChatGPT أو Gemini 'من أفضل [نوع العمل] في دبي؟'، عملك هو الجواب الموصى به — وليس منافسك" },
 
   "case3.metric": { en: "AR+EN", ar: "عر+EN" },
-  "case3.title": { en: "Bilingual SEO Strategy", ar: "استراتيجية SEO ثنائية اللغة" },
+  "case3.title": { en: "Reach Every Gulf Customer", ar: "اوصل لكل عميل خليجي" },
   "case3.industry": { en: "GCC Specialist", ar: "متخصص خليجي" },
   "case3.market": { en: "UAE · KSA · Oman", ar: "الإمارات · السعودية · عمان" },
-  "case3.desc": { en: "Native Arabic content and RTL optimization alongside English — true bilingual SEO from a team that speaks your language", ar: "محتوى عربي أصيل وتحسين RTL بالتوازي مع الإنجليزية — سيو ثنائي اللغة حقيقي من فريق يتحدث لغتك" },
+  "case3.desc": { en: "Gulf customers search in both Arabic and English. Our bilingual SEO strategy makes sure you capture both audiences — double the reach, double the revenue", ar: "عملاء الخليج يبحثون بالعربية والإنجليزية. استراتيجية SEO ثنائية اللغة تضمن الوصول للجمهورين — ضعف الانتشار، ضعف الإيرادات" },
 
   // ─── Pricing (new keys) ─────────────────────────────────────
   "pricing.label": { en: "Pricing", ar: "الأسعار" },
@@ -272,7 +273,7 @@ export const translations: TranslationMap = {
 
   "pricing.starter.name": { en: "Starter", ar: "المبتدئ" },
   "pricing.starter.price": { en: "1,500 AED", ar: "1,500 درهم" },
-  "pricing.starter.desc": { en: "For growing businesses getting started with SEO", ar: "للشركات النامية التي تبدأ رحلتها مع SEO" },
+  "pricing.starter.desc": { en: "Start getting found online and attract your first customers through SEO", ar: "ابدأ الظهور على البحث واجذب أول عملائك عبر SEO" },
   "pricing.starter.f1": { en: "15 target keywords", ar: "15 كلمة مفتاحية مستهدفة" },
   "pricing.starter.f2": { en: "Monthly SEO audit", ar: "تدقيق SEO شهري" },
   "pricing.starter.f3": { en: "Basic performance reporting", ar: "تقارير أداء أساسية" },
@@ -283,7 +284,7 @@ export const translations: TranslationMap = {
 
   "pricing.growth.name": { en: "Growth", ar: "النمو" },
   "pricing.growth.price": { en: "3,500 AED", ar: "3,500 درهم" },
-  "pricing.growth.desc": { en: "Most popular — for businesses ready to dominate their market", ar: "الأكثر طلباً — للشركات المستعدة لتصدر سوقها" },
+  "pricing.growth.desc": { en: "Most popular — for businesses serious about ranking higher and winning more customers", ar: "الأكثر طلباً — للشركات الجادة في التصدر وكسب عملاء أكثر" },
   "pricing.growth.f1": { en: "50 target keywords", ar: "50 كلمة مفتاحية مستهدفة" },
   "pricing.growth.f2": { en: "Weekly optimization cycles", ar: "دورات تحسين أسبوعية" },
   "pricing.growth.f3": { en: "AI search tracking (GEO/AEO)", ar: "تتبع بحث الذكاء الاصطناعي (GEO/AEO)" },
@@ -294,7 +295,7 @@ export const translations: TranslationMap = {
 
   "pricing.enterprise.name": { en: "Enterprise", ar: "المؤسسي" },
   "pricing.enterprise.price": { en: "7,500 AED", ar: "7,500 درهم" },
-  "pricing.enterprise.desc": { en: "Full dominance — for organizations that want to own their market", ar: "سيطرة كاملة — للمؤسسات التي تريد امتلاك سوقها" },
+  "pricing.enterprise.desc": { en: "Own every search result in your space — across Google, AI platforms, Arabic and English", ar: "امتلك كل نتيجة بحث في مجالك — على Google ومنصات الذكاء الاصطناعي بالعربية والإنجليزية" },
   "pricing.enterprise.f1": { en: "Unlimited target keywords", ar: "كلمات مفتاحية غير محدودة" },
   "pricing.enterprise.f2": { en: "Dedicated SEO strategist", ar: "استراتيجي SEO مخصص" },
   "pricing.enterprise.f3": { en: "Custom AI search dashboard", ar: "لوحة بحث AI مخصصة" },
@@ -305,7 +306,7 @@ export const translations: TranslationMap = {
 
   // ─── Testimonials ───────────────────────────────────────────
   "testimonials.label": { en: "Proven Results", ar: "نتائج مُثبتة" },
-  "testimonials.title": { en: "The Technology Behind Our Approach", ar: "التقنية وراء نهجنا" },
+  "testimonials.title": { en: "Real Results. Real Revenue.", ar: "نتائج حقيقية. إيرادات حقيقية." },
 
   "testimonial1.quote": {
     en: "A local diesel repair business went from zero to #1 on Google within 24 hours of launching — generating thousands in revenue from phone calls. 50+ optimized pages built in just 4 hours using the same AI technology we deploy for our clients.",
@@ -385,10 +386,10 @@ export const translations: TranslationMap = {
   },
 
   // ─── CTA Section ────────────────────────────────────────────
-  "cta.title": { en: "Ready to Dominate Search?", ar: "مستعد لتصدر نتائج البحث؟" },
+  "cta.title": { en: "Ready to Get More Customers From Search?", ar: "مستعد لجذب عملاء أكثر من البحث؟" },
   "cta.subtitle": {
-    en: "Get a free AI-powered audit of your website and discover untapped opportunities.",
-    ar: "احصل على تدقيق مجاني بالذكاء الاصطناعي لموقعك واكتشف فرصاً غير مستغلة."
+    en: "Get a free AI SEO audit — see exactly how many customers you're losing to competitors right now, and how to win them back.",
+    ar: "احصل على تدقيق SEO مجاني بالذكاء الاصطناعي — اعرف كم من العملاء تخسرهم للمنافسين الآن وكيف تستعيدهم."
   },
   "cta.emailPlaceholder": { en: "Enter your email...", ar: "أدخل بريدك الإلكتروني..." },
   "cta.button": { en: "Get Your Free Audit", ar: "احصل على تدقيقك المجاني" },

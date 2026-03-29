@@ -60,7 +60,7 @@ export const ClientLogos = () => {
   };
 
   return (
-    <section className="pt-5 sm:pt-6 pb-0 sm:pb-6 bg-[#64DEA3]">
+    <section className="pt-5 sm:pt-6 pb-8 sm:pb-10 bg-[#64DEA3]">
       <p className="text-xs sm:text-sm text-[#2B124C] font-medium uppercase tracking-wider text-center mb-6 px-4">
         {t("clients.trusted")}
       </p>
