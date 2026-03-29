@@ -54,8 +54,18 @@ export const HeroSection = () => {
             <span className="block text-white">
               {t("hero.headline").split(".")[0]}.
             </span>
-            <span className="block text-[#FECD4D]">
-              {t("hero.headline").split(".").slice(1).join(".").trim() || "Powered by AI."}
+            <span className="block">
+              <span
+                className="text-[#FECD4D]"
+                style={{
+                  backgroundColor: "#7143E0",
+                  padding: "2px 10px 4px",
+                  boxDecorationBreak: "clone",
+                  WebkitBoxDecorationBreak: "clone",
+                }}
+              >
+                {t("hero.headline").split(".").slice(1).join(".").trim() || "Powered by AI."}
+              </span>
             </span>
           </h1>
 
