@@ -75,7 +75,7 @@ export const HeroSection = () => {
 
           {/* Domain input CTA */}
           <div
-            className="mt-10 max-w-xl mx-auto"
+            className="mt-6 sm:mt-10 max-w-xl mx-auto"
           >
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-0 sm:bg-white/10 sm:rounded-full sm:p-1.5">
               <div className="relative flex-1">
@@ -98,7 +98,7 @@ export const HeroSection = () => {
 
         {/* Stats bar */}
         <div
-          className="mt-16 sm:mt-20 grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-6 w-full mx-auto border-t border-white/10 pt-10"
+          className="mt-6 sm:mt-20 grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-6 w-full mx-auto border-t border-white/10 pt-10"
         >
           <AnimatedStat number={t("hero.stat1.number")} label={t("hero.stat1.label")} />
           <AnimatedStat number={t("hero.stat2.number")} label={t("hero.stat2.label")} />
