@@ -43,14 +43,7 @@ export const HeroSection = () => {
   const [domain, setDomain] = useState("");
 
   return (
-    <section className="relative min-h-[100dvh] flex flex-col bg-[#2B124C] pt-20 pb-0 overflow-hidden">
-      {/* Mountain silhouette — right side background */}
-      <img
-        src="/mountain.svg"
-        aria-hidden="true"
-        className="absolute right-0 bottom-0 h-[60%] w-auto pointer-events-none select-none"
-        style={{ zIndex: 0, opacity: 0.6 }}
-      />
+    <section className="relative min-h-[100dvh] flex flex-col bg-[#2B124C] pt-20 pb-0">
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 w-full flex-1 flex flex-col justify-center">
         <div className="text-center max-w-4xl mx-auto">
