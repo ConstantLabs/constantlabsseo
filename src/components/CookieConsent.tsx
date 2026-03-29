@@ -36,9 +36,6 @@ export const CookieConsent = () => {
       aria-label={isAr ? "إشعار ملفات تعريف الارتباط" : "Cookie consent"}
     >
       <div className="max-w-3xl mx-auto bg-white rounded-2xl shadow-2xl border border-slate-200 p-5 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center gap-4">
-        {/* Icon */}
-        <span className="text-2xl shrink-0" aria-hidden="true">🍪</span>
-
         {/* Text */}
         <div className="flex-1 min-w-0">
           <p className="text-sm font-semibold text-slate-900 mb-0.5">
