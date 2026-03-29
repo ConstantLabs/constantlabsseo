@@ -14,12 +14,9 @@ const WhatsAppButton = () => {
         Chat on WhatsApp
       </span>
 
-      {/* Pulse ring */}
-      <span className="absolute inset-0 rounded-full animate-ping bg-[#25D366] opacity-25 pointer-events-none" />
-
-      {/* Button */}
+      {/* Button — pulse via box-shadow so it's never clipped */}
       <div
-        className="relative flex h-14 w-14 items-center justify-center rounded-full shadow-xl"
+        className="whatsapp-pulse relative flex h-14 w-14 items-center justify-center rounded-full shadow-xl"
         style={{ backgroundColor: "#25D366" }}
       >
         <FaWhatsapp className="h-8 w-8 text-white" aria-hidden="true" />
