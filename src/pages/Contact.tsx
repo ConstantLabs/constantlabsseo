@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import { SEO } from "@/components/SEO";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -17,8 +18,16 @@ const contactInfo = [
 
 const Contact = () => {
   const { t, isAr } = useLanguage();
+  const [searchParams] = useSearchParams();
   const [formData, setFormData] = useState({ name: "", email: "", website: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
+
+  useEffect(() => {
+    const websiteParam = searchParams.get("website");
+    if (websiteParam) {
+      setFormData((prev) => ({ ...prev, website: websiteParam }));
+    }
+  }, [searchParams]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

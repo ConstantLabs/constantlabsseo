@@ -5,6 +5,9 @@ import { HelmetProvider } from "react-helmet-async";
 import { LanguageProvider } from "./i18n/LanguageContext";
 import { PageTransition } from "./components/PageTransition";
 import { PageLoader } from "./components/PageLoader";
+import { WhatsAppButton } from "./components/WhatsAppButton";
+import { cities } from "./data/cityData";
+import { industries } from "./data/industryData";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -27,6 +30,8 @@ const Contact = lazy(() => import("./pages/Contact"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const TermsOfService = lazy(() => import("./pages/TermsOfService"));
 const NotFound = lazy(() => import("./pages/NotFound"));
+const CityLandingPage = lazy(() => import("./pages/CityLandingPage"));
+const IndustryLandingPage = lazy(() => import("./pages/IndustryLandingPage"));
 
 const AnimatedRoutes = () => {
   const location = useLocation();
@@ -45,6 +50,25 @@ const AnimatedRoutes = () => {
         <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
         <Route path="/privacy" element={<PageTransition><PrivacyPolicy /></PageTransition>} />
         <Route path="/terms" element={<PageTransition><TermsOfService /></PageTransition>} />
+
+        {/* City Landing Pages */}
+        {cities.map((city) => (
+          <Route
+            key={city.slug}
+            path={`/${city.slug}`}
+            element={<PageTransition><CityLandingPage city={city} /></PageTransition>}
+          />
+        ))}
+
+        {/* Industry Landing Pages */}
+        {industries.map((industry) => (
+          <Route
+            key={industry.slug}
+            path={`/${industry.slug}`}
+            element={<PageTransition><IndustryLandingPage industry={industry} /></PageTransition>}
+          />
+        ))}
+
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
       </Routes>
@@ -60,6 +84,7 @@ const App = () => (
         <Suspense fallback={<PageLoader />}>
           <AnimatedRoutes />
         </Suspense>
+        <WhatsAppButton />
       </BrowserRouter>
     </LanguageProvider>
   </HelmetProvider>

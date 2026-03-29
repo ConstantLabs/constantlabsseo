@@ -1,10 +1,16 @@
 import { Helmet } from 'react-helmet-async';
 
+interface BreadcrumbItem {
+  name: string;
+  path: string;
+}
+
 interface SEOProps {
   title: string;
   description?: string;
   path?: string;
   image?: string;
+  breadcrumbs?: BreadcrumbItem[];
 }
 
 const BASE_URL = 'https://seo.constantlabs.ai';
@@ -15,9 +21,28 @@ export const SEO = ({
   description = 'ConstantSEO by Constant Labs — Dubai\'s leading AI-powered SEO agency. We deploy intelligent AI agents to automate and optimize your search engine rankings across the GCC market.',
   path = '/',
   image = DEFAULT_IMAGE,
+  breadcrumbs,
 }: SEOProps) => {
   const url = `${BASE_URL}${path}`;
   const fullTitle = path === '/' ? 'ConstantSEO | AI-Powered SEO by Constant Labs' : `${title} | ConstantSEO`;
+
+  const allBreadcrumbs: BreadcrumbItem[] = breadcrumbs
+    ? [{ name: 'Home', path: '/' }, ...breadcrumbs]
+    : [];
+
+  const breadcrumbSchema =
+    allBreadcrumbs.length > 0
+      ? JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: allBreadcrumbs.map((item, index) => ({
+            '@type': 'ListItem',
+            position: index + 1,
+            name: item.name,
+            item: `${BASE_URL}${item.path}`,
+          })),
+        })
+      : null;
 
   return (
     <Helmet>
@@ -50,6 +75,11 @@ export const SEO = ({
       <link rel="alternate" hreflang="en" href={url} />
       <link rel="alternate" hreflang="ar" href={url} />
       <link rel="alternate" hreflang="x-default" href={url} />
+
+      {/* BreadcrumbList JSON-LD */}
+      {breadcrumbSchema && (
+        <script type="application/ld+json">{breadcrumbSchema}</script>
+      )}
     </Helmet>
   );
 };

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { Button } from "@/components/ui/button";
 import { Search, ArrowRight } from "lucide-react";
@@ -40,7 +41,16 @@ const AnimatedStat = ({ number, label }: { number: string; label: string }) => (
 
 export const HeroSection = () => {
   const { t, isAr } = useLanguage();
+  const navigate = useNavigate();
   const [domain, setDomain] = useState("");
+
+  const handleCTA = () => {
+    if (domain.trim()) {
+      navigate(`/contact?website=${encodeURIComponent(domain.trim())}`);
+    } else {
+      navigate("/contact");
+    }
+  };
 
   return (
     <section className="relative min-h-[100dvh] flex flex-col bg-[#2B124C] pt-20 pb-0">
@@ -95,11 +105,15 @@ export const HeroSection = () => {
                   type="text"
                   value={domain}
                   onChange={(e) => setDomain(e.target.value)}
+                  onKeyDown={(e) => e.key === "Enter" && handleCTA()}
                   placeholder={t("hero.inputPlaceholder")}
                   className={`w-full bg-white/10 sm:bg-transparent border border-white/10 sm:border-none rounded-full sm:rounded-none py-3.5 sm:py-2.5 text-white placeholder-gray-400 outline-none text-sm ${isAr ? "pr-12 pl-4" : "pl-12 pr-4"}`}
                 />
               </div>
-              <Button className="bg-[#FECD4D] hover:bg-[#ffe066] text-[#2B124C] font-semibold rounded-full px-7 py-3 sm:py-2.5 text-sm uppercase tracking-wide shadow-lg shadow-[#FECD4D]/20 hover:shadow-[#FECD4D]/30 transition-all whitespace-nowrap">
+              <Button
+                onClick={handleCTA}
+                className="bg-[#FECD4D] hover:bg-[#ffe066] text-[#2B124C] font-semibold rounded-full px-7 py-3 sm:py-2.5 text-sm uppercase tracking-wide shadow-lg shadow-[#FECD4D]/20 hover:shadow-[#FECD4D]/30 transition-all whitespace-nowrap"
+              >
                 {t("hero.cta")}
                 <ArrowRight className={`w-4 h-4 ${isAr ? "mr-1.5 rotate-180" : "ml-1.5"}`} />
               </Button>
