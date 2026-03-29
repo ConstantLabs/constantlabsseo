@@ -6,12 +6,12 @@ export const Footer = () => {
   const { t, isAr } = useLanguage();
 
   const serviceLinks = [
-    { label: t("footer.aiSeo"), to: "/services" },
-    { label: t("footer.technicalSeo"), to: "/services" },
-    { label: t("footer.contentStrategy"), to: "/services" },
-    { label: t("footer.localSeo"), to: "/services" },
-    { label: t("footer.arabicSeo"), to: "/services" },
-    { label: t("footer.linkBuilding"), to: "/services" },
+    { label: t("footer.aiSeo"), to: "/services/ai-search-optimization" },
+    { label: t("footer.technicalSeo"), to: "/services/technical-seo" },
+    { label: t("footer.contentStrategy"), to: "/services/arabic-content" },
+    { label: t("footer.localSeo"), to: "/services/local-seo" },
+    { label: t("footer.arabicSeo"), to: "/services/ai-link-building" },
+    { label: t("footer.linkBuilding"), to: "/services/seo-audits" },
   ];
 
   const companyLinks = [

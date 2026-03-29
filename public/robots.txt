@@ -1,9 +1,24 @@
-# Constant Labs - robots.txt
+# ConstantSEO - robots.txt
 User-agent: *
 Allow: /
 
-# Sitemaps
-Sitemap: https://constantlabs.ai/sitemap.xml
+# AI Crawlers — allowed to index for GEO/AEO visibility
+User-agent: GPTBot
+Allow: /
 
-# Crawl-delay (optional, helps with server load)
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Sitemaps
+Sitemap: https://seo.constantlabs.ai/sitemap.xml
+
 Crawl-delay: 1

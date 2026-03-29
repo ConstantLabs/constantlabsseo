@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import { useLanguage } from "@/i18n/LanguageContext";
 import { motion } from "framer-motion";
 import {
@@ -12,8 +13,24 @@ const faqKeys = ["faq1", "faq2", "faq3", "faq4", "faq5", "faq6", "faq7", "faq8"]
 export const FAQSection = () => {
   const { t } = useLanguage();
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqKeys.map((fk) => ({
+      "@type": "Question",
+      "name": t(`${fk}.q`),
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": t(`${fk}.a`),
+      },
+    })),
+  };
+
   return (
     <section id="faq" className="py-20 md:py-28 bg-white">
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+      </Helmet>
       <div className="max-w-3xl mx-auto px-4 sm:px-6">
         {/* Header */}
         <div

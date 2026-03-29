@@ -18,11 +18,15 @@ const contactInfo = [
 const Contact = () => {
   const { t, isAr } = useLanguage();
   const [formData, setFormData] = useState({ name: "", email: "", website: "", message: "" });
+  const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Connect to form backend
-    alert("Thank you! We'll be in touch within 24 hours.");
+    const text = encodeURIComponent(
+      `Hi ConstantSEO! I'd like a free SEO audit.\n\nName: ${formData.name}\nEmail: ${formData.email}${formData.website ? `\nWebsite: ${formData.website}` : ""}${formData.message ? `\n\n${formData.message}` : ""}`
+    );
+    window.open(`https://wa.me/971561495656?text=${text}`, "_blank");
+    setSubmitted(true);
   };
 
   return (
@@ -58,6 +62,11 @@ const Contact = () => {
           <div
           >
             <h2 className="text-2xl font-bold text-slate-900 mb-6">Get Your Free Audit</h2>
+            {submitted && (
+              <div className="mb-6 p-4 rounded-lg bg-green-50 border border-green-200 text-green-800 text-sm font-medium">
+                Opening WhatsApp — we'll reply within a few hours!
+              </div>
+            )}
             <form onSubmit={handleSubmit} className="space-y-5">
               <div>
                 <label className="block text-sm font-medium text-slate-700 mb-1.5">Name</label>

@@ -8,10 +8,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <!-- Preload critical fonts -->
   <link rel="preload"
-    href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700&display=block"
+    href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700;900&family=Changa:wght@400;700;800&display=swap"
     as="style">
   <link
-    href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700&family=Changa:wght@400;500;600;700;800&display=block"
+    href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700&family=Changa:wght@400;500;600;700;800&display=swap"
     rel="stylesheet">
   <style>
     body {
@@ -59,21 +59,57 @@
   <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#2B124C" />
 
-  <!-- Structured Data -->
+  <!-- Structured Data: Organization + LocalBusiness -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Organization",
+    "@type": ["Organization", "ProfessionalService"],
+    "@id": "https://seo.constantlabs.ai/#organization",
     "name": "ConstantSEO by Constant Labs",
     "url": "https://seo.constantlabs.ai",
-    "description": "AI-powered SEO agency in Dubai specializing in automated search engine optimization for the GCC market.",
+    "logo": "https://seo.constantlabs.ai/favicon.svg",
+    "telephone": "+971561495656",
+    "email": "akhmad@constantlabs.ai",
+    "description": "AI-powered SEO agency in Dubai specializing in GEO, AEO, and search engine optimization for businesses in the UAE, Saudi Arabia, and GCC region.",
     "address": {
       "@type": "PostalAddress",
+      "streetAddress": "Al Awir",
       "addressLocality": "Dubai",
+      "addressRegion": "Dubai",
       "addressCountry": "AE"
     },
-    "areaServed": ["Dubai", "UAE", "United Arab Emirates", "Saudi Arabia", "GCC"],
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "25.2048",
+      "longitude": "55.2708"
+    },
+    "openingHoursSpecification": [{
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Sunday","Monday","Tuesday","Wednesday","Thursday"],
+      "opens": "09:00",
+      "closes": "18:00"
+    }],
+    "areaServed": [
+      {"@type": "Country", "name": "United Arab Emirates"},
+      {"@type": "Country", "name": "Saudi Arabia"},
+      {"@type": "Country", "name": "Oman"}
+    ],
+    "priceRange": "AED 1,500–7,500/mo",
     "sameAs": []
+  }
+  </script>
+
+  <!-- Structured Data: WebSite -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://seo.constantlabs.ai/#website",
+    "url": "https://seo.constantlabs.ai",
+    "name": "ConstantSEO",
+    "description": "AI-Powered SEO Agency for the GCC market",
+    "inLanguage": ["en", "ar"],
+    "publisher": {"@id": "https://seo.constantlabs.ai/#organization"}
   }
   </script>
 </head>

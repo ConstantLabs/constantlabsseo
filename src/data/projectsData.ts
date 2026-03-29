@@ -149,7 +149,7 @@ export const pricingTiers: PricingTier[] = [
   {
     id: "starter",
     name: "Starter",
-    price: "AED 3,500",
+    price: "AED 1,500",
     period: "/mo",
     tagline: "For growing businesses",
     popular: false,
@@ -166,7 +166,7 @@ export const pricingTiers: PricingTier[] = [
   {
     id: "growth",
     name: "Growth",
-    price: "AED 7,500",
+    price: "AED 3,500",
     period: "/mo",
     tagline: "Most Popular",
     popular: true,
@@ -185,7 +185,7 @@ export const pricingTiers: PricingTier[] = [
   {
     id: "enterprise",
     name: "Enterprise",
-    price: "AED 15,000",
+    price: "AED 7,500",
     period: "/mo",
     tagline: "Full dominance",
     popular: false,
