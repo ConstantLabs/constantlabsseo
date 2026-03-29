@@ -98,7 +98,7 @@ export const HeroSection = () => {
 
         {/* Stats bar */}
         <div
-          className="mt-6 sm:mt-20 grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-6 w-full mx-auto border-t border-white/10 pt-10"
+          className="mt-6 sm:mt-12 md:mt-20 grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-6 w-full mx-auto sm:border-t sm:border-white/10 pt-6 sm:pt-10 md:pt-14 pb-6 sm:pb-10 md:pb-14"
         >
           <AnimatedStat number={t("hero.stat1.number")} label={t("hero.stat1.label")} />
           <AnimatedStat number={t("hero.stat2.number")} label={t("hero.stat2.label")} />
