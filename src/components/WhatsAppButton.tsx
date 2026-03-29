@@ -16,7 +16,7 @@ const WhatsAppButton = () => {
 
       {/* Button */}
       <div
-        className="relative flex h-14 w-14 items-center justify-center rounded-full shadow-xl"
+        className="relative flex h-14 w-14 items-center justify-center rounded-full"
         style={{ backgroundColor: "#25D366" }}
       >
         <FaWhatsapp className="h-8 w-8 text-white" aria-hidden="true" />

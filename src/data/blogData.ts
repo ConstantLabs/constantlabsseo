@@ -12,6 +12,8 @@ export interface BlogPost {
   category: string;
   tags: string[];
   heroImage?: string;
+  heroImageAlt?: string;
+  heroImageCredit?: string;
   sections: Array<{
     heading: string;
     content: string;
@@ -31,6 +33,9 @@ export const blogPosts: BlogPost[] = [
     author: "ConstantSEO Team",
     date: "2025-03-22",
     readTime: "12 min read",
+    heroImage: "/images/blog/seo-dubai-guide-2025-hero.png",
+    heroImageAlt: "Complete Guide to SEO in Dubai 2025 - covering Google, ChatGPT, Gemini, and Maps optimization for the GCC market",
+    heroImageCredit: "Image by ConstantSEO",
     category: "SEO Guide",
     tags: [
       "seo dubai",
@@ -96,6 +101,9 @@ export const blogPosts: BlogPost[] = [
     author: "ConstantSEO Team",
     date: "2025-03-18",
     readTime: "10 min read",
+    heroImage: "/images/blog/what-is-geo-ai-search-hero.png",
+    heroImageAlt: "What is GEO - Generative Engine Optimization explained for ChatGPT, Gemini, Perplexity, and Claude AI search platforms",
+    heroImageCredit: "Image by ConstantSEO",
     category: "AI Search",
     tags: [
       "GEO SEO",
@@ -151,6 +159,9 @@ export const blogPosts: BlogPost[] = [
     author: "ConstantSEO Team",
     date: "2025-03-15",
     readTime: "11 min read",
+    heroImage: "/images/blog/arabic-seo-guide-gcc-hero.png",
+    heroImageAlt: "Arabic SEO complete guide for GCC businesses - covering UAE, Saudi Arabia, and Oman bilingual search optimization",
+    heroImageCredit: "Image by ConstantSEO",
     category: "Arabic SEO",
     tags: [
       "arabic seo",
@@ -211,6 +222,9 @@ export const blogPosts: BlogPost[] = [
     author: "ConstantSEO Team",
     date: "2025-03-10",
     readTime: "9 min read",
+    heroImage: "/images/blog/local-seo-checklist-uae-hero.png",
+    heroImageAlt: "Local SEO checklist for UAE businesses - Google Business Profile, NAP consistency, citations, reviews, schema, and geo-targeted content",
+    heroImageCredit: "Image by ConstantSEO",
     category: "Local SEO",
     tags: [
       "local seo uae",

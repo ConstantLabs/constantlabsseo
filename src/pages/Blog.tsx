@@ -67,16 +67,17 @@ const Blog = () => {
                 className="group block bg-white rounded-2xl border border-slate-100 overflow-hidden hover:shadow-xl transition-all duration-300"
               >
                 <div className="grid md:grid-cols-2 gap-0">
-                  {/* Image placeholder */}
-                  <div className="relative h-64 md:h-full min-h-[280px] bg-gradient-to-br from-[#2B124C] via-[#3a1a65] to-[#1a0a30] flex items-center justify-center">
-                    <div className="text-center px-8">
-                      <span className="inline-block px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-300 text-xs font-semibold uppercase tracking-wider mb-3">
-                        Featured
-                      </span>
-                      <p className="text-white/60 text-sm">
-                        {blogPosts[0].category}
-                      </p>
-                    </div>
+                  {/* Featured image */}
+                  <div className="relative h-64 md:h-full min-h-[280px] bg-gradient-to-br from-[#2B124C] via-[#3a1a65] to-[#1a0a30] overflow-hidden">
+                    {blogPosts[0].heroImage ? (
+                      <img src={blogPosts[0].heroImage} alt={blogPosts[0].heroImageAlt || blogPosts[0].title} loading="lazy" className="w-full h-full object-cover" />
+                    ) : (
+                      <div className="flex items-center justify-center h-full text-center px-8">
+                        <span className="inline-block px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-300 text-xs font-semibold uppercase tracking-wider">
+                          {blogPosts[0].category}
+                        </span>
+                      </div>
+                    )}
                     {/* Decorative grid */}
                     <div
                       className="absolute inset-0 opacity-[0.04]"
@@ -145,11 +146,15 @@ const Blog = () => {
                       to={`/blog/${post.slug}`}
                       className="group block bg-white rounded-xl border border-slate-100 overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full"
                     >
-                      {/* Image placeholder */}
-                      <div className="relative h-48 bg-gradient-to-br from-[#2B124C] via-[#3a1a65] to-[#1a0a30] flex items-center justify-center">
-                        <p className="text-white/50 text-sm font-medium">
-                          {post.category}
-                        </p>
+                      {/* Post image */}
+                      <div className="relative h-48 bg-gradient-to-br from-[#2B124C] via-[#3a1a65] to-[#1a0a30] overflow-hidden">
+                        {post.heroImage ? (
+                          <img src={post.heroImage} alt={post.heroImageAlt || post.title} loading="lazy" className="w-full h-full object-cover" />
+                        ) : (
+                          <p className="absolute inset-0 flex items-center justify-center text-white/50 text-sm font-medium">
+                            {post.category}
+                          </p>
+                        )}
                         <div
                           className="absolute inset-0 opacity-[0.04]"
                           style={{

@@ -170,6 +170,27 @@ const BlogPost = () => {
         </div>
       </section>
 
+      {/* Hero Image */}
+      {post.heroImage && (
+        <div className="max-w-4xl mx-auto px-4 -mt-4">
+          <figure className="rounded-xl overflow-hidden shadow-lg">
+            <img
+              src={post.heroImage}
+              alt={post.heroImageAlt || post.title}
+              width={1200}
+              height={630}
+              loading="eager"
+              className="w-full h-auto"
+            />
+            {post.heroImageCredit && (
+              <figcaption className="text-xs text-slate-400 text-right py-2 px-4 bg-slate-50">
+                {post.heroImageCredit}
+              </figcaption>
+            )}
+          </figure>
+        </div>
+      )}
+
       {/* Article Content */}
       <article className="py-16 md:py-20">
         <div className="max-w-3xl mx-auto px-4">
