@@ -24,6 +24,52 @@ export const translations: TranslationMap = {
   "nav.faq": { en: "FAQ", ar: "الأسئلة الشائعة" },
   "nav.audit": { en: "Get Free Audit", ar: "تدقيق مجاني" },
 
+  // ─── Audit Page ─────────────────────────────────────────────
+  "audit.seo.title": { en: "Free SEO Audit — ConstantSEO", ar: "تدقيق SEO مجاني — ConstantSEO" },
+  "audit.seo.description": {
+    en: "Get an instant SEO score for your website. Free AI-powered audit by ConstantSEO, Dubai's leading SEO agency.",
+    ar: "احصل على تقييم SEO فوري لموقعك. تدقيق مجاني بالذكاء الاصطناعي من ConstantSEO، وكالة SEO الرائدة في دبي."
+  },
+  "audit.hero.title": { en: "Free SEO Audit", ar: "تدقيق SEO مجاني" },
+  "audit.hero.subtitle": {
+    en: "Get your SEO score in seconds. Enter your website below.",
+    ar: "احصل على تقييم SEO خلال ثوانٍ. أدخل موقعك أدناه."
+  },
+  "audit.input.placeholder": { en: "Enter your website URL...", ar: "أدخل رابط موقعك..." },
+  "audit.input.button": { en: "Analyze", ar: "حلّل" },
+  "audit.loading.meta": { en: "Checking meta tags...", ar: "فحص العلامات الوصفية..." },
+  "audit.loading.performance": { en: "Analyzing performance...", ar: "تحليل الأداء..." },
+  "audit.loading.accessibility": { en: "Reviewing accessibility...", ar: "مراجعة إمكانية الوصول..." },
+  "audit.loading.seo": { en: "Evaluating SEO...", ar: "تقييم SEO..." },
+  "audit.loading.final": { en: "Generating report...", ar: "إنشاء التقرير..." },
+  "audit.result.seoScore": { en: "SEO Score", ar: "تقييم SEO" },
+  "audit.result.perfScore": { en: "Performance", ar: "الأداء" },
+  "audit.result.findings": { en: "Key Findings", ar: "النتائج الرئيسية" },
+  "audit.result.passed": { en: "Passed", ar: "ناجح" },
+  "audit.result.failed": { en: "Needs Work", ar: "يحتاج تحسين" },
+  "audit.error.title": { en: "Analysis Failed", ar: "فشل التحليل" },
+  "audit.error.message": {
+    en: "Couldn't analyze this URL. Make sure it's publicly accessible and try again.",
+    ar: "تعذر تحليل هذا الرابط. تأكد من أنه متاح للعامة وحاول مرة أخرى."
+  },
+  "audit.error.retry": { en: "Try Again", ar: "حاول مرة أخرى" },
+  "audit.deep.title": { en: "Want the Full Picture?", ar: "تريد الصورة الكاملة؟" },
+  "audit.deep.subtitle": {
+    en: "Our AI-powered deep audit covers 200+ checkpoints — technical SEO, content quality, competitor analysis, and actionable recommendations delivered to your inbox.",
+    ar: "تدقيقنا العميق بالذكاء الاصطناعي يغطي 200+ نقطة فحص — SEO تقني، جودة المحتوى، تحليل المنافسين، وتوصيات عملية تصل لبريدك."
+  },
+  "audit.deep.name": { en: "Your Name", ar: "اسمك" },
+  "audit.deep.namePlaceholder": { en: "Full name", ar: "الاسم الكامل" },
+  "audit.deep.email": { en: "Email Address", ar: "البريد الإلكتروني" },
+  "audit.deep.emailPlaceholder": { en: "you@company.com", ar: "you@company.com" },
+  "audit.deep.website": { en: "Website URL", ar: "رابط الموقع" },
+  "audit.deep.websitePlaceholder": { en: "https://yoursite.com", ar: "https://yoursite.com" },
+  "audit.deep.submit": { en: "Request Free Deep Audit", ar: "اطلب تدقيقاً شاملاً مجانياً" },
+  "audit.deep.success": {
+    en: "We've received your request! Our team will deliver your full audit within 24-48 hours.",
+    ar: "استلمنا طلبك! فريقنا سيرسل لك التدقيق الكامل خلال 24-48 ساعة."
+  },
+
   // ─── Hero (new keys used by redesigned pages) ──────────────
   "hero.headline": { en: "Rank Higher. Get More Customers.", ar: "تصدّر أعلى. اجذب عملاء أكثر." },
   "hero.subtitle": {
