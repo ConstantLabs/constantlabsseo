@@ -24,6 +24,11 @@ dist-ssr
 *.sw?
 .vercel
 
+# Environment variables
+.env
+.env.*
+!.env.example
+
 # Claude Code / project memory
 .claude/
 memory.md
