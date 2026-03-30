@@ -10,7 +10,6 @@ export const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
-  const isHome = location.pathname === "/";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -24,8 +23,6 @@ export const Navbar = () => {
     { label: t("nav.pricing"), to: "/pricing" },
     { label: t("nav.about"), to: "/about" },
   ];
-
-  const ctaHref = isHome ? "#cta" : "/contact";
 
   return (
     <nav
@@ -92,19 +89,11 @@ export const Navbar = () => {
               {isAr ? "EN" : "عربي"}
             </button>
 
-            {isHome ? (
-              <a href="#cta">
-                <Button className="hidden sm:inline-flex bg-[#FECD4D] hover:bg-[#ffe066] text-[#2B124C] font-semibold text-sm px-6 py-2.5 rounded-full uppercase tracking-wide shadow-lg shadow-[#FECD4D]/20 hover:shadow-[#FECD4D]/30 transition-all">
-                  {t("nav.audit")}
-                </Button>
-              </a>
-            ) : (
-              <Link to="/contact">
-                <Button className="hidden sm:inline-flex bg-[#FECD4D] hover:bg-[#ffe066] text-[#2B124C] font-semibold text-sm px-6 py-2.5 rounded-full uppercase tracking-wide shadow-lg shadow-[#FECD4D]/20 hover:shadow-[#FECD4D]/30 transition-all">
-                  {t("nav.audit")}
-                </Button>
-              </Link>
-            )}
+            <Link to="/audit">
+              <Button className="hidden sm:inline-flex bg-[#FECD4D] hover:bg-[#ffe066] text-[#2B124C] font-semibold text-sm px-6 py-2.5 rounded-full uppercase tracking-wide shadow-lg shadow-[#FECD4D]/20 hover:shadow-[#FECD4D]/30 transition-all">
+                {t("nav.audit")}
+              </Button>
+            </Link>
 
             {/* Mobile menu button */}
             <button
@@ -159,7 +148,7 @@ export const Navbar = () => {
                 >
                   {isAr ? "EN" : "عربي"}
                 </button>
-                <Link to={isHome ? "/#cta" : "/contact"} onClick={() => setMobileOpen(false)} className="flex-1">
+                <Link to="/audit" onClick={() => setMobileOpen(false)} className="flex-1">
                   <Button className="w-full bg-[#FECD4D] hover:bg-[#ffe066] text-[#2B124C] font-semibold rounded-full uppercase tracking-wide">
                     {t("nav.audit")}
                   </Button>

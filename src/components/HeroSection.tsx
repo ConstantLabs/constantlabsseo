@@ -46,9 +46,9 @@ export const HeroSection = () => {
 
   const handleCTA = () => {
     if (domain.trim()) {
-      navigate(`/contact?website=${encodeURIComponent(domain.trim())}`);
+      navigate(`/audit?url=${encodeURIComponent(domain.trim())}`);
     } else {
-      navigate("/contact");
+      navigate("/audit");
     }
   };
 
