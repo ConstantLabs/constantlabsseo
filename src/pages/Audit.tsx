@@ -163,21 +163,15 @@ const Audit = () => {
   const [searchParams] = useSearchParams();
   const resultsRef = useRef<HTMLDivElement>(null);
 
-  const [url, setUrl] = useState("");
+  const [url, setUrl] = useState(() => searchParams.get("url") || "");
   const [scanning, setScanning] = useState(false);
   const [result, setResult] = useState<ScanResult | null>(null);
   const [error, setError] = useState(false);
   const [loadingMsgIdx, setLoadingMsgIdx] = useState(0);
+  const hasAutoScanned = useRef(false);
 
   const [form, setForm] = useState({ name: "", email: "", website: "" });
   const [formSubmitted, setFormSubmitted] = useState(false);
-
-  useEffect(() => {
-    const urlParam = searchParams.get("url");
-    if (urlParam) {
-      setUrl(urlParam);
-    }
-  }, [searchParams]);
 
   useEffect(() => {
     if (!scanning) return;
@@ -220,6 +214,15 @@ const Audit = () => {
     });
     setFormSubmitted(true);
   };
+
+  // Auto-scan when URL is pre-filled from query param
+  useEffect(() => {
+    if (url && !hasAutoScanned.current) {
+      hasAutoScanned.current = true;
+      handleScan();
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className="min-h-screen bg-white text-slate-900">
