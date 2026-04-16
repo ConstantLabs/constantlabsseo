@@ -318,7 +318,7 @@ export const translations: TranslationMap = {
   "pricing.custom": { en: "Need a custom plan? Let's talk.", ar: "تحتاج خطة مخصصة؟ كلّمنا." },
 
   "pricing.starter.name": { en: "Starter", ar: "المبتدئ" },
-  "pricing.starter.price": { en: "1,500 AED", ar: "1,500 درهم" },
+  "pricing.starter.price": { en: "350 AED", ar: "350 درهم" },
   "pricing.starter.desc": { en: "Start getting found online and attract your first customers through SEO", ar: "ابدأ الظهور على البحث واجذب أول عملائك عبر SEO" },
   "pricing.starter.f1": { en: "15 target keywords", ar: "15 كلمة مفتاحية مستهدفة" },
   "pricing.starter.f2": { en: "Monthly SEO audit", ar: "تدقيق SEO شهري" },
@@ -329,7 +329,7 @@ export const translations: TranslationMap = {
   "pricing.starter.f7": { en: "Email support", ar: "دعم عبر البريد الإلكتروني" },
 
   "pricing.growth.name": { en: "Growth", ar: "النمو" },
-  "pricing.growth.price": { en: "3,500 AED", ar: "3,500 درهم" },
+  "pricing.growth.price": { en: "700 AED", ar: "700 درهم" },
   "pricing.growth.desc": { en: "Most popular - for businesses serious about ranking higher and winning more customers", ar: "الأكثر طلباً - للشركات الجادة في التصدر وكسب عملاء أكثر" },
   "pricing.growth.f1": { en: "50 target keywords", ar: "50 كلمة مفتاحية مستهدفة" },
   "pricing.growth.f2": { en: "Weekly optimization cycles", ar: "دورات تحسين أسبوعية" },
@@ -340,7 +340,7 @@ export const translations: TranslationMap = {
   "pricing.growth.f7": { en: "Bi-weekly strategy calls", ar: "مكالمات استراتيجية كل أسبوعين" },
 
   "pricing.enterprise.name": { en: "Enterprise", ar: "المؤسسي" },
-  "pricing.enterprise.price": { en: "7,500 AED", ar: "7,500 درهم" },
+  "pricing.enterprise.price": { en: "1,500 AED", ar: "1,500 درهم" },
   "pricing.enterprise.desc": { en: "Own every search result in your space - across Google, AI platforms, Arabic and English", ar: "امتلك كل نتيجة بحث في مجالك - على Google ومنصات الذكاء الاصطناعي بالعربية والإنجليزية" },
   "pricing.enterprise.f1": { en: "Unlimited target keywords", ar: "كلمات مفتاحية غير محدودة" },
   "pricing.enterprise.f2": { en: "Dedicated SEO strategist", ar: "استراتيجي SEO مخصص" },

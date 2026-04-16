@@ -1,7 +1,8 @@
 import { useLanguage } from "@/i18n/LanguageContext";
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Check, Star } from "lucide-react";
+import { Check, Star, MessageCircle, Mail } from "lucide-react";
 
 interface PricingTier {
   key: string;
@@ -48,7 +49,22 @@ const tiers: PricingTier[] = [
 ];
 
 export const PricingSection = () => {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
+  const [openTier, setOpenTier] = useState<string | null>(null);
+
+  const getPlanEmailSubject = (tierKey: string, planName: string) => {
+    const subject = lang === "ar" 
+      ? `استفسار عن خطة ${planName}`
+      : `Inquiry about ${planName} plan`;
+    return encodeURIComponent(subject);
+  };
+
+  const getWhatsAppMessage = (tierKey: string, planName: string, price: string) => {
+    const message = lang === "ar"
+      ? `مرحباً، أرغب في الاستعلام عن خطة ${planName} (${price})`
+      : `Hi, I'm interested in the ${planName} plan (${price})`;
+    return encodeURIComponent(message);
+  };
 
   return (
     <section id="pricing" className="py-20 md:py-24 bg-white">
@@ -125,25 +141,46 @@ export const PricingSection = () => {
               </ul>
 
               {/* CTA */}
-              {tier.featured ? (
-                <Button className="w-full bg-[#FECD4D] hover:bg-[#fdd85e] text-[#2B124C] font-bold rounded-full py-6 shadow-lg transition-all">
-                  {t("pricing.getStarted")}
-                </Button>
-              ) : tier.key === "enterprise" ? (
+              <div className="relative">
                 <Button
-                  variant="outline"
-                  className="w-full rounded-full py-6 border-[#7143E0] hover:bg-[#7143E0]/5 text-[#7143E0] font-semibold transition-all"
+                  onClick={() => setOpenTier(openTier === tier.key ? null : tier.key)}
+                  className={`w-full font-bold rounded-full py-6 shadow-lg transition-all ${
+                    tier.featured
+                      ? "bg-[#FECD4D] hover:bg-[#fdd85e] text-[#2B124C]"
+                      : "border-[#7143E0] hover:bg-[#7143E0]/5 text-[#7143E0] border-2"
+                  }`}
                 >
-                  {t("pricing.contactUs")}
+                  {tier.featured ? t("pricing.getStarted") : tier.key === "enterprise" ? t("pricing.contactUs") : t("pricing.getStarted")}
                 </Button>
-              ) : (
-                <Button
-                  variant="outline"
-                  className="w-full rounded-full py-6 border-[#7143E0] hover:bg-[#7143E0]/5 text-[#7143E0] font-semibold transition-all"
-                >
-                  {t("pricing.getStarted")}
-                </Button>
-              )}
+
+                <AnimatePresence>
+                  {openTier === tier.key && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      className="absolute top-full left-0 right-0 mt-2 bg-white rounded-xl shadow-xl border border-slate-200 overflow-hidden z-10"
+                    >
+                      <a
+                        href={`https://wa.me/971561495656?text=${getWhatsAppMessage(tier.key, t(`pricing.${tier.key}.name`), t(`pricing.${tier.key}.price`))}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-3 px-4 py-3 hover:bg-green-50 transition-colors text-green-700"
+                      >
+                        <MessageCircle className="w-5 h-5" />
+                        <span className="font-medium">{lang === "ar" ? "تواصل على واتساب" : "Chat on WhatsApp"}</span>
+                      </a>
+                      <a
+                        href={`mailto:akhmad@constantlabs.ai?subject=${getPlanEmailSubject(tier.key, t(`pricing.${tier.key}.name`))}`}
+                        className="flex items-center gap-3 px-4 py-3 hover:bg-slate-50 transition-colors text-[#7143E0]"
+                      >
+                        <Mail className="w-5 h-5" />
+                        <span className="font-medium">{lang === "ar" ? "راسلنا على البريد" : "Email us"}</span>
+                      </a>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
             </div>
           ))}
         </div>
