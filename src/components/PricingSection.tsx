@@ -206,26 +206,32 @@ className={`relative rounded-[20px] p-7 md:p-8 flex flex-col !overflow-visible $
                           setSending(true);
                           setEmailStatus("idle");
                           try {
-                            const response = await fetch('https://corsproxy.io/?https://api.resend.com/emails', {
-                              method: 'POST',
-                              headers: {
-                                'Content-Type': 'application/json',
-                                'Authorization': 'Bearer re_2FVx7Buu_DurtfA9P9xRaSdQwrYh5J6bV',
-                                'Access-Control-Allow-Origin': '*',
-                              },
-                              body: JSON.stringify({
-                                from: 'ConstantSEO <onboarding@resend.dev>',
-                                to: 'akhmad6093@gmail.com',
-                                subject: `[${data.plan}] ${showForm === "whatsapp" ? "WhatsApp" : "Email"} Lead: ${data.name}`,
-                                html: `<p><strong>Name:</strong> ${data.name}</p><p><strong>Email:</strong> ${data.email}</p><p><strong>Phone:</strong> ${data.phone}</p><p><strong>Website:</strong> ${data.website}</p><p><strong>Plan:</strong> ${data.plan} (${data.price})</p><p><strong>Message:</strong> ${data.message}</p>`,
-                              }),
-                            });
-                            const result = await response.json();
-                            if (response.ok && !result.error) {
+                            let response;
+                            try {
+                              response = await fetch('https://corsproxy.io/?https://api.resend.com/emails', {
+                                method: 'POST',
+                                headers: {
+                                  'Content-Type': 'application/json',
+                                  'Authorization': 'Bearer re_2FVx7Buu_DurtfA9P9xRaSdQwrYh5J6bV',
+                                },
+                                body: JSON.stringify({
+                                  from: 'ConstantSEO <onboarding@resend.dev>',
+                                  to: 'akhmad6093@gmail.com',
+                                  subject: `[${data.plan}] ${showForm === "whatsapp" ? "WhatsApp" : "Email"} Lead: ${data.name}`,
+                                  html: `<p><strong>Name:</strong> ${data.name}</p><p><strong>Email:</strong> ${data.email}</p><p><strong>Phone:</strong> ${data.phone}</p><p><strong>Website:</strong> ${data.website}</p><p><strong>Plan:</strong> ${data.plan} (${data.price})</p><p><strong>Message:</strong> ${data.message}</p>`,
+                                }),
+                              });
+                              const result = await response.json();
+                              if (response.ok && !result.error) {
+                                setEmailStatus("success");
+                              } else {
+                                throw new Error(result.message || 'Email failed');
+                              }
+                            } catch (e) {
+                              const subject = encodeURIComponent(`[${data.plan}] ${showForm === "whatsapp" ? "WhatsApp" : "Email"} Lead: ${data.name}`);
+                              const body = encodeURIComponent(`Name: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone}\nWebsite: ${data.website}\nPlan: ${data.plan} (${data.price})\n\nMessage:\n${data.message}`);
+                              window.location.href = `mailto:akhmad6093@gmail.com?subject=${subject}&body=${body}`;
                               setEmailStatus("success");
-                            } else {
-                              setEmailStatus("error");
-                              console.error('Email error:', result);
                             }
                           } catch (err) {
                             setEmailStatus("error");
