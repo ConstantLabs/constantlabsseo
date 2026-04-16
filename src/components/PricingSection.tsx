@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Check, Star, MessageCircle, Mail, Send } from "lucide-react";
+import { Check, Star, MessageCircle, Mail, Send, Loader2 } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -60,6 +60,8 @@ const tiers: PricingTier[] = [
 export const PricingSection = () => {
   const { t, lang } = useLanguage();
   const [showForm, setShowForm] = useState<"whatsapp" | "email" | null>(null);
+  const [sending, setSending] = useState(false);
+  const [emailStatus, setEmailStatus] = useState<"idle" | "success" | "error">("idle");
 
   return (
     <section id="pricing" className="py-20 md:py-24 bg-white">
@@ -185,7 +187,7 @@ className={`relative rounded-[20px] p-7 md:p-8 flex flex-col !overflow-visible $
                   </div>
                   
                   {showForm && (
-                    <form 
+<form 
                       className="space-y-4"
                       onSubmit={async (e) => {
                         e.preventDefault();
@@ -200,28 +202,38 @@ className={`relative rounded-[20px] p-7 md:p-8 flex flex-col !overflow-visible $
                           price: t(`pricing.${tier.key}.price`),
                         };
                         
-const sendEmail = async () => {
-                            try {
-                              const response = await fetch('https://corsproxy.io/?https://api.resend.com/emails', {
-                                method: 'POST',
-                                headers: {
-                                  'Content-Type': 'application/json',
-                                  'Authorization': 'Bearer re_2FVx7Buu_DurtfA9P9xRaSdQwrYh5J6bV',
-                                  'Access-Control-Allow-Origin': '*',
-                                },
-                                body: JSON.stringify({
-                                  from: 'ConstantSEO <onboarding@resend.dev>',
-                                  to: 'akhmad6093@gmail.com',
-                                  subject: `[${data.plan}] WhatsApp Lead: ${data.name}`,
-                                  html: `<p><strong>Name:</strong> ${data.name}</p><p><strong>Email:</strong> ${data.email}</p><p><strong>Phone:</strong> ${data.phone}</p><p><strong>Website:</strong> ${data.website}</p><p><strong>Plan:</strong> ${data.plan} (${data.price})</p><p><strong>Message:</strong> ${data.message}</p>`,
-                                }),
-                              });
-                              const result = await response.json();
-                              console.log('Email result:', result);
-                            } catch (err) {
-                              console.error('Email failed:', err);
+                        const sendEmail = async () => {
+                          setSending(true);
+                          setEmailStatus("idle");
+                          try {
+                            const response = await fetch('https://corsproxy.io/?https://api.resend.com/emails', {
+                              method: 'POST',
+                              headers: {
+                                'Content-Type': 'application/json',
+                                'Authorization': 'Bearer re_2FVx7Buu_DurtfA9P9xRaSdQwrYh5J6bV',
+                                'Access-Control-Allow-Origin': '*',
+                              },
+                              body: JSON.stringify({
+                                from: 'ConstantSEO <onboarding@resend.dev>',
+                                to: 'akhmad6093@gmail.com',
+                                subject: `[${data.plan}] ${showForm === "whatsapp" ? "WhatsApp" : "Email"} Lead: ${data.name}`,
+                                html: `<p><strong>Name:</strong> ${data.name}</p><p><strong>Email:</strong> ${data.email}</p><p><strong>Phone:</strong> ${data.phone}</p><p><strong>Website:</strong> ${data.website}</p><p><strong>Plan:</strong> ${data.plan} (${data.price})</p><p><strong>Message:</strong> ${data.message}</p>`,
+                              }),
+                            });
+                            const result = await response.json();
+                            if (response.ok && !result.error) {
+                              setEmailStatus("success");
+                            } else {
+                              setEmailStatus("error");
+                              console.error('Email error:', result);
                             }
-                          };
+                          } catch (err) {
+                            setEmailStatus("error");
+                            console.error('Email failed:', err);
+                          } finally {
+                            setSending(false);
+                          }
+                        };
                         
                         if (showForm === "whatsapp") {
                           const waMessage = `Hi, I'm interested in the ${data.plan} (${data.price}). %0A%0AName: ${data.name}%0AEmail: ${data.email}%0APhone: ${data.phone}%0AWebsite: ${data.website}%0AMessage: ${data.message}`;
@@ -231,23 +243,7 @@ const sendEmail = async () => {
                             window.open(`https://wa.me/971561495656?text=${waMessage}`, '_blank');
                           }, 500);
                         } else {
-                          try {
-                            await fetch('https://api.resend.com/emails', {
-                              method: 'POST',
-                              headers: {
-                                'Content-Type': 'application/json',
-                                'Authorization': 'Bearer re_2FVx7Buu_DurtfA9P9xRaSdQwrYh5J6bV',
-                              },
-                              body: JSON.stringify({
-                                from: 'ConstantSEO <onboarding@resend.dev>',
-                                to: 'akhmad6093@gmail.com',
-                                subject: `New Inquiry: ${data.plan} - ${data.name}`,
-                                text: `Name: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone}\nWebsite: ${data.website}\nPlan: ${data.plan} (${data.price})\n\nMessage:\n${data.message}`,
-                              }),
-                            });
-                          } catch (err) {
-                            console.error('Email send failed:', err);
-                          }
+                          await sendEmail();
                         }
                       }}
                     >
@@ -315,17 +311,42 @@ const sendEmail = async () => {
                       </div>
                       <Button 
                         type="submit" 
+                        disabled={sending}
                         className={`w-full font-bold ${
                           showForm === "whatsapp" 
                             ? "bg-[#25D366] hover:bg-[#20bd5a] text-white"
                             : "bg-[#7143E0] hover:bg-[#5a35c9] text-white"
                         }`}
                       >
-                        <Send className="w-4 h-4 mr-2" />
-                        {showForm === "whatsapp" 
-                          ? (lang === "ar" ? "تواصل على واتساب" : "Send via WhatsApp")
-                          : (lang === "ar" ? "أرسل" : "Send Email")}
+                        {sending ? (
+                          <span className="flex items-center justify-center gap-2">
+                            <Loader2 className="w-4 h-4 animate-spin" />
+                            {lang === "ar" ? "جارٍ الإرسال..." : "Sending..."}
+                          </span>
+                        ) : (
+                          <span className="flex items-center justify-center gap-2">
+                            {showForm === "whatsapp" ? <MessageCircle className="w-4 h-4" /> : <Mail className="w-4 h-4" />}
+                            {showForm === "whatsapp" 
+                              ? (lang === "ar" ? "إرسال عبر واتساب" : "Send via WhatsApp")
+                              : (lang === "ar" ? "إرسال" : "Send Email")}
+                          </span>
+                        )}
                       </Button>
+                      {emailStatus === "success" && (
+                        <div className="p-3 bg-green-100 text-green-700 rounded-lg text-center text-sm">
+                          {lang === "ar" ? "✓ تم إرسال الرسالة بنجاح!" : "✓ Email sent successfully!"}
+                        </div>
+                      )}
+                      {emailStatus === "error" && (
+                        <div className="p-3 bg-red-100 text-red-700 rounded-lg text-center text-sm space-y-2">
+                          <p>✗ {lang === "ar" ? "فشل إرسال الرسالة" : "Failed to send email"}</p>
+                          <p className="text-xs">
+                            {lang === "ar" 
+                              ? <span>تواصل معنا على: <a href="mailto:akhmad6093@gmail.com" className="underline">akhmad6093@gmail.com</a> أو <a href="https://wa.me/971561495656" className="underline">واتساب</a></span>
+                              : <span>Contact us at: <a href="mailto:akhmad6093@gmail.com" className="underline">akhmad6093@gmail.com</a> or <a href="https://wa.me/971561495656" className="underline">WhatsApp</a></span>}
+                          </p>
+                        </div>
+                      )}
                     </form>
                   )}
                 </DialogContent>
