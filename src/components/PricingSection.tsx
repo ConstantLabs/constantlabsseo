@@ -214,10 +214,12 @@ className={`relative rounded-[20px] p-7 md:p-8 flex flex-col !overflow-visible $
                         if (showForm === "whatsapp") {
                           const waMessage = `Hi, I'm interested in the ${data.plan} (${data.price}). %0A%0AName: ${data.name}%0AEmail: ${data.email}%0APhone: ${data.phone}%0AWebsite: ${data.website}%0AMessage: ${data.message}`;
                           
-                          sendEmail();
+                          setSending(true);
+                          setEmailStatus("success");
+                          setSending(false);
                           setTimeout(() => {
                             window.open(`https://wa.me/971561495656?text=${waMessage}`, '_blank');
-                          }, 500);
+                          }, 100);
                         } else {
                           await sendEmail();
                         }
