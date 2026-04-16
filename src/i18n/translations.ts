@@ -310,7 +310,7 @@ export const translations: TranslationMap = {
   "pricing.label": { en: "Pricing", ar: "الأسعار" },
   "pricing.title": { en: "Transparent Pricing, Real Results", ar: "أسعار واضحة، نتائج حقيقية" },
   "pricing.subtitle": { en: "All plans include AI-powered optimization. No hidden fees.", ar: "جميع الباقات تشمل التحسين بالذكاء الاصطناعي. بدون رسوم مخفية." },
-  "pricing.monthly": { en: "/month", ar: "/شهر" },
+  "pricing.monthly": { en: "per month", ar: "شهرياً" },
   "pricing.popular": { en: "Most Popular", ar: "الأكثر طلباً" },
   "pricing.getStarted": { en: "Get Started", ar: "ابدأ الآن" },
   "pricing.contactUs": { en: "Contact Us", ar: "تواصل معنا" },

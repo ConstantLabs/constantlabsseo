@@ -149,7 +149,7 @@ export const IndustryLandingPage = ({ industry }: IndustryLandingPageProps) => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 bg-[#FECD4D] hover:bg-[#ffe066] text-[#2B124C] font-bold text-sm px-8 py-4 rounded-full uppercase tracking-wide shadow-lg shadow-[#FECD4D]/25 hover:shadow-[#FECD4D]/40 transition-all"
+              className="inline-flex items-center gap-2 bg-[#FECD4D] hover:bg-[#ffe066] text-[#2B124C] font-bold text-sm px-8 py-4 rounded-full uppercase tracking-wide transition-all"
             >
               {t("industryPage.cta.audit")}
               <ArrowRight className="w-4 h-4" />

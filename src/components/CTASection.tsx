@@ -32,7 +32,7 @@ export const CTASection = () => {
           
           
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-black text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-black text-white mb-4 ">
             {t("cta.title")}
           </h2>
           <p className="text-gray-300 text-lg mb-10 max-w-xl mx-auto">
@@ -56,7 +56,7 @@ export const CTASection = () => {
               placeholder={t("cta.emailPlaceholder")}
               className={`flex-1 bg-white/10 sm:bg-transparent border border-white/10 sm:border-none rounded-full sm:rounded-none py-3.5 sm:py-2.5 text-white placeholder-gray-400 outline-none text-sm ${isAr ? "pr-5 pl-4" : "pl-5 pr-4"}`}
             />
-            <Button className="bg-[#FECD4D] hover:bg-[#fee580] text-[#2B124C] font-bold rounded-full px-7 py-3 sm:py-2.5 text-sm shadow-lg shadow-[#FECD4D]/20 hover:shadow-[#FECD4D]/30 transition-all whitespace-nowrap">
+            <Button className="bg-[#FECD4D] hover:bg-[#fee580] text-[#2B124C] font-bold rounded-full px-7 py-3 sm:py-2.5 text-sm transition-all whitespace-nowrap">
               {t("cta.button")}
               <ArrowRight className={`w-4 h-4 ${isAr ? "mr-1.5 rotate-180" : "ml-1.5"}`} />
             </Button>

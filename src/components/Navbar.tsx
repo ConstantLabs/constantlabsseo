@@ -38,7 +38,7 @@ export const Navbar = () => {
           <div className="flex flex-col">
             <Link to="/" className="group">
               <span
-                className={`text-xl md:text-2xl font-heading font-extrabold tracking-tight transition-colors duration-500 ${
+                className={`text-xl md:text-2xl font-heading font-extrabold tracking-tight leading-[1.2] transition-colors duration-500 ${
                   scrolled ? "text-[#2B124C]" : "text-white"
                 }`}
               >
@@ -90,7 +90,7 @@ export const Navbar = () => {
             </button>
 
             <Link to="/audit">
-              <Button className="hidden sm:inline-flex bg-[#FECD4D] hover:bg-[#ffe066] text-[#2B124C] font-semibold text-sm px-6 py-2.5 rounded-full uppercase tracking-wide shadow-lg shadow-[#FECD4D]/20 hover:shadow-[#FECD4D]/30 transition-all">
+              <Button className="hidden sm:inline-flex bg-[#FECD4D] hover:bg-[#ffe066] text-[#2B124C] font-semibold text-sm px-6 py-2.5 rounded-full uppercase tracking-wide transition-all">
                 {t("nav.audit")}
               </Button>
             </Link>

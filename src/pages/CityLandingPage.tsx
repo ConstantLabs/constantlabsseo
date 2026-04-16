@@ -158,7 +158,7 @@ export const CityLandingPage = ({ city }: CityLandingPageProps) => {
           >
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#FECD4D] hover:bg-[#ffe066] text-[#2B124C] font-bold rounded-full text-sm uppercase tracking-wide shadow-lg shadow-[#FECD4D]/20 hover:shadow-[#FECD4D]/30 transition-all"
+              className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#FECD4D] hover:bg-[#ffe066] text-[#2B124C] font-bold rounded-full text-sm uppercase tracking-wide transition-all"
             >
               {t("cityPage.cta.audit")}
               <ChevronRight className="w-4 h-4" />

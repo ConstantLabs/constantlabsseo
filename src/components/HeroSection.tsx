@@ -59,7 +59,7 @@ export const HeroSection = () => {
         <div className="text-center max-w-4xl mx-auto">
           {/* Headline */}
           <h1
-            className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[1.1] animate-fade-in-up"
+            className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight tracking-tight animate-fade-in-up"
           >
             <span className="block text-white">
               {t("hero.headline").split(".")[0]}.
@@ -112,7 +112,7 @@ export const HeroSection = () => {
               </div>
               <Button
                 onClick={handleCTA}
-                className="bg-[#FECD4D] hover:bg-[#ffe066] text-[#2B124C] font-semibold rounded-full px-7 py-3 sm:py-2.5 text-sm uppercase tracking-wide shadow-lg shadow-[#FECD4D]/20 hover:shadow-[#FECD4D]/30 transition-all whitespace-nowrap"
+                className="bg-[#FECD4D] hover:bg-[#ffe066] text-[#2B124C] font-semibold rounded-full px-7 py-3 sm:py-2.5 text-sm uppercase tracking-wide transition-all whitespace-nowrap"
               >
                 {t("hero.cta")}
                 <ArrowRight className={`w-4 h-4 ${isAr ? "mr-1.5 rotate-180" : "ml-1.5"}`} />

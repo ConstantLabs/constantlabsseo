@@ -278,7 +278,7 @@ const Audit = () => {
               <Button
                 onClick={handleScan}
                 disabled={scanning || !url.trim()}
-                className="bg-[#FECD4D] hover:bg-[#ffe066] text-[#2B124C] font-semibold rounded-full px-7 py-3 sm:py-2.5 text-sm uppercase tracking-wide shadow-lg shadow-[#FECD4D]/20 hover:shadow-[#FECD4D]/30 transition-all whitespace-nowrap disabled:opacity-50"
+                className="bg-[#FECD4D] hover:bg-[#ffe066] text-[#2B124C] font-semibold rounded-full px-7 py-3 sm:py-2.5 text-sm uppercase tracking-wide transition-all whitespace-nowrap disabled:opacity-50"
               >
                 {scanning ? (
                   <Loader2 className="w-4 h-4 animate-spin" />
@@ -466,7 +466,7 @@ const Audit = () => {
               </div>
               <Button
                 type="submit"
-                className="w-full bg-gradient-to-r from-[#FECD4D] to-[#e5b030] hover:from-[#ffe066] hover:to-[#FECD4D] text-[#2B124C] font-bold rounded-lg px-6 py-3 text-sm shadow-lg"
+                className="w-full bg-gradient-to-r from-[#FECD4D] to-[#e5b030] hover:from-[#ffe066] hover:to-[#FECD4D] text-[#2B124C] font-bold rounded-lg px-6 py-3 text-sm"
               >
                 <Send className={`w-4 h-4 ${isAr ? "ml-2 rotate-180" : "mr-2"}`} />
                 {t("audit.deep.submit")}

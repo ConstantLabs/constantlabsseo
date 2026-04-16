@@ -1,8 +1,17 @@
 import { useLanguage } from "@/i18n/LanguageContext";
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Check, Star, MessageCircle, Mail } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Check, Star, MessageCircle, Mail, Send } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
 interface PricingTier {
   key: string;
@@ -50,21 +59,7 @@ const tiers: PricingTier[] = [
 
 export const PricingSection = () => {
   const { t, lang } = useLanguage();
-  const [openTier, setOpenTier] = useState<string | null>(null);
-
-  const getPlanEmailSubject = (tierKey: string, planName: string) => {
-    const subject = lang === "ar" 
-      ? `استفسار عن خطة ${planName}`
-      : `Inquiry about ${planName} plan`;
-    return encodeURIComponent(subject);
-  };
-
-  const getWhatsAppMessage = (tierKey: string, planName: string, price: string) => {
-    const message = lang === "ar"
-      ? `مرحباً، أرغب في الاستعلام عن خطة ${planName} (${price})`
-      : `Hi, I'm interested in the ${planName} plan (${price})`;
-    return encodeURIComponent(message);
-  };
+  const [showForm, setShowForm] = useState<"whatsapp" | "email" | null>(null);
 
   return (
     <section id="pricing" className="py-20 md:py-24 bg-white">
@@ -98,11 +93,11 @@ export const PricingSection = () => {
               
               
               
-              className={`relative rounded-[20px] p-7 md:p-8 flex flex-col ${
-                tier.featured
-                  ? "bg-[#2B124C] text-white shadow-2xl"
-                  : "bg-white border border-slate-200 text-slate-900"
-              }`}
+className={`relative rounded-[20px] p-7 md:p-8 flex flex-col !overflow-visible ${
+                  tier.featured
+                    ? "bg-[#2B124C] text-white shadow-2xl"
+                    : "bg-white border border-slate-200 text-slate-900"
+                }`}
             >
               {/* Tier name */}
               <h3 className={`text-lg font-heading font-bold mb-1 ${tier.featured ? "text-white" : "text-slate-900"}`}>
@@ -141,46 +136,198 @@ export const PricingSection = () => {
               </ul>
 
               {/* CTA */}
-              <div className="relative">
-                <Button
-                  onClick={() => setOpenTier(openTier === tier.key ? null : tier.key)}
-                  className={`w-full font-bold rounded-full py-6 shadow-lg transition-all ${
-                    tier.featured
-                      ? "bg-[#FECD4D] hover:bg-[#fdd85e] text-[#2B124C]"
-                      : "border-[#7143E0] hover:bg-[#7143E0]/5 text-[#7143E0] border-2"
-                  }`}
-                >
-                  {tier.featured ? t("pricing.getStarted") : tier.key === "enterprise" ? t("pricing.contactUs") : t("pricing.getStarted")}
-                </Button>
-
-                <AnimatePresence>
-                  {openTier === tier.key && (
-                    <motion.div
-                      initial={{ opacity: 0, y: -10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
-                      className="absolute top-full left-0 right-0 mt-2 bg-white rounded-xl shadow-xl border border-slate-200 overflow-hidden z-10"
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button
+                    className={`w-full font-bold rounded-full py-6 shadow-lg transition-all ${
+                      tier.featured
+                        ? "bg-[#FECD4D] hover:bg-[#fdd85e] text-[#2B124C] shadow-none"
+                        : "border-[#7143E0] hover:bg-[#7143E0] text-white border-2"
+                    }`}
+                  >
+                    {t("pricing.getStarted")}
+                  </Button>
+                </DialogTrigger>
+                <DialogContent className="sm:max-w-md border-none shadow-2xl">
+                  <DialogHeader>
+                    <DialogTitle>
+                      {lang === "ar" ? "لنبدأ" : "Let's Get Started"}
+                    </DialogTitle>
+                    <DialogDescription>
+                      {lang === "ar" 
+                        ? `خطة ${t(`pricing.${tier.key}.name`)} - ${t(`pricing.${tier.key}.price`)}`
+                        : `${t(`pricing.${tier.key}.name`)} Plan - ${t(`pricing.${tier.key}.price`)}`}
+                    </DialogDescription>
+                  </DialogHeader>
+                  <div className="grid grid-cols-2 gap-3">
+                    <button
+                      onClick={() => setShowForm("whatsapp")}
+                      className={`flex items-center justify-center gap-2 py-4 rounded-xl font-bold transition-all ${
+                        showForm === "whatsapp" 
+                          ? "bg-[#25D366] text-white"
+                          : "bg-[#25D366]/10 text-[#25D366] hover:bg-[#25D366] hover:text-white"
+                      }`}
                     >
-                      <a
-                        href={`https://wa.me/971561495656?text=${getWhatsAppMessage(tier.key, t(`pricing.${tier.key}.name`), t(`pricing.${tier.key}.price`))}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-3 px-4 py-3 hover:bg-green-50 transition-colors text-green-700"
+                      <MessageCircle className="w-5 h-5" />
+                      {lang === "ar" ? "واتساب" : "WhatsApp"}
+                    </button>
+                    <button
+                      onClick={() => setShowForm("email")}
+                      className={`flex items-center justify-center gap-2 py-4 rounded-xl font-bold transition-all ${
+                        showForm === "email"
+                          ? "bg-[#7143E0] text-white"
+                          : "bg-[#7143E0]/10 text-[#7143E0] hover:bg-[#7143E0] hover:text-white"
+                      }`}
+                    >
+                      <Mail className="w-5 h-5" />
+                      {lang === "ar" ? "بريد" : "Email"}
+                    </button>
+                  </div>
+                  
+                  {showForm && (
+                    <form 
+                      className="space-y-4"
+                      onSubmit={async (e) => {
+                        e.preventDefault();
+                        const formData = new FormData(e.currentTarget);
+                        const data = {
+                          name: formData.get('name'),
+                          email: formData.get('email'),
+                          phone: formData.get('phone'),
+                          website: formData.get('website'),
+                          message: formData.get('message'),
+                          plan: t(`pricing.${tier.key}.name`),
+                          price: t(`pricing.${tier.key}.price`),
+                        };
+                        
+const sendEmail = async () => {
+                            try {
+                              await fetch('https://api.resend.com/emails', {
+                                method: 'POST',
+                                mode: 'no-cors',
+                                headers: {
+                                  'Content-Type': 'application/json',
+                                  'Authorization': 'Bearer re_2FVx7Buu_DurtfA9P9xRaSdQwrYh5J6bV',
+                                },
+                                body: JSON.stringify({
+                                  from: 'ConstantSEO <onboarding@resend.dev>',
+                                  to: 'akhmad6093@gmail.com',
+                                  subject: `[${data.plan}] WhatsApp Lead: ${data.name}`,
+                                  html: `<p><strong>Name:</strong> ${data.name}</p><p><strong>Email:</strong> ${data.email}</p><p><strong>Phone:</strong> ${data.phone}</p><p><strong>Website:</strong> ${data.website}</p><p><strong>Plan:</strong> ${data.plan} (${data.price})</p><p><strong>Message:</strong> ${data.message}</p>`,
+                                }),
+                              });
+                            } catch (err) {
+                              console.error('Email send failed:', err);
+                            }
+                          };
+                        
+                        if (showForm === "whatsapp") {
+                          const waMessage = `Hi, I'm interested in the ${data.plan} (${data.price}). %0A%0AName: ${data.name}%0AEmail: ${data.email}%0APhone: ${data.phone}%0AWebsite: ${data.website}%0AMessage: ${data.message}`;
+                          
+                          sendEmail();
+                          setTimeout(() => {
+                            window.open(`https://wa.me/971561495656?text=${waMessage}`, '_blank');
+                          }, 500);
+                        } else {
+                          try {
+                            await fetch('https://api.resend.com/emails', {
+                              method: 'POST',
+                              headers: {
+                                'Content-Type': 'application/json',
+                                'Authorization': 'Bearer re_2FVx7Buu_DurtfA9P9xRaSdQwrYh5J6bV',
+                              },
+                              body: JSON.stringify({
+                                from: 'ConstantSEO <onboarding@resend.dev>',
+                                to: 'akhmad6093@gmail.com',
+                                subject: `New Inquiry: ${data.plan} - ${data.name}`,
+                                text: `Name: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone}\nWebsite: ${data.website}\nPlan: ${data.plan} (${data.price})\n\nMessage:\n${data.message}`,
+                              }),
+                            });
+                          } catch (err) {
+                            console.error('Email send failed:', err);
+                          }
+                        }
+                      }}
+                    >
+                      <div className="space-y-2">
+                        <label htmlFor={`name-${tier.key}`} className="text-sm font-medium">
+                          {lang === "ar" ? "الاسم" : "Your Name"}
+                        </label>
+                        <Input 
+                          id={`name-${tier.key}`} 
+                          name="name" 
+                          placeholder={lang === "ar" ? "أدخل اسمك" : "Enter your name"} 
+                          required 
+                          className="border-0 bg-[#E8E0F0] focus:bg-[#DDD4EC] text-slate-900 placeholder:text-slate-500"
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <label htmlFor={`email-${tier.key}`} className="text-sm font-medium">
+                          {lang === "ar" ? "البريد الإلكتروني" : "Your Email"}
+                        </label>
+                        <Input 
+                          id={`email-${tier.key}`} 
+                          name="email" 
+                          type="email"
+                          placeholder="you@example.com" 
+                          required 
+                          className="border-0 bg-[#E8E0F0] focus:bg-[#DDD4EC] text-slate-900 placeholder:text-slate-500"
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <label htmlFor={`phone-${tier.key}`} className="text-sm font-medium">
+                          {lang === "ar" ? "رقم الهاتف" : "Phone Number"}
+                        </label>
+                        <Input 
+                          id={`phone-${tier.key}`} 
+                          name="phone" 
+                          type="tel"
+                          placeholder="+971 55 123 4567" 
+                          required 
+                          className="border-0 bg-[#E8E0F0] focus:bg-[#DDD4EC] text-slate-900 placeholder:text-slate-500"
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <label htmlFor={`website-${tier.key}`} className="text-sm font-medium">
+                          {lang === "ar" ? "الموقع" : "Website"}
+                        </label>
+                        <Input 
+                          id={`website-${tier.key}`} 
+                          name="website" 
+                          placeholder="https://example.com" 
+                          type="url"
+                          className="border-0 bg-[#E8E0F0] focus:bg-[#DDD4EC] text-slate-900 placeholder:text-slate-500"
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <label htmlFor={`message-${tier.key}`} className="text-sm font-medium">
+                          {lang === "ar" ? "ماذا تريد أن تحقق؟" : "What do you want to achieve?"}
+                        </label>
+                        <Textarea 
+                          id={`message-${tier.key}`}
+                          name="message"
+                          placeholder={lang === "ar" ? "أخبرنا عن أهدافك في محرك البحث" : "Tell us about your SEO goals"} 
+                          rows={3}
+                          className="border-0 bg-slate-100 focus:bg-slate-200 text-slate-900 placeholder:text-slate-400"
+                        />
+                      </div>
+                      <Button 
+                        type="submit" 
+                        className={`w-full font-bold ${
+                          showForm === "whatsapp" 
+                            ? "bg-[#25D366] hover:bg-[#20bd5a] text-white"
+                            : "bg-[#7143E0] hover:bg-[#5a35c9] text-white"
+                        }`}
                       >
-                        <MessageCircle className="w-5 h-5" />
-                        <span className="font-medium">{lang === "ar" ? "تواصل على واتساب" : "Chat on WhatsApp"}</span>
-                      </a>
-                      <a
-                        href={`mailto:akhmad@constantlabs.ai?subject=${getPlanEmailSubject(tier.key, t(`pricing.${tier.key}.name`))}`}
-                        className="flex items-center gap-3 px-4 py-3 hover:bg-slate-50 transition-colors text-[#7143E0]"
-                      >
-                        <Mail className="w-5 h-5" />
-                        <span className="font-medium">{lang === "ar" ? "راسلنا على البريد" : "Email us"}</span>
-                      </a>
-                    </motion.div>
+                        <Send className="w-4 h-4 mr-2" />
+                        {showForm === "whatsapp" 
+                          ? (lang === "ar" ? "تواصل على واتساب" : "Send via WhatsApp")
+                          : (lang === "ar" ? "أرسل" : "Send Email")}
+                      </Button>
+                    </form>
                   )}
-                </AnimatePresence>
-              </div>
+                </DialogContent>
+              </Dialog>
             </div>
           ))}
         </div>
