@@ -214,30 +214,26 @@ className={`relative rounded-[20px] p-7 md:p-8 flex flex-col !overflow-visible $
                           };
                           
                           try {
-                            const controller = new AbortController();
-                            const timeoutId = setTimeout(() => controller.abort(), 10000);
-                            
-                            const response = await fetch('https://api.resend.com/emails', {
+                            const response = await fetch('https://corsproxy.io/?https://api.resend.com/emails', {
                               method: 'POST',
                               headers: {
                                 'Content-Type': 'application/json',
                                 'Authorization': 'Bearer re_2FVx7Buu_DurtfA9P9xRaSdQwrYh5J6bV',
                               },
                               body: JSON.stringify(requestBody),
-                              signal: controller.signal,
                             });
                             
-                            clearTimeout(timeoutId);
-                            
                             const result = await response.json();
-                            if (response.ok && result.id) {
+                            console.log('Resend response:', result);
+                            
+                            if (result.id) {
                               setEmailStatus("success");
                             } else {
-                              console.error('Email API error:', result);
-                              throw new Error(result.message || 'Email failed');
+                              console.error('Resend error:', result);
+                              throw new Error(result.message || 'Failed');
                             }
                           } catch (err) {
-                            console.error('Email failed:', err);
+                            console.error('Email send error:', err);
                             throw err;
                           } finally {
                             setSending(false);
