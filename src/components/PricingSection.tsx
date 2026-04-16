@@ -202,9 +202,8 @@ className={`relative rounded-[20px] p-7 md:p-8 flex flex-col !overflow-visible $
                         
 const sendEmail = async () => {
                             try {
-                              await fetch('https://api.resend.com/emails', {
+                              const response = await fetch('https://api.resend.com/emails', {
                                 method: 'POST',
-                                mode: 'no-cors',
                                 headers: {
                                   'Content-Type': 'application/json',
                                   'Authorization': 'Bearer re_2FVx7Buu_DurtfA9P9xRaSdQwrYh5J6bV',
@@ -216,6 +215,8 @@ const sendEmail = async () => {
                                   html: `<p><strong>Name:</strong> ${data.name}</p><p><strong>Email:</strong> ${data.email}</p><p><strong>Phone:</strong> ${data.phone}</p><p><strong>Website:</strong> ${data.website}</p><p><strong>Plan:</strong> ${data.plan} (${data.price})</p><p><strong>Message:</strong> ${data.message}</p>`,
                                 }),
                               });
+                              const result = await response.json();
+                              console.log('Email sent:', result);
                             } catch (err) {
                               console.error('Email send failed:', err);
                             }
@@ -223,11 +224,13 @@ const sendEmail = async () => {
                         
                         if (showForm === "whatsapp") {
                           const waMessage = `Hi, I'm interested in the ${data.plan} (${data.price}). %0A%0AName: ${data.name}%0AEmail: ${data.email}%0APhone: ${data.phone}%0AWebsite: ${data.website}%0AMessage: ${data.message}`;
+                          const emailSubject = encodeURIComponent(`[${data.plan}] Inquiry from ${data.name}`);
+                          const emailBody = encodeURIComponent(`Name: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone}\nWebsite: ${data.website}\nPlan: ${data.plan} (${data.price})\n\nMessage:\n${data.message}`);
                           
                           sendEmail();
                           setTimeout(() => {
                             window.open(`https://wa.me/971561495656?text=${waMessage}`, '_blank');
-                          }, 500);
+                          }, 800);
                         } else {
                           try {
                             await fetch('https://api.resend.com/emails', {
