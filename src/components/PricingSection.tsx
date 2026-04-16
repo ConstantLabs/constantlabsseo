@@ -198,25 +198,21 @@ className={`relative rounded-[20px] p-7 md:p-8 flex flex-col !overflow-visible $
                           price: t(`pricing.${tier.key}.price`),
                         };
                         
-                        const sendEmail = async () => {
+const sendEmail = async () => {
                           setSending(true);
                           setEmailStatus("idle");
-                          
+                           
                           const subject = encodeURIComponent(`[${data.plan}] ${showForm === "whatsapp" ? "WhatsApp" : "Email"} Lead: ${data.name}`);
                           const body = encodeURIComponent(`Name: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone}\nWebsite: ${data.website}\nPlan: ${data.plan} (${data.price})\n\nMessage:\n${data.message}`);
-                          
+                           
                           window.location.href = `mailto:akhmad6093@gmail.com?subject=${subject}&body=${body}`;
-                          
+                           
                           setSending(false);
-                          setEmailStatus("success");
                         };
                         
                         if (showForm === "whatsapp") {
                           const waMessage = `Hi, I'm interested in the ${data.plan} (${data.price}). %0A%0AName: ${data.name}%0AEmail: ${data.email}%0APhone: ${data.phone}%0AWebsite: ${data.website}%0AMessage: ${data.message}`;
                           
-                          setSending(true);
-                          setEmailStatus("success");
-                          setSending(false);
                           setTimeout(() => {
                             window.open(`https://wa.me/971561495656?text=${waMessage}`, '_blank');
                           }, 100);
@@ -303,10 +299,8 @@ className={`relative rounded-[20px] p-7 md:p-8 flex flex-col !overflow-visible $
                           </span>
                         ) : (
                           <span className="flex items-center justify-center gap-2">
-                            {showForm === "whatsapp" ? <MessageCircle className="w-4 h-4" /> : <Mail className="w-4 h-4" />}
-                            {showForm === "whatsapp" 
-                              ? (lang === "ar" ? "إرسال عبر واتساب" : "Send via WhatsApp")
-                              : (lang === "ar" ? "إرسال" : "Send Email")}
+                            <Mail className="w-4 h-4" />
+                            {lang === "ar" ? "فتح البريد" : "Open Email App"}
                           </span>
                         )}
                       </Button>
