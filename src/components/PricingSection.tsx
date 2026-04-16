@@ -114,11 +114,7 @@ className={`relative rounded-[20px] p-7 md:p-8 flex flex-col !overflow-visible $
                 <span className={`text-3xl md:text-4xl font-extrabold ${tier.featured ? "text-white" : "text-slate-900"}`}>
                   {t(`pricing.${tier.key}.price`)}
                 </span>
-                {tier.key !== "enterprise" && (
-                  <span className={`text-sm ${tier.featured ? "text-slate-300" : "text-slate-500"}`}>
-                    {" "}{t("pricing.monthly")}
-                  </span>
-                )}
+                
               </div>
 
               {/* Features */}
@@ -206,38 +202,13 @@ className={`relative rounded-[20px] p-7 md:p-8 flex flex-col !overflow-visible $
                           setSending(true);
                           setEmailStatus("idle");
                           
-                          const requestBody = {
-                            from: 'ConstantSEO <onboarding@resend.dev>',
-                            to: 'akhmad6093@gmail.com',
-                            subject: `[${data.plan}] ${showForm === "whatsapp" ? "WhatsApp" : "Email"} Lead: ${data.name}`,
-                            html: `<p><strong>Name:</strong> ${data.name}</p><p><strong>Email:</strong> ${data.email}</p><p><strong>Phone:</strong> ${data.phone}</p><p><strong>Website:</strong> ${data.website}</p><p><strong>Plan:</strong> ${data.plan} (${data.price})</p><p><strong>Message:</strong> ${data.message}</p>`,
-                          };
+                          const subject = encodeURIComponent(`[${data.plan}] ${showForm === "whatsapp" ? "WhatsApp" : "Email"} Lead: ${data.name}`);
+                          const body = encodeURIComponent(`Name: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone}\nWebsite: ${data.website}\nPlan: ${data.plan} (${data.price})\n\nMessage:\n${data.message}`);
                           
-                          try {
-                            const response = await fetch('https://corsproxy.io/?https://api.resend.com/emails', {
-                              method: 'POST',
-                              headers: {
-                                'Content-Type': 'application/json',
-                                'Authorization': 'Bearer re_2FVx7Buu_DurtfA9P9xRaSdQwrYh5J6bV',
-                              },
-                              body: JSON.stringify(requestBody),
-                            });
-                            
-                            const result = await response.json();
-                            console.log('Resend response:', result);
-                            
-                            if (result.id) {
-                              setEmailStatus("success");
-                            } else {
-                              console.error('Resend error:', result);
-                              throw new Error(result.message || 'Failed');
-                            }
-                          } catch (err) {
-                            console.error('Email send error:', err);
-                            throw err;
-                          } finally {
-                            setSending(false);
-                          }
+                          window.location.href = `mailto:akhmad6093@gmail.com?subject=${subject}&body=${body}`;
+                          
+                          setSending(false);
+                          setEmailStatus("success");
                         };
                         
                         if (showForm === "whatsapp") {
