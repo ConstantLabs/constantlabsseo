@@ -455,6 +455,22 @@ export const translations: TranslationMap = {
   },
   "calendly.free": { en: "100% FREE", ar: "مجانية 100%" },
 
+  // ─── ZCal Booking Section ─────────────────────────────────────
+  "zcal.title": { en: "Let's Help You Out Right Now For Free", ar: "دعنا نساعدك الآن مجاناً" },
+  "zcal.subtitle": {
+    en: "Book a quick 30-min call to get actionable SEO advice. No strings attached.",
+    ar: "احجز مكالمة سريعة لمدة 30 دقيقة للحصول على نصائح SEO قابلة للتنفيذ. بدون أي التزام."
+  },
+  "zcal.bookNow": { en: "Book Free Consultation", ar: "احجز استشارة مجانية" },
+  "zcal.whatsapp": { en: "Or chat on WhatsApp", ar: "أو تواصل عبر واتساب" },
+  "zcal.email": { en: "Or email us", ar: "أو راسلنا" },
+  "zcal.emailSubject": { en: "Free SEO Consultation Request", ar: "طلب استشارة SEO مجانية" },
+  "zcal.openCalendar": { en: "Open Calendar", ar: "افتح التقويم" },
+  "zcal.back": { en: "Back", ar: "رجوع" },
+  "zcal.widgetFailed": { en: "Unable to load the booking widget", ar: "تعذر تحميل أداة الحجز" },
+  "zcal.note": { en: "✓ No commitment  ✓ Real answers  ✓ Actionable advice", ar: "✓ بدون التزام  ✓ إجابة حقيقية  ✓ نصائح عملية" },
+  "zcal.emoji": { en: "⚡", ar: "⚡" },
+
   // ─── Featured Work (used by Index.tsx) ──────────────────────
   "featured.title": { en: "[FEATURED_RESULTS]", ar: "[نتائج مميزة]" },
   "featured.subtitle": { en: "// Success stories from GCC businesses", ar: "// قصص نجاح من شركات الخليج" },

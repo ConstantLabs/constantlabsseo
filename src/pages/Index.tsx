@@ -9,7 +9,7 @@ import { CaseStudiesSection } from "@/components/CaseStudiesSection";
 import { PricingSection } from "@/components/PricingSection";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { FAQSection } from "@/components/FAQSection";
-import { CTASection } from "@/components/CTASection";
+import { ZCalBookingSection } from "@/components/ZCalBookingSection";
 import { Footer } from "@/components/Footer";
 
 const Index = () => {
@@ -32,7 +32,7 @@ const Index = () => {
         <PricingSection />
         {/* <TestimonialsSection /> */}
         <FAQSection />
-        <CTASection />
+        <ZCalBookingSection />
       </main>
 
       <Footer />
