@@ -27,6 +27,21 @@ const routes = [
     description: "Real SEO results for Gulf businesses. See how we deploy 50+ optimized pages in hours, rank for Google + AI search, and deliver bilingual Arabic-English SEO.",
   },
   {
+    path: "/case-studies/rapid-seo-deployment",
+    title: "50+ Optimized Pages in 4 Hours - SEO Case Study | ConstantSEO",
+    description: "See how ConstantSEO uses agentic AI to deploy 50+ optimized SEO pages in hours, including location content, schema markup, internal links, and technical optimization.",
+  },
+  {
+    path: "/case-studies/ai-search-visibility",
+    title: "Google + AI Search Visibility - SEO Case Study | ConstantSEO",
+    description: "See how ConstantSEO optimizes for Google, ChatGPT, Gemini, and Perplexity with structured data, topical authority, and clean technical SEO foundations.",
+  },
+  {
+    path: "/case-studies/bilingual-gcc-seo",
+    title: "Bilingual GCC SEO - Arabic + English Case Study | ConstantSEO",
+    description: "See how ConstantSEO builds native Arabic and English SEO for GCC businesses with RTL optimization, Arabic keyword research, and culturally relevant content.",
+  },
+  {
     path: "/pricing",
     title: "SEO Pricing - Transparent Plans from AED 1,500/mo | ConstantSEO",
     description: "Transparent SEO pricing for GCC businesses. Starter, Growth, and Enterprise plans from AED 1,500/mo. AI-powered SEO with bilingual Arabic-English support.",
@@ -45,6 +60,16 @@ const routes = [
     path: "/contact",
     title: "Contact ConstantSEO - Get Your Free AI SEO Audit",
     description: "Get a free AI SEO audit for your business. Contact ConstantSEO in Dubai for expert SEO services across the UAE, Saudi Arabia, and Oman.",
+  },
+  {
+    path: "/audit",
+    title: "Free SEO Audit - Instant AI-Powered Website Check | ConstantSEO",
+    description: "Run a free SEO audit for your website. Check SEO and performance signals instantly, then request a deeper AI-powered audit from ConstantSEO.",
+  },
+  {
+    path: "/tools",
+    title: "Free SEO Tools for GCC Marketers | ConstantSEO",
+    description: "Use ConstantSEO's free SEO tools to check meta tags, headings, sitemaps, FAQ schema, robots.txt, Open Graph previews, website bandwidth, cost, and YouTube SEO.",
   },
   {
     path: "/privacy",
@@ -69,7 +94,7 @@ const routes = [
     description: "Lightning-fast, technically flawless websites that search engines love. From Core Web Vitals to schema markup, we handle every technical detail.",
   },
   {
-    path: "/services/arabic-content-strategy",
+    path: "/services/arabic-content",
     title: "Arabic Content Strategy - Native GCC Content | ConstantSEO",
     description: "Native Arabic content that resonates with GCC audiences. Culturally authentic, SEO-optimized content by native speakers for UAE, Saudi Arabia, and Oman.",
   },
@@ -79,7 +104,7 @@ const routes = [
     description: "Own your local market. Google Maps optimization, local citations, and geo-targeted content for UAE, Saudi Arabia, and Oman.",
   },
   {
-    path: "/services/link-building",
+    path: "/services/ai-link-building",
     title: "AI-Powered Link Building - Build Real Authority | ConstantSEO",
     description: "Strategic backlink acquisition using AI to identify high-value opportunities. Build authority that search engines and LLMs trust.",
   },
@@ -94,9 +119,61 @@ const routes = [
     description: "SEO-first websites built with agentic AI in days, not months. 50+ optimized pages deployed before your competitors finish their first draft.",
   },
   {
-    path: "/services/conversion-optimization",
+    path: "/services/cro",
     title: "Conversion Rate Optimization - Turn Traffic Into Revenue | ConstantSEO",
     description: "Data-driven CRO that maximizes every visitor from both traditional and AI search channels. A/B testing, UX optimization, and funnel analysis.",
+  },
+
+  // ── Free SEO Tools ─────────────────────────────────────────
+  {
+    path: "/tools/bulk-meta-title-description-checker",
+    title: "Bulk Meta Title & Description Checker Free | ConstantSEO",
+    description: "Free bulk meta title and description checker for SEO audits. Paste URLs, titles, and descriptions to find missing, short, long, and duplicate metadata.",
+  },
+  {
+    path: "/tools/meta-tag-analyzer",
+    title: "Meta Tag Analyzer Tool Free | ConstantSEO",
+    description: "Analyze meta tags from pasted HTML. Check title, meta description, canonical, robots, viewport, hreflang signals, Open Graph, and Twitter tags.",
+  },
+  {
+    path: "/tools/heading-tag-checker",
+    title: "Heading Tag Checker Free | ConstantSEO",
+    description: "Free heading tag checker for SEO. Paste HTML to review H1-H6 structure, heading hierarchy, duplicate H1s, skipped heading levels, and empty headings.",
+  },
+  {
+    path: "/tools/sitemap-url-extractor",
+    title: "Sitemap URL Extractor Free | ConstantSEO",
+    description: "Extract URLs from XML sitemaps and sitemap indexes. Paste sitemap XML to get a clean URL list, hostname summary, duplicate count, and export-ready output.",
+  },
+  {
+    path: "/tools/faq-schema-generator",
+    title: "FAQ Schema Markup Generator Free | ConstantSEO",
+    description: "Generate FAQPage JSON-LD schema for SEO. Add questions and answers, copy clean markup, and use it on pages where the FAQ content is visible.",
+  },
+  {
+    path: "/tools/robots-txt-generator",
+    title: "Robots.txt Generator Free | ConstantSEO",
+    description: "Free robots.txt generator for SEO. Create crawler directives, add sitemap URLs, block private paths, and optionally allow reputable AI crawlers.",
+  },
+  {
+    path: "/tools/open-graph-checker",
+    title: "Open Graph Checker Free | ConstantSEO",
+    description: "Check Open Graph and Twitter card tags from pasted HTML. Preview social title, description, image, URL, and missing sharing metadata.",
+  },
+  {
+    path: "/tools/website-bandwidth-calculator",
+    title: "Website Bandwidth Calculator Free | ConstantSEO",
+    description: "Free website bandwidth calculator. Estimate monthly GB usage from visitors, page views per visit, average page size, and cache hit rate.",
+  },
+  {
+    path: "/tools/website-cost-calculator",
+    title: "Website Cost Calculator UAE Free | ConstantSEO",
+    description: "Estimate website cost in AED for UAE and GCC projects. Calculate a planning range based on pages, bilingual content, SEO pages, ecommerce, and booking features.",
+  },
+  {
+    path: "/tools/youtube-video-seo-checker",
+    title: "YouTube Video SEO Checker Free | ConstantSEO",
+    description: "Free YouTube video SEO checker. Audit title length, keyword usage, description depth, tags, chapters, hashtags, and call-to-action signals.",
   },
 
   // ── City Landing Pages ──────────────────────────────────────

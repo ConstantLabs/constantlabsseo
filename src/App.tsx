@@ -29,6 +29,8 @@ const About = lazy(() => import("./pages/About"));
 const Blog = lazy(() => import("./pages/Blog"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Audit = lazy(() => import("./pages/Audit"));
+const Tools = lazy(() => import("./pages/Tools"));
+const ToolDetail = lazy(() => import("./pages/ToolDetail"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const TermsOfService = lazy(() => import("./pages/TermsOfService"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
@@ -53,6 +55,8 @@ const AnimatedRoutes = () => {
         <Route path="/blog/:slug" element={<PageTransition><BlogPost /></PageTransition>} />
         <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
         <Route path="/audit" element={<PageTransition><Audit /></PageTransition>} />
+        <Route path="/tools" element={<PageTransition><Tools /></PageTransition>} />
+        <Route path="/tools/:slug" element={<PageTransition><ToolDetail /></PageTransition>} />
         <Route path="/privacy" element={<PageTransition><PrivacyPolicy /></PageTransition>} />
         <Route path="/terms" element={<PageTransition><TermsOfService /></PageTransition>} />
 

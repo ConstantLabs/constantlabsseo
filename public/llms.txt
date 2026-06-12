@@ -49,6 +49,20 @@
 - Arabic SEO: The Complete Guide for GCC Businesses: https://seo.constantlabs.ai/blog/arabic-seo-guide-gcc
 - Local SEO Checklist for UAE Businesses: https://seo.constantlabs.ai/blog/local-seo-checklist-uae
 
+## Free SEO Tools
+
+- Free SEO Tools Hub: https://seo.constantlabs.ai/tools
+- Bulk Meta Title & Description Checker: https://seo.constantlabs.ai/tools/bulk-meta-title-description-checker
+- Meta Tag Analyzer Tool: https://seo.constantlabs.ai/tools/meta-tag-analyzer
+- Heading Tag Checker: https://seo.constantlabs.ai/tools/heading-tag-checker
+- Sitemap URL Extractor: https://seo.constantlabs.ai/tools/sitemap-url-extractor
+- FAQ Schema Markup Generator: https://seo.constantlabs.ai/tools/faq-schema-generator
+- Robots.txt Generator: https://seo.constantlabs.ai/tools/robots-txt-generator
+- Open Graph Checker: https://seo.constantlabs.ai/tools/open-graph-checker
+- Website Bandwidth Calculator: https://seo.constantlabs.ai/tools/website-bandwidth-calculator
+- Website Cost Calculator UAE: https://seo.constantlabs.ai/tools/website-cost-calculator
+- YouTube Video SEO Checker: https://seo.constantlabs.ai/tools/youtube-video-seo-checker
+
 ## Optional Links
 
 - Homepage: https://seo.constantlabs.ai/
@@ -59,4 +73,6 @@
 - Pricing: https://seo.constantlabs.ai/pricing
 - About: https://seo.constantlabs.ai/about
 - Blog: https://seo.constantlabs.ai/blog
+- Free SEO Tools: https://seo.constantlabs.ai/tools
+- Free SEO Audit: https://seo.constantlabs.ai/audit
 - Contact: https://seo.constantlabs.ai/contact

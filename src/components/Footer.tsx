@@ -10,15 +10,21 @@ export const Footer = () => {
     { label: t("footer.technicalSeo"), to: "/services/technical-seo" },
     { label: t("footer.contentStrategy"), to: "/services/arabic-content" },
     { label: t("footer.localSeo"), to: "/services/local-seo" },
-    { label: t("footer.arabicSeo"), to: "/services/ai-link-building" },
-    { label: t("footer.linkBuilding"), to: "/services/seo-audits" },
+    { label: t("footer.linkBuilding"), to: "/services/ai-link-building" },
+    { label: t("footer.seoAudits"), to: "/services/seo-audits" },
   ];
 
   const companyLinks = [
     { label: t("footer.aboutUs"), to: "/about" },
     { label: t("footer.caseStudies"), to: "/case-studies" },
     { label: t("nav.pricing"), to: "/pricing" },
-    { label: "Contact", to: "/contact" },
+    { label: t("nav.contact"), to: "/contact" },
+  ];
+
+  const resourceLinks = [
+    { label: t("footer.freeTools"), to: "/tools" },
+    { label: t("footer.blog"), to: "/blog" },
+    { label: t("nav.audit"), to: "/audit" },
   ];
 
   return (
@@ -26,7 +32,7 @@ export const Footer = () => {
       {/* Gradient top border */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-[#7143E0] via-[#FECD4D] to-[#7143E0]" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16">
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-10 md:gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-8">
           {/* Services */}
           <div>
             <h4 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-4">
@@ -50,6 +56,22 @@ export const Footer = () => {
             </h4>
             <ul className="space-y-2.5">
               {companyLinks.map((link) => (
+                <li key={link.label}>
+                  <Link to={link.to} className="text-sm text-slate-600 hover:text-[#7143E0] transition-colors">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Resources */}
+          <div>
+            <h4 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-4">
+              {t("footer.resources")}
+            </h4>
+            <ul className="space-y-2.5">
+              {resourceLinks.map((link) => (
                 <li key={link.label}>
                   <Link to={link.to} className="text-sm text-slate-600 hover:text-[#7143E0] transition-colors">
                     {link.label}
