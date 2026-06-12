@@ -14,6 +14,14 @@ export interface BlogPost {
   heroImage?: string;
   heroImageAlt?: string;
   heroImageCredit?: string;
+  sources?: Array<{
+    label: string;
+    url: string;
+  }>;
+  faqs?: Array<{
+    q: string;
+    a: string;
+  }>;
   sections: Array<{
     heading: string;
     content: string;
@@ -21,6 +29,429 @@ export interface BlogPost {
 }
 
 export const blogPosts: BlogPost[] = [
+  // ─── Riyadh SEO Cluster: Vision 2030, Local Search, Ecommerce ───
+  {
+    slug: "riyadh-seo-strategy-vision-2030",
+    title: "Riyadh SEO Strategy for Vision 2030 Suppliers",
+    metaTitle:
+      "Riyadh SEO Strategy for Vision 2030 Suppliers | ConstantSEO",
+    metaDescription:
+      "A practical Riyadh SEO strategy for B2B firms, developers, consultants, and suppliers competing for Vision 2030, Expo 2030, New Murabba, Qiddiya, and RHQ-driven demand.",
+    excerpt:
+      "Riyadh search demand is being reshaped by Vision 2030, Expo 2030, New Murabba, Qiddiya, and regional headquarters growth. This guide shows how suppliers and service firms can build a Riyadh SEO moat before competition gets even denser.",
+    author: "ConstantSEO Team",
+    date: "2026-06-12",
+    readTime: "8 min read",
+    category: "Saudi SEO",
+    tags: [
+      "riyadh seo",
+      "seo agency riyadh",
+      "vision 2030 seo",
+      "saudi seo",
+      "b2b seo saudi arabia",
+    ],
+    sources: [
+      {
+        label: "Saudi Vision 2030 Annual Reports",
+        url: "https://www.vision2030.gov.sa/en/annual-reports",
+      },
+      {
+        label: "Expo 2030 Riyadh",
+        url: "https://www.expo2030riyadh.sa/en",
+      },
+      {
+        label: "New Murabba",
+        url: "https://newmurabba.com/en/",
+      },
+      {
+        label: "Qiddiya Press Room",
+        url: "https://qiddiya.com/press-room/",
+      },
+      {
+        label: "CBRE Saudi Arabia Real Estate Market Review Q2 2025",
+        url: "https://www.cbre.sa/insights/figures/saudi-arabia-real-estate-market-review-q2-2025",
+      },
+    ],
+    faqs: [
+      {
+        q: "What is the best SEO strategy for Riyadh B2B companies?",
+        a: "The best Riyadh B2B SEO strategy combines Arabic and English service pages, procurement-focused landing pages, local Riyadh proof, schema markup, and content tied to Vision 2030 sectors such as real estate, events, hospitality, construction, logistics, and technology.",
+      },
+      {
+        q: "Should Riyadh companies target Vision 2030 keywords?",
+        a: "Yes, but only when the page connects the topic to a real service, sector, or buyer problem. Generic Vision 2030 content is thin. Useful pages should explain how your company helps developers, suppliers, operators, or investors execute specific work in Riyadh.",
+      },
+      {
+        q: "How fast can a Riyadh SEO campaign produce leads?",
+        a: "Technical fixes and Google Business Profile improvements can produce early movement in 30 to 90 days. Competitive B2B rankings usually need 4 to 9 months because Riyadh categories are becoming denser and authority matters.",
+      },
+    ],
+    sections: [
+      {
+        heading: "Quick Answer: How Should Riyadh Companies Approach SEO in 2026?",
+        content:
+          "Riyadh companies should treat SEO as a market-entry and procurement visibility channel, not just a blog calendar. The winning approach is to build service pages around high-intent Riyadh searches, publish sector pages for Vision 2030 demand, support them with Arabic content, and prove local relevance through case studies, schema, and Google Business Profile signals.",
+      },
+      {
+        heading: "Why Is Riyadh Search Demand Accelerating?",
+        content:
+          "Riyadh is no longer only a government and corporate hub. It is becoming a global event, tourism, entertainment, real estate, and headquarters market. Expo 2030 Riyadh is scheduled for October 2030 through March 2031, with the official Expo platform positioning the city for tens of millions of visits and international participation. New Murabba is positioning itself as a new downtown district with a walkable urban model, startup and R&D activity, and smart-city infrastructure. Qiddiya continues to release new partnerships across entertainment, rail, hospitality, and destination marketing.\n\nThat matters for SEO because every large project creates layers of search demand. There are searches from suppliers, job seekers, investors, tenants, tourists, contractors, consultants, agencies, and procurement teams. A company that waits until the project is fully mature will be competing against hundreds of indexed pages from older, stronger domains. A company that builds useful Riyadh content now can earn authority before the keyword set becomes expensive.",
+      },
+      {
+        heading: "Which Riyadh Keywords Should Suppliers Prioritize?",
+        content:
+          "The strongest starting point is not broad phrases like \"Vision 2030 company\" or \"Riyadh business.\" Those searches are too vague. Suppliers should build pages around concrete buyer intent: \"fit out contractor Riyadh,\" \"event staffing Riyadh,\" \"commercial cleaning Riyadh offices,\" \"B2B marketing agency Riyadh,\" \"hospitality recruitment Saudi Arabia,\" or \"SEO agency Riyadh.\" Each page should explain the service, the Riyadh use case, the industries served, compliance or operational constraints, and the proof that your team can deliver locally.\n\nCreate a second layer for sector pages. Examples include SEO for Riyadh real estate developers, SEO for Riyadh hospitality groups, SEO for Saudi ecommerce brands, and SEO for companies selling into giga projects. These pages capture buyers who know their sector problem but have not decided which vendor category they need yet.",
+      },
+      {
+        heading: "How Do Vision 2030 Projects Change SEO Content?",
+        content:
+          "Vision 2030-driven content has to be specific. A generic page saying your business supports Saudi transformation will not rank or convert. Search engines and buyers both need substance: what you do, who you serve, where you operate, and why Riyadh buyers should trust you.\n\nA strong page might explain how a facilities company supports event venues, how a logistics company supports Riyadh retail distribution, or how a software provider helps regional headquarters teams manage local operations. It should include project-relevant vocabulary without pretending to be officially affiliated with any government initiative. This keeps the content useful, compliant, and commercially grounded.",
+      },
+      {
+        heading: "What Technical SEO Matters Most for Riyadh?",
+        content:
+          "For Riyadh pages, technical SEO should make local relevance unmistakable. Use a clean URL such as /seo-agency-riyadh or /services/riyadh-event-seo. Add LocalBusiness, Organization, Service, BreadcrumbList, FAQPage, and Article schema where appropriate. Make sure page titles include Riyadh, Saudi Arabia, or KSA only when the page actually targets that location.\n\nStatic HTML is especially important for React sites. If a crawler or AI retrieval system has to execute the app to see your title, meta description, FAQ, and body copy, you are leaving visibility on the table. Every commercial Riyadh landing page and every Riyadh blog post should have crawlable HTML, a canonical URL, and an XML sitemap entry.",
+      },
+      {
+        heading: "How Should Riyadh Pages Convert Traffic?",
+        content:
+          "Riyadh traffic should not be sent into a generic contact page. Use market-specific calls to action: request a Saudi SEO audit, ask for a Riyadh keyword map, or book a strategy call for Saudi expansion. WhatsApp should stay visible because it is a fast trust channel across the GCC, but serious B2B pages should also offer email and a form for procurement-style inquiries.\n\nThe page should also show credibility that matches Riyadh buyers: GCC experience, bilingual capability, sector examples, technical SEO depth, and the ability to deploy many clean pages quickly. In this market, speed matters, but only when paired with quality and local context.",
+      },
+    ],
+  },
+  {
+    slug: "google-business-profile-riyadh",
+    title: "Google Business Profile Optimization in Riyadh",
+    metaTitle:
+      "Google Business Profile Optimization Riyadh | Local SEO Guide",
+    metaDescription:
+      "A Riyadh local SEO guide for improving Google Business Profile visibility, reviews, categories, service areas, district relevance, and mobile search performance.",
+    excerpt:
+      "Riyadh local search is changing as the city grows, public transport expands, and mobile-first discovery becomes the default. This guide shows how to optimize your Google Business Profile for Riyadh customers.",
+    author: "ConstantSEO Team",
+    date: "2026-06-12",
+    readTime: "7 min read",
+    category: "Local SEO",
+    tags: [
+      "google business profile riyadh",
+      "local seo riyadh",
+      "google maps riyadh",
+      "riyadh local search",
+      "saudi local seo",
+    ],
+    sources: [
+      {
+        label: "Royal Commission for Riyadh City - Riyadh Public Transport",
+        url: "https://www.rcrc.gov.sa/en/projects/king-abdulaziz-project-for-riyadh-public-transport-2/",
+      },
+      {
+        label: "DataReportal Digital 2025 Saudi Arabia",
+        url: "https://datareportal.com/reports/digital-2025-saudi-arabia",
+      },
+      {
+        label: "Expo 2030 Riyadh",
+        url: "https://www.expo2030riyadh.sa/en",
+      },
+    ],
+    faqs: [
+      {
+        q: "What matters most for Google Business Profile rankings in Riyadh?",
+        a: "The strongest signals are category relevance, proximity, review quality, profile completeness, website local relevance, fresh photos, consistent contact details, and service pages that clearly mention Riyadh districts and buyer intent.",
+      },
+      {
+        q: "Should a Riyadh business use English or Arabic on Google Business Profile?",
+        a: "Use both where possible. English helps expats, B2B buyers, and international visitors. Arabic helps Saudi customers and local discovery. The website should also support both languages for the highest-value service pages.",
+      },
+      {
+        q: "How often should Riyadh companies update Google Business Profile?",
+        a: "Update photos, services, offers, and posts at least monthly. High-competition categories such as clinics, restaurants, salons, real estate, car services, and professional services benefit from weekly updates and active review responses.",
+      },
+    ],
+    sections: [
+      {
+        heading: "Quick Answer: How Do You Rank Higher on Google Maps in Riyadh?",
+        content:
+          "To rank higher on Google Maps in Riyadh, optimize your Google Business Profile categories, add complete Arabic and English business details, collect fresh reviews, publish local photos, keep hours accurate, and connect the profile to Riyadh-specific website pages. Strong local rankings come from matching the searcher's intent, location, and trust expectations.",
+      },
+      {
+        heading: "Why Is Riyadh Local Search Becoming More Valuable?",
+        content:
+          "Riyadh is becoming more mobile, more visitor-heavy, and more district-specific. The Riyadh public transport project combines metro and bus networks, and the Riyadh Metro was inaugurated in late 2024. As movement patterns change, more customers will search near stations, venues, office districts, hotels, and event locations.\n\nSaudi Arabia also has extremely high digital adoption. DataReportal's 2025 Saudi Arabia report estimates internet penetration at roughly 99% and mobile connections above the population count. For local businesses, that means discovery often begins on a phone, not with a direct website visit. Your Google Business Profile is therefore a frontline sales asset.",
+      },
+      {
+        heading: "Which Profile Fields Should Riyadh Businesses Fix First?",
+        content:
+          "Start with the primary category. Google uses category selection to understand which searches you deserve to appear for. A dental clinic should not settle for a broad medical category if a more specific dental category exists. A restaurant should choose the cuisine or restaurant type that best matches buyer intent.\n\nThen complete every core field: business name, address, phone, website, hours, services, products, attributes, opening date, and business description. Use a Saudi phone format consistently across the website, profile, directories, and social profiles. If your business serves customers at their location, define service areas honestly instead of pretending to have offices across every district.",
+      },
+      {
+        heading: "How Should You Handle Riyadh District Relevance?",
+        content:
+          "District relevance matters because users search for neighborhoods, landmarks, malls, office zones, and transport corridors. A generic Riyadh page is useful, but a business with real coverage in Al Olaya, King Abdullah Financial District, Diriyah, Al Malqa, Al Narjis, or other active areas should explain that coverage on the website.\n\nAvoid making thin duplicate pages for every neighborhood. Instead, build high-quality pages where you have a genuine service reason, include local details, and connect them through internal links. Google Business Profile should point to the most relevant landing page, not always the homepage.",
+      },
+      {
+        heading: "What Review Strategy Works in Saudi Arabia?",
+        content:
+          "Ask for reviews at the moment of customer satisfaction, then make the process simple. WhatsApp follow-ups work well in the GCC when the customer has given consent and the message is polite. Do not offer incentives for positive reviews. The goal is a steady stream of honest reviews that mention the service, area, and outcome naturally.\n\nRespond to every review in the language the customer used whenever possible. A good response is short, specific, and human. For negative reviews, acknowledge the issue, invite the customer to continue privately, and show future searchers that the business is responsive.",
+      },
+      {
+        heading: "How Do You Connect GBP With Website SEO?",
+        content:
+          "Google Business Profile and website SEO should reinforce each other. The profile proves local existence and trust; the website proves depth. Link the profile to a Riyadh landing page with matching name, address, phone, services, FAQs, local schema, and clear calls to action.\n\nFor service businesses, add FAQ schema for the questions Riyadh customers ask before calling. For restaurants and retail, add product, menu, or offer information where relevant. For clinics and professional services, add practitioner, service, and review signals carefully, staying within platform and industry rules.",
+      },
+    ],
+  },
+  {
+    slug: "saudi-ecommerce-seo-riyadh",
+    title: "Saudi Ecommerce SEO for Riyadh Brands",
+    metaTitle:
+      "Saudi Ecommerce SEO for Riyadh Brands | ConstantSEO",
+    metaDescription:
+      "Learn how Riyadh ecommerce brands can grow organic traffic with Arabic category pages, mobile-first technical SEO, payment trust signals, product schema, and Saudi search intent.",
+    excerpt:
+      "Saudi ecommerce demand is rising, mobile usage is massive, and payment options are expanding. Riyadh brands need SEO that connects Arabic category intent, technical performance, and checkout trust.",
+    author: "ConstantSEO Team",
+    date: "2026-06-12",
+    readTime: "8 min read",
+    category: "Ecommerce SEO",
+    tags: [
+      "saudi ecommerce seo",
+      "riyadh ecommerce",
+      "ecommerce seo saudi arabia",
+      "arabic ecommerce seo",
+      "mada google pay seo",
+    ],
+    sources: [
+      {
+        label: "International Trade Administration - Saudi Arabia Digital Economy",
+        url: "https://www.trade.gov/country-commercial-guides/saudi-arabia-digital-economy-0",
+      },
+      {
+        label: "SAMA - Launch of Google Pay in Saudi Arabia",
+        url: "https://sama.gov.sa/en-US/MediaCenter/News/Pages/news-1100.aspx",
+      },
+      {
+        label: "SAMA - Alipay+ Acceptance Agreement",
+        url: "https://www.sama.gov.sa/en-us/mediacenter/news/pages/news-1101.aspx",
+      },
+      {
+        label: "DataReportal Digital 2025 Saudi Arabia",
+        url: "https://datareportal.com/reports/digital-2025-saudi-arabia",
+      },
+    ],
+    faqs: [
+      {
+        q: "What is the best ecommerce SEO strategy for Riyadh brands?",
+        a: "Build Arabic and English category pages, improve mobile Core Web Vitals, add product and review schema, use Saudi payment and delivery trust signals, and create guides around Riyadh buyer intent rather than relying only on product pages.",
+      },
+      {
+        q: "Do Saudi ecommerce sites need Arabic category pages?",
+        a: "Yes. English pages can capture expats and international buyers, but Arabic category pages capture Saudi intent, reduce translation friction, and often face less content competition than English ecommerce queries.",
+      },
+      {
+        q: "How does payment trust affect ecommerce SEO?",
+        a: "Payment trust affects conversion, engagement, and repeat visits. Showing familiar Saudi payment options, delivery timelines, return policies, and secure checkout information helps organic traffic turn into revenue.",
+      },
+    ],
+    sections: [
+      {
+        heading: "Quick Answer: What Should Riyadh Ecommerce Brands Fix First?",
+        content:
+          "Riyadh ecommerce brands should start with crawlable Arabic and English category pages, fast mobile templates, product schema, clear delivery and return policies, and visible Saudi payment trust signals. The goal is to rank for category intent, not only brand names or product SKUs.",
+      },
+      {
+        heading: "Why Is Saudi Ecommerce SEO a Bigger Opportunity Now?",
+        content:
+          "Saudi Arabia's digital economy is expanding quickly. The International Trade Administration notes strong ecommerce growth projections for the Kingdom and highlights Vision 2030's push toward cashless transactions. DataReportal's 2025 Saudi report shows near-universal internet adoption and very high mobile connectivity, which means ecommerce discovery is heavily mobile and search-led.\n\nRecent payment news adds another layer. SAMA announced the launch of Google Pay in Saudi Arabia through mada, and also announced an agreement for Alipay+ acceptance by 2026 through mada. For ecommerce brands, payment options are not just checkout details. They are trust signals that affect how confidently a visitor buys after arriving from organic search.",
+      },
+      {
+        heading: "Which Ecommerce Pages Should Rank in Riyadh?",
+        content:
+          "Most ecommerce teams over-focus on product pages. Product pages matter, but category and collection pages usually capture more search demand. A fashion brand should optimize pages for Arabic and English category searches such as women's abayas, men's sneakers, modest dresses, perfumes, or kids clothing in Saudi Arabia. A B2B supplier might target office furniture Riyadh, restaurant equipment Saudi Arabia, or event supplies Riyadh.\n\nEach category page should include useful copy, filters that search engines can crawl safely, product schema, internal links to subcategories, FAQs, delivery information, and a clear reason to buy from the brand. Do not hide all content behind JavaScript filters or infinite scroll.",
+      },
+      {
+        heading: "How Should Arabic Ecommerce SEO Be Structured?",
+        content:
+          "Arabic ecommerce SEO should be written for Saudi buyers, not directly translated from English. Product names, category labels, size guidance, material descriptions, and delivery details should use natural Arabic. Some searchers will use Modern Standard Arabic, while others use Saudi or Gulf phrasing. Keyword research should include both.\n\nUse separate URLs for Arabic and English pages and add hreflang tags. Arabic pages should have RTL layout, Arabic metadata, and Arabic structured content. Mixed-language pages are common in the GCC, but high-value category pages should still have clean language targeting so Google understands which audience each page serves.",
+      },
+      {
+        heading: "What Technical SEO Issues Hurt Saudi Ecommerce Sites?",
+        content:
+          "The biggest technical issues are slow mobile pages, duplicate faceted URLs, weak internal linking, missing product schema, thin category copy, and poor indexation control. Ecommerce sites often create thousands of URL combinations through filters for size, color, price, and sort order. If those URLs are not managed with canonical tags, robots rules, and crawl-friendly architecture, Google wastes crawl budget on low-value pages.\n\nCore Web Vitals matter because Saudi shoppers are mobile-heavy. Compress images, lazy-load non-critical media, pre-render important content, and keep category templates simple. Search engines and AI retrieval tools should be able to see the page title, products, FAQs, and core content without friction.",
+      },
+      {
+        heading: "How Can Riyadh Brands Turn SEO Traffic Into Revenue?",
+        content:
+          "SEO traffic converts when trust is visible. Show delivery options for Riyadh and Saudi Arabia, expected shipping times, return windows, payment methods, WhatsApp support, customer reviews, and local contact details. If you support mada, Apple Pay, Google Pay, buy-now-pay-later, or cash-on-delivery, make that information easy to find.\n\nFor higher-ticket products, add buying guides and comparison pages. These pages rank for research queries and then push users toward collections or consultation. The best Riyadh ecommerce SEO strategy connects education, category demand, product detail, and checkout confidence in one internal-linking system.",
+      },
+    ],
+  },
+  {
+    slug: "arabic-seo-riyadh-saudi-search",
+    title: "Arabic SEO in Riyadh: Saudi Search Intent Guide",
+    metaTitle:
+      "Arabic SEO in Riyadh: Saudi Search Intent Guide | ConstantSEO",
+    metaDescription:
+      "A practical guide to Arabic SEO in Riyadh, covering Saudi search intent, Gulf Arabic vs MSA, bilingual landing pages, Arabic metadata, FAQs, and technical RTL SEO.",
+    excerpt:
+      "Riyadh SEO cannot rely on English alone. Saudi buyers search in Arabic, English, and mixed-language patterns, and the pages that win are the ones that match intent with native structure.",
+    author: "ConstantSEO Team",
+    date: "2026-06-12",
+    readTime: "7 min read",
+    category: "Arabic SEO",
+    tags: [
+      "arabic seo riyadh",
+      "saudi arabic seo",
+      "riyadh arabic keywords",
+      "arabic content saudi arabia",
+      "rtl seo",
+    ],
+    sources: [
+      {
+        label: "DataReportal Digital 2025 Saudi Arabia",
+        url: "https://datareportal.com/reports/digital-2025-saudi-arabia",
+      },
+      {
+        label: "International Trade Administration - Saudi Arabia Digital Economy",
+        url: "https://www.trade.gov/country-commercial-guides/saudi-arabia-digital-economy-0",
+      },
+      {
+        label: "Saudi Vision 2030 Annual Reports",
+        url: "https://www.vision2030.gov.sa/en/annual-reports",
+      },
+    ],
+    faqs: [
+      {
+        q: "Is Arabic SEO necessary for Riyadh businesses?",
+        a: "Yes. English captures part of the Riyadh market, but Arabic pages are needed for Saudi customers, government-adjacent sectors, local services, and many high-trust purchase journeys.",
+      },
+      {
+        q: "Should Riyadh Arabic content use MSA or Saudi dialect?",
+        a: "Use Modern Standard Arabic for core pages, then naturally include Saudi and Gulf terms where customers actually search that way. The mix depends on the sector, audience, and query type.",
+      },
+      {
+        q: "Can translated English pages rank in Saudi Arabia?",
+        a: "They can rank if the translation is heavily localized, but direct translation usually underperforms. Strong Arabic SEO needs native metadata, headings, examples, FAQs, and search intent research.",
+      },
+    ],
+    sections: [
+      {
+        heading: "Quick Answer: What Makes Arabic SEO in Riyadh Different?",
+        content:
+          "Arabic SEO in Riyadh requires native Saudi search intent, not direct translation. Winning pages use Arabic metadata, RTL-friendly design, local examples, FAQ schema, and content that reflects how Saudi customers ask questions across Modern Standard Arabic, Gulf Arabic, and mixed Arabic-English searches.",
+      },
+      {
+        heading: "Why Does Arabic SEO Matter for Riyadh Traffic?",
+        content:
+          "Saudi Arabia has near-universal internet adoption and a young, mobile-first population. That means search behavior is not limited to English corporate queries. Riyadh users search in Arabic for clinics, restaurants, services, jobs, government-adjacent topics, education, ecommerce, real estate, and professional providers.\n\nEnglish pages are still important for expats, regional headquarters teams, investors, and international buyers. But if a business only publishes English content, it gives up a major part of the local trust layer. Arabic pages also tend to have thinner competition in many B2B and service categories, which creates a real ranking opportunity.",
+      },
+      {
+        heading: "Should You Use Modern Standard Arabic or Saudi Dialect?",
+        content:
+          "Use Modern Standard Arabic for main headings, formal service descriptions, and trust-building copy. It works across Saudi Arabia and the wider Arab world. Then layer in Saudi or Gulf phrasing where it matches the way people actually search. For example, service categories, informal questions, and review language may use more local wording.\n\nThe wrong move is to translate English keywords word-for-word. Search intent changes by language. An English query may sound commercial, while the Arabic version may be informational or comparison-led. Keyword research should be done separately for Arabic, with Saudi Arabia as the location target.",
+      },
+      {
+        heading: "How Should Bilingual Riyadh URLs Be Built?",
+        content:
+          "Use clean, separate URL paths for English and Arabic. Common patterns include /seo-agency-riyadh and /ar/seo-agency-riyadh, or fully Arabic slugs if the site architecture supports them cleanly. Add hreflang tags so Google understands the relationship between language versions.\n\nArabic pages need Arabic title tags, meta descriptions, H1s, body copy, FAQ questions, and calls to action. Do not serve Arabic text on the page while leaving English metadata in the HTML. That mismatch weakens relevance and can hurt click-through rates from Arabic search results.",
+      },
+      {
+        heading: "What Does RTL Technical SEO Require?",
+        content:
+          "Right-to-left support is part of SEO because it affects usability. Arabic pages should set the document direction to RTL, use fonts that render Arabic beautifully, and avoid layouts where icons, arrows, forms, or mixed English-Arabic text appear broken. Phone numbers, URLs, and prices should remain readable in left-to-right chunks.\n\nSchema should also match the visible page. If the FAQ is in Arabic, the FAQ schema should use the same Arabic questions and answers. If a business serves Riyadh, LocalBusiness and Service schema should include Saudi Arabia and Riyadh service-area signals.",
+      },
+      {
+        heading: "Which Arabic Content Should Riyadh Businesses Publish First?",
+        content:
+          "Start with Arabic versions of the highest-value commercial pages: homepage positioning, Riyadh landing page, top services, pricing or packages, FAQs, and contact page. Then build Arabic supporting articles around the objections customers raise before buying.\n\nFor a service business, examples might include how much the service costs in Riyadh, how long delivery takes, what documents are needed, which areas are served, and how to choose a provider. For ecommerce, start with Arabic category guides and buying guides. These pages create a stronger internal-linking system for both Google and AI answer engines.",
+      },
+    ],
+  },
+  {
+    slug: "seo-cost-riyadh",
+    title: "How Much Does SEO Cost in Riyadh?",
+    metaTitle:
+      "How Much Does SEO Cost in Riyadh? Saudi SEO Pricing Guide",
+    metaDescription:
+      "A practical Riyadh SEO pricing guide covering monthly retainers, one-time audits, local SEO, ecommerce SEO, Arabic content, technical SEO, and competitive Saudi markets.",
+    excerpt:
+      "SEO pricing in Riyadh depends on competition, language scope, content velocity, technical debt, and whether the business is targeting local customers, ecommerce sales, or Vision 2030 supplier demand.",
+    author: "ConstantSEO Team",
+    date: "2026-06-12",
+    readTime: "7 min read",
+    category: "SEO Pricing",
+    tags: [
+      "seo cost riyadh",
+      "seo pricing saudi arabia",
+      "riyadh seo agency pricing",
+      "saudi seo packages",
+      "seo audit riyadh",
+    ],
+    sources: [
+      {
+        label: "CBRE Saudi Arabia Real Estate Market Review Q2 2025",
+        url: "https://www.cbre.sa/insights/figures/saudi-arabia-real-estate-market-review-q2-2025",
+      },
+      {
+        label: "International Trade Administration - Saudi Arabia Digital Economy",
+        url: "https://www.trade.gov/country-commercial-guides/saudi-arabia-digital-economy-0",
+      },
+      {
+        label: "Expo 2030 Riyadh",
+        url: "https://www.expo2030riyadh.sa/en",
+      },
+      {
+        label: "DataReportal Digital 2025 Saudi Arabia",
+        url: "https://datareportal.com/reports/digital-2025-saudi-arabia",
+      },
+    ],
+    faqs: [
+      {
+        q: "How much does SEO cost in Riyadh?",
+        a: "A focused Riyadh SEO campaign often starts around AED 3,500 to AED 7,500 per month for local or service businesses. Competitive ecommerce, real estate, healthcare, finance, and B2B campaigns can require AED 10,000 to AED 30,000+ per month depending on scope.",
+      },
+      {
+        q: "Why is Riyadh SEO more expensive in some industries?",
+        a: "Riyadh SEO becomes more expensive when the market has strong competitors, Arabic and English content requirements, technical website issues, high content volume, local SEO needs, and authority-building requirements.",
+      },
+      {
+        q: "Can a Riyadh business start SEO with a one-time audit?",
+        a: "Yes. A one-time audit is useful when you need a roadmap, technical diagnosis, keyword map, or migration plan. Ongoing SEO is needed when the business must publish content, build authority, track rankings, and compete month after month.",
+      },
+    ],
+    sections: [
+      {
+        heading: "Quick Answer: What Is a Realistic SEO Budget in Riyadh?",
+        content:
+          "A realistic SEO budget in Riyadh starts around AED 3,500 to AED 7,500 per month for focused local or service SEO. Competitive campaigns for ecommerce, real estate, healthcare, finance, hospitality, or Vision 2030 supplier categories can require AED 10,000 to AED 30,000+ per month because they need more content, stronger technical work, and authority building.",
+      },
+      {
+        heading: "Why Is Riyadh SEO Pricing Changing?",
+        content:
+          "Riyadh is becoming a more competitive search market. CBRE's Saudi real estate review describes a tight Riyadh office market shaped by regional headquarters demand and strong real estate activity. Expo 2030, giga projects, and ecommerce growth add more commercial gravity. More companies are opening, expanding, hiring, and selling into Riyadh, which means more websites are fighting for the same search visibility.\n\nWhen competition rises, SEO pricing rises because the work gets deeper. A basic page title update is not enough. Businesses need technical SEO, Arabic and English content, local optimization, conversion improvements, digital PR, and reporting that connects rankings to leads.",
+      },
+      {
+        heading: "What Determines the Cost of SEO in Riyadh?",
+        content:
+          "The first cost driver is competition. Ranking for a niche service in one district is easier than ranking for real estate, clinics, legal services, finance, ecommerce, recruitment, or hospitality across Riyadh. The second driver is language. Bilingual English and Arabic SEO requires separate research, copy, metadata, QA, and sometimes separate landing pages.\n\nThe third driver is technical debt. A slow, JavaScript-heavy site with missing schema, duplicate pages, broken canonicals, and weak internal links needs more engineering work before content can perform. The fourth driver is content velocity. If your competitors publish useful pages every week and you publish once per quarter, they will build topical authority faster.",
+      },
+      {
+        heading: "What Should Be Included in a Riyadh SEO Package?",
+        content:
+          "A serious Riyadh SEO package should include technical audit and fixes, keyword research for Saudi Arabia, Arabic and English page planning, metadata, on-page optimization, schema markup, Google Business Profile support, internal linking, content production, rank tracking, Search Console reporting, and conversion recommendations.\n\nFor B2B or supplier-focused companies, the package should also include sector landing pages and procurement-focused content. For ecommerce, it should include category SEO, product schema, crawl management, page speed, and merchandising search intent. For local services, it should include reviews, citations, district relevance, and local landing pages.",
+      },
+      {
+        heading: "Is Cheap SEO Worth It in Saudi Arabia?",
+        content:
+          "Cheap SEO is risky when it produces thin content, spam links, or generic reports. Riyadh buyers are sophisticated, and Google is good at ignoring low-quality pages. If an agency cannot explain what it will publish, what technical issues it will fix, which keywords it will prioritize, and how performance will be measured, the low price can become expensive later.\n\nThat does not mean every business needs an enterprise budget. A focused campaign can start small if it prioritizes the right pages. The danger is spreading a small budget across too many markets, services, or languages at once. It is better to win a narrow Riyadh cluster than to publish weak pages for every city in the GCC.",
+      },
+      {
+        heading: "How Should Riyadh Companies Choose an SEO Partner?",
+        content:
+          "Choose an SEO partner that understands Saudi search behavior, Arabic content, technical SEO, and the commercial context of Riyadh. Ask for a keyword map, a sample content structure, the schema plan, the reporting cadence, and the first 90-day priorities. The agency should be able to explain how it will make your site more visible to Google, AI search engines, and real buyers.\n\nThe best partner will not promise instant rankings. They will show the work needed, prioritize quick wins, build pages that deserve to rank, and keep improving based on Search Console data. For Riyadh, that mix of speed and substance is the whole game.",
+      },
+    ],
+  },
+
   // ─── Article 1: SEO in Dubai Guide ──────────────────────────────
   {
     slug: "seo-dubai-guide-2025",

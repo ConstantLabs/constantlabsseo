@@ -47,6 +47,7 @@ const BlogPost = () => {
     },
     articleSection: post.category,
     keywords: post.tags.join(", "),
+    citation: post.sources?.map((source) => source.url),
     wordCount: post.sections.reduce(
       (acc, s) => acc + s.content.split(/\s+/).length,
       0
@@ -79,6 +80,21 @@ const BlogPost = () => {
     ],
   });
 
+  const faqSchema = post.faqs?.length
+    ? JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: post.faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.q,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.a,
+          },
+        })),
+      })
+    : null;
+
   const formattedDate = new Date(post.date).toLocaleDateString("en-US", {
     year: "numeric",
     month: "long",
@@ -95,6 +111,9 @@ const BlogPost = () => {
       <Helmet>
         <script type="application/ld+json">{blogPostingSchema}</script>
         <script type="application/ld+json">{breadcrumbSchema}</script>
+        {faqSchema && (
+          <script type="application/ld+json">{faqSchema}</script>
+        )}
       </Helmet>
       <Navbar />
 
@@ -237,6 +256,51 @@ const BlogPost = () => {
               ))}
             </section>
           ))}
+
+          {/* FAQs */}
+          {post.faqs && post.faqs.length > 0 && (
+            <section className="border-t border-slate-200 pt-10 mt-12">
+              <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6">
+                Frequently Asked Questions
+              </h2>
+              <div className="space-y-5">
+                {post.faqs.map((faq) => (
+                  <div
+                    key={faq.q}
+                    className="rounded-xl border border-slate-200 bg-slate-50 p-5"
+                  >
+                    <h3 className="text-lg font-bold text-slate-900 mb-2">
+                      {faq.q}
+                    </h3>
+                    <p className="text-slate-700 leading-relaxed">{faq.a}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {/* Sources */}
+          {post.sources && post.sources.length > 0 && (
+            <section className="border-t border-slate-200 pt-10 mt-12">
+              <h2 className="text-lg font-bold text-slate-900 mb-4">
+                Sources
+              </h2>
+              <ul className="space-y-2">
+                {post.sources.map((source) => (
+                  <li key={source.url}>
+                    <a
+                      href={source.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-sm md:text-base text-[#7143E0] hover:underline break-words"
+                    >
+                      {source.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
 
           {/* Tags */}
           <div className="border-t border-slate-200 pt-8 mt-12">

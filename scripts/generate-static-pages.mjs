@@ -227,6 +227,31 @@ const routes = [
 
   // ── Blog Posts ──────────────────────────────────────────────
   {
+    path: "/blog/riyadh-seo-strategy-vision-2030",
+    title: "Riyadh SEO Strategy for Vision 2030 Suppliers | ConstantSEO Blog",
+    description: "Practical Riyadh SEO strategy for B2B suppliers, developers, consultants, and operators competing for Vision 2030, Expo 2030, New Murabba, Qiddiya, and RHQ demand.",
+  },
+  {
+    path: "/blog/google-business-profile-riyadh",
+    title: "Google Business Profile Optimization Riyadh | ConstantSEO Blog",
+    description: "Improve local SEO in Riyadh with Google Business Profile categories, reviews, services, district relevance, Arabic-English details, and mobile-first local search signals.",
+  },
+  {
+    path: "/blog/saudi-ecommerce-seo-riyadh",
+    title: "Saudi Ecommerce SEO for Riyadh Brands | ConstantSEO Blog",
+    description: "Saudi ecommerce SEO guide for Riyadh brands: Arabic category pages, mobile Core Web Vitals, product schema, payment trust signals, and Saudi buyer intent.",
+  },
+  {
+    path: "/blog/arabic-seo-riyadh-saudi-search",
+    title: "Arabic SEO in Riyadh: Saudi Search Intent Guide | ConstantSEO Blog",
+    description: "Practical Arabic SEO guide for Riyadh businesses covering Saudi search intent, MSA vs Gulf Arabic, bilingual URLs, Arabic metadata, FAQ schema, and RTL SEO.",
+  },
+  {
+    path: "/blog/seo-cost-riyadh",
+    title: "How Much Does SEO Cost in Riyadh? | ConstantSEO Blog",
+    description: "Riyadh SEO pricing guide covering monthly retainers, local SEO, ecommerce SEO, Arabic content, technical SEO, audits, and competitive Saudi markets.",
+  },
+  {
     path: "/blog/seo-dubai-guide-2025",
     title: "Complete Guide to SEO in Dubai 2025 | ConstantSEO Blog",
     description: "Everything you need to know about SEO in Dubai: competitive landscape, bilingual search, local SEO, AI search, pricing, and timelines for 2025.",
