@@ -47,7 +47,7 @@ const Contact = () => {
       />
       <Navbar />
 
-      <PageHero eyebrow={t("nav.contact")} title={t("nav.contact")} lede="Request a practical review of your website's current search signals and technical foundations." />
+      <PageHero eyebrow={t("nav.contact")} title={t("nav.contact")} lede={t("inner.contact.lede")} />
 
       {/* Content */}
       <section className="border-b border-line bg-paper py-16 sm:py-24">

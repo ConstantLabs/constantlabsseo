@@ -7,8 +7,11 @@ import { caseStudies } from "@/data/projectsData";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { PageHero } from "@/components/marketing/PageHero";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const CaseStudies = () => {
+  const { t } = useLanguage();
+
   return (
     <div className="min-h-screen bg-white text-slate-900">
       <SEO
@@ -19,9 +22,9 @@ const CaseStudies = () => {
       <Navbar />
 
       <PageHero
-        eyebrow="Case Studies"
-        title="Documented SEO Work"
-        lede="Explore the context, scope, and reported outcomes behind selected SEO engagements across the GCC."
+        eyebrow={t("inner.caseStudies.eyebrow")}
+        title={t("inner.caseStudies.title")}
+        lede={t("inner.caseStudies.lede")}
       />
 
       {/* Case Studies Grid */}

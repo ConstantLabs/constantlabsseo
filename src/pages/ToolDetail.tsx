@@ -1238,9 +1238,9 @@ const ToolDetail = () => {
                     <Link
                       key={item.slug}
                       to={`/tools/${item.slug}`}
-                      className="group rounded-lg bg-white border border-slate-200 p-5 hover:shadow-md transition-all"
+                      className="group border border-line bg-paper p-5 transition-colors hover:bg-lime/20"
                     >
-                      <RelatedIcon className="w-5 h-5 text-[#7143E0] mb-3" />
+                      <RelatedIcon className="mb-3 h-5 w-5 text-evidence-blue" />
                       <h3 className="font-bold text-slate-900 group-hover:text-[#7143E0] transition-colors">
                         {getLocalizedText(item.title, isAr)}
                       </h3>

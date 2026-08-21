@@ -5,8 +5,11 @@ import { PricingSection } from "@/components/PricingSection";
 import { FAQSection } from "@/components/FAQSection";
 import { CTASection } from "@/components/CTASection";
 import { PageHero } from "@/components/marketing/PageHero";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const Pricing = () => {
+  const { t } = useLanguage();
+
   return (
     <div className="min-h-screen bg-white text-slate-900">
       <SEO
@@ -17,9 +20,9 @@ const Pricing = () => {
       <Navbar />
 
       <PageHero
-        eyebrow="Pricing"
-        title="Simple, Transparent Pricing"
-        lede="No hidden fees or long-term lock-ins. Choose a plan that fits your business and adapt it as your needs change."
+        eyebrow={t("nav.pricing")}
+        title={t("inner.pricing.title")}
+        lede={t("inner.pricing.lede")}
       />
 
       <PricingSection />

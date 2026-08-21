@@ -29,8 +29,8 @@ const About = () => {
 
       <PageHero
         eyebrow={t("nav.about")}
-        title={<><span>AI-Powered SEO.</span><br /><span className="text-evidence-blue">Built for the GCC.</span></>}
-        lede="ConstantSEO is a Dubai-based SEO agency using agentic AI to build and improve search visibility across Google and AI search platforms."
+        title={<><span>{t("inner.about.titleLead")}</span><br /><span className="text-evidence-blue">{t("inner.about.titleTail")}</span></>}
+        lede={t("inner.about.lede")}
       />
 
       {/* Story */}

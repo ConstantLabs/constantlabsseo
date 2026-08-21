@@ -7,11 +7,13 @@ import { CTASection } from "@/components/CTASection";
 import { getBlogPostBySlug, getRelatedPosts } from "@/data/blogData";
 import { ArrowLeft, Calendar, Clock, Tag } from "lucide-react";
 import { PageHero } from "@/components/marketing/PageHero";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const BASE_URL = "https://seo.constantlabs.ai";
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
+  const { t } = useLanguage();
   const post = slug ? getBlogPostBySlug(slug) : undefined;
 
   if (!post) {
@@ -120,8 +122,8 @@ const BlogPost = () => {
       <PageHero
         eyebrow={post.category}
         title={post.title}
-        meta={<div className="flex flex-wrap items-center gap-4"><span className="flex items-center gap-1.5"><Calendar className="h-4 w-4" /><time dateTime={post.date}>{formattedDate}</time></span><span className="flex items-center gap-1.5"><Clock className="h-4 w-4" />{post.readTime}</span><span>By {post.author}</span></div>}
-        actions={<nav aria-label="Breadcrumb" className="text-sm"><Link to="/blog" className="underline underline-offset-4">Blog</Link></nav>}
+        meta={<div className="flex flex-wrap items-center gap-4"><span className="flex items-center gap-1.5"><Calendar className="h-4 w-4" /><time dateTime={post.date}>{formattedDate}</time></span><span className="flex items-center gap-1.5"><Clock className="h-4 w-4" />{post.readTime}</span><span>{t("inner.blogPost.by")} {post.author}</span></div>}
+        actions={<nav aria-label="Breadcrumb" className="text-sm"><Link to="/blog" className="underline underline-offset-4">{t("nav.blog")}</Link></nav>}
       />
 
       {/* Hero Image */}
@@ -279,12 +281,12 @@ const BlogPost = () => {
                   <Link
                     key={related.slug}
                     to={`/blog/${related.slug}`}
-                    className="group bg-white rounded-xl border border-slate-100 overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+                    className="group overflow-hidden border border-line bg-paper p-1 transition-colors hover:-translate-y-1 hover:bg-lime/20"
                   >
                     {/* Color accent bar */}
-                    <div className="h-1.5 bg-gradient-to-r from-[#7143E0] to-cyan-400" />
+                    <div className="h-1.5 bg-lime" />
                     <div className="p-6">
-                      <span className="inline-block px-2.5 py-0.5 rounded-full bg-cyan-50 text-cyan-700 text-xs font-semibold mb-3">
+                      <span className="mb-3 inline-block border border-line px-2.5 py-0.5 text-xs font-semibold text-evidence-blue">
                         {related.category}
                       </span>
                       <h3 className="text-lg font-bold text-slate-900 group-hover:text-[#7143E0] transition-colors mb-2 line-clamp-2">

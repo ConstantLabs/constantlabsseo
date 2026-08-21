@@ -456,7 +456,7 @@ const Audit = () => {
               </div>
               <Button
                 type="submit"
-                className="w-full bg-gradient-to-r from-[#FECD4D] to-[#e5b030] hover:from-[#ffe066] hover:to-[#FECD4D] text-[#2B124C] font-bold rounded-lg px-6 py-3 text-sm"
+                className="w-full border border-ink bg-lime px-6 py-3 text-sm font-bold text-ink hover:bg-lime/80"
               >
                 <Send className={`w-4 h-4 ${isAr ? "ml-2 rotate-180" : "mr-2"}`} />
                 {t("audit.deep.submit")}

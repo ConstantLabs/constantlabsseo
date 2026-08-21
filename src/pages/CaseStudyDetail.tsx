@@ -5,9 +5,11 @@ import { Footer } from "@/components/Footer";
 import { CTASection } from "@/components/CTASection";
 import { caseStudies } from "@/data/projectsData";
 import { PageHero } from "@/components/marketing/PageHero";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const CaseStudyDetail = () => {
   const { slug } = useParams<{ slug: string }>();
+  const { t } = useLanguage();
   const cs = caseStudies.find((c) => c.slug === slug);
 
   if (!cs) {
@@ -40,7 +42,7 @@ const CaseStudyDetail = () => {
         title={cs.title}
         lede={cs.description}
         meta={<span>{cs.market} · {cs.metric}</span>}
-        actions={<Link to="/case-studies" className="border border-ink px-5 py-3 text-sm font-bold uppercase tracking-[0.08em] text-ink hover:bg-ink hover:text-paper">All Case Studies</Link>}
+        actions={<Link to="/case-studies" className="border border-ink px-5 py-3 text-sm font-bold uppercase tracking-[0.08em] text-ink hover:bg-ink hover:text-paper">{t("inner.caseStudyDetail.all")}</Link>}
       />
 
       {/* Content */}

@@ -7,8 +7,11 @@ import { blogPosts } from "@/data/blogData";
 import { motion } from "framer-motion";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 import { PageHero } from "@/components/marketing/PageHero";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const Blog = () => {
+  const { t } = useLanguage();
+
   return (
     <div className="min-h-screen bg-white text-slate-900">
       <SEO
@@ -20,9 +23,9 @@ const Blog = () => {
       <Navbar />
 
       <PageHero
-        eyebrow="Blog"
-        title="Insights & Updates"
-        lede="SEO, AI search, and GCC market notes for teams making informed decisions about their search presence."
+        eyebrow={t("nav.blog")}
+        title={t("inner.blog.title")}
+        lede={t("inner.blog.lede")}
       />
 
       {/* Blog Grid */}
@@ -38,32 +41,24 @@ const Blog = () => {
             >
               <Link
                 to={`/blog/${blogPosts[0].slug}`}
-                className="group block bg-white rounded-2xl border border-slate-100 overflow-hidden hover:shadow-xl transition-all duration-300"
+                className="group block overflow-hidden border border-line bg-paper p-1 transition-colors hover:bg-lime/20"
               >
                 <div className="grid md:grid-cols-2 gap-0">
                   {/* Featured image */}
-                  <div className="relative h-64 md:h-full min-h-[280px] bg-gradient-to-br from-[#2B124C] via-[#3a1a65] to-[#1a0a30] overflow-hidden">
+                  <div className="relative h-64 min-h-[280px] overflow-hidden border-b border-line bg-ink md:h-full md:border-b-0 md:border-e">
                     {blogPosts[0].heroImage ? (
                       <img src={blogPosts[0].heroImage} alt={blogPosts[0].heroImageAlt || blogPosts[0].title} loading="lazy" className="w-full h-full object-cover" />
                     ) : (
                       <div className="flex items-center justify-center h-full text-center px-8">
-                        <span className="inline-block px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-300 text-xs font-semibold uppercase tracking-wider">
+                        <span className="inline-block border border-paper/30 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-lime">
                           {blogPosts[0].category}
                         </span>
                       </div>
                     )}
-                    {/* Decorative grid */}
-                    <div
-                      className="absolute inset-0 opacity-[0.04]"
-                      style={{
-                        backgroundImage: `linear-gradient(rgba(113,67,224,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(113,67,224,0.5) 1px, transparent 1px)`,
-                        backgroundSize: "40px 40px",
-                      }}
-                    />
                   </div>
                   {/* Content */}
                   <div className="p-8 md:p-10 flex flex-col justify-center">
-                    <span className="inline-block w-fit px-2.5 py-0.5 rounded-full bg-cyan-50 text-cyan-700 text-xs font-semibold mb-4">
+                    <span className="mb-4 inline-block w-fit border border-line px-2.5 py-0.5 text-xs font-semibold text-evidence-blue">
                       {blogPosts[0].category}
                     </span>
                     <h2 className="text-2xl md:text-3xl font-bold text-slate-900 group-hover:text-[#7143E0] transition-colors mb-3">
@@ -118,10 +113,10 @@ const Blog = () => {
                   >
                     <Link
                       to={`/blog/${post.slug}`}
-                      className="group block bg-white rounded-xl border border-slate-100 overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full"
+                      className="group block h-full overflow-hidden border border-line bg-paper p-1 transition-colors hover:-translate-y-1 hover:bg-lime/20"
                     >
                       {/* Post image */}
-                      <div className="relative h-48 bg-gradient-to-br from-[#2B124C] via-[#3a1a65] to-[#1a0a30] overflow-hidden">
+                      <div className="relative h-48 overflow-hidden border border-line bg-ink">
                         {post.heroImage ? (
                           <img src={post.heroImage} alt={post.heroImageAlt || post.title} loading="lazy" className="w-full h-full object-cover" />
                         ) : (
@@ -129,20 +124,12 @@ const Blog = () => {
                             {post.category}
                           </p>
                         )}
-                        <div
-                          className="absolute inset-0 opacity-[0.04]"
-                          style={{
-                            backgroundImage: `linear-gradient(rgba(113,67,224,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(113,67,224,0.5) 1px, transparent 1px)`,
-                            backgroundSize: "30px 30px",
-                          }}
-                        />
-                        {/* Gradient accent bar */}
-                        <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[#7143E0] to-cyan-400" />
+                        <div className="absolute inset-x-0 bottom-0 h-1 bg-lime" />
                       </div>
 
                       {/* Content */}
                       <div className="p-6">
-                        <span className="inline-block px-2.5 py-0.5 rounded-full bg-cyan-50 text-cyan-700 text-xs font-semibold mb-3">
+                        <span className="mb-3 inline-block border border-line px-2.5 py-0.5 text-xs font-semibold text-evidence-blue">
                           {post.category}
                         </span>
                         <h3 className="text-lg font-bold text-slate-900 group-hover:text-[#7143E0] transition-colors mb-2 line-clamp-2">

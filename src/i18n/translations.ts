@@ -739,4 +739,36 @@ export const translations: TranslationMap = {
   },
   "industryPage.faq.label": { en: "Common Questions", ar: "أسئلة شائعة" },
   "industryPage.faq.titleSuffix": { en: "SEO - FAQs", ar: "SEO - الأسئلة الشائعة" },
+  // ─── Shared Inner-Page Headers ───────────────────────────────
+  "inner.caseStudies.eyebrow": { en: "Case Studies", ar: "دراسات الحالة" },
+  "inner.caseStudies.title": { en: "Documented SEO Work", ar: "أعمال SEO موثقة" },
+  "inner.caseStudies.lede": {
+    en: "Explore the context, scope, and reported outcomes behind selected SEO engagements across the GCC.",
+    ar: "استكشف السياق والنطاق والنتائج المُبلّغ عنها لمشاريع SEO مختارة في دول الخليج."
+  },
+  "inner.pricing.title": { en: "Simple, Transparent Pricing", ar: "أسعار بسيطة وشفافة" },
+  "inner.pricing.lede": {
+    en: "No hidden fees or long-term lock-ins. Choose a plan that fits your business and adapt it as your needs change.",
+    ar: "لا رسوم خفية ولا التزامات طويلة الأمد. اختر باقة تناسب عملك وعدّلها مع تغيّر احتياجاتك."
+  },
+  "inner.blog.title": { en: "Insights & Updates", ar: "رؤى وتحديثات" },
+  "inner.blog.lede": {
+    en: "SEO, AI search, and GCC market notes for teams making informed decisions about their search presence.",
+    ar: "ملاحظات حول SEO والبحث بالذكاء الاصطناعي وأسواق الخليج لفرق تتخذ قرارات مدروسة بشأن حضورها في البحث."
+  },
+  "inner.notFound.title": { en: "Page not found", ar: "الصفحة غير موجودة" },
+  "inner.notFound.lede": { en: "The page you requested is unavailable or has moved.", ar: "الصفحة التي طلبتها غير متاحة أو تم نقلها." },
+  "inner.notFound.backHome": { en: "Back to Home", ar: "العودة إلى الرئيسية" },
+  "inner.about.titleLead": { en: "AI-Powered SEO.", ar: "SEO مدعوم بالذكاء الاصطناعي." },
+  "inner.about.titleTail": { en: "Built for the GCC.", ar: "مصمم للخليج." },
+  "inner.about.lede": {
+    en: "ConstantSEO is a Dubai-based SEO agency using agentic AI to build and improve search visibility across Google and AI search platforms.",
+    ar: "ConstantSEO وكالة SEO مقرها دبي تستخدم الذكاء الاصطناعي الوكيلي لبناء وتحسين الظهور في Google ومنصات البحث بالذكاء الاصطناعي."
+  },
+  "inner.contact.lede": {
+    en: "Request a practical review of your website's current search signals and technical foundations.",
+    ar: "اطلب مراجعة عملية لإشارات البحث الحالية والأسس التقنية لموقعك الإلكتروني."
+  },
+  "inner.caseStudyDetail.all": { en: "All Case Studies", ar: "كل دراسات الحالة" },
+  "inner.blogPost.by": { en: "By", ar: "بواسطة" },
 };

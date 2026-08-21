@@ -158,11 +158,11 @@ const Tools = () => {
                 <Link
                   key={tool.slug}
                   to={`/tools/${tool.slug}`}
-                  className="group rounded-xl border border-slate-200 bg-white p-6 hover:-translate-y-1 hover:shadow-lg transition-all"
+                  className="group border border-line bg-paper p-6 transition-colors hover:-translate-y-1 hover:bg-lime/20"
                 >
                   <div className="flex items-start gap-4">
-                    <div className="w-11 h-11 rounded-lg bg-[#7143E0]/10 flex items-center justify-center shrink-0">
-                      <Icon className="w-5 h-5 text-[#7143E0]" />
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center border border-line bg-ink">
+                      <Icon className="h-5 w-5 text-lime" />
                     </div>
                     <div>
                       <h3 className="font-bold text-slate-900 group-hover:text-[#7143E0] transition-colors">
@@ -173,7 +173,7 @@ const Tools = () => {
                       </p>
                     </div>
                   </div>
-                  <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-[#7143E0]">
+                  <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-evidence-blue">
                     {copy.openTool}
                     <ArrowRight className={`w-4 h-4 group-hover:translate-x-1 transition-transform ${isAr ? "rotate-180" : ""}`} />
                   </span>
@@ -203,11 +203,11 @@ const Tools = () => {
                         <Link
                           key={tool.slug}
                           to={`/tools/${tool.slug}`}
-                          className="group rounded-lg border border-slate-200 bg-white p-5 hover:border-[#7143E0]/40 hover:shadow-md transition-all"
+                          className="group border border-line bg-paper p-5 transition-colors hover:bg-lime/20"
                         >
                           <div className="flex gap-4">
-                            <div className="w-10 h-10 rounded-lg bg-slate-100 flex items-center justify-center shrink-0 group-hover:bg-[#7143E0]/10 transition-colors">
-                              <Icon className="w-5 h-5 text-[#7143E0]" />
+                            <div className="flex h-10 w-10 shrink-0 items-center justify-center border border-line bg-paper transition-colors group-hover:bg-lime/20">
+                              <Icon className="h-5 w-5 text-evidence-blue" />
                             </div>
                             <div>
                               <h3 className="font-bold text-slate-900 group-hover:text-[#7143E0] transition-colors">
