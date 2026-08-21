@@ -1,3 +1,5 @@
 {
+  "buildCommand": "vite build && node scripts/generate-static-pages.mjs",
+  "outputDirectory": "dist",
   "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
 }
