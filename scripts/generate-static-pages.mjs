@@ -67,8 +67,8 @@ for (const route of routes) {
     `<meta name="twitter:description" content="${route.description}" />`
   );
 
-  // Write to dist/<route>/index.html
-  const dir = join(DIST, route.path);
+  // The homepage is the built root file. Other routes get their own directory.
+  const dir = route.path === "/" ? DIST : join(DIST, route.path);
   if (!existsSync(dir)) {
     mkdirSync(dir, { recursive: true });
   }

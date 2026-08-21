@@ -168,7 +168,7 @@ async function snapshot(browser, route) {
       throw new Error("snapshot looked empty");
     }
 
-    const outDir = join(DIST, route.path);
+    const outDir = route.path === "/" ? DIST : join(DIST, route.path);
     if (!existsSync(outDir)) mkdirSync(outDir, { recursive: true });
     writeFileSync(join(outDir, "index.html"), html);
     return { path: route.path, ok: true, bytes: html.length };

@@ -10,6 +10,11 @@ export const BASE_URL = "https://seo.constantlabs.ai";
 export const routes = [
   // ── Core Pages ──────────────────────────────────────────────
   {
+    path: "/",
+    title: "ConstantSEO — Search systems for the GCC",
+    description: "ConstantSEO builds bilingual, technical, and local search systems for businesses across the GCC.",
+  },
+  {
     path: "/services",
     title: "SEO Services - AI-Powered SEO for GCC Businesses | ConstantSEO",
     description: "Full-service AI-powered SEO: technical SEO, Arabic content strategy, local SEO, link building, GEO/AEO optimization. Built for UAE, Saudi Arabia, and Oman.",
