@@ -17,7 +17,7 @@ export const HeroSection = () => {
       <div className="relative mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1fr_0.9fr] lg:items-end">
         <div className="max-w-3xl">
           <p className="text-xs font-bold uppercase tracking-[0.2em] text-lime">{t("home.hero.eyebrow")}</p>
-          <h1 className="mt-5 font-heading text-6xl uppercase leading-[0.82] tracking-[-0.04em] text-paper sm:text-7xl lg:text-[6.5rem]">{t("home.hero.title")}</h1>
+          <h1 className="mt-5 font-heading text-6xl uppercase leading-[0.94] tracking-[-0.04em] text-paper sm:text-7xl sm:leading-[0.82] lg:text-[6.5rem]">{t("home.hero.title")}</h1>
           <p className="mt-7 max-w-xl text-lg leading-relaxed text-paper/70 sm:text-xl">{t("home.hero.subtitle")}</p>
           <div className="mt-9 border border-paper/25 bg-paper/5 p-2 sm:flex sm:items-center">
             <label className="sr-only" htmlFor="hero-domain">{t("home.hero.inputLabel")}</label>
