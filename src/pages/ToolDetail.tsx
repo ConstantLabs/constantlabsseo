@@ -164,13 +164,13 @@ function ToolShell({
 }) {
   return (
     <div className="grid lg:grid-cols-[0.95fr_1.05fr] gap-6">
-      <div className="rounded-xl border border-slate-200 bg-white p-5 md:p-6 overflow-visible">
+      <div className="overflow-visible border border-slate-200 bg-white p-5 md:p-6">
         <h2 className="text-xl font-extrabold text-slate-900 mb-5">
           {getLocalizedText(toolUiCopy.input, isAr)}
         </h2>
         {children}
       </div>
-      <div className="rounded-xl border border-slate-200 bg-slate-50 p-5 md:p-6 overflow-visible">
+      <div className="overflow-visible border border-slate-200 bg-slate-50 p-5 md:p-6">
         <h2 className="text-xl font-extrabold text-slate-900 mb-5">
           {getLocalizedText(toolUiCopy.results, isAr)}
         </h2>
@@ -810,7 +810,7 @@ function OpenGraphChecker({ isAr }: { isAr: boolean }) {
       isAr={isAr}
       output={
         <div className="space-y-5">
-          <div className="rounded-xl bg-white border border-slate-200 overflow-hidden">
+          <div className="overflow-hidden border border-slate-200 bg-white">
             <div className="h-40 bg-slate-200 flex items-center justify-center text-slate-500 text-sm">
               {tags.image ? <span className="break-all px-4" dir="ltr">{tags.image}</span> : tx(isAr, "No image found", "لا توجد صورة")}
             </div>
@@ -1200,7 +1200,7 @@ const ToolDetail = () => {
               </h2>
               <div className="mt-6 space-y-3">
                 {tool.useCases.map((item) => (
-                  <div key={item.en} className="flex items-start gap-3 rounded-lg bg-white border border-slate-200 p-4">
+                  <div key={item.en} className="flex items-start gap-3 border border-slate-200 bg-white p-4">
                     <CheckCircle2 className="w-5 h-5 text-[#7143E0] shrink-0 mt-0.5" />
                     <p className="text-slate-700">{getLocalizedText(item, isAr)}</p>
                   </div>
@@ -1213,7 +1213,7 @@ const ToolDetail = () => {
               </h2>
               <div className="mt-6 space-y-4">
                 {tool.faqs.map((faq) => (
-                  <div key={faq.question.en} className="rounded-lg bg-white border border-slate-200 p-5">
+                  <div key={faq.question.en} className="border border-slate-200 bg-white p-5">
                     <h3 className="font-bold text-slate-900">
                       {getLocalizedText(faq.question, isAr)}
                     </h3>

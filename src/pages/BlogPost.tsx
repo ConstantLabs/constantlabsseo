@@ -129,7 +129,7 @@ const BlogPost = () => {
       {/* Hero Image */}
       {post.heroImage && (
         <div className="max-w-4xl mx-auto px-4 -mt-4">
-          <figure className="rounded-xl overflow-hidden shadow-lg">
+          <figure className="overflow-hidden shadow-lg">
             <img
               src={post.heroImage}
               alt={post.heroImageAlt || post.title}
@@ -156,7 +156,7 @@ const BlogPost = () => {
           </p>
 
           {/* Table of Contents */}
-          <nav className="mb-12 p-6 bg-slate-50 rounded-2xl border border-slate-100">
+          <nav className="mb-12 border border-slate-100 bg-slate-50 p-6">
             <h2 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-4">
               Table of Contents
             </h2>
@@ -204,7 +204,7 @@ const BlogPost = () => {
                 {post.faqs.map((faq) => (
                   <div
                     key={faq.q}
-                    className="rounded-xl border border-slate-200 bg-slate-50 p-5"
+                    className="border border-slate-200 bg-slate-50 p-5"
                   >
                     <h3 className="text-lg font-bold text-slate-900 mb-2">
                       {faq.q}
@@ -251,7 +251,7 @@ const BlogPost = () => {
               {post.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="px-3 py-1.5 rounded-full bg-slate-100 text-slate-600 text-sm font-medium"
+                  className="bg-slate-100 px-3 py-1.5 text-sm font-medium text-slate-600"
                 >
                   {tag}
                 </span>
