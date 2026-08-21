@@ -72,6 +72,11 @@ export default {
           ring: "hsl(var(--sidebar-ring))",
         },
         // ConstantSEO brand colors (SEO Sherpa style)
+        ink: "#101414",
+        paper: "#F4F1E8",
+        acid: "#D9FF4A",
+        signal: "#37D5C8",
+        ember: "#FF6542",
         purple: {
           50: '#f5f0ff',
           100: '#ede5ff',
@@ -111,13 +116,14 @@ export default {
       },
       borderRadius: {
         lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        md: "calc(var(--radius) - 1px)",
+        sm: "calc(var(--radius) - 2px)",
       },
       fontFamily: {
-        'sans': ['Changa', 'Montserrat', 'sans-serif'],
-        'heading': ['Changa', 'Raleway', 'sans-serif'],
-        'arabic': ['Changa', 'Montserrat', 'sans-serif'],
+        sans: ['Inter Tight', 'system-ui', 'sans-serif'],
+        heading: ['Anton', 'Impact', 'sans-serif'],
+        serif: ['Instrument Serif', 'Georgia', 'serif'],
+        arabic: ['Noto Kufi Arabic', 'sans-serif'],
       },
       keyframes: {
         "accordion-down": {
