@@ -18,13 +18,13 @@ const DEFAULT_IMAGE = `${BASE_URL}/og-image.png`;
 
 export const SEO = ({
   title,
-  description = 'ConstantSEO by Constant Labs — Dubai\'s leading AI-powered SEO agency. We deploy intelligent AI agents to automate and optimize your search engine rankings across the GCC market.',
+  description = 'ConstantSEO by Constant Labs builds technical, local, bilingual, and AI-answer search systems for GCC businesses.',
   path = '/',
   image = DEFAULT_IMAGE,
   breadcrumbs,
 }: SEOProps) => {
   const url = `${BASE_URL}${path}`;
-  const fullTitle = path === '/' ? 'ConstantSEO | AI-Powered SEO by Constant Labs' : `${title} | ConstantSEO`;
+  const fullTitle = /constantseo/i.test(title) ? title : `${title} | ConstantSEO`;
 
   const allBreadcrumbs: BreadcrumbItem[] = breadcrumbs
     ? [{ name: 'Home', path: '/' }, ...breadcrumbs]

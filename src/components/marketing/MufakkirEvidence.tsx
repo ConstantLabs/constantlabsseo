@@ -5,7 +5,7 @@ import { CornerTicks, DisplayTitle, Eyebrow, Lede, RuledGrid, SectionShell } fro
 const metrics = [
   { value: "1.74K", label: "mufakkir.metric.clicks" },
   { value: "29K", label: "mufakkir.metric.impressions" },
-  { value: "6%", label: "mufakkir.metric.ctr" },
+  { value: "6.0%", label: "mufakkir.metric.ctr" },
   { value: "8.4", label: "mufakkir.metric.position" },
 ];
 

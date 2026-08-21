@@ -141,7 +141,7 @@ function CopyButton({ text, isAr }: { text: string; isAr: boolean }) {
     <Button
       type="button"
       onClick={handleCopy}
-      className="bg-[#7143E0] hover:bg-[#5d35bd] text-white rounded-full px-5"
+      className="bg-ink hover:bg-ink/85 text-paper rounded-full px-5"
       disabled={!text}
     >
       {copied ? getLocalizedText(toolUiCopy.copied, isAr) : getLocalizedText(toolUiCopy.copy, isAr)}
@@ -150,7 +150,7 @@ function CopyButton({ text, isAr }: { text: string; isAr: boolean }) {
 }
 
 function FieldLabel({ children }: { children: string }) {
-  return <label className="block text-sm font-bold text-slate-800 mb-2">{children}</label>;
+  return <label className="block text-sm font-bold text-ink mb-2">{children}</label>;
 }
 
 function ToolShell({
@@ -164,14 +164,14 @@ function ToolShell({
 }) {
   return (
     <div className="grid lg:grid-cols-[0.95fr_1.05fr] gap-6">
-      <div className="overflow-visible border border-slate-200 bg-white p-5 md:p-6">
-        <h2 className="text-xl font-extrabold text-slate-900 mb-5">
+      <div className="overflow-visible border border-line bg-paper p-5 md:p-6">
+        <h2 className="text-xl font-extrabold text-ink mb-5">
           {getLocalizedText(toolUiCopy.input, isAr)}
         </h2>
         {children}
       </div>
-      <div className="overflow-visible border border-slate-200 bg-slate-50 p-5 md:p-6">
-        <h2 className="text-xl font-extrabold text-slate-900 mb-5">
+      <div className="overflow-visible border border-line bg-paper/70 p-5 md:p-6">
+        <h2 className="text-xl font-extrabold text-ink mb-5">
           {getLocalizedText(toolUiCopy.results, isAr)}
         </h2>
         {output}
@@ -270,29 +270,29 @@ function BulkMetaChecker({ isAr }: { isAr: boolean }) {
         rows.length ? (
           <div className="space-y-5 overflow-visible">
             <div className="grid grid-cols-2 gap-3">
-              <div className="border border-slate-200 bg-white p-4">
-                <p className="text-xs font-semibold uppercase text-slate-500">
+              <div className="border border-line bg-paper p-4">
+                <p className="text-xs font-semibold uppercase text-ink/70">
                   {tx(isAr, "Pages checked", "الصفحات المفحوصة")}
                 </p>
-                <p className="mt-2 text-3xl font-extrabold text-slate-900">{rows.length}</p>
+                <p className="mt-2 text-3xl font-extrabold text-ink">{rows.length}</p>
               </div>
-              <div className="border border-slate-200 bg-white p-4">
-                <p className="text-xs font-semibold uppercase text-slate-500">
+              <div className="border border-line bg-paper p-4">
+                <p className="text-xs font-semibold uppercase text-ink/70">
                   {tx(isAr, "Pages with issues", "صفحات بها مشاكل")}
                 </p>
-                <p className="mt-2 text-3xl font-extrabold text-amber-600">{issueCount}</p>
+                <p className="mt-2 text-3xl font-extrabold text-ink">{issueCount}</p>
               </div>
             </div>
             <div className="space-y-3">
               {rows.map((row, index) => (
-                <div key={`${row.url}-${index}`} className="border border-slate-200 bg-white p-4">
-                  <p className="text-sm font-bold text-slate-900 break-words" dir="ltr">
+                <div key={`${row.url}-${index}`} className="border border-line bg-paper p-4">
+                  <p className="text-sm font-bold text-ink break-words" dir="ltr">
                     {row.url || tx(isAr, "No URL", "لا يوجد رابط")}
                   </p>
                   <div className="mt-3 grid sm:grid-cols-2 gap-3">
                     <div>
-                      <p className="text-xs font-semibold text-slate-500">{tx(isAr, "Title", "العنوان")}</p>
-                      <p className="mt-1 text-sm text-slate-700 break-words">{row.title || "-"}</p>
+                      <p className="text-xs font-semibold text-ink/70">{tx(isAr, "Title", "العنوان")}</p>
+                      <p className="mt-1 text-sm text-ink/80 break-words">{row.title || "-"}</p>
                       <div className="mt-2 flex items-center gap-2">
                         <StatusBadge tone={row.titleIssue === "good" && !row.duplicateTitle ? "good" : row.titleIssue === "missing" ? "missing" : "warning"}>
                           {row.titleIssue === "good" && !row.duplicateTitle
@@ -301,12 +301,12 @@ function BulkMetaChecker({ isAr }: { isAr: boolean }) {
                               ? getLocalizedText(toolUiCopy.missing, isAr)
                               : getLocalizedText(toolUiCopy.warning, isAr)}
                         </StatusBadge>
-                        <span className="text-xs text-slate-500">{row.titleLength} {tx(isAr, "chars", "حرف")}</span>
+                        <span className="text-xs text-ink/70">{row.titleLength} {tx(isAr, "chars", "حرف")}</span>
                       </div>
                     </div>
                     <div>
-                      <p className="text-xs font-semibold text-slate-500">{tx(isAr, "Description", "الوصف")}</p>
-                      <p className="mt-1 text-sm text-slate-700 break-words">{row.description || "-"}</p>
+                      <p className="text-xs font-semibold text-ink/70">{tx(isAr, "Description", "الوصف")}</p>
+                      <p className="mt-1 text-sm text-ink/80 break-words">{row.description || "-"}</p>
                       <div className="mt-2 flex items-center gap-2">
                         <StatusBadge tone={row.descriptionIssue === "good" && !row.duplicateDescription ? "good" : row.descriptionIssue === "missing" ? "missing" : "warning"}>
                           {row.descriptionIssue === "good" && !row.duplicateDescription
@@ -315,7 +315,7 @@ function BulkMetaChecker({ isAr }: { isAr: boolean }) {
                               ? getLocalizedText(toolUiCopy.missing, isAr)
                               : getLocalizedText(toolUiCopy.warning, isAr)}
                         </StatusBadge>
-                        <span className="text-xs text-slate-500">{row.descriptionLength} {tx(isAr, "chars", "حرف")}</span>
+                        <span className="text-xs text-ink/70">{row.descriptionLength} {tx(isAr, "chars", "حرف")}</span>
                       </div>
                     </div>
                   </div>
@@ -327,7 +327,7 @@ function BulkMetaChecker({ isAr }: { isAr: boolean }) {
             </div>
           </div>
         ) : (
-          <p className="text-slate-600">{getLocalizedText(toolUiCopy.noData, isAr)}</p>
+          <p className="text-ink/70">{getLocalizedText(toolUiCopy.noData, isAr)}</p>
         )
       }
     >
@@ -335,10 +335,10 @@ function BulkMetaChecker({ isAr }: { isAr: boolean }) {
       <textarea
         value={input}
         onChange={(event) => setInput(event.target.value)}
-        className="w-full min-h-[260px] rounded-lg border border-slate-200 bg-white p-4 text-sm text-slate-900 outline-none focus:border-[#7143E0] focus:ring-2 focus:ring-[#7143E0]/15 overflow-auto"
+        className="w-full min-h-[260px]  border border-line bg-paper p-4 text-sm text-ink outline-none focus:border-ink focus:ring-2 focus:ring-lime/50 overflow-auto"
         dir="ltr"
       />
-      <p className="mt-3 text-xs text-slate-500">
+      <p className="mt-3 text-xs text-ink/70">
         {tx(isAr, "Supports tab, pipe, or comma separated rows.", "يدعم الصفوف المفصولة بتاب أو | أو فاصلة.")}
       </p>
     </ToolShell>
@@ -383,17 +383,17 @@ function MetaTagAnalyzer({ isAr }: { isAr: boolean }) {
       output={
         html.trim() ? (
           <div className="space-y-5">
-            <div className="border border-slate-200 bg-white p-5">
-              <p className="text-sm font-semibold text-slate-500">{tx(isAr, "Metadata score", "تقييم بيانات الميتا")}</p>
-              <p className="mt-2 text-5xl font-extrabold text-[#7143E0]">{score}</p>
+            <div className="border border-line bg-paper p-5">
+              <p className="text-sm font-semibold text-ink/70">{tx(isAr, "Metadata score", "تقييم بيانات الميتا")}</p>
+              <p className="mt-2 text-5xl font-extrabold text-ink">{score}</p>
             </div>
             <div className="space-y-3">
               {checks.map((check) => (
-                <div key={check.label} className="border border-slate-200 bg-white p-4">
+                <div key={check.label} className="border border-line bg-paper p-4">
                   <div className="flex items-start justify-between gap-3">
                     <div>
-                      <p className="text-sm font-bold text-slate-900">{check.label}</p>
-                      <p className="mt-1 text-sm text-slate-600 break-words" dir="auto">
+                      <p className="text-sm font-bold text-ink">{check.label}</p>
+                      <p className="mt-1 text-sm text-ink/70 break-words" dir="auto">
                         {check.value || "-"}
                       </p>
                     </div>
@@ -406,7 +406,7 @@ function MetaTagAnalyzer({ isAr }: { isAr: boolean }) {
             </div>
           </div>
         ) : (
-          <p className="text-slate-600">{getLocalizedText(toolUiCopy.noData, isAr)}</p>
+          <p className="text-ink/70">{getLocalizedText(toolUiCopy.noData, isAr)}</p>
         )
       }
     >
@@ -414,7 +414,7 @@ function MetaTagAnalyzer({ isAr }: { isAr: boolean }) {
       <textarea
         value={html}
         onChange={(event) => setHtml(event.target.value)}
-        className="w-full min-h-[360px] rounded-lg border border-slate-200 bg-white p-4 font-mono text-xs text-slate-900 outline-none focus:border-[#7143E0] focus:ring-2 focus:ring-[#7143E0]/15 overflow-auto"
+        className="w-full min-h-[360px]  border border-line bg-paper p-4 font-mono text-xs text-ink outline-none focus:border-ink focus:ring-2 focus:ring-lime/50 overflow-auto"
         dir="ltr"
       />
       <div className="mt-3 flex justify-end">
@@ -472,14 +472,14 @@ function HeadingChecker({ isAr }: { isAr: boolean }) {
           <div className="space-y-5">
             <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
               {report.counts.map((item) => (
-                <div key={item.level} className="border border-slate-200 bg-white p-3 text-center">
-                  <p className="text-xs font-semibold text-slate-500">H{item.level}</p>
-                  <p className="mt-1 text-2xl font-extrabold text-slate-900">{item.count}</p>
+                <div key={item.level} className="border border-line bg-paper p-3 text-center">
+                  <p className="text-xs font-semibold text-ink/70">H{item.level}</p>
+                  <p className="mt-1 text-2xl font-extrabold text-ink">{item.count}</p>
                 </div>
               ))}
             </div>
-            <div className="border border-slate-200 bg-white p-4">
-              <h3 className="font-bold text-slate-900 mb-3">{tx(isAr, "Issues", "المشاكل")}</h3>
+            <div className="border border-line bg-paper p-4">
+              <h3 className="font-bold text-ink mb-3">{tx(isAr, "Issues", "المشاكل")}</h3>
               {report.issues.length ? (
                 <ul className="space-y-2">
                   {report.issues.map((issue) => (
@@ -490,19 +490,19 @@ function HeadingChecker({ isAr }: { isAr: boolean }) {
                 <p className="text-sm text-green-700">{tx(isAr, "No major heading issues found.", "لم يتم العثور على مشاكل كبيرة في العناوين.")}</p>
               )}
             </div>
-            <div className="border border-slate-200 bg-white p-4">
-              <h3 className="font-bold text-slate-900 mb-3">{tx(isAr, "Heading outline", "هيكل العناوين")}</h3>
+            <div className="border border-line bg-paper p-4">
+              <h3 className="font-bold text-ink mb-3">{tx(isAr, "Heading outline", "هيكل العناوين")}</h3>
               <div className="space-y-2">
                 {report.headings.map((heading) => (
-                  <div key={`${heading.index}-${heading.text}`} className="text-sm text-slate-700" style={{ paddingInlineStart: `${Math.max(0, heading.level - 1) * 14}px` }}>
-                    <span className="font-bold text-[#7143E0]">H{heading.level}</span> {heading.text || "-"}
+                  <div key={`${heading.index}-${heading.text}`} className="text-sm text-ink/80" style={{ paddingInlineStart: `${Math.max(0, heading.level - 1) * 14}px` }}>
+                    <span className="font-bold text-ink">H{heading.level}</span> {heading.text || "-"}
                   </div>
                 ))}
               </div>
             </div>
           </div>
         ) : (
-          <p className="text-slate-600">{getLocalizedText(toolUiCopy.noData, isAr)}</p>
+          <p className="text-ink/70">{getLocalizedText(toolUiCopy.noData, isAr)}</p>
         )
       }
     >
@@ -510,7 +510,7 @@ function HeadingChecker({ isAr }: { isAr: boolean }) {
       <textarea
         value={html}
         onChange={(event) => setHtml(event.target.value)}
-        className="w-full min-h-[360px] rounded-lg border border-slate-200 bg-white p-4 font-mono text-xs text-slate-900 outline-none focus:border-[#7143E0] focus:ring-2 focus:ring-[#7143E0]/15 overflow-auto"
+        className="w-full min-h-[360px]  border border-line bg-paper p-4 font-mono text-xs text-ink outline-none focus:border-ink focus:ring-2 focus:ring-lime/50 overflow-auto"
         dir="ltr"
       />
     </ToolShell>
@@ -541,17 +541,17 @@ function SitemapExtractor({ isAr }: { isAr: boolean }) {
       output={
         urls.length ? (
           <div className="space-y-5">
-            <div className="border border-slate-200 bg-white p-5">
-              <p className="text-sm font-semibold text-slate-500">{tx(isAr, "URLs extracted", "روابط مستخرجة")}</p>
-              <p className="mt-2 text-5xl font-extrabold text-[#7143E0]">{urls.length}</p>
+            <div className="border border-line bg-paper p-5">
+              <p className="text-sm font-semibold text-ink/70">{tx(isAr, "URLs extracted", "روابط مستخرجة")}</p>
+              <p className="mt-2 text-5xl font-extrabold text-ink">{urls.length}</p>
             </div>
-            <div className="border border-slate-200 bg-white p-4">
-              <h3 className="font-bold text-slate-900 mb-3">{tx(isAr, "Hostnames", "النطاقات")}</h3>
+            <div className="border border-line bg-paper p-4">
+              <h3 className="font-bold text-ink mb-3">{tx(isAr, "Hostnames", "النطاقات")}</h3>
               <div className="space-y-2">
                 {hostSummary.map(([host, count]) => (
                   <div key={host} className="flex justify-between gap-4 text-sm">
-                    <span className="text-slate-700 break-words" dir="ltr">{host}</span>
-                    <span className="font-bold text-slate-900">{count}</span>
+                    <span className="text-ink/80 break-words" dir="ltr">{host}</span>
+                    <span className="font-bold text-ink">{count}</span>
                   </div>
                 ))}
               </div>
@@ -559,7 +559,7 @@ function SitemapExtractor({ isAr }: { isAr: boolean }) {
             <textarea
               readOnly
               value={output}
-              className="w-full min-h-[220px] rounded-lg border border-slate-200 bg-white p-4 font-mono text-xs text-slate-900 overflow-auto"
+              className="w-full min-h-[220px]  border border-line bg-paper p-4 font-mono text-xs text-ink overflow-auto"
               dir="ltr"
             />
             <div className="flex justify-end">
@@ -567,7 +567,7 @@ function SitemapExtractor({ isAr }: { isAr: boolean }) {
             </div>
           </div>
         ) : (
-          <p className="text-slate-600">{getLocalizedText(toolUiCopy.noData, isAr)}</p>
+          <p className="text-ink/70">{getLocalizedText(toolUiCopy.noData, isAr)}</p>
         )
       }
     >
@@ -575,7 +575,7 @@ function SitemapExtractor({ isAr }: { isAr: boolean }) {
       <textarea
         value={xml}
         onChange={(event) => setXml(event.target.value)}
-        className="w-full min-h-[360px] rounded-lg border border-slate-200 bg-white p-4 font-mono text-xs text-slate-900 outline-none focus:border-[#7143E0] focus:ring-2 focus:ring-[#7143E0]/15 overflow-auto"
+        className="w-full min-h-[360px]  border border-line bg-paper p-4 font-mono text-xs text-ink outline-none focus:border-ink focus:ring-2 focus:ring-lime/50 overflow-auto"
         dir="ltr"
       />
     </ToolShell>
@@ -622,7 +622,7 @@ function FaqSchemaGenerator({ isAr }: { isAr: boolean }) {
       isAr={isAr}
       output={
         <div className="space-y-4">
-          <pre className="max-h-[520px] rounded-lg border border-slate-200 bg-white p-4 text-xs text-slate-900 whitespace-pre-wrap break-words overflow-auto" dir="ltr">
+          <pre className="max-h-[520px]  border border-line bg-paper p-4 text-xs text-ink whitespace-pre-wrap break-words overflow-auto" dir="ltr">
             {schema}
           </pre>
           <div className="flex justify-end">
@@ -633,14 +633,14 @@ function FaqSchemaGenerator({ isAr }: { isAr: boolean }) {
     >
       <div className="space-y-4">
         {items.map((item, index) => (
-          <div key={index} className="rounded-lg border border-slate-200 p-4 overflow-visible">
+          <div key={index} className=" border border-line p-4 overflow-visible">
             <div className="flex items-center justify-between gap-4 mb-3">
-              <p className="font-bold text-slate-900">{tx(isAr, "FAQ", "سؤال")} {index + 1}</p>
+              <p className="font-bold text-ink">{tx(isAr, "FAQ", "سؤال")} {index + 1}</p>
               {items.length > 1 && (
                 <button
                   type="button"
                   onClick={() => setItems((current) => current.filter((_, itemIndex) => itemIndex !== index))}
-                  className="text-slate-400 hover:text-red-500 transition-colors"
+                  className="text-ink/60 hover:text-red-500 transition-colors"
                   aria-label={tx(isAr, "Remove FAQ", "حذف السؤال")}
                 >
                   <Trash2 className="w-4 h-4" />
@@ -657,7 +657,7 @@ function FaqSchemaGenerator({ isAr }: { isAr: boolean }) {
                   ),
                 )
               }
-              className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none focus:border-[#7143E0] focus:ring-2 focus:ring-[#7143E0]/15"
+              className="w-full  border border-line bg-paper px-4 py-3 text-sm text-ink outline-none focus:border-ink focus:ring-2 focus:ring-lime/50"
             />
             <div className="mt-3">
               <FieldLabel>{tx(isAr, "Answer", "الإجابة")}</FieldLabel>
@@ -670,7 +670,7 @@ function FaqSchemaGenerator({ isAr }: { isAr: boolean }) {
                     ),
                   )
                 }
-                className="w-full min-h-[110px] rounded-lg border border-slate-200 bg-white p-4 text-sm text-slate-900 outline-none focus:border-[#7143E0] focus:ring-2 focus:ring-[#7143E0]/15 overflow-auto"
+                className="w-full min-h-[110px]  border border-line bg-paper p-4 text-sm text-ink outline-none focus:border-ink focus:ring-2 focus:ring-lime/50 overflow-auto"
               />
             </div>
           </div>
@@ -679,7 +679,7 @@ function FaqSchemaGenerator({ isAr }: { isAr: boolean }) {
       <Button
         type="button"
         onClick={() => setItems((current) => [...current, { question: "", answer: "" }])}
-        className="mt-4 rounded-full bg-[#7143E0] hover:bg-[#5d35bd] text-white"
+        className="mt-4 rounded-full bg-ink hover:bg-ink/85 text-paper"
       >
         {tx(isAr, "Add FAQ", "أضف سؤالاً")}
       </Button>
@@ -727,7 +727,7 @@ function RobotsGenerator({ isAr }: { isAr: boolean }) {
       isAr={isAr}
       output={
         <div className="space-y-4">
-          <pre className="rounded-lg border border-slate-200 bg-white p-4 text-xs text-slate-900 whitespace-pre-wrap break-words overflow-auto" dir="ltr">
+          <pre className=" border border-line bg-paper p-4 text-xs text-ink whitespace-pre-wrap break-words overflow-auto" dir="ltr">
             {robots}
           </pre>
           <div className="flex justify-end">
@@ -742,7 +742,7 @@ function RobotsGenerator({ isAr }: { isAr: boolean }) {
           <input
             value={siteUrl}
             onChange={(event) => setSiteUrl(event.target.value)}
-            className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none focus:border-[#7143E0] focus:ring-2 focus:ring-[#7143E0]/15"
+            className="w-full  border border-line bg-paper px-4 py-3 text-sm text-ink outline-none focus:border-ink focus:ring-2 focus:ring-lime/50"
             dir="ltr"
           />
         </div>
@@ -751,7 +751,7 @@ function RobotsGenerator({ isAr }: { isAr: boolean }) {
           <select
             value={mode}
             onChange={(event) => setMode(event.target.value)}
-            className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none focus:border-[#7143E0] focus:ring-2 focus:ring-[#7143E0]/15"
+            className="w-full  border border-line bg-paper px-4 py-3 text-sm text-ink outline-none focus:border-ink focus:ring-2 focus:ring-lime/50"
           >
             <option value="public">{tx(isAr, "Public site, allow important pages", "موقع عام، اسمح بالصفحات المهمة")}</option>
             <option value="private">{tx(isAr, "Block private and noisy paths", "احجب المسارات الخاصة والمزعجة")}</option>
@@ -763,16 +763,16 @@ function RobotsGenerator({ isAr }: { isAr: boolean }) {
           <input
             value={crawlDelay}
             onChange={(event) => setCrawlDelay(event.target.value)}
-            className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none focus:border-[#7143E0] focus:ring-2 focus:ring-[#7143E0]/15"
+            className="w-full  border border-line bg-paper px-4 py-3 text-sm text-ink outline-none focus:border-ink focus:ring-2 focus:ring-lime/50"
             dir="ltr"
           />
         </div>
-        <label className="flex items-center gap-3 rounded-lg border border-slate-200 p-4 text-sm font-semibold text-slate-800">
+        <label className="flex items-center gap-3  border border-line p-4 text-sm font-semibold text-ink">
           <input
             type="checkbox"
             checked={allowAi}
             onChange={(event) => setAllowAi(event.target.checked)}
-            className="h-4 w-4 accent-[#7143E0]"
+            className="h-4 w-4 accent-lime"
           />
           {tx(isAr, "Allow reputable AI crawlers for GEO/AEO visibility", "السماح بزواحف الذكاء الاصطناعي الموثوقة لدعم GEO/AEO")}
         </label>
@@ -810,24 +810,24 @@ function OpenGraphChecker({ isAr }: { isAr: boolean }) {
       isAr={isAr}
       output={
         <div className="space-y-5">
-          <div className="overflow-hidden border border-slate-200 bg-white">
-            <div className="h-40 bg-slate-200 flex items-center justify-center text-slate-500 text-sm">
+          <div className="overflow-hidden border border-line bg-paper">
+            <div className="h-40 bg-line flex items-center justify-center text-ink/70 text-sm">
               {tags.image ? <span className="break-all px-4" dir="ltr">{tags.image}</span> : tx(isAr, "No image found", "لا توجد صورة")}
             </div>
             <div className="p-4">
-              <p className="text-xs uppercase text-slate-400" dir="ltr">{getHostname(tags.url) || "seo.constantlabs.ai"}</p>
-              <h3 className="mt-1 font-bold text-slate-900">{tags.title || tx(isAr, "No social title", "لا يوجد عنوان سوشيال")}</h3>
-              <p className="mt-2 text-sm text-slate-600">{tags.description || tx(isAr, "No social description", "لا يوجد وصف سوشيال")}</p>
+              <p className="text-xs uppercase text-ink/60" dir="ltr">{getHostname(tags.url) || "seo.constantlabs.ai"}</p>
+              <h3 className="mt-1 font-bold text-ink">{tags.title || tx(isAr, "No social title", "لا يوجد عنوان سوشيال")}</h3>
+              <p className="mt-2 text-sm text-ink/70">{tags.description || tx(isAr, "No social description", "لا يوجد وصف سوشيال")}</p>
             </div>
           </div>
           <div className="space-y-3">
             {required.map((item) => {
               const value = tags[item.key];
               return (
-                <div key={item.key} className="flex items-start justify-between gap-4 border border-slate-200 bg-white p-4">
+                <div key={item.key} className="flex items-start justify-between gap-4 border border-line bg-paper p-4">
                   <div>
-                    <p className="text-sm font-bold text-slate-900">{item.label}</p>
-                    <p className="mt-1 text-sm text-slate-600 break-words" dir="auto">{value || "-"}</p>
+                    <p className="text-sm font-bold text-ink">{item.label}</p>
+                    <p className="mt-1 text-sm text-ink/70 break-words" dir="auto">{value || "-"}</p>
                   </div>
                   <StatusBadge tone={value ? "good" : "missing"}>
                     {value ? getLocalizedText(toolUiCopy.good, isAr) : getLocalizedText(toolUiCopy.missing, isAr)}
@@ -843,7 +843,7 @@ function OpenGraphChecker({ isAr }: { isAr: boolean }) {
       <textarea
         value={html}
         onChange={(event) => setHtml(event.target.value)}
-        className="w-full min-h-[360px] rounded-lg border border-slate-200 bg-white p-4 font-mono text-xs text-slate-900 outline-none focus:border-[#7143E0] focus:ring-2 focus:ring-[#7143E0]/15 overflow-auto"
+        className="w-full min-h-[360px]  border border-line bg-paper p-4 font-mono text-xs text-ink outline-none focus:border-ink focus:ring-2 focus:ring-lime/50 overflow-auto"
         dir="ltr"
       />
     </ToolShell>
@@ -864,14 +864,14 @@ function BandwidthCalculator({ isAr }: { isAr: boolean }) {
       isAr={isAr}
       output={
         <div className="space-y-5">
-          <div className="border border-slate-200 bg-white p-5">
-            <p className="text-sm font-semibold text-slate-500">{tx(isAr, "Estimated monthly bandwidth", "الاستهلاك الشهري المتوقع")}</p>
-            <p className="mt-2 text-5xl font-extrabold text-[#7143E0]">{monthlyGb.toFixed(1)} GB</p>
-            <p className="mt-2 text-sm text-slate-600">{annualTb.toFixed(2)} TB {tx(isAr, "per year", "سنوياً")}</p>
+          <div className="border border-line bg-paper p-5">
+            <p className="text-sm font-semibold text-ink/70">{tx(isAr, "Estimated monthly bandwidth", "الاستهلاك الشهري المتوقع")}</p>
+            <p className="mt-2 text-5xl font-extrabold text-ink">{monthlyGb.toFixed(1)} GB</p>
+            <p className="mt-2 text-sm text-ink/70">{annualTb.toFixed(2)} TB {tx(isAr, "per year", "سنوياً")}</p>
           </div>
-          <div className="border border-slate-200 bg-white p-5">
-            <p className="text-sm font-bold text-slate-900">{tx(isAr, "Hosting recommendation", "توصية الاستضافة")}</p>
-            <p className="mt-2 text-slate-700">
+          <div className="border border-line bg-paper p-5">
+            <p className="text-sm font-bold text-ink">{tx(isAr, "Hosting recommendation", "توصية الاستضافة")}</p>
+            <p className="mt-2 text-ink/80">
               {tier === "starter"
                 ? tx(isAr, "A standard managed hosting plan or Vercel-style deployment should be enough if assets are optimized.", "خطة استضافة مُدارة عادية أو نشر شبيه بـ Vercel يكفي إذا كانت الملفات محسنة.")
                 : tier === "growth"
@@ -895,7 +895,7 @@ function BandwidthCalculator({ isAr }: { isAr: boolean }) {
               type="number"
               value={field.value}
               onChange={(event) => field.setter(Number(event.target.value))}
-              className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none focus:border-[#7143E0] focus:ring-2 focus:ring-[#7143E0]/15"
+              className="w-full  border border-line bg-paper px-4 py-3 text-sm text-ink outline-none focus:border-ink focus:ring-2 focus:ring-lime/50"
               dir="ltr"
             />
           </div>
@@ -922,16 +922,16 @@ function CostCalculator({ isAr }: { isAr: boolean }) {
       isAr={isAr}
       output={
         <div className="space-y-5">
-          <div className="border border-slate-200 bg-white p-5">
-            <p className="text-sm font-semibold text-slate-500">{tx(isAr, "Planning range", "النطاق التخطيطي")}</p>
-            <p className="mt-2 text-4xl font-extrabold text-[#7143E0]" dir="ltr">
+          <div className="border border-line bg-paper p-5">
+            <p className="text-sm font-semibold text-ink/70">{tx(isAr, "Planning range", "النطاق التخطيطي")}</p>
+            <p className="mt-2 text-4xl font-extrabold text-ink" dir="ltr">
               AED {low.toLocaleString()} - {high.toLocaleString()}
             </p>
-            <p className="mt-3 text-sm text-slate-600">
+            <p className="mt-3 text-sm text-ink/70">
               {tx(isAr, "This is a planning estimate for scope discussion, not a final quote.", "هذا تقدير تخطيطي للنقاش حول النطاق وليس عرض سعر نهائياً.")}
             </p>
           </div>
-          <Link to="/contact" className="inline-flex items-center gap-2 font-bold text-[#7143E0] hover:underline">
+          <Link to="/contact" className="inline-flex items-center gap-2 font-bold text-ink hover:underline">
             {getLocalizedText(toolUiCopy.freeAudit, isAr)}
             <ArrowRight className={`w-4 h-4 ${isAr ? "rotate-180" : ""}`} />
           </Link>
@@ -951,19 +951,19 @@ function CostCalculator({ isAr }: { isAr: boolean }) {
               value={field.value}
               min={0}
               onChange={(event) => field.setter(Number(event.target.value))}
-              className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none focus:border-[#7143E0] focus:ring-2 focus:ring-[#7143E0]/15"
+              className="w-full  border border-line bg-paper px-4 py-3 text-sm text-ink outline-none focus:border-ink focus:ring-2 focus:ring-lime/50"
               dir="ltr"
             />
           </div>
         ))}
       </div>
       <div className="mt-5 space-y-3">
-        <label className="flex items-center gap-3 rounded-lg border border-slate-200 p-4 text-sm font-semibold text-slate-800">
-          <input type="checkbox" checked={booking} onChange={(event) => setBooking(event.target.checked)} className="h-4 w-4 accent-[#7143E0]" />
+        <label className="flex items-center gap-3  border border-line p-4 text-sm font-semibold text-ink">
+          <input type="checkbox" checked={booking} onChange={(event) => setBooking(event.target.checked)} className="h-4 w-4 accent-lime" />
           {tx(isAr, "Booking or lead form integration", "تكامل الحجز أو نموذج العملاء المحتملين")}
         </label>
-        <label className="flex items-center gap-3 rounded-lg border border-slate-200 p-4 text-sm font-semibold text-slate-800">
-          <input type="checkbox" checked={ecommerce} onChange={(event) => setEcommerce(event.target.checked)} className="h-4 w-4 accent-[#7143E0]" />
+        <label className="flex items-center gap-3  border border-line p-4 text-sm font-semibold text-ink">
+          <input type="checkbox" checked={ecommerce} onChange={(event) => setEcommerce(event.target.checked)} className="h-4 w-4 accent-lime" />
           {tx(isAr, "Ecommerce or checkout", "تجارة إلكترونية أو دفع")}
         </label>
       </div>
@@ -1011,14 +1011,14 @@ function YouTubeSeoChecker({ isAr }: { isAr: boolean }) {
       isAr={isAr}
       output={
         <div className="space-y-5">
-          <div className="border border-slate-200 bg-white p-5">
-            <p className="text-sm font-semibold text-slate-500">{tx(isAr, "Video SEO score", "تقييم SEO للفيديو")}</p>
-            <p className="mt-2 text-5xl font-extrabold text-[#7143E0]">{score}</p>
+          <div className="border border-line bg-paper p-5">
+            <p className="text-sm font-semibold text-ink/70">{tx(isAr, "Video SEO score", "تقييم SEO للفيديو")}</p>
+            <p className="mt-2 text-5xl font-extrabold text-ink">{score}</p>
           </div>
           <div className="space-y-3">
             {checks.map((check) => (
-              <div key={check.label} className="flex items-center justify-between gap-4 border border-slate-200 bg-white p-4">
-                <p className="text-sm font-bold text-slate-900">{check.label}</p>
+              <div key={check.label} className="flex items-center justify-between gap-4 border border-line bg-paper p-4">
+                <p className="text-sm font-bold text-ink">{check.label}</p>
                 <StatusBadge tone={check.good ? "good" : "warning"}>
                   {check.good ? getLocalizedText(toolUiCopy.good, isAr) : getLocalizedText(toolUiCopy.warning, isAr)}
                 </StatusBadge>
@@ -1031,22 +1031,22 @@ function YouTubeSeoChecker({ isAr }: { isAr: boolean }) {
       <div className="space-y-4">
         <div>
           <FieldLabel>{tx(isAr, "Target keyword", "الكلمة المستهدفة")}</FieldLabel>
-          <input value={keyword} onChange={(event) => setKeyword(event.target.value)} className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none focus:border-[#7143E0] focus:ring-2 focus:ring-[#7143E0]/15" />
+          <input value={keyword} onChange={(event) => setKeyword(event.target.value)} className="w-full  border border-line bg-paper px-4 py-3 text-sm text-ink outline-none focus:border-ink focus:ring-2 focus:ring-lime/50" />
         </div>
         <div>
           <FieldLabel>{tx(isAr, "Video title", "عنوان الفيديو")}</FieldLabel>
-          <input value={title} onChange={(event) => setTitle(event.target.value)} className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none focus:border-[#7143E0] focus:ring-2 focus:ring-[#7143E0]/15" />
+          <input value={title} onChange={(event) => setTitle(event.target.value)} className="w-full  border border-line bg-paper px-4 py-3 text-sm text-ink outline-none focus:border-ink focus:ring-2 focus:ring-lime/50" />
         </div>
         <div>
           <FieldLabel>{tx(isAr, "Description", "الوصف")}</FieldLabel>
-          <textarea value={description} onChange={(event) => setDescription(event.target.value)} className="w-full min-h-[130px] rounded-lg border border-slate-200 bg-white p-4 text-sm text-slate-900 outline-none focus:border-[#7143E0] focus:ring-2 focus:ring-[#7143E0]/15 overflow-auto" />
+          <textarea value={description} onChange={(event) => setDescription(event.target.value)} className="w-full min-h-[130px]  border border-line bg-paper p-4 text-sm text-ink outline-none focus:border-ink focus:ring-2 focus:ring-lime/50 overflow-auto" />
         </div>
         <div>
           <FieldLabel>{tx(isAr, "Tags separated by commas", "وسوم مفصولة بفواصل")}</FieldLabel>
-          <input value={tags} onChange={(event) => setTags(event.target.value)} className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none focus:border-[#7143E0] focus:ring-2 focus:ring-[#7143E0]/15" />
+          <input value={tags} onChange={(event) => setTags(event.target.value)} className="w-full  border border-line bg-paper px-4 py-3 text-sm text-ink outline-none focus:border-ink focus:ring-2 focus:ring-lime/50" />
         </div>
-        <label className="flex items-center gap-3 rounded-lg border border-slate-200 p-4 text-sm font-semibold text-slate-800">
-          <input type="checkbox" checked={hasChapters} onChange={(event) => setHasChapters(event.target.checked)} className="h-4 w-4 accent-[#7143E0]" />
+        <label className="flex items-center gap-3  border border-line p-4 text-sm font-semibold text-ink">
+          <input type="checkbox" checked={hasChapters} onChange={(event) => setHasChapters(event.target.checked)} className="h-4 w-4 accent-lime" />
           {tx(isAr, "Video includes chapters or timestamps", "الفيديو يحتوي على فصول أو طوابع زمنية")}
         </label>
       </div>
@@ -1088,16 +1088,16 @@ const ToolDetail = () => {
 
   if (!tool) {
     return (
-      <div className="min-h-screen bg-white text-slate-900">
+      <div className="min-h-screen bg-paper text-ink">
         <Navbar />
         <div className="max-w-3xl mx-auto px-4 pt-32 pb-20 text-center">
-          <h1 className="text-4xl font-extrabold text-slate-900">
+          <h1 className="text-4xl font-extrabold text-ink">
             {tx(isAr, "Tool Not Found", "الأداة غير موجودة")}
           </h1>
-          <p className="mt-4 text-slate-600">
+          <p className="mt-4 text-ink/70">
             {tx(isAr, "The free SEO tool you are looking for does not exist.", "أداة SEO المجانية التي تبحث عنها غير موجودة.")}
           </p>
-          <Link to="/tools" className="mt-8 inline-flex items-center gap-2 font-bold text-[#7143E0] hover:underline">
+          <Link to="/tools" className="mt-8 inline-flex items-center gap-2 font-bold text-ink hover:underline">
             {getLocalizedText(toolUiCopy.allTools, isAr)}
           </Link>
         </div>
@@ -1117,11 +1117,11 @@ const ToolDetail = () => {
   const appSchema = {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    name: tool.title.en,
+    name: title,
     url: `${BASE_URL}/tools/${tool.slug}`,
     applicationCategory: "SEOApplication",
     operatingSystem: "Web",
-    description: tool.metaDescription.en,
+    description: metaDescription,
     offers: {
       "@type": "Offer",
       price: "0",
@@ -1139,23 +1139,23 @@ const ToolDetail = () => {
     "@type": "FAQPage",
     mainEntity: tool.faqs.map((faq) => ({
       "@type": "Question",
-      name: faq.question.en,
+      name: getLocalizedText(faq.question, isAr),
       acceptedAnswer: {
         "@type": "Answer",
-        text: faq.answer.en,
+        text: getLocalizedText(faq.answer, isAr),
       },
     })),
   };
 
   return (
-    <div className="min-h-screen bg-white text-slate-900">
+    <div className="min-h-screen bg-paper text-ink">
       <SEO
         title={metaTitle}
         description={metaDescription}
         path={`/tools/${tool.slug}`}
         breadcrumbs={[
-          { name: "Free SEO Tools", path: "/tools" },
-          { name: tool.title.en, path: `/tools/${tool.slug}` },
+          { name: getLocalizedText(toolUiCopy.allTools, isAr), path: "/tools" },
+          { name: title, path: `/tools/${tool.slug}` },
         ]}
       />
       <Helmet>
@@ -1168,14 +1168,14 @@ const ToolDetail = () => {
         eyebrow={getLocalizedText(toolUiCopy.allTools, isAr)}
         title={title}
         lede={getLocalizedText(tool.shortDescription, isAr)}
-        meta={<Icon className="h-6 w-6 text-evidence-blue" aria-hidden="true" />}
+        meta={<Icon className="h-6 w-6 text-ink" aria-hidden="true" />}
         actions={<Link to="/tools" className="border border-ink px-5 py-3 text-sm font-bold uppercase tracking-[0.08em] text-ink hover:bg-ink hover:text-paper">{getLocalizedText(toolUiCopy.allTools, isAr)}</Link>}
       />
 
       <section className="border-b border-line bg-paper/70 py-10">
         <div className="max-w-5xl mx-auto px-4">
           <div className="border border-line bg-paper p-6 md:p-8">
-            <p className="mb-3 text-sm font-bold uppercase tracking-wider text-evidence-blue">
+            <p className="mb-3 text-sm font-bold uppercase tracking-wider text-ink/70">
               {getLocalizedText(toolUiCopy.quickAnswer, isAr)}
             </p>
             <p className="text-lg leading-relaxed text-ink/70">
@@ -1191,33 +1191,33 @@ const ToolDetail = () => {
         </div>
       </section>
 
-      <section className="py-16 bg-slate-50">
+      <section className="py-16 bg-paper/70">
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid md:grid-cols-[0.9fr_1.1fr] gap-10">
             <div>
-              <h2 className="text-3xl font-extrabold text-slate-900">
+              <h2 className="text-3xl font-extrabold text-ink">
                 {getLocalizedText(toolUiCopy.useCases, isAr)}
               </h2>
               <div className="mt-6 space-y-3">
                 {tool.useCases.map((item) => (
-                  <div key={item.en} className="flex items-start gap-3 border border-slate-200 bg-white p-4">
-                    <CheckCircle2 className="w-5 h-5 text-[#7143E0] shrink-0 mt-0.5" />
-                    <p className="text-slate-700">{getLocalizedText(item, isAr)}</p>
+                  <div key={item.en} className="flex items-start gap-3 border border-line bg-paper p-4">
+                    <CheckCircle2 className="w-5 h-5 text-ink shrink-0 mt-0.5" />
+                    <p className="text-ink/80">{getLocalizedText(item, isAr)}</p>
                   </div>
                 ))}
               </div>
             </div>
             <div>
-              <h2 className="text-3xl font-extrabold text-slate-900">
+              <h2 className="text-3xl font-extrabold text-ink">
                 {getLocalizedText(toolUiCopy.faqTitle, isAr)}
               </h2>
               <div className="mt-6 space-y-4">
                 {tool.faqs.map((faq) => (
-                  <div key={faq.question.en} className="border border-slate-200 bg-white p-5">
-                    <h3 className="font-bold text-slate-900">
+                  <div key={faq.question.en} className="border border-line bg-paper p-5">
+                    <h3 className="font-bold text-ink">
                       {getLocalizedText(faq.question, isAr)}
                     </h3>
-                    <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                    <p className="mt-2 text-sm leading-relaxed text-ink/70">
                       {getLocalizedText(faq.answer, isAr)}
                     </p>
                   </div>
@@ -1228,7 +1228,7 @@ const ToolDetail = () => {
 
           {relatedTools.length > 0 && (
             <div className="mt-14">
-              <h2 className="text-2xl font-extrabold text-slate-900 mb-5">
+              <h2 className="text-2xl font-extrabold text-ink mb-5">
                 {getLocalizedText(toolUiCopy.relatedTools, isAr)}
               </h2>
               <div className="grid sm:grid-cols-3 gap-4">
@@ -1240,11 +1240,11 @@ const ToolDetail = () => {
                       to={`/tools/${item.slug}`}
                       className="group border border-line bg-paper p-5 transition-colors hover:bg-lime/20"
                     >
-                      <RelatedIcon className="mb-3 h-5 w-5 text-evidence-blue" />
-                      <h3 className="font-bold text-slate-900 group-hover:text-[#7143E0] transition-colors">
+                      <RelatedIcon className="mb-3 h-5 w-5 text-ink" />
+                      <h3 className="font-bold text-ink group-hover:text-ink transition-colors">
                         {getLocalizedText(item.title, isAr)}
                       </h3>
-                      <p className="mt-2 text-sm text-slate-600">
+                      <p className="mt-2 text-sm text-ink/70">
                         {getLocalizedText(item.shortDescription, isAr)}
                       </p>
                     </Link>

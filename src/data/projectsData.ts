@@ -9,10 +9,14 @@ import type { LucideIcon } from "lucide-react";
 export interface Service {
   id: string;
   title: string;
+  titleAr: string;
   icon: LucideIcon;
   description: string;
+  descriptionAr: string;
   tags: string[];
+  tagsAr: string[];
   oneLiner: string;
+  oneLinerAr: string;
   link?: string;
 }
 
@@ -20,66 +24,98 @@ export const SERVICES: Service[] = [
   {
     id: "AI_SEARCH_OPTIMIZATION",
     title: "AI Search Optimization (GEO/AEO)",
+    titleAr: "تحسين البحث بالذكاء الاصطناعي (GEO/AEO)",
     icon: Search,
-    description: "Dominate AI search results across ChatGPT, Gemini, Perplexity, and Claude. We optimize your digital presence so AI assistants recommend YOUR business.",
+    description: "Structure useful, attributable information so AI-assisted discovery systems can understand your business, services, and expertise.",
+    descriptionAr: "ننظم معلومات مفيدة وقابلة للإسناد لتتمكن أنظمة الاكتشاف المدعومة بالذكاء الاصطناعي من فهم نشاطك وخدماتك وخبرتك.",
     tags: ["GEO", "AEO", "ChatGPT", "Gemini", "Perplexity"],
-    oneLiner: "Get recommended by AI",
+    tagsAr: ["GEO", "AEO", "ChatGPT", "Gemini", "Perplexity"],
+    oneLiner: "Make your expertise easier to understand",
+    oneLinerAr: "اجعل خبرتك أسهل للفهم",
   },
   {
     id: "TECHNICAL_SEO",
     title: "Technical SEO Mastery",
+    titleAr: "أسس SEO التقنية",
     icon: Settings,
-    description: "Lightning-fast, technically flawless websites that search engines love. From Core Web Vitals to schema markup, we handle every technical detail.",
+    description: "Audit crawlability, indexation, Core Web Vitals, structured data, and site architecture to build a dependable search foundation.",
+    descriptionAr: "ندقق قابلية الزحف والفهرسة ومؤشرات الويب الأساسية والبيانات المنظمة وبنية الموقع لبناء أساس بحث موثوق.",
     tags: ["Core Web Vitals", "Schema Markup", "Site Speed", "Crawlability"],
-    oneLiner: "Technically flawless foundations",
+    tagsAr: ["مؤشرات الويب الأساسية", "Schema", "سرعة الموقع", "قابلية الزحف"],
+    oneLiner: "A dependable technical foundation",
+    oneLinerAr: "أساس تقني موثوق",
   },
   {
     id: "ARABIC_CONTENT",
     title: "Arabic Content Strategy",
+    titleAr: "استراتيجية المحتوى العربي",
     icon: Globe,
     description: "Native Arabic content that resonates with GCC audiences. Culturally authentic, SEO-optimized content by native speakers.",
+    descriptionAr: "محتوى عربي أصيل يراعي سياق جمهور الخليج ونيّة البحث وتجربة القراءة من اليمين إلى اليسار.",
     tags: ["Arabic SEO", "GCC Content", "Native Writers", "Cultural Localization"],
+    tagsAr: ["SEO عربي", "محتوى خليجي", "كتابة عربية", "توطين ثقافي"],
     oneLiner: "Content that speaks to the Gulf",
+    oneLinerAr: "محتوى يخاطب جمهور الخليج",
   },
   {
     id: "LOCAL_SEO",
-    title: "Local SEO Dominance",
+    title: "Local Search Foundations",
+    titleAr: "أسس البحث المحلي",
     icon: MapPin,
-    description: "Own your local market. Google Maps optimization, local citations, and geo-targeted content for UAE, Saudi Arabia, and Oman.",
+    description: "Connect Google Business Profile work, local citations, and location-focused content for UAE, Saudi Arabia, and Oman.",
+    descriptionAr: "نربط تحسين ملف النشاط التجاري على جوجل والاستشهادات المحلية ومحتوى المواقع للإمارات والسعودية وعُمان.",
     tags: ["Google Maps", "Local Citations", "Geo-targeting", "GCC Markets"],
-    oneLiner: "Own your local market",
+    tagsAr: ["خرائط جوجل", "استشهادات محلية", "استهداف جغرافي", "أسواق الخليج"],
+    oneLiner: "Build trustworthy local signals",
+    oneLinerAr: "ابنِ إشارات محلية موثوقة",
   },
   {
     id: "AI_LINK_BUILDING",
     title: "AI-Powered Link Building",
+    titleAr: "بناء الروابط بمساعدة الذكاء الاصطناعي",
     icon: Link,
-    description: "Strategic backlink acquisition using AI to identify high-value opportunities. Build authority that search engines and LLMs trust.",
+    description: "Research relevant reference opportunities and strengthen the internal connections that clarify subject expertise.",
+    descriptionAr: "نبحث فرص مراجع ذات صلة ونعزز الروابط الداخلية التي توضح الخبرة الموضوعية.",
     tags: ["Backlinks", "Domain Authority", "AI Prospecting", "Digital PR"],
+    tagsAr: ["روابط خلفية", "سلطة النطاق", "بحث بالذكاء الاصطناعي", "علاقات عامة رقمية"],
     oneLiner: "Authority search engines trust",
+    oneLinerAr: "إشارات سلطة واضحة لمحركات البحث",
   },
   {
     id: "SEO_AUDITS",
     title: "SEO Audits & Analytics",
+    titleAr: "تدقيق SEO والتحليلات",
     icon: BarChart3,
-    description: "Comprehensive AI-driven audits that find and fix every issue. Real-time dashboards tracking your performance across Google AND AI platforms.",
+    description: "Review technical, content, local, and measurement signals, then turn findings into a prioritized action plan.",
+    descriptionAr: "نراجع الإشارات التقنية والمحتوى والبحث المحلي والقياس، ثم نحول النتائج إلى خطة عمل مرتبة حسب الأولوية.",
     tags: ["AI Audits", "Real-time Dashboards", "Google Analytics", "AI Tracking"],
-    oneLiner: "Find and fix every issue",
+    tagsAr: ["تدقيق SEO", "لوحات قياس", "Google Analytics", "متابعة البحث الذكي"],
+    oneLiner: "Turn findings into priorities",
+    oneLinerAr: "حوّل النتائج إلى أولويات",
   },
   {
     id: "WEBSITE_DEVELOPMENT",
     title: "Website Development",
+    titleAr: "تطوير المواقع",
     icon: Code,
-    description: "SEO-first websites built with agentic AI in days, not months. 50+ optimized pages deployed before your competitors finish their first draft.",
-    tags: ["SEO-First", "Agentic AI", "Rapid Deployment", "50+ Pages"],
-    oneLiner: "SEO-first sites, built fast",
+    description: "SEO-first websites with clear information architecture, reusable page systems, structured data, and accessible bilingual foundations.",
+    descriptionAr: "مواقع تبدأ من SEO ببنية معلومات واضحة وأنظمة صفحات قابلة لإعادة الاستخدام وبيانات منظمة وأساس ثنائي اللغة سهل الوصول.",
+    tags: ["SEO-First", "Information Architecture", "Structured Data", "Bilingual UX"],
+    tagsAr: ["SEO أولاً", "بنية المعلومات", "بيانات منظمة", "تجربة ثنائية اللغة"],
+    oneLiner: "Search-aware sites from the start",
+    oneLinerAr: "مواقع تراعي البحث منذ البداية",
   },
   {
     id: "CRO",
     title: "Conversion Rate Optimization",
+    titleAr: "تحسين معدل التحويل",
     icon: TrendingUp,
-    description: "Turn traffic into revenue. Data-driven CRO that maximizes every visitor from both traditional and AI search channels.",
-    tags: ["A/B Testing", "UX Optimization", "Funnel Analysis", "Revenue Growth"],
-    oneLiner: "Turn traffic into revenue",
+    description: "Review search landing journeys, calls to action, and measurement so visitors can take a clear next step.",
+    descriptionAr: "نراجع رحلات صفحات الهبوط وعبارات الحث على الإجراء والقياس ليتمكن الزائر من اتخاذ خطوة تالية واضحة.",
+    tags: ["A/B Testing", "UX Review", "Journey Analysis", "Measurement"],
+    tagsAr: ["اختبار A/B", "مراجعة التجربة", "تحليل الرحلة", "القياس"],
+    oneLiner: "Clarify the path to action",
+    oneLinerAr: "وضّح المسار إلى الإجراء",
   },
 ];
 
@@ -89,234 +125,74 @@ export interface CaseStudy {
   id: string;
   slug: string;
   title: string;
+  titleAr: string;
   client: string;
+  clientAr: string;
   industry: string;
+  industryAr: string;
   market: string;
+  marketAr: string;
   metric: string;
+  metricAr: string;
   description: string;
+  descriptionAr: string;
   tags: string[];
+  tagsAr: string[];
 }
 
 export const caseStudies: CaseStudy[] = [
   {
     id: "rapid-deployment",
     slug: "rapid-seo-deployment",
-    title: "50+ Optimized Pages in 4 Hours",
-    client: "Our Technology",
-    industry: "AI-Powered Build",
-    market: "Any Market",
-    metric: "50+ pages in 4 hours",
-    description: "Using agentic AI, we deploy entire SEO-optimized websites with 50+ pages in hours - including service pages, location-specific content, schema markup, internal linking, and full technical optimization. What traditional agencies take months to deliver, our technology completes before lunch.",
-    tags: ["Agentic AI", "Rapid Deployment", "Technical SEO", "Automation"],
+    title: "Structured SEO Publishing",
+    titleAr: "نشر SEO منظم",
+    client: "Our Methodology",
+    clientAr: "منهجيتنا",
+    industry: "Publishing System",
+    industryAr: "نظام نشر",
+    market: "Adaptable Scope",
+    marketAr: "نطاق قابل للتكييف",
+    metric: "Pages · schema · internal links",
+    metricAr: "صفحات · Schema · روابط داخلية",
+    description: "Our publishing workflow connects service, location, and editorial page templates with structured data, internal links, and technical quality checks. Scope and timing are agreed for each engagement.",
+    descriptionAr: "يربط سير النشر لدينا قوالب صفحات الخدمات والمواقع والمحتوى التحريري بالبيانات المنظمة والروابط الداخلية وفحوص الجودة التقنية. يُتفق على النطاق والتوقيت لكل مشروع.",
+    tags: ["Agentic AI", "Publishing Workflow", "Technical SEO", "Quality Checks"],
+    tagsAr: ["ذكاء اصطناعي وكيلي", "سير نشر", "SEO تقني", "فحوص جودة"],
   },
   {
     id: "ai-search-optimization",
     slug: "ai-search-visibility",
     title: "Google + AI Search Optimization",
+    titleAr: "تحسين البحث عبر جوجل والذكاء الاصطناعي",
     client: "Our Methodology",
+    clientAr: "منهجيتنا",
     industry: "GEO/AEO",
+    industryAr: "GEO/AEO",
     market: "Global",
-    metric: "Google + ChatGPT + Gemini",
-    description: "Good foundational SEO equals good GEO. We optimize your site for both traditional search and AI platforms simultaneously. Schema markup, structured data, topical authority, and clean technical foundations ensure AI assistants recommend your business when users ask for recommendations.",
+    marketAr: "عالمي",
+    metric: "Google · ChatGPT · Gemini",
+    metricAr: "Google · ChatGPT · Gemini",
+    description: "Good foundational SEO supports AI discovery. We coordinate schema markup, structured data, topical coverage, and technical foundations so search and answer systems can interpret useful information consistently.",
+    descriptionAr: "يدعم SEO الأساسي الجيد الاكتشاف عبر الذكاء الاصطناعي. ننسق Schema والبيانات المنظمة والتغطية الموضوعية والأسس التقنية لتتمكن أنظمة البحث والإجابة من تفسير المعلومات المفيدة باتساق.",
     tags: ["GEO", "AEO", "ChatGPT", "Gemini", "Perplexity"],
+    tagsAr: ["GEO", "AEO", "ChatGPT", "Gemini", "Perplexity"],
   },
   {
     id: "bilingual-gcc",
     slug: "bilingual-gcc-seo",
     title: "True Bilingual Arabic + English SEO",
+    titleAr: "SEO ثنائي اللغة بالعربية والإنجليزية",
     client: "GCC Specialization",
+    clientAr: "تخصص خليجي",
     industry: "Arabic SEO",
+    industryAr: "SEO عربي",
     market: "UAE · KSA · Oman",
+    marketAr: "الإمارات · السعودية · عُمان",
     metric: "Arabic + English",
-    description: "Most agencies in the region only do English SEO. We deliver native Arabic content with proper RTL optimization, Arabic keyword research, and culturally relevant content - alongside English. Targeting UAE, Saudi Arabia, and Oman with content that actually resonates with local audiences.",
+    metricAr: "العربية + الإنجليزية",
+    description: "We plan Arabic and English search experiences together, including language-aware research, readable RTL layouts, culturally relevant content, and coordinated technical signals.",
+    descriptionAr: "نخطط تجربتي البحث بالعربية والإنجليزية معاً، بما يشمل بحثاً يراعي اللغة وتخطيطات RTL مقروءة ومحتوى ملائماً ثقافياً وإشارات تقنية منسقة.",
     tags: ["Arabic SEO", "RTL", "GCC Markets", "Bilingual Content"],
+    tagsAr: ["SEO عربي", "RTL", "أسواق الخليج", "محتوى ثنائي اللغة"],
   },
 ];
-
-// ─── Pricing Types ───────────────────────────────────────────────
-
-export interface PricingTier {
-  id: string;
-  name: string;
-  price: string;
-  period: string;
-  tagline: string;
-  popular: boolean;
-  features: string[];
-}
-
-export const pricingTiers: PricingTier[] = [
-  {
-    id: "starter",
-    name: "Starter",
-    price: "AED 1,500",
-    period: "/mo",
-    tagline: "For growing businesses",
-    popular: false,
-    features: [
-      "15 target keywords",
-      "Monthly SEO audit",
-      "Basic performance reporting",
-      "Google Search Console setup",
-      "Technical SEO fixes",
-      "1 blog post per month",
-      "Email support",
-    ],
-  },
-  {
-    id: "growth",
-    name: "Growth",
-    price: "AED 3,500",
-    period: "/mo",
-    tagline: "Most Popular",
-    popular: true,
-    features: [
-      "50 target keywords",
-      "Weekly optimization cycles",
-      "AI search tracking (GEO/AEO)",
-      "Arabic content creation (4 articles/mo)",
-      "Local SEO for up to 3 locations",
-      "Backlink building (10/month)",
-      "Competitor analysis reports",
-      "Bi-weekly strategy calls",
-      "Priority email & WhatsApp support",
-    ],
-  },
-  {
-    id: "enterprise",
-    name: "Enterprise",
-    price: "AED 7,500",
-    period: "/mo",
-    tagline: "Full dominance",
-    popular: false,
-    features: [
-      "Unlimited target keywords",
-      "Dedicated SEO strategist",
-      "Custom AI search dashboard",
-      "Unlimited Arabic & English content",
-      "Full GCC local SEO coverage",
-      "Aggressive link building (30+/month)",
-      "Weekly strategy calls",
-      "Custom reporting & analytics",
-      "Priority support (same-day response)",
-      "Conversion rate optimization",
-      "Website development & maintenance",
-    ],
-  },
-];
-
-// ─── Team Types ──────────────────────────────────────────────────
-
-export interface TeamMember {
-  id: string;
-  name: string;
-  role: string;
-  specialty: string;
-  bio: string;
-}
-
-export const teamMembers: TeamMember[] = [
-  {
-    id: "ahmad",
-    name: "Ahmad",
-    role: "Founder & CEO",
-    specialty: "AI & Technology",
-    bio: "AI engineer and serial builder behind Constant Labs. Founded ConstantSEO to bring agentic AI into the SEO industry. Building the future of search for the GCC market with a team that understands both AI and the region.",
-  },
-];
-
-// ─── FAQ Types ───────────────────────────────────────────────────
-
-export interface FAQItem {
-  id: string;
-  question: string;
-  answer: string;
-}
-
-export const faqItems: FAQItem[] = [
-  {
-    id: "faq-1",
-    question: "What is AI Search Optimization (GEO/AEO)?",
-    answer: "GEO (Generative Engine Optimization) and AEO (AI Engine Optimization) are the next evolution of SEO. While traditional SEO focuses on ranking in Google, GEO/AEO ensures your business gets recommended by AI assistants like ChatGPT, Gemini, Perplexity, and Claude. As more users turn to AI for recommendations, being optimized for these platforms is critical.",
-  },
-  {
-    id: "faq-2",
-    question: "How is AI SEO different from traditional SEO?",
-    answer: "Traditional SEO focuses on keyword rankings and backlinks for Google. AI SEO goes further - it optimizes your content for how large language models (LLMs) read, understand, and recommend businesses. This includes structured data optimization, authority building across trusted sources, and ensuring your brand appears in AI-generated answers.",
-  },
-  {
-    id: "faq-3",
-    question: "Do you work with Arabic content?",
-    answer: "Absolutely. Arabic content strategy is one of our core strengths. We have native Arabic speakers who create culturally authentic, SEO-optimized content for GCC audiences. This is not machine-translated content - it is written by people who understand Gulf culture, dialects, and consumer behavior.",
-  },
-  {
-    id: "faq-4",
-    question: "How long does it take to see SEO results?",
-    answer: "Most clients see measurable improvements within 60-90 days, with significant results by month 4-6. SEO is a compounding investment - the longer you invest, the stronger the returns. AI search optimization can show faster results since the AI recommendation landscape is less competitive than traditional Google rankings.",
-  },
-  {
-    id: "faq-5",
-    question: "Which markets do you cover?",
-    answer: "We specialize in the GCC market, with deep expertise in UAE, Saudi Arabia, and Oman. We handle both English and Arabic SEO, local SEO across all GCC countries, and understand the regional business landscape, consumer behavior, and regulatory environment.",
-  },
-  {
-    id: "faq-6",
-    question: "What is included in the free AI audit?",
-    answer: "Our free AI audit analyzes your website's performance across both traditional search engines and AI platforms. You will receive a report covering technical SEO health, content gaps, AI search visibility (how often AI recommends your brand vs competitors), local SEO status, and a prioritized action plan. No commitment required.",
-  },
-  {
-    id: "faq-7",
-    question: "Can you build our website too?",
-    answer: "Yes. We build SEO-first websites using agentic AI, delivering 50+ optimized pages in days rather than months. Every site we build is designed for search performance from the ground up - fast load times, clean architecture, proper schema markup, and conversion-optimized design.",
-  },
-  {
-    id: "faq-8",
-    question: "How do you report on progress?",
-    answer: "Every client gets access to a real-time dashboard tracking keyword rankings, organic traffic, AI search mentions, backlink growth, and conversion metrics. Depending on your plan, you also receive weekly or monthly strategy reports with clear insights and next steps. No vanity metrics - only data that matters to your revenue.",
-  },
-  {
-    id: "faq-9",
-    question: "Do you require long-term contracts?",
-    answer: "We offer month-to-month agreements with a recommended minimum of 6 months for meaningful SEO results. SEO is a long-term strategy, and we are transparent about that. However, you are never locked in - our 98% client retention rate speaks for itself.",
-  },
-  {
-    id: "faq-10",
-    question: "What makes ConstantSEO different from other SEO agencies?",
-    answer: "Three things: First, we are AI-native - we do not just do SEO, we optimize for the AI search revolution happening right now. Second, we are built for the GCC - native Arabic speakers, regional expertise, and an office in Dubai. Third, we use agentic AI internally to move faster and deliver more than agencies ten times our size.",
-  },
-];
-
-// ─── Legacy Exports for Compatibility ────────────────────────────
-
-export type ProjectStatus = "live" | "beta" | "development" | "repository";
-export type ProjectCategory = "software" | "client" | "hardware";
-
-export interface Project {
-  slug: string;
-  title: string;
-  category: ProjectCategory;
-  description: string;
-  longDescription: string;
-  tech: string[];
-  status: ProjectStatus;
-  link: string;
-  image: string;
-  imagePosition?: "top" | "center" | "bottom";
-  screenshots?: string[];
-  features: string[];
-  internalRoute?: string;
-}
-
-export const softwareProjects: Project[] = [];
-export const clientProjects: Project[] = [];
-export const hardwareProjects: Project[] = [];
-
-export const ALL_PROJECTS: Project[] = [
-  ...softwareProjects,
-  ...clientProjects,
-  ...hardwareProjects,
-];
-
-export function getProjectBySlug(slug: string): Project | undefined {
-  return ALL_PROJECTS.find((p) => p.slug === slug);
-}

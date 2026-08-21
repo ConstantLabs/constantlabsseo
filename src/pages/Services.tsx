@@ -16,10 +16,10 @@ const Services = () => {
   const { t, isAr } = useLanguage();
 
   return (
-    <div className="min-h-screen bg-white text-slate-900">
+    <div className="min-h-screen bg-paper text-ink">
       <SEO
-        title="AI SEO Services - ConstantSEO"
-        description="Explore ConstantSEO's comprehensive AI-powered SEO services by Constant Labs. From technical audits to Arabic content strategy, we optimize your search presence across the GCC."
+        title={t("services.seo.title")}
+        description={t("services.seo.description")}
         path="/services"
       />
       <Navbar />
@@ -32,6 +32,10 @@ const Services = () => {
           <div className="grid md:grid-cols-2 gap-6">
             {SERVICES.map((service) => {
               const Icon = service.icon;
+              const title = isAr ? service.titleAr : service.title;
+              const oneLiner = isAr ? service.oneLinerAr : service.oneLiner;
+              const description = isAr ? service.descriptionAr : service.description;
+              const tags = isAr ? service.tagsAr : service.tags;
               return (
                 <Link
                   key={service.id}
@@ -44,20 +48,20 @@ const Services = () => {
                     </div>
                     <div>
                       <h2 className="font-heading text-2xl uppercase leading-none text-ink">
-                        {service.title}
+                        {title}
                       </h2>
-                      <p className="mt-1 text-sm font-medium text-evidence-blue">
-                        {service.oneLiner}
+                      <p className="mt-1 text-sm font-medium text-ink/70">
+                        {oneLiner}
                       </p>
                     </div>
                   </div>
 
                   <p className="mb-5 text-[15px] leading-relaxed text-ink/70">
-                    {service.description}
+                    {description}
                   </p>
 
                   <div className="flex flex-wrap gap-2 mb-5">
-                    {service.tags.map((tag) => (
+                    {tags.map((tag) => (
                       <span
                         key={tag}
                         className="border border-line px-3 py-1 text-xs font-medium text-ink/70"
@@ -67,8 +71,8 @@ const Services = () => {
                     ))}
                   </div>
 
-                  <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-evidence-blue">
-                    {isAr ? "اعرف المزيد" : "Learn More"}
+                  <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-ink">
+                    {t("services.learnMore")}
                     <ArrowRight className={`w-4 h-4 group-hover:translate-x-1 transition-transform ${isAr ? "rotate-180" : ""}`} />
                   </span>
                 </Link>

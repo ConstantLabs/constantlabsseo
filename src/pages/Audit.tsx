@@ -63,7 +63,7 @@ const ScoreGauge = ({
           fill="none"
           stroke="currentColor"
           strokeWidth={stroke}
-          className="text-white/10"
+          className="text-paper/20"
         />
         <motion.circle
           cx={center}
@@ -83,7 +83,7 @@ const ScoreGauge = ({
           y={center}
           textAnchor="middle"
           dominantBaseline="central"
-          className="fill-white font-bold"
+          className="fill-paper font-bold"
           fontSize={size === "lg" ? 28 : 20}
           transform={`rotate(90 ${center} ${center})`}
         >
@@ -91,7 +91,7 @@ const ScoreGauge = ({
         </text>
       </svg>
       <span
-        className={`text-gray-200 font-medium ${size === "lg" ? "text-sm" : "text-xs"}`}
+        className={`font-medium text-paper ${size === "lg" ? "text-sm" : "text-xs"}`}
       >
         {label}
       </span>
@@ -226,7 +226,7 @@ const Audit = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white text-slate-900">
+    <div className="min-h-screen bg-paper text-ink">
       <SEO
         title={t("audit.seo.title")}
         description={t("audit.seo.description")}
@@ -254,7 +254,9 @@ const Audit = () => {
                   className={`absolute top-1/2 -translate-y-1/2 w-5 h-5 text-ink/60 ${isAr ? "right-4" : "left-4"}`}
                 />
                 <input
+                  id="audit-url"
                   type="text"
+                  aria-label={t("audit.input.placeholder")}
                   value={url}
                   onChange={(e) => setUrl(e.target.value)}
                   onKeyDown={(e) => e.key === "Enter" && !scanning && handleScan()}
@@ -289,7 +291,7 @@ const Audit = () => {
               animate={{ opacity: 1 }}
               className="mt-8"
             >
-              <Loader2 className="mx-auto h-8 w-8 animate-spin text-evidence-blue" />
+              <Loader2 className="mx-auto h-8 w-8 animate-spin text-ink" />
               <p className="mt-3 text-sm text-ink/70 animate-pulse">
                 {t(LOADING_KEYS[loadingMsgIdx])}
               </p>
@@ -346,19 +348,19 @@ const Audit = () => {
 
             {/* Findings */}
             <div className="mt-8">
-              <h3 className="text-lg font-bold text-white mb-4">
+              <h3 className="mb-4 text-lg font-bold text-paper">
                 {t("audit.result.findings")}
               </h3>
               <div className="space-y-2">
                 {result.audits.map((a) => (
                   <div
                     key={a.id}
-                    className={`flex items-start gap-3 p-3 rounded-lg ${
+                    className={`flex items-start gap-3 border border-paper/20 p-3 ${
                       a.score === 1
                         ? "bg-green-500/10"
                         : a.score === 0
                           ? "bg-red-500/10"
-                          : "bg-white/5"
+                          : "bg-paper/5"
                     }`}
                   >
                     {a.score === 1 ? (
@@ -367,11 +369,11 @@ const Audit = () => {
                       <XCircle className="w-5 h-5 text-red-400 shrink-0 mt-0.5" />
                     )}
                     <div>
-                      <p className="text-sm font-medium text-white">
+                      <p className="text-sm font-medium text-paper">
                         {a.title}
                       </p>
                       {a.description && (
-                        <p className="text-xs text-gray-400 mt-0.5">
+                        <p className="mt-0.5 text-xs text-paper">
                           {a.description}
                         </p>
                       )}
@@ -385,13 +387,13 @@ const Audit = () => {
         )}
 
       {/* ── Deep Audit CTA ─────────────────────────────────── */}
-      <section className="py-20 bg-white">
+      <section className="bg-paper py-20">
         <div className="max-w-2xl mx-auto px-4">
           <div className="text-center mb-10">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900">
+            <h2 className="font-heading text-4xl uppercase text-ink md:text-5xl">
               {t("audit.deep.title")}
             </h2>
-            <p className="mt-4 text-slate-600 max-w-lg mx-auto">
+            <p className="mx-auto mt-4 max-w-lg text-ink/70">
               {t("audit.deep.subtitle")}
             </p>
           </div>
@@ -400,58 +402,72 @@ const Audit = () => {
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="p-6 rounded-xl bg-green-50 border border-green-200 text-center"
+              role="status"
+              aria-live="polite"
+              className="border border-line bg-lime/20 p-6 text-center"
             >
-              <CheckCircle2 className="w-10 h-10 text-green-500 mx-auto" />
-              <p className="mt-3 text-green-800 font-medium">
+              <CheckCircle2 className="mx-auto h-10 w-10 text-ink" />
+              <p className="mt-3 font-medium text-ink">
                 {t("audit.deep.success")}
               </p>
+              <div className="mt-5 flex flex-wrap justify-center gap-3">
+                <a href="https://wa.me/971561495656" target="_blank" rel="noreferrer" className="border border-ink bg-ink px-4 py-2 text-sm font-bold text-paper hover:bg-lime hover:text-ink">{t("zcal.whatsapp")}</a>
+                <a href="mailto:akhmad@constantlabs.ai" className="border border-ink px-4 py-2 text-sm font-bold text-ink hover:bg-ink hover:text-paper">{t("zcal.email")}</a>
+              </div>
             </motion.div>
           ) : (
             <form onSubmit={handleDeepAudit} className="space-y-5">
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-1.5">
+                <label htmlFor="deep-audit-name" className="mb-1.5 block text-sm font-medium text-ink/80">
                   {t("audit.deep.name")}
                 </label>
                 <input
+                  id="deep-audit-name"
+                  name="name"
                   type="text"
                   required
                   value={form.name}
                   onChange={(e) =>
                     setForm({ ...form, name: e.target.value })
                   }
-                  className="w-full px-4 py-3 rounded-lg border border-slate-200 bg-white text-slate-900 outline-none focus:ring-2 focus:ring-[#7143E0]/20 focus:border-[#7143E0] transition-all"
+                  className="w-full border border-line bg-paper px-4 py-3 text-ink outline-none focus:border-lime focus:ring-2 focus:ring-lime/30"
                   placeholder={t("audit.deep.namePlaceholder")}
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-1.5">
+                <label htmlFor="deep-audit-email" className="mb-1.5 block text-sm font-medium text-ink/80">
                   {t("audit.deep.email")}
                 </label>
                 <input
+                  id="deep-audit-email"
+                  name="email"
                   type="email"
                   required
                   value={form.email}
                   onChange={(e) =>
                     setForm({ ...form, email: e.target.value })
                   }
-                  className="w-full px-4 py-3 rounded-lg border border-slate-200 bg-white text-slate-900 outline-none focus:ring-2 focus:ring-[#7143E0]/20 focus:border-[#7143E0] transition-all"
+                  className="w-full border border-line bg-paper px-4 py-3 text-ink outline-none focus:border-lime focus:ring-2 focus:ring-lime/30"
                   placeholder={t("audit.deep.emailPlaceholder")}
+                  dir="ltr"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-1.5">
+                <label htmlFor="deep-audit-website" className="mb-1.5 block text-sm font-medium text-ink/80">
                   {t("audit.deep.website")}
                 </label>
                 <input
+                  id="deep-audit-website"
+                  name="website"
                   type="url"
                   required
                   value={form.website}
                   onChange={(e) =>
                     setForm({ ...form, website: e.target.value })
                   }
-                  className="w-full px-4 py-3 rounded-lg border border-slate-200 bg-white text-slate-900 outline-none focus:ring-2 focus:ring-[#7143E0]/20 focus:border-[#7143E0] transition-all"
+                  className="w-full border border-line bg-paper px-4 py-3 text-ink outline-none focus:border-lime focus:ring-2 focus:ring-lime/30"
                   placeholder={t("audit.deep.websitePlaceholder")}
+                  dir="ltr"
                 />
               </div>
               <Button

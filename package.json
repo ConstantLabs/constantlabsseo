@@ -8,7 +8,9 @@
     "build": "vite build && node scripts/generate-static-pages.mjs && npx puppeteer browsers install chrome && node scripts/prerender.mjs",
     "build:dev": "vite build --mode development",
     "verify:static": "node scripts/verify-static-output.mjs",
-    "test": "vitest run",
+    "test": "npm run test:unit && npm run build && npm run test:contracts",
+    "test:unit": "vitest run",
+    "test:contracts": "node --test scripts/routes.test.mjs scripts/verify-static-output.test.mjs",
     "lint": "eslint .",
     "preview": "vite preview"
   },

@@ -7,13 +7,13 @@ export const TestimonialsSection = () => {
   const { t } = useLanguage();
 
   return (
-    <section className="py-20 md:py-24 bg-[#7143E0]">
+    <section className="bg-ink py-20 md:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-10">
           <p className="text-sm font-semibold text-gray-200 uppercase tracking-wider mb-2">
             {t("testimonials.label")}
           </p>
-          <h2 className="text-3xl md:text-[42px] md:leading-tight font-heading font-black text-white">
+          <h2 className="text-3xl md:text-[42px] md:leading-tight font-heading font-black text-paper">
             {t("testimonials.title")}
           </h2>
         </div>
@@ -24,20 +24,20 @@ export const TestimonialsSection = () => {
             {testimonialKeys.map((key) => (
               <div
                 key={key}
-                className="scroll-snap-card bg-white rounded-[20px] p-5 shadow-lg"
+                className="scroll-snap-card bg-paper  p-5 "
                 style={{ width: "82vw", maxWidth: "340px" }}
               >
-                <Quote className="w-8 h-8 text-[#7143E0]/15 mb-3" />
-                <blockquote className="text-sm text-slate-700 leading-relaxed mb-6 select-none">
+                <Quote className="mb-3 h-8 w-8 text-ink/20" />
+                <blockquote className="text-sm text-ink/80 leading-relaxed mb-6 select-none">
                   "{t(`${key}.quote`)}"
                 </blockquote>
                 <div className="flex items-center gap-3 border-t border-slate-100 pt-4">
-                  <div className="w-10 h-10 rounded-full bg-[#7143E0] flex items-center justify-center text-white font-bold text-sm shrink-0">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center border border-line bg-ink text-sm font-bold text-paper">
                     {t(`${key}.name`).charAt(0)}
                   </div>
                   <div>
-                    <div className="font-bold text-slate-900 text-sm" dir="ltr">{t(`${key}.name`)}</div>
-                    <div className="text-xs text-slate-500" dir="ltr">
+                    <div className="font-bold text-ink text-sm" dir="ltr">{t(`${key}.name`)}</div>
+                    <div className="text-xs text-ink/70" dir="ltr">
                       {t(`${key}.title`)} - {t(`${key}.company`)}
                     </div>
                   </div>
@@ -48,7 +48,7 @@ export const TestimonialsSection = () => {
           {/* Dot indicators */}
           <div className="flex justify-center gap-2 mt-4">
             {testimonialKeys.map((_, i) => (
-              <div key={i} className={`w-2 h-2 rounded-full ${i === 0 ? "bg-white" : "bg-white/30"}`} />
+              <div key={i} className={`w-2 h-2  ${i === 0 ? "bg-paper" : "bg-paper/30"}`} />
             ))}
           </div>
         </div>
@@ -58,19 +58,19 @@ export const TestimonialsSection = () => {
           {testimonialKeys.map((key) => (
             <div
               key={key}
-              className="bg-white rounded-[20px] p-8 shadow-lg flex flex-col"
+              className="bg-paper  p-8  flex flex-col"
             >
-              <Quote className="w-8 h-8 text-[#7143E0]/15 mb-3" />
-              <blockquote className="text-base text-slate-700 leading-relaxed mb-6 flex-1">
+              <Quote className="mb-3 h-8 w-8 text-ink/20" />
+              <blockquote className="text-base text-ink/80 leading-relaxed mb-6 flex-1">
                 "{t(`${key}.quote`)}"
               </blockquote>
               <div className="flex items-center gap-3 border-t border-slate-100 pt-4">
-                <div className="w-10 h-10 rounded-full bg-[#7143E0] flex items-center justify-center text-white font-bold text-sm shrink-0">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center border border-line bg-ink text-sm font-bold text-paper">
                   {t(`${key}.name`).charAt(0)}
                 </div>
                 <div>
-                  <div className="font-bold text-slate-900 text-sm" dir="ltr">{t(`${key}.name`)}</div>
-                  <div className="text-xs text-slate-500" dir="ltr">
+                  <div className="font-bold text-ink text-sm" dir="ltr">{t(`${key}.name`)}</div>
+                  <div className="text-xs text-ink/70" dir="ltr">
                     {t(`${key}.title`)} - {t(`${key}.company`)}
                   </div>
                 </div>

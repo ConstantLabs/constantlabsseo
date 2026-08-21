@@ -70,11 +70,11 @@ const Tools = () => {
   const itemListSchema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    name: "ConstantSEO Free SEO Tools",
+    name: isAr ? "أدوات SEO المجانية من ConstantSEO" : "ConstantSEO Free SEO Tools",
     itemListElement: freeTools.map((tool, index) => ({
       "@type": "ListItem",
       position: index + 1,
-      name: tool.title.en,
+      name: getLocalizedText(tool.title, isAr),
       url: `${BASE_URL}/tools/${tool.slug}`,
     })),
   };
@@ -85,30 +85,30 @@ const Tools = () => {
     mainEntity: [
       {
         "@type": "Question",
-        name: "What free SEO tools does ConstantSEO offer?",
+        name: isAr ? "ما أدوات SEO المجانية التي تقدمها ConstantSEO؟" : "What free SEO tools does ConstantSEO offer?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "ConstantSEO offers free metadata, heading, sitemap, robots.txt, FAQ schema, Open Graph, website cost, bandwidth, and YouTube SEO tools for marketers and business owners.",
+          text: isAr ? "تقدم ConstantSEO أدوات مجانية لبيانات الميتا والعناوين وخرائط الموقع وrobots.txt وFAQ Schema وOpen Graph وتكلفة الموقع واستهلاك البيانات وSEO يوتيوب." : "ConstantSEO offers free metadata, heading, sitemap, robots.txt, FAQ schema, Open Graph, website cost, bandwidth, and YouTube SEO tools for marketers and business owners.",
         },
       },
       {
         "@type": "Question",
-        name: "Why do free tools help SEO?",
+        name: isAr ? "كيف تساعد أدوات SEO المجانية؟" : "How do free tools help SEO?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Free tools target high-intent search queries, earn links, prove technical expertise, and create natural internal paths to audits and SEO services.",
+          text: isAr ? "تساعد الأدوات المجانية في فحص إشارات محددة وفهم المشاكل وإنشاء مسار واضح نحو المراجعات والخدمات المناسبة." : "Free tools help inspect specific signals, understand issues, and create a clear path to relevant reviews and services.",
         },
       },
     ],
   };
 
   return (
-    <div className="min-h-screen bg-white text-slate-900">
+    <div className="min-h-screen bg-paper text-ink" dir={isAr ? "rtl" : "ltr"}>
       <SEO
-        title="Free SEO Tools for GCC Marketers"
-        description="Use ConstantSEO's free SEO tools to check meta tags, headings, sitemaps, FAQ schema, robots.txt, Open Graph previews, website bandwidth, cost, and YouTube SEO."
+        title={isAr ? "أدوات SEO مجانية لمسوقي الخليج" : "Free SEO Tools for GCC Marketers"}
+        description={isAr ? "استخدم أدوات ConstantSEO المجانية لفحص بيانات الميتا والعناوين وخرائط الموقع وFAQ Schema وrobots.txt وOpen Graph واستهلاك البيانات والتكلفة وSEO يوتيوب." : "Use ConstantSEO's free SEO tools to check meta tags, headings, sitemaps, FAQ schema, robots.txt, Open Graph previews, website bandwidth, cost, and YouTube SEO."}
         path="/tools"
-        breadcrumbs={[{ name: "Free SEO Tools", path: "/tools" }]}
+        breadcrumbs={[{ name: getLocalizedText(toolUiCopy.allTools, isAr), path: "/tools" }]}
       />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(itemListSchema)}</script>
@@ -126,7 +126,7 @@ const Tools = () => {
       <section className="border-b border-line bg-paper/70 py-12">
         <div className="max-w-5xl mx-auto px-4">
           <div className="border border-line bg-paper p-6 md:p-8">
-            <p className="mb-3 text-sm font-bold uppercase tracking-wider text-evidence-blue">
+            <p className="mb-3 text-sm font-bold uppercase tracking-wider text-ink/70">
               {copy.quickAnswerLabel}
             </p>
             <p className="text-lg leading-relaxed text-ink/70">
@@ -139,13 +139,13 @@ const Tools = () => {
       <section id="tool-library" className="py-16 md:py-20">
         <div className="max-w-6xl mx-auto px-4">
           <div className="mb-10">
-            <p className="text-sm font-semibold text-[#7143E0] uppercase tracking-wider mb-3">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-ink/70">
               {copy.popularLabel}
             </p>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-ink">
               {copy.categoriesTitle}
             </h2>
-            <p className="mt-4 max-w-2xl text-slate-600">
+            <p className="mt-4 max-w-2xl text-ink/70">
               {copy.categoriesSubtitle}
             </p>
           </div>
@@ -165,15 +165,15 @@ const Tools = () => {
                       <Icon className="h-5 w-5 text-lime" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-slate-900 group-hover:text-[#7143E0] transition-colors">
+                      <h3 className="font-bold text-ink transition-colors">
                         {getLocalizedText(tool.title, isAr)}
                       </h3>
-                      <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                      <p className="mt-2 text-sm leading-relaxed text-ink/70">
                         {getLocalizedText(tool.shortDescription, isAr)}
                       </p>
                     </div>
                   </div>
-                  <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-evidence-blue">
+                  <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-ink">
                     {copy.openTool}
                     <ArrowRight className={`w-4 h-4 group-hover:translate-x-1 transition-transform ${isAr ? "rotate-180" : ""}`} />
                   </span>
@@ -189,10 +189,10 @@ const Tools = () => {
               return (
                 <div key={category}>
                   <div className="mb-5">
-                    <h2 className="text-2xl font-extrabold text-slate-900">
+                    <h2 className="text-2xl font-extrabold text-ink">
                       {getLocalizedText(categoryText.title, isAr)}
                     </h2>
-                    <p className="mt-2 text-slate-600">
+                    <p className="mt-2 text-ink/70">
                       {getLocalizedText(categoryText.description, isAr)}
                     </p>
                   </div>
@@ -207,13 +207,13 @@ const Tools = () => {
                         >
                           <div className="flex gap-4">
                             <div className="flex h-10 w-10 shrink-0 items-center justify-center border border-line bg-paper transition-colors group-hover:bg-lime/20">
-                              <Icon className="h-5 w-5 text-evidence-blue" />
+                              <Icon className="h-5 w-5 text-ink" />
                             </div>
                             <div>
-                              <h3 className="font-bold text-slate-900 group-hover:text-[#7143E0] transition-colors">
+                              <h3 className="font-bold text-ink transition-colors">
                                 {getLocalizedText(tool.title, isAr)}
                               </h3>
-                              <p className="mt-1.5 text-sm leading-relaxed text-slate-600">
+                              <p className="mt-1.5 text-sm leading-relaxed text-ink/70">
                                 {getLocalizedText(tool.shortDescription, isAr)}
                               </p>
                             </div>
@@ -229,13 +229,13 @@ const Tools = () => {
         </div>
       </section>
 
-      <section className="py-16 bg-slate-50">
+      <section className="py-16 bg-paper/70">
         <div className="max-w-5xl mx-auto px-4">
           <div className="grid md:grid-cols-[0.8fr_1.2fr] gap-8 items-start">
-            <h2 className="text-3xl font-extrabold text-slate-900">
+            <h2 className="text-3xl font-extrabold text-ink">
               {copy.howTitle}
             </h2>
-            <p className="text-lg leading-relaxed text-slate-700">
+            <p className="text-lg leading-relaxed text-ink/80">
               {copy.howBody}
             </p>
           </div>

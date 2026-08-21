@@ -74,8 +74,8 @@ export const PricingSection = () => {
           
           className="text-center mb-14"
         >
-          <div className="mx-auto mb-4 h-1 w-12 bg-evidence-blue" />
-          <p className="mb-2 text-sm font-semibold uppercase tracking-wider text-evidence-blue">
+          <div className="mx-auto mb-4 h-px w-12 bg-ink" />
+          <p className="mb-2 text-sm font-semibold uppercase tracking-wider text-ink/70">
             {t("pricing.label")}
           </p>
           <h2 className="font-heading text-5xl uppercase leading-[0.88] tracking-[-0.035em] text-ink md:text-6xl">
@@ -97,21 +97,21 @@ export const PricingSection = () => {
               
 className={`relative flex flex-col border p-7 !overflow-visible md:p-8 ${
                   tier.featured
-                    ? "border-ink bg-ink text-paper shadow-[8px_8px_0_#673AB7]"
+                    ? "border-ink bg-ink text-paper"
                     : "border-line bg-paper text-ink"
                 }`}
             >
               {/* Tier name */}
-              <h3 className={`text-lg font-heading font-bold mb-1 ${tier.featured ? "text-white" : "text-slate-900"}`}>
+              <h3 className={`text-lg font-heading font-bold mb-1 ${tier.featured ? "text-paper" : "text-ink"}`}>
                 {t(`pricing.${tier.key}.name`)}
               </h3>
-              <p className={`text-sm mb-5 ${tier.featured ? "text-slate-300" : "text-slate-500"}`}>
+              <p className={`text-sm mb-5 ${tier.featured ? "text-paper" : "text-ink/70"}`}>
                 {t(`pricing.${tier.key}.desc`)}
               </p>
 
               {/* Price */}
               <div className="mb-6">
-                <span className={`text-3xl md:text-4xl font-extrabold ${tier.featured ? "text-white" : "text-slate-900"}`}>
+                <span className={`text-3xl md:text-4xl font-extrabold ${tier.featured ? "text-paper" : "text-ink"}`}>
                   {t(`pricing.${tier.key}.price`)}
                 </span>
                 
@@ -121,12 +121,12 @@ className={`relative flex flex-col border p-7 !overflow-visible md:p-8 ${
               <ul className="space-y-3 mb-8 flex-1">
                 {tier.features.map((fKey) => (
                   <li key={fKey} className="flex items-start gap-2.5">
-                    <div className={`mt-0.5 w-5 h-5 rounded-full flex items-center justify-center shrink-0 ${
-                      tier.featured ? "bg-[#7143E0]/30" : "bg-[#7143E0]/10"
+                    <div className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center border ${
+                      tier.featured ? "border-paper/40 bg-paper/10" : "border-line bg-lime/20"
                     }`}>
-                      <Check className={`w-3 h-3 ${tier.featured ? "text-[#FECD4D]" : "text-[#7143E0]"}`} />
+                      <Check className={`h-3 w-3 ${tier.featured ? "text-lime" : "text-ink"}`} />
                     </div>
-                    <span className={`text-sm leading-relaxed ${tier.featured ? "text-slate-300" : "text-slate-600"}`}>
+                    <span className={`text-sm leading-relaxed ${tier.featured ? "text-paper" : "text-ink/70"}`}>
                       {t(fKey)}
                     </span>
                   </li>
@@ -137,16 +137,16 @@ className={`relative flex flex-col border p-7 !overflow-visible md:p-8 ${
               <Dialog>
                 <DialogTrigger asChild>
                   <Button
-                    className={`w-full rounded-none py-6 font-bold shadow-lg transition-all ${
+                    className={`w-full rounded-none py-6 font-bold transition-colors ${
                       tier.featured
                         ? "bg-lime text-ink shadow-none hover:bg-lime/85"
-                        : "border-2 border-ink bg-ink text-paper hover:bg-evidence-violet"
+                        : "border-2 border-ink bg-ink text-paper hover:bg-lime hover:text-ink"
                     }`}
                   >
                     {t("pricing.getStarted")}
                   </Button>
                 </DialogTrigger>
-                <DialogContent className="sm:max-w-md border-none shadow-2xl">
+                <DialogContent className="border border-line bg-paper sm:max-w-md">
                   <DialogHeader>
                     <DialogTitle>
                       {lang === "ar" ? "لنبدأ" : "Let's Get Started"}
@@ -160,10 +160,10 @@ className={`relative flex flex-col border p-7 !overflow-visible md:p-8 ${
                   <div className="grid grid-cols-2 gap-3">
                     <button
                       onClick={() => setShowForm("whatsapp")}
-                      className={`flex items-center justify-center gap-2 py-4 rounded-xl font-bold transition-all ${
+                      className={`flex items-center justify-center gap-2 border border-line py-4 font-bold transition-colors ${
                         showForm === "whatsapp" 
-                          ? "bg-[#25D366] text-white"
-                          : "bg-[#25D366]/10 text-[#25D366] hover:bg-[#25D366] hover:text-white"
+                          ? "bg-lime text-ink"
+                          : "bg-paper text-ink hover:bg-lime/20"
                       }`}
                     >
                       <MessageCircle className="w-5 h-5" />
@@ -171,10 +171,10 @@ className={`relative flex flex-col border p-7 !overflow-visible md:p-8 ${
                     </button>
                     <button
                       onClick={() => setShowForm("email")}
-                      className={`flex items-center justify-center gap-2 py-4 rounded-xl font-bold transition-all ${
+                      className={`flex items-center justify-center gap-2 border border-line py-4 font-bold transition-colors ${
                         showForm === "email"
-                          ? "bg-[#7143E0] text-white"
-                          : "bg-[#7143E0]/10 text-[#7143E0] hover:bg-[#7143E0] hover:text-white"
+                          ? "bg-ink text-paper"
+                          : "bg-paper text-ink hover:bg-ink hover:text-paper"
                       }`}
                     >
                       <Mail className="w-5 h-5" />
@@ -230,7 +230,7 @@ const sendEmail = async () => {
                           name="name" 
                           placeholder={lang === "ar" ? "أدخل اسمك" : "Enter your name"} 
                           required 
-                          className="border-0 bg-[#E8E0F0] focus:bg-[#DDD4EC] text-slate-900 placeholder:text-slate-500"
+                          className="border border-line bg-paper text-ink placeholder:text-ink/60 focus:border-ink"
                         />
                       </div>
                       <div className="space-y-2">
@@ -243,7 +243,7 @@ const sendEmail = async () => {
                           type="email"
                           placeholder="you@example.com" 
                           required 
-                          className="border-0 bg-[#E8E0F0] focus:bg-[#DDD4EC] text-slate-900 placeholder:text-slate-500"
+                          className="border border-line bg-paper text-ink placeholder:text-ink/60 focus:border-ink"
                         />
                       </div>
                       <div className="space-y-2">
@@ -256,7 +256,7 @@ const sendEmail = async () => {
                           type="tel"
                           placeholder="+971 55 123 4567" 
                           required 
-                          className="border-0 bg-[#E8E0F0] focus:bg-[#DDD4EC] text-slate-900 placeholder:text-slate-500"
+                          className="border border-line bg-paper text-ink placeholder:text-ink/60 focus:border-ink"
                         />
                       </div>
                       <div className="space-y-2">
@@ -268,7 +268,7 @@ const sendEmail = async () => {
                           name="website" 
                           placeholder="https://example.com" 
                           type="url"
-                          className="border-0 bg-[#E8E0F0] focus:bg-[#DDD4EC] text-slate-900 placeholder:text-slate-500"
+                          className="border border-line bg-paper text-ink placeholder:text-ink/60 focus:border-ink"
                         />
                       </div>
                       <div className="space-y-2">
@@ -280,7 +280,7 @@ const sendEmail = async () => {
                           name="message"
                           placeholder={lang === "ar" ? "أخبرنا عن أهدافك في محرك البحث" : "Tell us about your SEO goals"} 
                           rows={3}
-                          className="border-0 bg-slate-100 focus:bg-slate-200 text-slate-900 placeholder:text-slate-400"
+                          className="border border-line bg-paper text-ink placeholder:text-ink/60 focus:border-ink"
                         />
                       </div>
                       <Button 
@@ -288,8 +288,8 @@ const sendEmail = async () => {
                         disabled={sending}
                         className={`w-full font-bold ${
                           showForm === "whatsapp" 
-                            ? "bg-[#25D366] hover:bg-[#20bd5a] text-white"
-                            : "bg-[#7143E0] hover:bg-[#5a35c9] text-white"
+                            ? "bg-lime text-ink hover:bg-lime/85"
+                            : "bg-ink text-paper hover:bg-ink/85"
                         }`}
                       >
                         {sending ? (

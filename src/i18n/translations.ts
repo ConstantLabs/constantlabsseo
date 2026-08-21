@@ -28,8 +28,8 @@ export const translations: TranslationMap = {
   // ─── Audit Page ─────────────────────────────────────────────
   "audit.seo.title": { en: "Free SEO Audit — ConstantSEO", ar: "تدقيق SEO مجاني — ConstantSEO" },
   "audit.seo.description": {
-    en: "Get an instant SEO score for your website. Free AI-powered audit by ConstantSEO, Dubai's leading SEO agency.",
-    ar: "احصل على تقييم SEO فوري لموقعك. تدقيق مجاني بالذكاء الاصطناعي من ConstantSEO، وكالة SEO الرائدة في دبي."
+    en: "Review selected technical, metadata, and search signals for your website with ConstantSEO.",
+    ar: "راجع مجموعة من الإشارات التقنية وبيانات الميتا وإشارات البحث لموقعك مع ConstantSEO."
   },
   "audit.hero.title": { en: "Free SEO Audit", ar: "تدقيق SEO مجاني" },
   "audit.hero.subtitle": {
@@ -56,8 +56,8 @@ export const translations: TranslationMap = {
   "audit.error.retry": { en: "Try Again", ar: "حاول مرة أخرى" },
   "audit.deep.title": { en: "Want the Full Picture?", ar: "تريد الصورة الكاملة؟" },
   "audit.deep.subtitle": {
-    en: "Our AI-powered deep audit covers 200+ checkpoints — technical SEO, content quality, competitor analysis, and actionable recommendations delivered to your inbox.",
-    ar: "تدقيقنا العميق بالذكاء الاصطناعي يغطي 200+ نقطة فحص — SEO تقني، جودة المحتوى، تحليل المنافسين، وتوصيات عملية تصل لبريدك."
+    en: "Share your details for a deeper review of technical SEO, content quality, competitor context, and practical next steps.",
+    ar: "شارك بياناتك لمراجعة أعمق تشمل SEO التقني وجودة المحتوى وسياق المنافسين والخطوات العملية التالية."
   },
   "audit.deep.name": { en: "Your Name", ar: "اسمك" },
   "audit.deep.namePlaceholder": { en: "Full name", ar: "الاسم الكامل" },
@@ -67,8 +67,8 @@ export const translations: TranslationMap = {
   "audit.deep.websitePlaceholder": { en: "https://yoursite.com", ar: "https://yoursite.com" },
   "audit.deep.submit": { en: "Request Free Deep Audit", ar: "اطلب تدقيقاً شاملاً مجانياً" },
   "audit.deep.success": {
-    en: "We've received your request! Our team will deliver your full audit within 24-48 hours.",
-    ar: "استلمنا طلبك! فريقنا سيرسل لك التدقيق الكامل خلال 24-48 ساعة."
+    en: "Your details are ready. Contact us by WhatsApp or email to continue the review.",
+    ar: "بياناتك جاهزة. تواصل معنا عبر واتساب أو البريد الإلكتروني لمتابعة المراجعة."
   },
 
   // ─── Hero (new keys used by redesigned pages) ──────────────
@@ -110,13 +110,25 @@ export const translations: TranslationMap = {
   "home.nav.close": { en: "Close navigation", ar: "إغلاق التنقل" },
   "home.seo.title": { en: "ConstantSEO — Search systems for the GCC", ar: "ConstantSEO — أنظمة بحث لمنطقة الخليج" },
   "home.seo.description": { en: "ConstantSEO builds bilingual, technical, and local search systems for businesses across the GCC.", ar: "تبني ConstantSEO أنظمة بحث ثنائية اللغة وتقنية ومحلية للشركات في أنحاء الخليج." },
+  "signalField.label": { en: "Search signal field", ar: "مجال إشارات البحث" },
+  "signalField.discovery": { en: "Organic discovery", ar: "الاكتشاف العضوي" },
+  "signalField.conceptual": { en: "Conceptual model", ar: "نموذج مفاهيمي" },
+  "signalField.title": { en: "Scattered search signals organizing into a rising trajectory", ar: "إشارات بحث متناثرة تنتظم في مسار صاعد" },
+  "signalField.description": { en: "A deterministic presentation model shows query signals resolving into an organized search trajectory.", ar: "نموذج عرض حتمي يوضح كيف تنتظم إشارات الاستعلام في مسار بحث منظم." },
+  "signalField.start": { en: "Early signals", ar: "إشارات أولية" },
+  "signalField.end": { en: "Organized field", ar: "مجال منظم" },
+  "signalField.query": { en: "Query", ar: "استعلام" },
+  "signalField.scattered": { en: "Scattered signals", ar: "إشارات متناثرة" },
+  "signalField.trajectory": { en: "Search trajectory", ar: "مسار البحث" },
+  "signalField.presentation": { en: "Presentation model", ar: "نموذج توضيحي" },
+  "signalField.disclaimer": { en: "Not performance data", ar: "ليس بيانات أداء" },
   "home.hero.eyebrow": { en: "Search systems for GCC growth", ar: "أنظمة بحث لنمو أعمال الخليج" },
   "home.hero.title": { en: "Build the answer people find.", ar: "ابنِ الإجابة التي يجدها الناس." },
   "home.hero.subtitle": { en: "Bilingual SEO systems for the pages, places, and questions that create qualified demand across the GCC.", ar: "أنظمة SEO ثنائية اللغة للصفحات والأماكن والأسئلة التي تخلق طلباً مؤهلاً في أنحاء الخليج." },
   "home.hero.inputLabel": { en: "Website to audit", ar: "الموقع المراد تدقيقه" },
   "home.hero.proofCta": { en: "Inspect the evidence", ar: "تحقق من الدليل" },
   "home.hero.methodCta": { en: "See the method", ar: "اطّلع على المنهج" },
-  "home.capabilities.eyebrow": { en: "Capability coverage", ar: "تغطية المنصات" },
+  "home.capabilities.eyebrow": { en: "Capability coverage", ar: "تغطية القدرات" },
   "home.capabilities.copy": { en: "One integrated system for classic search, local discovery, and AI answers.", ar: "نظام متكامل للبحث التقليدي والاكتشاف المحلي وإجابات الذكاء الاصطناعي." },
   "home.system.eyebrow": { en: "Visibility system", ar: "نظام الظهور" },
   "home.system.title": { en: "More than pages. A connected search presence.", ar: "أكثر من صفحات. حضور بحث مترابط." },
@@ -183,8 +195,8 @@ export const translations: TranslationMap = {
   "mufakkir.title": { en: "A search result you can inspect.", ar: "نتيجة بحث يمكنك التحقق منها." },
   "mufakkir.regionLabel": { en: "Mufakkir organic search performance", ar: "أداء مَفكِّر في البحث العضوي" },
   "mufakkir.statement": {
-    en: "The Search Console report for mufakkir.app shows 1.74K total clicks, 29K total impressions, a 6% average CTR, and an average position of 8.4 over the selected 12-month period.",
-    ar: "تُظهر بيانات Google Search Console لموقع mufakkir.app خلال فترة الاثني عشر شهراً المحددة 1.74 ألف نقرة إجمالية و29 ألف ظهور إجمالي ومتوسط نسبة نقر إلى ظهور 6% ومتوسط ترتيب 8.4."
+    en: "For mufakkir.app, Google Search Console reported 1.74K organic clicks, 29K impressions, 6.0% CTR, and average position 8.4 over the displayed 12-month period.",
+    ar: "بالنسبة إلى mufakkir.app، أبلغ Google Search Console عن 1.74 ألف نقرة عضوية و29 ألف ظهور ونسبة نقر إلى ظهور قدرها 6.0% ومتوسط ترتيب 8.4 خلال فترة الاثني عشر شهراً المعروضة."
   },
   "mufakkir.metric.clicks": { en: "Total clicks", ar: "إجمالي النقرات" },
   "mufakkir.metric.impressions": { en: "Total impressions", ar: "إجمالي مرات الظهور" },
@@ -211,8 +223,8 @@ export const translations: TranslationMap = {
 
   // ─── Services (new keys used by redesigned pages) ───────────
   "services.label": { en: "Our Services", ar: "خدماتنا" },
-  "services.title": { en: "Everything You Need to Get Found and Grow", ar: "كل ما تحتاجه لتُكتشف وتنمو" },
-  "services.subtitle": { en: "AI-powered SEO services that turn search into revenue for Gulf businesses", ar: "خدمات SEO بالذكاء الاصطناعي تحوّل البحث إلى إيرادات لأعمال الخليج" },
+  "services.title": { en: "Connected Search Systems for the GCC", ar: "أنظمة بحث مترابطة للخليج" },
+  "services.subtitle": { en: "Technical, local, bilingual, content, and AI-answer search work coordinated as one system.", ar: "عمل تقني ومحلي وثنائي اللغة ومحتوى وظهور في إجابات الذكاء الاصطناعي منسق كنظام واحد." },
   "services.learnMore": { en: "Learn More", ar: "اعرف أكثر" },
 
   "service.aiSeo.title": { en: "Show Up When Customers Ask Google or ChatGPT", ar: "اظهر عندما يسأل العملاء Google أو ChatGPT" },
@@ -399,7 +411,7 @@ export const translations: TranslationMap = {
 
   // ─── Pricing (new keys) ─────────────────────────────────────
   "pricing.label": { en: "Pricing", ar: "الأسعار" },
-  "pricing.title": { en: "Transparent Pricing, Real Results", ar: "أسعار واضحة، نتائج حقيقية" },
+  "pricing.title": { en: "Transparent Service Plans", ar: "باقات خدمات واضحة" },
   "pricing.subtitle": { en: "All plans include AI-powered optimization. No hidden fees.", ar: "جميع الباقات تشمل التحسين بالذكاء الاصطناعي. بدون رسوم مخفية." },
   "pricing.monthly": { en: "/month", ar: "/شهر" },
   "pricing.popular": { en: "Most Popular", ar: "الأكثر طلباً" },
@@ -410,7 +422,7 @@ export const translations: TranslationMap = {
 
   "pricing.starter.name": { en: "Starter", ar: "المبتدئ" },
   "pricing.starter.price": { en: "350 AED", ar: "350 درهم" },
-  "pricing.starter.desc": { en: "Start getting found online and attract your first customers through SEO", ar: "ابدأ الظهور على البحث واجذب أول عملائك عبر SEO" },
+  "pricing.starter.desc": { en: "A focused foundation for a smaller search scope", ar: "أساس مركز لنطاق بحث أصغر" },
   "pricing.starter.f1": { en: "15 target keywords", ar: "15 كلمة مفتاحية مستهدفة" },
   "pricing.starter.f2": { en: "Monthly SEO audit", ar: "تدقيق SEO شهري" },
   "pricing.starter.f3": { en: "Basic performance reporting", ar: "تقارير أداء أساسية" },
@@ -421,7 +433,7 @@ export const translations: TranslationMap = {
 
   "pricing.growth.name": { en: "Growth", ar: "النمو" },
   "pricing.growth.price": { en: "700 AED", ar: "700 درهم" },
-  "pricing.growth.desc": { en: "Most popular - for businesses serious about ranking higher and winning more customers", ar: "الأكثر طلباً - للشركات الجادة في التصدر وكسب عملاء أكثر" },
+  "pricing.growth.desc": { en: "A broader recurring scope across technical, content, and local search", ar: "نطاق دوري أوسع عبر البحث التقني والمحتوى والبحث المحلي" },
   "pricing.growth.f1": { en: "50 target keywords", ar: "50 كلمة مفتاحية مستهدفة" },
   "pricing.growth.f2": { en: "Weekly optimization cycles", ar: "دورات تحسين أسبوعية" },
   "pricing.growth.f3": { en: "AI search tracking (GEO/AEO)", ar: "تتبع بحث الذكاء الاصطناعي (GEO/AEO)" },
@@ -432,7 +444,7 @@ export const translations: TranslationMap = {
 
   "pricing.enterprise.name": { en: "Enterprise", ar: "المؤسسي" },
   "pricing.enterprise.price": { en: "1,500 AED", ar: "1,500 درهم" },
-  "pricing.enterprise.desc": { en: "Own every search result in your space - across Google, AI platforms, Arabic and English", ar: "امتلك كل نتيجة بحث في مجالك - على Google ومنصات الذكاء الاصطناعي بالعربية والإنجليزية" },
+  "pricing.enterprise.desc": { en: "A coordinated multi-market scope across Google, AI platforms, Arabic, and English", ar: "نطاق منسق متعدد الأسواق عبر Google ومنصات الذكاء الاصطناعي والعربية والإنجليزية" },
   "pricing.enterprise.f1": { en: "Unlimited target keywords", ar: "كلمات مفتاحية غير محدودة" },
   "pricing.enterprise.f2": { en: "Dedicated SEO strategist", ar: "استراتيجي SEO مخصص" },
   "pricing.enterprise.f3": { en: "Custom AI search dashboard", ar: "لوحة بحث AI مخصصة" },
@@ -476,14 +488,14 @@ export const translations: TranslationMap = {
 
   "faq1.q": { en: "What is AI SEO and how is it different from traditional SEO?", ar: "ما هو SEO بالذكاء الاصطناعي وكيف يختلف عن SEO التقليدي؟" },
   "faq1.a": {
-    en: "AI SEO uses artificial intelligence to automate and enhance every aspect of search optimization - from keyword research to content creation to technical fixes. Unlike traditional SEO, it also optimizes for AI search platforms like ChatGPT, Gemini, and Perplexity, ensuring your brand appears when users ask AI for recommendations.",
-    ar: "يستخدم SEO بالذكاء الاصطناعي الذكاء الاصطناعي لأتمتة وتحسين كل جانب من جوانب تحسين البحث - من بحث الكلمات المفتاحية إلى إنشاء المحتوى إلى الإصلاحات التقنية. على عكس SEO التقليدي، يعمل أيضاً على تحسين منصات البحث بالذكاء الاصطناعي مثل ChatGPT وGemini وPerplexity."
+    en: "AI-assisted SEO uses automation to support research, content operations, and technical review. It can also assess how clearly answer platforms such as ChatGPT, Gemini, and Perplexity can understand and cite a business, without guaranteeing inclusion.",
+    ar: "يستخدم SEO بمساعدة الذكاء الاصطناعي الأتمتة لدعم البحث وعمليات المحتوى والمراجعة التقنية. ويمكنه أيضاً تقييم مدى وضوح النشاط لمنصات الإجابة مثل ChatGPT وGemini وPerplexity وقابليته للاستشهاد، دون ضمان الإدراج."
   },
 
   "faq2.q": { en: "How long until I see results?", ar: "كم من الوقت حتى أرى النتائج؟" },
   "faq2.a": {
-    en: "With our AI-powered approach, most clients see measurable improvements within 4-8 weeks. Traditional SEO typically takes 6-12 months. We deploy 50+ optimized pages rapidly and start building authority immediately.",
-    ar: "مع نهجنا القائم على الذكاء الاصطناعي، يرى معظم العملاء تحسينات قابلة للقياس خلال 4-8 أسابيع. يستغرق SEO التقليدي عادة 6-12 شهراً. ننشر أكثر من 50 صفحة محسّنة بسرعة ونبدأ ببناء السلطة فوراً."
+    en: "Timing depends on the site's starting point, technical condition, content, competition, and authority. We establish a baseline, agree priorities, and report measured changes without promising a fixed ranking date.",
+    ar: "تعتمد المدة على نقطة بداية الموقع وحالته التقنية والمحتوى والمنافسة والسلطة. نحدد خط أساس ونتفق على الأولويات ونبلغ عن التغييرات المقاسة دون وعد بتاريخ ثابت للترتيب."
   },
 
   "faq3.q": { en: "Do you work with businesses outside the UAE?", ar: "هل تعملون مع شركات خارج الإمارات؟" },
@@ -494,8 +506,8 @@ export const translations: TranslationMap = {
 
   "faq4.q": { en: "What is GEO and AEO?", ar: "ما هو GEO و AEO؟" },
   "faq4.a": {
-    en: "GEO (Generative Engine Optimization) and AEO (Answer Engine Optimization) are new SEO disciplines focused on making your brand visible in AI-generated search results. As more people use ChatGPT, Gemini, and Perplexity to find information, GEO/AEO ensures your business is the recommended answer.",
-    ar: "GEO (تحسين محركات التوليد) و AEO (تحسين محركات الإجابة) هما تخصصان جديدان في SEO يركزان على جعل علامتك التجارية مرئية في نتائج البحث المولّدة بالذكاء الاصطناعي. مع استخدام المزيد من الأشخاص لـ ChatGPT وGemini وPerplexity، يضمن GEO/AEO أن عملك هو الإجابة الموصى بها."
+    en: "GEO and AEO focus on content structure, entity clarity, citations, and technical signals that help AI answer platforms understand information. Each platform controls what it includes, so visibility cannot be guaranteed.",
+    ar: "يركز GEO وAEO على بنية المحتوى ووضوح الكيانات والاستشهادات والإشارات التقنية التي تساعد منصات الإجابة على فهم المعلومات. تتحكم كل منصة فيما تدرجه، لذلك لا يمكن ضمان الظهور."
   },
 
   "faq5.q": { en: "Do you offer Arabic SEO?", ar: "هل تقدمون SEO بالعربية؟" },
@@ -518,8 +530,8 @@ export const translations: TranslationMap = {
 
   "faq8.q": { en: "Can you build our website too?", ar: "هل يمكنكم بناء موقعنا أيضاً؟" },
   "faq8.a": {
-    en: "Yes. We build SEO-first websites using agentic AI, delivering 50+ optimized pages in days rather than months. Every site we build is designed for search performance from the ground up.",
-    ar: "نعم. نبني مواقع بأولوية SEO باستخدام الذكاء الاصطناعي، وننشر 50+ صفحة محسّنة في أيام وليس أشهر. كل موقع نبنيه مصمم لأداء البحث من الأساس."
+    en: "Yes. We build SEO-first websites with planned information architecture, metadata, structured data, internal linking, accessibility, and technical review. Scope and schedule are agreed for each project.",
+    ar: "نعم. نبني مواقع بأولوية SEO مع هندسة معلومات وبيانات ميتا وبيانات منظمة وروابط داخلية وإمكانية وصول ومراجعة تقنية مخططة. نتفق على النطاق والجدول لكل مشروع."
   },
 
   // ─── CTA Section ────────────────────────────────────────────
@@ -557,6 +569,9 @@ export const translations: TranslationMap = {
   "zcal.email": { en: "Or email us", ar: "أو راسلنا" },
   "zcal.emailSubject": { en: "Free SEO Consultation Request", ar: "طلب استشارة SEO مجانية" },
   "zcal.openCalendar": { en: "Open Calendar", ar: "افتح التقويم" },
+  "zcal.loading": { en: "Loading booking calendar", ar: "جارٍ تحميل تقويم الحجز" },
+  "zcal.iframeTitle": { en: "Book a consultation with ConstantSEO", ar: "احجز استشارة مع ConstantSEO" },
+  "zcal.fallback": { en: "Use WhatsApp or email below, or return and try the calendar again.", ar: "استخدم واتساب أو البريد أدناه، أو ارجع وحاول فتح التقويم مرة أخرى." },
   "zcal.back": { en: "Back", ar: "رجوع" },
   "zcal.widgetFailed": { en: "Unable to load the booking widget", ar: "تعذر تحميل أداة الحجز" },
   "zcal.note": { en: "✓ No commitment  ✓ Real answers  ✓ Actionable advice", ar: "✓ بدون التزام  ✓ إجابة حقيقية  ✓ نصائح عملية" },
@@ -693,8 +708,13 @@ export const translations: TranslationMap = {
   "cityPage.breadcrumb.services": { en: "SEO Services", ar: "خدمات SEO" },
   "cityPage.cta.audit": { en: "Get Free Audit", ar: "احصل على تدقيق مجاني" },
   "cityPage.cta.services": { en: "View Services", ar: "عرض الخدمات" },
+  "cityPage.hero.sub": { en: "Technical foundations, local discovery, bilingual content, structured data, and AI-answer visibility planned as one search system.", ar: "أسس تقنية واكتشاف محلي ومحتوى ثنائي اللغة وبيانات منظمة وظهور في إجابات الذكاء الاصطناعي ضمن نظام بحث واحد." },
   "cityPage.opportunity.label": { en: "Local Opportunity", ar: "الفرصة المحلية" },
   "cityPage.why.titlePrefix": { en: "Why SEO Matters in", ar: "لماذا يهم SEO في" },
+  "cityPage.why.copy": { en: "A useful local search presence combines accurate technical signals, clear location information, relevant service pages, and content that works in Arabic and English. We audit and coordinate those elements without promising a fixed ranking or timeline.", ar: "يجمع الحضور المفيد في البحث المحلي بين إشارات تقنية دقيقة ومعلومات موقع واضحة وصفحات خدمات ذات صلة ومحتوى يعمل بالعربية والإنجليزية. ندقق هذه العناصر وننسقها دون وعد بترتيب أو مدة زمنية ثابتة." },
+  "cityPage.system.technical": { en: "Technical review", ar: "مراجعة تقنية" },
+  "cityPage.system.local": { en: "Local discovery", ar: "اكتشاف محلي" },
+  "cityPage.system.bilingual": { en: "Bilingual coverage", ar: "تغطية ثنائية اللغة" },
   "cityPage.industries.label": { en: "Sector Expertise", ar: "خبرة القطاعات" },
   "cityPage.industries.titlePrefix": { en: "Industries We Serve in", ar: "القطاعات التي نخدمها في" },
   "cityPage.industries.subtitle": {
@@ -702,10 +722,10 @@ export const translations: TranslationMap = {
     ar: "من القطاعات الراسخة إلى صناعات النمو في عهد الرؤية، لدينا خبرة SEO عميقة في أبرز المجالات."
   },
   "cityPage.keywords.label": { en: "Search Visibility", ar: "ظهور البحث" },
-  "cityPage.keywords.title": { en: "Keywords We Help You Rank For", ar: "الكلمات المفتاحية التي نساعدك على التصدر" },
+  "cityPage.keywords.title": { en: "Search Topics We Map", ar: "موضوعات البحث التي نرسم خريطتها" },
   "cityPage.keywords.subtitle": {
-    en: "Real, high-intent search terms your customers are already typing. We build your authority to rank for each one.",
-    ar: "كلمات بحث حقيقية ذات نية عالية يكتبها عملاؤك فعلاً. نبني سلطتك للتصدر على كل واحدة منها."
+    en: "Representative high-intent search terms used to organize local content and technical coverage.",
+    ar: "مصطلحات بحث تمثيلية ذات نية عالية تُستخدم لتنظيم المحتوى المحلي والتغطية التقنية."
   },
   "cityPage.local.label": { en: "Local Intelligence", ar: "الذكاء المحلي" },
   "cityPage.local.titlePrefix": { en: "What Makes", ar: "ما يجعل" },
@@ -714,31 +734,74 @@ export const translations: TranslationMap = {
     en: "Generic SEO agencies apply cookie-cutter tactics. We build strategies around the specific commercial realities of your market.",
     ar: "وكالات SEO العادية تطبق أساليب جاهزة. نحن نبني استراتيجيات حول الواقع التجاري المحدد لسوقك."
   },
+  "cityPage.facts.technical.title": { en: "Technical foundations", ar: "الأسس التقنية" },
+  "cityPage.facts.technical.body": { en: "We review crawlability, indexation, page structure, performance, and structured data before planning expansion.", ar: "نراجع قابلية الزحف والفهرسة وبنية الصفحات والأداء والبيانات المنظمة قبل التخطيط للتوسع." },
+  "cityPage.facts.local.title": { en: "Local entities", ar: "الكيانات المحلية" },
+  "cityPage.facts.local.body": { en: "Business details, service areas, location pages, and map profiles should present consistent information across the search journey.", ar: "ينبغي أن تعرض بيانات النشاط ومناطق الخدمة وصفحات المواقع وملفات الخرائط معلومات متسقة عبر رحلة البحث." },
+  "cityPage.facts.content.title": { en: "Bilingual content systems", ar: "أنظمة محتوى ثنائية اللغة" },
+  "cityPage.facts.content.body": { en: "Arabic and English content are researched and reviewed separately, then connected with clear language and regional signals.", ar: "نبحث المحتوى العربي والإنجليزي ونراجعه كلٌّ على حدة، ثم نربطهما بإشارات لغوية وإقليمية واضحة." },
   "cityPage.faq.label": { en: "Common Questions", ar: "أسئلة شائعة" },
   "cityPage.faq.titleSuffix": { en: "SEO - FAQ", ar: "SEO - الأسئلة الشائعة" },
   "cityPage.faq.subtitlePrefix": { en: "Answers to the most common questions from", ar: "إجابات على أكثر الأسئلة شيوعاً من شركات" },
   "cityPage.faq.subtitleSuffix": { en: "businesses considering SEO.", ar: "التي تفكر في SEO." },
-  "cityPage.trust.clients": { en: "GCC Clients", ar: "عملاء الخليج" },
-  "cityPage.trust.visits": { en: "Organic Visits Driven", ar: "زيارات عضوية" },
-  "cityPage.trust.keywords": { en: "Keywords Ranked", ar: "كلمات مفتاحية متصدرة" },
-  "cityPage.trust.markets": { en: "GCC Markets", ar: "أسواق الخليج" },
+  "cityPage.faq.timing.q": { en: "How long does SEO take?", ar: "كم يستغرق SEO؟" },
+  "cityPage.faq.timing.a": { en: "Timing depends on the site's starting point, technical condition, content, competition, and available authority. We define priorities and report measured changes without promising a fixed ranking date.", ar: "تعتمد المدة على نقطة بداية الموقع وحالته التقنية والمحتوى والمنافسة والسلطة المتاحة. نحدد الأولويات ونبلغ عن التغييرات المقاسة دون وعد بتاريخ ثابت للترتيب." },
+  "cityPage.faq.arabic.q": { en: "Do you support Arabic SEO?", ar: "هل تدعمون SEO العربي؟" },
+  "cityPage.faq.arabic.a": { en: "Yes. Arabic research, content, metadata, RTL presentation, and language targeting are planned alongside English rather than treated as a direct translation step.", ar: "نعم. نخطط للبحث والمحتوى وبيانات الميتا والعرض من اليمين إلى اليسار والاستهداف اللغوي بالعربية إلى جانب الإنجليزية، لا كخطوة ترجمة مباشرة." },
+  "cityPage.faq.process.q": { en: "What does the local SEO process include?", ar: "ماذا تشمل عملية SEO المحلية؟" },
+  "cityPage.faq.process.a": { en: "Scope can include technical review, business-profile consistency, location and service architecture, content planning, structured data, and measurement setup.", ar: "قد يشمل النطاق المراجعة التقنية واتساق ملف النشاط وبنية المواقع والخدمات وتخطيط المحتوى والبيانات المنظمة وإعداد القياس." },
+  "cityPage.faq.ai.q": { en: "Can you review AI-answer visibility?", ar: "هل يمكنكم مراجعة الظهور في إجابات الذكاء الاصطناعي؟" },
+  "cityPage.faq.ai.a": { en: "Yes. We review content structure, entity clarity, citations, and structured data that can help answer platforms understand the business. Inclusion is controlled by each platform and is not guaranteed.", ar: "نعم. نراجع بنية المحتوى ووضوح الكيان والاستشهادات والبيانات المنظمة التي قد تساعد منصات الإجابة على فهم النشاط. تتحكم كل منصة في الإدراج ولا نضمنه." },
+  "cityPage.trust.technical": { en: "Technical foundations", ar: "أسس تقنية" },
+  "cityPage.trust.local": { en: "Local search systems", ar: "أنظمة بحث محلية" },
+  "cityPage.trust.bilingual": { en: "Arabic + English", ar: "العربية + الإنجليزية" },
+  "cityPage.trust.structured": { en: "Structured data", ar: "بيانات منظمة" },
 
   // ─── Industry Landing Pages ──────────────────────────────────
   "industryPage.breadcrumb.services": { en: "Services", ar: "الخدمات" },
   "industryPage.cta.audit": { en: "Get Free SEO Audit", ar: "احصل على تدقيق SEO مجاني" },
   "industryPage.cta.whatsapp": { en: "WhatsApp Us", ar: "تواصل عبر واتساب" },
+  "industryPage.hero.sub": { en: "Technical foundations, useful sector content, local entities, structured data, and bilingual coverage planned as one search system.", ar: "أسس تقنية ومحتوى قطاعي مفيد وكيانات محلية وبيانات منظمة وتغطية ثنائية اللغة ضمن نظام بحث واحد." },
   "industryPage.pain.label": { en: "Why This Is Hard", ar: "لماذا هذا صعب" },
   "industryPage.pain.titlePrefix": { en: "The SEO Challenges in", ar: "تحديات SEO في قطاع" },
+  "industryPage.pain.structure.title": { en: "Fragmented page structure", ar: "بنية صفحات مجزأة" },
+  "industryPage.pain.structure.body": { en: "Services, locations, and common questions often sit in disconnected pages that are difficult for people and crawlers to navigate.", ar: "غالباً ما تتوزع الخدمات والمواقع والأسئلة الشائعة على صفحات منفصلة يصعب على الناس وبرامج الزحف التنقل بينها." },
+  "industryPage.pain.local.title": { en: "Unclear local entities", ar: "كيانات محلية غير واضحة" },
+  "industryPage.pain.local.body": { en: "Inconsistent business details, service areas, and profiles make the local offer harder to understand.", ar: "تجعل بيانات النشاط ومناطق الخدمة والملفات غير المتسقة العرض المحلي أصعب فهماً." },
+  "industryPage.pain.trust.title": { en: "Thin evidence and context", ar: "أدلة وسياق محدودان" },
+  "industryPage.pain.trust.body": { en: "Sector pages need accurate definitions, useful explanations, and attributable sources rather than unsupported claims.", ar: "تحتاج صفحات القطاع إلى تعريفات دقيقة وشروحات مفيدة ومصادر قابلة للنسبة بدلاً من ادعاءات غير موثقة." },
   "industryPage.approach.label": { en: "Our Process", ar: "طريقتنا" },
   "industryPage.approach.title": { en: "How We Fix It", ar: "كيف نحل المشكلة" },
+  "industryPage.approach.audit.title": { en: "Audit the foundation", ar: "تدقيق الأساس" },
+  "industryPage.approach.audit.body": { en: "Review crawlability, indexation, page templates, metadata, performance, and existing measurement.", ar: "مراجعة قابلية الزحف والفهرسة وقوالب الصفحات وبيانات الميتا والأداء والقياس الحالي." },
+  "industryPage.approach.map.title": { en: "Map useful topics", ar: "رسم خريطة موضوعات مفيدة" },
+  "industryPage.approach.map.body": { en: "Connect audience questions to services, locations, and reference content with a clear information architecture.", ar: "ربط أسئلة الجمهور بالخدمات والمواقع والمحتوى المرجعي ضمن هندسة معلومات واضحة." },
+  "industryPage.approach.build.title": { en: "Build consistent signals", ar: "بناء إشارات متسقة" },
+  "industryPage.approach.build.body": { en: "Coordinate bilingual content, internal links, structured data, and local entity details.", ar: "تنسيق المحتوى ثنائي اللغة والروابط الداخلية والبيانات المنظمة وتفاصيل الكيانات المحلية." },
+  "industryPage.approach.measure.title": { en: "Measure and learn", ar: "القياس والتعلم" },
+  "industryPage.approach.measure.body": { en: "Establish a baseline, review attributable search evidence, and prioritize the next useful improvement.", ar: "تحديد خط أساس ومراجعة أدلة بحث قابلة للنسبة وترتيب التحسين المفيد التالي." },
+  "industryPage.model.tech.metric": { en: "TECH", ar: "تقني" },
+  "industryPage.model.tech.label": { en: "Crawl, indexation, and structured-data review", ar: "مراجعة الزحف والفهرسة والبيانات المنظمة" },
+  "industryPage.model.local.metric": { en: "LOCAL", ar: "محلي" },
+  "industryPage.model.local.label": { en: "Location and service-entity consistency", ar: "اتساق كيانات المواقع والخدمات" },
+  "industryPage.model.bilingual.metric": { en: "AR+EN", ar: "عربي+EN" },
+  "industryPage.model.bilingual.label": { en: "Arabic and English information architecture", ar: "هندسة معلومات عربية وإنجليزية" },
   "industryPage.keywords.label": { en: "Keyword Intelligence", ar: "ذكاء الكلمات المفتاحية" },
-  "industryPage.keywords.title": { en: "Keywords We Help You Rank For", ar: "الكلمات المفتاحية التي نساعدك على التصدر" },
+  "industryPage.keywords.title": { en: "Search Topics We Map", ar: "موضوعات البحث التي نرسم خريطتها" },
   "industryPage.keywords.subtitle": {
-    en: "Real, high-intent search queries your target customers use. Ranking for these means ranking for revenue.",
-    ar: "استعلامات بحث حقيقية ذات نية عالية يستخدمها عملاؤك المستهدفون. التصدر عليها يعني التصدر للإيرادات."
+    en: "Representative high-intent queries used to organize useful content and technical coverage for the sector.",
+    ar: "استعلامات تمثيلية ذات نية عالية تُستخدم لتنظيم محتوى مفيد وتغطية تقنية للقطاع."
   },
   "industryPage.faq.label": { en: "Common Questions", ar: "أسئلة شائعة" },
   "industryPage.faq.titleSuffix": { en: "SEO - FAQs", ar: "SEO - الأسئلة الشائعة" },
+  "industryPage.faq.timing.q": { en: "How long does sector SEO take?", ar: "كم يستغرق SEO للقطاع؟" },
+  "industryPage.faq.timing.a": { en: "Timing depends on the site's baseline, technical condition, content, competition, and authority. We report measured changes without promising a fixed ranking date.", ar: "تعتمد المدة على خط أساس الموقع وحالته التقنية والمحتوى والمنافسة والسلطة. نبلغ عن التغييرات المقاسة دون وعد بتاريخ ثابت للترتيب." },
+  "industryPage.faq.scope.q": { en: "What can the engagement include?", ar: "ماذا قد يشمل نطاق العمل؟" },
+  "industryPage.faq.scope.a": { en: "Scope can include technical review, content and location architecture, structured data, internal linking, and measurement setup. It is agreed for each site.", ar: "قد يشمل النطاق المراجعة التقنية وبنية المحتوى والمواقع والبيانات المنظمة والروابط الداخلية وإعداد القياس. نتفق عليه لكل موقع." },
+  "industryPage.faq.arabic.q": { en: "Do you plan Arabic and English together?", ar: "هل تخططون للعربية والإنجليزية معاً؟" },
+  "industryPage.faq.arabic.a": { en: "Yes. Research, metadata, content, RTL presentation, and structured data are reviewed in each language and connected with clear language signals.", ar: "نعم. نراجع البحث وبيانات الميتا والمحتوى والعرض من اليمين إلى اليسار والبيانات المنظمة بكل لغة ونربطها بإشارات لغوية واضحة." },
+  "industryPage.faq.measurement.q": { en: "How is the work measured?", ar: "كيف يُقاس العمل؟" },
+  "industryPage.faq.measurement.a": { en: "Measurement starts with an agreed baseline and attributed sources such as Search Console. Reporting separates observed changes from hypotheses and future priorities.", ar: "يبدأ القياس بخط أساس متفق عليه ومصادر منسوبة مثل Search Console. تفصل التقارير بين التغييرات المرصودة والفرضيات والأولويات المستقبلية." },
   // ─── Shared Inner-Page Headers ───────────────────────────────
   "inner.caseStudies.eyebrow": { en: "Case Studies", ar: "دراسات الحالة" },
   "inner.caseStudies.title": { en: "Documented SEO Work", ar: "أعمال SEO موثقة" },
@@ -771,4 +834,84 @@ export const translations: TranslationMap = {
   },
   "inner.caseStudyDetail.all": { en: "All Case Studies", ar: "كل دراسات الحالة" },
   "inner.blogPost.by": { en: "By", ar: "بواسطة" },
+  "inner.blogPost.toc": { en: "Table of Contents", ar: "جدول المحتويات" },
+  "inner.blogPost.faqs": { en: "Frequently Asked Questions", ar: "الأسئلة الشائعة" },
+  "inner.blogPost.sources": { en: "Sources", ar: "المصادر" },
+  "inner.blogPost.tags": { en: "Tags", ar: "الوسوم" },
+  "inner.blogPost.related": { en: "Related Articles", ar: "مقالات ذات صلة" },
+  "inner.blogPost.back": { en: "Back to All Articles", ar: "العودة إلى كل المقالات" },
+
+  // ─── Localized capabilities ────────────────────────────────
+  "home.capabilities.technical": { en: "Technical SEO", ar: "SEO تقني" },
+  "home.capabilities.local": { en: "Local search", ar: "البحث المحلي" },
+  "home.capabilities.content": { en: "Content systems", ar: "أنظمة المحتوى" },
+  "home.capabilities.schema": { en: "Structured data", ar: "البيانات المنظمة" },
+  "home.capabilities.bilingual": { en: "Arabic + English visibility", ar: "ظهور عربي + إنجليزي" },
+  "home.capabilities.answers": { en: "AI answer visibility", ar: "الظهور في إجابات AI" },
+
+  // ─── Services and case studies ─────────────────────────────
+  "services.seo.title": { en: "SEO Services | ConstantSEO", ar: "خدمات SEO | ConstantSEO" },
+  "services.seo.description": { en: "Technical, bilingual, local, content, and AI-answer search systems for GCC businesses.", ar: "أنظمة بحث تقنية وثنائية اللغة ومحلية ومحتوى وظهور في إجابات الذكاء الاصطناعي لشركات الخليج." },
+  "caseStudies.seo.title": { en: "SEO Work and Methods | ConstantSEO", ar: "أعمال ومنهجيات SEO | ConstantSEO" },
+  "caseStudies.seo.description": { en: "Explore documented ConstantSEO methods and the scope of selected search-system work.", ar: "استكشف منهجيات ConstantSEO الموثقة ونطاق أعمال مختارة في أنظمة البحث." },
+  "caseStudies.readMore": { en: "Read methodology", ar: "اقرأ المنهجية" },
+  "caseStudies.notFound.title": { en: "Case study not found", ar: "دراسة الحالة غير موجودة" },
+  "caseStudies.notFound.copy": { en: "The requested case study is unavailable.", ar: "دراسة الحالة المطلوبة غير متاحة." },
+  "caseStudies.detail.category": { en: "Engagement type", ar: "نوع العمل" },
+  "caseStudies.detail.overview": { en: "Method overview", ar: "نظرة عامة على المنهجية" },
+  "caseStudies.detail.more": { en: "Other methodologies", ar: "منهجيات أخرى" },
+
+  // ─── About page ────────────────────────────────────────────
+  "about.seo.title": { en: "About ConstantSEO", ar: "عن ConstantSEO" },
+  "about.seo.description": { en: "Meet the ConstantSEO team and learn how we approach technical, bilingual, local, and AI-answer search systems for the GCC.", ar: "تعرّف إلى فريق ConstantSEO ومنهجيتنا للأنظمة التقنية وثنائية اللغة والمحلية والظهور في إجابات الذكاء الاصطناعي للخليج." },
+  "about.story.title": { en: "Why ConstantSEO exists", ar: "لماذا تأسست ConstantSEO" },
+  "about.story.p1": { en: "Search now spans classic results, local discovery, and AI answer platforms. Businesses need one coherent system across those surfaces.", ar: "يمتد البحث اليوم عبر النتائج التقليدية والاكتشاف المحلي ومنصات إجابات الذكاء الاصطناعي. وتحتاج الشركات إلى نظام واحد متماسك عبر هذه الواجهات." },
+  "about.story.p2": { en: "ConstantSEO combines technical SEO, useful content, structured data, and Arabic-English market context in one operating approach.", ar: "تجمع ConstantSEO بين SEO التقني والمحتوى المفيد والبيانات المنظمة وسياق السوق العربي والإنجليزي ضمن منهجية تشغيل واحدة." },
+  "about.story.p3": { en: "We document decisions, separate methodology from measured evidence, and keep clients close to the work.", ar: "نوثّق القرارات ونفصل بين المنهجية والأدلة المقاسة ونُبقي العملاء قريبين من سير العمل." },
+  "about.values.eyebrow": { en: "Operating principles", ar: "مبادئ العمل" },
+  "about.values.title": { en: "How we work", ar: "كيف نعمل" },
+  "about.values.ai.title": { en: "AI-assisted", ar: "بمساعدة الذكاء الاصطناعي" },
+  "about.values.ai.copy": { en: "Automation supports research and execution while people remain accountable for decisions.", ar: "تدعم الأتمتة البحث والتنفيذ، فيما يبقى الأشخاص مسؤولين عن القرارات." },
+  "about.values.arabic.title": { en: "Bilingual by design", ar: "ثنائي اللغة بالتصميم" },
+  "about.values.arabic.copy": { en: "Arabic and English are planned together, including metadata, direction, and structured data.", ar: "نخطط للعربية والإنجليزية معاً، بما يشمل بيانات الميتا والاتجاه والبيانات المنظمة." },
+  "about.values.useful.title": { en: "Useful first", ar: "الفائدة أولاً" },
+  "about.values.useful.copy": { en: "Content starts with audience questions and clear information architecture.", ar: "يبدأ المحتوى من أسئلة الجمهور وبنية معلومات واضحة." },
+  "about.values.technical.title": { en: "Technical foundations", ar: "أسس تقنية" },
+  "about.values.technical.copy": { en: "Crawlability, performance, semantics, and structured data are treated as one system.", ar: "نتعامل مع قابلية الزحف والأداء والدلالات والبيانات المنظمة كنظام واحد." },
+  "about.values.gcc.title": { en: "GCC context", ar: "سياق خليجي" },
+  "about.values.gcc.copy": { en: "Local language, markets, and search behavior shape each plan.", ar: "تشكل اللغة المحلية والأسواق وسلوك البحث كل خطة." },
+  "about.values.transparent.title": { en: "Transparent evidence", ar: "أدلة شفافة" },
+  "about.values.transparent.copy": { en: "Measured evidence is attributed; conceptual models are labeled as such.", ar: "ننسب الأدلة المقاسة إلى مصادرها ونصنّف النماذج المفاهيمية بوضوح." },
+  "about.team.eyebrow": { en: "Team", ar: "الفريق" },
+  "about.team.title": { en: "Direct collaboration", ar: "تعاون مباشر" },
+  "about.team.role": { en: "Founder, ConstantSEO", ar: "مؤسس ConstantSEO" },
+  "about.team.bio": { en: "Ahmad leads strategy and delivery across technical SEO, content systems, and GCC market work.", ar: "يقود أحمد الاستراتيجية والتنفيذ عبر SEO التقني وأنظمة المحتوى والعمل المتعلق بأسواق الخليج." },
+  "about.team.contact": { en: "Direct contact:", ar: "للتواصل المباشر:" },
+
+  // ─── Contact page ──────────────────────────────────────────
+  "contactPage.seo.title": { en: "Contact ConstantSEO", ar: "تواصل مع ConstantSEO" },
+  "contactPage.seo.description": { en: "Contact ConstantSEO to discuss a practical review of your website's search signals and technical foundations.", ar: "تواصل مع ConstantSEO لمناقشة مراجعة عملية لإشارات البحث والأسس التقنية لموقعك." },
+  "contactPage.form.title": { en: "Start the conversation", ar: "ابدأ المحادثة" },
+  "contactPage.form.status": { en: "WhatsApp opened with your details. You can also use the direct contact options on this page.", ar: "تم فتح واتساب مع بياناتك. ويمكنك أيضاً استخدام خيارات التواصل المباشر في هذه الصفحة." },
+  "contactPage.form.name": { en: "Name", ar: "الاسم" },
+  "contactPage.form.namePlaceholder": { en: "Your name", ar: "اسمك" },
+  "contactPage.form.email": { en: "Email", ar: "البريد الإلكتروني" },
+  "contactPage.form.emailPlaceholder": { en: "you@company.com", ar: "you@company.com" },
+  "contactPage.form.website": { en: "Website", ar: "الموقع الإلكتروني" },
+  "contactPage.form.websitePlaceholder": { en: "https://example.com", ar: "https://example.com" },
+  "contactPage.form.message": { en: "What should we review?", ar: "ما الذي تريد منا مراجعته؟" },
+  "contactPage.form.messagePlaceholder": { en: "Tell us about your goals and current search challenges.", ar: "أخبرنا عن أهدافك وتحديات البحث الحالية." },
+  "contactPage.form.submit": { en: "Continue on WhatsApp", ar: "تابع عبر واتساب" },
+  "contactPage.info.title": { en: "Direct contact", ar: "التواصل المباشر" },
+  "contactPage.info.email.label": { en: "Email", ar: "البريد الإلكتروني" },
+  "contactPage.info.phone.label": { en: "Phone", ar: "الهاتف" },
+  "contactPage.info.location.label": { en: "Location", ar: "الموقع" },
+  "contactPage.info.location.value": { en: "Dubai, Al Awir, UAE", ar: "دبي، العوير، الإمارات" },
+  "contactPage.info.whatsapp.label": { en: "WhatsApp", ar: "واتساب" },
+  "contactPage.info.whatsapp.value": { en: "Open WhatsApp", ar: "فتح واتساب" },
+  "contactPage.info.hours.label": { en: "Working hours", ar: "ساعات العمل" },
+  "contactPage.info.hours.value": { en: "Sunday–Thursday, 9:00–18:00 GST", ar: "الأحد–الخميس، 9:00–18:00 بتوقيت الخليج" },
+  "contactPage.info.panelTitle": { en: "Prefer a written brief?", ar: "تفضل موجزاً مكتوباً؟" },
+  "contactPage.info.panelCopy": { en: "Email the website, market, and questions you want reviewed.", ar: "أرسل عبر البريد الموقع والسوق والأسئلة التي تريد مراجعتها." },
+  "contactPage.info.response": { en: "WhatsApp and email are available above.", ar: "واتساب والبريد الإلكتروني متاحان أعلاه." },
 };

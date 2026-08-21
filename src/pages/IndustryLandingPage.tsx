@@ -27,21 +27,21 @@ function FAQItem({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="border border-slate-200 rounded-xl overflow-hidden">
+    <div className="overflow-hidden border border-line bg-paper">
       <button
         onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left hover:bg-slate-50 transition-colors"
+        className="flex w-full items-center justify-between gap-4 px-6 py-5 text-start text-ink transition-colors hover:bg-lime/20"
         aria-expanded={open}
       >
-        <span className="font-semibold text-slate-900 text-[15px] leading-snug">{q}</span>
+        <span className="text-[15px] font-semibold leading-snug text-ink">{q}</span>
         {open ? (
-          <ChevronUp className="w-5 h-5 text-[#7143E0] shrink-0" />
+          <ChevronUp className="h-5 w-5 shrink-0 text-ink" />
         ) : (
-          <ChevronDown className="w-5 h-5 text-[#7143E0] shrink-0" />
+          <ChevronDown className="h-5 w-5 shrink-0 text-ink" />
         )}
       </button>
       {open && (
-        <div className="px-6 pb-5 text-slate-600 text-[15px] leading-relaxed border-t border-slate-100">
+        <div className="border-t border-line px-6 pb-5 text-[15px] leading-relaxed text-ink/70">
           <p className="pt-4">{a}</p>
         </div>
       )}
@@ -53,12 +53,26 @@ export const IndustryLandingPage = ({ industry }: IndustryLandingPageProps) => {
   const { t, isAr } = useLanguage();
 
   const industryName = isAr ? (industry.industryAr ?? industry.industry) : industry.industry;
-  const headline = isAr ? (industry.heroHeadlineAr ?? industry.heroHeadline) : industry.heroHeadline;
-  const sub = isAr ? (industry.heroSubAr ?? industry.heroSub) : industry.heroSub;
-  const painPoints = isAr ? (industry.painPointsAr ?? industry.painPoints) : industry.painPoints;
-  const ourApproach = isAr ? (industry.ourApproachAr ?? industry.ourApproach) : industry.ourApproach;
-  const results = isAr ? (industry.resultsAr ?? industry.results) : industry.results;
-  const faqItems = isAr ? (industry.faqAr ?? industry.faq) : industry.faq;
+  const location = isAr ? industry.locationAr : industry.location;
+  const headline = isAr ? `أنظمة SEO لقطاع ${industryName}` : `${industryName} SEO systems`;
+  const sub = t("industryPage.hero.sub");
+  const painPoints = ["structure", "local", "trust"].map((key) => ({
+    title: t(`industryPage.pain.${key}.title`),
+    body: t(`industryPage.pain.${key}.body`),
+  }));
+  const ourApproach = ["audit", "map", "build", "measure"].map((key, index) => ({
+    step: String(index + 1).padStart(2, "0"),
+    title: t(`industryPage.approach.${key}.title`),
+    body: t(`industryPage.approach.${key}.body`),
+  }));
+  const results = ["tech", "local", "bilingual"].map((key) => ({
+    metric: t(`industryPage.model.${key}.metric`),
+    label: t(`industryPage.model.${key}.label`),
+  }));
+  const faqItems = ["timing", "scope", "arabic", "measurement"].map((key) => ({
+    q: t(`industryPage.faq.${key}.q`),
+    a: t(`industryPage.faq.${key}.a`),
+  }));
 
   const breadcrumbs = [
     { name: t("industryPage.breadcrumb.services"), path: "/services" },
@@ -68,7 +82,7 @@ export const IndustryLandingPage = ({ industry }: IndustryLandingPageProps) => {
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: industry.faq.map((item) => ({
+    mainEntity: faqItems.map((item) => ({
       "@type": "Question",
       name: item.q,
       acceptedAnswer: {
@@ -82,7 +96,7 @@ export const IndustryLandingPage = ({ industry }: IndustryLandingPageProps) => {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://seo.constantlabs.ai" },
+      { "@type": "ListItem", position: 1, name: t("nav.home"), item: "https://seo.constantlabs.ai" },
       ...breadcrumbs.map((crumb, i) => ({
         "@type": "ListItem",
         position: i + 2,
@@ -93,10 +107,10 @@ export const IndustryLandingPage = ({ industry }: IndustryLandingPageProps) => {
   };
 
   return (
-    <div className="min-h-screen bg-white text-slate-900" dir={isAr ? "rtl" : "ltr"}>
+    <div className="min-h-screen bg-paper text-ink" dir={isAr ? "rtl" : "ltr"}>
       <SEO
-        title={industry.metaTitle}
-        description={industry.metaDescription}
+        title={headline}
+        description={sub}
         path={`/${industry.slug}`}
       />
 
@@ -108,7 +122,7 @@ export const IndustryLandingPage = ({ industry }: IndustryLandingPageProps) => {
       <Navbar />
 
       <PageHero
-        eyebrow={`${industryName} · ${industry.location}`}
+        eyebrow={`${industryName} · ${location}`}
         title={headline}
         lede={sub}
         actions={<><Link to="/contact" className="border border-ink bg-lime px-5 py-3 text-sm font-bold uppercase tracking-[0.08em] text-ink">{t("industryPage.cta.audit")}</Link><a href="https://wa.me/971561495656" target="_blank" rel="noopener noreferrer" className="border border-ink px-5 py-3 text-sm font-bold uppercase tracking-[0.08em] text-ink hover:bg-ink hover:text-paper">{t("industryPage.cta.whatsapp")}</a></>}
@@ -117,11 +131,11 @@ export const IndustryLandingPage = ({ industry }: IndustryLandingPageProps) => {
       {/* Results Stats Bar */}
       <section className="border-b border-line bg-ink py-10">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center text-white">
+          <div className="grid grid-cols-1 gap-px bg-line text-center text-paper sm:grid-cols-3">
             {results.map((result) => (
-              <div key={result.label} className="flex flex-col gap-1">
-                <span className="text-4xl font-extrabold text-[#FECD4D]">{result.metric}</span>
-                <span className="text-sm text-purple-200 leading-snug max-w-[200px] mx-auto">
+              <div key={result.label} className="flex flex-col gap-2 bg-ink p-6">
+                <span className="font-heading text-4xl uppercase text-lime">{result.metric}</span>
+                <span className="mx-auto max-w-[240px] text-sm leading-snug text-paper">
                   {result.label}
                 </span>
               </div>
@@ -131,13 +145,13 @@ export const IndustryLandingPage = ({ industry }: IndustryLandingPageProps) => {
       </section>
 
       {/* Pain Points */}
-      <section className="py-20 bg-slate-50">
+      <section className="bg-paper py-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-14">
-            <p className="text-sm font-semibold text-[#7143E0] uppercase tracking-wider mb-3">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-ink/70">
               {t("industryPage.pain.label")}
             </p>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900">
+            <h2 className="font-heading text-4xl uppercase text-ink md:text-5xl">
               {t("industryPage.pain.titlePrefix")} {industryName}
             </h2>
           </div>
@@ -148,13 +162,13 @@ export const IndustryLandingPage = ({ industry }: IndustryLandingPageProps) => {
               return (
                 <div
                   key={point.title}
-                  className="bg-white rounded-2xl border border-slate-200 p-7 shadow-sm hover:shadow-md transition-shadow"
+                  className="border border-line bg-paper p-7 transition-colors hover:bg-lime/20"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-red-50 flex items-center justify-center mb-5">
-                    <Icon className="w-6 h-6 text-red-500" />
+                  <div className="mb-5 flex h-12 w-12 items-center justify-center border border-line bg-ink">
+                    <Icon className="h-6 w-6 text-lime" />
                   </div>
-                  <h3 className="text-lg font-bold text-slate-900 mb-3">{point.title}</h3>
-                  <p className="text-slate-600 text-[15px] leading-relaxed">{point.body}</p>
+                  <h3 className="mb-3 text-lg font-bold text-ink">{point.title}</h3>
+                  <p className="text-[15px] leading-relaxed text-ink/70">{point.body}</p>
                 </div>
               );
             })}
@@ -163,13 +177,13 @@ export const IndustryLandingPage = ({ industry }: IndustryLandingPageProps) => {
       </section>
 
       {/* Our Approach */}
-      <section className="py-20 bg-white">
+      <section className="border-t border-line bg-paper py-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-14">
-            <p className="text-sm font-semibold text-[#7143E0] uppercase tracking-wider mb-3">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-ink/70">
               {t("industryPage.approach.label")}
             </p>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900">
+            <h2 className="font-heading text-4xl uppercase text-ink md:text-5xl">
               {t("industryPage.approach.title")}
             </h2>
           </div>
@@ -178,16 +192,16 @@ export const IndustryLandingPage = ({ industry }: IndustryLandingPageProps) => {
             {ourApproach.map((step) => (
               <div
                 key={step.step}
-                className="flex gap-5 p-7 rounded-2xl border border-slate-200 hover:border-[#7143E0]/30 hover:shadow-md transition-all"
+                className="flex gap-5 border border-line p-7 transition-colors hover:bg-lime/20"
               >
                 <div className="shrink-0">
-                  <span className="flex items-center justify-center w-12 h-12 rounded-xl bg-[#7143E0] text-white font-extrabold text-lg">
+                  <span className="flex h-12 w-12 items-center justify-center border border-line bg-ink text-lg font-extrabold text-lime">
                     {step.step}
                   </span>
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-slate-900 mb-2">{step.title}</h3>
-                  <p className="text-slate-600 text-[15px] leading-relaxed">{step.body}</p>
+                  <h3 className="mb-2 text-lg font-bold text-ink">{step.title}</h3>
+                  <p className="text-[15px] leading-relaxed text-ink/70">{step.body}</p>
                 </div>
               </div>
             ))}
@@ -196,16 +210,16 @@ export const IndustryLandingPage = ({ industry }: IndustryLandingPageProps) => {
       </section>
 
       {/* Target Keywords */}
-      <section className="py-20 bg-[#2B124C]">
+      <section className="border-y border-line bg-void py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-14">
-            <p className="text-sm font-semibold text-cyan-400 uppercase tracking-wider mb-3">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-lime">
               {t("industryPage.keywords.label")}
             </p>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-white">
+            <h2 className="font-heading text-4xl uppercase text-paper md:text-5xl">
               {t("industryPage.keywords.title")}
             </h2>
-            <p className="mt-4 text-gray-300 max-w-xl mx-auto text-[15px]">
+            <p className="mx-auto mt-4 max-w-xl text-[15px] text-paper">
               {t("industryPage.keywords.subtitle")}
             </p>
           </div>
@@ -214,11 +228,11 @@ export const IndustryLandingPage = ({ industry }: IndustryLandingPageProps) => {
             {industry.targetKeywords.map((kw) => (
               <div
                 key={kw}
-                className="flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl px-5 py-3.5 hover:bg-white/10 transition-colors"
+                className="flex items-center gap-3 border border-paper/25 bg-ink px-5 py-3.5 transition-colors hover:border-lime"
                 dir="ltr"
               >
-                <CheckCircle2 className="w-5 h-5 text-[#20B2AA] shrink-0" />
-                <span className="text-white text-[15px] font-medium">{kw}</span>
+                <CheckCircle2 className="h-5 w-5 shrink-0 text-lime" />
+                <span className="text-[15px] font-medium text-paper">{kw}</span>
               </div>
             ))}
           </div>
@@ -226,13 +240,13 @@ export const IndustryLandingPage = ({ industry }: IndustryLandingPageProps) => {
       </section>
 
       {/* FAQ */}
-      <section className="py-20 bg-white">
+      <section className="bg-paper py-20">
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-14">
-            <p className="text-sm font-semibold text-[#7143E0] uppercase tracking-wider mb-3">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-ink/70">
               {t("industryPage.faq.label")}
             </p>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900">
+            <h2 className="font-heading text-4xl uppercase text-ink md:text-5xl">
               {industryName} {t("industryPage.faq.titleSuffix")}
             </h2>
           </div>

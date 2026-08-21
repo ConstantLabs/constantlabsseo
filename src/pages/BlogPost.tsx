@@ -13,7 +13,7 @@ const BASE_URL = "https://seo.constantlabs.ai";
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
-  const { t } = useLanguage();
+  const { t, isAr } = useLanguage();
   const post = slug ? getBlogPostBySlug(slug) : undefined;
 
   if (!post) {
@@ -54,7 +54,7 @@ const BlogPost = () => {
       (acc, s) => acc + s.content.split(/\s+/).length,
       0
     ),
-    inLanguage: "en",
+    inLanguage: isAr ? "ar" : "en",
   });
 
   const breadcrumbSchema = JSON.stringify({
@@ -64,13 +64,13 @@ const BlogPost = () => {
       {
         "@type": "ListItem",
         position: 1,
-        name: "Home",
+        name: t("nav.home"),
         item: BASE_URL,
       },
       {
         "@type": "ListItem",
         position: 2,
-        name: "Blog",
+        name: t("nav.blog"),
         item: `${BASE_URL}/blog`,
       },
       {
@@ -97,14 +97,14 @@ const BlogPost = () => {
       })
     : null;
 
-  const formattedDate = new Date(post.date).toLocaleDateString("en-US", {
+  const formattedDate = new Date(post.date).toLocaleDateString(isAr ? "ar-AE" : "en-US", {
     year: "numeric",
     month: "long",
     day: "numeric",
   });
 
   return (
-    <div className="min-h-screen bg-white text-slate-900">
+    <div className="min-h-screen bg-paper text-ink" dir={isAr ? "rtl" : "ltr"}>
       <SEO
         title={post.metaTitle}
         description={post.metaDescription}
@@ -129,7 +129,7 @@ const BlogPost = () => {
       {/* Hero Image */}
       {post.heroImage && (
         <div className="max-w-4xl mx-auto px-4 -mt-4">
-          <figure className="overflow-hidden shadow-lg">
+          <figure className="overflow-hidden ">
             <img
               src={post.heroImage}
               alt={post.heroImageAlt || post.title}
@@ -139,7 +139,7 @@ const BlogPost = () => {
               className="w-full h-auto"
             />
             {post.heroImageCredit && (
-              <figcaption className="text-xs text-slate-400 text-right py-2 px-4 bg-slate-50">
+              <figcaption className="text-xs text-ink/60 text-right py-2 px-4 bg-paper/70">
                 {post.heroImageCredit}
               </figcaption>
             )}
@@ -151,23 +151,23 @@ const BlogPost = () => {
       <article className="py-16 md:py-20">
         <div className="max-w-3xl mx-auto px-4">
           {/* Excerpt / Intro */}
-          <p className="text-lg md:text-xl text-slate-600 leading-relaxed mb-12 border-l-4 border-[#7143E0] pl-6">
+          <p className="text-lg md:text-xl text-ink/70 leading-relaxed mb-12 border-s-4 border-ink ps-6">
             {post.excerpt}
           </p>
 
           {/* Table of Contents */}
-          <nav className="mb-12 border border-slate-100 bg-slate-50 p-6">
-            <h2 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-4">
-              Table of Contents
+          <nav className="mb-12 border border-line bg-paper/70 p-6">
+            <h2 className="text-sm font-bold text-ink uppercase tracking-wider mb-4">
+              {t("inner.blogPost.toc")}
             </h2>
             <ol className="space-y-2">
               {post.sections.map((section, idx) => (
                 <li key={idx}>
                   <a
                     href={`#section-${idx}`}
-                    className="text-sm text-slate-600 hover:text-[#7143E0] transition-colors flex items-start gap-2"
+                    className="text-sm text-ink/70 hover:text-ink transition-colors flex items-start gap-2"
                   >
-                    <span className="text-[#7143E0] font-semibold shrink-0">
+                    <span className="text-ink font-semibold shrink-0">
                       {idx + 1}.
                     </span>
                     {section.heading}
@@ -180,13 +180,13 @@ const BlogPost = () => {
           {/* Sections */}
           {post.sections.map((section, idx) => (
             <section key={idx} id={`section-${idx}`} className="mb-12">
-              <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-5">
+              <h2 className="text-2xl md:text-3xl font-bold text-ink mb-5">
                 {section.heading}
               </h2>
               {section.content.split("\n\n").map((paragraph, pIdx) => (
                 <p
                   key={pIdx}
-                  className="text-slate-700 leading-relaxed mb-4 text-base md:text-lg"
+                  className="text-ink/80 leading-relaxed mb-4 text-base md:text-lg"
                 >
                   {paragraph}
                 </p>
@@ -196,20 +196,20 @@ const BlogPost = () => {
 
           {/* FAQs */}
           {post.faqs && post.faqs.length > 0 && (
-            <section className="border-t border-slate-200 pt-10 mt-12">
-              <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6">
-                Frequently Asked Questions
+            <section className="border-t border-line pt-10 mt-12">
+              <h2 className="text-2xl md:text-3xl font-bold text-ink mb-6">
+                {t("inner.blogPost.faqs")}
               </h2>
               <div className="space-y-5">
                 {post.faqs.map((faq) => (
                   <div
                     key={faq.q}
-                    className="border border-slate-200 bg-slate-50 p-5"
+                    className="border border-line bg-paper/70 p-5"
                   >
-                    <h3 className="text-lg font-bold text-slate-900 mb-2">
+                    <h3 className="text-lg font-bold text-ink mb-2">
                       {faq.q}
                     </h3>
-                    <p className="text-slate-700 leading-relaxed">{faq.a}</p>
+                    <p className="text-ink/80 leading-relaxed">{faq.a}</p>
                   </div>
                 ))}
               </div>
@@ -218,9 +218,9 @@ const BlogPost = () => {
 
           {/* Sources */}
           {post.sources && post.sources.length > 0 && (
-            <section className="border-t border-slate-200 pt-10 mt-12">
-              <h2 className="text-lg font-bold text-slate-900 mb-4">
-                Sources
+            <section className="border-t border-line pt-10 mt-12">
+              <h2 className="text-lg font-bold text-ink mb-4">
+                {t("inner.blogPost.sources")}
               </h2>
               <ul className="space-y-2">
                 {post.sources.map((source) => (
@@ -229,7 +229,7 @@ const BlogPost = () => {
                       href={source.url}
                       target="_blank"
                       rel="noreferrer"
-                      className="text-sm md:text-base text-[#7143E0] hover:underline break-words"
+                      className="text-sm md:text-base text-ink hover:underline break-words"
                     >
                       {source.label}
                     </a>
@@ -240,18 +240,18 @@ const BlogPost = () => {
           )}
 
           {/* Tags */}
-          <div className="border-t border-slate-200 pt-8 mt-12">
+          <div className="border-t border-line pt-8 mt-12">
             <div className="flex items-center gap-2 mb-3">
-              <Tag className="w-4 h-4 text-slate-400" />
-              <span className="text-sm font-semibold text-slate-500 uppercase tracking-wider">
-                Tags
+              <Tag className="w-4 h-4 text-ink/60" />
+              <span className="text-sm font-semibold text-ink/70 uppercase tracking-wider">
+                {t("inner.blogPost.tags")}
               </span>
             </div>
             <div className="flex flex-wrap gap-2">
               {post.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="bg-slate-100 px-3 py-1.5 text-sm font-medium text-slate-600"
+                  className="bg-paper/70 px-3 py-1.5 text-sm font-medium text-ink/70"
                 >
                   {tag}
                 </span>
@@ -263,10 +263,10 @@ const BlogPost = () => {
 
       {/* Related Posts */}
       {relatedPosts.length > 0 && (
-        <section className="py-16 bg-slate-50">
+        <section className="py-16 bg-paper/70">
           <div className="max-w-5xl mx-auto px-4">
-            <h2 className="text-2xl font-bold text-slate-900 mb-8 text-center">
-              Related Articles
+            <h2 className="text-2xl font-bold text-ink mb-8 text-center">
+              {t("inner.blogPost.related")}
             </h2>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {relatedPosts.map((related) => {
@@ -286,16 +286,16 @@ const BlogPost = () => {
                     {/* Color accent bar */}
                     <div className="h-1.5 bg-lime" />
                     <div className="p-6">
-                      <span className="mb-3 inline-block border border-line px-2.5 py-0.5 text-xs font-semibold text-evidence-blue">
+                      <span className="mb-3 inline-block border border-line px-2.5 py-0.5 text-xs font-semibold text-ink">
                         {related.category}
                       </span>
-                      <h3 className="text-lg font-bold text-slate-900 group-hover:text-[#7143E0] transition-colors mb-2 line-clamp-2">
+                      <h3 className="text-lg font-bold text-ink group-hover:text-ink transition-colors mb-2 line-clamp-2">
                         {related.title}
                       </h3>
-                      <p className="text-sm text-slate-500 line-clamp-2 mb-4">
+                      <p className="text-sm text-ink/70 line-clamp-2 mb-4">
                         {related.excerpt}
                       </p>
-                      <div className="flex items-center gap-3 text-xs text-slate-400">
+                      <div className="flex items-center gap-3 text-xs text-ink/60">
                         <span>{relatedDate}</span>
                         <span>{related.readTime}</span>
                       </div>
@@ -307,10 +307,10 @@ const BlogPost = () => {
             <div className="text-center mt-10">
               <Link
                 to="/blog"
-                className="inline-flex items-center gap-2 text-[#7143E0] font-semibold hover:underline"
+                className="inline-flex items-center gap-2 text-ink font-semibold hover:underline"
               >
                 <ArrowLeft className="w-4 h-4" />
-                Back to All Articles
+                {t("inner.blogPost.back")}
               </Link>
             </div>
           </div>

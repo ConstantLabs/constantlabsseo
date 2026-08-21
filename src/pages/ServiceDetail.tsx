@@ -14,23 +14,23 @@ function slugify(id: string) {
 
 const ServiceDetail = () => {
   const { slug } = useParams<{ slug: string }>();
-  const { isAr } = useLanguage();
+  const { t, isAr } = useLanguage();
 
   const service = SERVICES.find((s) => slugify(s.id) === slug);
   const otherServices = SERVICES.filter((s) => slugify(s.id) !== slug).slice(0, 4);
 
   if (!service) {
     return (
-      <div className="min-h-screen bg-white text-slate-900">
+      <div className="min-h-screen bg-paper text-ink">
         <Navbar />
         <div className="pt-32 pb-20 text-center">
           <h1 className="text-4xl font-bold mb-4">
             {isAr ? "الخدمة غير موجودة" : "Service Not Found"}
           </h1>
-          <p className="text-slate-600 mb-8">
+          <p className="mb-8 text-ink/70">
             {isAr ? "الخدمة التي تبحث عنها غير موجودة." : "The service you're looking for doesn't exist."}
           </p>
-          <Link to="/services" className="text-[#7143E0] font-semibold hover:underline">
+          <Link to="/services" className="font-semibold text-ink underline underline-offset-4">
             {isAr ? "عرض جميع الخدمات" : "View All Services"}
           </Link>
         </div>
@@ -40,21 +40,25 @@ const ServiceDetail = () => {
   }
 
   const Icon = service.icon;
+  const title = isAr ? service.titleAr : service.title;
+  const description = isAr ? service.descriptionAr : service.description;
+  const oneLiner = isAr ? service.oneLinerAr : service.oneLiner;
+  const tags = isAr ? service.tagsAr : service.tags;
 
   return (
-    <div className="min-h-screen bg-white text-slate-900">
+    <div className="min-h-screen bg-paper text-ink">
       <SEO
-        title={`${service.title} | ConstantSEO`}
-        description={service.description}
+        title={title}
+        description={description}
         path={`/services/${slug}`}
       />
       <Navbar />
 
       <PageHero
         eyebrow={isAr ? "الخدمات" : "Services"}
-        title={service.title}
-        lede={service.oneLiner}
-        meta={<Icon className="h-6 w-6 text-evidence-blue" aria-hidden="true" />}
+        title={title}
+        lede={oneLiner}
+        meta={<Icon className="h-6 w-6 text-ink" aria-hidden="true" />}
         actions={<Link to="/services" className="border border-ink px-5 py-3 text-sm font-bold uppercase tracking-[0.08em] text-ink hover:bg-ink hover:text-paper">{isAr ? "جميع الخدمات" : "All Services"}</Link>}
       />
 
@@ -64,7 +68,7 @@ const ServiceDetail = () => {
           {/* Description */}
           <div className="max-w-3xl">
             <p className="mb-8 text-lg leading-relaxed text-ink/70">
-              {service.description}
+              {description}
             </p>
           </div>
 
@@ -74,7 +78,7 @@ const ServiceDetail = () => {
               {isAr ? "ما يشمله" : "What's Included"}
             </h2>
             <div className="grid sm:grid-cols-2 gap-4">
-              {service.tags.map((tag) => (
+              {tags.map((tag) => (
                 <div key={tag} className="flex items-center gap-3">
                   <div className="flex h-6 w-6 shrink-0 items-center justify-center border border-line bg-lime">
                     <Check className="h-3.5 w-3.5 text-ink" />
@@ -92,15 +96,15 @@ const ServiceDetail = () => {
             </h2>
             <p className="leading-relaxed text-ink/70">
               {isAr
-                ? "في عصر الذكاء الاصطناعي والبحث المتطور، لم يعد كافياً الاعتماد على الأساليب التقليدية فقط. نستخدم أحدث تقنيات الذكاء الاصطناعي لضمان تفوق عملك في نتائج البحث التقليدية ومنصات الذكاء الاصطناعي على حد سواء."
-                : "In the age of AI and evolving search, traditional approaches alone aren't enough. We use cutting-edge AI technology to ensure your business dominates both traditional search results and AI platforms like ChatGPT, Gemini, and Perplexity."
+                ? "يتطلب البحث الحديث أساساً تقنياً واضحاً ومحتوى مفيداً وبيانات منظمة متسقة. ننسق هذه العناصر حتى تتمكن محركات البحث ومنصات الإجابة من فهم نشاطك وخدماتك."
+                : "Modern search needs a clear technical foundation, useful content, and consistent structured data. We coordinate those elements so search engines and answer platforms can understand your business and services."
               }
             </p>
           </div>
 
           {/* Tags */}
           <div className="flex flex-wrap gap-2 mb-12">
-            {service.tags.map((tag) => (
+            {tags.map((tag) => (
               <span
                 key={tag}
                 className="border border-line px-4 py-2 text-sm font-medium text-ink/70"
@@ -121,6 +125,8 @@ const ServiceDetail = () => {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {otherServices.map((s) => {
               const SIcon = s.icon;
+              const otherTitle = isAr ? s.titleAr : s.title;
+              const otherOneLiner = isAr ? s.oneLinerAr : s.oneLiner;
               return (
                 <Link
                   key={s.id}
@@ -131,9 +137,9 @@ const ServiceDetail = () => {
                     <SIcon className="h-5 w-5 text-lime" />
                   </div>
                   <h3 className="text-sm font-bold text-ink">
-                    {s.title}
+                    {otherTitle}
                   </h3>
-                  <p className="mt-1 text-xs text-ink/60">{s.oneLiner}</p>
+                  <p className="mt-1 text-xs text-ink/60">{otherOneLiner}</p>
                 </Link>
               );
             })}

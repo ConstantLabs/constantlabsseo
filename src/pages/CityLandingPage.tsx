@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { Search, MapPin, TrendingUp, Users, ChevronDown } from "lucide-react";
+import { Braces, Languages, MapPin, Search, Settings, TrendingUp, ChevronDown } from "lucide-react";
 import { PageHero } from "@/components/marketing/PageHero";
 import { SEO } from "@/components/SEO";
 import { Navbar } from "@/components/Navbar";
@@ -22,18 +22,28 @@ export const CityLandingPage = ({ city }: CityLandingPageProps) => {
 
   const cityName = isAr ? (city.cityAr ?? city.city) : city.city;
   const countryName = isAr ? (city.countryAr ?? city.country) : city.country;
-  const headline = isAr ? (city.heroHeadlineAr ?? city.heroHeadline) : city.heroHeadline;
-  const sub = isAr ? (city.heroSubAr ?? city.heroSub) : city.heroSub;
-  const whyBody = isAr ? (city.whyMattersAr ?? city.whyMatters) : city.whyMatters;
-  const stats = isAr ? (city.marketStatsAr ?? city.marketStats) : city.marketStats;
+  const headline = isAr ? `أنظمة بحث للشركات في ${cityName}` : `Search systems for ${cityName} businesses`;
+  const sub = t("cityPage.hero.sub");
+  const whyBody = t("cityPage.why.copy");
+  const stats = [
+    { number: "TECH", label: t("cityPage.system.technical") },
+    { number: "LOCAL", label: t("cityPage.system.local") },
+    { number: "AR+EN", label: t("cityPage.system.bilingual") },
+  ];
   const industries = isAr ? (city.topIndustriesAr ?? city.topIndustries) : city.topIndustries;
-  const facts = isAr ? (city.localFactsAr ?? city.localFacts) : city.localFacts;
-  const faqItems = isAr ? (city.faqAr ?? city.faq) : city.faq;
+  const facts = ["technical", "local", "content"].map((key) => ({
+    title: t(`cityPage.facts.${key}.title`),
+    body: t(`cityPage.facts.${key}.body`),
+  }));
+  const faqItems = ["timing", "arabic", "process", "ai"].map((key) => ({
+    q: t(`cityPage.faq.${key}.q`),
+    a: t(`cityPage.faq.${key}.a`),
+  }));
 
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: city.faq.map((item) => ({
+    mainEntity: faqItems.map((item) => ({
       "@type": "Question",
       name: item.q,
       acceptedAnswer: {
@@ -50,19 +60,19 @@ export const CityLandingPage = ({ city }: CityLandingPageProps) => {
       {
         "@type": "ListItem",
         position: 1,
-        name: "Home",
+        name: t("nav.home"),
         item: BASE_URL,
       },
       {
         "@type": "ListItem",
         position: 2,
-        name: "SEO Services",
+        name: t("cityPage.breadcrumb.services"),
         item: `${BASE_URL}/services`,
       },
       {
         "@type": "ListItem",
         position: 3,
-        name: `SEO Agency ${city.city}`,
+        name: headline,
         item: `${BASE_URL}/${city.slug}`,
       },
     ],
@@ -72,22 +82,22 @@ export const CityLandingPage = ({ city }: CityLandingPageProps) => {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     name: "ConstantSEO",
-    description: city.metaDescription,
+    description: sub,
     url: `${BASE_URL}/${city.slug}`,
     telephone: "+971561495656",
     areaServed: {
       "@type": "City",
-      name: city.city,
+      name: cityName,
     },
-    serviceType: "SEO Agency",
+    serviceType: isAr ? "خدمات SEO" : "SEO services",
     priceRange: "$$",
   };
 
   return (
-    <div className="min-h-screen bg-white text-slate-900" dir={isAr ? "rtl" : "ltr"}>
+    <div className="min-h-screen bg-paper text-ink" dir={isAr ? "rtl" : "ltr"}>
       <SEO
-        title={city.metaTitle}
-        description={city.metaDescription}
+        title={headline}
+        description={sub}
         path={`/${city.slug}`}
       />
 
@@ -109,7 +119,7 @@ export const CityLandingPage = ({ city }: CityLandingPageProps) => {
         eyebrow={`${city.flag} ${cityName} · ${countryName}`}
         title={headline}
         lede={sub}
-        meta={city.population}
+        meta={countryName}
         actions={<><Link to="/contact" className="border border-ink bg-lime px-5 py-3 text-sm font-bold uppercase tracking-[0.08em] text-ink">{t("cityPage.cta.audit")}</Link><Link to="/services" className="border border-ink px-5 py-3 text-sm font-bold uppercase tracking-[0.08em] text-ink hover:bg-ink hover:text-paper">{t("cityPage.cta.services")}</Link></>}
       />
 
@@ -118,13 +128,13 @@ export const CityLandingPage = ({ city }: CityLandingPageProps) => {
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <p className="text-sm font-semibold text-[#7143E0] uppercase tracking-wider mb-3">
+              <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-ink/70">
                 {t("cityPage.opportunity.label")}
               </p>
-              <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-6">
+              <h2 className="mb-6 font-heading text-4xl uppercase text-ink md:text-5xl">
                 {t("cityPage.why.titlePrefix")} {cityName}
               </h2>
-              <p className="text-slate-600 text-[17px] leading-relaxed">
+              <p className="text-[17px] leading-relaxed text-ink/70">
                 {whyBody}
               </p>
             </div>
@@ -135,10 +145,10 @@ export const CityLandingPage = ({ city }: CityLandingPageProps) => {
                   key={i}
                   className="border border-line bg-paper p-6 text-center transition-colors hover:bg-lime/20"
                 >
-                  <div className="text-3xl font-extrabold text-[#7143E0] mb-2">
+                  <div className="mb-2 font-heading text-3xl uppercase text-ink">
                     {stat.number}
                   </div>
-                  <div className="text-sm text-slate-500 leading-snug">
+                  <div className="text-sm leading-snug text-ink/70">
                     {stat.label}
                   </div>
                 </div>
@@ -149,24 +159,24 @@ export const CityLandingPage = ({ city }: CityLandingPageProps) => {
       </section>
 
       {/* Industries */}
-      <section className="py-20 bg-[#F8F6FF]">
+      <section className="border-b border-line bg-paper/70 py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center">
-          <p className="text-sm font-semibold text-[#7143E0] uppercase tracking-wider mb-3">
+          <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-ink/70">
             {t("cityPage.industries.label")}
           </p>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">
+          <h2 className="mb-4 font-heading text-4xl uppercase text-ink md:text-5xl">
             {t("cityPage.industries.titlePrefix")} {cityName}
           </h2>
-          <p className="text-slate-500 max-w-xl mx-auto mb-10">
+          <p className="mx-auto mb-10 max-w-xl text-ink/70">
             {t("cityPage.industries.subtitle")}
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             {industries.map((industry, i) => (
               <span
                 key={i}
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white border border-[#7143E0]/20 text-slate-700 font-medium text-sm shadow-sm hover:border-[#7143E0]/50 hover:text-[#7143E0] transition-all"
+                className="inline-flex items-center gap-2 border border-line bg-paper px-5 py-2.5 text-sm font-medium text-ink transition-colors hover:bg-lime/20"
               >
-                <MapPin className="w-3.5 h-3.5 text-[#7143E0]" />
+                <MapPin className="h-3.5 w-3.5 text-ink" />
                 {industry}
               </span>
             ))}
@@ -175,25 +185,25 @@ export const CityLandingPage = ({ city }: CityLandingPageProps) => {
       </section>
 
       {/* Keywords */}
-      <section className="py-20 bg-white">
+      <section className="border-b border-line bg-paper py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center">
-          <p className="text-sm font-semibold text-[#20B2AA] uppercase tracking-wider mb-3">
+          <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-ink/70">
             {t("cityPage.keywords.label")}
           </p>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">
+          <h2 className="mb-4 font-heading text-4xl uppercase text-ink md:text-5xl">
             {t("cityPage.keywords.title")}
           </h2>
-          <p className="text-slate-500 max-w-xl mx-auto mb-10">
+          <p className="mx-auto mb-10 max-w-xl text-ink/70">
             {t("cityPage.keywords.subtitle")}
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             {city.keywords.map((kw, i) => (
               <span
                 key={i}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-900 text-white text-sm font-mono tracking-wide shadow-sm"
+                className="inline-flex items-center gap-2 border border-line bg-ink px-4 py-2 font-mono text-sm tracking-wide text-paper"
                 dir="ltr"
               >
-                <Search className="w-3.5 h-3.5 text-[#20B2AA]" />
+                <Search className="h-3.5 w-3.5 text-lime" />
                 {kw}
               </span>
             ))}
@@ -202,16 +212,16 @@ export const CityLandingPage = ({ city }: CityLandingPageProps) => {
       </section>
 
       {/* Local Facts */}
-      <section className="py-20 bg-[#F8F6FF]">
+      <section className="border-b border-line bg-paper/70 py-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-12">
-            <p className="text-sm font-semibold text-[#7143E0] uppercase tracking-wider mb-3">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-ink/70">
               {t("cityPage.local.label")}
             </p>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">
+            <h2 className="mb-4 font-heading text-4xl uppercase text-ink md:text-5xl">
               {t("cityPage.local.titlePrefix")} {cityName} {t("cityPage.local.titleSuffix")}
             </h2>
-            <p className="text-slate-500 max-w-xl mx-auto">
+            <p className="mx-auto max-w-xl text-ink/70">
               {t("cityPage.local.subtitle")}
             </p>
           </div>
@@ -225,10 +235,10 @@ export const CityLandingPage = ({ city }: CityLandingPageProps) => {
                 <div className="mb-5 flex h-10 w-10 items-center justify-center border border-line bg-ink">
                   <TrendingUp className="h-5 w-5 text-lime" />
                 </div>
-                <h3 className="text-lg font-bold text-slate-900 mb-3 leading-snug">
+                <h3 className="mb-3 text-lg font-bold leading-snug text-ink">
                   {fact.title}
                 </h3>
-                <p className="text-slate-600 text-[15px] leading-relaxed">
+                <p className="text-[15px] leading-relaxed text-ink/70">
                   {fact.body}
                 </p>
               </div>
@@ -238,16 +248,16 @@ export const CityLandingPage = ({ city }: CityLandingPageProps) => {
       </section>
 
       {/* FAQ */}
-      <section className="py-20 bg-white">
+      <section className="border-b border-line bg-paper py-20">
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-12">
-            <p className="text-sm font-semibold text-[#7143E0] uppercase tracking-wider mb-3">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-ink/70">
               {t("cityPage.faq.label")}
             </p>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">
+            <h2 className="mb-4 font-heading text-4xl uppercase text-ink md:text-5xl">
               {cityName} {t("cityPage.faq.titleSuffix")}
             </h2>
-            <p className="text-slate-500 max-w-xl mx-auto">
+            <p className="mx-auto max-w-xl text-ink/70">
               {t("cityPage.faq.subtitlePrefix")} {cityName} {t("cityPage.faq.subtitleSuffix")}
             </p>
           </div>
@@ -256,18 +266,18 @@ export const CityLandingPage = ({ city }: CityLandingPageProps) => {
             {faqItems.map((item, i) => (
               <div
                 key={i}
-                className="rounded-xl border border-slate-200 overflow-hidden"
+                className="overflow-hidden border border-line bg-paper"
               >
                 <button
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                  className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left hover:bg-slate-50 transition-colors"
+                  className="flex w-full items-center justify-between gap-4 px-6 py-5 text-start transition-colors hover:bg-lime/20"
                   aria-expanded={openFaq === i}
                 >
-                  <span className="font-semibold text-slate-900 text-[15px] leading-snug">
+                  <span className="text-[15px] font-semibold leading-snug text-ink">
                     {item.q}
                   </span>
                   <ChevronDown
-                    className={`w-5 h-5 text-[#7143E0] shrink-0 transition-transform duration-300 ${
+                    className={`h-5 w-5 shrink-0 text-ink transition-transform duration-300 ${
                       openFaq === i ? "rotate-180" : ""
                     }`}
                   />
@@ -277,7 +287,7 @@ export const CityLandingPage = ({ city }: CityLandingPageProps) => {
                     openFaq === i ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"
                   }`}
                 >
-                  <div className="px-6 pb-5 text-slate-600 text-[15px] leading-relaxed border-t border-slate-100 pt-4">
+                  <div className="border-t border-line px-6 pb-5 pt-4 text-[15px] leading-relaxed text-ink/70">
                     {item.a}
                   </div>
                 </div>
@@ -292,17 +302,16 @@ export const CityLandingPage = ({ city }: CityLandingPageProps) => {
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             {[
-              { icon: <Users className="w-5 h-5" />, number: "120+", label: t("cityPage.trust.clients") },
-              { icon: <TrendingUp className="w-5 h-5" />, number: "3.2M+", label: t("cityPage.trust.visits") },
-              { icon: <Search className="w-5 h-5" />, number: "50K+", label: t("cityPage.trust.keywords") },
-              { icon: <MapPin className="w-5 h-5" />, number: "5", label: t("cityPage.trust.markets") },
+              { icon: <Settings className="h-5 w-5" />, label: t("cityPage.trust.technical") },
+              { icon: <MapPin className="h-5 w-5" />, label: t("cityPage.trust.local") },
+              { icon: <Languages className="h-5 w-5" />, label: t("cityPage.trust.bilingual") },
+              { icon: <Braces className="h-5 w-5" />, label: t("cityPage.trust.structured") },
             ].map((item, i) => (
               <div key={i} className="text-center">
                 <div className="mb-3 inline-flex h-10 w-10 items-center justify-center border border-paper/30 bg-paper/10 text-lime">
                   {item.icon}
                 </div>
-                <div className="text-2xl font-extrabold text-paper">{item.number}</div>
-                <div className="mt-1 text-sm text-paper/60">{item.label}</div>
+                <div className="mt-1 text-sm font-bold uppercase tracking-[0.08em] text-paper">{item.label}</div>
               </div>
             ))}
           </div>

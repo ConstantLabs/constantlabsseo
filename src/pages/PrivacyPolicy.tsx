@@ -264,7 +264,7 @@ const PrivacyPolicy = () => {
           {/* Footer link */}
           <div className="border-t border-line pt-8 text-center">
             <p className="text-xs text-slate-500">&copy; {new Date().getFullYear()} {c.rights}</p>
-            <Link to="/terms" className="text-xs text-[#7143E0] hover:underline mt-2 inline-block">
+            <Link to="/terms" className="mt-2 inline-block text-xs text-ink underline underline-offset-4">
               {c.termsLink}
             </Link>
           </div>

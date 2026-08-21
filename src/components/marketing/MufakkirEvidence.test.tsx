@@ -14,9 +14,9 @@ describe("MufakkirEvidence", () => {
     expect(screen.getByRole("region", { name: /mufakkir organic search performance/i })).toBeVisible();
     expect(screen.getByText("1.74K")).toBeVisible();
     expect(screen.getByText("29K")).toBeVisible();
-    expect(screen.getByText("6%")).toBeVisible();
+    expect(screen.getByText("6.0%")).toBeVisible();
     expect(screen.getByText("8.4")).toBeVisible();
-    expect(screen.getByText(/Google Search Console/i)).toBeVisible();
+    expect(screen.getAllByText(/Google Search Console/i).length).toBeGreaterThan(0);
     expect(screen.getByRole("link", { name: /view source screenshot/i })).toHaveAttribute(
       "href",
       "/proof/mufakkir-search-console-12-months.png",

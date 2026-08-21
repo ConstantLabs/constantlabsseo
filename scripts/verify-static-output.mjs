@@ -61,7 +61,7 @@ function assertMetadata(html, path) {
 const representativePages = [
   ["/", "Build the answer people find."],
   ["/services", "Everything You Need to Get Found and Grow"],
-  ["/seo-agency-dubai", "Dubai's #1 AI SEO Agency"],
+  ["/seo-agency-dubai", "Search systems for Dubai businesses"],
   ["/tools/meta-tag-analyzer", "Meta Tag Analyzer"],
 ];
 

@@ -21,13 +21,13 @@ export const routes = [
   },
   {
     path: "/case-studies",
-    title: "SEO Case Studies - Proven Results in the GCC | ConstantSEO",
-    description: "Real SEO results for Gulf businesses. See how we deploy 50+ optimized pages in hours, rank for Google + AI search, and deliver bilingual Arabic-English SEO.",
+    title: "SEO Work and Methods in the GCC | ConstantSEO",
+    description: "Explore documented ConstantSEO methods for technical, local, bilingual, and AI-answer search systems.",
   },
   {
     path: "/case-studies/rapid-seo-deployment",
-    title: "50+ Optimized Pages in 4 Hours - SEO Case Study | ConstantSEO",
-    description: "See how ConstantSEO uses agentic AI to deploy 50+ optimized SEO pages in hours, including location content, schema markup, internal links, and technical optimization.",
+    title: "Structured SEO Publishing Method | ConstantSEO",
+    description: "See how ConstantSEO coordinates content, schema markup, internal links, and technical checks in a structured publishing workflow.",
   },
   {
     path: "/case-studies/ai-search-visibility",
@@ -47,7 +47,7 @@ export const routes = [
   {
     path: "/about",
     title: "About ConstantSEO - AI-Native SEO Agency in Dubai | Constant Labs",
-    description: "ConstantSEO by Constant Labs is Dubai's AI-native SEO agency. We combine agentic AI with deep GCC market expertise to deliver results faster than traditional agencies.",
+    description: "ConstantSEO by Constant Labs combines agentic workflows with GCC market context across technical, local, and bilingual SEO.",
   },
   {
     path: "/blog",
@@ -84,12 +84,12 @@ export const routes = [
   {
     path: "/services/ai-search-optimization",
     title: "AI Search Optimization (GEO/AEO) - Get Recommended by AI | ConstantSEO",
-    description: "Dominate AI search results across ChatGPT, Gemini, Perplexity, and Claude. We optimize your digital presence so AI assistants recommend your business.",
+    description: "Build clearer entity, content, citation, and structured-data signals for AI answer platforms including ChatGPT, Gemini, Perplexity, and Claude.",
   },
   {
     path: "/services/technical-seo",
     title: "Technical SEO Mastery - Core Web Vitals & Schema | ConstantSEO",
-    description: "Lightning-fast, technically flawless websites that search engines love. From Core Web Vitals to schema markup, we handle every technical detail.",
+    description: "Technical SEO review and implementation covering crawlability, Core Web Vitals, metadata, and schema markup.",
   },
   {
     path: "/services/arabic-content",
@@ -99,7 +99,7 @@ export const routes = [
   {
     path: "/services/local-seo",
     title: "Local SEO Dominance - Google Maps & Geo-targeting | ConstantSEO",
-    description: "Own your local market. Google Maps optimization, local citations, and geo-targeted content for UAE, Saudi Arabia, and Oman.",
+    description: "Local search systems covering Google Business Profile, citations, and location-focused content for UAE, Saudi Arabia, and Oman.",
   },
   {
     path: "/services/ai-link-building",
@@ -113,12 +113,12 @@ export const routes = [
   },
   {
     path: "/services/website-development",
-    title: "SEO-First Website Development - 50+ Pages in Hours | ConstantSEO",
-    description: "SEO-first websites built with agentic AI in days, not months. 50+ optimized pages deployed before your competitors finish their first draft.",
+    title: "SEO-First Website Development | ConstantSEO",
+    description: "SEO-first website development with structured content, metadata, schema, internal links, and technical review.",
   },
   {
     path: "/services/cro",
-    title: "Conversion Rate Optimization - Turn Traffic Into Revenue | ConstantSEO",
+    title: "Conversion Rate Optimization and UX Review | ConstantSEO",
     description: "Data-driven CRO that maximizes every visitor from both traditional and AI search channels. A/B testing, UX optimization, and funnel analysis.",
   },
 
@@ -178,38 +178,38 @@ export const routes = [
   {
     path: "/seo-agency-dubai",
     title: "SEO Agency Dubai - AI-Powered SEO by ConstantSEO",
-    description: "Dubai's leading AI-powered SEO agency. ConstantSEO helps Dubai businesses dominate Google, ChatGPT, and Perplexity rankings. Free audit available.",
+    description: "Technical, local, bilingual, and AI-answer search systems for businesses in Dubai from ConstantSEO.",
   },
   {
     path: "/seo-agency-abu-dhabi",
     title: "SEO Agency Abu Dhabi - AI-Powered SEO by ConstantSEO",
-    description: "Top-rated AI SEO agency in Abu Dhabi. ConstantSEO helps government suppliers, healthcare providers, and tourism businesses dominate Google rankings.",
+    description: "Technical, local, bilingual, and AI-answer search systems for businesses in Abu Dhabi from ConstantSEO.",
   },
   {
     path: "/seo-agency-riyadh",
     title: "SEO Agency Riyadh - AI-Powered SEO by ConstantSEO",
-    description: "Leading SEO agency in Riyadh, Saudi Arabia. ConstantSEO drives organic growth for Vision 2030 businesses, e-commerce brands, and GIGA project suppliers.",
+    description: "Technical, local, bilingual, and AI-answer search systems for businesses in Riyadh from ConstantSEO.",
   },
   {
     path: "/seo-agency-jeddah",
     title: "SEO Agency Jeddah - AI-Powered SEO by ConstantSEO",
-    description: "Premier SEO agency in Jeddah, Saudi Arabia. ConstantSEO drives organic search growth for Jeddah's trade, hospitality, F&B, and retail businesses.",
+    description: "Technical, local, bilingual, and AI-answer search systems for businesses in Jeddah from ConstantSEO.",
   },
   {
     path: "/seo-agency-muscat",
     title: "SEO Agency Muscat - AI-Powered SEO by ConstantSEO",
-    description: "Top SEO agency in Muscat, Oman. ConstantSEO helps Omani businesses in tourism, logistics, and hospitality dominate Google rankings.",
+    description: "Technical, local, bilingual, and AI-answer search systems for businesses in Muscat from ConstantSEO.",
   },
 
   // ── Industry Landing Pages ──────────────────────────────────
   {
     path: "/real-estate-seo-dubai",
-    title: "Real Estate SEO Dubai - Rank for Property Searches in UAE",
+    title: "Real Estate SEO Systems for Dubai | ConstantSEO",
     description: "ConstantSEO helps Dubai real estate agencies, developers, and brokers rank on Google for high-intent property searches.",
   },
   {
     path: "/restaurant-seo-dubai",
-    title: "Restaurant SEO Dubai - Rank for Brunch, Cuisine & Location Searches",
+    title: "Restaurant SEO Systems for Dubai | ConstantSEO",
     description: "ConstantSEO helps Dubai restaurants, cafes, and F&B groups rank on Google for high-intent dining searches.",
   },
   {

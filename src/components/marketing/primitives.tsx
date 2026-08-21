@@ -8,7 +8,7 @@ export function SectionShell({ className, ...props }: ElementProps<"section">) {
 }
 
 export function Eyebrow({ className, ...props }: ElementProps<"p">) {
-  return <p className={cn("font-sans text-xs font-bold uppercase tracking-[0.2em] text-evidence-blue", className)} {...props} />;
+  return <p className={cn("font-sans text-xs font-bold uppercase tracking-[0.2em] text-ink/70", className)} {...props} />;
 }
 
 export function DisplayTitle({ as: Tag = "h2", className, ...props }: ElementProps<"h2"> & { as?: "h1" | "h2" | "h3" }) {
