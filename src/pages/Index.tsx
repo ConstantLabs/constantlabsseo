@@ -13,13 +13,15 @@ import { ZCalBookingSection } from "@/components/ZCalBookingSection";
 import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 import { MufakkirEvidence } from "@/components/marketing/MufakkirEvidence";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const Index = () => {
+  const { t } = useLanguage();
   return (
     <>
       <SEO
-        title="ConstantSEO — Search systems for the GCC"
-        description="ConstantSEO builds bilingual, technical, and local search systems for businesses across the GCC."
+        title={t("home.seo.title")}
+        description={t("home.seo.description")}
         path="/"
       />
 

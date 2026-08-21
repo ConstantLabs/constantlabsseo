@@ -108,6 +108,8 @@ export const translations: TranslationMap = {
   "home.nav.label": { en: "Primary navigation", ar: "التنقل الرئيسي" },
   "home.nav.open": { en: "Open navigation", ar: "فتح التنقل" },
   "home.nav.close": { en: "Close navigation", ar: "إغلاق التنقل" },
+  "home.seo.title": { en: "ConstantSEO — Search systems for the GCC", ar: "ConstantSEO — أنظمة بحث لمنطقة الخليج" },
+  "home.seo.description": { en: "ConstantSEO builds bilingual, technical, and local search systems for businesses across the GCC.", ar: "تبني ConstantSEO أنظمة بحث ثنائية اللغة وتقنية ومحلية للشركات في أنحاء الخليج." },
   "home.hero.eyebrow": { en: "Search systems for GCC growth", ar: "أنظمة بحث لنمو أعمال الخليج" },
   "home.hero.title": { en: "Build the answer people find.", ar: "ابنِ الإجابة التي يجدها الناس." },
   "home.hero.subtitle": { en: "Bilingual SEO systems for the pages, places, and questions that create qualified demand across the GCC.", ar: "أنظمة SEO ثنائية اللغة للصفحات والأماكن والأسئلة التي تخلق طلباً مؤهلاً في أنحاء الخليج." },
@@ -173,6 +175,8 @@ export const translations: TranslationMap = {
   "home.booking.title": { en: "A useful next conversation.", ar: "محادثة تالية مفيدة." },
   "home.booking.panelTitle": { en: "Bring the search question.", ar: "أحضر سؤال البحث." },
   "home.booking.panelCopy": { en: "We will use the time to understand your current search presence and the most useful next investigation.", ar: "سنستخدم الوقت لفهم حضورك الحالي في البحث وأفضل تحقيق تالٍ مفيد." },
+  "whatsapp.ariaLabel": { en: "Chat on WhatsApp", ar: "تواصل عبر واتساب" },
+  "whatsapp.tooltip": { en: "Chat on WhatsApp", ar: "تواصل عبر واتساب" },
 
   // ─── Mufakkir evidence ─────────────────────────────────────
   "mufakkir.eyebrow": { en: "Source-backed performance", ar: "أداء موثّق بالمصدر" },
