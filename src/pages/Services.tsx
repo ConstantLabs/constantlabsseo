@@ -6,6 +6,7 @@ import { CTASection } from "@/components/CTASection";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { SERVICES } from "@/data/projectsData";
 import { ArrowRight } from "lucide-react";
+import { PageHero } from "@/components/marketing/PageHero";
 
 function slugify(id: string) {
   return id.toLowerCase().replace(/_/g, "-");
@@ -23,23 +24,10 @@ const Services = () => {
       />
       <Navbar />
 
-      {/* Hero */}
-      <section className="pt-32 pb-20 bg-gradient-to-b from-[#2B124C] to-[#1a0a30] text-white">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <p className="text-sm font-semibold text-cyan-400 uppercase tracking-wider mb-4">
-            {t("services.label")}
-          </p>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold" style={{ color: "#ffffff" }}>
-            {t("services.title")}
-          </h1>
-          <p className="mt-6 text-lg text-gray-200 max-w-2xl mx-auto">
-            {t("services.subtitle")}
-          </p>
-        </div>
-      </section>
+      <PageHero eyebrow={t("services.label")} title={t("services.title")} lede={t("services.subtitle")} />
 
       {/* Services Grid */}
-      <section className="py-20">
+      <section className="border-b border-line bg-paper py-16 sm:py-24">
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-6">
             {SERVICES.map((service) => {
@@ -48,23 +36,23 @@ const Services = () => {
                 <Link
                   key={service.id}
                   to={`/services/${slugify(service.id)}`}
-                  className="group relative rounded-2xl border border-slate-200 p-6 sm:p-8 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+                  className="group relative border border-line bg-paper p-6 sm:p-8 hover:-translate-y-1 hover:bg-lime/20 transition-all duration-300"
                 >
                   <div className="flex items-start gap-4 mb-4">
-                    <div className="w-12 h-12 rounded-xl bg-[#7143E0] flex items-center justify-center shrink-0">
-                      <Icon className="w-6 h-6 text-white" />
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center border border-line bg-ink">
+                      <Icon className="w-6 h-6 text-lime" />
                     </div>
                     <div>
-                      <h2 className="text-xl font-bold text-slate-900 group-hover:text-[#7143E0] transition-colors">
+                      <h2 className="font-heading text-2xl uppercase leading-none text-ink">
                         {service.title}
                       </h2>
-                      <p className="text-sm text-[#7143E0] font-medium mt-0.5">
+                      <p className="mt-1 text-sm font-medium text-evidence-blue">
                         {service.oneLiner}
                       </p>
                     </div>
                   </div>
 
-                  <p className="text-slate-600 text-[15px] leading-relaxed mb-5">
+                  <p className="mb-5 text-[15px] leading-relaxed text-ink/70">
                     {service.description}
                   </p>
 
@@ -72,14 +60,14 @@ const Services = () => {
                     {service.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="px-3 py-1 rounded-full bg-slate-100 text-slate-600 text-xs font-medium"
+                        className="border border-line px-3 py-1 text-xs font-medium text-ink/70"
                       >
                         {tag}
                       </span>
                     ))}
                   </div>
 
-                  <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#7143E0]">
+                  <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-evidence-blue">
                     {isAr ? "اعرف المزيد" : "Learn More"}
                     <ArrowRight className={`w-4 h-4 group-hover:translate-x-1 transition-transform ${isAr ? "rotate-180" : ""}`} />
                   </span>

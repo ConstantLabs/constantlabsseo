@@ -6,6 +6,7 @@ import { CTASection } from "@/components/CTASection";
 import { caseStudies } from "@/data/projectsData";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { PageHero } from "@/components/marketing/PageHero";
 
 const CaseStudies = () => {
   return (
@@ -17,39 +18,14 @@ const CaseStudies = () => {
       />
       <Navbar />
 
-      {/* Hero */}
-      <section className="pt-32 pb-20 bg-gradient-to-b from-[#2B124C] to-[#1a0a30] text-white">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <motion.p
-            initial={{ y: 20 }}
-            animate={{ y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-sm font-semibold text-cyan-400 uppercase tracking-wider mb-4"
-          >
-            Case Studies
-          </motion.p>
-          <motion.h1
-            initial={{ y: 30 }}
-            animate={{ y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-extrabold"
-            style={{ color: "#ffffff" }}
-          >
-            Real Results, Real Impact
-          </motion.h1>
-          <motion.p
-            initial={{ y: 20 }}
-            animate={{ y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="mt-6 text-lg text-gray-200 max-w-2xl mx-auto"
-          >
-            See how our AI-powered approach to SEO delivers measurable outcomes for businesses across the GCC.
-          </motion.p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Case Studies"
+        title="Documented SEO Work"
+        lede="Explore the context, scope, and reported outcomes behind selected SEO engagements across the GCC."
+      />
 
       {/* Case Studies Grid */}
-      <section className="py-20">
+      <section className="border-b border-line bg-paper py-16 sm:py-24">
         <div className="max-w-5xl mx-auto px-4 space-y-8">
           {caseStudies.map((cs, i) => (
             <motion.div
@@ -61,29 +37,29 @@ const CaseStudies = () => {
             >
               <Link
                 to={`/case-studies/${cs.slug}`}
-                className="block group rounded-2xl border border-slate-200 overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+                className="block group border border-line bg-paper p-1 hover:-translate-y-1 hover:bg-lime/20 transition-all duration-300"
               >
-                <div className="p-8 md:p-10">
+                <div className="border border-dashed border-line/40 p-8 md:p-10">
                   {/* Tags */}
                   <div className="flex flex-wrap items-center gap-2 mb-4">
-                    <span className="px-3 py-1 rounded-full bg-[#7143E0]/10 text-[#7143E0] text-xs font-semibold">
+                    <span className="border border-line px-3 py-1 text-xs font-semibold text-evidence-blue">
                       {cs.industry}
                     </span>
-                    <span className="px-3 py-1 rounded-full bg-slate-100 text-slate-600 text-xs font-medium">
+                    <span className="border border-line px-3 py-1 text-xs font-medium text-ink/70">
                       {cs.market}
                     </span>
                   </div>
 
                   {/* Metric */}
-                  <div className="text-3xl md:text-4xl font-extrabold text-[#FECD4D] mb-3">
+                  <div className="mb-3 font-heading text-4xl uppercase text-evidence-blue md:text-5xl">
                     {cs.metric}
                   </div>
 
-                  <h2 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-[#7143E0] transition-colors">
+                  <h2 className="mb-3 font-heading text-3xl uppercase leading-none text-ink">
                     {cs.title}
                   </h2>
 
-                  <p className="text-slate-600 leading-relaxed mb-5 max-w-3xl">
+                  <p className="mb-5 max-w-3xl leading-relaxed text-ink/70">
                     {cs.description}
                   </p>
 
@@ -92,14 +68,14 @@ const CaseStudies = () => {
                     {cs.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="px-3 py-1 rounded-full bg-cyan-50 text-cyan-700 text-xs font-medium border border-cyan-100"
+                        className="border border-line px-3 py-1 text-xs font-medium text-ink/70"
                       >
                         {tag}
                       </span>
                     ))}
                   </div>
 
-                  <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#7143E0]">
+                  <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-evidence-blue">
                     Read More
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </span>

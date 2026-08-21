@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { motion } from "framer-motion";
-import { Search, MapPin, TrendingUp, Users, ChevronDown, ChevronRight } from "lucide-react";
+import { Search, MapPin, TrendingUp, Users, ChevronDown } from "lucide-react";
+import { PageHero } from "@/components/marketing/PageHero";
 import { SEO } from "@/components/SEO";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -105,76 +105,16 @@ export const CityLandingPage = ({ city }: CityLandingPageProps) => {
 
       <Navbar />
 
-      {/* Hero */}
-      <section className="relative pt-28 pb-20 md:pt-36 md:pb-28 bg-gradient-to-b from-[#2B124C] to-[#1a0a30] overflow-hidden">
-        <div
-          className="absolute inset-0 opacity-[0.04] pointer-events-none"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(113,67,224,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(113,67,224,0.6) 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
-          }}
-        />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-[#7143E0]/15 rounded-full blur-[120px] pointer-events-none" />
-
-        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          {/* Breadcrumb */}
-          <nav className="flex items-center justify-center gap-1.5 text-xs text-gray-400 mb-6" dir="ltr">
-            <Link to="/" className="hover:text-white transition-colors">{t("nav.home")}</Link>
-            <ChevronRight className="w-3 h-3" />
-            <Link to="/services" className="hover:text-white transition-colors">{t("cityPage.breadcrumb.services")}</Link>
-            <ChevronRight className="w-3 h-3" />
-            <span className="text-gray-300">{cityName}</span>
-          </nav>
-
-          {/* City badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/15 text-sm font-medium text-gray-200 mb-6" dir="ltr">
-            <span className="text-lg leading-none">{city.flag}</span>
-            <span>{cityName}</span>
-            <span className="text-gray-400">·</span>
-            <span className="text-gray-300">{countryName}</span>
-            <span className="text-gray-400">·</span>
-            <span className="text-[#20B2AA]">{city.population}</span>
-          </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-          >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
-              {headline}
-            </h1>
-            <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed mb-10">
-              {sub}
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
-          >
-            <Link
-              to="/contact"
-              className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#FECD4D] hover:bg-[#ffe066] text-[#2B124C] font-bold rounded-full text-sm uppercase tracking-wide transition-all"
-            >
-              {t("cityPage.cta.audit")}
-              <ChevronRight className="w-4 h-4" />
-            </Link>
-            <Link
-              to="/services"
-              className="inline-flex items-center gap-2 px-8 py-3.5 bg-transparent hover:bg-white/10 text-[#20B2AA] border border-[#20B2AA]/50 hover:border-[#20B2AA] font-semibold rounded-full text-sm transition-all"
-            >
-              {t("cityPage.cta.services")}
-            </Link>
-          </motion.div>
-        </div>
-      </section>
+      <PageHero
+        eyebrow={`${city.flag} ${cityName} · ${countryName}`}
+        title={headline}
+        lede={sub}
+        meta={city.population}
+        actions={<><Link to="/contact" className="border border-ink bg-lime px-5 py-3 text-sm font-bold uppercase tracking-[0.08em] text-ink">{t("cityPage.cta.audit")}</Link><Link to="/services" className="border border-ink px-5 py-3 text-sm font-bold uppercase tracking-[0.08em] text-ink hover:bg-ink hover:text-paper">{t("cityPage.cta.services")}</Link></>}
+      />
 
       {/* Why SEO Matters */}
-      <section className="py-20 bg-white">
+      <section className="border-b border-line bg-paper py-16 sm:py-24">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>

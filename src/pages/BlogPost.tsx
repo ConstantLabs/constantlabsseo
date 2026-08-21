@@ -5,8 +5,8 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { CTASection } from "@/components/CTASection";
 import { getBlogPostBySlug, getRelatedPosts } from "@/data/blogData";
-import { motion } from "framer-motion";
-import { ArrowLeft, Calendar, Clock, Tag, ChevronRight } from "lucide-react";
+import { ArrowLeft, Calendar, Clock, Tag } from "lucide-react";
+import { PageHero } from "@/components/marketing/PageHero";
 
 const BASE_URL = "https://seo.constantlabs.ai";
 
@@ -117,77 +117,12 @@ const BlogPost = () => {
       </Helmet>
       <Navbar />
 
-      {/* Hero */}
-      <section className="pt-32 pb-16 bg-gradient-to-b from-[#2B124C] to-[#1a0a30] text-white">
-        <div className="max-w-4xl mx-auto px-4">
-          {/* Breadcrumb */}
-          <nav aria-label="Breadcrumb" className="mb-8">
-            <ol className="flex items-center gap-2 text-sm text-gray-400">
-              <li>
-                <Link to="/" className="hover:text-white transition-colors">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <ChevronRight className="w-3.5 h-3.5" />
-              </li>
-              <li>
-                <Link
-                  to="/blog"
-                  className="hover:text-white transition-colors"
-                >
-                  Blog
-                </Link>
-              </li>
-              <li>
-                <ChevronRight className="w-3.5 h-3.5" />
-              </li>
-              <li className="text-gray-200 truncate max-w-[200px] sm:max-w-none">
-                {post.title}
-              </li>
-            </ol>
-          </nav>
-
-          {/* Category badge */}
-          <motion.div
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.4 }}
-          >
-            <span className="inline-block px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-300 text-xs font-semibold uppercase tracking-wider mb-4">
-              {post.category}
-            </span>
-          </motion.div>
-
-          {/* Title */}
-          <motion.h1
-            initial={{ y: 30, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.6 }}
-            className="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight"
-          >
-            {post.title}
-          </motion.h1>
-
-          {/* Meta info */}
-          <motion.div
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.15 }}
-            className="flex flex-wrap items-center gap-4 mt-6 text-sm text-gray-300"
-          >
-            <span className="flex items-center gap-1.5">
-              <Calendar className="w-4 h-4" />
-              <time dateTime={post.date}>{formattedDate}</time>
-            </span>
-            <span className="flex items-center gap-1.5">
-              <Clock className="w-4 h-4" />
-              {post.readTime}
-            </span>
-            <span className="text-gray-400">By {post.author}</span>
-          </motion.div>
-        </div>
-      </section>
+      <PageHero
+        eyebrow={post.category}
+        title={post.title}
+        meta={<div className="flex flex-wrap items-center gap-4"><span className="flex items-center gap-1.5"><Calendar className="h-4 w-4" /><time dateTime={post.date}>{formattedDate}</time></span><span className="flex items-center gap-1.5"><Clock className="h-4 w-4" />{post.readTime}</span><span>By {post.author}</span></div>}
+        actions={<nav aria-label="Breadcrumb" className="text-sm"><Link to="/blog" className="underline underline-offset-4">Blog</Link></nav>}
+      />
 
       {/* Hero Image */}
       {post.heroImage && (

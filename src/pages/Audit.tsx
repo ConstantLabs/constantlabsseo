@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useSearchParams } from "react-router-dom";
 import { SEO } from "@/components/SEO";
+import { PageHero } from "@/components/marketing/PageHero";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { useLanguage } from "@/i18n/LanguageContext";
@@ -235,24 +236,11 @@ const Audit = () => {
       <Navbar />
 
       {/* ── Hero + Quick Scan ──────────────────────────────── */}
-      <section className="pt-32 pb-16 bg-gradient-to-b from-[#2B124C] to-[#1a0a30] text-white">
-        <div className="max-w-3xl mx-auto px-4 text-center">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-5xl font-extrabold"
-          >
-            {t("audit.hero.title")}
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="mt-4 text-lg text-gray-200 max-w-xl mx-auto"
-          >
-            {t("audit.hero.subtitle")}
-          </motion.p>
-
+      <PageHero
+        eyebrow={isAr ? "فحص الموقع" : "Website scan"}
+        title={t("audit.hero.title")}
+        lede={t("audit.hero.subtitle")}
+        actions={<div className="w-full max-w-xl">
           {/* URL Input */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -260,10 +248,10 @@ const Audit = () => {
             transition={{ delay: 0.2 }}
             className="mt-8 max-w-xl mx-auto"
           >
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-0 sm:bg-white/10 sm:rounded-full sm:p-1.5">
+            <div className="flex flex-col gap-3 sm:flex-row sm:gap-0 sm:border sm:border-line sm:bg-paper sm:p-1.5">
               <div className="relative flex-1">
                 <Search
-                  className={`absolute top-1/2 -translate-y-1/2 w-5 h-5 text-gray-200 ${isAr ? "right-4" : "left-4"}`}
+                  className={`absolute top-1/2 -translate-y-1/2 w-5 h-5 text-ink/60 ${isAr ? "right-4" : "left-4"}`}
                 />
                 <input
                   type="text"
@@ -272,13 +260,13 @@ const Audit = () => {
                   onKeyDown={(e) => e.key === "Enter" && !scanning && handleScan()}
                   placeholder={t("audit.input.placeholder")}
                   disabled={scanning}
-                  className={`w-full bg-white/10 sm:bg-transparent border border-white/10 sm:border-none rounded-full sm:rounded-none py-3.5 sm:py-2.5 text-white placeholder-gray-400 outline-none text-sm disabled:opacity-50 ${isAr ? "pr-12 pl-4" : "pl-12 pr-4"}`}
+                  className={`w-full border border-line bg-paper py-3.5 text-ink placeholder:text-ink/45 outline-none sm:border-none sm:bg-transparent sm:py-2.5 text-sm disabled:opacity-50 ${isAr ? "pr-12 pl-4" : "pl-12 pr-4"}`}
                 />
               </div>
               <Button
                 onClick={handleScan}
                 disabled={scanning || !url.trim()}
-                className="bg-[#FECD4D] hover:bg-[#ffe066] text-[#2B124C] font-semibold rounded-full px-7 py-3 sm:py-2.5 text-sm uppercase tracking-wide transition-all whitespace-nowrap disabled:opacity-50"
+                className="border border-ink bg-lime px-7 py-3 text-sm font-semibold uppercase tracking-wide text-ink transition-all hover:bg-lime/80 sm:py-2.5 whitespace-nowrap disabled:opacity-50"
               >
                 {scanning ? (
                   <Loader2 className="w-4 h-4 animate-spin" />
@@ -301,8 +289,8 @@ const Audit = () => {
               animate={{ opacity: 1 }}
               className="mt-8"
             >
-              <Loader2 className="w-8 h-8 animate-spin text-[#FECD4D] mx-auto" />
-              <p className="mt-3 text-sm text-gray-300 animate-pulse">
+              <Loader2 className="mx-auto h-8 w-8 animate-spin text-evidence-blue" />
+              <p className="mt-3 text-sm text-ink/70 animate-pulse">
                 {t(LOADING_KEYS[loadingMsgIdx])}
               </p>
             </motion.div>
@@ -313,10 +301,10 @@ const Audit = () => {
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="mt-8 p-6 rounded-xl bg-red-500/10 border border-red-500/20 max-w-lg mx-auto"
+              className="mx-auto mt-8 max-w-lg border border-red-500/40 bg-red-500/10 p-6"
             >
               <h3 className="font-bold text-red-400">{t("audit.error.title")}</h3>
-              <p className="mt-2 text-sm text-gray-300">
+              <p className="mt-2 text-sm text-ink/70">
                 {t("audit.error.message")}
               </p>
               <Button
@@ -324,16 +312,18 @@ const Audit = () => {
                   setError(false);
                   handleScan();
                 }}
-                className="mt-4 bg-white/10 hover:bg-white/20 text-white rounded-full px-6 py-2 text-sm"
+                className="mt-4 border border-ink bg-paper px-6 py-2 text-sm text-ink hover:bg-lime/20"
               >
                 {t("audit.error.retry")}
               </Button>
             </motion.div>
           )}
-        </div>
+        </div>}
+      />
 
         {/* Results */}
         {result && !scanning && (
+          <section className="border-b border-line bg-ink py-10 text-paper">
           <motion.div
             ref={resultsRef}
             initial={{ opacity: 0, y: 20 }}
@@ -391,8 +381,8 @@ const Audit = () => {
               </div>
             </div>
           </motion.div>
+          </section>
         )}
-      </section>
 
       {/* ── Deep Audit CTA ─────────────────────────────────── */}
       <section className="py-20 bg-white">

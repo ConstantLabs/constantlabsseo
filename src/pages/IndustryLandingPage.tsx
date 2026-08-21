@@ -14,8 +14,8 @@ import {
   CheckCircle2,
   ChevronDown,
   ChevronUp,
-  ArrowRight,
 } from "lucide-react";
+import { PageHero } from "@/components/marketing/PageHero";
 
 interface IndustryLandingPageProps {
   industry: IndustryData;
@@ -107,67 +107,15 @@ export const IndustryLandingPage = ({ industry }: IndustryLandingPageProps) => {
 
       <Navbar />
 
-      {/* Hero */}
-      <section className="relative pt-32 pb-24 bg-gradient-to-b from-[#2B124C] via-[#1e0d38] to-[#1a0a30] text-white overflow-hidden">
-        <div
-          className="absolute inset-0 opacity-[0.04] pointer-events-none"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(113,67,224,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(113,67,224,0.6) 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
-          }}
-        />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-[#7143E0]/15 rounded-full blur-[120px] pointer-events-none" />
-
-        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          {/* Breadcrumb */}
-          <nav className="flex items-center justify-center gap-2 text-xs text-gray-400 mb-8" dir="ltr">
-            <Link to="/" className="hover:text-white transition-colors">
-              {t("nav.home")}
-            </Link>
-            <span>/</span>
-            <Link to="/services" className="hover:text-white transition-colors">
-              {t("industryPage.breadcrumb.services")}
-            </Link>
-            <span>/</span>
-            <span className="text-gray-300">{industryName} SEO</span>
-          </nav>
-
-          {/* Industry badge */}
-          <span className="inline-flex items-center gap-2 bg-[#7143E0]/20 border border-[#7143E0]/40 text-cyan-300 text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
-            {industryName} · {industry.location}
-          </span>
-
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-white mb-6">
-            {headline}
-          </h1>
-
-          <p className="text-lg text-gray-300 max-w-2xl mx-auto mb-10 leading-relaxed">
-            {sub}
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              to="/contact"
-              className="inline-flex items-center gap-2 bg-[#FECD4D] hover:bg-[#ffe066] text-[#2B124C] font-bold text-sm px-8 py-4 rounded-full uppercase tracking-wide transition-all"
-            >
-              {t("industryPage.cta.audit")}
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-            <a
-              href="https://wa.me/971561495656"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 border border-white/20 hover:border-white/40 text-white text-sm font-semibold px-8 py-4 rounded-full transition-all hover:bg-white/5"
-            >
-              {t("industryPage.cta.whatsapp")}
-            </a>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        eyebrow={`${industryName} · ${industry.location}`}
+        title={headline}
+        lede={sub}
+        actions={<><Link to="/contact" className="border border-ink bg-lime px-5 py-3 text-sm font-bold uppercase tracking-[0.08em] text-ink">{t("industryPage.cta.audit")}</Link><a href="https://wa.me/971561495656" target="_blank" rel="noopener noreferrer" className="border border-ink px-5 py-3 text-sm font-bold uppercase tracking-[0.08em] text-ink hover:bg-ink hover:text-paper">{t("industryPage.cta.whatsapp")}</a></>}
+      />
 
       {/* Results Stats Bar */}
-      <section className="bg-[#7143E0] py-10">
+      <section className="border-b border-line bg-ink py-10">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center text-white">
             {results.map((result) => (

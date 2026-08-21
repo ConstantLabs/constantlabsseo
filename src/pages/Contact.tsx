@@ -5,8 +5,8 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, MessageCircle, ArrowRight, Clock } from "lucide-react";
+import { PageHero } from "@/components/marketing/PageHero";
 
 const contactInfo = [
   { icon: Mail, label: "Email", value: "akhmad@constantlabs.ai", href: "mailto:akhmad@constantlabs.ai" },
@@ -47,33 +47,17 @@ const Contact = () => {
       />
       <Navbar />
 
-      {/* Hero */}
-      <section className="pt-32 pb-16 bg-gradient-to-b from-[#2B124C] to-[#1a0a30] text-white">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h1
-            className="text-4xl md:text-5xl font-extrabold"
-            style={{ color: "#ffffff" }}
-          >
-            {t("nav.contact")}
-          </h1>
-          <p
-            className="mt-4 text-lg text-gray-200 max-w-xl mx-auto"
-          >
-            Ready to dominate search? Get a free AI-powered audit of your website.
-          </p>
-        </div>
-      </section>
+      <PageHero eyebrow={t("nav.contact")} title={t("nav.contact")} lede="Request a practical review of your website's current search signals and technical foundations." />
 
       {/* Content */}
-      <section className="py-20">
+      <section className="border-b border-line bg-paper py-16 sm:py-24">
         <div className="max-w-6xl mx-auto px-4 grid lg:grid-cols-2 gap-12">
           {/* Contact Form */}
-          <div
-          >
-            <h2 className="text-2xl font-bold text-slate-900 mb-6">Get Your Free Audit</h2>
+          <div className="border border-line bg-paper p-6 sm:p-8">
+            <h2 className="mb-6 font-heading text-3xl uppercase text-ink">Get Your Free Audit</h2>
             {submitted && (
-              <div className="mb-6 p-4 rounded-lg bg-green-50 border border-green-200 text-green-800 text-sm font-medium">
-                Opening WhatsApp — we'll reply within a few hours!
+              <div className="mb-6 border border-line bg-lime/20 p-4 text-sm font-medium text-ink">
+                Opening WhatsApp with your request.
               </div>
             )}
             <form onSubmit={handleSubmit} className="space-y-5">
@@ -84,7 +68,7 @@ const Contact = () => {
                   required
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full px-4 py-3 rounded-lg border border-slate-200 bg-white text-slate-900 outline-none focus:ring-2 focus:ring-[#7143E0]/20 focus:border-[#7143E0] transition-all"
+                  className="w-full border border-line bg-paper px-4 py-3 text-ink outline-none focus:ring-2 focus:ring-lime transition-all"
                   placeholder="Your name"
                 />
               </div>
@@ -95,7 +79,7 @@ const Contact = () => {
                   required
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full px-4 py-3 rounded-lg border border-slate-200 bg-white text-slate-900 outline-none focus:ring-2 focus:ring-[#7143E0]/20 focus:border-[#7143E0] transition-all"
+                  className="w-full border border-line bg-paper px-4 py-3 text-ink outline-none focus:ring-2 focus:ring-lime transition-all"
                   placeholder="you@company.com"
                 />
               </div>
@@ -105,7 +89,7 @@ const Contact = () => {
                   type="url"
                   value={formData.website}
                   onChange={(e) => setFormData({ ...formData, website: e.target.value })}
-                  className="w-full px-4 py-3 rounded-lg border border-slate-200 bg-white text-slate-900 outline-none focus:ring-2 focus:ring-[#7143E0]/20 focus:border-[#7143E0] transition-all"
+                  className="w-full border border-line bg-paper px-4 py-3 text-ink outline-none focus:ring-2 focus:ring-lime transition-all"
                   placeholder="https://yoursite.com"
                 />
               </div>
@@ -115,13 +99,13 @@ const Contact = () => {
                   rows={4}
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full px-4 py-3 rounded-lg border border-slate-200 bg-white text-slate-900 outline-none focus:ring-2 focus:ring-[#7143E0]/20 focus:border-[#7143E0] transition-all resize-none"
+                  className="w-full resize-none border border-line bg-paper px-4 py-3 text-ink outline-none focus:ring-2 focus:ring-lime transition-all"
                   placeholder="Tell us about your business and goals..."
                 />
               </div>
               <Button
                 type="submit"
-                className="w-full bg-gradient-to-r from-[#FECD4D] to-[#e5b030] hover:from-[#ffe066] hover:to-[#FECD4D] text-[#2B124C] font-bold rounded-lg px-6 py-3 text-sm"
+                className="w-full border border-ink bg-lime px-6 py-3 text-sm font-bold text-ink hover:bg-lime/80"
               >
                 Get Free Audit
                 <ArrowRight className={`w-4 h-4 ${isAr ? "mr-2 rotate-180" : "ml-2"}`} />
@@ -130,20 +114,19 @@ const Contact = () => {
           </div>
 
           {/* Contact Info */}
-          <div
-          >
-            <h2 className="text-2xl font-bold text-slate-900 mb-6">Get in Touch</h2>
+          <div>
+            <h2 className="mb-6 font-heading text-3xl uppercase text-ink">Get in Touch</h2>
             <div className="space-y-4">
               {contactInfo.map((item, i) => {
                 const Icon = item.icon;
                 const content = (
-                  <div className="flex items-start gap-4 p-4 rounded-xl bg-slate-50 border border-slate-100 hover:bg-slate-100 transition-colors">
-                    <div className="w-10 h-10 rounded-lg bg-[#F0F0F0] flex items-center justify-center shrink-0">
-                      <Icon className="w-5 h-5 text-[#7143E0]" />
+                  <div className="flex items-start gap-4 border border-line bg-paper p-4 hover:bg-lime/20 transition-colors">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center border border-line bg-ink">
+                      <Icon className="h-5 w-5 text-lime" />
                     </div>
                     <div>
-                      <p className="text-sm font-medium text-slate-500">{item.label}</p>
-                      <p className="text-base font-semibold text-slate-900">{item.value}</p>
+                      <p className="text-sm font-medium text-ink/60">{item.label}</p>
+                      <p className="text-base font-semibold text-ink">{item.value}</p>
                     </div>
                   </div>
                 );
@@ -157,13 +140,13 @@ const Contact = () => {
               })}
             </div>
 
-            <div className="mt-8 p-6 rounded-xl bg-gradient-to-br from-[#2B124C] to-[#1a0a30] text-white">
+            <div className="mt-8 border border-line bg-ink p-6 text-paper">
               <h3 className="text-lg font-bold mb-2">Free AI SEO Audit</h3>
               <p className="text-sm text-gray-200 mb-4">
-                Every consultation starts with a comprehensive AI-powered audit of your website — at no cost. We'll show you exactly where you stand and what needs to be done.
+                Every consultation starts with a review of your website. We will outline the available next steps.
               </p>
-              <div className="flex items-center gap-2 text-[#FECD4D] text-sm font-medium">
-                <span>Takes less than 24 hours</span>
+              <div className="flex items-center gap-2 text-lime text-sm font-medium">
+                <span>Response timing depends on request volume.</span>
               </div>
             </div>
           </div>

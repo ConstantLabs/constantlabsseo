@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { motion } from "framer-motion";
 import {
   ArrowRight,
   BadgeHelp,
@@ -14,11 +13,11 @@ import {
   Tags,
   Youtube,
 } from "lucide-react";
+import { PageHero } from "@/components/marketing/PageHero";
 import { SEO } from "@/components/SEO";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { CTASection } from "@/components/CTASection";
-import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/i18n/LanguageContext";
 import {
   featuredToolSlugs,
@@ -117,63 +116,20 @@ const Tools = () => {
       </Helmet>
       <Navbar />
 
-      <section className="pt-32 pb-16 bg-gradient-to-b from-[#2B124C] to-[#1a0a30] text-white">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="max-w-4xl">
-            <motion.p
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.5 }}
-              className="text-sm font-semibold text-cyan-400 uppercase tracking-wider mb-4"
-            >
-              {copy.eyebrow}
-            </motion.p>
-            <motion.h1
-              initial={{ y: 30, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.6 }}
-              className="text-4xl md:text-5xl lg:text-6xl font-extrabold"
-            >
-              {copy.title}
-            </motion.h1>
-            <motion.p
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="mt-6 text-lg text-gray-200 max-w-3xl"
-            >
-              {copy.subtitle}
-            </motion.p>
-            <motion.div
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="mt-8 flex flex-col sm:flex-row gap-3"
-            >
-              <Link to="/audit">
-                <Button className="w-full sm:w-auto bg-[#FECD4D] hover:bg-[#ffe066] text-[#2B124C] font-bold rounded-full px-7">
-                  {copy.primaryCta}
-                  <ArrowRight className={`w-4 h-4 ${isAr ? "mr-2 rotate-180" : "ml-2"}`} />
-                </Button>
-              </Link>
-              <a
-                href="#tool-library"
-                className="inline-flex h-10 items-center justify-center rounded-full border border-white/20 px-7 text-sm font-semibold text-white hover:bg-white/10 transition-colors"
-              >
-                {copy.secondaryCta}
-              </a>
-            </motion.div>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        eyebrow={copy.eyebrow}
+        title={copy.title}
+        lede={copy.subtitle}
+        actions={<><Link to="/audit" className="inline-flex items-center gap-2 border border-ink bg-lime px-5 py-3 text-sm font-bold uppercase tracking-[0.08em] text-ink">{copy.primaryCta}<ArrowRight className={`h-4 w-4 ${isAr ? "rotate-180" : ""}`} /></Link><a href="#tool-library" className="inline-flex items-center justify-center border border-ink px-5 py-3 text-sm font-bold uppercase tracking-[0.08em] text-ink hover:bg-ink hover:text-paper">{copy.secondaryCta}</a></>}
+      />
 
-      <section className="py-12 bg-slate-50 border-b border-slate-200">
+      <section className="border-b border-line bg-paper/70 py-12">
         <div className="max-w-5xl mx-auto px-4">
-          <div className="bg-white border border-slate-200 rounded-xl p-6 md:p-8">
-            <p className="text-sm font-bold text-[#7143E0] uppercase tracking-wider mb-3">
+          <div className="border border-line bg-paper p-6 md:p-8">
+            <p className="mb-3 text-sm font-bold uppercase tracking-wider text-evidence-blue">
               {copy.quickAnswerLabel}
             </p>
-            <p className="text-lg leading-relaxed text-slate-700">
+            <p className="text-lg leading-relaxed text-ink/70">
               {copy.quickAnswer}
             </p>
           </div>

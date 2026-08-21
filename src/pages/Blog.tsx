@@ -6,6 +6,7 @@ import { CTASection } from "@/components/CTASection";
 import { blogPosts } from "@/data/blogData";
 import { motion } from "framer-motion";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
+import { PageHero } from "@/components/marketing/PageHero";
 
 const Blog = () => {
   return (
@@ -18,41 +19,14 @@ const Blog = () => {
       />
       <Navbar />
 
-      {/* Hero */}
-      <section className="pt-32 pb-20 bg-gradient-to-b from-[#2B124C] to-[#1a0a30] text-white">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <motion.p
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            className="text-sm font-semibold text-cyan-400 uppercase tracking-wider mb-4"
-          >
-            Blog
-          </motion.p>
-          <motion.h1
-            initial={{ y: 30, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-extrabold"
-            style={{ color: "#ffffff" }}
-          >
-            Insights & Updates
-          </motion.h1>
-          <motion.p
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="mt-6 text-lg text-gray-200 max-w-2xl mx-auto"
-          >
-            AI-powered SEO insights, GCC market trends, and strategies that
-            work. Practical guides for businesses in the UAE, Saudi Arabia, and
-            Oman.
-          </motion.p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Blog"
+        title="Insights & Updates"
+        lede="SEO, AI search, and GCC market notes for teams making informed decisions about their search presence."
+      />
 
       {/* Blog Grid */}
-      <section className="py-20">
+      <section className="border-b border-line bg-paper py-16 sm:py-24">
         <div className="max-w-6xl mx-auto px-4">
           {/* Featured Post (first article) */}
           {blogPosts.length > 0 && (

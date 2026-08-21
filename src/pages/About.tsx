@@ -3,8 +3,8 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { CTASection } from "@/components/CTASection";
 import { useLanguage } from "@/i18n/LanguageContext";
-import { motion } from "framer-motion";
 import { Zap, Globe, Users, Target, Code, BarChart3 } from "lucide-react";
+import { PageHero } from "@/components/marketing/PageHero";
 
 const values = [
   { icon: Zap, titleKey: "AI-First", descKey: "Every strategy starts with AI. We use agentic AI to do in hours what traditional agencies take months to deliver." },
@@ -27,31 +27,14 @@ const About = () => {
       />
       <Navbar />
 
-      {/* Hero */}
-      <section className="pt-32 pb-20 bg-gradient-to-b from-[#2B124C] to-[#1a0a30] text-white">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <p
-            className="text-sm font-semibold text-[#7143E0] uppercase tracking-wider mb-4"
-          >
-            {t("nav.about")}
-          </p>
-          <h1
-            className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight"
-          >
-            <span style={{ color: "#ffffff" }}>AI-Powered SEO.</span>
-            <br />
-            <span style={{ color: "#FECD4D" }}>Built for the GCC.</span>
-          </h1>
-          <p
-            className="mt-6 text-lg text-gray-200 max-w-2xl mx-auto"
-          >
-            ConstantSEO is a Dubai-based SEO agency that uses agentic AI to build, optimize, and dominate search - across Google, ChatGPT, Gemini, and every platform that matters.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow={t("nav.about")}
+        title={<><span>AI-Powered SEO.</span><br /><span className="text-evidence-blue">Built for the GCC.</span></>}
+        lede="ConstantSEO is a Dubai-based SEO agency using agentic AI to build and improve search visibility across Google and AI search platforms."
+      />
 
       {/* Story */}
-      <section className="py-20">
+      <section className="border-b border-line bg-paper py-16 sm:py-24">
         <div className="max-w-3xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-slate-900 mb-6">Why We Exist</h2>
           <div className="space-y-4 text-lg text-slate-600 leading-relaxed">
@@ -69,7 +52,7 @@ const About = () => {
       </section>
 
       {/* Values */}
-      <section className="py-20 bg-slate-50">
+      <section className="border-b border-line bg-paper/70 py-16 sm:py-24">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-14">
             <p className="text-sm font-semibold text-[#7143E0] uppercase tracking-wider mb-2">Our Values</p>
@@ -81,10 +64,10 @@ const About = () => {
               return (
                 <div
                   key={i}
-                  className="bg-white rounded-xl p-6 border border-slate-100"
+                  className="border border-line bg-paper p-6"
                 >
-                  <div className="w-10 h-10 rounded-lg bg-[#F0F0F0] flex items-center justify-center mb-4">
-                    <Icon className="w-5 h-5 text-[#7143E0]" />
+                  <div className="mb-4 flex h-10 w-10 items-center justify-center border border-line bg-ink">
+                    <Icon className="w-5 h-5 text-lime" />
                   </div>
                   <h3 className="text-lg font-bold text-slate-900 mb-2">{v.titleKey}</h3>
                   <p className="text-sm text-slate-500 leading-relaxed">{v.descKey}</p>
@@ -96,11 +79,11 @@ const About = () => {
       </section>
 
       {/* Founder */}
-      <section className="py-20">
+      <section className="bg-paper py-16 sm:py-24">
         <div className="max-w-3xl mx-auto px-4 text-center">
           <p className="text-sm font-semibold text-[#7143E0] uppercase tracking-wider mb-2">The Team</p>
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-8">Built by Builders</h2>
-          <div className="bg-slate-50 rounded-2xl p-8 border border-slate-100">
+          <div className="border border-line bg-paper p-8">
             <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#7143E0] to-[#5a2dcc] flex items-center justify-center text-white font-bold text-2xl mx-auto mb-4">
               A
             </div>

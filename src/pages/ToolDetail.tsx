@@ -2,7 +2,6 @@ import { useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import {
-  ArrowLeft,
   ArrowRight,
   BadgeHelp,
   Bot,
@@ -29,6 +28,7 @@ import {
   getToolBySlug,
   toolUiCopy,
 } from "@/data/freeToolsData";
+import { PageHero } from "@/components/marketing/PageHero";
 
 const BASE_URL = "https://seo.constantlabs.ai";
 
@@ -1164,43 +1164,28 @@ const ToolDetail = () => {
       </Helmet>
       <Navbar />
 
-      <section className="pt-32 pb-14 bg-gradient-to-b from-[#2B124C] to-[#1a0a30] text-white">
-        <div className="max-w-6xl mx-auto px-4">
-          <Link
-            to="/tools"
-            className="inline-flex items-center gap-2 text-sm text-gray-200 hover:text-white mb-8 transition-colors"
-          >
-            <ArrowLeft className={`w-4 h-4 ${isAr ? "rotate-180" : ""}`} />
-            {getLocalizedText(toolUiCopy.allTools, isAr)}
-          </Link>
-          <div className="max-w-4xl">
-            <div className="w-14 h-14 rounded-xl bg-white/10 flex items-center justify-center mb-5">
-              <Icon className="w-7 h-7 text-cyan-300" />
-            </div>
-            <h1 className="text-4xl md:text-5xl font-extrabold">
-              {title}
-            </h1>
-            <p className="mt-5 text-lg text-gray-200 max-w-3xl">
-              {getLocalizedText(tool.shortDescription, isAr)}
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        eyebrow={getLocalizedText(toolUiCopy.allTools, isAr)}
+        title={title}
+        lede={getLocalizedText(tool.shortDescription, isAr)}
+        meta={<Icon className="h-6 w-6 text-evidence-blue" aria-hidden="true" />}
+        actions={<Link to="/tools" className="border border-ink px-5 py-3 text-sm font-bold uppercase tracking-[0.08em] text-ink hover:bg-ink hover:text-paper">{getLocalizedText(toolUiCopy.allTools, isAr)}</Link>}
+      />
 
-      <section className="py-10 bg-slate-50 border-b border-slate-200">
+      <section className="border-b border-line bg-paper/70 py-10">
         <div className="max-w-5xl mx-auto px-4">
-          <div className="bg-white rounded-xl border border-slate-200 p-6 md:p-8">
-            <p className="text-sm font-bold text-[#7143E0] uppercase tracking-wider mb-3">
+          <div className="border border-line bg-paper p-6 md:p-8">
+            <p className="mb-3 text-sm font-bold uppercase tracking-wider text-evidence-blue">
               {getLocalizedText(toolUiCopy.quickAnswer, isAr)}
             </p>
-            <p className="text-lg leading-relaxed text-slate-700">
+            <p className="text-lg leading-relaxed text-ink/70">
               {getLocalizedText(tool.quickAnswer, isAr)}
             </p>
           </div>
         </div>
       </section>
 
-      <section className="py-14 md:py-16">
+      <section className="border-b border-line bg-paper py-14 md:py-16">
         <div className="max-w-6xl mx-auto px-4 overflow-visible">
           <ToolWorkspace slug={tool.slug} isAr={isAr} />
         </div>

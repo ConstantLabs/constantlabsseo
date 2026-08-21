@@ -1,6 +1,9 @@
 import { useLocation, Link } from "react-router-dom";
 import { useEffect } from "react";
 import { SEO } from "@/components/SEO";
+import { Navbar } from "@/components/Navbar";
+import { Footer } from "@/components/Footer";
+import { PageHero } from "@/components/marketing/PageHero";
 
 const NotFound = () => {
   const location = useLocation();
@@ -10,18 +13,19 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
+    <div className="flex min-h-screen flex-col bg-paper text-ink">
       <SEO title="404 - Page Not Found" description="Page not found on ConstantSEO." />
-      <div className="text-center px-4">
-        <h1 className="mb-4 text-7xl md:text-9xl font-black font-heading text-foreground/10">404</h1>
-        <p className="mb-6 text-xl text-muted-foreground">This page doesn't exist.</p>
-        <Link
-          to="/"
-          className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-semibold rounded-full hover:opacity-90 transition-opacity"
-        >
-          Back to Home
-        </Link>
+      <Navbar />
+      <PageHero
+        eyebrow="404"
+        title="Page not found"
+        lede="The page you requested is unavailable or has moved."
+        actions={<Link to="/" className="border border-ink bg-lime px-5 py-3 text-sm font-bold uppercase tracking-[0.08em] text-ink">Back to Home</Link>}
+      />
+      <div className="flex flex-1 items-center justify-center px-4 py-16">
+        <p className="font-heading text-[9rem] uppercase leading-none text-ink/10">404</p>
       </div>
+      <Footer />
     </div>
   );
 };

@@ -3,7 +3,7 @@ import { SEO } from "@/components/SEO";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { useLanguage } from "@/i18n/LanguageContext";
-import { ArrowLeft } from "lucide-react";
+import { PageHero } from "@/components/marketing/PageHero";
 
 const content = {
   en: {
@@ -221,34 +221,26 @@ const TermsOfService = () => {
       />
       <Navbar />
 
-      {/* Hero */}
-      <section className="pt-32 pb-12 bg-gradient-to-b from-[#2B124C] to-[#1a0a30] text-white">
-        <div className="max-w-3xl mx-auto px-4">
-          <Link
-            to="/"
-            className="inline-flex items-center gap-2 text-sm text-gray-200 hover:text-white mb-8 transition-colors"
-          >
-            <ArrowLeft className={`w-4 h-4 ${isAr ? "rotate-180" : ""}`} />
-            {isAr ? "الرئيسية" : "Home"}
-          </Link>
-          <h1 className="text-3xl md:text-5xl font-extrabold">{c.title}</h1>
-          <p className="mt-3 text-gray-200 text-sm">{c.lastUpdated}</p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow={isAr ? "قانوني" : "Legal"}
+        title={c.title}
+        meta={c.lastUpdated}
+        actions={<Link to="/" className="border border-ink px-5 py-3 text-sm font-bold uppercase tracking-[0.08em] text-ink hover:bg-ink hover:text-paper">{isAr ? "الرئيسية" : "Home"}</Link>}
+      />
 
       {/* Content */}
-      <section className="py-16">
+      <section className="border-b border-line bg-paper py-16">
         <div className="max-w-3xl mx-auto px-4 space-y-10">
           {c.sections.map((s, i) => (
-            <div key={i}>
-              <h2 className="text-xl font-bold text-slate-900 mb-4">{s.heading}</h2>
+            <div key={i} className="border-s-2 border-line ps-5">
+              <h2 className="mb-4 font-heading text-2xl uppercase text-ink">{s.heading}</h2>
 
               {s.body?.map((p, j) => (
-                <p key={j} className="text-slate-600 leading-relaxed mb-3">{p}</p>
+                <p key={j} className="mb-3 leading-relaxed text-ink/70">{p}</p>
               ))}
 
               {s.items && (
-                <ul className="list-disc list-inside text-slate-600 space-y-1.5 mt-2">
+                <ul className="mt-2 list-disc list-inside space-y-1.5 text-ink/70">
                   {s.items.map((item, l) => (
                     <li key={l}>{item}</li>
                   ))}
@@ -256,20 +248,20 @@ const TermsOfService = () => {
               )}
 
               {s.footer && (
-                <p className="text-slate-600 leading-relaxed mt-3">{s.footer}</p>
+                <p className="mt-3 leading-relaxed text-ink/70">{s.footer}</p>
               )}
 
               {s.contact && (
-                <div className="mt-3 space-y-1 text-slate-600">
-                  <p><strong className="text-slate-900">{isAr ? "البريد الإلكتروني:" : "Email:"}</strong>{" "}akhmad@constantlabs.ai</p>
-                  <p><strong className="text-slate-900">{isAr ? "الموقع:" : "Website:"}</strong>{" "}seo.constantlabs.ai</p>
+                <div className="mt-3 space-y-1 text-ink/70">
+                  <p><strong className="text-ink">{isAr ? "البريد الإلكتروني:" : "Email:"}</strong>{" "}akhmad@constantlabs.ai</p>
+                  <p><strong className="text-ink">{isAr ? "الموقع:" : "Website:"}</strong>{" "}seo.constantlabs.ai</p>
                 </div>
               )}
             </div>
           ))}
 
           {/* Footer link */}
-          <div className="pt-8 border-t border-slate-200 text-center">
+          <div className="border-t border-line pt-8 text-center">
             <p className="text-xs text-slate-500">&copy; {new Date().getFullYear()} {c.rights}</p>
             <Link to="/privacy" className="text-xs text-[#7143E0] hover:underline mt-2 inline-block">
               {c.privacyLink}
