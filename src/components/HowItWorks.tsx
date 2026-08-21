@@ -1,72 +1,9 @@
 import { useLanguage } from "@/i18n/LanguageContext";
-import { motion } from "framer-motion";
-import { Search, BarChart3, Rocket, RefreshCw, Trophy } from "lucide-react";
+import { DisplayTitle, Eyebrow, SectionShell } from "@/components/marketing/primitives";
 
-const steps = [
-  { key: "step1", icon: Search, num: "1" },
-  { key: "step2", icon: BarChart3, num: "2" },
-  { key: "step3", icon: Rocket, num: "3" },
-  { key: "step4", icon: RefreshCw, num: "4" },
-  { key: "step5", icon: Trophy, num: "5" },
-];
+const stepKeys = ["audit", "map", "build", "publish", "learn"];
 
 export const HowItWorks = () => {
   const { t } = useLanguage();
-
-  return (
-    <section id="how-it-works" className="py-20 md:py-24 bg-[#F5F5F8]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        {/* Header */}
-        <div
-          
-          
-          
-          
-          className="text-center mb-16"
-        >
-          <div className="w-12 h-1 bg-[#7143E0] mx-auto mb-4" />
-          <p className="text-sm font-semibold text-[#7143E0] uppercase tracking-wider mb-2">
-            {t("howItWorks.label")}
-          </p>
-          <h2 className="text-3xl md:text-[42px] md:leading-tight font-heading font-black text-slate-900">
-            {t("howItWorks.title")}
-          </h2>
-        </div>
-
-        {/* Steps */}
-        <div className="relative">
-          {/* Connecting line (desktop) */}
-          <div className="hidden lg:block absolute top-7 left-[10%] right-[10%] h-0.5 bg-[#b8a0e0]" />
-
-          <div className="grid grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-4">
-            {steps.map((step, i) => {
-              const Icon = step.icon;
-              return (
-                <div
-                  key={step.key}
-                  
-                  
-                  
-                  
-                  className="relative flex flex-col items-center text-center"
-                >
-                  {/* Step circle with number */}
-                  <div className="relative z-10 w-10 h-10 sm:w-14 sm:h-14 rounded-full bg-[#7143E0] flex items-center justify-center shadow-lg mb-3 sm:mb-5">
-                    <span className="text-white text-sm sm:text-lg font-bold">{step.num}</span>
-                  </div>
-
-                  <h3 className="text-sm sm:text-base font-heading font-bold text-slate-900 mb-1">
-                    {t(`howItWorks.${step.key}.title`)}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">
-                    {t(`howItWorks.${step.key}.desc`)}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
+  return <SectionShell id="method" className="bg-paper text-ink"><div className="mx-auto max-w-7xl"><Eyebrow>{t("home.method.eyebrow")}</Eyebrow><div className="mt-4 flex flex-col gap-6 border-b border-line pb-10 lg:flex-row lg:items-end lg:justify-between"><DisplayTitle>{t("home.method.title")}</DisplayTitle><p className="max-w-lg text-lg leading-relaxed text-ink/70">{t("home.method.copy")}</p></div><ol className="mt-8 grid gap-px bg-line md:grid-cols-5">{stepKeys.map((key, index) => <li key={key} className="min-h-64 bg-paper p-6"><span className="font-heading text-5xl text-evidence-violet">0{index + 1}</span><h3 className="mt-16 font-heading text-3xl uppercase leading-none">{t(`home.method.${key}.title`)}</h3><p className="mt-4 text-sm leading-relaxed text-ink/65">{t(`home.method.${key}.copy`)}</p></li>)}</ol></div></SectionShell>;
 };

@@ -1,23 +1,25 @@
 import { SEO } from "@/components/SEO";
 import { Navbar } from "@/components/Navbar";
 import { HeroSection } from "@/components/HeroSection";
+import { ClientLogos } from "@/components/ClientLogos";
 
 import { ProblemSolution } from "@/components/ProblemSolution";
 import { ServicesGrid } from "@/components/ServicesGrid";
 import { HowItWorks } from "@/components/HowItWorks";
 import { CaseStudiesSection } from "@/components/CaseStudiesSection";
 import { PricingSection } from "@/components/PricingSection";
-import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { FAQSection } from "@/components/FAQSection";
 import { ZCalBookingSection } from "@/components/ZCalBookingSection";
+import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
+import { MufakkirEvidence } from "@/components/marketing/MufakkirEvidence";
 
 const Index = () => {
   return (
     <>
       <SEO
-        title="ConstantSEO — AI-Powered SEO by Constant Labs"
-        description="Dominate Google, ChatGPT, Gemini & AI search. ConstantSEO by Constant Labs is Dubai's leading AI-powered SEO agency serving businesses across the UAE, Saudi Arabia & GCC."
+        title="ConstantSEO — Search systems for the GCC"
+        description="ConstantSEO builds bilingual, technical, and local search systems for businesses across the GCC."
         path="/"
       />
 
@@ -25,14 +27,16 @@ const Index = () => {
 
       <main>
         <HeroSection />
+        <ClientLogos />
         <ProblemSolution />
         <ServicesGrid />
+        <MufakkirEvidence />
         <HowItWorks />
         <CaseStudiesSection />
         <PricingSection />
-        {/* <TestimonialsSection /> */}
         <FAQSection />
         <ZCalBookingSection />
+        <CTASection />
       </main>
 
       <Footer />

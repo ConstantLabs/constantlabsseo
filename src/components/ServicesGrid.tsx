@@ -1,78 +1,15 @@
+import { ArrowUpRight, Brain, Code2, FileText, Globe, Link2, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/i18n/LanguageContext";
-import {
-  Brain,
-  Code2,
-  FileText,
-  MapPin,
-  Link2,
-  Globe,
-} from "lucide-react";
+import { DisplayTitle, Eyebrow, Lede, RuledGrid, SectionShell } from "@/components/marketing/primitives";
 
 const services = [
-  { key: "aiSeo", icon: Brain, slug: "ai-search-optimization" },
-  { key: "technicalSeo", icon: Code2, slug: "technical-seo" },
-  { key: "contentStrategy", icon: FileText, slug: "arabic-content" },
-  { key: "localSeo", icon: MapPin, slug: "local-seo" },
-  { key: "linkBuilding", icon: Link2, slug: "ai-link-building" },
-  { key: "arabicSeo", icon: Globe, slug: "seo-audits" },
+  { key: "ai", icon: Brain, slug: "ai-search-optimization" }, { key: "technical", icon: Code2, slug: "technical-seo" },
+  { key: "content", icon: FileText, slug: "arabic-content" }, { key: "local", icon: MapPin, slug: "local-seo" },
+  { key: "authority", icon: Link2, slug: "ai-link-building" }, { key: "arabic", icon: Globe, slug: "seo-audits" },
 ];
 
 export const ServicesGrid = () => {
-  const { t, isAr } = useLanguage();
-
-  return (
-    <section id="services" className="py-20 md:py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        {/* Header */}
-        <div
-          
-          
-          
-          
-          className="text-center mb-14"
-        >
-          <div className="w-12 h-1 bg-[#7143E0] mx-auto mb-4" />
-          <p className="text-sm font-semibold text-[#7143E0] uppercase tracking-wider mb-2">
-            {t("services.label")}
-          </p>
-          <h2 className="text-3xl md:text-[42px] md:leading-tight font-heading font-black text-slate-900">
-            {t("services.title")}
-          </h2>
-          <p className="mt-4 text-gray-600 max-w-2xl mx-auto text-[17px]">
-            {t("services.subtitle")}
-          </p>
-        </div>
-
-        {/* Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
-          {services.map((svc, i) => {
-            const Icon = svc.icon;
-            return (
-              <Link
-                key={svc.key}
-                to={`/services/${svc.slug}`}
-                className="group relative p-4 sm:p-8 rounded-[16px] sm:rounded-[20px] bg-[#F0F0F0] hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
-              >
-                <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-full bg-[#7143E0] flex items-center justify-center mb-3 sm:mb-5">
-                  <Icon className="w-5 h-5 sm:w-7 sm:h-7 text-white" />
-                </div>
-
-                <h3 className="text-sm sm:text-xl font-heading font-black text-slate-900 mb-1 sm:mb-2">
-                  {t(`service.${svc.key}.title`)}
-                </h3>
-                <p className="text-xs sm:text-[15px] text-slate-600 leading-relaxed mb-3 sm:mb-5 line-clamp-3 sm:line-clamp-none">
-                  {t(`service.${svc.key}.desc`)}
-                </p>
-
-                <span className="text-xs sm:text-sm font-semibold text-[#2B124C] group-hover:text-[#7143E0] transition-colors">
-                  {t("services.learnMore")}
-                </span>
-              </Link>
-            );
-          })}
-        </div>
-      </div>
-    </section>
-  );
+  const { t } = useLanguage();
+  return <SectionShell id="services" className="bg-void"><div className="mx-auto max-w-7xl"><div className="grid gap-6 border-b border-paper/25 pb-10 lg:grid-cols-[1fr_0.8fr] lg:items-end"><div><Eyebrow>{t("services.label")}</Eyebrow><DisplayTitle className="mt-4 text-paper">{t("home.services.title")}</DisplayTitle></div><Lede className="text-paper/65">{t("home.services.copy")}</Lede></div><RuledGrid className="mt-8 grid border-paper/25 bg-[linear-gradient(to_right,transparent_0,transparent_calc(100%-1px),rgb(237_242_228_/_0.18)_calc(100%-1px))] sm:grid-cols-2 lg:grid-cols-3">{services.map(({ key, icon: Icon, slug }, index) => <Link key={key} to={`/services/${slug}`} className="group min-h-64 border-b border-r border-paper/20 p-6 transition-colors hover:bg-paper hover:text-ink sm:p-8"><div className="flex items-start justify-between"><Icon className="h-6 w-6 text-lime group-hover:text-evidence-blue" /><span className="font-heading text-2xl text-paper/35 group-hover:text-ink/40">0{index + 1}</span></div><h3 className="mt-16 font-heading text-3xl uppercase leading-none text-paper group-hover:text-ink">{t(`home.services.${key}.title`)}</h3><p className="mt-4 max-w-sm text-sm leading-relaxed text-paper/65 group-hover:text-ink/70">{t(`home.services.${key}.copy`)}</p><span className="mt-6 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.12em] text-lime group-hover:text-evidence-blue">{t("services.learnMore")} <ArrowUpRight className="h-4 w-4" /></span></Link>)}</RuledGrid></div></SectionShell>;
 };

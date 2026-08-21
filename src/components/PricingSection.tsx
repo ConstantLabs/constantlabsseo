@@ -64,7 +64,7 @@ export const PricingSection = () => {
   const [emailStatus, setEmailStatus] = useState<"idle" | "success" | "error">("idle");
 
   return (
-    <section id="pricing" className="py-20 md:py-24 bg-white">
+    <section id="pricing" className="border-y border-line bg-paper py-20 text-ink md:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Header */}
         <div
@@ -74,14 +74,14 @@ export const PricingSection = () => {
           
           className="text-center mb-14"
         >
-          <div className="w-12 h-1 bg-[#7143E0] mx-auto mb-4" />
-          <p className="text-sm font-semibold text-[#7143E0] uppercase tracking-wider mb-2">
+          <div className="mx-auto mb-4 h-1 w-12 bg-evidence-blue" />
+          <p className="mb-2 text-sm font-semibold uppercase tracking-wider text-evidence-blue">
             {t("pricing.label")}
           </p>
-          <h2 className="text-3xl md:text-[42px] md:leading-tight font-heading font-black text-slate-900">
+          <h2 className="font-heading text-5xl uppercase leading-[0.88] tracking-[-0.035em] text-ink md:text-6xl">
             {t("pricing.title")}
           </h2>
-          <p className="mt-4 text-gray-600 max-w-xl mx-auto text-[17px]">
+          <p className="mx-auto mt-4 max-w-xl text-[17px] text-ink/65">
             {t("pricing.subtitle")}
           </p>
         </div>
@@ -95,10 +95,10 @@ export const PricingSection = () => {
               
               
               
-className={`relative rounded-[20px] p-7 md:p-8 flex flex-col !overflow-visible ${
+className={`relative flex flex-col border p-7 !overflow-visible md:p-8 ${
                   tier.featured
-                    ? "bg-[#2B124C] text-white shadow-2xl"
-                    : "bg-white border border-slate-200 text-slate-900"
+                    ? "border-ink bg-ink text-paper shadow-[8px_8px_0_#673AB7]"
+                    : "border-line bg-paper text-ink"
                 }`}
             >
               {/* Tier name */}
@@ -137,10 +137,10 @@ className={`relative rounded-[20px] p-7 md:p-8 flex flex-col !overflow-visible $
               <Dialog>
                 <DialogTrigger asChild>
                   <Button
-                    className={`w-full font-bold rounded-full py-6 shadow-lg transition-all ${
+                    className={`w-full rounded-none py-6 font-bold shadow-lg transition-all ${
                       tier.featured
-                        ? "bg-[#FECD4D] hover:bg-[#fdd85e] text-[#2B124C] shadow-none"
-                        : "border-[#7143E0] hover:bg-[#7143E0] text-white border-2"
+                        ? "bg-lime text-ink shadow-none hover:bg-lime/85"
+                        : "border-2 border-ink bg-ink text-paper hover:bg-evidence-violet"
                     }`}
                   >
                     {t("pricing.getStarted")}

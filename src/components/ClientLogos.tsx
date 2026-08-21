@@ -1,93 +1,9 @@
-import { useEffect, useRef } from "react";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { RuledGrid, SectionShell } from "@/components/marketing/primitives";
 
-const logosBase = [
-  "Google Search", "Google Business", "ChatGPT", "Gemini",
-  "Perplexity", "Claude AI", "Bing", "Analytics",
-  "Search Console", "PageSpeed", "Schema.org", "Vercel",
-];
-
-// 3× so one copy (~3000px) exceeds any screen
-const oneCopy = [...logosBase, ...logosBase, ...logosBase];
+const capabilities = ["Google", "Google Maps", "ChatGPT", "Gemini", "Perplexity", "Bing"];
 
 export const ClientLogos = () => {
   const { t } = useLanguage();
-  const trackRef = useRef<HTMLDivElement>(null);
-  const copy1Ref = useRef<HTMLDivElement>(null);
-  const posRef = useRef(0);
-  const rafRef = useRef<number>();
-
-  useEffect(() => {
-    const track = trackRef.current;
-    const copy1 = copy1Ref.current;
-    if (!track || !copy1) return;
-
-    // Let layout settle before measuring
-    const raf = requestAnimationFrame(() => {
-      const copyWidth = copy1.getBoundingClientRect().width;
-
-      const step = () => {
-        posRef.current -= 0.6;
-        if (posRef.current <= -copyWidth) {
-          posRef.current += copyWidth;
-        }
-        track.style.transform = `translateX(${posRef.current}px)`;
-        rafRef.current = requestAnimationFrame(step);
-      };
-
-      rafRef.current = requestAnimationFrame(step);
-    });
-
-    return () => {
-      cancelAnimationFrame(raf);
-      if (rafRef.current) cancelAnimationFrame(rafRef.current);
-    };
-  }, []);
-
-  const itemStyle: React.CSSProperties = {
-    marginLeft: "1.5rem",
-    marginRight: "1.5rem",
-    flexShrink: 0,
-    overflow: "visible",
-    whiteSpace: "nowrap",
-  };
-
-  const copyStyle: React.CSSProperties = {
-    display: "flex",
-    flexShrink: 0,
-    overflow: "visible",   // override * { overflow: hidden }
-    whiteSpace: "nowrap",
-  };
-
-  return (
-    <section className="pt-5 sm:pt-6 pb-8 sm:pb-10 bg-[#64DEA3]">
-      <p className="text-xs sm:text-sm text-[#2B124C] font-medium uppercase tracking-wider text-center mb-6 px-4">
-        {t("clients.trusted")}
-      </p>
-
-      {/* overflow hidden only on the outer clip container */}
-      <div style={{ overflow: "hidden", width: "100%" }}>
-        <div
-          ref={trackRef}
-          dir="ltr"
-          style={{ display: "flex", overflow: "visible", willChange: "transform" }}
-        >
-          <div ref={copy1Ref} style={copyStyle}>
-            {oneCopy.map((name, i) => (
-              <span key={i} className="text-[#2B124C] text-xs sm:text-sm font-bold tracking-wider uppercase" style={itemStyle}>
-                {name}
-              </span>
-            ))}
-          </div>
-          <div style={copyStyle} aria-hidden="true">
-            {oneCopy.map((name, i) => (
-              <span key={i} className="text-[#2B124C] text-xs sm:text-sm font-bold tracking-wider uppercase" style={itemStyle}>
-                {name}
-              </span>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
+  return <SectionShell className="bg-lime py-8 sm:py-10"><div className="mx-auto max-w-7xl"><div className="flex flex-col gap-4 sm:flex-row sm:items-baseline sm:justify-between"><p className="text-xs font-bold uppercase tracking-[0.18em] text-ink">{t("home.capabilities.eyebrow")}</p><p className="max-w-xl text-sm text-ink/70">{t("home.capabilities.copy")}</p></div><RuledGrid className="mt-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6">{capabilities.map((capability) => <div key={capability} className="border-r border-t border-line p-4 text-center text-sm font-bold uppercase tracking-[0.1em] text-ink last:border-r-0 lg:border-t-0">{capability}</div>)}</RuledGrid></div></SectionShell>;
 };

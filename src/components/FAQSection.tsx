@@ -27,11 +27,11 @@ export const FAQSection = () => {
   };
 
   return (
-    <section id="faq" className="py-20 md:py-28 bg-white">
+    <section id="faq" className="border-y border-line bg-void py-20 text-paper md:py-28">
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
-      <div className="max-w-3xl mx-auto px-4 sm:px-6">
+      <div className="mx-auto max-w-4xl px-5 sm:px-8">
         {/* Header */}
         <div
           
@@ -40,11 +40,11 @@ export const FAQSection = () => {
           
           className="text-center mb-14"
         >
-          <div className="w-12 h-1 bg-[#7143E0] mx-auto mb-4" />
-          <p className="text-sm font-semibold text-[#7143E0] uppercase tracking-wider mb-2">
+          <div className="mx-auto mb-4 h-1 w-12 bg-lime" />
+          <p className="mb-2 text-sm font-semibold uppercase tracking-wider text-lime">
             {t("faq.label")}
           </p>
-          <h2 className="text-3xl md:text-[42px] md:leading-tight font-heading font-black text-slate-900">
+          <h2 className="font-heading text-5xl uppercase leading-[0.88] tracking-[-0.035em] text-paper md:text-6xl">
             {t("faq.title")}
           </h2>
         </div>
@@ -61,12 +61,12 @@ export const FAQSection = () => {
               <AccordionItem
                 key={fk}
                 value={fk}
-                className="bg-[#F5F5F8] rounded-[20px] border-none px-6 data-[state=open]:bg-[#7143E0]/5 transition-colors"
+                className="border border-paper/25 bg-ink px-6 data-[state=open]:bg-paper data-[state=open]:text-ink"
               >
-                <AccordionTrigger className="text-left text-base font-semibold text-slate-900 hover:no-underline py-5">
+                <AccordionTrigger className="py-5 text-left text-base font-semibold text-paper hover:no-underline data-[state=open]:text-ink">
                   {t(`${fk}.q`)}
                 </AccordionTrigger>
-                <AccordionContent className="text-sm text-slate-600 leading-relaxed pb-5">
+                <AccordionContent className="pb-5 text-sm leading-relaxed text-paper/65 data-[state=open]:text-ink/70">
                   {t(`${fk}.a`)}
                 </AccordionContent>
               </AccordionItem>
