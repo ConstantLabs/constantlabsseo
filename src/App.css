@@ -1,29 +1,29 @@
 #root { max-width: 100%; margin: 0 auto; }
 
 /* Compatibility utilities now express the Search Signal Field palette. */
-.brand-gradient { background: linear-gradient(135deg, #101414 0%, #214242 100%); }
+.brand-gradient { background: linear-gradient(135deg, #030500 0%, #0A0F04 100%); }
 .brand-text-gradient {
-  background: linear-gradient(135deg, #37D5C8, #D9FF4A);
+  background: linear-gradient(135deg, #4285F4, #673AB7);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-.brand-accent-gradient { background: linear-gradient(135deg, #D9FF4A, #B4DA30); }
-.brand-mint-gradient { background: linear-gradient(135deg, #37D5C8, #7BE8DE); }
+.brand-accent-gradient { background: #C7FF38; }
+.brand-mint-gradient { background: linear-gradient(135deg, #4285F4, #673AB7); }
 
 .glass-card {
-  background: rgb(16 20 20 / 0.88);
+  background: rgb(10 15 4 / 0.88);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgb(244 241 232 / 0.16);
+  border: 1px solid rgb(43 55 32 / 0.9);
 }
-.glass-card:hover { border-color: #37D5C8; box-shadow: 6px 6px 0 rgb(217 255 74 / 0.7); }
+.glass-card:hover { border-color: #8C9880; box-shadow: 6px 6px 0 rgb(43 55 32 / 0.9); }
 
-.glow-purple, .glow-gold, .glow-mint { box-shadow: 0 0 0 3px rgb(55 213 200 / 0.25); }
-.section-dark { background-color: #101414; }
-.section-darker { background-color: #070909; }
+.glow-purple, .glow-gold, .glow-mint { box-shadow: 0 0 0 3px rgb(66 133 244 / 0.25); }
+.section-dark { background-color: #0A0F04; }
+.section-darker { background-color: #030500; }
 .dot-pattern {
-  background-image: radial-gradient(circle, rgb(55 213 200 / 0.17) 1px, transparent 1px);
+  background-image: radial-gradient(circle, rgb(43 55 32 / 0.9) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
@@ -37,10 +37,10 @@
   font-weight: 700;
   transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
-.btn-primary, .btn-accent { background: #D9FF4A; color: #101414; border: 1px solid #101414; }
+.btn-primary, .btn-accent { background: #C7FF38; color: #0A0F04; border: 1px solid #0A0F04; }
 .btn-secondary { background: transparent; color: currentColor; border: 1px solid currentColor; }
-.btn-primary:hover, .btn-accent:hover { transform: translate(-2px, -2px); box-shadow: 5px 5px 0 #37D5C8; }
-.btn-secondary:hover { background: #101414; color: #F4F1E8; }
+.btn-primary:hover, .btn-accent:hover { transform: translate(-2px, -2px); box-shadow: 5px 5px 0 #C7FF38; }
+.btn-secondary:hover { background: #0A0F04; color: #EDF2E4; }
 
 .heading-xl, .heading-lg {
   font-family: "Anton", Impact, sans-serif;

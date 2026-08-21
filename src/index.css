@@ -4,25 +4,33 @@
 
 @layer base {
   :root {
-    --background: 48 31% 94%;
-    --foreground: 180 13% 7%;
-    --card: 48 31% 98%;
-    --card-foreground: 180 13% 7%;
-    --popover: 48 31% 98%;
-    --popover-foreground: 180 13% 7%;
-    --primary: 180 13% 7%;
-    --primary-foreground: 48 31% 94%;
-    --secondary: 173 65% 53%;
-    --secondary-foreground: 180 13% 7%;
-    --muted: 44 20% 88%;
-    --muted-foreground: 180 8% 35%;
-    --accent: 71 100% 65%;
-    --accent-foreground: 180 13% 7%;
-    --destructive: 11 100% 63%;
-    --destructive-foreground: 48 31% 94%;
-    --border: 180 13% 7% / 0.18;
-    --input: 180 13% 7% / 0.14;
-    --ring: 173 65% 53%;
+    --void: 84 100% 1%; /* #030500 */
+    --ink: 87 58% 4%; /* #0A0F04 */
+    --paper: 81 35% 92%; /* #EDF2E4 */
+    --muted: 90 10% 55%; /* #8C9880 */
+    --line: 91 26% 17%; /* #2B3720 */
+    --lime: 77 100% 61%; /* #C7FF38 */
+    --evidence-blue: 217 89% 61%; /* #4285F4 */
+    --evidence-violet: 262 52% 47%; /* #673AB7 */
+
+    --background: var(--void);
+    --foreground: var(--paper);
+    --card: var(--ink);
+    --card-foreground: var(--paper);
+    --popover: var(--ink);
+    --popover-foreground: var(--paper);
+    --primary: var(--lime);
+    --primary-foreground: var(--ink);
+    --secondary: var(--line);
+    --secondary-foreground: var(--paper);
+    --muted-foreground: var(--muted);
+    --accent: var(--lime);
+    --accent-foreground: var(--ink);
+    --destructive: 0 72% 51%;
+    --destructive-foreground: var(--paper);
+    --border: var(--line);
+    --input: var(--line);
+    --ring: var(--lime);
     --radius: 0rem;
   }
 
@@ -30,27 +38,25 @@
 
   html {
     max-width: 100%;
-    overflow-x: clip;
     scroll-behavior: smooth;
-    scrollbar-color: #37D5C8 #101414;
+    scrollbar-color: #8C9880 #030500;
     scrollbar-width: thin;
   }
 
   body {
-    @apply bg-paper font-sans text-ink;
+    @apply bg-void font-sans text-paper;
     max-width: 100%;
-    overflow-x: clip;
     text-rendering: optimizeLegibility;
   }
 
-  ::selection { background: #D9FF4A; color: #101414; }
-  :focus-visible { outline: 3px solid #37D5C8; outline-offset: 3px; }
+  ::selection { background: #C7FF38; color: #0A0F04; }
+  :focus-visible { outline: 3px solid #C7FF38; outline-offset: 3px; }
 }
 
 ::-webkit-scrollbar { width: 7px; height: 7px; }
-::-webkit-scrollbar-track { background: #101414; }
-::-webkit-scrollbar-thumb { background: #37D5C8; }
-::-webkit-scrollbar-thumb:hover { background: #D9FF4A; }
+::-webkit-scrollbar-track { background: #030500; }
+::-webkit-scrollbar-thumb { background: #8C9880; }
+::-webkit-scrollbar-thumb:hover { background: #C7FF38; }
 
 [dir="rtl"] body,
 [dir="rtl"] body * { font-family: "Noto Kufi Arabic", sans-serif !important; }
@@ -76,9 +82,9 @@
 
 .marquee-track { will-change: transform; }
 .hover-lift { transition: transform 0.3s ease, box-shadow 0.3s ease; }
-.hover-lift:hover { transform: translateY(-4px); box-shadow: 8px 8px 0 rgb(217 255 74 / 0.45); }
+.hover-lift:hover { transform: translateY(-4px); box-shadow: 8px 8px 0 rgb(43 55 32 / 0.45); }
 .hover-glow { transition: box-shadow 0.3s ease; }
-.hover-glow:hover { box-shadow: 0 0 0 3px rgb(55 213 200 / 0.35); }
+.hover-glow:hover { box-shadow: 0 0 0 3px rgb(199 255 56 / 0.45); }
 .hover-scale { transition: transform 0.2s ease; }
 .hover-scale:hover { transform: scale(1.02); }
 .animate-fade-in-up { animation: fadeInUp 0.6s ease forwards; }
