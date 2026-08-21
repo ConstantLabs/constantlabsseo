@@ -7,9 +7,9 @@
  * headless Chromium through every route, waits for React to render (content +
  * react-helmet head tags + JSON-LD), and saves the resulting HTML.
  *
- * Resilience: runs AFTER generate-static-pages.mjs (which writes a head-only
- * baseline for every route). If a route fails to snapshot, we skip it and the
- * baseline file remains — we never ship worse than the head-only version.
+ * Failure policy: runs AFTER generate-static-pages.mjs (which writes a head-only
+ * baseline for every route), but exits nonzero if any snapshot fails. A
+ * head-only fallback must never be mistaken for a successful prerender.
  *
  * Run: node scripts/prerender.mjs   (build script runs it after the generator)
  */
@@ -178,45 +178,43 @@ async function snapshot(browser, route) {
 }
 
 async function run() {
-  const server = await startServer();
-  const browser = await puppeteer.launch({
-    headless: "new",
-    args: ["--no-sandbox", "--disable-setuid-sandbox"],
-  });
-
+  let server;
+  let browser;
   let ok = 0;
   let failed = 0;
-  const queue = [...routes];
+  try {
+    server = await startServer();
+    browser = await puppeteer.launch({
+      headless: "new",
+      args: ["--no-sandbox", "--disable-setuid-sandbox"],
+    });
+    const queue = [...routes];
 
-  async function worker() {
-    while (queue.length) {
-      const route = queue.shift();
-      try {
-        const r = await snapshot(browser, route);
-        ok++;
-        console.log(`  ✓ ${r.path} (${(r.bytes / 1024).toFixed(0)} KB)`);
-      } catch (err) {
-        failed++;
-        console.warn(`  ✗ ${route.path} — kept head-only baseline (${err.message})`);
+    async function worker() {
+      while (queue.length) {
+        const route = queue.shift();
+        try {
+          const r = await snapshot(browser, route);
+          ok++;
+          console.log(`  ✓ ${r.path} (${(r.bytes / 1024).toFixed(0)} KB)`);
+        } catch (err) {
+          failed++;
+          console.warn(`  ✗ ${route.path} — kept head-only baseline (${err.message})`);
+        }
       }
     }
-  }
 
-  await Promise.all(Array.from({ length: CONCURRENCY }, worker));
+    await Promise.all(Array.from({ length: CONCURRENCY }, worker));
 
-  await browser.close();
-  server.close();
-
-  console.log(`\nPrerendered ${ok}/${routes.length} routes (${failed} fell back to baseline).`);
-  if (ok === 0) {
-    // Don't block the deploy: every route already has a head-only baseline from
-    // generate-static-pages.mjs (today's behavior). Likely Chromium is missing
-    // in the build env — warn loudly but ship the baseline rather than failing.
-    console.warn("Prerender produced zero snapshots — shipping head-only baseline. Check Chromium availability in the build env.");
+    console.log(`\nPrerendered ${ok}/${routes.length} routes (${failed} fell back to baseline).`);
+    if (failed > 0) process.exitCode = 1;
+  } finally {
+    if (browser) await browser.close();
+    if (server) await new Promise((resolve, reject) => server.close((err) => (err ? reject(err) : resolve())));
   }
 }
 
 run().catch((err) => {
-  // Same rationale: a prerender crash must not break the build. Baseline ships.
-  console.warn("Prerender step errored — shipping head-only baseline:", err.message);
+  console.error("Prerender step failed:", err.message);
+  process.exitCode = 1;
 });

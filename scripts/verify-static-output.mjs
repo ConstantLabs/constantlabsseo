@@ -42,6 +42,15 @@ function assertRenderedPage(path, expectedText) {
   return html;
 }
 
+function assertHeading(html, expectedText) {
+  const escaped = expectedText.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  assert.match(
+    html,
+    new RegExp(`<h1\\b[^>]*>[\\s\\S]*?${escaped}[\\s\\S]*?<\\/h1>`, "i"),
+    `Missing homepage H1: ${expectedText}`
+  );
+}
+
 function assertMetadata(html, path) {
   const canonical = `https://seo.constantlabs.ai${path}`;
   assert.match(html, /<meta name=["']description["'] content=["'][^"']+?["']/i, "Missing nonempty meta description");
@@ -49,10 +58,17 @@ function assertMetadata(html, path) {
   assert.match(html, new RegExp(`<meta property=["']og:url["'] content=["']${canonical}["']`, "i"), "Missing Open Graph URL");
 }
 
-const homepage = assertRenderedPage("/", "Build the answer people find.");
-assertMetadata(homepage, "/");
-assertRenderedPage("/services", "Everything You Need to Get Found and Grow");
-assertRenderedPage("/seo-agency-dubai", "Dubai's #1 AI SEO Agency");
-assertRenderedPage("/tools/meta-tag-analyzer", "Meta Tag Analyzer");
+const representativePages = [
+  ["/", "Build the answer people find."],
+  ["/services", "Everything You Need to Get Found and Grow"],
+  ["/seo-agency-dubai", "Dubai's #1 AI SEO Agency"],
+  ["/tools/meta-tag-analyzer", "Meta Tag Analyzer"],
+];
+
+for (const [path, expectedText] of representativePages) {
+  const html = assertRenderedPage(path, expectedText);
+  assertMetadata(html, path);
+  if (path === "/") assertHeading(html, expectedText);
+}
 
 console.log("Verified rendered static output for homepage, service, city, and tool pages.");
