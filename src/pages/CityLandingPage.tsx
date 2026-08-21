@@ -133,7 +133,7 @@ export const CityLandingPage = ({ city }: CityLandingPageProps) => {
               {stats.map((stat, i) => (
                 <div
                   key={i}
-                  className="rounded-2xl border border-slate-200 p-6 text-center hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
+                  className="border border-line bg-paper p-6 text-center transition-colors hover:bg-lime/20"
                 >
                   <div className="text-3xl font-extrabold text-[#7143E0] mb-2">
                     {stat.number}
@@ -220,10 +220,10 @@ export const CityLandingPage = ({ city }: CityLandingPageProps) => {
             {facts.map((fact, i) => (
               <div
                 key={i}
-                className="rounded-2xl bg-white border border-slate-200 p-7 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+                className="border border-line bg-paper p-7 transition-colors hover:bg-lime/20"
               >
-                <div className="w-10 h-10 rounded-xl bg-[#7143E0]/10 flex items-center justify-center mb-5">
-                  <TrendingUp className="w-5 h-5 text-[#7143E0]" />
+                <div className="mb-5 flex h-10 w-10 items-center justify-center border border-line bg-ink">
+                  <TrendingUp className="h-5 w-5 text-lime" />
                 </div>
                 <h3 className="text-lg font-bold text-slate-900 mb-3 leading-snug">
                   {fact.title}
@@ -288,7 +288,7 @@ export const CityLandingPage = ({ city }: CityLandingPageProps) => {
       </section>
 
       {/* Trust bar */}
-      <section className="py-12 bg-gradient-to-r from-[#2B124C] to-[#3d1a70]">
+      <section className="border-y border-line bg-ink py-12">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             {[
@@ -298,11 +298,11 @@ export const CityLandingPage = ({ city }: CityLandingPageProps) => {
               { icon: <MapPin className="w-5 h-5" />, number: "5", label: t("cityPage.trust.markets") },
             ].map((item, i) => (
               <div key={i} className="text-center">
-                <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/10 text-[#20B2AA] mb-3">
+                <div className="mb-3 inline-flex h-10 w-10 items-center justify-center border border-paper/30 bg-paper/10 text-lime">
                   {item.icon}
                 </div>
-                <div className="text-2xl font-extrabold text-white">{item.number}</div>
-                <div className="text-sm text-gray-400 mt-1">{item.label}</div>
+                <div className="text-2xl font-extrabold text-paper">{item.number}</div>
+                <div className="mt-1 text-sm text-paper/60">{item.label}</div>
               </div>
             ))}
           </div>

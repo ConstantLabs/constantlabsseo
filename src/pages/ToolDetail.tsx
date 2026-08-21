@@ -118,7 +118,7 @@ function StatusBadge({ tone, children }: { tone: BadgeTone; children: string }) 
   };
 
   return (
-    <span className={`inline-flex rounded-full border px-2.5 py-1 text-xs font-semibold ${classes[tone]}`}>
+    <span className={`inline-flex border px-2.5 py-1 text-xs font-semibold ${classes[tone]}`}>
       {children}
     </span>
   );
@@ -270,13 +270,13 @@ function BulkMetaChecker({ isAr }: { isAr: boolean }) {
         rows.length ? (
           <div className="space-y-5 overflow-visible">
             <div className="grid grid-cols-2 gap-3">
-              <div className="rounded-lg bg-white border border-slate-200 p-4">
+              <div className="border border-slate-200 bg-white p-4">
                 <p className="text-xs font-semibold uppercase text-slate-500">
                   {tx(isAr, "Pages checked", "الصفحات المفحوصة")}
                 </p>
                 <p className="mt-2 text-3xl font-extrabold text-slate-900">{rows.length}</p>
               </div>
-              <div className="rounded-lg bg-white border border-slate-200 p-4">
+              <div className="border border-slate-200 bg-white p-4">
                 <p className="text-xs font-semibold uppercase text-slate-500">
                   {tx(isAr, "Pages with issues", "صفحات بها مشاكل")}
                 </p>
@@ -285,7 +285,7 @@ function BulkMetaChecker({ isAr }: { isAr: boolean }) {
             </div>
             <div className="space-y-3">
               {rows.map((row, index) => (
-                <div key={`${row.url}-${index}`} className="rounded-lg bg-white border border-slate-200 p-4">
+                <div key={`${row.url}-${index}`} className="border border-slate-200 bg-white p-4">
                   <p className="text-sm font-bold text-slate-900 break-words" dir="ltr">
                     {row.url || tx(isAr, "No URL", "لا يوجد رابط")}
                   </p>
@@ -383,13 +383,13 @@ function MetaTagAnalyzer({ isAr }: { isAr: boolean }) {
       output={
         html.trim() ? (
           <div className="space-y-5">
-            <div className="rounded-lg bg-white border border-slate-200 p-5">
+            <div className="border border-slate-200 bg-white p-5">
               <p className="text-sm font-semibold text-slate-500">{tx(isAr, "Metadata score", "تقييم بيانات الميتا")}</p>
               <p className="mt-2 text-5xl font-extrabold text-[#7143E0]">{score}</p>
             </div>
             <div className="space-y-3">
               {checks.map((check) => (
-                <div key={check.label} className="rounded-lg bg-white border border-slate-200 p-4">
+                <div key={check.label} className="border border-slate-200 bg-white p-4">
                   <div className="flex items-start justify-between gap-3">
                     <div>
                       <p className="text-sm font-bold text-slate-900">{check.label}</p>
@@ -472,13 +472,13 @@ function HeadingChecker({ isAr }: { isAr: boolean }) {
           <div className="space-y-5">
             <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
               {report.counts.map((item) => (
-                <div key={item.level} className="rounded-lg bg-white border border-slate-200 p-3 text-center">
+                <div key={item.level} className="border border-slate-200 bg-white p-3 text-center">
                   <p className="text-xs font-semibold text-slate-500">H{item.level}</p>
                   <p className="mt-1 text-2xl font-extrabold text-slate-900">{item.count}</p>
                 </div>
               ))}
             </div>
-            <div className="rounded-lg bg-white border border-slate-200 p-4">
+            <div className="border border-slate-200 bg-white p-4">
               <h3 className="font-bold text-slate-900 mb-3">{tx(isAr, "Issues", "المشاكل")}</h3>
               {report.issues.length ? (
                 <ul className="space-y-2">
@@ -824,7 +824,7 @@ function OpenGraphChecker({ isAr }: { isAr: boolean }) {
             {required.map((item) => {
               const value = tags[item.key];
               return (
-                <div key={item.key} className="flex items-start justify-between gap-4 rounded-lg bg-white border border-slate-200 p-4">
+                <div key={item.key} className="flex items-start justify-between gap-4 border border-slate-200 bg-white p-4">
                   <div>
                     <p className="text-sm font-bold text-slate-900">{item.label}</p>
                     <p className="mt-1 text-sm text-slate-600 break-words" dir="auto">{value || "-"}</p>
