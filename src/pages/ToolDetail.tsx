@@ -490,7 +490,7 @@ function HeadingChecker({ isAr }: { isAr: boolean }) {
                 <p className="text-sm text-green-700">{tx(isAr, "No major heading issues found.", "لم يتم العثور على مشاكل كبيرة في العناوين.")}</p>
               )}
             </div>
-            <div className="rounded-lg bg-white border border-slate-200 p-4">
+            <div className="border border-slate-200 bg-white p-4">
               <h3 className="font-bold text-slate-900 mb-3">{tx(isAr, "Heading outline", "هيكل العناوين")}</h3>
               <div className="space-y-2">
                 {report.headings.map((heading) => (
@@ -541,11 +541,11 @@ function SitemapExtractor({ isAr }: { isAr: boolean }) {
       output={
         urls.length ? (
           <div className="space-y-5">
-            <div className="rounded-lg bg-white border border-slate-200 p-5">
+            <div className="border border-slate-200 bg-white p-5">
               <p className="text-sm font-semibold text-slate-500">{tx(isAr, "URLs extracted", "روابط مستخرجة")}</p>
               <p className="mt-2 text-5xl font-extrabold text-[#7143E0]">{urls.length}</p>
             </div>
-            <div className="rounded-lg bg-white border border-slate-200 p-4">
+            <div className="border border-slate-200 bg-white p-4">
               <h3 className="font-bold text-slate-900 mb-3">{tx(isAr, "Hostnames", "النطاقات")}</h3>
               <div className="space-y-2">
                 {hostSummary.map(([host, count]) => (
@@ -864,12 +864,12 @@ function BandwidthCalculator({ isAr }: { isAr: boolean }) {
       isAr={isAr}
       output={
         <div className="space-y-5">
-          <div className="rounded-lg bg-white border border-slate-200 p-5">
+          <div className="border border-slate-200 bg-white p-5">
             <p className="text-sm font-semibold text-slate-500">{tx(isAr, "Estimated monthly bandwidth", "الاستهلاك الشهري المتوقع")}</p>
             <p className="mt-2 text-5xl font-extrabold text-[#7143E0]">{monthlyGb.toFixed(1)} GB</p>
             <p className="mt-2 text-sm text-slate-600">{annualTb.toFixed(2)} TB {tx(isAr, "per year", "سنوياً")}</p>
           </div>
-          <div className="rounded-lg bg-white border border-slate-200 p-5">
+          <div className="border border-slate-200 bg-white p-5">
             <p className="text-sm font-bold text-slate-900">{tx(isAr, "Hosting recommendation", "توصية الاستضافة")}</p>
             <p className="mt-2 text-slate-700">
               {tier === "starter"
@@ -922,7 +922,7 @@ function CostCalculator({ isAr }: { isAr: boolean }) {
       isAr={isAr}
       output={
         <div className="space-y-5">
-          <div className="rounded-lg bg-white border border-slate-200 p-5">
+          <div className="border border-slate-200 bg-white p-5">
             <p className="text-sm font-semibold text-slate-500">{tx(isAr, "Planning range", "النطاق التخطيطي")}</p>
             <p className="mt-2 text-4xl font-extrabold text-[#7143E0]" dir="ltr">
               AED {low.toLocaleString()} - {high.toLocaleString()}
@@ -1011,13 +1011,13 @@ function YouTubeSeoChecker({ isAr }: { isAr: boolean }) {
       isAr={isAr}
       output={
         <div className="space-y-5">
-          <div className="rounded-lg bg-white border border-slate-200 p-5">
+          <div className="border border-slate-200 bg-white p-5">
             <p className="text-sm font-semibold text-slate-500">{tx(isAr, "Video SEO score", "تقييم SEO للفيديو")}</p>
             <p className="mt-2 text-5xl font-extrabold text-[#7143E0]">{score}</p>
           </div>
           <div className="space-y-3">
             {checks.map((check) => (
-              <div key={check.label} className="flex items-center justify-between gap-4 rounded-lg bg-white border border-slate-200 p-4">
+              <div key={check.label} className="flex items-center justify-between gap-4 border border-slate-200 bg-white p-4">
                 <p className="text-sm font-bold text-slate-900">{check.label}</p>
                 <StatusBadge tone={check.good ? "good" : "warning"}>
                   {check.good ? getLocalizedText(toolUiCopy.good, isAr) : getLocalizedText(toolUiCopy.warning, isAr)}
