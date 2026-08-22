@@ -2,7 +2,7 @@
 User-agent: *
 Allow: /
 
-# AI Crawlers — allowed to index for GEO/AEO visibility
+# AI Crawlers, allowed to index for GEO and AEO visibility
 User-agent: GPTBot
 Allow: /
 

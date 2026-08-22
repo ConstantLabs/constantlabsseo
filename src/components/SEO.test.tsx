@@ -8,7 +8,7 @@ describe("SEO hydrated metadata", () => {
     render(
       <HelmetProvider>
         <SEO
-          title="ConstantSEO — أنظمة بحث لمنطقة الخليج"
+          title="ConstantSEO، أنظمة بحث لمنطقة الخليج"
           description="وصف عربي"
           path="/"
         />
@@ -16,7 +16,7 @@ describe("SEO hydrated metadata", () => {
     );
 
     await waitFor(() => {
-      expect(document.title).toBe("ConstantSEO — أنظمة بحث لمنطقة الخليج");
+      expect(document.title).toBe("ConstantSEO، أنظمة بحث لمنطقة الخليج");
     });
   });
 

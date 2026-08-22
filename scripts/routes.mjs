@@ -11,7 +11,7 @@ export const routes = [
   // ── Core Pages ──────────────────────────────────────────────
   {
     path: "/",
-    title: "ConstantSEO — Search systems for the GCC",
+    title: "ConstantSEO, search systems for the GCC",
     description: "ConstantSEO builds bilingual, technical, and local search systems for businesses across the GCC.",
   },
   {

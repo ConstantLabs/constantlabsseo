@@ -71,7 +71,7 @@ export const SEO = ({
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={image} />
 
-      {/* Hreflang — bilingual EN/AR on same URL */}
+      {/* Hreflang, bilingual EN/AR on same URL */}
       <link rel="alternate" hreflang="en" href={url} />
       <link rel="alternate" hreflang="ar" href={url} />
       <link rel="alternate" hreflang="x-default" href={url} />

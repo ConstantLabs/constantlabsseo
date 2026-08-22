@@ -26,7 +26,7 @@ export const translations: TranslationMap = {
   "nav.audit": { en: "Get Free Audit", ar: "تدقيق مجاني" },
 
   // ─── Audit Page ─────────────────────────────────────────────
-  "audit.seo.title": { en: "Free SEO Audit — ConstantSEO", ar: "تدقيق SEO مجاني — ConstantSEO" },
+  "audit.seo.title": { en: "Free SEO Audit, ConstantSEO", ar: "تدقيق SEO مجاني، ConstantSEO" },
   "audit.seo.description": {
     en: "Review selected technical, metadata, and search signals for your website with ConstantSEO.",
     ar: "راجع مجموعة من الإشارات التقنية وبيانات الميتا وإشارات البحث لموقعك مع ConstantSEO."
@@ -108,7 +108,7 @@ export const translations: TranslationMap = {
   "home.nav.label": { en: "Primary navigation", ar: "التنقل الرئيسي" },
   "home.nav.open": { en: "Open navigation", ar: "فتح التنقل" },
   "home.nav.close": { en: "Close navigation", ar: "إغلاق التنقل" },
-  "home.seo.title": { en: "ConstantSEO — Search systems for the GCC", ar: "ConstantSEO — أنظمة بحث لمنطقة الخليج" },
+  "home.seo.title": { en: "ConstantSEO, search systems for the GCC", ar: "ConstantSEO، أنظمة بحث لمنطقة الخليج" },
   "home.seo.description": { en: "ConstantSEO builds bilingual, technical, and local search systems for businesses across the GCC.", ar: "تبني ConstantSEO أنظمة بحث ثنائية اللغة وتقنية ومحلية للشركات في أنحاء الخليج." },
   "signalField.label": { en: "Search signal field", ar: "مجال إشارات البحث" },
   "signalField.discovery": { en: "Organic discovery", ar: "الاكتشاف العضوي" },
@@ -128,8 +128,8 @@ export const translations: TranslationMap = {
   "home.hero.inputLabel": { en: "Website to audit", ar: "الموقع المراد تدقيقه" },
   "home.hero.proofCta": { en: "Inspect the evidence", ar: "تحقق من الدليل" },
   "home.hero.methodCta": { en: "See the method", ar: "اطّلع على المنهج" },
-  "home.capabilities.eyebrow": { en: "Capability coverage", ar: "تغطية القدرات" },
-  "home.capabilities.copy": { en: "One integrated system for classic search, local discovery, and AI answers.", ar: "نظام متكامل للبحث التقليدي والاكتشاف المحلي وإجابات الذكاء الاصطناعي." },
+  "home.capabilities.eyebrow": { en: "SEO, GEO, and AEO together", ar: "SEO و GEO و AEO معاً" },
+  "home.capabilities.copy": { en: "One system running at the same time across classic search, local discovery, and AI answers.", ar: "نظام واحد يعمل في الوقت نفسه عبر البحث التقليدي والاكتشاف المحلي وإجابات الذكاء الاصطناعي." },
   "home.system.eyebrow": { en: "Visibility system", ar: "نظام الظهور" },
   "home.system.title": { en: "More than pages. A connected search presence.", ar: "أكثر من صفحات. حضور بحث مترابط." },
   "home.system.copy": { en: "We identify demand, build useful entry points, and learn from the signals the search engines return.", ar: "نحدد الطلب ونبني نقاط دخول مفيدة ونتعلم من الإشارات التي تعيدها محركات البحث." },
@@ -189,11 +189,11 @@ export const translations: TranslationMap = {
   "whatsapp.tooltip": { en: "Chat on WhatsApp", ar: "تواصل عبر واتساب" },
 
   // ─── Mufakkir evidence ─────────────────────────────────────
-  "mufakkir.eyebrow": { en: "Source-backed performance", ar: "أداء موثّق بالمصدر" },
-  "mufakkir.title": { en: "A search result you can inspect.", ar: "نتيجة بحث يمكنك التحقق منها." },
+  "mufakkir.eyebrow": { en: "SEO, GEO, AEO together, six-month growth story", ar: "SEO و GEO و AEO معاً، قصة نمو خلال ستة أشهر" },
+  "mufakkir.title": { en: "From zero visibility to 1.74K clicks.", ar: "من ظهور معدوم إلى 1.74 ألف نقرة." },
   "mufakkir.regionLabel": { en: "Mufakkir organic search performance", ar: "أداء مَفكِّر في البحث العضوي" },
   "mufakkir.statement": {
-    en: "For mufakkir.app, Google Search Console reported 1.74K organic clicks, 29K impressions, 6.0% CTR, and average position 8.4 over the displayed 12-month period.",
+    en: "For mufakkir.app, Google Search Console reported 1.74K organic clicks, 29K impressions, 6.0% CTR, and average position 8.4 over the displayed 12-month period. The operating model runs SEO, GEO, and AEO together from day one.",
     ar: "بالنسبة إلى mufakkir.app، أبلغ Google Search Console عن 1.74 ألف نقرة عضوية و29 ألف ظهور ونسبة نقر إلى ظهور قدرها 6.0% ومتوسط ترتيب 8.4 خلال فترة الاثني عشر شهراً المعروضة."
   },
   "mufakkir.metric.clicks": { en: "Total clicks", ar: "إجمالي النقرات" },
@@ -892,7 +892,7 @@ export const translations: TranslationMap = {
   "contactPage.info.whatsapp.label": { en: "WhatsApp", ar: "واتساب" },
   "contactPage.info.whatsapp.value": { en: "Open WhatsApp", ar: "فتح واتساب" },
   "contactPage.info.hours.label": { en: "Working hours", ar: "ساعات العمل" },
-  "contactPage.info.hours.value": { en: "Sunday–Thursday, 9:00–18:00 GST", ar: "الأحد–الخميس، 9:00–18:00 بتوقيت الخليج" },
+  "contactPage.info.hours.value": { en: "Sunday to Thursday, 9:00 to 18:00 GST", ar: "الأحد إلى الخميس، 9:00 إلى 18:00 بتوقيت الخليج" },
   "contactPage.info.panelTitle": { en: "Prefer a written brief?", ar: "تفضل موجزاً مكتوباً؟" },
   "contactPage.info.panelCopy": { en: "Email the website, market, and questions you want reviewed.", ar: "أرسل عبر البريد الموقع والسوق والأسئلة التي تريد مراجعتها." },
   "contactPage.info.response": { en: "WhatsApp and email are available above.", ar: "واتساب والبريد الإلكتروني متاحان أعلاه." },

@@ -199,7 +199,7 @@ async function run() {
           console.log(`  ✓ ${r.path} (${(r.bytes / 1024).toFixed(0)} KB)`);
         } catch (err) {
           failed++;
-          console.warn(`  ✗ ${route.path} — kept head-only baseline (${err.message})`);
+          console.warn(`  ✗ ${route.path}, kept head-only baseline (${err.message})`);
         }
       }
     }

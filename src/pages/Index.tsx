@@ -27,9 +27,9 @@ const Index = () => {
       <main>
         <HeroSection />
         <ClientLogos />
+        <MufakkirEvidence />
         <ProblemSolution />
         <ServicesGrid />
-        <MufakkirEvidence />
         <HowItWorks />
         <CaseStudiesSection />
         <PricingSection />
