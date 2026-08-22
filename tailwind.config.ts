@@ -73,10 +73,14 @@ export default {
           ring: "hsl(var(--sidebar-ring))",
         },
         void: "#030500",
+        ground: "#030500",
         ink: "#0A0F04",
+        raised: "#0A0F04",
         paper: "#EDF2E4",
+        muted: "#8C9880",
         line: "#2B3720",
         lime: "#C7FF38",
+        signal: "#C7FF38",
         "evidence-blue": "#4285F4",
         "evidence-violet": "#673AB7",
       },
@@ -90,6 +94,9 @@ export default {
         heading: ['Anton', 'Impact', 'sans-serif'],
         serif: ['Instrument Serif', 'Georgia', 'serif'],
         arabic: ['Noto Kufi Arabic', 'sans-serif'],
+      },
+      maxWidth: {
+        page: "78rem",
       },
       keyframes: {
         "accordion-down": {

@@ -59,7 +59,7 @@
 ::-webkit-scrollbar-thumb:hover { background: #C7FF38; }
 
 [dir="rtl"] body,
-[dir="rtl"] body * { font-family: "Noto Kufi Arabic", sans-serif !important; }
+  [dir="rtl"] body *:not(.tv-display):not(.tv-display *):not(.tv-label):not(.tv-label *):not(.tv-body):not(.tv-body *) { font-family: "Noto Kufi Arabic", sans-serif !important; }
 [dir="rtl"] .ltr-inline { direction: ltr; unicode-bidi: embed; }
 [dir="rtl"] .platform-pill,
 [dir="rtl"] input,
@@ -72,6 +72,28 @@
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
 }
+
+@layer components {
+  /* ConstantLabs website typography roles, shared by the SEO hero. */
+  .tv-display {
+    font-family: "Anton", Impact, Arial Narrow, sans-serif;
+    font-weight: 400;
+    letter-spacing: -0.005em;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  .tv-body {
+    font-family: "Inter Tight", system-ui, sans-serif;
+    font-weight: 400;
+  }
+
+  .tv-label {
+    font-family: "Inter Tight", system-ui, sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+}
 .scroll-track::-webkit-scrollbar,
 .scrollbar-hide::-webkit-scrollbar { display: none; }
 .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
@@ -79,6 +101,9 @@
 
 @keyframes marquee-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes field-swap { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+.animate-field-swap { animation: field-swap 380ms cubic-bezier(0.2, 0, 0, 1); }
 
 .marquee-track { will-change: transform; }
 .hover-lift { transition: transform 0.3s ease, box-shadow 0.3s ease; }
