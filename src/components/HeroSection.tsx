@@ -8,7 +8,7 @@ import { PrimaryCTA, SecondaryCTA } from "@/components/marketing/primitives";
 
 /** One complete ConstantLabs-style hero: navigation, copy, action, and image. */
 export const HeroSection = () => {
-  const { t, isAr } = useLanguage();
+  const { t } = useLanguage();
   const navigate = useNavigate();
   const [domain, setDomain] = useState("");
 
@@ -26,15 +26,6 @@ export const HeroSection = () => {
 
       <div className="mx-auto flex w-full max-w-page flex-1 items-end px-4 pb-10 pt-28 sm:px-8 sm:pb-14 sm:pt-32 lg:pb-20">
         <div className="max-w-3xl">
-          <div className="mb-7 flex flex-wrap gap-2 sm:mb-10">
-            <span className="tv-label border border-line bg-void/65 px-3 py-2 text-[0.625rem] leading-4 tracking-[0.16em] text-paper">
-              CONSTANTSEO // GCC SEARCH SYSTEMS
-            </span>
-            <span className="tv-label border border-line bg-void/65 px-3 py-2 text-[0.625rem] leading-4 tracking-[0.16em] text-muted">
-              {isAr ? "دبي، الإمارات" : "DUBAI, UAE"}
-            </span>
-          </div>
-
           <p className="tv-label mb-4 text-[0.6875rem] leading-4 tracking-[0.18em] text-signal sm:mb-5">
             {t("home.hero.eyebrow")}
           </p>
