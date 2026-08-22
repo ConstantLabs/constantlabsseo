@@ -153,8 +153,6 @@ export const translations: TranslationMap = {
   "home.services.content.copy": { en: "Plan and publish editorial pages that answer the questions worth owning.", ar: "نخطط وننشر صفحات تحريرية تجيب عن الأسئلة التي تستحق امتلاكها." },
   "home.services.local.title": { en: "Local discovery", ar: "الاكتشاف المحلي" },
   "home.services.local.copy": { en: "Build trustworthy location signals for the customers closest to your offer.", ar: "نبني إشارات موقع موثوقة للعملاء الأقرب إلى عرضك." },
-  "home.services.authority.title": { en: "Authority building", ar: "بناء الموثوقية" },
-  "home.services.authority.copy": { en: "Earn relevant references and internal connections that clarify your expertise.", ar: "نكسب مراجع ذات صلة وروابط داخلية توضح خبرتك." },
   "home.services.arabic.title": { en: "Arabic search", ar: "البحث بالعربية" },
   "home.services.arabic.copy": { en: "Create a cohesive Arabic experience built for local language and search intent.", ar: "ننشئ تجربة عربية متماسكة مبنية للغة المحلية ونيّة البحث." },
   "home.method.eyebrow": { en: "Methodology", ar: "المنهجية" },
@@ -251,12 +249,6 @@ export const translations: TranslationMap = {
     ar: "عندما يبحث شخص في دبي أو الرياض عما تقدمه، تظهر أنت أولاً. تحسين Google Business والمحتوى العربي يجلبان زيارات حقيقية ومكالمات."
   },
 
-  "service.linkBuilding.title": { en: "Outrank Competitors With Stronger Authority", ar: "تفوّق على المنافسين بسلطة أقوى" },
-  "service.linkBuilding.desc": {
-    en: "Google ranks the most trusted sites first. We build high-quality backlinks from authoritative GCC and international publications that push you above competitors permanently.",
-    ar: "جوجل يرتّب أكثر المواقع ثقة أولاً. نبني روابط خلفية عالية الجودة من منشورات خليجية ودولية موثوقة تدفعك فوق المنافسين بشكل دائم."
-  },
-
   "service.arabicSeo.title": { en: "Reach Gulf Customers in Their Own Language", ar: "اوصل لعملاء الخليج بلغتهم" },
   "service.arabicSeo.desc": {
     en: "Millions of Gulf customers search in Arabic. Native Arabic SEO content, RTL-optimized pages, and Arabic keyword research that connects you with customers others are missing.",
@@ -291,13 +283,6 @@ export const translations: TranslationMap = {
     ar: "سيطر على سوقك المحلي. تحسين خرائط جوجل، بناء الاستشهادات المحلية، ومحتوى جغرافي مستهدف للإمارات والسعودية وعُمان."
   },
   "service.LOCAL_SEO.oneLiner": { en: "Own your local market", ar: "سيطر على سوقك المحلي" },
-
-  "service.AI_LINK_BUILDING.title": { en: "AI-Powered Link Building", ar: "بناء الروابط بالذكاء الاصطناعي" },
-  "service.AI_LINK_BUILDING.description": {
-    en: "Strategic backlink acquisition using AI to identify high-value opportunities. Build authority that search engines and LLMs trust.",
-    ar: "بناء روابط خلفية استراتيجية باستخدام الذكاء الاصطناعي لاكتشاف أفضل الفرص. ابنِ سلطة يثق بها جوجل ونماذج الذكاء الاصطناعي."
-  },
-  "service.AI_LINK_BUILDING.oneLiner": { en: "Authority search engines trust", ar: "سلطة تثق بها محركات البحث" },
 
   "service.SEO_AUDITS.title": { en: "SEO Audits & Analytics", ar: "تدقيق SEO والتحليلات" },
   "service.SEO_AUDITS.description": {
@@ -413,7 +398,7 @@ export const translations: TranslationMap = {
   "pricing.label": { en: "Pricing", ar: "الأسعار" },
   "pricing.title": { en: "Transparent Service Plans", ar: "باقات خدمات واضحة" },
   "pricing.subtitle": { en: "All plans include AI-powered optimization. No hidden fees.", ar: "جميع الباقات تشمل التحسين بالذكاء الاصطناعي. بدون رسوم مخفية." },
-  "pricing.monthly": { en: "/month", ar: "/شهر" },
+  "pricing.monthly": { en: "/ month", ar: "/ شهر" },
   "pricing.popular": { en: "Most Popular", ar: "الأكثر طلباً" },
   "pricing.getStarted": { en: "Get Started", ar: "ابدأ الآن" },
   "pricing.contactUs": { en: "Contact Us", ar: "تواصل معنا" },
@@ -421,7 +406,7 @@ export const translations: TranslationMap = {
   "pricing.custom": { en: "Need a custom plan? Let's talk.", ar: "تحتاج خطة مخصصة؟ كلّمنا." },
 
   "pricing.starter.name": { en: "Starter", ar: "المبتدئ" },
-  "pricing.starter.price": { en: "350 AED", ar: "350 درهم" },
+  "pricing.starter.price": { en: "700 AED", ar: "700 درهم" },
   "pricing.starter.desc": { en: "A focused foundation for a smaller search scope", ar: "أساس مركز لنطاق بحث أصغر" },
   "pricing.starter.f1": { en: "15 target keywords", ar: "15 كلمة مفتاحية مستهدفة" },
   "pricing.starter.f2": { en: "Monthly SEO audit", ar: "تدقيق SEO شهري" },
@@ -432,25 +417,23 @@ export const translations: TranslationMap = {
   "pricing.starter.f7": { en: "Email support", ar: "دعم عبر البريد الإلكتروني" },
 
   "pricing.growth.name": { en: "Growth", ar: "النمو" },
-  "pricing.growth.price": { en: "700 AED", ar: "700 درهم" },
+  "pricing.growth.price": { en: "1,400 AED", ar: "1,400 درهم" },
   "pricing.growth.desc": { en: "A broader recurring scope across technical, content, and local search", ar: "نطاق دوري أوسع عبر البحث التقني والمحتوى والبحث المحلي" },
   "pricing.growth.f1": { en: "50 target keywords", ar: "50 كلمة مفتاحية مستهدفة" },
   "pricing.growth.f2": { en: "Weekly optimization cycles", ar: "دورات تحسين أسبوعية" },
   "pricing.growth.f3": { en: "AI search tracking (GEO/AEO)", ar: "تتبع بحث الذكاء الاصطناعي (GEO/AEO)" },
-  "pricing.growth.f4": { en: "Arabic content creation (4 articles/mo)", ar: "إنشاء محتوى عربي (4 مقالات/شهر)" },
+  "pricing.growth.f4": { en: "Arabic content creation (4 articles / month)", ar: "إنشاء محتوى عربي (4 مقالات / شهر)" },
   "pricing.growth.f5": { en: "Local SEO for up to 3 locations", ar: "SEO محلي لـ 3 مواقع" },
-  "pricing.growth.f6": { en: "Backlink building (10/month)", ar: "بناء روابط خلفية (10/شهر)" },
   "pricing.growth.f7": { en: "Bi-weekly strategy calls", ar: "مكالمات استراتيجية كل أسبوعين" },
 
   "pricing.enterprise.name": { en: "Enterprise", ar: "المؤسسي" },
-  "pricing.enterprise.price": { en: "1,500 AED", ar: "1,500 درهم" },
+  "pricing.enterprise.price": { en: "3,000 AED", ar: "3,000 درهم" },
   "pricing.enterprise.desc": { en: "A coordinated multi-market scope across Google, AI platforms, Arabic, and English", ar: "نطاق منسق متعدد الأسواق عبر Google ومنصات الذكاء الاصطناعي والعربية والإنجليزية" },
   "pricing.enterprise.f1": { en: "Unlimited target keywords", ar: "كلمات مفتاحية غير محدودة" },
   "pricing.enterprise.f2": { en: "Dedicated SEO strategist", ar: "استراتيجي SEO مخصص" },
   "pricing.enterprise.f3": { en: "Custom AI search dashboard", ar: "لوحة بحث AI مخصصة" },
   "pricing.enterprise.f4": { en: "Unlimited Arabic & English content", ar: "محتوى عربي وإنجليزي غير محدود" },
   "pricing.enterprise.f5": { en: "Full GCC local SEO coverage", ar: "تغطية SEO محلي لكامل الخليج" },
-  "pricing.enterprise.f6": { en: "Aggressive link building (30+/month)", ar: "بناء روابط مكثف (30+/شهر)" },
   "pricing.enterprise.f7": { en: "Priority support (same-day response)", ar: "دعم أولوية (رد في نفس اليوم)" },
 
   // ─── Testimonials ───────────────────────────────────────────
@@ -642,7 +625,6 @@ export const translations: TranslationMap = {
   "footer.contentStrategy": { en: "Content Strategy", ar: "استراتيجية المحتوى" },
   "footer.localSeo": { en: "Local SEO", ar: "SEO محلي" },
   "footer.arabicSeo": { en: "Arabic SEO", ar: "SEO بالعربية" },
-  "footer.linkBuilding": { en: "Link Building", ar: "بناء الروابط" },
   "footer.seoAudits": { en: "SEO Audits", ar: "تدقيق SEO" },
   "footer.aboutUs": { en: "About Us", ar: "من نحن" },
   "footer.careers": { en: "Careers", ar: "الوظائف" },

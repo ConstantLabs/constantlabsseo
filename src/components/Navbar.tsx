@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 
-export const Navbar = () => {
+export const Navbar = ({ heroOnly = false }: { heroOnly?: boolean }) => {
   const { t, toggleLang, isAr } = useLanguage();
   const [mobileOpen, setMobileOpen] = useState(false);
   const links = [
@@ -14,7 +14,7 @@ export const Navbar = () => {
   ];
 
   return (
-    <header className="fixed inset-x-0 top-0 z-40 border-b border-line bg-void/95 backdrop-blur-sm">
+    <header className={`${heroOnly ? "absolute" : "fixed"} inset-x-0 top-0 z-40 border-b border-line bg-void/90 backdrop-blur-sm`}>
       <nav aria-label={t("home.nav.label")} className="mx-auto flex h-16 max-w-page items-center justify-between px-4 sm:h-20 sm:px-8">
         <Link to="/" dir="ltr" className="tv-display text-xl uppercase tracking-[-0.005em] text-paper sm:text-2xl [unicode-bidi:isolate]">
           ConstantSEO<span className="text-signal">.</span>

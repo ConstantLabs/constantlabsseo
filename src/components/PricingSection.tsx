@@ -39,7 +39,6 @@ const tiers: PricingTier[] = [
       "pricing.growth.f3",
       "pricing.growth.f4",
       "pricing.growth.f5",
-      "pricing.growth.f6",
       "pricing.growth.f7",
     ],
   },
@@ -51,7 +50,6 @@ const tiers: PricingTier[] = [
       "pricing.enterprise.f3",
       "pricing.enterprise.f4",
       "pricing.enterprise.f5",
-      "pricing.enterprise.f6",
       "pricing.enterprise.f7",
     ],
   },
@@ -114,7 +112,9 @@ className={`relative flex flex-col border p-7 !overflow-visible md:p-8 ${
                 <span className={`text-3xl md:text-4xl font-extrabold ${tier.featured ? "text-paper" : "text-ink"}`}>
                   {t(`pricing.${tier.key}.price`)}
                 </span>
-                
+                <span className={`ml-2 text-sm font-semibold uppercase tracking-[0.12em] ${tier.featured ? "text-paper/70" : "text-ink/60"}`}>
+                  {t("pricing.monthly")}
+                </span>
               </div>
 
               {/* Features */}

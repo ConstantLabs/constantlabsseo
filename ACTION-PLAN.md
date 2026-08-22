@@ -40,7 +40,6 @@ Replace entirely. All 11 routes need entries for `seo.constantlabs.ai`:
     <lastmod>2026-03-29</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://seo.constantlabs.ai/services/local-seo</loc>
     <lastmod>2026-03-29</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://seo.constantlabs.ai/services/ai-link-building</loc>
     <lastmod>2026-03-29</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://seo.constantlabs.ai/services/seo-audits</loc>
     <lastmod>2026-03-29</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -153,7 +152,6 @@ Since both EN and AR content exists at the same URL (client-side switching), the
 - Technical SEO: Core Web Vitals, schema markup, crawlability, site speed
 - Arabic Content Strategy: Native Arabic SEO content for GCC audiences
 - Local SEO: Google Maps optimization for Dubai, UAE, Saudi Arabia, Oman
-- AI-Powered Link Building: Strategic backlink acquisition using AI
 - SEO Audits & Analytics: Comprehensive audits with real-time dashboards
 - Website Development: SEO-first websites built with agentic AI
 - Conversion Rate Optimization: Traffic-to-revenue optimization
@@ -288,8 +286,6 @@ const serviceLinks = [
   { label: t("footer.technicalSeo"), to: "/services/technical-seo" },
   { label: t("footer.contentStrategy"), to: "/services/arabic-content" },
   { label: t("footer.localSeo"), to: "/services/local-seo" },
-  { label: t("footer.arabicSeo"), to: "/services/ai-link-building" },
-  { label: t("footer.linkBuilding"), to: "/services/seo-audits" },
 ];
 ```
 

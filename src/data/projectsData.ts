@@ -1,5 +1,5 @@
 import {
-  Search, Settings, Globe, MapPin, Link, BarChart3, Code, TrendingUp,
+  Search, Settings, Globe, MapPin, BarChart3, Code, TrendingUp,
   Star, Users, HelpCircle
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
@@ -68,18 +68,6 @@ export const SERVICES: Service[] = [
     tagsAr: ["خرائط جوجل", "استشهادات محلية", "استهداف جغرافي", "أسواق الخليج"],
     oneLiner: "Build trustworthy local signals",
     oneLinerAr: "ابنِ إشارات محلية موثوقة",
-  },
-  {
-    id: "AI_LINK_BUILDING",
-    title: "AI-Powered Link Building",
-    titleAr: "بناء الروابط بمساعدة الذكاء الاصطناعي",
-    icon: Link,
-    description: "Research relevant reference opportunities and strengthen the internal connections that clarify subject expertise.",
-    descriptionAr: "نبحث فرص مراجع ذات صلة ونعزز الروابط الداخلية التي توضح الخبرة الموضوعية.",
-    tags: ["Backlinks", "Domain Authority", "AI Prospecting", "Digital PR"],
-    tagsAr: ["روابط خلفية", "سلطة النطاق", "بحث بالذكاء الاصطناعي", "علاقات عامة رقمية"],
-    oneLiner: "Authority search engines trust",
-    oneLinerAr: "إشارات سلطة واضحة لمحركات البحث",
   },
   {
     id: "SEO_AUDITS",

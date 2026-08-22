@@ -8,7 +8,6 @@
 - **Technical SEO**: Core Web Vitals, schema markup, crawlability, site speed, and technical audit fixes.
 - **Arabic Content Strategy**: Native Arabic SEO content with proper RTL optimization and Arabic keyword research by native speakers.
 - **Local SEO**: Google Maps (Google Business Profile) optimization, local citations, and geo-targeted content for Dubai, Abu Dhabi, Riyadh, Jeddah, and Muscat.
-- **AI-Powered Link Building**: Strategic backlink acquisition using AI to identify high-authority opportunities in GCC and global publications.
 - **SEO Audits & Analytics**: Comprehensive AI-driven audits with real-time dashboards tracking rankings across Google AND AI platforms.
 - **Website Development**: SEO-first websites built with agentic AI — 50+ optimized pages deployed in days.
 - **Conversion Rate Optimization**: Data-driven CRO to turn search traffic into revenue.
@@ -30,9 +29,9 @@
 
 ## Pricing
 
-- Starter: AED 1,500/month — 15 keywords, monthly audit, technical fixes
-- Growth: AED 3,500/month — 50 keywords, weekly optimization, Arabic content, local SEO
-- Enterprise: AED 7,500/month — unlimited keywords, dedicated strategist, full GCC coverage
+- Starter: AED 700 / month — 15 keywords, monthly audit, technical fixes
+- Growth: AED 1,400 / month — 50 keywords, weekly optimization, Arabic content, local SEO
+- Enterprise: AED 3,000 / month — unlimited keywords, dedicated strategist, full GCC coverage
 
 ## Key Differentiators
 

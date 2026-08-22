@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { ArrowUpRight, Search } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import heroVisual from "@/assets/hero-intelligence-v1.png";
 import { useLanguage } from "@/i18n/LanguageContext";
-import { DitherShader } from "@/components/DitherShader";
+import { Navbar } from "@/components/Navbar";
 import { PrimaryCTA, SecondaryCTA } from "@/components/marketing/primitives";
 
-/** The ConstantLabs hero recipe with the SEO audit as its first action. */
+/** One complete ConstantLabs-style hero: navigation, copy, action, and image. */
 export const HeroSection = () => {
   const { t, isAr } = useLanguage();
   const navigate = useNavigate();
@@ -16,29 +17,37 @@ export const HeroSection = () => {
   };
 
   return (
-    <header className="relative flex min-h-[100svh] flex-col border-b border-line bg-void px-4 pb-5 pt-24 text-paper sm:px-8 sm:pb-6 sm:pt-28">
-      <div className="mx-auto flex w-full max-w-page flex-wrap items-start gap-2 pr-28 sm:pr-36">
-        <span className="tv-label border border-line px-3 py-2 text-[0.625rem] leading-4 tracking-[0.16em] text-paper">
-          CONSTANTSEO // GCC SEARCH SYSTEMS
-        </span>
-        <span className="tv-label border border-line px-3 py-2 text-[0.625rem] leading-4 tracking-[0.16em] text-muted">
-          {isAr ? "دبي، الإمارات" : "DUBAI, UAE"}
-        </span>
-      </div>
+    <header className="relative isolate flex min-h-[100svh] flex-col overflow-hidden border-b border-line bg-void text-paper">
+      <Navbar heroOnly />
 
-      <div className="mx-auto grid w-full max-w-page flex-1 items-center gap-6 py-6 sm:gap-10 sm:py-10 lg:grid-cols-[1fr_1.25fr] lg:gap-10">
-        <div className="animate-field-swap">
-          <h1 className="tv-display max-w-2xl text-[clamp(3.25rem,7vw,6rem)] uppercase leading-[0.92] tracking-[-0.025em] text-paper">
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_76%_54%,rgb(199_255_56_/_0.11),transparent_34%),linear-gradient(105deg,#030500_0%,#030500_44%,transparent_76%)]" aria-hidden="true" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 -z-10 w-[62%] bg-cover bg-center opacity-95 mix-blend-screen" style={{ backgroundImage: `url(${heroVisual})` }} aria-hidden="true" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 -z-10 w-[68%] bg-gradient-to-l from-transparent via-void/20 to-void" aria-hidden="true" />
+
+      <div className="mx-auto flex w-full max-w-page flex-1 items-end px-4 pb-10 pt-28 sm:px-8 sm:pb-14 sm:pt-32 lg:pb-20">
+        <div className="max-w-3xl">
+          <div className="mb-7 flex flex-wrap gap-2 sm:mb-10">
+            <span className="tv-label border border-line bg-void/65 px-3 py-2 text-[0.625rem] leading-4 tracking-[0.16em] text-paper">
+              CONSTANTSEO // GCC SEARCH SYSTEMS
+            </span>
+            <span className="tv-label border border-line bg-void/65 px-3 py-2 text-[0.625rem] leading-4 tracking-[0.16em] text-muted">
+              {isAr ? "دبي، الإمارات" : "DUBAI, UAE"}
+            </span>
+          </div>
+
+          <p className="tv-label mb-4 text-[0.6875rem] leading-4 tracking-[0.18em] text-signal sm:mb-5">
+            {t("home.hero.eyebrow")}
+          </p>
+          <h1 className="tv-display max-w-4xl text-[clamp(3.35rem,8.5vw,8rem)] uppercase leading-[0.86] tracking-[-0.025em] text-paper">
             {t("home.hero.title")}
           </h1>
-
-          <p className="tv-body mt-4 max-w-xl text-base leading-[1.5] text-muted sm:mt-6 sm:text-lg">
+          <p className="tv-body mt-5 max-w-xl text-base leading-[1.45] text-paper/70 sm:mt-7 sm:text-xl">
             {t("home.hero.subtitle")}
           </p>
 
-          <div className="mt-5 grid max-w-xl gap-2 sm:mt-7 sm:grid-cols-[1fr_auto]">
+          <div className="mt-7 grid max-w-2xl gap-2 sm:mt-9 sm:grid-cols-[1fr_auto]">
             <label className="sr-only" htmlFor="hero-domain">{t("home.hero.inputLabel")}</label>
-            <div className="flex items-center border border-line bg-raised px-3 focus-within:border-signal">
+            <div className="flex items-center border border-line bg-void/75 px-3 backdrop-blur-sm focus-within:border-signal">
               <Search className="h-4 w-4 shrink-0 text-muted" aria-hidden="true" />
               <input
                 id="hero-domain"
@@ -46,47 +55,23 @@ export const HeroSection = () => {
                 onChange={(event) => setDomain(event.target.value)}
                 onKeyDown={(event) => event.key === "Enter" && handleAudit()}
                 placeholder={t("hero.inputPlaceholder")}
-                className="tv-body min-w-0 flex-1 bg-transparent px-3 py-3 text-sm text-paper outline-none placeholder:text-muted"
+                className="tv-body min-w-0 flex-1 bg-transparent px-3 py-3.5 text-sm text-paper outline-none placeholder:text-muted"
               />
             </div>
-            <button
-              type="button"
-              onClick={handleAudit}
-              className="tv-label inline-flex items-center justify-center gap-2 border border-signal bg-signal px-5 py-3 text-[0.625rem] leading-4 tracking-[0.16em] text-void transition-colors hover:bg-paper"
-            >
+            <button type="button" onClick={handleAudit} className="tv-label inline-flex items-center justify-center gap-2 border border-signal bg-signal px-6 py-3.5 text-[0.625rem] leading-4 tracking-[0.16em] text-void transition-colors hover:bg-paper">
               {t("hero.cta")} <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
             </button>
           </div>
 
-          <ul className="mt-5 flex flex-wrap gap-2 sm:mt-7">
-            <li className="tv-label border border-signal px-3 py-2 text-[0.625rem] leading-4 tracking-[0.16em] text-signal">{t("home.hero.proofCta")}</li>
-            <li className="tv-label border border-line px-3 py-2 text-[0.625rem] leading-4 tracking-[0.16em] text-muted">{t("home.hero.methodCta")}</li>
-          </ul>
-
-          <div className="mt-6 flex flex-wrap gap-3 sm:mt-8">
+          <div className="mt-5 flex flex-wrap gap-3 sm:mt-7">
             <PrimaryCTA href="#proof">{t("home.hero.proofCta")} <ArrowUpRight className="h-4 w-4" aria-hidden="true" /></PrimaryCTA>
-            <SecondaryCTA href="#method" className="border-line text-muted hover:border-signal hover:bg-transparent hover:text-signal">{t("home.hero.methodCta")}</SecondaryCTA>
+            <SecondaryCTA href="#method" className="border-line bg-void/35 text-paper hover:border-signal hover:bg-transparent hover:text-signal">{t("home.hero.methodCta")}</SecondaryCTA>
           </div>
         </div>
+      </div>
 
-        <div className="relative order-first -mx-4 h-[36vh] min-h-[14rem] overflow-hidden border-y border-line sm:-mx-8 sm:h-[52vh] sm:min-h-[22rem] lg:order-none lg:mx-0 lg:-mr-8 lg:h-[46rem] lg:border-y-0">
-          <DitherShader
-            source="ridges"
-            dither="4x4"
-            foregroundColor="#C7FF38"
-            backgroundColor="#030500"
-            size={2}
-            speed={0.59}
-            scale={5}
-            contrast={1.41}
-            balance={-0.16}
-            enablePointerRipples
-            pointerRippleStrength={0.8}
-            ariaLabel={isAr ? "حقل بحث متحرك" : "Live animated search field"}
-          />
-          <span className="pointer-events-none absolute inset-0 bg-gradient-to-r from-void/75 via-transparent to-transparent lg:from-void/70" aria-hidden="true" />
-          <span className="tv-label absolute bottom-3 right-3 z-10 border border-line bg-void px-3 py-2 text-[0.625rem] leading-4 tracking-[0.16em] text-muted">LIVE SEARCH FIELD // CLICK TO DISTURB</span>
-        </div>
+      <div className="pointer-events-none absolute bottom-4 right-4 hidden tv-label text-[0.625rem] leading-4 tracking-[0.16em] text-muted sm:block lg:right-8">
+        IMAGE STUDY 04 // SEARCH SIGNAL CORE
       </div>
     </header>
   );

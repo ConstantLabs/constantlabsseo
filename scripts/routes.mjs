@@ -17,7 +17,7 @@ export const routes = [
   {
     path: "/services",
     title: "SEO Services - AI-Powered SEO for GCC Businesses | ConstantSEO",
-    description: "Full-service AI-powered SEO: technical SEO, Arabic content strategy, local SEO, link building, GEO/AEO optimization. Built for UAE, Saudi Arabia, and Oman.",
+    description: "Full-service AI-powered SEO: technical SEO, Arabic content strategy, local SEO, GEO/AEO optimization, and conversion systems. Built for UAE, Saudi Arabia, and Oman.",
   },
   {
     path: "/case-studies",
@@ -41,8 +41,8 @@ export const routes = [
   },
   {
     path: "/pricing",
-    title: "SEO Pricing - Transparent Plans from AED 1,500/mo | ConstantSEO",
-    description: "Transparent SEO pricing for GCC businesses. Starter, Growth, and Enterprise plans from AED 1,500/mo. AI-powered SEO with bilingual Arabic-English support.",
+    title: "SEO Pricing - Transparent Plans from AED 700 / month | ConstantSEO",
+    description: "Transparent SEO pricing for GCC businesses. Starter, Growth, and Enterprise plans from AED 700 / month. AI-powered SEO with bilingual Arabic-English support.",
   },
   {
     path: "/about",
@@ -100,11 +100,6 @@ export const routes = [
     path: "/services/local-seo",
     title: "Local SEO Dominance - Google Maps & Geo-targeting | ConstantSEO",
     description: "Local search systems covering Google Business Profile, citations, and location-focused content for UAE, Saudi Arabia, and Oman.",
-  },
-  {
-    path: "/services/ai-link-building",
-    title: "AI-Powered Link Building - Build Real Authority | ConstantSEO",
-    description: "Strategic backlink acquisition using AI to identify high-value opportunities. Build authority that search engines and LLMs trust.",
   },
   {
     path: "/services/seo-audits",

@@ -1,4 +1,4 @@
-import { ArrowUpRight, Brain, Code2, FileText, Globe, Link2, MapPin } from "lucide-react";
+import { ArrowUpRight, Brain, Code2, FileText, Globe, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { DisplayTitle, Eyebrow, Lede, RuledGrid, SectionShell } from "@/components/marketing/primitives";
@@ -6,7 +6,7 @@ import { DisplayTitle, Eyebrow, Lede, RuledGrid, SectionShell } from "@/componen
 const services = [
   { key: "ai", icon: Brain, slug: "ai-search-optimization" }, { key: "technical", icon: Code2, slug: "technical-seo" },
   { key: "content", icon: FileText, slug: "arabic-content" }, { key: "local", icon: MapPin, slug: "local-seo" },
-  { key: "authority", icon: Link2, slug: "ai-link-building" }, { key: "arabic", icon: Globe, slug: "seo-audits" },
+  { key: "arabic", icon: Globe, slug: "seo-audits" },
 ];
 
 export const ServicesGrid = () => {

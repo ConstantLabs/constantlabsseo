@@ -1,5 +1,4 @@
 import { SEO } from "@/components/SEO";
-import { Navbar } from "@/components/Navbar";
 import { HeroSection } from "@/components/HeroSection";
 import { ClientLogos } from "@/components/ClientLogos";
 
@@ -24,8 +23,6 @@ const Index = () => {
         description={t("home.seo.description")}
         path="/"
       />
-
-      <Navbar />
 
       <main>
         <HeroSection />
