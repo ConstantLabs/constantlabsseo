@@ -22,11 +22,11 @@ export default {
         '3xl': ['1.875rem', { lineHeight: '2.9rem' }],
       },
       lineHeight: {
-        'tight': '1.6',
-        'snug': '1.375',
+        'tight': '0.92',
+        'snug': '1.05',
         'normal': '1.5',
         'loose': '1.75',
-        'relaxed': '1.625',
+        'relaxed': '1.5',
       },
       colors: {
         border: "hsl(var(--border))",

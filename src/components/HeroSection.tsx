@@ -38,10 +38,10 @@ export const HeroSection = () => {
           <p className="tv-label mb-4 text-[0.6875rem] leading-4 tracking-[0.18em] text-signal sm:mb-5">
             {t("home.hero.eyebrow")}
           </p>
-          <h1 className="tv-display max-w-4xl text-[clamp(3.35rem,8.5vw,8rem)] uppercase leading-[0.86] tracking-[-0.025em] text-paper">
+          <h1 className="tv-display max-w-4xl text-pretty text-[clamp(3.35rem,8.5vw,8rem)] uppercase leading-[0.94] tracking-[-0.025em] text-paper">
             {t("home.hero.title")}
           </h1>
-          <p className="tv-body mt-5 max-w-xl text-base leading-[1.45] text-paper/70 sm:mt-7 sm:text-xl">
+          <p className="tv-body mt-5 max-w-xl text-pretty text-base leading-[1.35] text-paper/70 sm:mt-7 sm:text-xl">
             {t("home.hero.subtitle")}
           </p>
 
