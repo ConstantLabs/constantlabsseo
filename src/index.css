@@ -105,6 +105,31 @@
 
 .animate-field-swap { animation: field-swap 380ms cubic-bezier(0.2, 0, 0, 1); }
 
+/* CSS fallback for the live dither field when WebGL2 is unavailable. */
+.dither-fallback {
+  overflow: hidden;
+  mix-blend-mode: screen;
+}
+
+.dither-fallback::before,
+.dither-fallback::after {
+  position: absolute;
+  inset: -8%;
+  content: "";
+  background-image: radial-gradient(circle, rgb(199 255 56 / 0.82) 0 0.8px, transparent 1.1px);
+  background-size: 8px 8px;
+  opacity: 0.4;
+  -webkit-mask-image: radial-gradient(ellipse at 76% 22%, #000 0%, #000 24%, transparent 70%);
+  mask-image: radial-gradient(ellipse at 76% 22%, #000 0%, #000 24%, transparent 70%);
+}
+
+.dither-fallback::after {
+  background-size: 11px 11px;
+  opacity: 0.24;
+  -webkit-mask-image: radial-gradient(ellipse at 16% 82%, #000 0%, #000 18%, transparent 62%);
+  mask-image: radial-gradient(ellipse at 16% 82%, #000 0%, #000 18%, transparent 62%);
+}
+
 .marquee-track { will-change: transform; }
 .hover-lift { transition: transform 0.3s ease, box-shadow 0.3s ease; }
 .hover-lift:hover { transform: translateY(-4px); box-shadow: 8px 8px 0 rgb(43 55 32 / 0.45); }
