@@ -241,7 +241,7 @@ export const HeroSection = () => {
             href="https://constantlabs.ai"
             target="_blank"
             rel="noopener noreferrer"
-            className="tv-body relative z-30 mt-4 inline-flex min-h-10 cursor-pointer items-center whitespace-nowrap px-1 text-sm font-bold italic uppercase leading-5 tracking-[0.08em] text-paper/70 no-underline transition-colors hover:text-signal focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-signal sm:text-base"
+            className="tv-body relative z-30 mt-4 inline-flex min-h-10 translate-x-2 cursor-pointer items-center whitespace-nowrap px-1 text-sm font-normal italic uppercase leading-5 tracking-[0.08em] text-paper/70 no-underline transition-colors hover:text-signal focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-signal sm:text-base"
           >
             {t("home.hero.parentBrand")}
           </a>
