@@ -39,12 +39,12 @@ test("verification fails when a representative page loses its Open Graph URL", (
   );
 });
 
-test("verification fails when the homepage phrase is outside an H1", () => {
+test("verification fails when the homepage brand is outside an H1", () => {
   withRestoredOutput(
     ".",
     (html) => html.replace(
-      /<h1\b([^>]*)>Build the answer people find\.<\/h1>/i,
-      "<p$1>Build the answer people find.</p>"
+      /<h1\b([^>]*)>([\s\S]*?Constant[\s\S]*?SEO[\s\S]*?)<\/h1>/i,
+      "<p$1>$2</p>"
     ),
     () => {
       const result = runVerifier();

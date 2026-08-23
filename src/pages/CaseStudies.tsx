@@ -27,9 +27,9 @@ const CaseStudies = () => {
         lede={t("inner.caseStudies.lede")}
       />
 
-      {/* Case Studies Grid */}
+      {/* Editorial case study index */}
       <section className="border-b border-line bg-paper py-16 sm:py-24">
-        <div className="max-w-5xl mx-auto px-4 space-y-8">
+        <div className="mx-auto max-w-5xl border-t border-line px-4 sm:px-0">
           {caseStudies.map((cs, i) => (
             <motion.div
               key={cs.id}
@@ -40,9 +40,8 @@ const CaseStudies = () => {
             >
               <Link
                 to={`/case-studies/${cs.slug}`}
-                className="block group border border-line bg-paper p-1 hover:-translate-y-1 hover:bg-lime/20 transition-all duration-300"
+                className="group block border-b border-line px-2 py-10 transition-colors duration-300 hover:bg-lime/10 sm:px-4 md:py-12"
               >
-                <div className="border border-dashed border-line/40 p-8 md:p-10">
                   {/* Tags */}
                   <div className="flex flex-wrap items-center gap-2 mb-4">
                     <span className="border border-line px-3 py-1 text-xs font-semibold text-ink">
@@ -82,7 +81,6 @@ const CaseStudies = () => {
                     {t("caseStudies.readMore")}
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </span>
-                </div>
               </Link>
             </motion.div>
           ))}

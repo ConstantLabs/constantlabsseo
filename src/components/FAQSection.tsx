@@ -1,12 +1,12 @@
 import { Helmet } from 'react-helmet-async';
 import { useLanguage } from "@/i18n/LanguageContext";
-import { motion } from "framer-motion";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { Display, MonoLabel } from "@/components/marketing/editorial";
 
 const faqKeys = ["faq1", "faq2", "faq3", "faq4", "faq5", "faq6", "faq7", "faq8"];
 
@@ -33,40 +33,27 @@ export const FAQSection = () => {
       </Helmet>
       <div className="mx-auto max-w-4xl px-5 sm:px-8">
         {/* Header */}
-        <div
-          
-          
-          
-          
-          className="text-center mb-14"
-        >
-          <div className="mx-auto mb-4 h-1 w-12 bg-lime" />
-          <p className="mb-2 text-sm font-semibold uppercase tracking-wider text-lime">
-            {t("faq.label")}
-          </p>
-          <h2 className="font-heading text-5xl uppercase leading-[0.88] tracking-[-0.035em] text-paper md:text-6xl">
+        <div className="text-center mb-14">
+          <div className="mx-auto mb-4 h-px w-12 bg-signal" />
+          <MonoLabel className="mb-2 text-center">{t("faq.label")}</MonoLabel>
+          <Display size="md" className="mx-auto text-center">
             {t("faq.title")}
-          </h2>
+          </Display>
         </div>
 
         {/* Accordion */}
-        <div
-          
-          
-          
-          transition={{ duration: 0.5, delay: 0.1 }}
-        >
+        <div>
           <Accordion type="single" collapsible className="space-y-3">
-            {faqKeys.map((fk, i) => (
+            {faqKeys.map((fk) => (
               <AccordionItem
                 key={fk}
                 value={fk}
-                className="border border-paper/25 bg-ink px-6 data-[state=open]:bg-paper data-[state=open]:text-ink"
+                className="border border-line bg-ink px-6 transition-colors data-[state=open]:border-signal/60"
               >
-                <AccordionTrigger className="py-5 text-left text-base font-semibold text-paper hover:no-underline data-[state=open]:text-ink">
+                <AccordionTrigger className="py-5 text-start text-base font-semibold text-paper hover:no-underline data-[state=open]:text-signal">
                   {t(`${fk}.q`)}
                 </AccordionTrigger>
-                <AccordionContent className="pb-5 text-sm leading-relaxed text-paper/65 data-[state=open]:text-ink/70">
+                <AccordionContent className="pb-5 text-sm leading-relaxed text-paper/65">
                   {t(`${fk}.a`)}
                 </AccordionContent>
               </AccordionItem>

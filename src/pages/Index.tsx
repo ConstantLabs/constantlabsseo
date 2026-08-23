@@ -12,6 +12,7 @@ import { ZCalBookingSection } from "@/components/ZCalBookingSection";
 import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 import { MufakkirEvidence } from "@/components/marketing/MufakkirEvidence";
+import { NotAdsSection } from "@/components/NotAdsSection";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 const Index = () => {
@@ -28,6 +29,9 @@ const Index = () => {
         <HeroSection />
         <ClientLogos />
         <MufakkirEvidence />
+        {/* Straight after the proof: the numbers earn the right to make the
+            "this is not advertising" argument, so they come first. */}
+        <NotAdsSection />
         <ProblemSolution />
         <ServicesGrid />
         <HowItWorks />

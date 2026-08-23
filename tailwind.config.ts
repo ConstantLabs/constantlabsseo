@@ -72,15 +72,22 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        void: "#030500",
-        ground: "#030500",
-        ink: "#0A0F04",
-        raised: "#0A0F04",
-        paper: "#EDF2E4",
-        muted: "#8C9880",
-        line: "#2B3720",
-        lime: "#C7FF38",
-        signal: "#C7FF38",
+        /*
+          Warm amber palette. Grounds are warmed with the accent — a warm accent on a
+          green-tinted near-black reads muddy. Mirrors the HSL tokens in index.css.
+          `lime` is kept as an alias because ~40 files reference it; its value is amber.
+        */
+        void: "#020101",
+        ground: "#020101",
+        ink: "#0F0A05",
+        raised: "#0F0A05",
+        paper: "#EDE8DC",
+        muted: "#988B7A",
+        line: "#33291B",
+        lime: "#FFB35C",
+        signal: "#FFB35C",
+        /** Dimmed accent, for dither field ink. Never for type. */
+        "signal-dim": "#A8702B",
         "evidence-blue": "#4285F4",
         "evidence-violet": "#673AB7",
       },
@@ -90,10 +97,20 @@ export default {
         sm: "calc(var(--radius) - 2px)",
       },
       fontFamily: {
-        sans: ['Inter Tight', 'system-ui', 'sans-serif'],
-        heading: ['Anton', 'Impact', 'sans-serif'],
+        /*
+          Matched to constantlabs-showcase. Anton for display (one weight — hierarchy
+          comes from size, never weight), Rajdhani for body/UI, Share Tech Mono for
+          every label, Changa for Arabic.
+        */
+        sans: ['Rajdhani', 'Changa', 'system-ui', 'sans-serif'],
+        rajdhani: ['Rajdhani', 'Changa', 'sans-serif'],
+        heading: ['Anton', 'Impact', 'Arial Narrow', 'sans-serif'],
+        display: ['Anton', 'Impact', 'Arial Narrow', 'sans-serif'],
+        tech: ['Share Tech Mono', 'ui-monospace', 'monospace'],
+        mono: ['Share Tech Mono', 'ui-monospace', 'monospace'],
+        compacta: ['AC Compacta', 'Anton', 'Impact', 'sans-serif'],
         serif: ['Instrument Serif', 'Georgia', 'serif'],
-        arabic: ['Noto Kufi Arabic', 'sans-serif'],
+        arabic: ['Changa', 'sans-serif'],
       },
       maxWidth: {
         page: "78rem",

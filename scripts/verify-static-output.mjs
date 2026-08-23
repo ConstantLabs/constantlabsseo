@@ -43,10 +43,13 @@ function assertRenderedPage(path, expectedText) {
 }
 
 function assertHeading(html, expectedText) {
-  const escaped = expectedText.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-  assert.match(
-    html,
-    new RegExp(`<h1\\b[^>]*>[\\s\\S]*?${escaped}[\\s\\S]*?<\\/h1>`, "i"),
+  const heading = html.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/i);
+  const headingText = heading?.[1]
+    .replace(/<[^>]+>/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+  assert.ok(
+    headingText?.includes(expectedText),
     `Missing homepage H1: ${expectedText}`
   );
 }
@@ -59,8 +62,8 @@ function assertMetadata(html, path) {
 }
 
 const representativePages = [
-  ["/", "Build the answer people find."],
-  ["/services", "Everything You Need to Get Found and Grow"],
+  ["/", "Constant SEO"],
+  ["/services", "Connected Search Systems for the GCC"],
   ["/seo-agency-dubai", "Search systems for Dubai businesses"],
   ["/tools/meta-tag-analyzer", "Meta Tag Analyzer"],
 ];

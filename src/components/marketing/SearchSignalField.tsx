@@ -49,16 +49,16 @@ export function SearchSignalField({ className }: SearchSignalFieldProps) {
           <text x="8" y={PADDING.top + 4}>100</text>
           <text x="16" y={HEIGHT - PADDING.bottom}>0</text>
         </g>
-        <motion.polyline fill="none" points={impressions} stroke="#8C9880" strokeWidth="2" strokeDasharray="5 8" vectorEffect="non-scaling-stroke" initial={reducedMotion ? false : { pathLength: 0 }} animate={reducedMotion ? undefined : { pathLength: 1 }} transition={transition} />
-        <motion.polyline fill="none" points={clicks} stroke="#C7FF38" strokeWidth="3" vectorEffect="non-scaling-stroke" initial={reducedMotion ? false : { pathLength: 0 }} animate={reducedMotion ? undefined : { pathLength: 1 }} transition={{ ...transition, delay: reducedMotion ? 0 : 0.14 }} />
+        <motion.polyline fill="none" points={impressions} stroke="#988B7A" strokeWidth="2" strokeDasharray="5 8" vectorEffect="non-scaling-stroke" initial={reducedMotion ? false : { pathLength: 0 }} animate={reducedMotion ? undefined : { pathLength: 1 }} transition={transition} />
+        <motion.polyline fill="none" points={clicks} stroke="#FFB35C" strokeWidth="3" vectorEffect="non-scaling-stroke" initial={reducedMotion ? false : { pathLength: 0 }} animate={reducedMotion ? undefined : { pathLength: 1 }} transition={{ ...transition, delay: reducedMotion ? 0 : 0.14 }} />
         {points.filter((_, index) => index % 8 === 3).map((point, index) => {
           const x = PADDING.left + point.x * (WIDTH - PADDING.left - PADDING.right);
           const y = PADDING.top + (1 - point.clicks) * (HEIGHT - PADDING.top - PADDING.bottom);
-          return <g key={point.x}><circle cx={x} cy={y} r="4" fill="#C7FF38" /><text x={x} y={y - 12} textAnchor="middle" className="fill-paper font-sans text-[9px] font-bold uppercase tracking-[0.1em]">{t("signalField.query")} {index + 1}</text></g>;
+          return <g key={point.x}><circle cx={x} cy={y} r="4" fill="#FFB35C" /><text x={x} y={y - 12} textAnchor="middle" className="fill-paper font-sans text-[9px] font-bold uppercase tracking-[0.1em]">{t("signalField.query")} {index + 1}</text></g>;
         })}
         <g className="font-sans text-[10px] font-bold uppercase tracking-[0.12em]">
-          <circle cx={PADDING.left} cy="18" r="4" fill="#8C9880" /><text x={PADDING.left + 10} y="22" className="fill-paper">{t("signalField.scattered")}</text>
-          <circle cx={PADDING.left + 174} cy="18" r="4" fill="#C7FF38" /><text x={PADDING.left + 184} y="22" className="fill-paper">{t("signalField.trajectory")}</text>
+          <circle cx={PADDING.left} cy="18" r="4" fill="#988B7A" /><text x={PADDING.left + 10} y="22" className="fill-paper">{t("signalField.scattered")}</text>
+          <circle cx={PADDING.left + 174} cy="18" r="4" fill="#FFB35C" /><text x={PADDING.left + 184} y="22" className="fill-paper">{t("signalField.trajectory")}</text>
         </g>
       </svg>
       <div className="mt-3 flex justify-between border-t border-paper/25 pt-3 font-sans text-[10px] font-bold uppercase tracking-[0.14em] text-paper"><span>{t("signalField.presentation")}</span><span>{t("signalField.disclaimer")}</span></div>

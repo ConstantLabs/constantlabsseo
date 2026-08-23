@@ -12,7 +12,10 @@ export function Eyebrow({ className, ...props }: ElementProps<"p">) {
 }
 
 export function DisplayTitle({ as: Tag = "h2", className, ...props }: ElementProps<"h2"> & { as?: "h1" | "h2" | "h3" }) {
-  return <Tag className={cn("font-heading text-5xl uppercase leading-[0.88] tracking-[-0.035em] text-ink sm:text-7xl", className)} {...props} />;
+  // Leading above Anton's cap height and tracking no tighter than -0.01em, for the
+  // same reasons documented on `Display` in editorial.tsx — at 0.88/-0.035em a
+  // two-line heading has its lines touching and its punctuation colliding.
+  return <Tag className={cn("font-heading text-5xl uppercase leading-[0.96] tracking-[-0.01em] text-ink sm:text-7xl", className)} {...props} />;
 }
 
 export function Lede({ className, ...props }: ElementProps<"p">) {
@@ -20,7 +23,7 @@ export function Lede({ className, ...props }: ElementProps<"p">) {
 }
 
 export function RuledGrid({ className, children, ...props }: ElementProps<"div"> & { children: ReactNode }) {
-  return <div className={cn("relative border-y border-line bg-[linear-gradient(to_right,transparent_0,transparent_calc(100%-1px),rgb(43_55_32_/_0.4)_calc(100%-1px))] bg-[length:4rem_100%]", className)} {...props}>{children}</div>;
+  return <div data-ruled-grid className={cn("relative border-y border-line bg-[linear-gradient(to_right,transparent_0,transparent_calc(100%-1px),rgb(43_55_32_/_0.4)_calc(100%-1px))] bg-[length:4rem_100%]", className)} {...props}>{children}</div>;
 }
 
 export function SignalPanel({ className, ...props }: ElementProps<"div">) {

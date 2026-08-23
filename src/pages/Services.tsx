@@ -26,10 +26,10 @@ const Services = () => {
 
       <PageHero eyebrow={t("services.label")} title={t("services.title")} lede={t("services.subtitle")} />
 
-      {/* Services Grid */}
+      {/* Editorial services index */}
       <section className="border-b border-line bg-paper py-16 sm:py-24">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-6">
+        <div className="mx-auto max-w-6xl px-4">
+          <div className="border-t border-line">
             {SERVICES.map((service) => {
               const Icon = service.icon;
               const title = isAr ? service.titleAr : service.title;
@@ -40,9 +40,9 @@ const Services = () => {
                 <Link
                   key={service.id}
                   to={`/services/${slugify(service.id)}`}
-                  className="group relative border border-line bg-paper p-6 sm:p-8 hover:-translate-y-1 hover:bg-lime/20 transition-all duration-300"
+                  className="group relative grid border-b border-line py-8 transition-colors duration-300 hover:bg-lime/10 sm:px-4 md:grid-cols-[minmax(16rem,0.75fr)_1fr] md:gap-12 md:py-10"
                 >
-                  <div className="flex items-start gap-4 mb-4">
+                  <div className="flex items-start gap-4">
                     <div className="flex h-12 w-12 shrink-0 items-center justify-center border border-line bg-ink">
                       <Icon className="w-6 h-6 text-lime" />
                     </div>
@@ -56,25 +56,22 @@ const Services = () => {
                     </div>
                   </div>
 
-                  <p className="mb-5 text-[15px] leading-relaxed text-ink/70">
-                    {description}
-                  </p>
+                  <div className="mt-6 md:mt-0">
+                    <p className="text-[15px] leading-relaxed text-ink/70">{description}</p>
 
-                  <div className="flex flex-wrap gap-2 mb-5">
-                    {tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="border border-line px-3 py-1 text-xs font-medium text-ink/70"
-                      >
-                        {tag}
-                      </span>
-                    ))}
+                    <div className="mb-5 mt-5 flex flex-wrap gap-2">
+                      {tags.map((tag) => (
+                        <span key={tag} className="border border-line px-3 py-1 text-xs font-medium text-ink/70">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+
+                    <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-ink">
+                      {t("services.learnMore")}
+                      <ArrowRight className={`w-4 h-4 transition-transform group-hover:translate-x-1 ${isAr ? "rotate-180" : ""}`} />
+                    </span>
                   </div>
-
-                  <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-ink">
-                    {t("services.learnMore")}
-                    <ArrowRight className={`w-4 h-4 group-hover:translate-x-1 transition-transform ${isAr ? "rotate-180" : ""}`} />
-                  </span>
                 </Link>
               );
             })}

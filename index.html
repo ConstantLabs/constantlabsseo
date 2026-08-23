@@ -7,29 +7,40 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="dns-prefetch" href="https://assets.calendly.com">
+  <!--
+    The ConstantLabs type stack, matched to constantlabs-showcase:
+      Anton           — display headlines
+      Rajdhani        — body and UI
+      Share Tech Mono — the 10px uppercase labels
+      Changa          — Arabic
+    display=block, not swap: Anton and Share Tech Mono are both far from their
+    fallbacks in width, so swapping reflows headlines and label rows in front of
+    the visitor. A brief blank is the lesser evil. AC Compacta (the wordmark face)
+    is self-hosted and declared in index.css.
+  -->
+  <link rel="preload" as="font" type="font/otf" href="/fonts/AC-Compacta.otf" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Anton&family=Instrument+Serif:ital@0;1&family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Noto+Kufi+Arabic:wght@400;500;600;700&display=swap"
-    rel="stylesheet" media="print" onload="this.media='all'">
-  <noscript>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Anton&family=Instrument+Serif:ital@0;1&family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Noto+Kufi+Arabic:wght@400;500;600;700&display=swap"
-      rel="stylesheet">
-  </noscript>
+    href="https://fonts.googleapis.com/css2?family=Anton&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&family=Changa:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=block"
+    rel="stylesheet">
   <style>
     body {
-      font-family: 'Inter Tight', system-ui, -apple-system, sans-serif;
+      font-family: 'Rajdhani', 'Changa', system-ui, -apple-system, sans-serif;
     }
 
     .font-heading {
-      font-family: 'Anton', 'Inter Tight', system-ui, sans-serif;
+      font-family: 'Anton', Impact, 'Arial Narrow', sans-serif;
     }
   </style>
+  <!-- SVG first: it is the only one that stays crisp on a high-dpi tab strip and
+       in the bookmark bar. The PNGs and the .ico remain for Safari and older
+       browsers, and all of them are generated from favicon.svg. -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
-  <link rel="icon" type="image/png" sizes="512x512" href="/favicon-192x192.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/favicon-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512x512.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
   <title>ConstantSEO | AI-Powered SEO by Constant Labs</title>
   <meta name="description"
@@ -62,7 +73,7 @@
   <!-- Additional SEO -->
   <link rel="canonical" href="https://seo.constantlabs.ai/" />
   <meta name="robots" content="index, follow" />
-  <meta name="theme-color" content="#2B124C" />
+  <meta name="theme-color" content="#020101" />
 
   <!-- Structured Data: Organization + LocalBusiness -->
   <script type="application/ld+json">
@@ -101,7 +112,7 @@
       {"@type": "Country", "name": "Saudi Arabia"},
       {"@type": "Country", "name": "Oman"}
     ],
-    "priceRange": "AED 700 to 3,000 / month",
+    "priceRange": "AED 700 to 6,500 / month",
     "sameAs": []
   }
   </script>

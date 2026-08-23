@@ -5,29 +5,20 @@ import {
   useEffect,
   useRef,
 } from "react"
-import { countryPolygons, type CountryMask } from "@/lib/countryMasks"
 
 export type PatternSource =
-  | "simplex"
   | "warp"
-  | "dots"
-  | "wave"
-  | "ripple"
-  | "swirl"
+  | "nebulaVeil"
+  | "ridges"
+  | "lava"
+  | "sunCorona"
+  | "smokeDiag"
+  | "smoke"
+  | "aurora"
+  | "fluid"
   | "plasma"
   | "marble"
-  | "cells"
-  | "terrain"
-  | "sphere"
-  | "torus"
-  | "tunnel"
-  | "metaballs"
-  | "cube"
-  | "contours"
-  | "ridges"
-  | "dunes"
-  | "islands"
-  | "strata"
+  | "flame"
 export type DitherType = "random" | "2x2" | "4x4" | "8x8"
 export type PerformanceMode = "high" | "balanced" | "low"
 export type PerformanceStatus = "healthy" | "strained" | "heavy"
@@ -68,8 +59,6 @@ export interface DitherShaderProps {
   offsetY?: number
   contrast?: number
   balance?: number
-  countryMask?: CountryMask
-  countryScale?: number
   opacity?: number
   enablePointerRipples?: boolean
   pointerRippleStrength?: number
@@ -92,6 +81,23 @@ void main() {
 }
 `
 
+/*
+  Twelve pattern sources are compiled in: "warp" for the services field,
+  "nebulaVeil" and "ridges" for the hero, plus "lava", "sunCorona",
+  "smokeDiag", "smoke", "aurora", "fluid", "plasma" and "marble" ported in
+  from the showcase's DitherField.tsx, and "flame" authored here — the
+  reference set has no fire in it, only lava crust and a solar disc.
+
+  This shader used to carry a couple dozen unused pattern sources
+  (raymarched shapes, voronoi cells, a country-mask texture pass, an
+  image-dither pass) ported wholesale from the shared sharebrain lineage.
+  None of that was reachable from any component in this repo, but every
+  DitherShader instance still had to compile all of it, and under a
+  software GL fallback (no KHR_parallel_shader_compile) that compile blocks
+  the main thread — this was the multi-second hang on first paint. Pull
+  another pattern from sharebrain's ordered-dither-shader skill if a future
+  page needs one.
+*/
 const FRAGMENT_SHADER = `#version 300 es
 precision highp float;
 
@@ -108,19 +114,14 @@ uniform float u_scale;
 uniform float u_rotation;
 uniform float u_contrast;
 uniform float u_balance;
-uniform float u_countryScale;
 uniform float u_pointerRippleStrength;
 uniform vec3 u_foreground;
 uniform vec3 u_background;
 uniform int u_source;
 uniform int u_dither;
 uniform int u_enablePointerRipples;
-uniform int u_useCountryMask;
-uniform sampler2D u_countryTexture;
 uniform vec2 u_ripplePoints[4];
 uniform float u_rippleAges[4];
-
-#define TAU 6.28318530718
 
 float hash21(vec2 p) {
   p = fract(p * vec2(123.34, 456.21));
@@ -164,64 +165,69 @@ float ridgedFbm(vec2 p) {
   return sum;
 }
 
-float voronoi(vec2 p) {
-  vec2 base = floor(p);
-  vec2 local = fract(p);
-  float closest = 8.0;
-  for (int y = -1; y <= 1; y++) {
-    for (int x = -1; x <= 1; x++) {
-      vec2 cell = vec2(float(x), float(y));
-      vec2 point = vec2(hash21(base + cell), hash21(base + cell + 41.7));
-      closest = min(closest, length(cell + point - local));
-    }
+/*
+  Cheaper 3-octave fbm for call sites that stack many evaluations per pixel
+  (iterated domain warps). Half the octaves of fbm() for roughly half the
+  cost per call; visually indistinguishable once it is warped and dithered.
+*/
+float fbm3(vec2 p) {
+  float sum = 0.0;
+  float amplitude = 0.52;
+  mat2 turn = mat2(0.80, -0.60, 0.60, 0.80);
+  for (int i = 0; i < 3; i++) {
+    sum += valueNoise(p) * amplitude;
+    p = turn * p * 2.03 + 17.17;
+    amplitude *= 0.5;
   }
-  return closest;
+  return sum;
 }
 
-mat2 rotate2d(float angle) {
-  return mat2(cos(angle), -sin(angle), sin(angle), cos(angle));
+/*
+  Iterated domain warp. Feeding fbm back into its own input twice is what folds
+  a field into the sheets and curls that ink in water makes; a single fbm call
+  can only ever give you soft blobs no matter how you grade it.
+*/
+vec2 warp2(vec2 p, float time) {
+  vec2 q = vec2(
+    fbm3(p + vec2(0.0, time * 0.05)),
+    fbm3(p + vec2(5.2, 1.3) - vec2(time * 0.04, 0.0))
+  );
+  vec2 r = vec2(
+    fbm3(p + 3.4 * q + vec2(1.7, 9.2) + time * 0.025),
+    fbm3(p + 3.4 * q + vec2(8.3, 2.8) - time * 0.02)
+  );
+  return p + 3.1 * r;
 }
 
-float shapeSdf(vec3 p, float time, int shapeType) {
-  p.xz = rotate2d(time * 0.42) * p.xz;
-  p.xy = rotate2d(time * 0.27) * p.xy;
-  if (shapeType == 0) {
-    vec2 torus = vec2(length(p.xz) - 0.72, p.y);
-    return length(torus) - 0.23;
-  }
-  vec3 box = abs(p) - vec3(0.66);
-  return length(max(box, 0.0)) + min(max(box.x, max(box.y, box.z)), 0.0);
+/*
+  Same iterated domain warp as warp2(), but built on the full 5-octave fbm()
+  instead of the cheaper fbm3(). The showcase authored "aurora" and "fluid"
+  against the 5-octave fbm and they read differently (softer, less banded)
+  off the 3-octave variant, so this is kept as its own helper under its own
+  name rather than repointing warp2() at fbm() — nebulaVeil depends on
+  warp2()'s existing fbm3-based behaviour to stay byte-identical.
+*/
+vec2 warp2Full(vec2 p, float time) {
+  vec2 q = vec2(
+    fbm(p + vec2(0.0, time * 0.05)),
+    fbm(p + vec2(5.2, 1.3) - vec2(time * 0.04, 0.0))
+  );
+  vec2 r = vec2(
+    fbm(p + 3.4 * q + vec2(1.7, 9.2) + time * 0.025),
+    fbm(p + 3.4 * q + vec2(8.3, 2.8) - time * 0.02)
+  );
+  return p + 3.1 * r;
 }
 
-float raymarchedShape(vec2 uv, float time, int shapeType) {
-  vec3 rayOrigin = vec3(0.0, 0.0, 3.2);
-  vec3 rayDirection = normalize(vec3(uv * 0.92, -1.85));
-  float travel = 0.0;
-  float distanceToShape = 0.0;
-  bool hit = false;
-  for (int i = 0; i < 48; i++) {
-    vec3 position = rayOrigin + rayDirection * travel;
-    distanceToShape = shapeSdf(position, time, shapeType);
-    if (abs(distanceToShape) < 0.0025) {
-      hit = true;
-      break;
-    }
-    travel += max(distanceToShape, 0.001) * 0.78;
-    if (travel > 6.0) break;
-  }
-  if (!hit) return 0.0;
-
-  vec3 position = rayOrigin + rayDirection * travel;
-  float epsilon = 0.004;
-  vec3 normal = normalize(vec3(
-    shapeSdf(position + vec3(epsilon, 0.0, 0.0), time, shapeType) - shapeSdf(position - vec3(epsilon, 0.0, 0.0), time, shapeType),
-    shapeSdf(position + vec3(0.0, epsilon, 0.0), time, shapeType) - shapeSdf(position - vec3(0.0, epsilon, 0.0), time, shapeType),
-    shapeSdf(position + vec3(0.0, 0.0, epsilon), time, shapeType) - shapeSdf(position - vec3(0.0, 0.0, epsilon), time, shapeType)
-  ));
-  vec3 light = normalize(vec3(-0.55, 0.72, 0.65));
-  float diffuse = dot(normal, light) * 0.5 + 0.5;
-  float rim = pow(1.0 - max(0.0, dot(normal, -rayDirection)), 2.2);
-  return clamp(diffuse * 0.78 + rim * 0.48, 0.0, 1.0);
+/*
+  The filament transfer curve: folding the field around its mid level turns
+  every place the field crosses that level into a bright thread, and raising
+  it to a power thins those veins further.
+*/
+float filament(float f, float thinness, float mass) {
+  float folded = 1.0 - abs(f * 2.0 - 1.0);
+  float veins = pow(clamp(folded, 0.0, 1.0), thinness);
+  return clamp(veins * (1.0 - mass) + smoothstep(0.34, 0.80, f) * mass, 0.0, 1.0);
 }
 
 float bayer2Raw(vec2 cell) {
@@ -268,10 +274,6 @@ float thresholdForCell(vec2 cell, int ditherType) {
 
 float sourcePattern(vec2 p, float time, int source) {
   if (source == 0) {
-    return fbm(p * 1.25 + vec2(time * 0.10, -time * 0.07));
-  }
-
-  if (source == 1) {
     vec2 q = vec2(
       fbm(p * 0.82 + vec2(time * 0.08, 0.0)),
       fbm(p * 0.82 + vec2(5.2, -time * 0.07))
@@ -284,125 +286,206 @@ float sourcePattern(vec2 p, float time, int source) {
   }
 
   if (source == 2) {
-    vec2 grid = p * 2.15 + vec2(time * 0.10, sin(time * 0.18) * 0.15);
-    vec2 dotUv = fract(grid) - 0.5;
-    float radius = 0.22 + 0.13 * sin(time * 0.7 + floor(grid.x) * 0.6 + floor(grid.y) * 0.8);
-    return 1.0 - smoothstep(radius, radius + 0.24, length(dotUv));
+    float ridges = ridgedFbm(p * 1.35 + vec2(time * 0.018, -time * 0.012));
+    float valleys = fbm(p * 0.62 - vec2(time * 0.01, 0.0));
+    return smoothstep(0.24, 0.92, ridges * 0.88 + valleys * 0.22);
   }
 
   if (source == 3) {
-    float warp = sin(p.y * 2.4 - time * 0.8) * 0.42 + sin(p.y * 4.7 + time * 0.43) * 0.15;
-    return 0.5 + 0.5 * sin((p.x + warp) * TAU * 0.82 + time * 0.62);
+    // Lava: ridged fbm's thin crest lines double as glowing veins once
+    // sharpened with a high power and a slow pulse.
+    float crust = ridgedFbm(p * 1.7 + vec2(-time * 0.008, time * 0.006));
+    float veins = pow(clamp(crust, 0.0, 1.0), 4.5);
+    float pulse = 0.7 + 0.3 * sin(time * 0.55);
+    return clamp(veins * pulse * 1.6, 0.0, 1.0);
   }
 
   if (source == 4) {
-    vec2 origin = vec2(sin(time * 0.21), cos(time * 0.17)) * 0.18;
-    float radius = length(p - origin);
-    float distortion = fbm(p * 1.65 - time * 0.04) * 0.55;
-    return 0.5 + 0.5 * sin((radius * 3.15 + distortion - time * 0.34) * TAU);
+    // Sun corona, after the SOHO and eclipse plates.
+    //
+    // Sampling noise on raw atan() is what makes a corona lopsided: the
+    // angle jumps by a full turn across the -x axis, so the field has a
+    // seam there and no rotational symmetry at all. Sampling on the unit
+    // circle instead, fbm(vec2(cos, sin) * f), is periodic by construction,
+    // so the corona closes evenly all the way round.
+    //
+    // The other half of looking right is structure: real coronae throw
+    // long streamers near the equator and short brush-like plumes at the
+    // poles, so reach is biased by latitude rather than being uniform.
+    float r = length(p);
+    float ang = atan(p.y, p.x);
+    vec2 ring = vec2(cos(ang), sin(ang));
+    float coreR = 0.15;
+
+    float disc = 1.0 - smoothstep(coreR - 0.008, coreR, r);
+    float rays = fbm(ring * 3.4 + vec2(0.0, time * 0.05));
+    float fine = fbm(ring * 8.0 - vec2(time * 0.04, 0.0));
+    // Equatorial streamers run long, polar plumes stay short.
+    float equatorial = 0.3 + 0.7 * pow(abs(cos(ang)), 1.4);
+    // Reach is expressed in units of coreR, not in absolute units, so the
+    // corona's falloff stays proportional however the body is scaled.
+    float reach = coreR * (0.45 + 1.7 * pow(clamp(rays, 0.0, 1.0), 1.8) * equatorial);
+    float radial = exp(-max(r - coreR, 0.0) / max(reach, 0.02));
+    float streamers = radial * (0.3 + 0.7 * fine);
+
+    // The disc has to stay the brightest thing on screen, so the corona
+    // sits well below it rather than competing.
+    float collar = exp(-abs(r - coreR) * 20.0) * 0.55;
+    return clamp(disc * 0.95 + streamers * 0.6 + collar, 0.0, 1.0);
   }
 
   if (source == 5) {
-    float radius = length(p);
-    float angle = atan(p.y, p.x);
-    float organic = fbm(p * 1.55 + vec2(time * 0.035, -time * 0.045));
-    float angularTurns = angle / TAU;
-    float spiral = radius * 3.2 - angularTurns * 2.0 + organic * 2.15 - time * 0.36;
-    return smoothstep(-0.78, 0.82, sin(spiral * TAU));
+    // Smoke confined to a diagonal band, for a hero whose message column
+    // sits on one side: the plume thins out before it reaches that side
+    // instead of being cut by an opaque plate.
+    //
+    // The band runs top-left to bottom-right, which is the line x + y = 0 in
+    // a frame with y up, so top-right and bottom-left fall away. Masking the
+    // TONE before it reaches the Bayer threshold is the whole point: shading
+    // it afterwards with a CSS gradient would lay smooth values over hard
+    // 1-bit cells and break the material.
+    vec2 rising = p * 1.7 - vec2(0.0, time * 0.16);
+    float na = fbm(rising * 1.15 + vec2(1.3, -0.7));
+    float nb = fbm(rising * 1.15 + vec2(-4.1, 2.6));
+    vec2 curl = vec2(nb - 0.5, -(na - 0.5)) * 2.6;
+    float dens = fbm(rising * 1.6 + curl);
+    float wisps = fbm(rising * 4.0 + curl * 1.5) * 0.4;
+    float body = smoothstep(0.58, 1.02, dens + wisps);
+    float edges = filament(dens, 4.5, 0.0) * 0.2;
+
+    // Normalise by scale so the band keeps its width whatever the zoom.
+    float diag = (p.x + p.y) / max(u_scale, 0.001);
+    float band = 1.0 - smoothstep(0.04, 0.42, abs(diag));
+
+    float xn = p.x / max(u_scale, 0.001);
+    float rightClear = 1.0 - smoothstep(0.06, 0.30, xn);
+    return clamp((body * 0.9 + edges) * band * rightClear, 0.0, 1.0);
   }
 
   if (source == 6) {
+    // Billowing smoke, filling the frame rather than climbing a narrow
+    // column. The rolls come from advecting along a PERPENDICULAR gradient
+    // pair, which approximates a curl field: flow that shears and tumbles
+    // instead of merely sliding.
+    vec2 rising = p * 1.7 - vec2(0.0, time * 0.16);
+    float na = fbm(rising * 1.15 + vec2(1.3, -0.7));
+    float nb = fbm(rising * 1.15 + vec2(-4.1, 2.6));
+    vec2 curl = vec2(nb - 0.5, -(na - 0.5)) * 2.6;
+    float dens = fbm(rising * 1.6 + curl);
+    float wisps = fbm(rising * 4.0 + curl * 1.5) * 0.4;
+    float body = smoothstep(0.30, 0.84, dens + wisps);
+    float edges = filament(dens, 2.0, 0.0) * 0.35;
+    float thinTop = 1.0 - smoothstep(0.3, 1.5, p.y) * 0.5;
+    return clamp((body + edges) * thinTop, 0.0, 1.0);
+  }
+
+  if (source == 7) {
+    // Aurora, running on a diagonal. The whole frame is rotated about 35
+    // degrees before the bands are built, so the ribbons sweep across the
+    // composition instead of hanging straight down like a shower curtain.
+    float ca = 0.82;
+    float sa = 0.57;
+    vec2 g = vec2(p.x * ca - p.y * sa, p.x * sa + p.y * ca);
+    float fold = fbm(vec2(g.x * 1.2 + time * 0.045, g.y * 0.45));
+    float ribbonA = sin((g.y * 2.3 + fold * 4.4 - time * 0.28) * 1.3) * 0.5 + 0.5;
+    float ribbonB = sin((g.y * 3.9 + fold * 5.8 + time * 0.2) * 1.1) * 0.5 + 0.5;
+    // Multiplying the bands by a warped field is what shreds them into
+    // filaments; clean sine bands look like fabric, not plasma.
+    float shred = fbm(warp2Full(g * 1.4, time) * 0.9);
+    float glow = pow(ribbonA, 2.1) * 0.85 + pow(ribbonB, 3.0) * 0.5;
+    glow *= 0.35 + 1.1 * shred;
+    float fall = smoothstep(1.1, -0.9, g.y);
+    return clamp(glow * fall * 1.3, 0.0, 1.0);
+  }
+
+  if (source == 8) {
+    // Fluid: a doubly-warped field folded into sheets via the filament
+    // curve, with a finer second pass for hair-thin detail -- reads as
+    // pigment dispersing in liquid rather than as smoke.
+    vec2 w = warp2Full(p * 1.8, time);
+    float broad = fbm(w * 1.15);
+    float fine = fbm(w * 3.4 + vec2(3.1, -1.4));
+    float sheets = filament(broad, 8.0, 0.0);
+    float threads = filament(fine, 14.0, 0.0) * 0.6;
+    float masses = smoothstep(0.62, 0.87, broad) * 0.5;
+    return clamp(sheets * 0.85 + threads + masses, 0.0, 1.0);
+  }
+
+  if (source == 9) {
+    // Plasma: the classic demoscene sum-of-sines field. In the showcase this
+    // is not a distinct authored scene -- it is literally that project's
+    // per-source shader fallback body, reused here under its real name.
     float first = sin(p.x * 2.3 + time * 0.52);
     float second = sin(p.y * 2.8 - time * 0.44);
     float third = sin((p.x + p.y) * 2.1 + time * 0.35);
     return 0.5 + (first + second + third) / 6.0;
   }
 
-  if (source == 7) {
-    float grain = fbm(p * 1.9 + vec2(time * 0.055, -time * 0.035));
-    return 0.5 + 0.5 * sin((p.x * 1.7 + grain * 1.8 + time * 0.12) * TAU);
-  }
-
-  if (source == 8) {
-    float cells = voronoi(p * 2.4 + vec2(time * 0.11, -time * 0.07));
-    return 1.0 - smoothstep(0.12, 0.78, cells);
-  }
-
-  if (source == 9) {
-    float elevation = fbm(p * 1.18 + vec2(time * 0.018, -time * 0.024));
-    float contour = fract(elevation * 7.0);
-    return mix(elevation, smoothstep(0.38, 0.54, contour), 0.58);
-  }
-
   if (source == 10) {
-    vec2 sphereUv = p * 0.82;
-    float radiusSquared = dot(sphereUv, sphereUv);
-    if (radiusSquared > 1.0) return 0.0;
-    float z = sqrt(max(0.0, 1.0 - radiusSquared));
-    vec3 normal = normalize(vec3(sphereUv, z));
-    vec3 light = normalize(vec3(cos(time * 0.55), sin(time * 0.42), 0.72));
-    float diffuse = dot(normal, light) * 0.5 + 0.5;
-    float latitude = sin((normal.y * 2.7 + normal.x * 0.55 + time * 0.18) * TAU) * 0.12;
-    return clamp(diffuse + latitude, 0.0, 1.0);
+    // Marble: sine bands displaced by fbm grain, the classic marbled-ink
+    // look. 6.28318530718 is TAU (2*pi); inlined rather than macroed since
+    // this is the only source that needs it.
+    float grain = fbm(p * 1.9 + vec2(time * 0.055, -time * 0.035));
+    return 0.5 + 0.5 * sin((p.x * 1.7 + grain * 1.8 + time * 0.12) * 6.28318530718);
   }
 
-  if (source == 11) return raymarchedShape(p, time, 0);
+  if (source == 11) {
+    // Flame.
+    //
+    // Authored, not ported: nothing in the reference set is fire. "lava" is
+    // mottled crust seen from above and "sunCorona" is a disc, so neither reads
+    // as a flame no matter how it is tuned.
+    //
+    // NOTE: no backticks in this block. The whole shader is a JS template
+    // literal, so a backtick in a GLSL comment ends the string.
+    //
+    // Three things separate fire from smoke, and all three are needed:
+    //
+    //   1. The field is ADVECTED UPWARD -- time is subtracted from y, so detail
+    //      travels up through the frame rather than drifting sideways.
+    //   2. Detail rises FASTER than the body. Sampling a second, finer octave at
+    //      a higher rise rate is what makes tips detach; one octave, however
+    //      pretty, moves as a single sheet and reads as a curtain.
+    //   3. The ignition THRESHOLD rises with height. This is the one that matters
+    //      and the one that is easy to get wrong: the first attempt multiplied
+    //      the density by a downward taper, which just dims a blob -- every
+    //      pixel stays lit, only less so. Thresholding instead means that near
+    //      the fuel almost any density ignites while near the tip only the
+    //      strongest does, so the sheet BREAKS UP into separate licks that
+    //      detach and die. Tongues come from the threshold, not from the noise.
+    float rise = time * 1.2;
+    float h01 = clamp(p.y * 0.5 + 0.5, 0.0, 1.0);
 
-  if (source == 12) {
-    float radius = max(0.035, length(p));
-    float angle = atan(p.y, p.x);
-    float depth = 1.0 / radius + time * 0.72;
-    float spokes = sin(angle * 8.0 + sin(depth * 0.45));
-    float rings = sin(depth * 2.6);
-    return smoothstep(-0.48, 0.64, spokes * 0.42 + rings * 0.76);
+    // Sway grows with height: coherent at the fuel, loose at the tip. Swaying
+    // the base as hard as the tip reads as a flag rather than a flame.
+    float sway = sin(p.y * 2.1 - time * 1.5) * 0.30 * h01;
+
+    vec2 body = vec2(p.x * 2.40 + sway, p.y * 0.50 - rise);
+    vec2 tips = vec2(p.x * 4.60 + sway * 1.7, p.y * 1.00 - rise * 1.8);
+    float density = fbm(body) * 0.66 + fbm(tips) * 0.44;
+
+    // Horizontal envelope, necking in as the column climbs.
+    float width = 1.0 - smoothstep(0.35, 1.30, abs(p.x) * (0.5 + h01 * 0.9));
+
+    // Squared so the break-up accelerates toward the tip instead of easing in
+    // linearly, which is what real flames do as they run out of fuel.
+    float threshold = mix(0.50, 1.02, h01 * h01);
+    return smoothstep(threshold, threshold + 0.14, density * width);
   }
 
-  if (source == 13) {
-    vec2 a = vec2(sin(time * 0.52), cos(time * 0.41)) * 0.48;
-    vec2 b = vec2(cos(time * 0.37), sin(time * 0.63)) * 0.52;
-    vec2 c = vec2(sin(time * 0.29 + 2.2), cos(time * 0.47 + 1.4)) * 0.44;
-    float field = 0.16 / (dot(p - a, p - a) + 0.035);
-    field += 0.15 / (dot(p - b, p - b) + 0.035);
-    field += 0.13 / (dot(p - c, p - c) + 0.035);
-    float surface = smoothstep(0.72, 1.9, field);
-    float highlight = smoothstep(1.25, 3.1, field) * 0.36;
-    return clamp(surface - highlight, 0.0, 1.0);
-  }
-
-  if (source == 14) return raymarchedShape(p, time, 1);
-
-  if (source == 15) {
-    float elevation = fbm(p * 1.28 + vec2(time * 0.012, -time * 0.016));
-    float line = abs(fract(elevation * 11.0) - 0.5) * 2.0;
-    float major = abs(fract(elevation * 3.0) - 0.5) * 2.0;
-    return max(1.0 - smoothstep(0.035, 0.16, line), (1.0 - smoothstep(0.035, 0.10, major)) * 0.72);
-  }
-
-  if (source == 16) {
-    float ridges = ridgedFbm(p * 1.35 + vec2(time * 0.018, -time * 0.012));
-    float valleys = fbm(p * 0.62 - vec2(time * 0.01, 0.0));
-    return smoothstep(0.24, 0.92, ridges * 0.88 + valleys * 0.22);
-  }
-
-  if (source == 17) {
-    float wind = fbm(p * 0.72 + vec2(time * 0.024, 0.0));
-    float dune = sin((p.x * 1.35 + p.y * 0.34 + wind * 1.75 - time * 0.08) * TAU);
-    float secondary = sin((p.x * 2.7 - p.y * 0.22 + wind * 0.7 + time * 0.045) * TAU) * 0.22;
-    return smoothstep(-0.72, 0.88, dune + secondary);
-  }
-
-  if (source == 18) {
-    vec2 drift = vec2(sin(time * 0.07), cos(time * 0.055)) * 0.08;
-    float elevation = fbm((p + drift) * 1.42) * 0.88 + ridgedFbm(p * 0.58) * 0.22;
-    float falloff = length(p * vec2(0.82, 1.0)) * 0.48;
-    float coast = elevation - falloff;
-    return smoothstep(0.18, 0.72, coast);
-  }
-
-  float geology = fbm(vec2(p.x * 1.15, p.y * 0.42) + vec2(time * 0.016, 0.0));
-  float foldedY = p.y + geology * 1.08 + sin(p.x * 1.7 + time * 0.08) * 0.18;
-  float layers = sin(foldedY * TAU * 2.65);
-  return smoothstep(-0.68, 0.78, layers);
+  // Volumetric nebula study. Three differently-scaled warped densities are
+  // intersected rather than simply added, which opens black voids between
+  // the luminous sheets and keeps the result from becoming generic smoke.
+  vec2 drift = vec2(time * 0.025, -time * 0.018);
+  vec2 w0 = warp2(p * 0.72 + drift, time * 0.55);
+  vec2 w1 = warp2(p * 1.18 - drift * 0.6 + vec2(4.7, -2.1), -time * 0.38);
+  float broad = fbm3(w0 * 0.78);
+  float folded = filament(fbm3(w1 * 1.22), 5.8, 0.12);
+  float lace = filament(fbm3((w0 + w1) * 2.35), 11.0, 0.0);
+  float chambers = smoothstep(0.42, 0.74, broad) * (0.46 + folded * 0.9);
+  float voids = smoothstep(0.46, 0.72, fbm3(w0 * 0.43 + vec2(9.1, 3.4)));
+  float vignette = 1.0 - smoothstep(0.72, 1.42, length(p * vec2(0.62, 1.0)));
+  return clamp((chambers * (1.0 - voids * 0.72) + lace * 0.42) * vignette, 0.0, 1.0);
 }
 
 void main() {
@@ -436,39 +519,24 @@ void main() {
   tone = clamp((tone - 0.5) * u_contrast + 0.5 + u_balance, 0.0, 1.0);
   float threshold = thresholdForCell(cell, u_dither);
   float ink = step(threshold, tone);
-  if (u_useCountryMask == 1) {
-    vec2 maskUv = sampleUv;
-    maskUv.x = (maskUv.x - 0.5) * (u_resolution.x / max(u_resolution.y, 1.0)) + 0.5;
-    maskUv = (maskUv - 0.5) / max(0.2, u_countryScale) + 0.5;
-    float country = texture(u_countryTexture, maskUv).r;
-    ink *= step(0.5, country);
-  }
   vec3 color = mix(u_background, u_foreground, ink);
   outColor = vec4(color, 1.0);
 }
 `
 
 const sourceValues: Record<PatternSource, number> = {
-  simplex: 0,
-  warp: 1,
-  dots: 2,
-  wave: 3,
-  ripple: 4,
-  swirl: 5,
-  plasma: 6,
-  marble: 7,
-  cells: 8,
-  terrain: 9,
-  sphere: 10,
-  torus: 11,
-  tunnel: 12,
-  metaballs: 13,
-  cube: 14,
-  contours: 15,
-  ridges: 16,
-  dunes: 17,
-  islands: 18,
-  strata: 19,
+  warp: 0,
+  nebulaVeil: 1,
+  ridges: 2,
+  lava: 3,
+  sunCorona: 4,
+  smokeDiag: 5,
+  smoke: 6,
+  aurora: 7,
+  fluid: 8,
+  plasma: 9,
+  marble: 10,
+  flame: 11,
 }
 
 const ditherValues: Record<DitherType, number> = {
@@ -480,7 +548,7 @@ const ditherValues: Record<DitherType, number> = {
 
 const defaultProps = {
   ariaLabel: "Animated two-color generative dithering shader",
-  source: "swirl" as PatternSource,
+  source: "warp" as PatternSource,
   dither: "4x4" as DitherType,
   foregroundColor: "#05b8f5",
   backgroundColor: "#020302",
@@ -493,8 +561,6 @@ const defaultProps = {
   offsetY: 0,
   contrast: 1,
   balance: 0,
-  countryMask: "none" as CountryMask,
-  countryScale: 1,
   opacity: 1,
   enablePointerRipples: true,
   pointerRippleStrength: 0.7,
@@ -521,40 +587,6 @@ function parseColor(value: string): [number, number, number] {
     return [0, 2, 4].map((offset) => Number.parseInt(normalized.slice(offset, offset + 2), 16) / 255) as [number, number, number]
   }
   return [0, 0, 0]
-}
-
-/*
-  Rasterised masks are cached for the lifetime of the page.
-
-  createCountryCanvas fills a 1024x1024 canvas from the full polygon set on the
-  main thread, and it is called from inside the render loop whenever the mask
-  changes. Uncached, switching region cost a ~240ms long task and dropped
-  frames. The set of masks is tiny and fixed, so just keep them.
-*/
-const countryCanvasCache = new Map<Exclude<CountryMask, "none">, HTMLCanvasElement>()
-
-function createCountryCanvas(mask: Exclude<CountryMask, "none">) {
-  const cached = countryCanvasCache.get(mask)
-  if (cached) return cached
-  const size = 1024
-  const canvas = document.createElement("canvas")
-  canvas.width = size
-  canvas.height = size
-  const context = canvas.getContext("2d")
-  if (!context) throw new Error("Could not create country mask canvas")
-  context.clearRect(0, 0, size, size)
-  context.fillStyle = "#ffffff"
-  for (const ring of countryPolygons[mask]) {
-    context.beginPath()
-    ring.forEach(([x, y], index) => {
-      if (index === 0) context.moveTo(x * size, y * size)
-      else context.lineTo(x * size, y * size)
-    })
-    context.closePath()
-    context.fill()
-  }
-  countryCanvasCache.set(mask, canvas)
-  return canvas
 }
 
 /*
@@ -731,15 +763,12 @@ export function DitherShader({ className, style, onError, ...incoming }: DitherS
         rotation: uniform("u_rotation"),
         contrast: uniform("u_contrast"),
         balance: uniform("u_balance"),
-        countryScale: uniform("u_countryScale"),
         pointerRippleStrength: uniform("u_pointerRippleStrength"),
         foreground: uniform("u_foreground"),
         background: uniform("u_background"),
         source: uniform("u_source"),
         dither: uniform("u_dither"),
         enablePointerRipples: uniform("u_enablePointerRipples"),
-        useCountryMask: uniform("u_useCountryMask"),
-        countryTexture: uniform("u_countryTexture"),
         ripplePoints: uniform("u_ripplePoints"),
         rippleAges: uniform("u_rippleAges"),
       }
@@ -752,17 +781,9 @@ export function DitherShader({ className, style, onError, ...incoming }: DitherS
       let sampleCpuTime = 0
       let latestGpuTime: number | null = null
       let gpuSampleCounter = 0
-      let activeCountryMask: CountryMask = "none"
+      const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)")
       const timerExtension = gl.getExtension("EXT_disjoint_timer_query_webgl2") as DisjointTimerQueryExtension | null
       const pendingTimerQueries: WebGLQuery[] = []
-      const countryTexture = gl.createTexture()
-      gl.activeTexture(gl.TEXTURE0)
-      gl.bindTexture(gl.TEXTURE_2D, countryTexture)
-      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR)
-      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR)
-      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE)
-      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE)
-      gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, 1, 1, 0, gl.RGBA, gl.UNSIGNED_BYTE, new Uint8Array([0, 0, 0, 0]))
 
       const resize = () => {
         const rect = canvas.getBoundingClientRect()
@@ -794,7 +815,8 @@ export function DitherShader({ className, style, onError, ...incoming }: DitherS
         resize()
         const cpuStart = performance.now()
 
-        const elapsed = now / 1000
+        const frozenTime = reducedMotionQuery.matches
+        const elapsed = frozenTime ? 0 : now / 1000
         const points = new Float32Array(8)
         const ages = new Float32Array([-1, -1, -1, -1])
         ripplesRef.current = ripplesRef.current.filter((ripple) => elapsed - ripple.start < 3.4)
@@ -815,24 +837,12 @@ export function DitherShader({ className, style, onError, ...incoming }: DitherS
         gl.uniform1f(uniforms.rotation, props.rotation)
         gl.uniform1f(uniforms.contrast, props.contrast)
         gl.uniform1f(uniforms.balance, props.balance)
-        gl.uniform1f(uniforms.countryScale, props.countryScale)
         gl.uniform1f(uniforms.pointerRippleStrength, props.pointerRippleStrength)
         gl.uniform3fv(uniforms.foreground, parseColor(props.foregroundColor))
         gl.uniform3fv(uniforms.background, parseColor(props.backgroundColor))
         gl.uniform1i(uniforms.source, sourceValues[props.source])
         gl.uniform1i(uniforms.dither, ditherValues[props.dither])
         gl.uniform1i(uniforms.enablePointerRipples, props.enablePointerRipples ? 1 : 0)
-        gl.uniform1i(uniforms.useCountryMask, props.countryMask === "none" ? 0 : 1)
-        if (props.countryMask !== activeCountryMask && props.countryMask !== "none") {
-          activeCountryMask = props.countryMask
-          gl.activeTexture(gl.TEXTURE0)
-          gl.bindTexture(gl.TEXTURE_2D, countryTexture)
-          gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true)
-          gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, createCountryCanvas(props.countryMask))
-        }
-        gl.activeTexture(gl.TEXTURE0)
-        gl.bindTexture(gl.TEXTURE_2D, countryTexture)
-        gl.uniform1i(uniforms.countryTexture, 0)
         gl.uniform2fv(uniforms.ripplePoints, points)
         gl.uniform1fv(uniforms.rippleAges, ages)
         let timerQuery: WebGLQuery | null = null
@@ -904,7 +914,6 @@ export function DitherShader({ className, style, onError, ...incoming }: DitherS
         intersectionObserver.disconnect()
         pendingTimerQueries.forEach((query) => gl.deleteQuery(query))
         gl.deleteBuffer(buffer)
-        gl.deleteTexture(countryTexture)
         gl.deleteProgram(program)
       }
     }
@@ -977,5 +986,3 @@ export function DitherShader({ className, style, onError, ...incoming }: DitherS
     />
   )
 }
-
-

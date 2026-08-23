@@ -1,72 +1,94 @@
 import { ArrowUpRight, Brain, Code2, FileText, Globe, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/i18n/LanguageContext";
-import { DitherShader } from "@/components/DitherShader";
-import { DisplayTitle, Eyebrow, Lede, SectionShell } from "@/components/marketing/primitives";
+import { ShowcaseDitherField, useNarrowViewport } from "@/components/field";
+import { BandHead, BandInner, Body, Display, MarkerChip, MonoLabel } from "@/components/marketing/editorial";
+import { cn } from "@/lib/utils";
 
 const services = [
-  { key: "ai", icon: Brain, slug: "ai-search-optimization" }, { key: "technical", icon: Code2, slug: "technical-seo" },
-  { key: "content", icon: FileText, slug: "arabic-content" }, { key: "local", icon: MapPin, slug: "local-seo" },
+  { key: "ai", icon: Brain, slug: "ai-search-optimization", chips: ["GEO", "AEO", "LLM", "SERP"] },
+  { key: "technical", icon: Code2, slug: "technical-seo" },
+  { key: "content", icon: FileText, slug: "arabic-content" },
+  { key: "local", icon: MapPin, slug: "local-seo" },
   { key: "arabic", icon: Globe, slug: "seo-audits" },
 ];
 
+const FEATURED_KEY = "ai";
+
 export const ServicesGrid = () => {
   const { t } = useLanguage();
+  const narrow = useNarrowViewport(639);
 
   return (
-    <SectionShell id="services" className="relative isolate overflow-hidden bg-void">
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 opacity-[0.7]">
-        <DitherShader
-          className="absolute inset-0"
-          ariaLabel=""
-          source="warp"
-          dither="4x4"
-          foregroundColor="#C7FF38"
-          backgroundColor="#030500"
-          size={5}
-          speed={0.28}
-          scale={2.8}
-          rotation={90}
-          contrast={1.2}
-          balance={-0.3}
-          enablePointerRipples={false}
-          performanceMode="balanced"
-          autoScaleResolution={false}
-          pauseOffscreen
+    <section id="services" className="bg-void">
+      <BandInner>
+        <BandHead
+          label={t("services.label")}
+          title={t("home.services.title")}
+          lede={t("home.services.copy")}
         />
-        <div className="dither-fallback absolute inset-0 opacity-90" />
-        <div className="absolute inset-0 bg-void/58" />
-      </div>
 
-      <div className="relative z-10 mx-auto max-w-7xl">
-        <div className="grid gap-6 border-b border-paper/25 pb-10 lg:grid-cols-[1fr_0.8fr] lg:items-end">
-          <div>
-            <Eyebrow className="text-lime">{t("services.label")}</Eyebrow>
-            <DisplayTitle className="mt-4 text-paper">{t("home.services.title")}</DisplayTitle>
-          </div>
-          <Lede className="text-paper">{t("home.services.copy")}</Lede>
-        </div>
+        <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {services.map(({ key, icon: Icon, slug, chips }, index) => {
+            const featured = key === FEATURED_KEY;
+            return (
+              // The featured card spans two columns so five cards resolve into two full
+              // rows (2+1 / 1+1+1) instead of leaving a hole in the second row.
+              <li key={key} className={cn(featured && "sm:col-span-2")}>
+                <Link
+                  to={`/services/${slug}`}
+                  className={cn(
+                    "group relative isolate flex h-full flex-col overflow-hidden border border-line bg-void p-6 transition-colors hover:border-signal sm:p-7",
+                  )}
+                >
+                  {/*
+                    The field is a layer on the CARD, not a box inside its padding.
+                    It uses the same lightweight renderer as the hero so the texture
+                    is painted immediately on phones instead of waiting for the much
+                    larger shared shader to compile.
+                  */}
+                  {featured && (
+                    <ShowcaseDitherField
+                      section="services"
+                      variant={narrow ? "mobile" : "desktop"}
+                      className="absolute inset-0 z-0"
+                    />
+                  )}
 
-        <div className="mt-8 border-t border-paper/25">
-          {services.map(({ key, icon: Icon, slug }, index) => (
-            <Link
-              key={key}
-              to={`/services/${slug}`}
-              className="group flex min-h-28 flex-col gap-5 border-b border-paper/20 py-6 transition-colors hover:bg-paper hover:px-5 hover:text-ink sm:min-h-32 sm:flex-row sm:items-center sm:gap-8 sm:py-7 lg:gap-12"
-            >
-              <span className="w-12 shrink-0 font-heading text-3xl text-lime transition-colors group-hover:text-ink">0{index + 1}</span>
-              <Icon className="hidden h-5 w-5 shrink-0 text-lime transition-colors group-hover:text-ink sm:block" aria-hidden="true" />
-              <div className="min-w-0 flex-1">
-                <h3 className="font-heading text-3xl uppercase leading-none text-paper transition-colors group-hover:text-ink sm:text-4xl">{t(`home.services.${key}.title`)}</h3>
-                <p className="mt-3 max-w-2xl text-sm leading-relaxed text-paper/70 transition-colors group-hover:text-ink/70">{t(`home.services.${key}.copy`)}</p>
-              </div>
-              <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.12em] text-lime transition-colors group-hover:text-ink">
-                {t("services.learnMore")} <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" aria-hidden="true" />
-              </span>
-            </Link>
-          ))}
-        </div>
-      </div>
-    </SectionShell>
+                  <div className="relative z-10 flex items-center justify-between">
+                    <Icon className="h-5 w-5 shrink-0 text-signal" aria-hidden="true" />
+                    <ArrowUpRight
+                      className="h-4 w-4 shrink-0 text-signal transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                      aria-hidden="true"
+                    />
+                  </div>
+
+                  <MonoLabel className="relative z-10 mt-6">{String(index + 1).padStart(2, "0")}</MonoLabel>
+                  <Display size="md" as="h3" className="relative z-10 mt-3">
+                    {t(`home.services.${key}.title`)}
+                  </Display>
+                  <Body className="relative z-10 mt-4 line-clamp-2">{t(`home.services.${key}.copy`)}</Body>
+
+                  {featured ? (
+                    /* Staggered from the start edge, the way the reference sets them,
+                       and each chip carries its own dark plate so it stays readable
+                       wherever the field happens to be bright underneath. */
+                    <ul className="relative z-10 mt-8 flex flex-1 flex-col items-start justify-end gap-2">
+                      {chips?.map((chip, chipIndex) => (
+                        <MarkerChip key={chip} style={{ marginInlineStart: `${chipIndex * 0.75}rem` }}>
+                          {chip}
+                        </MarkerChip>
+                      ))}
+                    </ul>
+                  ) : (
+                    <div className="mt-6 flex-1" aria-hidden="true" />
+                  )}
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      </BandInner>
+    </section>
   );
 };

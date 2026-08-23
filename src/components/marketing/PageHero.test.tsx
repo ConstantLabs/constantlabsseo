@@ -14,9 +14,12 @@ describe("PageHero", () => {
   it("renders the supplied eyebrow, semantic heading, and lede", () => {
     render(<PageHero eyebrow="Local search" title="SEO in Dubai" lede="Market coverage." />);
 
-    expect(screen.getByRole("heading", { level: 1, name: "SEO in Dubai" })).toBeVisible();
+    const heading = screen.getByRole("heading", { level: 1, name: "SEO in Dubai" });
+    expect(heading).toBeVisible();
     expect(screen.getByText("Local search")).toBeVisible();
     expect(screen.getByText("Market coverage.")).toBeVisible();
+    expect(heading.closest("section")).toHaveClass("bg-void", "text-paper");
+    expect(heading.closest("section")?.querySelector("[data-ruled-grid]")).toBeNull();
   });
 
   it("inherits direction from an RTL parent", () => {

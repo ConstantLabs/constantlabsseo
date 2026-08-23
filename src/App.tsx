@@ -18,6 +18,17 @@ const ScrollToTop = () => {
   return null;
 };
 
+/*
+  Dev-only dither tuner (see src/components/field/FieldTuner.tsx). Gated here,
+  before the lazy import, so a production build's dependency graph never
+  requests this module at all — `import.meta.env.DEV` is inlined at build time
+  and the `import()` inside the false branch is never reached. Verified by
+  grepping the built `dist/assets/*.js` for a string unique to the panel.
+*/
+const DevFieldTuner = import.meta.env.DEV
+  ? lazy(() => import("./components/field/FieldTuner").then((module) => ({ default: module.FieldTuner })))
+  : null;
+
 // Lazy Load Pages
 const Index = lazy(() => import("./pages/Index"));
 const Services = lazy(() => import("./pages/Services"));
@@ -95,6 +106,11 @@ const App = () => (
         </Suspense>
         <WhatsAppButton />
         <CookieConsent />
+        {DevFieldTuner && (
+          <Suspense fallback={null}>
+            <DevFieldTuner />
+          </Suspense>
+        )}
       </BrowserRouter>
     </LanguageProvider>
   </HelmetProvider>

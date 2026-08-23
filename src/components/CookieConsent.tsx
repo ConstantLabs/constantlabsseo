@@ -35,18 +35,18 @@ export const CookieConsent = () => {
       role="dialog"
       aria-label={isAr ? "إشعار ملفات تعريف الارتباط" : "Cookie consent"}
     >
-      <div className="mx-auto flex max-w-3xl flex-col items-start gap-4 border border-line bg-paper p-5 text-ink sm:flex-row sm:items-center sm:p-6">
+      <div className="mx-auto flex max-w-3xl flex-col items-start gap-4 border border-line bg-void p-5 text-paper shadow-[0_0_0_1px_rgba(0,0,0,0.4)] sm:flex-row sm:items-center sm:p-6">
         {/* Text */}
         <div className="flex-1 min-w-0">
-          <p className="mb-0.5 text-sm font-semibold text-ink">
+          <p className="mb-0.5 text-sm font-semibold text-paper">
             {isAr ? "نستخدم ملفات تعريف الارتباط" : "We use cookies"}
           </p>
-          <p className="text-xs leading-relaxed text-ink/70">
+          <p className="text-xs leading-relaxed text-paper/70">
             {isAr
               ? "نستخدم ملفات تعريف الارتباط لتحسين تجربتك وتحليل الزيارات. بالنقر على قبول، توافق على استخدامنا لها."
               : "We use cookies to improve your experience and analyze site traffic. By clicking Accept, you agree to our use of cookies."}
             {" "}
-            <a href="/privacy" className="text-ink underline underline-offset-4">
+            <a href="/privacy" className="text-signal underline underline-offset-4">
               {isAr ? "سياسة الخصوصية" : "Privacy Policy"}
             </a>
           </p>
@@ -56,19 +56,19 @@ export const CookieConsent = () => {
         <div className="flex items-center gap-2 shrink-0">
           <button
             onClick={decline}
-            className="border border-line px-4 py-2 text-xs font-semibold text-ink transition-colors hover:bg-lime/20"
+            className="border border-line px-4 py-2 text-xs font-semibold text-paper transition-colors hover:border-signal hover:text-signal"
           >
             {isAr ? "رفض" : "Decline"}
           </button>
           <button
             onClick={accept}
-            className="border border-ink bg-ink px-5 py-2 text-xs font-semibold text-paper transition-colors hover:bg-lime hover:text-ink"
+            className="border border-signal bg-signal px-5 py-2 text-xs font-semibold text-void transition-colors hover:bg-paper"
           >
             {isAr ? "قبول" : "Accept"}
           </button>
           <button
             onClick={decline}
-            className="p-1.5 text-ink/70 transition-colors hover:text-ink"
+            className="p-1.5 text-paper/70 transition-colors hover:text-paper"
             aria-label={isAr ? "إغلاق" : "Close"}
           >
             <X className="w-4 h-4" />

@@ -4,12 +4,23 @@
 
 @layer base {
   :root {
-    --void: 84 100% 1%; /* #030500 */
-    --ink: 87 58% 4%; /* #0A0F04 */
-    --paper: 81 35% 92%; /* #EDF2E4 */
-    --muted: 90 10% 55%; /* #8C9880 */
-    --line: 91 26% 17%; /* #2B3720 */
-    --lime: 77 100% 61%; /* #C7FF38 */
+    /*
+      Warm amber palette.
+
+      The grounds are warmed along with the accent, not left as they were. The
+      previous void/ink/paper/line were all green-tinted (hues 81-91), which is
+      correct under a lime accent and muddy under an amber one — warm type on a
+      cool-green near-black reads dirty rather than rich. Every ground here sits in
+      the 30-42 hue range so the whole page shares one temperature.
+    */
+    --void: 0 33% 1%; /* #020101 */
+    --ink: 30 50% 4%; /* #0F0A05 */
+    --paper: 42 32% 90%; /* #EDE8DC */
+    --muted: 34 13% 54%; /* #988B7A */
+    --line: 35 31% 15%; /* #33291B */
+    /* Still named --lime for now: the token is referenced across ~40 files, and a
+       rename is a separate, mechanical change. The VALUE is the amber accent. */
+    --lime: 32 100% 68%; /* #FFB35C */
     --evidence-blue: 217 89% 61%; /* #4285F4 */
     --evidence-violet: 262 52% 47%; /* #673AB7 */
 
@@ -39,7 +50,7 @@
   html {
     max-width: 100%;
     scroll-behavior: smooth;
-    scrollbar-color: #8C9880 #030500;
+    scrollbar-color: #988B7A #020101;
     scrollbar-width: thin;
   }
 
@@ -49,17 +60,22 @@
     text-rendering: optimizeLegibility;
   }
 
-  ::selection { background: #C7FF38; color: #0A0F04; }
-  :focus-visible { outline: 3px solid #C7FF38; outline-offset: 3px; }
+  ::selection { background: #FFB35C; color: #0F0A05; }
+  :focus-visible { outline: 3px solid #FFB35C; outline-offset: 3px; }
 }
 
 ::-webkit-scrollbar { width: 7px; height: 7px; }
-::-webkit-scrollbar-track { background: #030500; }
-::-webkit-scrollbar-thumb { background: #8C9880; }
-::-webkit-scrollbar-thumb:hover { background: #C7FF38; }
+::-webkit-scrollbar-track { background: #020101; }
+::-webkit-scrollbar-thumb { background: #988B7A; }
+::-webkit-scrollbar-thumb:hover { background: #FFB35C; }
 
+/*
+  Arabic swaps to Changa, matching the showcase. Anton, Rajdhani and Share Tech Mono
+  have no Arabic coverage, so the display and label roles must swap too — the only
+  exemption is .tv-wordmark, which carries a Latin lockup and must never be swapped.
+*/
 [dir="rtl"] body,
-  [dir="rtl"] body *:not(.tv-display):not(.tv-display *):not(.tv-label):not(.tv-label *):not(.tv-body):not(.tv-body *) { font-family: "Noto Kufi Arabic", sans-serif !important; }
+  [dir="rtl"] body *:not(.tv-wordmark):not(.tv-wordmark *) { font-family: "Changa", sans-serif !important; }
 [dir="rtl"] .ltr-inline { direction: ltr; unicode-bidi: embed; }
 [dir="rtl"] .platform-pill,
 [dir="rtl"] input,
@@ -74,7 +90,17 @@
 }
 
 @layer components {
-  /* ConstantLabs website typography roles, shared by the SEO hero. */
+  /*
+    The ConstantLabs typography roles, taken from constantlabs-showcase rather than
+    re-derived. Three faces, three jobs, and the site never uses a fourth.
+  */
+
+  /*
+    Anton. One weight only, so hierarchy comes from SIZE, never from weight. Never
+    pair it with font-bold/font-black: the browser fakes the weight by smearing the
+    glyphs and the headline stops looking like Anton at all. Its natural tracking is
+    already tight, so -0.03em comes out cramped — -0.01em is the ceiling.
+  */
   .tv-display {
     font-family: "Anton", Impact, Arial Narrow, sans-serif;
     font-weight: 400;
@@ -84,15 +110,65 @@
   }
 
   .tv-body {
-    font-family: "Inter Tight", system-ui, sans-serif;
-    font-weight: 400;
+    font-family: "Rajdhani", "Changa", system-ui, sans-serif;
+    font-weight: 500;
   }
 
+  /*
+    Share Tech Mono carries every label, chip, button and footer row. It is the
+    single strongest signal in this design language — an Inter label at the same
+    size reads as a generic small-caps UI, a monospace one reads as a terminal.
+  */
   .tv-label {
-    font-family: "Inter Tight", system-ui, sans-serif;
-    font-weight: 500;
+    font-family: "Share Tech Mono", ui-monospace, monospace;
+    font-weight: 400;
     text-transform: uppercase;
   }
+
+  /*
+    The second voice inside a headline, ported from constantlabs-websites.
+
+    Instrument Serif italic dropped into an Anton headline is what turns one flat
+    line into a two-part statement — the serif points at a phrase without raising
+    the volume. Pushing WEIGHT on the display face was the earlier attempt and it
+    failed twice over: Anton has one weight so the browser fakes it, and a bolder
+    run just shouts over the sentence it sits in. A different face whispers instead.
+
+    Tracking is reset to 0 and case to none, because the display face it sits
+    inside sets negative tracking and uppercase, and neither suits a serif italic.
+  */
+  .tv-em {
+    font-family: "Instrument Serif", Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+
+  /*
+    AC Compacta, the ultra-condensed face for the wordmark lockup only.
+
+    font-display: block rather than swap on purpose — this face is roughly four
+    times narrower than any fallback, so a swap makes the wordmark reflow from a
+    wide word to a narrow one in front of the visitor, which is far worse than a
+    brief blank.
+  */
+  .tv-wordmark {
+    font-family: "AC Compacta", "Anton", Impact, sans-serif;
+    font-weight: 400;
+    letter-spacing: 0;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+}
+
+@font-face {
+  font-family: "AC Compacta";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/AC-Compacta.otf") format("opentype"),
+       url("/fonts/AC-Compacta.ttf") format("truetype");
+  font-display: block;
 }
 .scroll-track::-webkit-scrollbar,
 .scrollbar-hide::-webkit-scrollbar { display: none; }
@@ -116,7 +192,7 @@
   position: absolute;
   inset: -8%;
   content: "";
-  background-image: radial-gradient(circle, rgb(199 255 56 / 0.82) 0 0.8px, transparent 1.1px);
+  background-image: radial-gradient(circle, rgb(255 179 92 / 0.82) 0 0.8px, transparent 1.1px);
   background-size: 8px 8px;
   opacity: 0.4;
   -webkit-mask-image: radial-gradient(ellipse at 76% 22%, #000 0%, #000 24%, transparent 70%);
@@ -132,9 +208,9 @@
 
 .marquee-track { will-change: transform; }
 .hover-lift { transition: transform 0.3s ease, box-shadow 0.3s ease; }
-.hover-lift:hover { transform: translateY(-4px); box-shadow: 8px 8px 0 rgb(43 55 32 / 0.45); }
+.hover-lift:hover { transform: translateY(-4px); box-shadow: 8px 8px 0 rgb(51 41 27 / 0.45); }
 .hover-glow { transition: box-shadow 0.3s ease; }
-.hover-glow:hover { box-shadow: 0 0 0 3px rgb(199 255 56 / 0.45); }
+.hover-glow:hover { box-shadow: 0 0 0 3px rgb(255 179 92 / 0.45); }
 .hover-scale { transition: transform 0.2s ease; }
 .hover-scale:hover { transform: scale(1.02); }
 .animate-fade-in-up { animation: fadeInUp 0.6s ease forwards; }

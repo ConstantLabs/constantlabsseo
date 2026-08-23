@@ -13,7 +13,9 @@ export const TestimonialsSection = () => {
           <p className="text-sm font-semibold text-gray-200 uppercase tracking-wider mb-2">
             {t("testimonials.label")}
           </p>
-          <h2 className="text-3xl md:text-[42px] md:leading-tight font-heading font-black text-paper">
+          {/* No font-black on Anton: it has one weight, so the browser fakes the rest
+              by smearing the glyphs and it stops looking like Anton at all. */}
+          <h2 className="font-heading text-3xl leading-[0.96] text-paper md:text-[42px]">
             {t("testimonials.title")}
           </h2>
         </div>

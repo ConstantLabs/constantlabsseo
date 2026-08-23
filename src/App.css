@@ -1,20 +1,20 @@
 #root { max-width: 100%; margin: 0 auto; }
 
 /* Compatibility utilities now express the flat Search Signal Field palette. */
-.brand-gradient { background: #030500; }
-.brand-text-gradient { color: #0A0F04; }
-.brand-accent-gradient { background: #C7FF38; }
-.brand-mint-gradient { background: #C7FF38; }
+.brand-gradient { background: #020101; }
+.brand-text-gradient { color: #0F0A05; }
+.brand-accent-gradient { background: #FFB35C; }
+.brand-mint-gradient { background: #FFB35C; }
 
 .glass-card {
-  background: #0A0F04;
+  background: #0F0A05;
   border: 1px solid rgb(43 55 32 / 0.9);
 }
-.glass-card:hover { border-color: #8C9880; }
+.glass-card:hover { border-color: #988B7A; }
 
-.glow-purple, .glow-gold, .glow-mint { outline: 1px solid #8C9880; }
-.section-dark { background-color: #0A0F04; }
-.section-darker { background-color: #030500; }
+.glow-purple, .glow-gold, .glow-mint { outline: 1px solid #988B7A; }
+.section-dark { background-color: #0F0A05; }
+.section-darker { background-color: #020101; }
 .dot-pattern {
   background-image: radial-gradient(circle, rgb(43 55 32 / 0.9) 1px, transparent 1px);
   background-size: 24px 24px;
@@ -30,10 +30,10 @@
   font-weight: 700;
   transition: transform 0.2s ease, background-color 0.2s ease;
 }
-.btn-primary, .btn-accent { background: #C7FF38; color: #0A0F04; border: 1px solid #0A0F04; }
+.btn-primary, .btn-accent { background: #FFB35C; color: #0F0A05; border: 1px solid #0F0A05; }
 .btn-secondary { background: transparent; color: currentColor; border: 1px solid currentColor; }
 .btn-primary:hover, .btn-accent:hover { transform: translate(-2px, -2px); }
-.btn-secondary:hover { background: #0A0F04; color: #EDF2E4; }
+.btn-secondary:hover { background: #0F0A05; color: #EDE8DC; }
 
 .heading-xl, .heading-lg {
   font-family: "Anton", Impact, sans-serif;
