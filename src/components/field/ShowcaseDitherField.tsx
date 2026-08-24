@@ -32,6 +32,42 @@ const SOURCES: Record<PatternSource, number> = {
   smoke: 6, aurora: 7, fluid: 8, plasma: 9, marble: 10, flame: 11,
 };
 
+/*
+  Where in its own cycle a source is when the page opens.
+
+  `u_time` is `performance.now()`, so without this every field opens at t≈0 --
+  and for nebulaVeil t≈0 is the single thinnest moment it ever has. Measured by
+  rendering the shader below at the hero's own settings and counting lit cells,
+  sweeping t from 0 to 200:
+
+              t≈0-3   t≈50   t≈145   t≈180   t≈115-125
+    desktop    7.7%   28.0%   30.2%   46.9%    10%
+    mobile     6.7%   40.5%   23.7%   47.5%     7%
+                ^                       ^
+             the floor              the wash
+
+  Three warped densities are INTERSECTED rather than added (see `source == 1`),
+  and at t=0 they sit unwarped and near-aligned, so the intersection is almost
+  all void -- outlines, no sheets. The field spends its first minute climbing
+  out of a hole nobody should have been shown.
+
+  145 is the crest worth opening on, not the 180 peak: at 180 the coverage is
+  ~47% and the hero turns into the even grey wash fieldProfiles.ts warns about
+  for exactly this section, with the headline fighting the field. At 145 the
+  luminous sheets have formed and the frame is still mostly black, which is the
+  contrast the hero is built on.
+
+  Two things this is NOT. It is not a per-refresh seed -- it is one pinned
+  number, so every visitor opens on the same frame, same as every other value
+  in this system. And it is not a fix for the slow beat itself: the field still
+  drifts into the dense plateau about forty seconds in, and back down to a
+  trough after that. That beat is the shader's, and moving where it starts is a
+  different job from flattening it.
+*/
+const SOURCE_PHASE: Partial<Record<PatternSource, number>> = {
+  nebulaVeil: 145,
+};
+
 const VERTEX = `#version 300 es
 in vec2 a_position;
 void main() { gl_Position = vec4(a_position, 0.0, 1.0); }
@@ -346,7 +382,7 @@ export function ShowcaseDitherField({
         canvas.dataset.resolutionScale = ratio.toFixed(3);
         gl.useProgram(program);
         gl.uniform2f(u.resolution, width, height);
-        gl.uniform1f(u.time, now / 1000 * current.speed);
+        gl.uniform1f(u.time, now / 1000 * current.speed + (SOURCE_PHASE[current.source] ?? 0));
         gl.uniform1f(u.ratio, ratio);
         gl.uniform1f(u.size, current.cellSize);
         gl.uniform1f(u.scale, current.scale);
