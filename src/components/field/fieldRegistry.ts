@@ -12,16 +12,18 @@ import type { DitherType, PatternSource, PerformanceMode } from "@/components/Di
   numbers on any other section.
 
   This registry is the single source of truth for every section's field,
-  split into a `desktop` and a `mobile` variant so the two CAN diverge --
-  but as of now none of them do: every mobile variant is a straight copy of
-  its desktop twin, so a phone sees the same source, dither, cell and
-  motion as a laptop. The earlier state (non-hero bands suppressed on
-  mobile, and a hero running `ridges` instead of the tuned `nebulaVeil`)
-  was suppression left over from the seed, not a decision -- see the
-  WebGL2-context note in useNarrowViewport.ts for the cost that suppression
-  was buying. The split stays in the shape so a section can go cheaper on a
-  phone later without touching desktop; retune the mobile variant, do not
-  re-derive it.
+  split into a `desktop` and a `mobile` variant so the two can diverge.
+  Every mobile variant now matches its desktop twin on LOOK -- same source,
+  dither, cell, motion and scrim -- and diverges on COST alone:
+  `performanceMode: "balanced"` on mobile against `"high"` on desktop,
+  measured on device, where four fields at `min(dpr, 2)` was visibly hard
+  on the phone. The earlier state (non-hero bands suppressed on mobile, and
+  a hero running `ridges` instead of the tuned `nebulaVeil`) was suppression
+  left over from the seed, not a decision -- see the WebGL2-context note in
+  useNarrowViewport.ts for the cost that suppression was buying.
+
+  That is the pattern worth keeping: diverge on the resolution knob, not on
+  the look. Retune the mobile variant, never re-derive it.
 
   Every value below was TRANSCRIBED from the four call sites as they
   rendered before this file existed -- this is a seed, not a redesign.
@@ -188,7 +190,7 @@ export const fieldRegistry: Record<SectionKey, SectionFieldEntry> = {
       rotation: 51,
       scrim: 0.11,
       ink: "#A8702B",
-      performanceMode: "high",
+      performanceMode: "balanced",
       targetFps: 60,
       autoScaleResolution: false,
       bounds: { start: "-5%", end: "30%", mask: "linear-gradient(to right, #000 60%, transparent 100%)" },
@@ -233,7 +235,7 @@ export const fieldRegistry: Record<SectionKey, SectionFieldEntry> = {
       rotation: 0,
       scrim: 0.51,
       ink: "#FFB35C",
-      performanceMode: "high",
+      performanceMode: "balanced",
       targetFps: 60,
       autoScaleResolution: false,
     },
@@ -275,7 +277,7 @@ export const fieldRegistry: Record<SectionKey, SectionFieldEntry> = {
       rotation: 90,
       scrim: 0.68,
       ink: "#FFB35C",
-      performanceMode: "high",
+      performanceMode: "balanced",
       targetFps: 60,
       autoScaleResolution: false,
     },
@@ -316,7 +318,7 @@ export const fieldRegistry: Record<SectionKey, SectionFieldEntry> = {
       rotation: 90,
       scrim: 0.84,
       ink: "#FFB35C",
-      performanceMode: "high",
+      performanceMode: "balanced",
       targetFps: 60,
       autoScaleResolution: false,
     },
