@@ -25,7 +25,7 @@ describe("ShowcaseDitherField", () => {
     render(<ShowcaseDitherField section="hero" variant="mobile" />);
 
     const field = screen.getByTestId("showcase-dither-field");
-    expect(field).toHaveAttribute("data-dither-scale", "3.3");
+    expect(field).toHaveAttribute("data-dither-scale", "1");
     expect(field).toHaveAttribute("data-dither-ink", "#A8702B");
     expect(field).toHaveAttribute("data-dither-resolution", "high");
 

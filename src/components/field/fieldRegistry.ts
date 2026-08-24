@@ -12,11 +12,16 @@ import type { DitherType, PatternSource, PerformanceMode } from "@/components/Di
   numbers on any other section.
 
   This registry is the single source of truth for every section's field,
-  split into a `desktop` and a `mobile` variant so the two can diverge --
-  most of them differ only in `enabled` today, matching the suppression
-  every non-hero band already had (each field is its own WebGL2 context;
-  see useNarrowViewport.ts), but the shape allows a section to run a
-  cheaper or different look on a phone without touching desktop.
+  split into a `desktop` and a `mobile` variant so the two CAN diverge --
+  but as of now none of them do: every mobile variant is a straight copy of
+  its desktop twin, so a phone sees the same source, dither, cell and
+  motion as a laptop. The earlier state (non-hero bands suppressed on
+  mobile, and a hero running `ridges` instead of the tuned `nebulaVeil`)
+  was suppression left over from the seed, not a decision -- see the
+  WebGL2-context note in useNarrowViewport.ts for the cost that suppression
+  was buying. The split stays in the shape so a section can go cheaper on a
+  phone later without touching desktop; retune the mobile variant, do not
+  re-derive it.
 
   Every value below was TRANSCRIBED from the four call sites as they
   rendered before this file existed -- this is a seed, not a redesign.
@@ -173,28 +178,28 @@ export const fieldRegistry: Record<SectionKey, SectionFieldEntry> = {
     },
     mobile: {
       enabled: true,
-      source: "ridges",
+      source: "nebulaVeil",
       dither: "4x4",
       cellSize: 1,
-      scale: 3.3,
-      speed: 1,
-      contrast: 1.88,
-      balance: -0.48,
-      rotation: 0,
-      scrim: 0,
+      scale: 1,
+      speed: 0.84,
+      contrast: 1.15,
+      balance: 0.03,
+      rotation: 51,
+      scrim: 0.11,
       ink: "#A8702B",
       performanceMode: "high",
       targetFps: 60,
       autoScaleResolution: false,
-      bounds: {},
+      bounds: { start: "-5%", end: "30%", mask: "linear-gradient(to right, #000 60%, transparent 100%)" },
     },
   },
 
   /*
     ServicesGrid.tsx, the featured "ai" card. Field settings from
     fieldProfiles.portal; ink left at FieldBand's own default (never overridden
-    at the call site, so it is transcribed here rather than assumed). The featured
-    AI Search Presence card is enabled on mobile as well as desktop.
+    at the call site, so it is transcribed here rather than assumed). Mobile
+    mirrors desktop exactly.
   */
   services: {
     /* Tuned in the panel. The 2x2 matrix is the notable one — a coarser Bayer cell
@@ -218,15 +223,15 @@ export const fieldRegistry: Record<SectionKey, SectionFieldEntry> = {
     },
     mobile: {
       enabled: true,
-      source: "ridges",
-      dither: "4x4",
+      source: "flame",
+      dither: "2x2",
       cellSize: 2,
-      scale: 2.6,
-      speed: 1.47,
-      contrast: 1.35,
-      balance: -0.2,
+      scale: 2.9,
+      speed: 2.1,
+      contrast: 1.05,
+      balance: -0.14,
       rotation: 0,
-      scrim: 0.45,
+      scrim: 0.51,
       ink: "#FFB35C",
       performanceMode: "high",
       targetFps: 60,
@@ -236,7 +241,7 @@ export const fieldRegistry: Record<SectionKey, SectionFieldEntry> = {
 
   /*
     CaseStudiesSection.tsx, the methods band. Field settings from
-    fieldProfiles.band. Same "never opted into mobile" story as `services`.
+    fieldProfiles.band. Mobile mirrors desktop exactly.
   */
   caseStudies: {
     /* Tuned in the panel: a bigger scale and a much higher contrast than the
@@ -259,14 +264,14 @@ export const fieldRegistry: Record<SectionKey, SectionFieldEntry> = {
       autoScaleResolution: false,
     },
     mobile: {
-      enabled: false,
+      enabled: true,
       source: "warp",
-      dither: "4x4",
+      dither: "2x2",
       cellSize: 2,
-      scale: 2.0,
-      speed: 1.0,
-      contrast: 1.15,
-      balance: 0.06,
+      scale: 3.95,
+      speed: 1.58,
+      contrast: 1.79,
+      balance: 0,
       rotation: 90,
       scrim: 0.68,
       ink: "#FFB35C",
@@ -300,14 +305,14 @@ export const fieldRegistry: Record<SectionKey, SectionFieldEntry> = {
       autoScaleResolution: false,
     },
     mobile: {
-      enabled: false,
+      enabled: true,
       source: "warp",
       dither: "4x4",
       cellSize: 2,
-      scale: 2.0,
-      speed: 1.0,
-      contrast: 1.15,
-      balance: 0.06,
+      scale: 2.65,
+      speed: 1.32,
+      contrast: 2.12,
+      balance: 0.11,
       rotation: 90,
       scrim: 0.84,
       ink: "#FFB35C",
