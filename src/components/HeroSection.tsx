@@ -5,6 +5,7 @@ import { useLanguage } from "@/i18n/LanguageContext";
 import { Navbar } from "@/components/Navbar";
 import { ShowcaseDitherField, useNarrowViewport } from "@/components/field";
 import { RichText } from "@/components/marketing/RichText";
+import { legal } from "@/data/legal";
 
 /*
   The hero, ported from constantlabs-showcase's HomeHero rather than re-derived.
@@ -332,6 +333,27 @@ export const HeroSection = () => {
             {t("home.hero.methodCta")}
             <span aria-hidden="true">{isAr ? "↓" : "↓"}</span>
           </a>
+
+          {/*
+            The trade licence, in the fold.
+
+            A chip rather than a bare line, matching the link above it: 10px type
+            at 60% opacity loses to the dither field behind this column, and the
+            field rules are explicit that small type gets its own ground.
+
+            Short on purpose. ConstantSEO is a product name, so the one fact
+            worth surfacing this high is that a licensed company stands behind
+            it; the full register entry is on About, Privacy and Terms.
+          */}
+          <p className="tv-label mt-3 inline-flex max-w-full flex-wrap items-center gap-x-2 gap-y-1 self-start border border-paper/[0.07] bg-paper/[0.025] px-3 py-1.5 text-[10px] tracking-[0.16em] text-paper/55 backdrop-blur-md">
+            <span>{isAr ? "مرخّصة في دبي" : "Licensed in Dubai"}</span>
+            <span aria-hidden="true" className="text-paper/25">·</span>
+            {/* LTR: a licence number inside an Arabic line otherwise reorders
+                into a different number. */}
+            <span dir="ltr" className="[unicode-bidi:isolate]">
+              {legal.licence.authorityShort} {legal.licence.number}
+            </span>
+          </p>
         </div>
       </div>
     </header>
