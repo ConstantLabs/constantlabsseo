@@ -16,6 +16,28 @@ const metrics = [
 
 const PROOF_IMAGE = "/proof/mufakkir-search-console-6-months.png";
 
+/*
+  Which edge each tooltip hangs from, per metric, per breakpoint.
+
+  The tooltip is 15rem wide and was anchored `start-0` for all four. In a
+  right-hand cell that put its far edge past the viewport: at 390px the second
+  column starts at 208 and the tooltip ran to 448. The page then scrolls
+  sideways, and because a horizontally scrollable page widens the layout
+  viewport, every `position: fixed` element goes with it — which is why the
+  symptom showed up as the WhatsApp button sitting off the right edge rather
+  than as a tooltip anywhere near the metrics.
+
+  So each tooltip hangs from whichever edge keeps it inside the row. The grid is
+  two columns on a phone and four from `sm`, so indices 1 and 2 change sides
+  between the two layouts and have to say so.
+*/
+const TOOLTIP_ANCHOR = [
+  "start-0",                            // left column in both layouts
+  "end-0 sm:start-0 sm:end-auto",       // right on a phone, second of four above sm
+  "start-0 sm:end-0 sm:start-auto",     // left on a phone, third of four above sm
+  "end-0",                              // right column in both layouts
+];
+
 export function MufakkirEvidence() {
   const { t } = useLanguage();
 
@@ -40,7 +62,7 @@ export function MufakkirEvidence() {
               aria-describedby ties the wording to the number for screen readers, so
               the explanation is not hover-only information.
             */}
-            {metrics.map((metric) => (
+            {metrics.map((metric, i) => (
               <div
                 key={metric.label}
                 tabIndex={0}
@@ -55,7 +77,7 @@ export function MufakkirEvidence() {
                 <span
                   role="tooltip"
                   id={`${metric.label}-help`}
-                  className="tv-body pointer-events-none absolute bottom-full start-0 z-20 mb-3 w-60 max-w-[80vw] border border-signal/40 bg-void p-3 text-xs leading-[1.5] text-paper/85 opacity-0 shadow-[0_0_0_1px_rgba(0,0,0,0.6)] transition-opacity duration-150 group-hover:opacity-100 group-focus-visible:opacity-100"
+                  className={`tv-body pointer-events-none absolute bottom-full z-20 mb-3 w-60 max-w-[80vw] border border-signal/40 bg-void p-3 text-xs leading-[1.5] text-paper/85 opacity-0 shadow-[0_0_0_1px_rgba(0,0,0,0.6)] transition-opacity duration-150 group-hover:opacity-100 group-focus-visible:opacity-100 ${TOOLTIP_ANCHOR[i]}`}
                 >
                   {t(metric.help)}
                 </span>
