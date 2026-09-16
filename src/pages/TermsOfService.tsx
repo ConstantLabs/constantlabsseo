@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { SEO } from "@/components/SEO";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { LegalEntityPanel } from "@/components/LegalEntityPanel";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { PageHero } from "@/components/marketing/PageHero";
 
@@ -259,6 +260,11 @@ const TermsOfService = () => {
               )}
             </div>
           ))}
+
+          {/* The registered entity. Sits with the legal copy rather than in a page
+              of its own: someone checking whether ConstantSEO is a real licensed
+              business is already reading the terms. */}
+          <LegalEntityPanel />
 
           {/* Footer link */}
           <div className="border-t border-line pt-8 text-center">

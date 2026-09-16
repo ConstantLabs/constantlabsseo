@@ -74,3 +74,26 @@ Vite config splits vendor chunks: `vendor-react`, `vendor-motion`, `vendor-ui` (
 - Markets: Dubai, Abu Dhabi (primary) → Riyadh, Jeddah (secondary) → Muscat (tertiary)
 - Business model: Agentic AI for rapid SEO site deployment (50+ pages in hours), local operator partnerships
 - "Good SEO = Good GEO" — no separate AI search strategy needed
+
+## The licence
+
+`src/data/legal.ts` is the single source of truth for the trade licence.
+**Nothing else may hardcode the licence number, the register number, the legal
+name or the issuing authority.** `Footer.tsx`, `LegalEntityPanel` (About, Privacy,
+Terms), the JSON-LD in `index.html` and `public/llms.txt` all state it, and they
+have to agree.
+
+- **ConstantSEO is a product name, not a company.** The licence is held by
+  Constant Labs — `ConstantLabs For Web-Design` — which is the same entity behind
+  `constantlabs.ai` and `websites.constantlabs.ai`. Never write copy or schema
+  that presents ConstantSEO as a separate legal entity.
+- **The registered address is never published.** DET lists a residential villa
+  against this licence. City and country only — no street, no area, no P.O. box.
+  The area name used to appear in `footer.location`, the contact page and the
+  JSON-LD; it was removed on purpose. Don't put it back.
+- On renewal, change `licence.issuedOn` / `licence.expiresOn` in `legal.ts`.
+  `index.html` is static and carries a hand-written copy of the number and
+  `foundingDate`; update that by hand at the same time.
+- The same block is mirrored in `constant-labs-showcase/src/data/legal.ts` and
+  `constantlabs-websites/src/content/site.ts`. A change here needs the same
+  change there.

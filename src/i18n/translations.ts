@@ -693,7 +693,12 @@ export const translations: TranslationMap = {
   "footer.freeTools": { en: "Free Tools", ar: "أدوات مجانية" },
   "footer.email": { en: "akhmad@constantlabs.ai", ar: "akhmad@constantlabs.ai" },
   "footer.phone": { en: "+971 56 149 5656", ar: "+971 56 149 5656" },
-  "footer.location": { en: "Dubai, Al Awir, UAE", ar: "دبي، العوير، الإمارات" },
+  "footer.location": { en: "Dubai, UAE", ar: "دبي، الإمارات" },
+  // The registered entity. The name and number themselves live in
+  // `src/data/legal.ts` — only the surrounding words are translated, because a
+  // registered name is a register entry, not copy.
+  "footer.registeredAs": { en: "Registered as", ar: "مسجّلة باسم" },
+  "footer.licenceNo": { en: "Licence No.", ar: "رخصة رقم" },
 
   // ─── Project / Case Study Detail (used by ProjectDetailModal) ─
   "project.viewFullPage": { en: "VIEW FULL CASE STUDY", ar: "عرض دراسة الحالة" },
@@ -946,7 +951,7 @@ export const translations: TranslationMap = {
   "contactPage.info.email.label": { en: "Email", ar: "البريد الإلكتروني" },
   "contactPage.info.phone.label": { en: "Phone", ar: "الهاتف" },
   "contactPage.info.location.label": { en: "Location", ar: "الموقع" },
-  "contactPage.info.location.value": { en: "Dubai, Al Awir, UAE", ar: "دبي، العوير، الإمارات" },
+  "contactPage.info.location.value": { en: "Dubai, UAE", ar: "دبي، الإمارات" },
   "contactPage.info.whatsapp.label": { en: "WhatsApp", ar: "واتساب" },
   "contactPage.info.whatsapp.value": { en: "Open WhatsApp", ar: "فتح واتساب" },
   "contactPage.info.hours.label": { en: "Working hours", ar: "ساعات العمل" },

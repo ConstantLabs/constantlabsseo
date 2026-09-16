@@ -3,6 +3,7 @@ import { Mail, MapPin, Phone } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { cn } from "@/lib/utils";
 import { MonoLabel } from "@/components/marketing/editorial";
+import { legal } from "@/data/legal";
 
 /* Mono, like every other label row on the page. In the body face these columns read
    as a different system from the rest of the footer. */
@@ -109,6 +110,22 @@ export const Footer = () => {
             {t("footer.location")}
           </li>
         </ul>
+
+        {/*
+          The registered entity, on its own row above the copyright.
+          ConstantSEO is a product name; the licence is held by Constant Labs, and
+          a prospect deciding whether to wire a retainer to an SEO agency should be
+          able to find the number they can check without leaving the page.
+          The name and number stay LTR in Arabic — they are a register entry.
+        */}
+        <p
+          dir="ltr"
+          className="tv-label mt-10 border-t border-line pt-6 text-[0.625rem] leading-4 tracking-[0.18em] text-paper/40 [unicode-bidi:isolate]"
+        >
+          <span dir="auto">{t("footer.registeredAs")}</span> {legal.legalName} ·{" "}
+          {legal.licence.authorityShort} <span dir="auto">{t("footer.licenceNo")}</span>{" "}
+          {legal.licence.number}
+        </p>
 
         <div className="mt-6 flex flex-col gap-3 border-t border-line pt-6 sm:flex-row sm:items-center sm:justify-between">
           <p dir="ltr" className="tv-label text-[0.625rem] leading-4 tracking-[0.18em] text-paper/40 [unicode-bidi:isolate]">

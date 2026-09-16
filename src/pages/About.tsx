@@ -1,6 +1,7 @@
 import { SEO } from "@/components/SEO";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { LegalEntityPanel } from "@/components/LegalEntityPanel";
 import { CTASection } from "@/components/CTASection";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { Zap, Globe, Users, Target, Code, BarChart3 } from "lucide-react";
@@ -86,6 +87,13 @@ const About = () => {
             <p className="mx-auto max-w-lg leading-relaxed text-ink/70">{t("about.team.bio")}</p>
           </div>
           <p className="mt-6 text-sm text-ink/70">{t("about.team.contact")} <span dir="ltr" className="inline-block [unicode-bidi:isolate]">akhmad@constantlabs.ai</span></p>
+        </div>
+      </section>
+
+      {/* The registered entity, on the page that claims the company exists. */}
+      <section className="border-t border-line bg-paper py-16">
+        <div className="mx-auto max-w-3xl px-4">
+          <LegalEntityPanel />
         </div>
       </section>
 
