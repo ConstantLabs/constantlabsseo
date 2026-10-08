@@ -1,10 +1,11 @@
 import { FaWhatsapp } from "react-icons/fa";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { WHATSAPP_URL } from "@/data/facts";
 
 const WhatsAppButton = () => {
   const { t } = useLanguage();
   // Anchored to the end edge, so it lands bottom-left in Arabic without a second rule.
-  return <a href="https://wa.me/971561495656" target="_blank" rel="noopener noreferrer" aria-label={t("whatsapp.ariaLabel")} className="group fixed bottom-4 end-4 z-50 grid h-12 w-12 place-items-center border border-lime bg-ink text-lime shadow-[4px_4px_0_#FFB35C] transition-transform hover:-translate-y-1 sm:bottom-6 sm:end-6 sm:h-14 sm:w-14"><span className="tv-label pointer-events-none absolute bottom-full end-0 mb-3 whitespace-nowrap border border-line bg-void px-3 py-2 text-[0.625rem] leading-4 tracking-[0.16em] text-paper opacity-0 transition-opacity group-hover:opacity-100">{t("whatsapp.tooltip")}</span><FaWhatsapp className="h-6 w-6 sm:h-7 sm:w-7" aria-hidden="true" /></a>;
+  return <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" aria-label={t("whatsapp.ariaLabel")} className="group fixed bottom-4 end-4 z-50 grid h-12 w-12 place-items-center border border-lime bg-ink text-lime shadow-[4px_4px_0_#FFB35C] transition-transform hover:-translate-y-1 sm:bottom-6 sm:end-6 sm:h-14 sm:w-14"><span className="tv-label pointer-events-none absolute bottom-full end-0 mb-3 whitespace-nowrap border border-line bg-void px-3 py-2 text-[0.625rem] leading-4 tracking-[0.16em] text-paper opacity-0 transition-opacity group-hover:opacity-100">{t("whatsapp.tooltip")}</span><FaWhatsapp className="h-6 w-6 sm:h-7 sm:w-7" aria-hidden="true" /></a>;
 };
 
 export { WhatsAppButton };

@@ -6,6 +6,7 @@ import { CTASection } from "@/components/CTASection";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { Zap, Globe, Users, Target, Code, BarChart3 } from "lucide-react";
 import { PageHero } from "@/components/marketing/PageHero";
+import { CONTACT_EMAIL } from "@/data/facts";
 
 const values = [
   { icon: Zap, key: "ai" },
@@ -86,7 +87,7 @@ const About = () => {
             <p className="mb-4 font-medium text-ink/70">{t("about.team.role")}</p>
             <p className="mx-auto max-w-lg leading-relaxed text-ink/70">{t("about.team.bio")}</p>
           </div>
-          <p className="mt-6 text-sm text-ink/70">{t("about.team.contact")} <span dir="ltr" className="inline-block [unicode-bidi:isolate]">akhmad@constantlabs.ai</span></p>
+          <p className="mt-6 text-sm text-ink/70">{t("about.team.contact")} <span dir="ltr" className="inline-block [unicode-bidi:isolate]">{CONTACT_EMAIL}</span></p>
         </div>
       </section>
 

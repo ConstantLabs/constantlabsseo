@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/dialog";
 import { BandHead, BandInner, Display, Tag } from "@/components/marketing/editorial";
 import { cn } from "@/lib/utils";
+import { CONTACT_EMAIL, WHATSAPP_URL } from "@/data/facts";
 
 interface PricingTier {
   key: string;
@@ -126,7 +127,7 @@ export const PricingSection = () => {
               </p>
 
               {/* Price. Nowrap and stacked, not inline: at four columns each card is
-                  ~280px, and "3,000 AED" plus an inline "/ month" broke across two
+                  ~280px, and the longest price plus an inline "/ month" broke across two
                   lines with the qualifier stranded beside the wrap. */}
               <div className="mb-7">
                 <p className="tv-display whitespace-nowrap text-4xl text-signal">
@@ -240,7 +241,7 @@ export const PricingSection = () => {
                           const subject = encodeURIComponent(`[${data.plan}] ${showForm === "whatsapp" ? "WhatsApp" : "Email"} Lead: ${data.name}`);
                           const body = encodeURIComponent(`Name: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone}\nWebsite: ${data.website}\nPlan: ${data.plan} (${data.price})\n\nMessage:\n${data.message}`);
 
-                          window.location.href = `mailto:akhmad6093@gmail.com?subject=${subject}&body=${body}`;
+                          window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
 
                           setSending(false);
                         };
@@ -249,7 +250,7 @@ export const PricingSection = () => {
                           const waMessage = `Hi, I'm interested in the ${data.plan} (${data.price}). %0A%0AName: ${data.name}%0AEmail: ${data.email}%0APhone: ${data.phone}%0AWebsite: ${data.website}%0AMessage: ${data.message}`;
 
                           setTimeout(() => {
-                            window.open(`https://wa.me/971561495656?text=${waMessage}`, "_blank");
+                            window.open(`${WHATSAPP_URL}?text=${waMessage}`, "_blank");
                           }, 100);
                         } else {
                           await sendEmail();
@@ -345,8 +346,8 @@ export const PricingSection = () => {
                           <p>✗ {lang === "ar" ? "فشل إرسال الرسالة" : "Failed to send email"}</p>
                           <p className="text-xs">
                             {lang === "ar"
-                              ? <span>تواصل معنا على: <a href="mailto:akhmad6093@gmail.com" className="underline">akhmad6093@gmail.com</a> أو <a href="https://wa.me/971561495656" className="underline">واتساب</a></span>
-                              : <span>Contact us at: <a href="mailto:akhmad6093@gmail.com" className="underline">akhmad6093@gmail.com</a> or <a href="https://wa.me/971561495656" className="underline">WhatsApp</a></span>}
+                              ? <span>تواصل معنا على: <a href={`mailto:${CONTACT_EMAIL}`} className="underline">{CONTACT_EMAIL}</a> أو <a href={WHATSAPP_URL} className="underline">واتساب</a></span>
+                              : <span>Contact us at: <a href={`mailto:${CONTACT_EMAIL}`} className="underline">{CONTACT_EMAIL}</a> or <a href={WHATSAPP_URL} className="underline">WhatsApp</a></span>}
                           </p>
                         </div>
                       )}

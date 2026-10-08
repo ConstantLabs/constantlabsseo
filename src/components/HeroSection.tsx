@@ -6,6 +6,7 @@ import { Navbar } from "@/components/Navbar";
 import { ShowcaseDitherField, useNarrowViewport } from "@/components/field";
 import { RichText } from "@/components/marketing/RichText";
 import { legal } from "@/data/legal";
+import { MAIN_SITE_URL, WHATSAPP_URL } from "@/data/facts";
 
 /*
   The hero, ported from constantlabs-showcase's HomeHero rather than re-derived.
@@ -31,7 +32,7 @@ import { legal } from "@/data/legal";
   site's actual conversion path. Same slot, same metrics.
 */
 
-const WHATSAPP_HREF = "https://wa.me/971561495656";
+const WHATSAPP_HREF = WHATSAPP_URL;
 
 function GoogleBrandedHeadline({ text }: { text: string }) {
   const withBoldAi = (value: string) => value.split(/\b(AI)\b/g).map((part, index) => (
@@ -239,7 +240,7 @@ export const HeroSection = () => {
             so it still tracks the lockup at every breakpoint.
           */}
           <a
-            href="https://constantlabs.ai"
+            href={MAIN_SITE_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="tv-body relative z-30 mt-4 inline-flex min-h-10 translate-x-2 cursor-pointer items-center whitespace-nowrap px-1 text-sm font-normal italic uppercase leading-5 tracking-[0.08em] text-paper/70 no-underline transition-colors hover:text-signal focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-signal sm:text-base"

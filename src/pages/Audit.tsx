@@ -7,6 +7,7 @@ import { Footer } from "@/components/Footer";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import { CONTACT_EMAIL, WHATSAPP_URL } from "@/data/facts";
 import {
   Search,
   ArrowRight,
@@ -411,8 +412,8 @@ const Audit = () => {
                 {t("audit.deep.success")}
               </p>
               <div className="mt-5 flex flex-wrap justify-center gap-3">
-                <a href="https://wa.me/971561495656" target="_blank" rel="noreferrer" className="border border-ink bg-ink px-4 py-2 text-sm font-bold text-paper hover:bg-lime hover:text-ink">{t("zcal.whatsapp")}</a>
-                <a href="mailto:akhmad@constantlabs.ai" className="border border-ink px-4 py-2 text-sm font-bold text-ink hover:bg-ink hover:text-paper">{t("zcal.email")}</a>
+                <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="border border-ink bg-ink px-4 py-2 text-sm font-bold text-paper hover:bg-lime hover:text-ink">{t("zcal.whatsapp")}</a>
+                <a href={`mailto:${CONTACT_EMAIL}`} className="border border-ink px-4 py-2 text-sm font-bold text-ink hover:bg-ink hover:text-paper">{t("zcal.email")}</a>
               </div>
             </motion.div>
           ) : (

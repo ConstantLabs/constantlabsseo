@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Calendar, Mail, MessageCircle } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { Action, BandHead, BandInner, Body, Display, MonoLabel, Panel } from "@/components/marketing/editorial";
+import { CONTACT_EMAIL, WHATSAPP_URL } from "@/data/facts";
 
 export const ZCalBookingSection = () => {
   const { t } = useLanguage();
@@ -22,14 +23,14 @@ export const ZCalBookingSection = () => {
   const directContact = (
     <div className="flex flex-wrap gap-3">
       <Action
-        href="https://wa.me/971561495656"
+        href={WHATSAPP_URL}
         variant="outline"
         icon={<MessageCircle className="h-3.5 w-3.5" aria-hidden="true" />}
       >
         {t("zcal.whatsapp")}
       </Action>
       <Action
-        href={`mailto:akhmad@constantlabs.ai?subject=${encodeURIComponent(t("zcal.emailSubject"))}`}
+        href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(t("zcal.emailSubject"))}`}
         variant="ghost"
         icon={<Mail className="h-3.5 w-3.5" aria-hidden="true" />}
       >

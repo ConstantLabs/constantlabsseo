@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet-async";
 import { Braces, Languages, MapPin, Search, Settings, TrendingUp, ChevronDown } from "lucide-react";
 import { PageHero } from "@/components/marketing/PageHero";
 import { SEO } from "@/components/SEO";
+import { SEO_SERVICE_ID } from "@/data/schema";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { CTASection } from "@/components/CTASection";
@@ -78,19 +79,20 @@ export const CityLandingPage = ({ city }: CityLandingPageProps) => {
     ],
   };
 
+  /* A Service, not a second business: the business itself (phone, price range, hours) is the
+     site-wide node in src/data/schema.ts, so this points at it instead of restating contact facts. */
   const localBusinessSchema = {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    name: "ConstantSEO",
+    "@type": "Service",
+    name: headline,
     description: sub,
     url: `${BASE_URL}/${city.slug}`,
-    telephone: "+971561495656",
+    provider: { "@id": SEO_SERVICE_ID },
     areaServed: {
       "@type": "City",
       name: cityName,
     },
     serviceType: isAr ? "خدمات SEO" : "SEO services",
-    priceRange: "$$",
   };
 
   return (

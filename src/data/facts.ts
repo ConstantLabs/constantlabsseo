@@ -112,7 +112,7 @@ export function convertAed(aed: number, currency: DisplayCurrency): number {
 
 const CURRENCY_AR: Record<DisplayCurrency, string> = { AED: "درهم", SAR: "ريال", USD: "دولار" };
 
-/** "1,400 AED", "1,400 SAR", "380 USD"; Arabic uses the Arabic unit name. */
+/** "N AED", "N SAR", or a rounded USD figure; Arabic uses the Arabic unit name. */
 export function formatPrice(aed: number, opts: { country?: string | null; lang?: "en" | "ar" } = {}): string {
   const currency = currencyForCountry(opts.country);
   const amount = convertAed(aed, currency).toLocaleString("en-US");
@@ -130,3 +130,15 @@ const DAY_NAMES: Record<string, string> = {
   Su: "Sunday",
 };
 export const openingDays = facts.contact.hours.days.map((d) => DAY_NAMES[d] ?? d);
+
+/* ── Contact shortcuts ──────────────────────────────────────────────────────
+   Components import these instead of typing an address, number or link. */
+export const CONTACT_EMAIL = facts.contact.email;
+export const CONTACT_PHONE_DISPLAY = facts.contact.phoneDisplay;
+export const CONTACT_PHONE_TEL = `tel:${facts.contact.phone}`;
+export const WHATSAPP_URL = facts.contact.whatsapp;
+export const BOOKING_URL = facts.contact.booking;
+
+/** "9:00 to 20:00" from facts.contact.hours, for prose that says it in words. */
+export const HOURS_RANGE = `${facts.contact.hours.opens.replace(/^0/, "")} to ${facts.contact.hours.closes}`;
+export const HOURS_EVERY_DAY = facts.contact.hours.days.length === 7;

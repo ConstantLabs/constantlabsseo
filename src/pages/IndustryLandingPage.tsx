@@ -1,3 +1,4 @@
+import { WHATSAPP_URL } from "@/data/facts";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
@@ -125,7 +126,7 @@ export const IndustryLandingPage = ({ industry }: IndustryLandingPageProps) => {
         eyebrow={`${industryName} · ${location}`}
         title={headline}
         lede={sub}
-        actions={<><Link to="/contact" className="border border-ink bg-lime px-5 py-3 text-sm font-bold uppercase tracking-[0.08em] text-ink">{t("industryPage.cta.audit")}</Link><a href="https://wa.me/971561495656" target="_blank" rel="noopener noreferrer" className="border border-ink px-5 py-3 text-sm font-bold uppercase tracking-[0.08em] text-ink hover:bg-ink hover:text-paper">{t("industryPage.cta.whatsapp")}</a></>}
+        actions={<><Link to="/contact" className="border border-ink bg-lime px-5 py-3 text-sm font-bold uppercase tracking-[0.08em] text-ink">{t("industryPage.cta.audit")}</Link><a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="border border-ink px-5 py-3 text-sm font-bold uppercase tracking-[0.08em] text-ink hover:bg-ink hover:text-paper">{t("industryPage.cta.whatsapp")}</a></>}
       />
 
       {/* Results Stats Bar */}

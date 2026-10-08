@@ -1,6 +1,7 @@
 import { CircleCheck, MessageCircle } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { FieldBand } from "@/components/field";
+import { WHATSAPP_URL } from "@/data/facts";
 import {
   Action,
   BandInner,
@@ -46,7 +47,7 @@ export const CTASection = () => {
                   {t("cta.freeAudit")}
                 </Action>
                 <Action
-                  href="https://wa.me/971561495656"
+                  href={WHATSAPP_URL}
                   variant="outline"
                   icon={<MessageCircle className="h-3.5 w-3.5" aria-hidden="true" />}
                 >

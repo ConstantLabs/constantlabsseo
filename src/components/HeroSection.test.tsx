@@ -46,6 +46,6 @@ describe("HeroSection", () => {
     expect(fieldState.renderer).toBe("showcase-dither-field");
     expect(screen.getByLabelText("Google")).toBeVisible();
     expect(screen.getByText("AI").tagName).toBe("STRONG");
-    expect(screen.getByRole("link", { name: "by Constant Labs" })).toHaveAttribute("href", "https://constantlabs.ai");
+    expect(screen.getByRole("link", { name: "by Constant Labs" })).toHaveAttribute("href", "https://constantlabs.ai/");
   });
 });

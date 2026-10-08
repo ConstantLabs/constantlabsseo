@@ -1,3 +1,5 @@
+import { seoTiers, formatPrice, facts, CONTACT_EMAIL, CONTACT_PHONE_DISPLAY, HOURS_RANGE, HOURS_EVERY_DAY } from "@/data/facts";
+
 export type TranslationMap = Record<string, { en: string; ar: string }>;
 
 export const translations: TranslationMap = {
@@ -441,7 +443,7 @@ export const translations: TranslationMap = {
   "pricing.custom": { en: "Need a custom plan? Let's talk.", ar: "تحتاج خطة مخصصة؟ كلّمنا." },
 
   "pricing.starter.name": { en: "Starter", ar: "المبتدئ" },
-  "pricing.starter.price": { en: "700 AED", ar: "700 درهم" },
+  "pricing.starter.price": { en: formatPrice(seoTiers.starter.aed), ar: formatPrice(seoTiers.starter.aed, { lang: "ar" }) },
   "pricing.starter.desc": { en: "A focused foundation for a smaller search scope", ar: "أساس مركز لنطاق بحث أصغر" },
   "pricing.starter.f1": { en: "15 target keywords", ar: "15 كلمة مفتاحية مستهدفة" },
   "pricing.starter.f2": { en: "Monthly SEO audit", ar: "تدقيق SEO شهري" },
@@ -452,7 +454,7 @@ export const translations: TranslationMap = {
   "pricing.starter.f7": { en: "Email support", ar: "دعم عبر البريد الإلكتروني" },
 
   "pricing.growth.name": { en: "Growth", ar: "النمو" },
-  "pricing.growth.price": { en: "1,400 AED", ar: "1,400 درهم" },
+  "pricing.growth.price": { en: formatPrice(seoTiers.growth.aed), ar: formatPrice(seoTiers.growth.aed, { lang: "ar" }) },
   "pricing.growth.desc": { en: "A broader recurring scope across technical, content, and local search", ar: "نطاق دوري أوسع عبر البحث التقني والمحتوى والبحث المحلي" },
   "pricing.growth.f1": { en: "50 target keywords", ar: "50 كلمة مفتاحية مستهدفة" },
   "pricing.growth.f2": { en: "Weekly optimization cycles", ar: "دورات تحسين أسبوعية" },
@@ -462,7 +464,7 @@ export const translations: TranslationMap = {
   "pricing.growth.f7": { en: "Bi-weekly strategy calls", ar: "مكالمات استراتيجية كل أسبوعين" },
 
   "pricing.enterprise.name": { en: "Enterprise", ar: "المؤسسي" },
-  "pricing.enterprise.price": { en: "3,000 AED", ar: "3,000 درهم" },
+  "pricing.enterprise.price": { en: formatPrice(seoTiers.enterprise.aed), ar: formatPrice(seoTiers.enterprise.aed, { lang: "ar" }) },
   "pricing.enterprise.desc": { en: "A coordinated multi-market scope across Google, AI platforms, Arabic, and English", ar: "نطاق منسق متعدد الأسواق عبر Google ومنصات الذكاء الاصطناعي والعربية والإنجليزية" },
   "pricing.enterprise.f1": { en: "Unlimited target keywords", ar: "كلمات مفتاحية غير محدودة" },
   "pricing.enterprise.f2": { en: "Dedicated SEO strategist", ar: "استراتيجي SEO مخصص" },
@@ -472,7 +474,7 @@ export const translations: TranslationMap = {
   "pricing.enterprise.f7": { en: "Priority support (same-day response)", ar: "دعم أولوية (رد في نفس اليوم)" },
 
   "pricing.dominance.name": { en: "Dominance", ar: "الهيمنة" },
-  "pricing.dominance.price": { en: "6,500 AED", ar: "6,500 درهم" },
+  "pricing.dominance.price": { en: formatPrice(seoTiers.dominance.aed), ar: formatPrice(seoTiers.dominance.aed, { lang: "ar" }) },
   "pricing.dominance.desc": { en: "Everything in Enterprise, plus we build and maintain the website the rankings land on", ar: "كل ما في الباقة المؤسسية، بالإضافة إلى بناء وصيانة الموقع الذي تصل إليه النتائج" },
   "pricing.dominance.f1": { en: "Everything in Enterprise", ar: "كل ما في الباقة المؤسسية" },
   "pricing.dominance.f2": { en: "A new website, built and included — not billed separately", ar: "موقع جديد، مبني ومشمول — بدون فاتورة منفصلة" },
@@ -565,8 +567,8 @@ export const translations: TranslationMap = {
 
   "faq7.q": { en: "Do you require long-term contracts?", ar: "هل تتطلبون عقوداً طويلة الأمد؟" },
   "faq7.a": {
-    en: "We offer month-to-month agreements with a recommended minimum of 6 months for meaningful SEO results. SEO is a long-term strategy, and we are transparent about that. You are never locked in - we earn your business every month.",
-    ar: "نقدم اتفاقيات شهرية مع توصية بحد أدنى 6 أشهر لنتائج SEO ذات معنى. SEO استراتيجية طويلة المدى ونحن صريحون بهذا. لست مقيداً أبداً - نكسب ثقتك كل شهر."
+    en: "There is a 3-month minimum, then month to month. SEO is a long-term strategy and we are transparent about that. After the first three months you are never locked in, and we earn your business every month. We do not guarantee rankings.",
+    ar: "الحد الأدنى 3 أشهر، ثم شهر بشهر. SEO استراتيجية طويلة المدى ونحن صريحون بهذا. بعد الأشهر الثلاثة الأولى لست مقيداً، ونكسب ثقتك كل شهر. لا نضمن الترتيب."
   },
 
   "faq8.q": { en: "Can you build our website too?", ar: "هل يمكنكم بناء موقعنا أيضاً؟" },
@@ -691,8 +693,14 @@ export const translations: TranslationMap = {
   "footer.seoGuide": { en: "SEO Guide", ar: "دليل SEO" },
   "footer.aiSearchGuide": { en: "AI Search Guide", ar: "دليل بحث AI" },
   "footer.freeTools": { en: "Free Tools", ar: "أدوات مجانية" },
-  "footer.email": { en: "akhmad@constantlabs.ai", ar: "akhmad@constantlabs.ai" },
-  "footer.phone": { en: "+971 56 149 5656", ar: "+971 56 149 5656" },
+  "footer.email": { en: CONTACT_EMAIL, ar: CONTACT_EMAIL },
+  "footer.phone": { en: CONTACT_PHONE_DISPLAY, ar: CONTACT_PHONE_DISPLAY },
+  "footer.partOf": { en: "Part of Constant Labs", ar: "جزء من Constant Labs" },
+  "footer.family.agents": { en: "AI agents", ar: "وكلاء الذكاء الاصطناعي" },
+  "footer.family.websites": { en: "Websites", ar: "المواقع" },
+  "footer.family.software": { en: "Custom software", ar: "برمجيات مخصصة" },
+  "footer.family.training": { en: "AI training", ar: "تدريب الذكاء الاصطناعي" },
+  "footer.family.prices": { en: "All prices", ar: "جميع الأسعار" },
   "footer.location": { en: "Dubai, UAE", ar: "دبي، الإمارات" },
   // The registered entity. The name and number themselves live in
   // `src/data/legal.ts` — only the surrounding words are translated, because a
@@ -955,7 +963,7 @@ export const translations: TranslationMap = {
   "contactPage.info.whatsapp.label": { en: "WhatsApp", ar: "واتساب" },
   "contactPage.info.whatsapp.value": { en: "Open WhatsApp", ar: "فتح واتساب" },
   "contactPage.info.hours.label": { en: "Working hours", ar: "ساعات العمل" },
-  "contactPage.info.hours.value": { en: "Sunday to Thursday, 9:00 to 18:00 GST", ar: "الأحد إلى الخميس، 9:00 إلى 18:00 بتوقيت الخليج" },
+  "contactPage.info.hours.value": { en: `${HOURS_EVERY_DAY ? "Daily" : facts.contact.hours.label}, ${HOURS_RANGE} GST`, ar: `${HOURS_EVERY_DAY ? "يومياً" : facts.contact.hours.label}، ${HOURS_RANGE.replace(" to ", " إلى ")} بتوقيت الخليج` },
   "contactPage.info.panelTitle": { en: "Prefer a written brief?", ar: "تفضل موجزاً مكتوباً؟" },
   "contactPage.info.panelCopy": { en: "Email the website, market, and questions you want reviewed.", ar: "أرسل عبر البريد الموقع والسوق والأسئلة التي تريد مراجعتها." },
   "contactPage.info.response": { en: "WhatsApp and email are available above.", ar: "واتساب والبريد الإلكتروني متاحان أعلاه." },

@@ -5,6 +5,7 @@ import { Footer } from "@/components/Footer";
 import { LegalEntityPanel } from "@/components/LegalEntityPanel";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { PageHero } from "@/components/marketing/PageHero";
+import { CONTACT_EMAIL } from "@/data/facts";
 
 const content = {
   en: {
@@ -254,7 +255,7 @@ const TermsOfService = () => {
 
               {s.contact && (
                 <div className="mt-3 space-y-1 text-ink/70">
-                  <p><strong className="text-ink">{isAr ? "البريد الإلكتروني:" : "Email:"}</strong>{" "}akhmad@constantlabs.ai</p>
+                  <p><strong className="text-ink">{isAr ? "البريد الإلكتروني:" : "Email:"}</strong>{" "}{CONTACT_EMAIL}</p>
                   <p><strong className="text-ink">{isAr ? "الموقع:" : "Website:"}</strong>{" "}seo.constantlabs.ai</p>
                 </div>
               )}

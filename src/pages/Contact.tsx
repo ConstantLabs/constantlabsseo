@@ -7,12 +7,13 @@ import { useLanguage } from "@/i18n/LanguageContext";
 import { Button } from "@/components/ui/button";
 import { Mail, Phone, MapPin, MessageCircle, ArrowRight, Clock } from "lucide-react";
 import { PageHero } from "@/components/marketing/PageHero";
+import { CONTACT_EMAIL, CONTACT_PHONE_DISPLAY, CONTACT_PHONE_TEL, WHATSAPP_URL } from "@/data/facts";
 
 const contactInfo = [
-  { icon: Mail, key: "email", value: "akhmad@constantlabs.ai", href: "mailto:akhmad@constantlabs.ai", isolate: true },
-  { icon: Phone, key: "phone", value: "+971 56 149 5656", href: "tel:+971561495656", isolate: true },
+  { icon: Mail, key: "email", value: CONTACT_EMAIL, href: `mailto:${CONTACT_EMAIL}`, isolate: true },
+  { icon: Phone, key: "phone", value: CONTACT_PHONE_DISPLAY, href: CONTACT_PHONE_TEL, isolate: true },
   { icon: MapPin, key: "location", href: null },
-  { icon: MessageCircle, key: "whatsapp", href: "https://wa.me/971561495656" },
+  { icon: MessageCircle, key: "whatsapp", href: WHATSAPP_URL },
   { icon: Clock, key: "hours", href: null },
 ];
 
@@ -35,7 +36,7 @@ const Contact = () => {
       ? `مرحباً ConstantSEO، أود طلب مراجعة SEO.\n\nالاسم: ${formData.name}\nالبريد: ${formData.email}${formData.website ? `\nالموقع: ${formData.website}` : ""}${formData.message ? `\n\n${formData.message}` : ""}`
       : `Hi ConstantSEO! I'd like an SEO review.\n\nName: ${formData.name}\nEmail: ${formData.email}${formData.website ? `\nWebsite: ${formData.website}` : ""}${formData.message ? `\n\n${formData.message}` : ""}`
     );
-    window.open(`https://wa.me/971561495656?text=${text}`, "_blank");
+    window.open(`${WHATSAPP_URL}?text=${text}`, "_blank");
     setSubmitted(true);
   };
 
