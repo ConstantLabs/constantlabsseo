@@ -1,0 +1,574 @@
+{
+  "$comment": "The one source of truth for Constant Labs business facts: name, contact, hours, team, offers and prices. constantlabs.ai, websites.constantlabs.ai and seo.constantlabs.ai all build from this file, as do the schema and every llms.txt. Change a fact here and nowhere else. Published at https://constantlabs.ai/facts.json so answer engines can read it directly.",
+  "updated": "2026-10-08",
+  "brand": {
+    "name": "Constant Labs",
+    "nameAr": "كونستانت لابز",
+    "url": "https://constantlabs.ai",
+    "description": "Dubai software and AI studio. We build AI agents, websites, custom software and SEO systems for businesses in the UAE and the GCC, in Arabic and English.",
+    "legalName": "ConstantLabs For Web-Design",
+    "licence": {
+      "number": "1653465",
+      "authority": "Dubai Department of Economy and Tourism (DET)",
+      "type": "Sole Establishment",
+      "issued": "2026-09-16",
+      "expires": "2027-09-15"
+    },
+    "founded": "2025",
+    "logo": "https://constantlabs.ai/favicon-512.png",
+    "properties": {
+      "main": {
+        "name": "Constant Labs",
+        "url": "https://constantlabs.ai/"
+      },
+      "websites": {
+        "name": "Constant Labs Websites",
+        "url": "https://websites.constantlabs.ai/"
+      },
+      "seo": {
+        "name": "ConstantSEO by Constant Labs",
+        "url": "https://seo.constantlabs.ai/"
+      }
+    },
+    "sameAs": [
+      "https://maps.google.com/?cid=7112110456880027207"
+    ]
+  },
+  "contact": {
+    "email": "akhmad@constantlabs.ai",
+    "phone": "+971561495656",
+    "phoneDisplay": "+971 56 149 5656",
+    "whatsapp": "https://wa.me/971561495656",
+    "booking": "https://zcal.co/i/t1d5s2C3",
+    "city": "Dubai",
+    "country": "AE",
+    "addressPublished": false,
+    "serviceArea": [
+      "Dubai",
+      "Sharjah",
+      "Abu Dhabi",
+      "UAE",
+      "Saudi Arabia",
+      "GCC"
+    ],
+    "hours": {
+      "days": [
+        "Mo",
+        "Tu",
+        "We",
+        "Th",
+        "Fr",
+        "Sa",
+        "Su"
+      ],
+      "opens": "09:00",
+      "closes": "20:00",
+      "label": "Daily, 9am to 8pm (Gulf Standard Time)"
+    },
+    "languages": [
+      "en",
+      "ar"
+    ]
+  },
+  "people": [
+    {
+      "name": "Ahmad Hasan",
+      "role": "Founder"
+    },
+    {
+      "name": "Mohamad Tamer",
+      "role": "Creative Director"
+    },
+    {
+      "name": "Mohammad Tijani",
+      "role": "Software Engineer"
+    },
+    {
+      "name": "Mohamed Abdelwahab",
+      "role": "Marketing and Media Lead"
+    }
+  ],
+  "currency": {
+    "base": "AED",
+    "rule": "Prices are set in AED. Saudi customers pay the same number in Saudi riyals (SAR), not converted. Everyone else sees USD, converted at the USD peg and rounded to the nearest 5.",
+    "usdPerAed": 0.2723,
+    "usdRoundTo": 5,
+    "sarSameNumber": true
+  },
+  "offers": [
+    {
+      "id": "ai-agents",
+      "name": "AI agents",
+      "nameAr": "وكلاء الذكاء الاصطناعي",
+      "url": "https://constantlabs.ai/ai-agents/",
+      "summary": "An AI agent that does one job inside your business: answering customers on WhatsApp, booking appointments, qualifying leads, checking documents, following up invoices. Bilingual Arabic and English.",
+      "prices": [
+        {
+          "id": "agent-subscription",
+          "label": "AI agent subscription",
+          "aed": 1100,
+          "usd": 297,
+          "billing": "monthly",
+          "from": true,
+          "includes": [
+            "One agent built for one job",
+            "Hosting and monitoring",
+            "Changes as your process changes"
+          ],
+          "priceChangesWith": [
+            "Number of channels (WhatsApp, website, email)",
+            "Number of systems it connects to (CRM, calendar, ERP)",
+            "Message volume"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "websites",
+      "name": "Websites",
+      "nameAr": "المواقع الإلكترونية",
+      "url": "https://websites.constantlabs.ai/",
+      "summary": "A website built to get found: the site, Google Maps setup, and the first month of SEO and support included.",
+      "prices": [
+        {
+          "id": "website-standard",
+          "label": "Standard website",
+          "aed": 2800,
+          "billing": "one-time",
+          "includes": [
+            "Custom-designed, mobile-first website",
+            "Google Maps and Business Profile setup",
+            "First month of SEO free",
+            "First month of support and small edits free"
+          ]
+        },
+        {
+          "id": "website-cinematic",
+          "label": "Cinematic website",
+          "aed": 4000,
+          "billing": "one-time",
+          "includes": [
+            "Everything in Standard",
+            "Cinematic motion design"
+          ]
+        },
+        {
+          "id": "website-cms",
+          "label": "CMS website",
+          "aed": 5500,
+          "billing": "one-time",
+          "includes": [
+            "Everything in Standard",
+            "Full CMS access so your team edits it",
+            "Training call"
+          ]
+        },
+        {
+          "id": "website-keys",
+          "label": "The keys",
+          "aed": 7500,
+          "billing": "one-time",
+          "includes": [
+            "Cinematic website",
+            "Edit and extend the site yourself with AI",
+            "Two one-hour training sessions"
+          ]
+        },
+        {
+          "id": "shopify-small",
+          "label": "Shopify store, up to 20 products",
+          "aed": 4500,
+          "billing": "one-time",
+          "then": {
+            "aed": 500,
+            "billing": "monthly"
+          },
+          "conditions": [
+            "Shopify plan and apps are billed by Shopify"
+          ]
+        },
+        {
+          "id": "shopify-large",
+          "label": "Shopify store, 20+ products",
+          "aed": 7500,
+          "billing": "one-time",
+          "then": {
+            "aed": 750,
+            "billing": "monthly"
+          },
+          "conditions": [
+            "Shopify plan and apps are billed by Shopify"
+          ]
+        },
+        {
+          "id": "website-care",
+          "label": "Website care",
+          "aed": 370,
+          "billing": "monthly",
+          "includes": [
+            "Up to 2 hours of small edits a month",
+            "Uptime and bug fixes",
+            "Priority WhatsApp support"
+          ],
+          "conditions": [
+            "Optional after month one",
+            "Month to month",
+            "Unused time does not roll over"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "seo",
+      "name": "SEO and AI search",
+      "nameAr": "تحسين محركات البحث والبحث بالذكاء الاصطناعي",
+      "url": "https://seo.constantlabs.ai/",
+      "summary": "Bilingual SEO, local SEO and AI-search visibility (Google AI Overviews, ChatGPT, Perplexity) for GCC businesses.",
+      "prices": [
+        {
+          "id": "seo-starter",
+          "label": "SEO Starter",
+          "aed": 700,
+          "billing": "monthly",
+          "includes": [
+            "15 keywords",
+            "Monthly audit",
+            "Basic reporting",
+            "Search Console setup",
+            "Technical fixes"
+          ]
+        },
+        {
+          "id": "seo-growth",
+          "label": "SEO Growth",
+          "aed": 1400,
+          "billing": "monthly",
+          "includes": [
+            "50 keywords",
+            "Weekly optimization",
+            "AI search (GEO/AEO) tracking",
+            "4 Arabic articles a month",
+            "Local SEO for up to 3 locations",
+            "Bi-weekly calls"
+          ]
+        },
+        {
+          "id": "seo-enterprise",
+          "label": "SEO Enterprise",
+          "aed": 3000,
+          "billing": "monthly",
+          "includes": [
+            "Unlimited keywords",
+            "Dedicated strategist",
+            "Custom AI dashboard",
+            "Unlimited Arabic and English content",
+            "GCC-wide local SEO",
+            "Same-day support"
+          ]
+        },
+        {
+          "id": "seo-dominance",
+          "label": "SEO Dominance",
+          "aed": 6500,
+          "billing": "monthly",
+          "includes": [
+            "Everything in Enterprise",
+            "A new website, built and maintained, included",
+            "Quarterly review with the founder"
+          ]
+        }
+      ],
+      "conditions": [
+        "3-month minimum, then month to month",
+        "No ranking guarantees"
+      ]
+    },
+    {
+      "id": "custom-software",
+      "name": "Custom software",
+      "nameAr": "برمجيات حسب الطلب",
+      "url": "https://constantlabs.ai/custom-software-development-dubai/",
+      "summary": "Web and mobile apps, dashboards, internal tools, system and ERP integrations, built around how your team works.",
+      "prices": [
+        {
+          "id": "app-mvp",
+          "group": "mobile-web-apps",
+          "label": "Focused first version",
+          "aed": 25000,
+          "toAed": 45000,
+          "billing": "one-time",
+          "when": "One main user flow, the smallest launchable product."
+        },
+        {
+          "id": "app-full",
+          "group": "mobile-web-apps",
+          "label": "Full product",
+          "aed": 45000,
+          "toAed": 120000,
+          "billing": "one-time",
+          "when": "Backend, admin tools, notifications and launch support."
+        },
+        {
+          "id": "app-complex",
+          "group": "mobile-web-apps",
+          "label": "Complex platform",
+          "aed": 120000,
+          "from": true,
+          "billing": "one-time",
+          "when": "AI, payments, maps, multiple user roles or deep integrations."
+        },
+        {
+          "id": "dashboard-focused",
+          "group": "dashboards",
+          "label": "Focused dashboard",
+          "aed": 18000,
+          "toAed": 35000,
+          "billing": "one-time",
+          "when": "One or two data sources, login and a clean reporting view."
+        },
+        {
+          "id": "dashboard-tool",
+          "group": "dashboards",
+          "label": "Internal tool",
+          "aed": 35000,
+          "toAed": 75000,
+          "billing": "one-time",
+          "when": "Roles, forms, workflows, exports and several data sources."
+        },
+        {
+          "id": "dashboard-platform",
+          "group": "dashboards",
+          "label": "Operations platform",
+          "aed": 75000,
+          "from": true,
+          "billing": "one-time",
+          "when": "A core system with approvals, automations and integrations."
+        },
+        {
+          "id": "integration-single",
+          "group": "system-integration",
+          "label": "Single connector",
+          "aed": 12000,
+          "toAed": 25000,
+          "billing": "one-time",
+          "when": "One clear API or webhook integration."
+        },
+        {
+          "id": "integration-sync",
+          "group": "system-integration",
+          "label": "Workflow sync",
+          "aed": 25000,
+          "toAed": 60000,
+          "billing": "one-time",
+          "when": "Several systems, field mapping, retries and status visibility."
+        },
+        {
+          "id": "integration-layer",
+          "group": "system-integration",
+          "label": "Integration layer",
+          "aed": 60000,
+          "from": true,
+          "billing": "one-time",
+          "when": "Queues, dashboards, reconciliation and business-critical reliability."
+        },
+        {
+          "id": "erp-connector",
+          "group": "erp-integrations",
+          "label": "ERP connector",
+          "aed": 18000,
+          "toAed": 40000,
+          "billing": "one-time",
+          "when": "One ERP-to-app or ERP-to-storefront sync path."
+        },
+        {
+          "id": "erp-workflow",
+          "group": "erp-integrations",
+          "label": "ERP workflow integration",
+          "aed": 40000,
+          "toAed": 90000,
+          "billing": "one-time",
+          "when": "Orders, stock, customers, pricing, retries and reporting."
+        },
+        {
+          "id": "erp-backbone",
+          "group": "erp-integrations",
+          "label": "ERP backbone",
+          "aed": 90000,
+          "from": true,
+          "billing": "one-time",
+          "when": "Multi-system operations, finance reconciliation and support dashboards."
+        },
+        {
+          "id": "iot-poc",
+          "group": "iot-embedded",
+          "label": "IoT proof of concept",
+          "aed": 25000,
+          "toAed": 50000,
+          "billing": "one-time",
+          "when": "Basic device logic, prototype wiring and a simple dashboard."
+        },
+        {
+          "id": "iot-pilot",
+          "group": "iot-embedded",
+          "label": "IoT field pilot",
+          "aed": 50000,
+          "toAed": 120000,
+          "billing": "one-time",
+          "when": "Telemetry, alerts, reliability work and operator interfaces."
+        },
+        {
+          "id": "iot-system",
+          "group": "iot-embedded",
+          "label": "Connected system",
+          "aed": 120000,
+          "from": true,
+          "billing": "one-time",
+          "when": "Robotics, multi-device networks, edge AI or deployment readiness."
+        },
+        {
+          "id": "private-pilot",
+          "group": "private-ai",
+          "label": "Private AI pilot",
+          "aed": 35000,
+          "toAed": 70000,
+          "billing": "one-time",
+          "when": "A local assistant, private retrieval and controlled staff access."
+        },
+        {
+          "id": "private-team",
+          "group": "private-ai",
+          "label": "Private AI team deployment",
+          "aed": 70000,
+          "toAed": 140000,
+          "billing": "one-time",
+          "when": "Stronger permissions, larger data, monitoring and several workflows."
+        },
+        {
+          "id": "private-infra",
+          "group": "private-ai",
+          "label": "Secure AI infrastructure",
+          "aed": 140000,
+          "from": true,
+          "billing": "one-time",
+          "when": "GPU planning, air-gapped or segmented networks and enterprise governance."
+        },
+        {
+          "id": "openclaw-setup",
+          "group": "openclaw",
+          "label": "OpenClaw gateway setup",
+          "aed": 15000,
+          "toAed": 30000,
+          "billing": "one-time",
+          "when": "OpenClaw setup, model connection and basic business chat routing."
+        },
+        {
+          "id": "openclaw-rollout",
+          "group": "openclaw",
+          "label": "OpenClaw business rollout",
+          "aed": 30000,
+          "toAed": 55000,
+          "billing": "one-time",
+          "when": "Users, channels, permissions, logging and workflow tools."
+        },
+        {
+          "id": "openclaw-private",
+          "group": "openclaw",
+          "label": "OpenClaw private stack",
+          "aed": 55000,
+          "from": true,
+          "billing": "one-time",
+          "when": "Private hosting, custom security, internal systems or advanced tool access."
+        }
+      ],
+      "priceChangesWith": [
+        "Number of screens and user roles",
+        "Systems to integrate",
+        "Arabic and English interface",
+        "Hosting and data requirements"
+      ],
+      "excluded": [
+        "Hardware, fabrication and certification",
+        "ERP, Shopify and other licence fees",
+        "Cloud GPU, hosting and model usage at cost",
+        "Third-party API fees"
+      ]
+    },
+    {
+      "id": "ai-training",
+      "name": "AI training for teams",
+      "nameAr": "تدريب الفرق على الذكاء الاصطناعي",
+      "url": "https://constantlabs.ai/ai-training/",
+      "summary": "Hands-on AI training built around your team's actual roles, in Arabic and English, on site in Dubai or online.",
+      "prices": [
+        {
+          "id": "training-workshop",
+          "label": "AI workshop, half or full day, up to 20 people",
+          "aed": 3000,
+          "billing": "one-time",
+          "toAed": 8000
+        },
+        {
+          "id": "training-programme",
+          "label": "Multi-session team programme",
+          "aed": 10000,
+          "billing": "one-time",
+          "toAed": 30000
+        },
+        {
+          "id": "training-transformation",
+          "label": "Multi-week programme with implementation",
+          "aed": 50000,
+          "billing": "one-time",
+          "from": true
+        }
+      ]
+    },
+    {
+      "id": "ai-readiness-audit",
+      "name": "AI readiness audit",
+      "nameAr": "تقييم الجاهزية للذكاء الاصطناعي",
+      "url": "https://constantlabs.ai/ai-readiness-audit/",
+      "summary": "A written audit of where AI fits in your business, with a 30/60/90-day plan.",
+      "prices": [
+        {
+          "id": "audit-small",
+          "label": "Companies under 50 staff",
+          "aed": 7000,
+          "billing": "one-time",
+          "toAed": 15000
+        },
+        {
+          "id": "audit-large",
+          "label": "Larger companies, across departments",
+          "aed": 20000,
+          "billing": "one-time",
+          "toAed": 50000
+        }
+      ]
+    }
+  ],
+  "free": [
+    {
+      "id": "free-hour",
+      "label": "Free hour",
+      "detail": "60 minutes, one to one, online or in Dubai. We build your first AI agent in your own tools and you keep it.",
+      "url": "https://constantlabs.ai/#offer"
+    },
+    {
+      "id": "free-website-preview",
+      "label": "Free website preview",
+      "detail": "We build a working preview of your new site before you pay. If you don't want it, you owe nothing.",
+      "url": "https://websites.constantlabs.ai/"
+    },
+    {
+      "id": "free-seo-audit",
+      "label": "Free SEO audit",
+      "detail": "Technical analysis, competitor comparison, keyword report and AI-visibility check.",
+      "url": "https://seo.constantlabs.ai/"
+    }
+  ],
+  "terms": {
+    "guarantees": "We do not guarantee rankings, traffic or revenue. We publish what is included and what changes the price.",
+    "results": []
+  }
+}
