@@ -11,12 +11,12 @@ const NotFound = () => {
   const { t } = useLanguage();
 
   useEffect(() => {
-    console.error("404 Error: User attempted to access non-existent route:", location.pathname);
+    console.warn("404: no page at", location.pathname);
   }, [location.pathname]);
 
   return (
     <div className="flex min-h-screen flex-col bg-paper text-ink">
-      <SEO title="404 - Page Not Found" description="Page not found on ConstantSEO." />
+      <SEO title="404 - Page Not Found" description="Page not found on ConstantSEO." noindex />
       <Navbar />
       <PageHero
         eyebrow="404"

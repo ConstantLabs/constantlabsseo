@@ -10,35 +10,42 @@
  * this licence, so no surface in this repo publishes a street, an area or a
  * P.O. box. The licence number is what anyone verifies against, through DET.
  *
- * Renewal: the licence runs a year. Update `licence.expiresOn` here, nowhere else.
+ * Since 2026-10 the facts that facts.json also carries (legal name, licence number,
+ * form, authority, dates, phone, email) are read from it (src/data/facts.json,
+ * synced from https://constantlabs.ai/facts.json). Renew the licence there.
+ * The register number, licence type and permitted activities are not in
+ * facts.json yet, so they stay here.
  */
+import { facts } from "./facts";
+
+const factsLicence = facts.brand.licence;
 
 export const legal = {
-  legalName: "ConstantLabs For Web-Design",
-  tradeName: "Constant Labs",
+  legalName: facts.brand.legalName,
+  tradeName: facts.brand.name,
   productName: "ConstantSEO",
 
   licence: {
-    number: "1653465",
+    number: factsLicence.number,
     registerNumber: "2927695",
-    legalForm: "Sole Establishment",
+    legalForm: factsLicence.type,
     type: "Professional License",
-    authority: "Dubai Department of Economy and Tourism",
+    authority: factsLicence.authority.replace(/\s*\(DET\)\s*$/, ""),
     authorityShort: "Dubai DET",
-    issuedOn: "2026-09-16",
-    expiresOn: "2027-09-15",
+    issuedOn: factsLicence.issued,
+    expiresOn: factsLicence.expires,
   },
 
   address: {
-    locality: "Dubai",
+    locality: facts.contact.city,
     region: "Dubai",
     country: "United Arab Emirates",
     countryCode: "AE",
   },
 
-  phone: "+971 56 149 5656",
-  phoneE164: "+971561495656",
-  email: "akhmad@constantlabs.ai",
+  phone: facts.contact.phoneDisplay,
+  phoneE164: facts.contact.phone,
+  email: facts.contact.email,
 
   /** The activities the licence actually permits, verbatim from the DET record. */
   activities: [
@@ -49,7 +56,7 @@ export const legal = {
     "Database Systems Design",
     "IT Infrastructure",
   ],
-} as const;
+};
 
 /** "ConstantLabs For Web-Design · Dubai DET Licence No. 1653465" */
 export const licenceLine = `${legal.legalName} · ${legal.licence.authorityShort} Licence No. ${legal.licence.number}`;

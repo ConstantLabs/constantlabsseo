@@ -1,4 +1,6 @@
 import { Helmet } from 'react-helmet-async';
+import { siteSchema } from '@/data/schema';
+import { routeMeta } from '@/data/routeMeta';
 
 interface BreadcrumbItem {
   name: string;
@@ -11,6 +13,8 @@ interface SEOProps {
   path?: string;
   image?: string;
   breadcrumbs?: BreadcrumbItem[];
+  /** For the 404 page: robots noindex, and no canonical or og:url. */
+  noindex?: boolean;
 }
 
 const BASE_URL = 'https://seo.constantlabs.ai';
@@ -22,9 +26,23 @@ export const SEO = ({
   path = '/',
   image = DEFAULT_IMAGE,
   breadcrumbs,
+  noindex = false,
 }: SEOProps) => {
   const url = `${BASE_URL}${path}`;
-  const fullTitle = /constantseo/i.test(title) ? title : `${title} | ConstantSEO`;
+
+  /* A registered route ships the registry's English title and description
+     (src/data/routeMeta.ts), the same ones the prerendered HTML carries, so the head
+     does not change when the page hydrates. An Arabic title from the page wins, so
+     the Arabic view keeps its own head. */
+  const registered = noindex ? undefined : routeMeta(path);
+  const isArabicTitle = /[؀-ۿ]/.test(title);
+  if (registered && !isArabicTitle) {
+    title = registered.title;
+    description = registered.description;
+  }
+  const fullTitle = registered && !isArabicTitle
+    ? title
+    : /constantseo/i.test(title) ? title : `${title} | ConstantSEO`;
 
   const allBreadcrumbs: BreadcrumbItem[] = breadcrumbs
     ? [{ name: 'Home', path: '/' }, ...breadcrumbs]
@@ -48,7 +66,8 @@ export const SEO = ({
     <Helmet>
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
-      <link rel="canonical" href={url} />
+      <meta name="robots" content={noindex ? 'noindex, follow' : 'index, follow'} />
+      {!noindex && <link rel="canonical" href={url} />}
 
       {/* Geo tags */}
       <meta name="geo.region" content="AE-DU" />
@@ -57,7 +76,7 @@ export const SEO = ({
 
       {/* Open Graph */}
       <meta property="og:type" content="website" />
-      <meta property="og:url" content={url} />
+      {!noindex && <meta property="og:url" content={url} />}
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={image} />
@@ -66,15 +85,17 @@ export const SEO = ({
 
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:url" content={url} />
+      {!noindex && <meta name="twitter:url" content={url} />}
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={image} />
 
-      {/* Hreflang, bilingual EN/AR on same URL */}
-      <link rel="alternate" hreflang="en" href={url} />
-      <link rel="alternate" hreflang="ar" href={url} />
-      <link rel="alternate" hreflang="x-default" href={url} />
+      {/* No hreflang: English and Arabic share one URL (the language is a client-side
+          toggle), so there are no alternate-language URLs to point at. Pointing en
+          and ar at the same URL tells search engines nothing useful. */}
+
+      {/* Site-wide Organization / ProfessionalService / WebSite graph, from facts.json */}
+      <script type="application/ld+json">{siteSchema}</script>
 
       {/* BreadcrumbList JSON-LD */}
       {breadcrumbSchema && (

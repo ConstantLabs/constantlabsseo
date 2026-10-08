@@ -14,6 +14,11 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  // The build-time prerender bundle (src/entry-server.tsx) carries its own copies of the
+  // dependencies, so Node never has to load their CommonJS builds as ES modules.
+  ssr: {
+    noExternal: true,
+  },
   build: {
     rollupOptions: {
       output: {

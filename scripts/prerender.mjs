@@ -1,220 +1,135 @@
 /**
- * Post-build prerender: snapshots the fully-rendered DOM for each route and
- * writes it to dist/<route>/index.html.
+ * Build-time prerender: renders every route with React on the server and writes
+ * the finished HTML to dist/<route>/index.html, plus dist/404.html.
  *
- * Why: the app is a client-rendered SPA, so crawlers that don't execute JS see
- * an empty <div id="root">. This step serves the built dist locally, drives a
- * headless Chromium through every route, waits for React to render (content +
- * react-helmet head tags + JSON-LD), and saves the resulting HTML.
+ * Why SSR and not a headless browser: the old step drove Puppeteer's Chrome
+ * through each route. It never ran on Vercel (vercel.json's buildCommand skipped
+ * it), and Chrome needs shared libraries the Vercel build image does not ship.
+ * Rendering with react-dom/server needs nothing but Node, does no network or
+ * timing guesswork, and fails loudly when a page throws.
  *
- * Failure policy: runs AFTER generate-static-pages.mjs (which writes a head-only
- * baseline for every route), but exits nonzero if any snapshot fails. A
- * head-only fallback must never be mistaken for a successful prerender.
+ * Input:  dist/index.html            (client build, the HTML template)
+ *         dist-ssr/entry-server.js   (vite build --ssr src/entry-server.tsx)
+ * Output: dist/index.html, dist/<route>/index.html, dist/404.html
  *
- * Run: node scripts/prerender.mjs   (build script runs it after the generator)
+ * Exits nonzero if any route fails to render, renders too little text, lacks a
+ * single canonical/title, or if the router knows a path the registry lacks.
  */
 
-import { readFileSync, writeFileSync, mkdirSync, existsSync, statSync } from "fs";
-import { join, dirname, extname } from "path";
-import { fileURLToPath } from "url";
-import { createServer } from "http";
-import puppeteer from "puppeteer";
-import { BASE_URL, routes } from "./routes.mjs";
+import { readFileSync, writeFileSync, mkdirSync, rmSync } from "node:fs";
+import { join, dirname } from "node:path";
+import { fileURLToPath, pathToFileURL } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const DIST = join(__dirname, "..", "dist");
-const PORT = 4178;
-const CONCURRENCY = 4;
-const NAV_TIMEOUT = 30000;
-const SETTLE_MS = 1200; // let framer-motion animations + helmet head updates settle
+const ROOT = join(__dirname, "..");
+const DIST = join(ROOT, "dist");
+const SSR_DIR = join(ROOT, "dist-ssr");
+const MIN_WORDS = 120;
+const NOT_FOUND_PROBE = "/__prerender-not-found__";
 
-const MIME = {
-  ".html": "text/html; charset=utf-8",
-  ".js": "text/javascript; charset=utf-8",
-  ".mjs": "text/javascript; charset=utf-8",
-  ".css": "text/css; charset=utf-8",
-  ".json": "application/json; charset=utf-8",
-  ".svg": "image/svg+xml",
-  ".png": "image/png",
-  ".jpg": "image/jpeg",
-  ".jpeg": "image/jpeg",
-  ".webp": "image/webp",
-  ".gif": "image/gif",
-  ".ico": "image/x-icon",
-  ".woff": "font/woff",
-  ".woff2": "font/woff2",
-  ".ttf": "font/ttf",
-  ".webmanifest": "application/manifest+json",
-  ".txt": "text/plain; charset=utf-8",
-  ".xml": "application/xml; charset=utf-8",
-};
-
-const indexHtml = readFileSync(join(DIST, "index.html"), "utf-8");
-
-function escapeText(value) {
-  return String(value)
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;");
+const template = readFileSync(join(DIST, "index.html"), "utf-8");
+if (!template.includes('<div id="root"></div>')) {
+  throw new Error('dist/index.html has no empty <div id="root"></div> to fill');
 }
 
-function escapeAttr(value) {
-  return escapeText(value).replace(/"/g, "&quot;");
+const { render, appPaths, routes, BASE_URL } = await import(pathToFileURL(join(SSR_DIR, "entry-server.js")).href);
+
+export function wordCount(html) {
+  const body = html.match(/<div id="root">([\s\S]*)<\/div>\s*(?:<script|<\/body>)/i)?.[1] ?? "";
+  const text = body
+    .replace(/<script[\s\S]*?<\/script>/gi, " ")
+    .replace(/<style[\s\S]*?<\/style>/gi, " ")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/&[a-z#0-9]+;/gi, " ")
+    .trim();
+  return text ? text.split(/\s+/).length : 0;
 }
 
-function replaceOrInsertHeadTag(html, pattern, replacement) {
-  if (pattern.test(html)) {
-    return html.replace(pattern, replacement);
+function headTags(helmet) {
+  if (!helmet) return "";
+  return [helmet.title, helmet.meta, helmet.link, helmet.script]
+    .map((part) => part.toString())
+    .filter(Boolean)
+    .join("\n    ");
+}
+
+function page({ html, helmet }) {
+  return template
+    .replace("</head>", `    ${headTags(helmet)}\n  </head>`)
+    .replace('<div id="root"></div>', `<div id="root">${html}</div>`);
+}
+
+function check(path, out, { expectNoindex = false } = {}) {
+  const problems = [];
+  const titles = out.match(/<title[\s>]/gi) ?? [];
+  if (titles.length !== 1) problems.push(`${titles.length} <title> tags`);
+  const canonicals = [...out.matchAll(/<link[^>]+rel="canonical"[^>]*>/gi)];
+  const robots = out.match(/<meta[^>]+name="robots"[^>]+content="([^"]*)"/i)?.[1] ?? "";
+  if (expectNoindex) {
+    if (!/noindex/i.test(robots)) problems.push(`robots is "${robots}", expected noindex`);
+    if (canonicals.length) problems.push("a 404 must not carry a canonical");
+  } else {
+    if (canonicals.length !== 1) problems.push(`${canonicals.length} canonical tags`);
+    const href = canonicals[0]?.[0].match(/href="([^"]*)"/)?.[1];
+    const expected = `${BASE_URL}${path}`;
+    if (canonicals.length === 1 && href !== expected) problems.push(`canonical ${href} != ${expected}`);
+    if (/noindex/i.test(robots)) problems.push("indexable route rendered noindex (NotFound?)");
+    const words = wordCount(out);
+    if (words < MIN_WORDS) problems.push(`only ${words} words of body text`);
   }
-  return html.replace("</head>", `  ${replacement}\n</head>`);
+  if (/<link[^>]+hreflang/i.test(out)) problems.push("hreflang present but there are no separate language URLs");
+  return problems;
 }
 
-function applyRouteHead(html, route) {
-  const url = `${BASE_URL}${route.path}`;
-  const title = escapeText(route.title);
-  const description = escapeAttr(route.description);
-  const titleAttr = escapeAttr(route.title);
-  const urlAttr = escapeAttr(url);
-
-  html = replaceOrInsertHeadTag(html, /<title>[\s\S]*?<\/title>/i, `<title>${title}</title>`);
-  html = replaceOrInsertHeadTag(
-    html,
-    /<meta\s+name=["']description["']\s+content=["'][^"']*["'][^>]*>/i,
-    `<meta name="description" content="${description}">`
-  );
-  html = replaceOrInsertHeadTag(
-    html,
-    /<link\s+rel=["']canonical["']\s+href=["'][^"']*["'][^>]*>/i,
-    `<link rel="canonical" href="${urlAttr}" />`
-  );
-  html = replaceOrInsertHeadTag(
-    html,
-    /<meta\s+property=["']og:url["']\s+content=["'][^"']*["'][^>]*>/i,
-    `<meta property="og:url" content="${urlAttr}" />`
-  );
-  html = replaceOrInsertHeadTag(
-    html,
-    /<meta\s+property=["']og:title["']\s+content=["'][^"']*["'][^>]*>/i,
-    `<meta property="og:title" content="${titleAttr}" />`
-  );
-  html = replaceOrInsertHeadTag(
-    html,
-    /<meta\s+property=["']og:description["']\s+content=["'][^"']*["'][^>]*>/i,
-    `<meta property="og:description" content="${description}" />`
-  );
-  html = replaceOrInsertHeadTag(
-    html,
-    /<meta\s+name=["']twitter:url["']\s+content=["'][^"']*["'][^>]*>/i,
-    `<meta name="twitter:url" content="${urlAttr}" />`
-  );
-  html = replaceOrInsertHeadTag(
-    html,
-    /<meta\s+name=["']twitter:title["']\s+content=["'][^"']*["'][^>]*>/i,
-    `<meta name="twitter:title" content="${titleAttr}" />`
-  );
-  html = replaceOrInsertHeadTag(
-    html,
-    /<meta\s+name=["']twitter:description["']\s+content=["'][^"']*["'][^>]*>/i,
-    `<meta name="twitter:description" content="${description}" />`
-  );
-
-  return html;
-}
-// Static server with SPA fallback: serve real files (assets), otherwise the
-// root index.html so the SPA boots and react-router renders the route.
-function startServer() {
-  return new Promise((resolve) => {
-    const server = createServer((req, res) => {
-      const urlPath = decodeURIComponent((req.url || "/").split("?")[0]);
-      const filePath = join(DIST, urlPath);
-      try {
-        if (urlPath !== "/" && existsSync(filePath) && statSync(filePath).isFile()) {
-          const type = MIME[extname(filePath).toLowerCase()] || "application/octet-stream";
-          res.writeHead(200, { "Content-Type": type });
-          res.end(readFileSync(filePath));
-          return;
-        }
-      } catch {
-        /* fall through to SPA fallback */
-      }
-      res.writeHead(200, { "Content-Type": MIME[".html"] });
-      res.end(indexHtml);
-    });
-    server.listen(PORT, () => resolve(server));
-  });
-}
-
-async function snapshot(browser, route) {
-  const page = await browser.newPage();
-  try {
-    page.setDefaultNavigationTimeout(NAV_TIMEOUT);
-    await page.goto(`http://localhost:${PORT}${route.path}`, {
-      waitUntil: "networkidle0",
-    });
-    // Wait until React has rendered real content (not just the PageLoader).
-    await page.waitForFunction(
-      () => {
-        const root = document.getElementById("root");
-        return root && root.innerText && root.innerText.trim().length > 200;
-      },
-      { timeout: NAV_TIMEOUT }
-    );
-    await new Promise((r) => setTimeout(r, SETTLE_MS));
-
-    const html = applyRouteHead(await page.content(), route);
-
-    // Sanity gate: don't overwrite the baseline with a broken/empty snapshot.
-    if (!html.includes("<div id=\"root\">") || html.length < 2000) {
-      throw new Error("snapshot looked empty");
-    }
-
-    const outDir = route.path === "/" ? DIST : join(DIST, route.path);
-    if (!existsSync(outDir)) mkdirSync(outDir, { recursive: true });
-    writeFileSync(join(outDir, "index.html"), html);
-    return { path: route.path, ok: true, bytes: html.length };
-  } finally {
-    await page.close();
-  }
+function write(path, out) {
+  const dir = path === "/" ? DIST : join(DIST, path);
+  mkdirSync(dir, { recursive: true });
+  writeFileSync(join(dir, "index.html"), out);
 }
 
 async function run() {
-  let server;
-  let browser;
-  let ok = 0;
   let failed = 0;
-  try {
-    server = await startServer();
-    browser = await puppeteer.launch({
-      headless: "new",
-      args: ["--no-sandbox", "--disable-setuid-sandbox"],
-    });
-    const queue = [...routes];
 
-    async function worker() {
-      while (queue.length) {
-        const route = queue.shift();
-        try {
-          const r = await snapshot(browser, route);
-          ok++;
-          console.log(`  ✓ ${r.path} (${(r.bytes / 1024).toFixed(0)} KB)`);
-        } catch (err) {
-          failed++;
-          console.warn(`  ✗ ${route.path}, kept head-only baseline (${err.message})`);
-        }
-      }
+  // The registry (src/data/routeMeta.ts) must cover every path the router renders from data, because
+  // vercel.json has no SPA fallback: an unlisted path is a hard-load 404.
+  const registry = new Set(routes.map((r) => r.path));
+  const missing = appPaths().filter((p) => !registry.has(p));
+  if (missing.length) {
+    failed += missing.length;
+    console.error(`  ✗ src/data/routeMeta.ts is missing router paths:\n    ${missing.join("\n    ")}`);
+  }
+
+  for (const route of routes) {
+    try {
+      const out = page(await render(route.path));
+      const problems = check(route.path, out);
+      if (problems.length) throw new Error(problems.join("; "));
+      write(route.path, out);
+      console.log(`  ✓ ${route.path} (${wordCount(out)} words)`);
+    } catch (err) {
+      failed++;
+      console.error(`  ✗ ${route.path}: ${err.message}`);
     }
+  }
 
-    await Promise.all(Array.from({ length: CONCURRENCY }, worker));
+  // 404 page. Vercel serves dist/404.html with status 404 for any path without a file.
+  try {
+    const out = page(await render(NOT_FOUND_PROBE));
+    const problems = check(NOT_FOUND_PROBE, out, { expectNoindex: true });
+    if (problems.length) throw new Error(problems.join("; "));
+    writeFileSync(join(DIST, "404.html"), out);
+    console.log("  ✓ 404.html (noindex)");
+  } catch (err) {
+    failed++;
+    console.error(`  ✗ 404.html: ${err.message}`);
+  }
 
-    console.log(`\nPrerendered ${ok}/${routes.length} routes (${failed} fell back to baseline).`);
-    if (failed > 0) process.exitCode = 1;
-  } finally {
-    if (browser) await browser.close();
-    if (server) await new Promise((resolve, reject) => server.close((err) => (err ? reject(err) : resolve())));
+  rmSync(SSR_DIR, { recursive: true, force: true });
+  console.log(`\nPrerendered ${routes.length - Math.min(failed, routes.length)}/${routes.length} routes + 404.`);
+  if (failed > 0) {
+    console.error(`${failed} prerender problem(s). Failing the build.`);
+    process.exitCode = 1;
   }
 }
 
-run().catch((err) => {
-  console.error("Prerender step failed:", err.message);
-  process.exitCode = 1;
-});
+await run();

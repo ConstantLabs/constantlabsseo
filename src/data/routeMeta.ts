@@ -1,13 +1,30 @@
 /**
- * Shared route list for SEO static generation + prerendering.
- * `path` is the route; `title`/`description` are used by the head-only
- * fallback generator (generate-static-pages.mjs). The prerender step only
- * needs `path`, but keeping everything here avoids drift between the two.
+ * The route registry: every prerendered page, with the English title and
+ * description it ships with.
+ *
+ * - scripts/prerender.mjs renders exactly these paths (via src/entry-server.tsx)
+ *   and fails the build if the router can render a data-driven path that is
+ *   missing here, because vercel.json has no SPA fallback: an unlisted path is a
+ *   hard-load 404.
+ * - src/components/SEO.tsx uses these English titles and descriptions for a
+ *   registered path, so the prerendered head and the hydrated head match.
+ * - public/sitemap.xml must list the same paths (routeMeta.test.ts checks it).
+ *
+ * Prices in titles come from facts.json, never typed by hand.
  */
+import { seoTiers } from "./facts";
 
 export const BASE_URL = "https://seo.constantlabs.ai";
 
-export const routes = [
+export interface RouteMeta {
+  path: string;
+  title: string;
+  description: string;
+}
+
+const fromPrice = `AED ${seoTiers.starter.aed.toLocaleString("en-US")}`;
+
+export const routes: RouteMeta[] = [
   // ── Core Pages ──────────────────────────────────────────────
   {
     path: "/",
@@ -41,8 +58,8 @@ export const routes = [
   },
   {
     path: "/pricing",
-    title: "SEO Pricing - Transparent Plans from AED 700 / month | ConstantSEO",
-    description: "Transparent SEO pricing for GCC businesses. Starter, Growth, and Enterprise plans from AED 700 / month. AI-powered SEO with bilingual Arabic-English support.",
+    title: `SEO Pricing - Transparent Plans from ${fromPrice} / month | ConstantSEO`,
+    description: `Transparent SEO pricing for GCC businesses. Starter, Growth, Enterprise and Dominance plans from ${fromPrice} / month. AI-powered SEO with bilingual Arabic-English support.`,
   },
   {
     path: "/about",
@@ -265,3 +282,9 @@ export const routes = [
     description: "Step-by-step local SEO checklist for UAE businesses. Google Business Profile, citations, reviews, local schema, and geo-targeted content.",
   },
 ];
+
+const byPath = new Map(routes.map((r) => [r.path, r]));
+
+export function routeMeta(path: string): RouteMeta | undefined {
+  return byPath.get(path);
+}

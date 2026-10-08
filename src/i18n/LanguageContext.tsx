@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect, useCallback, type ReactNode } from "react";
+import { createContext, useContext, useState, useEffect, useLayoutEffect, useCallback, type ReactNode } from "react";
 import { translations } from "./translations";
 
 export type Locale = "en" | "ar";
@@ -14,14 +14,21 @@ interface LanguageContextType {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
+/* useLayoutEffect warns during server rendering; on the server nothing runs anyway. */
+const useIsomorphicLayoutEffect = typeof window !== "undefined" ? useLayoutEffect : useEffect;
+
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
-  const [lang, setLangState] = useState<Locale>(() => {
+  /* Always start in English: that is what the prerendered HTML contains, so the
+     first client render must match it for hydration. A stored Arabic preference is
+     applied in a layout effect, which runs before the browser paints. */
+  const [lang, setLangState] = useState<Locale>("en");
+
+  useIsomorphicLayoutEffect(() => {
     try {
-      return (localStorage.getItem("cl-lang") as Locale) || "en";
-    } catch {
-      return "en";
-    }
-  });
+      const stored = localStorage.getItem("cl-lang");
+      if (stored === "ar") setLangState("ar");
+    } catch { /* localStorage unavailable */ }
+  }, []);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
   const setLang = (newLang: Locale) => {

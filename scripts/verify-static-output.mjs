@@ -54,11 +54,45 @@ function assertHeading(html, expectedText) {
   );
 }
 
+/* helmet writes data-rh="true" and may reorder attributes, so match a tag by its
+   name/property/rel and read the attribute, not the attribute order. */
+function tags(html, tag, attr, value) {
+  return [...html.matchAll(new RegExp(`<${tag}\\b[^>]*\\b${attr}=["']${value}["'][^>]*>`, "gi"))].map((m) => m[0]);
+}
+function attrOf(tagText, attr) {
+  return tagText.match(new RegExp(`\\b${attr}=["']([^"']*)["']`, "i"))?.[1];
+}
+
 function assertMetadata(html, path) {
   const canonical = `https://seo.constantlabs.ai${path}`;
-  assert.match(html, /<meta name=["']description["'] content=["'][^"']+?["']/i, "Missing nonempty meta description");
-  assert.match(html, new RegExp(`<link rel=["']canonical["'] href=["']${canonical}["']`, "i"), "Missing canonical URL");
-  assert.match(html, new RegExp(`<meta property=["']og:url["'] content=["']${canonical}["']`, "i"), "Missing Open Graph URL");
+  const [description] = tags(html, "meta", "name", "description");
+  assert.ok(description && attrOf(description, "content"), "Missing nonempty meta description");
+  const canonicals = tags(html, "link", "rel", "canonical");
+  assert.equal(canonicals.length, 1, `Expected one canonical, found ${canonicals.length}`);
+  assert.equal(attrOf(canonicals[0], "href"), canonical, "Missing canonical URL");
+  const [ogUrl] = tags(html, "meta", "property", "og:url");
+  assert.equal(ogUrl && attrOf(ogUrl, "content"), canonical, "Missing Open Graph URL");
+  assert.equal((html.match(/<title[\s>]/gi) ?? []).length, 1, "Expected exactly one <title>");
+  assert.doesNotMatch(html, /<link[^>]+hreflang/i, "hreflang without separate language URLs");
+  assert.doesNotMatch(tags(html, "meta", "name", "robots").join(""), /noindex/i, "Indexable page is noindex");
+}
+
+function assertNotFoundPage() {
+  const file = join(DIST, "404.html");
+  assert.ok(existsSync(file), "Missing dist/404.html: unknown URLs would not return a real 404");
+  const html = readFileSync(file, "utf-8");
+  const [robots] = tags(html, "meta", "name", "robots");
+  assert.match(robots ?? "", /noindex/i, "404.html must be noindex");
+  assert.equal(tags(html, "link", "rel", "canonical").length, 0, "404.html must have no canonical");
+}
+
+function assertTextFile(name, minChars) {
+  const file = join(DIST, name);
+  assert.ok(existsSync(file), `Missing dist/${name}`);
+  const text = readFileSync(file, "utf-8");
+  assert.ok(text.length >= minChars, `${name} is nearly empty`);
+  assert.doesNotMatch(text, /^\s*</, `${name} is HTML, not plain text`);
+  assert.doesNotMatch(text, /gmail\.com|Sunday to Thursday/i, `${name} carries a stale fact`);
 }
 
 const representativePages = [
@@ -74,4 +108,8 @@ for (const [path, expectedText] of representativePages) {
   if (path === "/") assertHeading(html, expectedText);
 }
 
-console.log("Verified rendered static output for homepage, service, city, and tool pages.");
+assertNotFoundPage();
+assertTextFile("llms.txt", 500);
+assertTextFile("llms-full.txt", 5000);
+
+console.log("Verified rendered static output for homepage, service, city, and tool pages, the 404 page, and llms.txt / llms-full.txt.");

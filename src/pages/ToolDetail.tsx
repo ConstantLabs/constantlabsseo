@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import NotFound from "@/pages/NotFound";
 import { Helmet } from "react-helmet-async";
 import {
   ArrowRight,
@@ -1087,23 +1088,7 @@ const ToolDetail = () => {
   const tool = getToolBySlug(slug);
 
   if (!tool) {
-    return (
-      <div className="min-h-screen bg-paper text-ink">
-        <Navbar />
-        <div className="max-w-3xl mx-auto px-4 pt-32 pb-20 text-center">
-          <h1 className="text-4xl font-extrabold text-ink">
-            {tx(isAr, "Tool Not Found", "الأداة غير موجودة")}
-          </h1>
-          <p className="mt-4 text-ink/70">
-            {tx(isAr, "The free SEO tool you are looking for does not exist.", "أداة SEO المجانية التي تبحث عنها غير موجودة.")}
-          </p>
-          <Link to="/tools" className="mt-8 inline-flex items-center gap-2 font-bold text-ink hover:underline">
-            {getLocalizedText(toolUiCopy.allTools, isAr)}
-          </Link>
-        </div>
-        <Footer />
-      </div>
-    );
+    return <NotFound />;
   }
 
   const Icon = iconMap[tool.icon as keyof typeof iconMap] || SearchCheck;

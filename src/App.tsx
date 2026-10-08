@@ -7,6 +7,7 @@ import { PageTransition } from "./components/PageTransition";
 import { PageLoader } from "./components/PageLoader";
 import { WhatsAppButton } from "./components/WhatsAppButton";
 import { CookieConsent } from "./components/CookieConsent";
+import { ClientOnly } from "./components/ClientOnly";
 import { cities } from "./data/cityData";
 import { industries } from "./data/industryData";
 
@@ -52,8 +53,10 @@ const IndustryLandingPage = lazy(() => import("./pages/IndustryLandingPage"));
 const AnimatedRoutes = () => {
   const location = useLocation();
 
+  /* initial={false}: the first page is already on screen (prerendered HTML), so it
+     must not mount at opacity 0 and fade in. Later route changes still animate. */
   return (
-    <AnimatePresence mode="wait">
+    <AnimatePresence mode="wait" initial={false}>
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<PageTransition><Index /></PageTransition>} />
         <Route path="/services" element={<PageTransition><Services /></PageTransition>} />
@@ -96,23 +99,34 @@ const AnimatedRoutes = () => {
   );
 };
 
+/* Everything inside the router. The browser wraps it in BrowserRouter; the build-time
+   prerender (src/entry-server.tsx) wraps it in StaticRouter, so the HTML a crawler gets
+   is this same tree, not a separately written copy. Widgets with nothing worth crawling
+   that read window or localStorage while rendering are ClientOnly: the prerender emits
+   nothing for them, and hydration matches because the first client render is empty too. */
+export const AppContent = () => (
+  <LanguageProvider>
+    <ScrollToTop />
+    <Suspense fallback={<PageLoader />}>
+      <AnimatedRoutes />
+    </Suspense>
+    <ClientOnly>
+      <WhatsAppButton />
+      <CookieConsent />
+      {DevFieldTuner && (
+        <Suspense fallback={null}>
+          <DevFieldTuner />
+        </Suspense>
+      )}
+    </ClientOnly>
+  </LanguageProvider>
+);
+
 const App = () => (
   <HelmetProvider>
-    <LanguageProvider>
-      <BrowserRouter>
-        <ScrollToTop />
-        <Suspense fallback={<PageLoader />}>
-          <AnimatedRoutes />
-        </Suspense>
-        <WhatsAppButton />
-        <CookieConsent />
-        {DevFieldTuner && (
-          <Suspense fallback={null}>
-            <DevFieldTuner />
-          </Suspense>
-        )}
-      </BrowserRouter>
-    </LanguageProvider>
+    <BrowserRouter>
+      <AppContent />
+    </BrowserRouter>
   </HelmetProvider>
 );
 

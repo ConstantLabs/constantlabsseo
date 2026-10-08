@@ -1,4 +1,5 @@
-import { useParams, Link, Navigate } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
+import NotFound from "@/pages/NotFound";
 import { Helmet } from "react-helmet-async";
 import { SEO } from "@/components/SEO";
 import { Navbar } from "@/components/Navbar";
@@ -17,7 +18,7 @@ const BlogPost = () => {
   const post = slug ? getBlogPostBySlug(slug) : undefined;
 
   if (!post) {
-    return <Navigate to="/blog" replace />;
+    return <NotFound />;
   }
 
   const relatedPosts = getRelatedPosts(post.slug, 3);

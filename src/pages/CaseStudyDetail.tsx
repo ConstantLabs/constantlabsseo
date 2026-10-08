@@ -6,6 +6,7 @@ import { CTASection } from "@/components/CTASection";
 import { caseStudies } from "@/data/projectsData";
 import { PageHero } from "@/components/marketing/PageHero";
 import { useLanguage } from "@/i18n/LanguageContext";
+import NotFound from "@/pages/NotFound";
 
 const CaseStudyDetail = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -13,19 +14,7 @@ const CaseStudyDetail = () => {
   const cs = caseStudies.find((c) => c.slug === slug);
 
   if (!cs) {
-    return (
-      <div className="min-h-screen bg-paper text-ink">
-        <Navbar />
-        <div className="pt-32 pb-20 text-center">
-          <h1 className="text-4xl font-bold mb-4">{t("caseStudies.notFound.title")}</h1>
-          <p className="text-ink/70 mb-8">{t("caseStudies.notFound.copy")}</p>
-          <Link to="/case-studies" className="font-semibold text-ink underline underline-offset-4">
-            {t("inner.caseStudyDetail.all")}
-          </Link>
-        </div>
-        <Footer />
-      </div>
-    );
+    return <NotFound />;
   }
 
   const title = isAr ? cs.titleAr : cs.title;

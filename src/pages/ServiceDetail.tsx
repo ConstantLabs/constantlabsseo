@@ -7,6 +7,7 @@ import { SERVICES } from "@/data/projectsData";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { ArrowRight, Check } from "lucide-react";
 import { PageHero } from "@/components/marketing/PageHero";
+import NotFound from "@/pages/NotFound";
 
 function slugify(id: string) {
   return id.toLowerCase().replace(/_/g, "-");
@@ -20,23 +21,7 @@ const ServiceDetail = () => {
   const otherServices = SERVICES.filter((s) => slugify(s.id) !== slug).slice(0, 4);
 
   if (!service) {
-    return (
-      <div className="min-h-screen bg-paper text-ink">
-        <Navbar />
-        <div className="pt-32 pb-20 text-center">
-          <h1 className="text-4xl font-bold mb-4">
-            {isAr ? "الخدمة غير موجودة" : "Service Not Found"}
-          </h1>
-          <p className="mb-8 text-ink/70">
-            {isAr ? "الخدمة التي تبحث عنها غير موجودة." : "The service you're looking for doesn't exist."}
-          </p>
-          <Link to="/services" className="font-semibold text-ink underline underline-offset-4">
-            {isAr ? "عرض جميع الخدمات" : "View All Services"}
-          </Link>
-        </div>
-        <Footer />
-      </div>
-    );
+    return <NotFound />;
   }
 
   const Icon = service.icon;

@@ -30,7 +30,7 @@ function withRestoredOutput(path, alter, verify) {
 test("verification fails when a representative page loses its Open Graph URL", () => {
   withRestoredOutput(
     "services",
-    (html) => html.replace(/<meta property="og:url" content="[^"]*"\s*\/?\s*>/i, ""),
+    (html) => html.replace(/<meta\b[^>]*property="og:url"[^>]*>/i, ""),
     () => {
       const result = runVerifier();
       assert.notEqual(result.status, 0, "metadata loss must make verification fail");

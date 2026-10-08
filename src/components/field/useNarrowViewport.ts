@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 
 /*
   A real JS gate, not a CSS one.
@@ -9,19 +9,23 @@ import { useEffect, useState } from "react";
   boots its context, and a hidden element's getBoundingClientRect() returns all
   zeros, so top === 0, which any "is it visible" check reads as already visible.
   CSS hiding is strictly worse than not mounting.
+
+  useSyncExternalStore, not useState(matchMedia): the build prerenders every page
+  (no window, so desktop), and hydration does not repair attributes that differ
+  between the server and the first client render. A phone that read matchMedia in
+  its first render kept the prerendered desktop grid. The server snapshot is
+  `false`; React hydrates with it, then re-renders at once with the real value.
+  A plain client render (dev server) reads the real value immediately.
 */
 export function useNarrowViewport(maxWidth = 639): boolean {
-  const [narrow, setNarrow] = useState(
-    () => typeof window !== "undefined" && window.matchMedia(`(max-width: ${maxWidth}px)`).matches,
+  const query = `(max-width: ${maxWidth}px)`;
+  return useSyncExternalStore(
+    (onChange) => {
+      const list = window.matchMedia(query);
+      list.addEventListener("change", onChange);
+      return () => list.removeEventListener("change", onChange);
+    },
+    () => window.matchMedia(query).matches,
+    () => false,
   );
-
-  useEffect(() => {
-    const query = window.matchMedia(`(max-width: ${maxWidth}px)`);
-    const sync = () => setNarrow(query.matches);
-    sync();
-    query.addEventListener("change", sync);
-    return () => query.removeEventListener("change", sync);
-  }, [maxWidth]);
-
-  return narrow;
 }
