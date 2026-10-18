@@ -1,6 +1,6 @@
 {
   "$comment": "The one source of truth for Constant Labs business facts: name, contact, hours, team, offers and prices. constantlabs.ai, websites.constantlabs.ai and seo.constantlabs.ai all build from this file, as do the schema and every llms.txt. Change a fact here and nowhere else. Published at https://constantlabs.ai/facts.json so answer engines can read it directly.",
-  "updated": "2026-10-08",
+  "updated": "2026-10-18",
   "brand": {
     "name": "Constant Labs",
     "nameAr": "كونستانت لابز",
@@ -106,8 +106,7 @@
         {
           "id": "agent-subscription",
           "label": "AI agent subscription",
-          "aed": 1100,
-          "usd": 297,
+          "aed": 1500,
           "billing": "monthly",
           "from": true,
           "includes": [
@@ -133,7 +132,7 @@
         {
           "id": "website-standard",
           "label": "Standard website",
-          "aed": 2800,
+          "aed": 3000,
           "billing": "one-time",
           "includes": [
             "Custom-designed, mobile-first website",
@@ -145,7 +144,7 @@
         {
           "id": "website-cinematic",
           "label": "Cinematic website",
-          "aed": 4000,
+          "aed": 4500,
           "billing": "one-time",
           "includes": [
             "Everything in Standard",
@@ -155,7 +154,7 @@
         {
           "id": "website-cms",
           "label": "CMS website",
-          "aed": 5500,
+          "aed": 6000,
           "billing": "one-time",
           "includes": [
             "Everything in Standard",
@@ -166,8 +165,9 @@
         {
           "id": "website-keys",
           "label": "The keys",
-          "aed": 7500,
+          "aed": 10000,
           "billing": "one-time",
+          "from": true,
           "includes": [
             "Cinematic website",
             "Edit and extend the site yourself with AI",
@@ -177,8 +177,9 @@
         {
           "id": "shopify-small",
           "label": "Shopify store, up to 20 products",
-          "aed": 4500,
+          "aed": 5000,
           "billing": "one-time",
+          "from": true,
           "then": {
             "aed": 500,
             "billing": "monthly"
@@ -203,7 +204,7 @@
         {
           "id": "website-care",
           "label": "Website care",
-          "aed": 370,
+          "aed": 500,
           "billing": "monthly",
           "includes": [
             "Up to 2 hours of small edits a month",
@@ -228,7 +229,7 @@
         {
           "id": "seo-starter",
           "label": "SEO Starter",
-          "aed": 700,
+          "aed": 900,
           "billing": "monthly",
           "includes": [
             "15 keywords",
@@ -241,7 +242,7 @@
         {
           "id": "seo-growth",
           "label": "SEO Growth",
-          "aed": 1400,
+          "aed": 1800,
           "billing": "monthly",
           "includes": [
             "50 keywords",
@@ -269,7 +270,7 @@
         {
           "id": "seo-dominance",
           "label": "SEO Dominance",
-          "aed": 6500,
+          "aed": 7000,
           "billing": "monthly",
           "includes": [
             "Everything in Enterprise",
@@ -295,7 +296,7 @@
           "group": "mobile-web-apps",
           "label": "Focused first version",
           "aed": 25000,
-          "toAed": 45000,
+          "toAed": 50000,
           "billing": "one-time",
           "when": "One main user flow, the smallest launchable product."
         },
@@ -303,7 +304,7 @@
           "id": "app-full",
           "group": "mobile-web-apps",
           "label": "Full product",
-          "aed": 45000,
+          "aed": 50000,
           "toAed": 120000,
           "billing": "one-time",
           "when": "Backend, admin tools, notifications and launch support."
@@ -321,7 +322,7 @@
           "id": "dashboard-focused",
           "group": "dashboards",
           "label": "Focused dashboard",
-          "aed": 18000,
+          "aed": 20000,
           "toAed": 35000,
           "billing": "one-time",
           "when": "One or two data sources, login and a clean reporting view."
@@ -331,7 +332,7 @@
           "group": "dashboards",
           "label": "Internal tool",
           "aed": 35000,
-          "toAed": 75000,
+          "toAed": 80000,
           "billing": "one-time",
           "when": "Roles, forms, workflows, exports and several data sources."
         },
@@ -339,7 +340,7 @@
           "id": "dashboard-platform",
           "group": "dashboards",
           "label": "Operations platform",
-          "aed": 75000,
+          "aed": 80000,
           "from": true,
           "billing": "one-time",
           "when": "A core system with approvals, automations and integrations."
@@ -348,7 +349,7 @@
           "id": "integration-single",
           "group": "system-integration",
           "label": "Single connector",
-          "aed": 12000,
+          "aed": 15000,
           "toAed": 25000,
           "billing": "one-time",
           "when": "One clear API or webhook integration."
@@ -375,7 +376,7 @@
           "id": "erp-connector",
           "group": "erp-integrations",
           "label": "ERP connector",
-          "aed": 18000,
+          "aed": 20000,
           "toAed": 40000,
           "billing": "one-time",
           "when": "One ERP-to-app or ERP-to-storefront sync path."
@@ -466,7 +467,7 @@
           "group": "openclaw",
           "label": "OpenClaw business rollout",
           "aed": 30000,
-          "toAed": 55000,
+          "toAed": 60000,
           "billing": "one-time",
           "when": "Users, channels, permissions, logging and workflow tools."
         },
@@ -474,7 +475,7 @@
           "id": "openclaw-private",
           "group": "openclaw",
           "label": "OpenClaw private stack",
-          "aed": 55000,
+          "aed": 60000,
           "from": true,
           "billing": "one-time",
           "when": "Private hosting, custom security, internal systems or advanced tool access."

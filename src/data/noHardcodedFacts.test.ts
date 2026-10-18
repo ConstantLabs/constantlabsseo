@@ -12,7 +12,7 @@ const BANNED: [string, RegExp][] = [
   ["the old Gmail address", /akhmad6093/i],
   ["a hard-coded email address", /akhmad@constantlabs\.ai/i],
   ["a hard-coded phone number", /971\s?56\s?149\s?5656|971561495656/],
-  ["a hard-coded SEO price", /\b(700|1,400|3,000|6,500)\s?(AED|SAR|USD|درهم)/],
+  ["a hard-coded SEO price", /\b(900|1,800|3,000|7,000)\s?(AED|SAR|USD|درهم)/],
   ["the old working hours", /Sunday to Thursday|9AM to 6PM|18:00 GST/i],
   ["coordinates", /\bGeoCoordinates\b|\bgeo\.position\b|\bICBM\b/],
 ];
