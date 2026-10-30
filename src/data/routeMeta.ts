@@ -73,18 +73,18 @@ export const routes: RouteMeta[] = [
   },
   {
     path: "/contact",
-    title: "Contact ConstantSEO - Get Your Free AI SEO Audit",
-    description: "Get a free AI SEO audit for your business. Contact ConstantSEO in Dubai for expert SEO services across the UAE, Saudi Arabia, and Oman.",
+    title: "Contact ConstantSEO - Discuss Your SEO Project",
+    description: "Discuss your website and SEO goals. Contact ConstantSEO in Dubai for expert SEO services across the UAE, Saudi Arabia, and Oman.",
   },
   {
     path: "/audit",
-    title: "Free SEO Audit - Instant AI-Powered Website Check | ConstantSEO",
-    description: "Run a free SEO audit for your website. Check SEO and performance signals instantly, then request a deeper AI-powered audit from ConstantSEO.",
+    title: "SEO Audit - Instant AI-Powered Website Check | ConstantSEO",
+    description: "Run an SEO audit for your website. Check SEO and performance signals instantly, then request a deeper AI-powered audit from ConstantSEO.",
   },
   {
     path: "/tools",
-    title: "Free SEO Tools for GCC Marketers | ConstantSEO",
-    description: "Use ConstantSEO's free SEO tools to check meta tags, headings, sitemaps, FAQ schema, robots.txt, Open Graph previews, website bandwidth, cost, and YouTube SEO.",
+    title: "SEO Tools for GCC Marketers | ConstantSEO",
+    description: "Use ConstantSEO's SEO tools to check meta tags, headings, sitemaps, FAQ schema, robots.txt, Open Graph previews, website bandwidth, cost, and YouTube SEO.",
   },
   {
     path: "/privacy",
@@ -134,56 +134,56 @@ export const routes: RouteMeta[] = [
     description: "Data-driven CRO that maximizes every visitor from both traditional and AI search channels. A/B testing, UX optimization, and funnel analysis.",
   },
 
-  // ── Free SEO Tools ─────────────────────────────────────────
+  // ── SEO Tools ─────────────────────────────────────────
   {
     path: "/tools/bulk-meta-title-description-checker",
-    title: "Bulk Meta Title & Description Checker Free | ConstantSEO",
-    description: "Free bulk meta title and description checker for SEO audits. Paste URLs, titles, and descriptions to find missing, short, long, and duplicate metadata.",
+    title: "Bulk Meta Title & Description Checker | ConstantSEO",
+    description: "Bulk meta title and description checker for SEO audits. Paste URLs, titles, and descriptions to find missing, short, long, and duplicate metadata.",
   },
   {
     path: "/tools/meta-tag-analyzer",
-    title: "Meta Tag Analyzer Tool Free | ConstantSEO",
+    title: "Meta Tag Analyzer Tool | ConstantSEO",
     description: "Analyze meta tags from pasted HTML. Check title, meta description, canonical, robots, viewport, hreflang signals, Open Graph, and Twitter tags.",
   },
   {
     path: "/tools/heading-tag-checker",
-    title: "Heading Tag Checker Free | ConstantSEO",
-    description: "Free heading tag checker for SEO. Paste HTML to review H1-H6 structure, heading hierarchy, duplicate H1s, skipped heading levels, and empty headings.",
+    title: "Heading Tag Checker | ConstantSEO",
+    description: "Heading tag checker for SEO. Paste HTML to review H1-H6 structure, heading hierarchy, duplicate H1s, skipped heading levels, and empty headings.",
   },
   {
     path: "/tools/sitemap-url-extractor",
-    title: "Sitemap URL Extractor Free | ConstantSEO",
+    title: "Sitemap URL Extractor | ConstantSEO",
     description: "Extract URLs from XML sitemaps and sitemap indexes. Paste sitemap XML to get a clean URL list, hostname summary, duplicate count, and export-ready output.",
   },
   {
     path: "/tools/faq-schema-generator",
-    title: "FAQ Schema Markup Generator Free | ConstantSEO",
+    title: "FAQ Schema Markup Generator | ConstantSEO",
     description: "Generate FAQPage JSON-LD schema for SEO. Add questions and answers, copy clean markup, and use it on pages where the FAQ content is visible.",
   },
   {
     path: "/tools/robots-txt-generator",
-    title: "Robots.txt Generator Free | ConstantSEO",
-    description: "Free robots.txt generator for SEO. Create crawler directives, add sitemap URLs, block private paths, and optionally allow reputable AI crawlers.",
+    title: "Robots.txt Generator | ConstantSEO",
+    description: "Robots.txt generator for SEO. Create crawler directives, add sitemap URLs, block private paths, and optionally allow reputable AI crawlers.",
   },
   {
     path: "/tools/open-graph-checker",
-    title: "Open Graph Checker Free | ConstantSEO",
+    title: "Open Graph Checker | ConstantSEO",
     description: "Check Open Graph and Twitter card tags from pasted HTML. Preview social title, description, image, URL, and missing sharing metadata.",
   },
   {
     path: "/tools/website-bandwidth-calculator",
-    title: "Website Bandwidth Calculator Free | ConstantSEO",
-    description: "Free website bandwidth calculator. Estimate monthly GB usage from visitors, page views per visit, average page size, and cache hit rate.",
+    title: "Website Bandwidth Calculator | ConstantSEO",
+    description: "Website bandwidth calculator. Estimate monthly GB usage from visitors, page views per visit, average page size, and cache hit rate.",
   },
   {
     path: "/tools/website-cost-calculator",
-    title: "Website Cost Calculator UAE Free | ConstantSEO",
+    title: "Website Cost Calculator UAE | ConstantSEO",
     description: "Estimate website cost in AED for UAE and GCC projects. Calculate a planning range based on pages, bilingual content, SEO pages, ecommerce, and booking features.",
   },
   {
     path: "/tools/youtube-video-seo-checker",
-    title: "YouTube Video SEO Checker Free | ConstantSEO",
-    description: "Free YouTube video SEO checker. Audit title length, keyword usage, description depth, tags, chapters, hashtags, and call-to-action signals.",
+    title: "YouTube Video SEO Checker | ConstantSEO",
+    description: "YouTube video SEO checker. Audit title length, keyword usage, description depth, tags, chapters, hashtags, and call-to-action signals.",
   },
 
   // ── City Landing Pages ──────────────────────────────────────

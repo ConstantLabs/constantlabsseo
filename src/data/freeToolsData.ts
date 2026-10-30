@@ -25,24 +25,24 @@ export interface FreeTool {
 
 export const toolsPageCopy = {
   eyebrow: {
-    en: "Free SEO Tools",
-    ar: "أدوات SEO مجانية",
+    en: "SEO Tools",
+    ar: "أدوات SEO",
   },
   title: {
-    en: "Free SEO Tools for GCC Marketers",
-    ar: "أدوات SEO مجانية للمسوقين في الخليج",
+    en: "SEO Tools for GCC Marketers",
+    ar: "أدوات SEO للمسوقين في الخليج",
   },
   subtitle: {
     en: "Check metadata, headings, schema, sitemaps, robots.txt, bandwidth, website cost, and video SEO without signing up.",
     ar: "افحص العناوين الوصفية، العناوين، البيانات المنظمة، خرائط الموقع، robots.txt، استهلاك البيانات، تكلفة الموقع، وSEO للفيديو بدون تسجيل.",
   },
   quickAnswer: {
-    en: "ConstantSEO's free tools help marketers and business owners spot practical SEO issues before they become ranking problems. Start with metadata, headings, sitemap extraction, FAQ schema, and robots.txt, then use the calculators to plan website growth in the UAE, Saudi Arabia, and Oman.",
-    ar: "تساعد أدوات ConstantSEO المجانية المسوقين وأصحاب الأعمال على اكتشاف مشاكل SEO العملية قبل أن تؤثر على الترتيب. ابدأ بفحص الميتا والعناوين وخريطة الموقع وFAQ Schema وrobots.txt، ثم استخدم الحاسبات لتخطيط نمو موقعك في الإمارات والسعودية وعُمان.",
+    en: "ConstantSEO's tools help marketers and business owners spot practical SEO issues before they become ranking problems. Start with metadata, headings, sitemap extraction, FAQ schema, and robots.txt, then use the calculators to plan website growth in the UAE, Saudi Arabia, and Oman.",
+    ar: "تساعد أدوات ConstantSEO المسوقين وأصحاب الأعمال على اكتشاف مشاكل SEO العملية قبل أن تؤثر على الترتيب. ابدأ بفحص الميتا والعناوين وخريطة الموقع وFAQ Schema وrobots.txt، ثم استخدم الحاسبات لتخطيط نمو موقعك في الإمارات والسعودية وعُمان.",
   },
   primaryCta: {
-    en: "Run a Free Audit",
-    ar: "ابدأ تدقيقاً مجانياً",
+    en: "Run SEO Audit",
+    ar: "ابدأ تدقيق SEO",
   },
   secondaryCta: {
     en: "Explore Tools",
@@ -65,8 +65,8 @@ export const toolsPageCopy = {
     ar: "كيف يساعد هذا على تحسين الترتيب",
   },
   howBody: {
-    en: "Free tools attract high-intent searches, earn links, and show Google that ConstantSEO has practical technical SEO expertise. Each tool page also links visitors toward audits and services when they need hands-on implementation.",
-    ar: "الأدوات المجانية تجذب عمليات بحث ذات نية عالية، وتكسب روابط، وتُظهر لجوجل أن ConstantSEO لديها خبرة عملية في SEO التقني. كل صفحة أداة تربط الزائر بالتدقيق والخدمات عندما يحتاج إلى تنفيذ احترافي.",
+    en: "Use these tools to inspect specific signals, identify issues, and plan fixes. When you need implementation support, contact ConstantSEO to discuss the scope of work.",
+    ar: "استخدم هذه الأدوات لفحص إشارات محددة واكتشاف المشاكل والتخطيط للإصلاحات. عندما تحتاج إلى دعم في التنفيذ، تواصل مع ConstantSEO لمناقشة نطاق العمل.",
   },
 };
 
@@ -91,7 +91,7 @@ export const toolUiCopy = {
   warning: { en: "Needs Work", ar: "يحتاج تحسين" },
   missing: { en: "Missing", ar: "مفقود" },
   noData: { en: "Add input to see results.", ar: "أضف بيانات لعرض النتائج." },
-  freeAudit: { en: "Need the full fix? Get a free audit.", ar: "تحتاج للإصلاح الكامل؟ احصل على تدقيق مجاني." },
+  freeAudit: { en: "Need help implementing fixes? Discuss your project.", ar: "تحتاج مساعدة في تنفيذ الإصلاحات؟ ناقش مشروعك." },
   faqTitle: { en: "Tool FAQ", ar: "أسئلة شائعة عن الأداة" },
 };
 
@@ -147,12 +147,12 @@ export const freeTools: FreeTool[] = [
       ar: "الصق عدة روابط مع العنوان والوصف لاكتشاف مشاكل الطول والوسوم المفقودة والتكرار.",
     },
     metaTitle: {
-      en: "Bulk Meta Title & Description Checker Free",
-      ar: "فاحص عناوين ووصف الميتا بالجملة مجاناً",
+      en: "Bulk Meta Title & Description Checker",
+      ar: "فاحص عناوين ووصف الميتا بالجملة",
     },
     metaDescription: {
-      en: "Free bulk meta title and description checker for SEO audits. Paste URLs, titles, and descriptions to find missing, short, long, and duplicate metadata.",
-      ar: "أداة مجانية لفحص عناوين ووصف الميتا بالجملة في تدقيق SEO. الصق الروابط والعناوين والأوصاف لاكتشاف المفقود والقصير والطويل والمكرر.",
+      en: "Bulk meta title and description checker for SEO audits. Paste URLs, titles, and descriptions to find missing, short, long, and duplicate metadata.",
+      ar: "أداة لفحص عناوين ووصف الميتا بالجملة في تدقيق SEO. الصق الروابط والعناوين والأوصاف لاكتشاف المفقود والقصير والطويل والمكرر.",
     },
     quickAnswer: {
       en: "Use this bulk meta checker when you have exported page data from a crawl or CMS and need to find title and description problems fast. It highlights missing tags, length issues, and duplicate metadata that can reduce click-through rate from Google.",
@@ -198,7 +198,7 @@ export const freeTools: FreeTool[] = [
       en: "Paste HTML and review title, description, canonical, robots, viewport, language, and social tags.",
       ar: "الصق HTML وراجع العنوان والوصف والكانونيكال والروبوتس والـ viewport واللغة ووسوم السوشيال.",
     },
-    metaTitle: { en: "Meta Tag Analyzer Tool Free", ar: "أداة تحليل وسوم الميتا مجاناً" },
+    metaTitle: { en: "Meta Tag Analyzer Tool", ar: "أداة تحليل وسوم الميتا" },
     metaDescription: {
       en: "Analyze meta tags from pasted HTML. Check title, meta description, canonical, robots, viewport, hreflang signals, Open Graph, and Twitter tags.",
       ar: "حلّل وسوم الميتا من HTML ملصوق. افحص العنوان والوصف والكانونيكال والروبوتس والـ viewport وإشارات اللغة وOpen Graph وTwitter.",
@@ -238,10 +238,10 @@ export const freeTools: FreeTool[] = [
       en: "Extract H1-H6 headings from HTML and find hierarchy, missing H1, duplicate H1, and skipped-level issues.",
       ar: "استخرج عناوين H1-H6 من HTML واكتشف مشاكل التسلسل وH1 المفقود أو المكرر وتخطي المستويات.",
     },
-    metaTitle: { en: "Heading Tag Checker Free", ar: "فاحص عناوين H1-H6 مجاناً" },
+    metaTitle: { en: "Heading Tag Checker", ar: "فاحص عناوين H1-H6" },
     metaDescription: {
-      en: "Free heading tag checker for SEO. Paste HTML to review H1-H6 structure, heading hierarchy, duplicate H1s, skipped heading levels, and empty headings.",
-      ar: "فاحص عناوين مجاني للـ SEO. الصق HTML لمراجعة بنية H1-H6 وتسلسل العناوين وH1 المكرر وتخطي المستويات والعناوين الفارغة.",
+      en: "Heading tag checker for SEO. Paste HTML to review H1-H6 structure, heading hierarchy, duplicate H1s, skipped heading levels, and empty headings.",
+      ar: "فاحص عناوين للـ SEO. الصق HTML لمراجعة بنية H1-H6 وتسلسل العناوين وH1 المكرر وتخطي المستويات والعناوين الفارغة.",
     },
     quickAnswer: {
       en: "A heading checker helps search engines and readers understand the page structure. Most SEO pages should have one clear H1, question-led H2s, and a logical hierarchy that does not skip levels without a reason.",
@@ -278,7 +278,7 @@ export const freeTools: FreeTool[] = [
       en: "Paste XML sitemap content and extract clean URLs for audits, redirects, and indexation checks.",
       ar: "الصق محتوى خريطة الموقع XML واستخرج الروابط النظيفة للتدقيق والتحويلات وفحوصات الفهرسة.",
     },
-    metaTitle: { en: "Sitemap URL Extractor Free", ar: "مستخرج روابط خريطة الموقع مجاناً" },
+    metaTitle: { en: "Sitemap URL Extractor", ar: "مستخرج روابط خريطة الموقع" },
     metaDescription: {
       en: "Extract URLs from XML sitemaps and sitemap indexes. Paste sitemap XML to get a clean URL list, hostname summary, duplicate count, and export-ready output.",
       ar: "استخرج الروابط من خرائط XML وفهارس الخرائط. الصق XML للحصول على قائمة روابط نظيفة وملخص النطاقات وعدد التكرارات ومخرجات جاهزة للتصدير.",
@@ -318,7 +318,7 @@ export const freeTools: FreeTool[] = [
       en: "Write visible FAQs and generate clean JSON-LD FAQPage schema for landing pages and articles.",
       ar: "اكتب الأسئلة الشائعة الظاهرة وأنشئ FAQPage JSON-LD نظيفاً لصفحات الهبوط والمقالات.",
     },
-    metaTitle: { en: "FAQ Schema Markup Generator Free", ar: "مولد FAQ Schema مجاناً" },
+    metaTitle: { en: "FAQ Schema Markup Generator", ar: "مولد FAQ Schema" },
     metaDescription: {
       en: "Generate FAQPage JSON-LD schema for SEO. Add questions and answers, copy clean markup, and use it on pages where the FAQ content is visible.",
       ar: "أنشئ FAQPage JSON-LD للـ SEO. أضف الأسئلة والإجابات وانسخ كوداً نظيفاً واستخدمه في الصفحات التي تظهر فيها الأسئلة للمستخدم.",
@@ -358,10 +358,10 @@ export const freeTools: FreeTool[] = [
       en: "Generate a clean robots.txt file with sitemap, private-path, and AI crawler directives.",
       ar: "أنشئ ملف robots.txt نظيفاً مع خريطة الموقع والمسارات الخاصة وتعليمات زواحف الذكاء الاصطناعي.",
     },
-    metaTitle: { en: "Robots.txt Generator Free", ar: "مولد robots.txt مجاناً" },
+    metaTitle: { en: "Robots.txt Generator", ar: "مولد robots.txt" },
     metaDescription: {
-      en: "Free robots.txt generator for SEO. Create crawler directives, add sitemap URLs, block private paths, and optionally allow reputable AI crawlers.",
-      ar: "مولد robots.txt مجاني للـ SEO. أنشئ تعليمات الزحف، أضف روابط خرائط الموقع، احجب المسارات الخاصة، واسمح اختيارياً لزواحف الذكاء الاصطناعي الموثوقة.",
+      en: "Robots.txt generator for SEO. Create crawler directives, add sitemap URLs, block private paths, and optionally allow reputable AI crawlers.",
+      ar: "مولد robots.txt للـ SEO. أنشئ تعليمات الزحف، أضف روابط خرائط الموقع، احجب المسارات الخاصة، واسمح اختيارياً لزواحف الذكاء الاصطناعي الموثوقة.",
     },
     quickAnswer: {
       en: "A robots.txt file tells crawlers which areas they can request. For most public SEO sites, the best default is to allow important pages, block private or duplicate paths, and include the final sitemap URL.",
@@ -398,7 +398,7 @@ export const freeTools: FreeTool[] = [
       en: "Paste page HTML and preview Open Graph and Twitter tags before sharing links on social platforms.",
       ar: "الصق HTML للصفحة وعاين وسوم Open Graph وTwitter قبل مشاركة الروابط على منصات التواصل.",
     },
-    metaTitle: { en: "Open Graph Checker Free", ar: "فاحص Open Graph مجاناً" },
+    metaTitle: { en: "Open Graph Checker", ar: "فاحص Open Graph" },
     metaDescription: {
       en: "Check Open Graph and Twitter card tags from pasted HTML. Preview social title, description, image, URL, and missing sharing metadata.",
       ar: "افحص وسوم Open Graph وTwitter Card من HTML ملصوق. عاين عنوان ووصف وصورة ورابط السوشيال والبيانات المفقودة.",
@@ -438,10 +438,10 @@ export const freeTools: FreeTool[] = [
       en: "Estimate monthly bandwidth from visits, page views, page size, and caching assumptions.",
       ar: "قدّر استهلاك البيانات الشهري من الزيارات ومشاهدات الصفحات وحجم الصفحة ونسبة التخزين المؤقت.",
     },
-    metaTitle: { en: "Website Bandwidth Calculator Free", ar: "حاسبة استهلاك بيانات الموقع مجاناً" },
+    metaTitle: { en: "Website Bandwidth Calculator", ar: "حاسبة استهلاك بيانات الموقع" },
     metaDescription: {
-      en: "Free website bandwidth calculator. Estimate monthly GB usage from visitors, page views per visit, average page size, and cache hit rate.",
-      ar: "حاسبة مجانية لاستهلاك بيانات الموقع. قدّر الاستخدام الشهري بالجيجابايت من الزوار ومشاهدات الصفحات وحجم الصفحة ومتوسط التخزين المؤقت.",
+      en: "Website bandwidth calculator. Estimate monthly GB usage from visitors, page views per visit, average page size, and cache hit rate.",
+      ar: "حاسبة لاستهلاك بيانات الموقع. قدّر الاستخدام الشهري بالجيجابايت من الزوار ومشاهدات الصفحات وحجم الصفحة ومتوسط التخزين المؤقت.",
     },
     quickAnswer: {
       en: "Bandwidth planning helps avoid slow pages, hosting surprises, and CDN limits as SEO traffic grows. The formula is monthly visitors multiplied by page views, average page size, and uncached delivery percentage.",
@@ -478,7 +478,7 @@ export const freeTools: FreeTool[] = [
       en: "Estimate website build cost in AED based on pages, languages, SEO landing pages, booking, and ecommerce scope.",
       ar: "قدّر تكلفة بناء الموقع بالدرهم بناءً على الصفحات واللغات وصفحات SEO والحجز والتجارة الإلكترونية.",
     },
-    metaTitle: { en: "Website Cost Calculator UAE Free", ar: "حاسبة تكلفة الموقع في الإمارات مجاناً" },
+    metaTitle: { en: "Website Cost Calculator UAE", ar: "حاسبة تكلفة الموقع في الإمارات" },
     metaDescription: {
       en: "Estimate website cost in AED for UAE and GCC projects. Calculate a planning range based on pages, bilingual content, SEO pages, ecommerce, and booking features.",
       ar: "قدّر تكلفة الموقع بالدرهم لمشاريع الإمارات والخليج. احسب نطاقاً تخطيطياً حسب الصفحات والمحتوى الثنائي وصفحات SEO والتجارة الإلكترونية والحجز.",
@@ -518,10 +518,10 @@ export const freeTools: FreeTool[] = [
       en: "Check video title, description, tags, target keyword, chapters, and CTA signals for better YouTube discovery.",
       ar: "افحص عنوان الفيديو والوصف والوسوم والكلمة المستهدفة والفصول ونداء الإجراء لتحسين اكتشاف يوتيوب.",
     },
-    metaTitle: { en: "YouTube Video SEO Checker Free", ar: "فاحص SEO لفيديو يوتيوب مجاناً" },
+    metaTitle: { en: "YouTube Video SEO Checker", ar: "فاحص SEO لفيديو يوتيوب" },
     metaDescription: {
-      en: "Free YouTube video SEO checker. Audit title length, keyword usage, description depth, tags, chapters, hashtags, and call-to-action signals.",
-      ar: "فاحص مجاني لـ SEO فيديو يوتيوب. دقّق طول العنوان واستخدام الكلمة المفتاحية وعمق الوصف والوسوم والفصول والهاشتاغ ونداء الإجراء.",
+      en: "YouTube video SEO checker. Audit title length, keyword usage, description depth, tags, chapters, hashtags, and call-to-action signals.",
+      ar: "فاحص لـ SEO فيديو يوتيوب. دقّق طول العنوان واستخدام الكلمة المفتاحية وعمق الوصف والوسوم والفصول والهاشتاغ ونداء الإجراء.",
     },
     quickAnswer: {
       en: "YouTube SEO works best when the title clearly matches the query, the description gives context, tags support the topic, and the video includes chapters or a strong call to action. This checker gives a quick optimization score before publishing.",

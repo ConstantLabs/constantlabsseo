@@ -55,7 +55,6 @@ export interface Facts {
   };
   currency: { base: string; usdPerAed: number; usdRoundTo: number; sarSameNumber: boolean };
   offers: FactsOffer[];
-  free: { id: string; label: string; detail: string; url: string }[];
   terms: { guarantees: string };
 }
 
@@ -85,8 +84,6 @@ export const seoTiers = {
   enterprise: getPrice("seo", "seo-enterprise"),
   dominance: getPrice("seo", "seo-dominance"),
 } as const;
-
-export const freeSeoAudit = facts.free.find((f) => f.id === "free-seo-audit");
 
 /* ── Currency ───────────────────────────────────────────────────────────────
    AED by default. Saudi visitors see the same number in SAR (not converted).

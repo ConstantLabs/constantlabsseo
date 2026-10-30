@@ -25,15 +25,15 @@ export const translations: TranslationMap = {
   "nav.tools": { en: "Tools", ar: "الأدوات" },
   "nav.contact": { en: "Contact", ar: "تواصل معنا" },
   "nav.faq": { en: "FAQ", ar: "الأسئلة الشائعة" },
-  "nav.audit": { en: "Get Free Audit", ar: "تدقيق مجاني" },
+  "nav.audit": { en: "SEO Audit", ar: "تدقيق SEO" },
 
   // ─── Audit Page ─────────────────────────────────────────────
-  "audit.seo.title": { en: "Free SEO Audit, ConstantSEO", ar: "تدقيق SEO مجاني، ConstantSEO" },
+  "audit.seo.title": { en: "SEO Audit, ConstantSEO", ar: "تدقيق SEO، ConstantSEO" },
   "audit.seo.description": {
     en: "Review selected technical, metadata, and search signals for your website with ConstantSEO.",
     ar: "راجع مجموعة من الإشارات التقنية وبيانات الميتا وإشارات البحث لموقعك مع ConstantSEO."
   },
-  "audit.hero.title": { en: "Free SEO Audit", ar: "تدقيق SEO مجاني" },
+  "audit.hero.title": { en: "SEO Audit", ar: "تدقيق SEO" },
   "audit.hero.subtitle": {
     en: "Get your SEO score in seconds. Enter your website below.",
     ar: "احصل على تقييم SEO خلال ثوانٍ. أدخل موقعك أدناه."
@@ -56,10 +56,10 @@ export const translations: TranslationMap = {
     ar: "تعذر تحليل هذا الرابط. تأكد من أنه متاح للعامة وحاول مرة أخرى."
   },
   "audit.error.retry": { en: "Try Again", ar: "حاول مرة أخرى" },
-  "audit.deep.title": { en: "Want the Full Picture?", ar: "تريد الصورة الكاملة؟" },
+  "audit.deep.title": { en: "Discuss an SEO Review", ar: "ناقش مراجعة SEO" },
   "audit.deep.subtitle": {
-    en: "Share your details for a deeper review of technical SEO, content quality, competitor context, and practical next steps.",
-    ar: "شارك بياناتك لمراجعة أعمق تشمل SEO التقني وجودة المحتوى وسياق المنافسين والخطوات العملية التالية."
+    en: "Tell us about your website and contact us to agree on the scope of an SEO review.",
+    ar: "أخبرنا عن موقعك وتواصل معنا للاتفاق على نطاق مراجعة SEO."
   },
   "audit.deep.name": { en: "Your Name", ar: "اسمك" },
   "audit.deep.namePlaceholder": { en: "Full name", ar: "الاسم الكامل" },
@@ -67,10 +67,10 @@ export const translations: TranslationMap = {
   "audit.deep.emailPlaceholder": { en: "you@company.com", ar: "you@company.com" },
   "audit.deep.website": { en: "Website URL", ar: "رابط الموقع" },
   "audit.deep.websitePlaceholder": { en: "https://yoursite.com", ar: "https://yoursite.com" },
-  "audit.deep.submit": { en: "Request Free Deep Audit", ar: "اطلب تدقيقاً شاملاً مجانياً" },
+  "audit.deep.submit": { en: "Prepare Your Enquiry", ar: "جهّز استفسارك" },
   "audit.deep.success": {
-    en: "Your details are ready. Contact us by WhatsApp or email to continue the review.",
-    ar: "بياناتك جاهزة. تواصل معنا عبر واتساب أو البريد الإلكتروني لمتابعة المراجعة."
+    en: "Send your enquiry by WhatsApp or email to discuss the scope of an SEO review.",
+    ar: "أرسل استفسارك عبر واتساب أو البريد الإلكتروني لمناقشة نطاق مراجعة SEO."
   },
 
   // ─── Hero (new keys used by redesigned pages) ──────────────
@@ -80,7 +80,7 @@ export const translations: TranslationMap = {
     ar: "SEO بالذكاء الاصطناعي يملأ هاتفك بالمكالمات وعملك بالعملاء - على Google وChatGPT وGemini وكل مكان يبحث فيه عملاؤك."
   },
   "hero.inputPlaceholder": { en: "Enter your website...", ar: "أدخل موقعك الإلكتروني..." },
-  "hero.cta": { en: "Get Free Audit", ar: "احصل على تدقيق مجاني" },
+  "hero.cta": { en: "Run SEO Audit", ar: "ابدأ تدقيق SEO" },
   "hero.platforms": { en: "Optimized for all AI platforms", ar: "محسّن لجميع منصات الذكاء الاصطناعي" },
   "hero.stat1.number": { en: "50+", ar: "+50" },
   "hero.stat1.label": { en: "Pages Deployed per Site", ar: "صفحة لكل موقع" },
@@ -94,10 +94,10 @@ export const translations: TranslationMap = {
   // ─── Hero (legacy keys still used by Index.tsx) ─────────────
   "hero.tagline": { en: "Rank Higher. Get More Customers.", ar: "تصدّر أعلى. اجذب عملاء أكثر." },
 
-  "hero.freeConsultation": { en: "Free AI Audit - see where you stand", ar: "تدقيق مجاني بالذكاء الاصطناعي - اعرف وضعك الحالي" },
+  "hero.freeConsultation": { en: "AI SEO Audit - see where you stand", ar: "تدقيق SEO بالذكاء الاصطناعي - اعرف وضعك الحالي" },
   "hero.viewServices": { en: "[OUR_SERVICES]", ar: "[خدماتنا]" },
-  "hero.contact": { en: "[GET_FREE_AUDIT]", ar: "[احصل على تدقيق مجاني]" },
-  "hero.cta.audit": { en: "Get Free AI Audit", ar: "احصل على تدقيق مجاني" },
+  "hero.contact": { en: "[SEO_AUDIT]", ar: "[تدقيق SEO]" },
+  "hero.cta.audit": { en: "Run SEO Audit", ar: "ابدأ تدقيق SEO" },
   "hero.cta.call": { en: "Book Strategy Call", ar: "احجز استشارة" },
 
   // ─── Client Logos ───────────────────────────────────────────
@@ -218,10 +218,10 @@ export const translations: TranslationMap = {
   "home.cta.rail4": { en: "No pitch, and no follow-up unless you ask for one", ar: "بدون عرض بيع، وبدون متابعة إلا إذا طلبتها" },
   "home.cta.guaranteeLabel": { en: "Our guarantee", ar: "ضماننا" },
   "home.cta.guarantee": { en: "If we do not think we can help, we will tell you so and point you at someone who can.", ar: "إذا لم نعتقد أننا نستطيع المساعدة، سنقول لك ذلك ونرشدك إلى من يستطيع." },
-  "home.booking.eyebrow": { en: "Book a working session", ar: "احجز جلسة عمل" },
+  "home.booking.eyebrow": { en: "Discuss your SEO project", ar: "ناقش مشروع SEO الخاص بك" },
   "home.booking.title": { en: "A useful *next conversation.*", ar: "محادثة *تالية مفيدة.*" },
   "home.booking.panelTitle": { en: "Bring the search question.", ar: "أحضر سؤال البحث." },
-  "home.booking.panelCopy": { en: "We will use the time to understand your current search presence and the most useful next investigation.", ar: "سنستخدم الوقت لفهم حضورك الحالي في البحث وأفضل تحقيق تالٍ مفيد." },
+  "home.booking.panelCopy": { en: "Share your website, goals, and priorities so we can discuss the scope of work.", ar: "شارك موقعك وأهدافك وأولوياتك لنناقش نطاق العمل." },
   "whatsapp.ariaLabel": { en: "Chat on WhatsApp", ar: "تواصل عبر واتساب" },
   "whatsapp.tooltip": { en: "Chat on WhatsApp", ar: "تواصل عبر واتساب" },
 
@@ -475,11 +475,10 @@ export const translations: TranslationMap = {
 
   "pricing.dominance.name": { en: "Dominance", ar: "الهيمنة" },
   "pricing.dominance.price": { en: formatPrice(seoTiers.dominance.aed), ar: formatPrice(seoTiers.dominance.aed, { lang: "ar" }) },
-  "pricing.dominance.desc": { en: "Everything in Enterprise, plus we build and maintain the website the rankings land on", ar: "كل ما في الباقة المؤسسية، بالإضافة إلى بناء وصيانة الموقع الذي تصل إليه النتائج" },
+  "pricing.dominance.desc": { en: "Everything in Enterprise, plus we build the website the rankings land on", ar: "كل ما في الباقة المؤسسية، بالإضافة إلى بناء الموقع الذي تصل إليه النتائج" },
   "pricing.dominance.f1": { en: "Everything in Enterprise", ar: "كل ما في الباقة المؤسسية" },
-  "pricing.dominance.f2": { en: "A new website, built and included — not billed separately", ar: "موقع جديد، مبني ومشمول — بدون فاتورة منفصلة" },
+  "pricing.dominance.f2": { en: "Website build included in the plan", ar: "بناء الموقع ضمن الباقة" },
   "pricing.dominance.f3": { en: "Conversion-built design, so the traffic turns into enquiries", ar: "تصميم مبني على التحويل، لتحوّل الزيارات إلى استفسارات" },
-  "pricing.dominance.f4": { en: "Hosting, maintenance, and content updates handled", ar: "الاستضافة والصيانة وتحديثات المحتوى مُدارة بالكامل" },
   "pricing.dominance.f5": { en: "Bilingual build, Arabic and English as one system", ar: "بناء ثنائي اللغة، العربية والإنجليزية كنظام واحد" },
   "pricing.dominance.f6": { en: "Quarterly strategy review with the founder", ar: "مراجعة استراتيجية ربع سنوية مع المؤسس" },
   "pricing.dominance.studioNote": { en: "The website is built by our sister studio", ar: "الموقع يُبنى بواسطة استوديو الويب التابع لنا" },
@@ -559,11 +558,8 @@ export const translations: TranslationMap = {
     ar: "بالتأكيد. لدينا متحدثون عرب أصليون ينشئون محتوى عربي أصيل، ويجرون بحث كلمات مفتاحية بالعربية، ويحسّنون لاستعلامات البحث العربية. فريقنا يفهم اللهجة الخليجية وثقافة الأعمال."
   },
 
-  "faq6.q": { en: "What's included in the free audit?", ar: "ماذا يشمل التدقيق المجاني؟" },
-  "faq6.a": {
-    en: "Our free audit includes a technical SEO analysis, competitor comparison, keyword opportunity report, AI search visibility check, and a prioritized action plan. It's a comprehensive overview of where you stand and what needs to be done.",
-    ar: "يشمل تدقيقنا المجاني تحليل SEO تقني، مقارنة مع المنافسين، تقرير فرص الكلمات المفتاحية، فحص ظهور بحث الذكاء الاصطناعي، وخطة عمل مرتبة حسب الأولوية."
-  },
+  "faq6.q": { en: "What does an SEO review cover?", ar: "ماذا تشمل مراجعة SEO؟" },
+  "faq6.a": { en: "An SEO review can cover technical issues, competitors, keyword opportunities, and AI search visibility. Contact us to discuss your website and agree on the review scope.", ar: "يمكن أن تشمل مراجعة SEO المشاكل التقنية والمنافسين وفرص الكلمات المفتاحية والظهور في بحث الذكاء الاصطناعي. تواصل معنا لمناقشة موقعك والاتفاق على نطاق المراجعة." },
 
   "faq7.q": { en: "Do you require long-term contracts?", ar: "هل تتطلبون عقوداً طويلة الأمد؟" },
   "faq7.a": {
@@ -579,14 +575,11 @@ export const translations: TranslationMap = {
 
   // ─── CTA Section ────────────────────────────────────────────
   "cta.title": { en: "Ready to Get More Customers From Search?", ar: "مستعد لجذب عملاء أكثر من البحث؟" },
-  "cta.subtitle": {
-    en: "Get a free AI SEO audit - see exactly how many customers you're losing to competitors right now, and how to win them back.",
-    ar: "احصل على تدقيق SEO مجاني بالذكاء الاصطناعي - اعرف كم من العملاء تخسرهم للمنافسين الآن وكيف تستعيدهم."
-  },
+  "cta.subtitle": { en: "Review your website's SEO signals, then talk to us about priorities, scope, and the next steps for your business.", ar: "راجع إشارات SEO لموقعك، ثم تواصل معنا لمناقشة الأولويات والنطاق والخطوات التالية لعملك." },
   "cta.emailPlaceholder": { en: "Enter your email...", ar: "أدخل بريدك الإلكتروني..." },
-  "cta.button": { en: "Get Your Free Audit", ar: "احصل على تدقيقك المجاني" },
+  "cta.button": { en: "Run SEO Audit", ar: "ابدأ تدقيق SEO" },
   "cta.whatsapp": { en: "Or chat with us on WhatsApp", ar: "أو تواصل معنا عبر واتساب" },
-  "cta.freeAudit": { en: "Get Free AI Audit", ar: "احصل على تدقيق مجاني" },
+  "cta.freeAudit": { en: "Run SEO Audit", ar: "ابدأ تدقيق SEO" },
   "cta.bookCall": { en: "Book Strategy Call", ar: "احجز استشارة" },
   "cta.getStarted": { en: "Get Started", ar: "ابدأ الآن" },
   "cta.learnMore": { en: "Learn More", ar: "اعرف أكثر" },
@@ -595,29 +588,23 @@ export const translations: TranslationMap = {
 
   // ─── Calendly / Booking (used by CalendlySection.tsx) ───────
   "calendly.title": { en: "[BOOK_A_CALL]", ar: "[احجز استشارة]" },
-  "calendly.subtitle": {
-    en: "// Schedule a free strategy call to discuss your SEO goals.",
-    ar: "// احجز استشارة مجانية لمناقشة أهدافك في تحسين محركات البحث."
-  },
-  "calendly.free": { en: "100% FREE", ar: "مجانية 100%" },
+  "calendly.subtitle": { en: "// Schedule a strategy call to discuss your SEO goals.", ar: "// احجز مكالمة استراتيجية لمناقشة أهدافك في تحسين محركات البحث." },
+  "calendly.free": { en: "Discuss Your SEO Project", ar: "ناقش مشروع SEO الخاص بك" },
 
   // ─── ZCal Booking Section ─────────────────────────────────────
-  "zcal.title": { en: "Let's Help You Out Right Now For Free", ar: "دعنا نساعدك الآن مجاناً" },
-  "zcal.subtitle": {
-    en: "Book a quick 30-min call to get actionable SEO advice. No strings attached.",
-    ar: "احجز مكالمة سريعة لمدة 30 دقيقة للحصول على نصائح SEO قابلة للتنفيذ. بدون أي التزام."
-  },
-  "zcal.bookNow": { en: "Book Free Consultation", ar: "احجز استشارة مجانية" },
+  "zcal.title": { en: "Let's Discuss Your SEO Project", ar: "لنناقش مشروع SEO الخاص بك" },
+  "zcal.subtitle": { en: "Tell us about your website, SEO goals, and project scope.", ar: "أخبرنا عن موقعك وأهداف SEO ونطاق المشروع." },
+  "zcal.bookNow": { en: "Discuss Your Project", ar: "ناقش مشروعك" },
   "zcal.whatsapp": { en: "Or chat on WhatsApp", ar: "أو تواصل عبر واتساب" },
   "zcal.email": { en: "Or email us", ar: "أو راسلنا" },
-  "zcal.emailSubject": { en: "Free SEO Consultation Request", ar: "طلب استشارة SEO مجانية" },
+  "zcal.emailSubject": { en: "SEO Project Enquiry", ar: "استفسار عن مشروع SEO" },
   "zcal.openCalendar": { en: "Open Calendar", ar: "افتح التقويم" },
   "zcal.loading": { en: "Loading booking calendar", ar: "جارٍ تحميل تقويم الحجز" },
   "zcal.iframeTitle": { en: "Book a consultation with ConstantSEO", ar: "احجز استشارة مع ConstantSEO" },
   "zcal.fallback": { en: "Use WhatsApp or email below, or return and try the calendar again.", ar: "استخدم واتساب أو البريد أدناه، أو ارجع وحاول فتح التقويم مرة أخرى." },
   "zcal.back": { en: "Back", ar: "رجوع" },
   "zcal.widgetFailed": { en: "Unable to load the booking widget", ar: "تعذر تحميل أداة الحجز" },
-  "zcal.note": { en: "✓ No commitment  ✓ Real answers  ✓ Actionable advice", ar: "✓ بدون التزام  ✓ إجابة حقيقية  ✓ نصائح عملية" },
+  "zcal.note": { en: "Website review · SEO goals · Project scope", ar: "مراجعة الموقع · أهداف SEO · نطاق المشروع" },
   "zcal.emoji": { en: "⚡", ar: "⚡" },
 
   // ─── Featured Work (used by Index.tsx) ──────────────────────
@@ -659,14 +646,11 @@ export const translations: TranslationMap = {
   // ─── Contact (used by Index.tsx) ────────────────────────────
   "contact.title": { en: "[GET_IN_TOUCH]", ar: "[تواصل معنا]" },
   "contact.subtitle": { en: "// Let's discuss your search strategy", ar: "// خلنا نناقش استراتيجية البحث حقتك" },
-  "contact.cta": {
-    en: "Ready to dominate search in the GCC? Get your free AI audit today.",
-    ar: "جاهز تتصدر نتائج البحث في الخليج؟ احصل على تدقيقك المجاني اليوم."
-  },
+  "contact.cta": { en: "Planning your search strategy in the GCC? Tell us about your website and SEO goals.", ar: "تخطط لاستراتيجية بحث في الخليج؟ أخبرنا عن موقعك وأهداف SEO الخاصة بك." },
   "contact.email": { en: "[EMAIL]", ar: "[إيميل]" },
   "contact.whatsapp": { en: "[WHATSAPP]", ar: "[واتساب]" },
   "contact.encrypted": { en: "[SECURE_CHANNEL]", ar: "[قناة آمنة]" },
-  "contact.secureLine": { en: "[GET_FREE_AUDIT]", ar: "[احصل على تدقيق مجاني]" },
+  "contact.secureLine": { en: "[DISCUSS_YOUR_PROJECT]", ar: "[ناقش مشروعك]" },
   "contact.location": { en: "Dubai, United Arab Emirates", ar: "دبي، الإمارات العربية المتحدة" },
 
   // ─── Footer (used by Index.tsx and new pages) ───────────────
@@ -692,7 +676,7 @@ export const translations: TranslationMap = {
   "footer.caseStudies": { en: "Case Studies", ar: "دراسات حالة" },
   "footer.seoGuide": { en: "SEO Guide", ar: "دليل SEO" },
   "footer.aiSearchGuide": { en: "AI Search Guide", ar: "دليل بحث AI" },
-  "footer.freeTools": { en: "Free Tools", ar: "أدوات مجانية" },
+  "footer.freeTools": { en: "SEO Tools", ar: "أدوات SEO" },
   "footer.email": { en: CONTACT_EMAIL, ar: CONTACT_EMAIL },
   "footer.phone": { en: CONTACT_PHONE_DISPLAY, ar: CONTACT_PHONE_DISPLAY },
   "footer.partOf": { en: "Part of Constant Labs", ar: "جزء من Constant Labs" },
@@ -740,7 +724,7 @@ export const translations: TranslationMap = {
     ar: "تحسين البحث بالذكاء الاصطناعي يتراكم مع الوقت. كل ما بديت أبكر، كل ما صعب على منافسينك يلحقونك."
   },
   "privateAI.useCases.title": { en: "USE CASES", ar: "حالات الاستخدام" },
-  "privateAI.cta": { en: "Get Your Free AI Audit", ar: "احصل على تدقيقك المجاني" },
+  "privateAI.cta": { en: "Discuss Your SEO Project", ar: "ناقش مشروع SEO الخاص بك" },
 
   "customAgents.hero.title": { en: "Arabic Content Strategy", ar: "استراتيجية المحتوى العربي" },
   "customAgents.hero.subtitle": {
@@ -759,7 +743,7 @@ export const translations: TranslationMap = {
 
   // ─── City Landing Pages ──────────────────────────────────────
   "cityPage.breadcrumb.services": { en: "SEO Services", ar: "خدمات SEO" },
-  "cityPage.cta.audit": { en: "Get Free Audit", ar: "احصل على تدقيق مجاني" },
+  "cityPage.cta.audit": { en: "Run SEO Audit", ar: "ابدأ تدقيق SEO" },
   "cityPage.cta.services": { en: "View Services", ar: "عرض الخدمات" },
   "cityPage.hero.sub": { en: "Technical foundations, local discovery, bilingual content, structured data, and AI-answer visibility planned as one search system.", ar: "أسس تقنية واكتشاف محلي ومحتوى ثنائي اللغة وبيانات منظمة وظهور في إجابات الذكاء الاصطناعي ضمن نظام بحث واحد." },
   "cityPage.opportunity.label": { en: "Local Opportunity", ar: "الفرصة المحلية" },
@@ -812,7 +796,7 @@ export const translations: TranslationMap = {
 
   // ─── Industry Landing Pages ──────────────────────────────────
   "industryPage.breadcrumb.services": { en: "Services", ar: "الخدمات" },
-  "industryPage.cta.audit": { en: "Get Free SEO Audit", ar: "احصل على تدقيق SEO مجاني" },
+  "industryPage.cta.audit": { en: "Run SEO Audit", ar: "ابدأ تدقيق SEO" },
   "industryPage.cta.whatsapp": { en: "WhatsApp Us", ar: "تواصل عبر واتساب" },
   "industryPage.hero.sub": { en: "Technical foundations, useful sector content, local entities, structured data, and bilingual coverage planned as one search system.", ar: "أسس تقنية ومحتوى قطاعي مفيد وكيانات محلية وبيانات منظمة وتغطية ثنائية اللغة ضمن نظام بحث واحد." },
   "industryPage.pain.label": { en: "Why This Is Hard", ar: "لماذا هذا صعب" },

@@ -70,7 +70,7 @@ const Tools = () => {
   const itemListSchema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    name: isAr ? "أدوات SEO المجانية من ConstantSEO" : "ConstantSEO Free SEO Tools",
+    name: isAr ? "أدوات SEO من ConstantSEO" : "ConstantSEO SEO Tools",
     itemListElement: freeTools.map((tool, index) => ({
       "@type": "ListItem",
       position: index + 1,
@@ -85,18 +85,18 @@ const Tools = () => {
     mainEntity: [
       {
         "@type": "Question",
-        name: isAr ? "ما أدوات SEO المجانية التي تقدمها ConstantSEO؟" : "What free SEO tools does ConstantSEO offer?",
+        name: isAr ? "ما أدوات SEO التي تقدمها ConstantSEO؟" : "What SEO tools does ConstantSEO offer?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: isAr ? "تقدم ConstantSEO أدوات مجانية لبيانات الميتا والعناوين وخرائط الموقع وrobots.txt وFAQ Schema وOpen Graph وتكلفة الموقع واستهلاك البيانات وSEO يوتيوب." : "ConstantSEO offers free metadata, heading, sitemap, robots.txt, FAQ schema, Open Graph, website cost, bandwidth, and YouTube SEO tools for marketers and business owners.",
+          text: isAr ? "تقدم ConstantSEO أدوات لبيانات الميتا والعناوين وخرائط الموقع وrobots.txt وFAQ Schema وOpen Graph وتكلفة الموقع واستهلاك البيانات وSEO يوتيوب." : "ConstantSEO offers metadata, heading, sitemap, robots.txt, FAQ schema, Open Graph, website cost, bandwidth, and YouTube SEO tools for marketers and business owners.",
         },
       },
       {
         "@type": "Question",
-        name: isAr ? "كيف تساعد أدوات SEO المجانية؟" : "How do free tools help SEO?",
+        name: isAr ? "كيف تساعد أدوات SEO؟" : "How do these tools help SEO?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: isAr ? "تساعد الأدوات المجانية في فحص إشارات محددة وفهم المشاكل وإنشاء مسار واضح نحو المراجعات والخدمات المناسبة." : "Free tools help inspect specific signals, understand issues, and create a clear path to relevant reviews and services.",
+          text: isAr ? "تساعد الأدوات في فحص إشارات محددة وفهم المشاكل وإنشاء مسار واضح نحو المراجعات والخدمات المناسبة." : "These tools help inspect specific signals, understand issues, and create a clear path to relevant reviews and services.",
         },
       },
     ],
@@ -105,8 +105,8 @@ const Tools = () => {
   return (
     <div className="min-h-screen bg-paper text-ink" dir={isAr ? "rtl" : "ltr"}>
       <SEO
-        title={isAr ? "أدوات SEO مجانية لمسوقي الخليج" : "Free SEO Tools for GCC Marketers"}
-        description={isAr ? "استخدم أدوات ConstantSEO المجانية لفحص بيانات الميتا والعناوين وخرائط الموقع وFAQ Schema وrobots.txt وOpen Graph واستهلاك البيانات والتكلفة وSEO يوتيوب." : "Use ConstantSEO's free SEO tools to check meta tags, headings, sitemaps, FAQ schema, robots.txt, Open Graph previews, website bandwidth, cost, and YouTube SEO."}
+        title={isAr ? "أدوات SEO لمسوقي الخليج" : "SEO Tools for GCC Marketers"}
+        description={isAr ? "استخدم أدوات ConstantSEO لفحص بيانات الميتا والعناوين وخرائط الموقع وFAQ Schema وrobots.txt وOpen Graph واستهلاك البيانات والتكلفة وSEO يوتيوب." : "Use ConstantSEO's SEO tools to check meta tags, headings, sitemaps, FAQ schema, robots.txt, Open Graph previews, website bandwidth, cost, and YouTube SEO."}
         path="/tools"
         breadcrumbs={[{ name: getLocalizedText(toolUiCopy.allTools, isAr), path: "/tools" }]}
       />

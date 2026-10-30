@@ -5,7 +5,8 @@
  * contact, hours, offers and prices across constantlabs.ai, websites. and seo.
  * This script fetches it and writes src/data/facts.json, which the app, the
  * JSON-LD and llms.txt all read. If the fetch fails (offline, URL not live yet,
- * bad JSON, missing fields) the committed copy is kept and the build goes on.
+ * bad JSON, missing fields, or an older revision) the committed copy is kept.
+ * A stale remote must not restore offers removed by a newer committed revision.
  * Either way it logs which copy the build used.
  *
  * Run: node scripts/sync-facts.mjs   (the build runs it first)
@@ -24,6 +25,7 @@ const TIMEOUT_MS = 8000;
 export function validateFacts(facts) {
   const problems = [];
   if (!facts || typeof facts !== "object") return ["not an object"];
+  if (typeof facts.updated !== "string" || !Number.isFinite(Date.parse(facts.updated))) problems.push("updated");
   if (!facts.brand?.name) problems.push("brand.name");
   if (!facts.contact?.email) problems.push("contact.email");
   if (!facts.contact?.phone) problems.push("contact.phone");
@@ -64,6 +66,9 @@ async function run() {
 
   try {
     const remote = await fetchRemote();
+    if (Date.parse(remote.updated) < Date.parse(local.updated)) {
+      throw new Error(`remote revision ${remote.updated} is older than committed ${local.updated}`);
+    }
     const next = `${JSON.stringify(remote, null, 2)}\n`;
     if (next !== readFileSync(LOCAL, "utf-8")) writeFileSync(LOCAL, next);
     console.log(`[facts] using REMOTE ${REMOTE} (updated ${remote.updated ?? "?"})`);

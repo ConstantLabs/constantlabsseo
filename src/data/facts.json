@@ -1,6 +1,6 @@
 {
   "$comment": "The one source of truth for Constant Labs business facts: name, contact, hours, team, offers and prices. constantlabs.ai, websites.constantlabs.ai and seo.constantlabs.ai all build from this file, as do the schema and every llms.txt. Change a fact here and nowhere else. Published at https://constantlabs.ai/facts.json so answer engines can read it directly.",
-  "updated": "2026-10-18",
+  "updated": "2026-10-30",
   "brand": {
     "name": "Constant Labs",
     "nameAr": "كونستانت لابز",
@@ -127,7 +127,7 @@
       "name": "Websites",
       "nameAr": "المواقع الإلكترونية",
       "url": "https://websites.constantlabs.ai/",
-      "summary": "A website built to get found: the site, Google Maps setup, and the first month of SEO and support included.",
+      "summary": "A custom website built to get found, with mobile-first design and Google Maps setup.",
       "prices": [
         {
           "id": "website-standard",
@@ -136,9 +136,7 @@
           "billing": "one-time",
           "includes": [
             "Custom-designed, mobile-first website",
-            "Google Maps and Business Profile setup",
-            "First month of SEO free",
-            "First month of support and small edits free"
+            "Google Maps and Business Profile setup"
           ]
         },
         {
@@ -180,10 +178,6 @@
           "aed": 5000,
           "billing": "one-time",
           "from": true,
-          "then": {
-            "aed": 500,
-            "billing": "monthly"
-          },
           "conditions": [
             "Shopify plan and apps are billed by Shopify"
           ]
@@ -193,28 +187,8 @@
           "label": "Shopify store, 20+ products",
           "aed": 7500,
           "billing": "one-time",
-          "then": {
-            "aed": 750,
-            "billing": "monthly"
-          },
           "conditions": [
             "Shopify plan and apps are billed by Shopify"
-          ]
-        },
-        {
-          "id": "website-care",
-          "label": "Website care",
-          "aed": 500,
-          "billing": "monthly",
-          "includes": [
-            "Up to 2 hours of small edits a month",
-            "Uptime and bug fixes",
-            "Priority WhatsApp support"
-          ],
-          "conditions": [
-            "Optional after month one",
-            "Month to month",
-            "Unused time does not roll over"
           ]
         }
       ]
@@ -274,7 +248,7 @@
           "billing": "monthly",
           "includes": [
             "Everything in Enterprise",
-            "A new website, built and maintained, included",
+            "A new website, built as part of the plan",
             "Quarterly review with the founder"
           ]
         }
@@ -546,26 +520,6 @@
           "toAed": 50000
         }
       ]
-    }
-  ],
-  "free": [
-    {
-      "id": "free-hour",
-      "label": "Free hour",
-      "detail": "60 minutes, one to one, online or in Dubai. We build your first AI agent in your own tools and you keep it.",
-      "url": "https://constantlabs.ai/#offer"
-    },
-    {
-      "id": "free-website-preview",
-      "label": "Free website preview",
-      "detail": "We build a working preview of your new site before you pay. If you don't want it, you owe nothing.",
-      "url": "https://websites.constantlabs.ai/"
-    },
-    {
-      "id": "free-seo-audit",
-      "label": "Free SEO audit",
-      "detail": "Technical analysis, competitor comparison, keyword report and AI-visibility check.",
-      "url": "https://seo.constantlabs.ai/"
     }
   ],
   "terms": {

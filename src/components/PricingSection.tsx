@@ -70,7 +70,6 @@ const tiers: PricingTier[] = [
       "pricing.dominance.f1",
       "pricing.dominance.f2",
       "pricing.dominance.f3",
-      "pricing.dominance.f4",
       "pricing.dominance.f5",
       "pricing.dominance.f6",
     ],

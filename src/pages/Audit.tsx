@@ -174,6 +174,9 @@ const Audit = () => {
 
   const [form, setForm] = useState({ name: "", email: "", website: "" });
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const enquiryMessage = isAr
+    ? `أرغب في مناقشة نطاق مراجعة SEO.\n\nالاسم: ${form.name}\nالبريد الإلكتروني: ${form.email}\nالموقع: ${form.website}`
+    : `I'd like to discuss the scope of an SEO review.\n\nName: ${form.name}\nEmail: ${form.email}\nWebsite: ${form.website}`;
 
   useEffect(() => {
     if (!scanning) return;
@@ -208,12 +211,6 @@ const Audit = () => {
 
   const handleDeepAudit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("[Deep Audit Request]", {
-      name: form.name,
-      email: form.email,
-      website: form.website,
-      timestamp: new Date().toISOString(),
-    });
     setFormSubmitted(true);
   };
 
@@ -412,8 +409,8 @@ const Audit = () => {
                 {t("audit.deep.success")}
               </p>
               <div className="mt-5 flex flex-wrap justify-center gap-3">
-                <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="border border-ink bg-ink px-4 py-2 text-sm font-bold text-paper hover:bg-lime hover:text-ink">{t("zcal.whatsapp")}</a>
-                <a href={`mailto:${CONTACT_EMAIL}`} className="border border-ink px-4 py-2 text-sm font-bold text-ink hover:bg-ink hover:text-paper">{t("zcal.email")}</a>
+                <a href={`${WHATSAPP_URL}?text=${encodeURIComponent(enquiryMessage)}`} target="_blank" rel="noreferrer" className="border border-ink bg-ink px-4 py-2 text-sm font-bold text-paper hover:bg-lime hover:text-ink">{t("zcal.whatsapp")}</a>
+                <a href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(t("zcal.emailSubject"))}&body=${encodeURIComponent(enquiryMessage)}`} className="border border-ink px-4 py-2 text-sm font-bold text-ink hover:bg-ink hover:text-paper">{t("zcal.email")}</a>
               </div>
             </motion.div>
           ) : (

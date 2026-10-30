@@ -975,7 +975,7 @@ function CostCalculator({ isAr }: { isAr: boolean }) {
 function YouTubeSeoChecker({ isAr }: { isAr: boolean }) {
   const [keyword, setKeyword] = useState("seo dubai");
   const [title, setTitle] = useState("SEO Dubai: How to Rank Your Business in 2026");
-  const [description, setDescription] = useState("Learn how Dubai businesses can improve Google rankings with technical SEO, Arabic content, local SEO, and AI search optimization. Book a free audit with ConstantSEO.");
+  const [description, setDescription] = useState("Learn how Dubai businesses can improve Google rankings with technical SEO, Arabic content, local SEO, and AI search optimization. Discuss your SEO project with ConstantSEO.");
   const [tags, setTags] = useState("seo dubai, local seo uae, arabic seo, google rankings");
   const [hasChapters, setHasChapters] = useState(true);
 
@@ -1107,11 +1107,6 @@ const ToolDetail = () => {
     applicationCategory: "SEOApplication",
     operatingSystem: "Web",
     description: metaDescription,
-    offers: {
-      "@type": "Offer",
-      price: "0",
-      priceCurrency: "AED",
-    },
     provider: {
       "@type": "Organization",
       name: "ConstantSEO",
