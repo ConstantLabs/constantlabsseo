@@ -38,7 +38,7 @@ const constantSeo = {
   alternateName: legal.productName,
   url: seoProperty.url,
   logo: `${SITE_URL}/favicon-192x192.png`,
-  image: `${SITE_URL}/og-image.png`,
+  image: `${SITE_URL}/og-image-20261030.png`,
   description: seoOffer.summary,
   parentOrganization: { "@id": ORGANIZATION_ID },
   telephone: facts.contact.phone,

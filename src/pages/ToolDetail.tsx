@@ -84,7 +84,7 @@ const sampleHtml = `<html lang="en">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta property="og:title" content="SEO Agency Dubai - ConstantSEO">
   <meta property="og:description" content="Rank higher across Google and AI search in Dubai.">
-  <meta property="og:image" content="https://seo.constantlabs.ai/og-image.png">
+  <meta property="og:image" content="https://seo.constantlabs.ai/og-image-20261030.png">
   <meta property="og:url" content="https://seo.constantlabs.ai/seo-agency-dubai">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">

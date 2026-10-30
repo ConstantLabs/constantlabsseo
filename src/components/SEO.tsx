@@ -18,7 +18,7 @@ interface SEOProps {
 }
 
 const BASE_URL = 'https://seo.constantlabs.ai';
-const DEFAULT_IMAGE = `${BASE_URL}/og-image.png`;
+const DEFAULT_IMAGE = `${BASE_URL}/og-image-20261030.png`;
 
 export const SEO = ({
   title,
