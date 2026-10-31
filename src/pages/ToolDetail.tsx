@@ -906,17 +906,19 @@ function BandwidthCalculator({ isAr }: { isAr: boolean }) {
   );
 }
 
-function CostCalculator({ isAr }: { isAr: boolean }) {
+function WebsiteScopePlanner({ isAr }: { isAr: boolean }) {
   const [pages, setPages] = useState(8);
   const [seoPages, setSeoPages] = useState(20);
   const [languages, setLanguages] = useState(2);
   const [ecommerce, setEcommerce] = useState(false);
   const [booking, setBooking] = useState(true);
-
-  const base = 2500;
-  const estimate = base + pages * 350 + seoPages * 180 + Math.max(0, languages - 1) * (pages + seoPages) * 120 + (ecommerce ? 4500 : 0) + (booking ? 1500 : 0);
-  const low = Math.round(estimate * 0.85 / 100) * 100;
-  const high = Math.round(estimate * 1.25 / 100) * 100;
+  const scopeSummary = [
+    `${tx(isAr, "Core pages", "الصفحات الأساسية")}: ${pages}`,
+    `${tx(isAr, "SEO landing pages", "صفحات هبوط SEO")}: ${seoPages}`,
+    `${tx(isAr, "Languages", "اللغات")}: ${languages}`,
+    `${tx(isAr, "Booking or lead forms", "الحجز أو نماذج العملاء")}: ${tx(isAr, booking ? "Yes" : "No", booking ? "نعم" : "لا")}`,
+    `${tx(isAr, "Ecommerce", "التجارة الإلكترونية")}: ${tx(isAr, ecommerce ? "Yes" : "No", ecommerce ? "نعم" : "لا")}`,
+  ].join("\n");
 
   return (
     <ToolShell
@@ -924,16 +926,15 @@ function CostCalculator({ isAr }: { isAr: boolean }) {
       output={
         <div className="space-y-5">
           <div className="border border-line bg-paper p-5">
-            <p className="text-sm font-semibold text-ink/70">{tx(isAr, "Planning range", "النطاق التخطيطي")}</p>
-            <p className="mt-2 text-4xl font-extrabold text-ink" dir="ltr">
-              AED {low.toLocaleString()} - {high.toLocaleString()}
-            </p>
-            <p className="mt-3 text-sm text-ink/70">
-              {tx(isAr, "This is a planning estimate for scope discussion, not a final quote.", "هذا تقدير تخطيطي للنقاش حول النطاق وليس عرض سعر نهائياً.")}
+            <p className="text-sm font-semibold text-ink/70">{tx(isAr, "Your website requirements", "متطلبات موقعك")}</p>
+            <pre className="mt-3 whitespace-pre-wrap font-sans text-sm leading-relaxed text-ink">{scopeSummary}</pre>
+            <p className="mt-4 text-sm text-ink/70">
+              {tx(isAr, "Use this outline to discuss your design, content, integrations, and delivery priorities with our team.", "استخدم هذا الملخص لمناقشة التصميم والمحتوى والتكاملات وأولويات التنفيذ مع فريقنا.")}
             </p>
           </div>
+          <CopyButton text={scopeSummary} isAr={isAr} />
           <Link to="/contact" className="inline-flex items-center gap-2 font-bold text-ink hover:underline">
-            {getLocalizedText(toolUiCopy.freeAudit, isAr)}
+            {tx(isAr, "Discuss Your Website", "ناقش موقعك")}
             <ArrowRight className={`w-4 h-4 ${isAr ? "rotate-180" : ""}`} />
           </Link>
         </div>
@@ -952,18 +953,18 @@ function CostCalculator({ isAr }: { isAr: boolean }) {
               value={field.value}
               min={0}
               onChange={(event) => field.setter(Number(event.target.value))}
-              className="w-full  border border-line bg-paper px-4 py-3 text-sm text-ink outline-none focus:border-ink focus:ring-2 focus:ring-lime/50"
+              className="w-full border border-line bg-paper px-4 py-3 text-sm text-ink outline-none focus:border-ink focus:ring-2 focus:ring-lime/50"
               dir="ltr"
             />
           </div>
         ))}
       </div>
       <div className="mt-5 space-y-3">
-        <label className="flex items-center gap-3  border border-line p-4 text-sm font-semibold text-ink">
+        <label className="flex items-center gap-3 border border-line p-4 text-sm font-semibold text-ink">
           <input type="checkbox" checked={booking} onChange={(event) => setBooking(event.target.checked)} className="h-4 w-4 accent-lime" />
           {tx(isAr, "Booking or lead form integration", "تكامل الحجز أو نموذج العملاء المحتملين")}
         </label>
-        <label className="flex items-center gap-3  border border-line p-4 text-sm font-semibold text-ink">
+        <label className="flex items-center gap-3 border border-line p-4 text-sm font-semibold text-ink">
           <input type="checkbox" checked={ecommerce} onChange={(event) => setEcommerce(event.target.checked)} className="h-4 w-4 accent-lime" />
           {tx(isAr, "Ecommerce or checkout", "تجارة إلكترونية أو دفع")}
         </label>
@@ -1074,7 +1075,7 @@ function ToolWorkspace({ slug, isAr }: { slug: string; isAr: boolean }) {
     case "website-bandwidth-calculator":
       return <BandwidthCalculator isAr={isAr} />;
     case "website-cost-calculator":
-      return <CostCalculator isAr={isAr} />;
+      return <WebsiteScopePlanner isAr={isAr} />;
     case "youtube-video-seo-checker":
       return <YouTubeSeoChecker isAr={isAr} />;
     default:

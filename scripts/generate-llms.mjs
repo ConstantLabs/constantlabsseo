@@ -1,7 +1,7 @@
 /**
  * Writes dist/llms.txt and dist/llms-full.txt after the prerender.
  *
- * Contact, hours, pricing, brand and licence come from src/data/facts.json
+ * Contact, hours, brand and licence come from src/data/facts.json
  * (synced from https://constantlabs.ai/facts.json by scripts/sync-facts.mjs).
  * The register number is read from src/data/legal.ts, its one home. The page
  * index comes from the built pages, so a new page shows up with its real title
@@ -27,15 +27,8 @@ const paths = [...sitemap.matchAll(/<loc>https:\/\/seo\.constantlabs\.ai(\/[^<]*
 
 const seo = facts.offers.find((o) => o.id === "seo");
 if (!seo) throw new Error('facts.json has no offer "seo"');
-const tiers = ["seo-starter", "seo-growth", "seo-enterprise", "seo-dominance"].map((id) => {
-  const price = seo.prices.find((p) => p.id === id);
-  if (!price) throw new Error(`facts.json offer "seo" has no price "${id}"`);
-  return price;
-});
 const { contact, brand } = facts;
 const hours = contact.hours;
-const everyDay = hours.days.length === 7;
-const aed = (n) => `AED ${n.toLocaleString("en-US")}`;
 
 const pageFile = (path) => join(DIST, path === "/" ? "" : path, "index.html");
 const decode = (s) =>
@@ -93,12 +86,9 @@ const head = `# ConstantSEO
 - Licence valid: ${brand.licence.issued} to ${brand.licence.expires}. Verify with DET against the licence number.
 - Main site: ${brand.properties.main.url}
 
-## Pricing (${seo.name})
+## SEO enquiries
 
-${tiers.map((t) => `- ${t.label}: ${aed(t.aed)} / month. ${(t.includes ?? []).join(", ")}`).join("\n")}
-
-${(seo.conditions ?? []).map((c) => `- ${c}`).join("\n")}
-- Prices are in AED. All Constant Labs prices: https://constantlabs.ai/pricing/
+- Discuss your website, goals, and scope: https://seo.constantlabs.ai/contact
 
 ## Markets served
 
@@ -110,7 +100,6 @@ ${(seo.conditions ?? []).map((c) => `- ${c}`).join("\n")}
 - Websites: https://websites.constantlabs.ai/
 - Custom software: https://constantlabs.ai/custom-software-development-dubai/
 - AI training: https://constantlabs.ai/ai-training/
-- All prices: https://constantlabs.ai/pricing/
 
 ## Pages
 

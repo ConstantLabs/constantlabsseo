@@ -6,7 +6,6 @@ import { ProblemSolution } from "@/components/ProblemSolution";
 import { ServicesGrid } from "@/components/ServicesGrid";
 import { HowItWorks } from "@/components/HowItWorks";
 import { CaseStudiesSection } from "@/components/CaseStudiesSection";
-import { PricingSection } from "@/components/PricingSection";
 import { FAQSection } from "@/components/FAQSection";
 import { ZCalBookingSection } from "@/components/ZCalBookingSection";
 import { CTASection } from "@/components/CTASection";
@@ -36,7 +35,6 @@ const Index = () => {
         <ServicesGrid />
         <HowItWorks />
         <CaseStudiesSection />
-        <PricingSection />
         <FAQSection />
         <ZCalBookingSection />
         <CTASection />

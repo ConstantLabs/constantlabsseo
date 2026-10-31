@@ -10,9 +10,7 @@
  *   registered path, so the prerendered head and the hydrated head match.
  * - public/sitemap.xml must list the same paths (routeMeta.test.ts checks it).
  *
- * Prices in titles come from facts.json, never typed by hand.
  */
-import { seoTiers } from "./facts";
 
 export const BASE_URL = "https://seo.constantlabs.ai";
 
@@ -21,8 +19,6 @@ export interface RouteMeta {
   title: string;
   description: string;
 }
-
-const fromPrice = `AED ${seoTiers.starter.aed.toLocaleString("en-US")}`;
 
 export const routes: RouteMeta[] = [
   // ── Core Pages ──────────────────────────────────────────────
@@ -57,11 +53,6 @@ export const routes: RouteMeta[] = [
     description: "See how ConstantSEO builds native Arabic and English SEO for GCC businesses with RTL optimization, Arabic keyword research, and culturally relevant content.",
   },
   {
-    path: "/pricing",
-    title: `SEO Pricing - Transparent Plans from ${fromPrice} / month | ConstantSEO`,
-    description: `Transparent SEO pricing for GCC businesses. Starter, Growth, Enterprise and Dominance plans from ${fromPrice} / month. AI-powered SEO with bilingual Arabic-English support.`,
-  },
-  {
     path: "/about",
     title: "About ConstantSEO - AI-Native SEO Agency in Dubai | Constant Labs",
     description: "ConstantSEO by Constant Labs combines agentic workflows with GCC market context across technical, local, and bilingual SEO.",
@@ -84,7 +75,7 @@ export const routes: RouteMeta[] = [
   {
     path: "/tools",
     title: "SEO Tools for GCC Marketers | ConstantSEO",
-    description: "Use ConstantSEO's SEO tools to check meta tags, headings, sitemaps, FAQ schema, robots.txt, Open Graph previews, website bandwidth, cost, and YouTube SEO.",
+    description: "Use ConstantSEO's SEO tools to check meta tags, headings, sitemaps, FAQ schema, robots.txt, Open Graph previews, website bandwidth, scope, and YouTube SEO.",
   },
   {
     path: "/privacy",
@@ -177,8 +168,8 @@ export const routes: RouteMeta[] = [
   },
   {
     path: "/tools/website-cost-calculator",
-    title: "Website Cost Calculator UAE | ConstantSEO",
-    description: "Estimate website cost in AED for UAE and GCC projects. Calculate a planning range based on pages, bilingual content, SEO pages, ecommerce, and booking features.",
+    title: "Website Scope Planner for GCC Projects | ConstantSEO",
+    description: "Prepare website requirements for a project discussion. Outline page count, bilingual content, SEO pages, ecommerce, and booking features.",
   },
   {
     path: "/tools/youtube-video-seo-checker",
@@ -259,12 +250,12 @@ export const routes: RouteMeta[] = [
   {
     path: "/blog/seo-cost-riyadh",
     title: "How Much Does SEO Cost in Riyadh? | ConstantSEO Blog",
-    description: "Riyadh SEO pricing guide covering monthly retainers, local SEO, ecommerce SEO, Arabic content, technical SEO, audits, and competitive Saudi markets.",
+    description: "Riyadh SEO planning guide covering local SEO, ecommerce SEO, Arabic content, technical SEO, audits, and competitive Saudi markets.",
   },
   {
     path: "/blog/seo-dubai-guide-2025",
     title: "Complete Guide to SEO in Dubai 2025 | ConstantSEO Blog",
-    description: "Everything you need to know about SEO in Dubai: competitive landscape, bilingual search, local SEO, AI search, pricing, and timelines for 2025.",
+    description: "Everything you need to know about SEO in Dubai: competitive landscape, bilingual search, local SEO, AI search, scope, and timelines for 2025.",
   },
   {
     path: "/blog/what-is-geo-ai-search",

@@ -33,8 +33,8 @@ export const toolsPageCopy = {
     ar: "أدوات SEO للمسوقين في الخليج",
   },
   subtitle: {
-    en: "Check metadata, headings, schema, sitemaps, robots.txt, bandwidth, website cost, and video SEO without signing up.",
-    ar: "افحص العناوين الوصفية، العناوين، البيانات المنظمة، خرائط الموقع، robots.txt، استهلاك البيانات، تكلفة الموقع، وSEO للفيديو بدون تسجيل.",
+    en: "Check metadata, headings, schema, sitemaps, robots.txt, bandwidth, website scope, and video SEO without signing up.",
+    ar: "افحص العناوين الوصفية، العناوين، البيانات المنظمة، خرائط الموقع، robots.txt، استهلاك البيانات، نطاق الموقع، وSEO للفيديو بدون تسجيل.",
   },
   quickAnswer: {
     en: "ConstantSEO's tools help marketers and business owners spot practical SEO issues before they become ranking problems. Start with metadata, headings, sitemap extraction, FAQ schema, and robots.txt, then use the calculators to plan website growth in the UAE, Saudi Arabia, and Oman.",
@@ -118,10 +118,10 @@ export const toolCategoryCopy: Record<ToolCategory, { title: LocalizedText; desc
     },
   },
   web: {
-    title: { en: "Website planning calculators", ar: "حاسبات تخطيط المواقع" },
+    title: { en: "Website planning tools", ar: "أدوات تخطيط المواقع" },
     description: {
-      en: "Estimate bandwidth, scope, and website investment before scaling traffic.",
-      ar: "قدّر استهلاك البيانات والنطاق وتكلفة الموقع قبل زيادة الزيارات.",
+      en: "Estimate bandwidth and outline website requirements before scaling traffic.",
+      ar: "قدّر استهلاك البيانات وحدد متطلبات الموقع قبل زيادة الزيارات.",
     },
   },
   youtube: {
@@ -473,38 +473,38 @@ export const freeTools: FreeTool[] = [
     slug: "website-cost-calculator",
     category: "web",
     icon: "Calculator",
-    title: { en: "Website Cost Calculator", ar: "حاسبة تكلفة الموقع" },
+    title: { en: "Website Scope Planner", ar: "مخطط نطاق الموقع" },
     shortDescription: {
-      en: "Estimate website build cost in AED based on pages, languages, SEO landing pages, booking, and ecommerce scope.",
-      ar: "قدّر تكلفة بناء الموقع بالدرهم بناءً على الصفحات واللغات وصفحات SEO والحجز والتجارة الإلكترونية.",
+      en: "Outline pages, languages, SEO content, booking, and ecommerce requirements for your website project.",
+      ar: "حدد متطلبات الصفحات واللغات ومحتوى SEO والحجز والتجارة الإلكترونية لمشروع موقعك.",
     },
-    metaTitle: { en: "Website Cost Calculator UAE", ar: "حاسبة تكلفة الموقع في الإمارات" },
+    metaTitle: { en: "Website Scope Planner for GCC Projects", ar: "مخطط نطاق المواقع لمشاريع الخليج" },
     metaDescription: {
-      en: "Estimate website cost in AED for UAE and GCC projects. Calculate a planning range based on pages, bilingual content, SEO pages, ecommerce, and booking features.",
-      ar: "قدّر تكلفة الموقع بالدرهم لمشاريع الإمارات والخليج. احسب نطاقاً تخطيطياً حسب الصفحات والمحتوى الثنائي وصفحات SEO والتجارة الإلكترونية والحجز.",
+      en: "Prepare website requirements for a project discussion. Outline page count, bilingual content, SEO pages, ecommerce, and booking features.",
+      ar: "جهّز متطلبات موقعك لمناقشة المشروع. حدد عدد الصفحات والمحتوى الثنائي وصفحات SEO والتجارة الإلكترونية وميزات الحجز.",
     },
     quickAnswer: {
-      en: "A realistic website cost depends on page count, bilingual content, integrations, ecommerce, SEO landing pages, and how much content must be written or migrated. This calculator gives a planning range in AED, not a final quote.",
-      ar: "تعتمد تكلفة الموقع الواقعية على عدد الصفحات والمحتوى الثنائي والتكاملات والتجارة الإلكترونية وصفحات SEO ومقدار المحتوى المطلوب كتابته أو ترحيله. تقدم هذه الحاسبة نطاقاً تخطيطياً بالدرهم وليس عرض سعر نهائياً.",
+      en: "Use this planner to outline your website requirements before discussing the project with ConstantSEO. Page count, languages, content, integrations, and delivery priorities help define a useful scope of work.",
+      ar: "استخدم هذا المخطط لتحديد متطلبات موقعك قبل مناقشة المشروع مع ConstantSEO. يساعد عدد الصفحات واللغات والمحتوى والتكاملات وأولويات التنفيذ على تحديد نطاق عمل مفيد.",
     },
     useCases: [
-      { en: "Budget a new SEO-first website.", ar: "تحديد ميزانية موقع جديد بأولوية SEO." },
-      { en: "Compare a brochure site with a larger landing-page build.", ar: "مقارنة موقع تعريفي مع بناء أكبر لصفحات هبوط." },
-      { en: "Estimate bilingual English-Arabic scope.", ar: "تقدير نطاق الموقع الثنائي إنجليزي-عربي." },
+      { en: "Outline a new SEO-first website.", ar: "تحديد متطلبات موقع جديد بأولوية SEO." },
+      { en: "Compare the content needs of a brochure site and a larger landing-page project.", ar: "مقارنة احتياجات المحتوى لموقع تعريفي ومشروع أكبر لصفحات الهبوط." },
+      { en: "Define bilingual English-Arabic scope.", ar: "تحديد نطاق الموقع الثنائي إنجليزي-عربي." },
     ],
     faqs: [
       {
-        question: { en: "Why are SEO landing pages priced separately?", ar: "لماذا تُحسب صفحات SEO بشكل منفصل؟" },
+        question: { en: "What do SEO landing pages need?", ar: "ماذا تحتاج صفحات هبوط SEO؟" },
         answer: {
-          en: "SEO landing pages need keyword mapping, unique copy, metadata, schema, internal links, and static-generation checks, so they require more strategy than ordinary pages.",
-          ar: "تحتاج صفحات SEO إلى ربط كلمات مفتاحية ونص فريد وبيانات ميتا وسكيما وروابط داخلية وفحص توليد ثابت، لذلك تتطلب استراتيجية أكثر من الصفحات العادية.",
+          en: "SEO landing pages need keyword mapping, useful copy, metadata, structured data, internal links, and technical checks. Include these requirements in your project discussion.",
+          ar: "تحتاج صفحات هبوط SEO إلى ربط الكلمات المفتاحية ونص مفيد وبيانات ميتا وبيانات منظمة وروابط داخلية وفحوصات تقنية. أدرج هذه المتطلبات عند مناقشة المشروع.",
         },
       },
       {
-        question: { en: "Is the estimate a quote?", ar: "هل التقدير عرض سعر؟" },
+        question: { en: "What happens after I prepare my requirements?", ar: "ماذا يحدث بعد تجهيز متطلباتي؟" },
         answer: {
-          en: "No. It is a planning range. A final quote should follow a short discovery call and a review of design, content, and technical requirements.",
-          ar: "لا. هو نطاق تخطيطي. عرض السعر النهائي يحتاج مكالمة اكتشاف قصيرة ومراجعة التصميم والمحتوى والمتطلبات التقنية.",
+          en: "Copy the requirements and contact our team to discuss the design, content, integrations, and delivery priorities. We agree the scope directly for each project.",
+          ar: "انسخ المتطلبات وتواصل مع فريقنا لمناقشة التصميم والمحتوى والتكاملات وأولويات التنفيذ. نتفق على النطاق مباشرة لكل مشروع.",
         },
       },
     ],

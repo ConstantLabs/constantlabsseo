@@ -2,7 +2,6 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import { BASE_URL, routes } from "./routeMeta";
-import { seoTiers } from "./facts";
 
 describe("route registry", () => {
   it("includes the homepage exactly once and no duplicate paths", () => {
@@ -16,8 +15,9 @@ describe("route registry", () => {
     expect([...sitemap].sort()).toEqual(routes.map((r) => r.path).sort());
   });
 
-  it("takes the pricing title's price from facts", () => {
-    const pricing = routes.find((r) => r.path === "/pricing")!;
-    expect(pricing.title).toContain(`AED ${seoTiers.starter.aed.toLocaleString("en-US")}`);
+  it("retires the public pricing route and directs existing visitors to contact", () => {
+    expect(routes.some((route) => route.path === "/pricing")).toBe(false);
+    const config = JSON.parse(readFileSync(join(__dirname, "..", "..", "vercel.json"), "utf-8"));
+    expect(config.redirects).toContainEqual({ source: "/pricing", destination: "/contact", permanent: true });
   });
 });

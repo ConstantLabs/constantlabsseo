@@ -1,4 +1,4 @@
-import { seoTiers, formatPrice, facts, CONTACT_EMAIL, CONTACT_PHONE_DISPLAY, HOURS_RANGE, HOURS_EVERY_DAY } from "@/data/facts";
+import { facts, CONTACT_EMAIL, CONTACT_PHONE_DISPLAY, HOURS_RANGE, HOURS_EVERY_DAY } from "@/data/facts";
 
 export type TranslationMap = Record<string, { en: string; ar: string }>;
 
@@ -19,7 +19,6 @@ export const translations: TranslationMap = {
   "nav.home": { en: "Home", ar: "الرئيسية" },
   "nav.services": { en: "Services", ar: "الخدمات" },
   "nav.caseStudies": { en: "Case Studies", ar: "دراسات حالة" },
-  "nav.pricing": { en: "Pricing", ar: "الأسعار" },
   "nav.about": { en: "About", ar: "من نحن" },
   "nav.blog": { en: "Blog", ar: "المدونة" },
   "nav.tools": { en: "Tools", ar: "الأدوات" },
@@ -186,15 +185,6 @@ export const translations: TranslationMap = {
   "home.cta.title": { en: "Start with the evidence *your site already has.*", ar: "ابدأ بالدليل *الموجود بالفعل في موقعك.*" },
   "home.cta.copy": { en: "Request a practical audit and we will identify the clearest opportunities in your current search presence.", ar: "اطلب تدقيقاً عملياً وسنحدد أوضح الفرص في حضورك الحالي ضمن البحث." },
   "home.hero.parentBrand": { en: "by Constant Labs", ar: "من Constant Labs" },
-  "pricing.featured": { en: "Recommended for fast growth", ar: "موصى بها للنمو السريع" },
-  "pricing.timeline.aria": { en: "SEO timeline", ar: "الجدول الزمني لتحسين محركات البحث" },
-  "pricing.timeline.unit": { en: "Months minimum", ar: "أشهر كحد أدنى" },
-  "pricing.timeline.label": { en: "Results timeline", ar: "المدة المتوقعة للنتائج" },
-  "pricing.timeline.title": { en: "SEO compounds. It is not instant.", ar: "نتائج SEO تراكمية وليست فورية." },
-  "pricing.timeline.copy": {
-    en: "SEO needs time to compound. Allow at least three months to see decent results. We therefore ask clients to commit to and pay for a minimum three-month campaign, while we push for measurable progress from month one.",
-    ar: "يحتاج SEO إلى وقت ليتراكم أثره. امنح الحملة ثلاثة أشهر على الأقل لرؤية نتائج جيدة. لذلك نطلب من العملاء الالتزام والدفع لحملة مدتها ثلاثة أشهر كحد أدنى، بينما نعمل على تحقيق تقدم قابل للقياس منذ الشهر الأول.",
-  },
   "mufakkir.metric.clicks.help": {
     en: "How many people actually clicked through to the site from Google's results.",
     ar: "عدد الأشخاص الذين نقروا فعلياً للوصول إلى الموقع من نتائج جوجل.",
@@ -431,60 +421,6 @@ export const translations: TranslationMap = {
   "case3.market": { en: "UAE · KSA · Oman", ar: "الإمارات · السعودية · عمان" },
   "case3.desc": { en: "Gulf customers search in both Arabic and English. Our bilingual SEO strategy makes sure you capture both audiences - double the reach, double the revenue", ar: "عملاء الخليج يبحثون بالعربية والإنجليزية. استراتيجية SEO ثنائية اللغة تضمن الوصول للجمهورين - ضعف الانتشار، ضعف الإيرادات" },
 
-  // ─── Pricing (new keys) ─────────────────────────────────────
-  "pricing.label": { en: "Pricing", ar: "الأسعار" },
-  "pricing.title": { en: "Transparent service plans. *No hidden anything.*", ar: "باقات خدمات واضحة. *بدون أي رسوم مخفية.*" },
-  "pricing.subtitle": { en: "All plans include AI-powered optimization. No hidden fees.", ar: "جميع الباقات تشمل التحسين بالذكاء الاصطناعي. بدون رسوم مخفية." },
-  "pricing.monthly": { en: "/ month", ar: "/ شهر" },
-  "pricing.popular": { en: "Most Popular", ar: "الأكثر طلباً" },
-  "pricing.getStarted": { en: "Get Started", ar: "ابدأ الآن" },
-  "pricing.contactUs": { en: "Contact Us", ar: "تواصل معنا" },
-  "pricing.cta": { en: "Get Started", ar: "ابدأ الآن" },
-  "pricing.custom": { en: "Need a custom plan? Let's talk.", ar: "تحتاج خطة مخصصة؟ كلّمنا." },
-
-  "pricing.starter.name": { en: "Starter", ar: "المبتدئ" },
-  "pricing.starter.price": { en: formatPrice(seoTiers.starter.aed), ar: formatPrice(seoTiers.starter.aed, { lang: "ar" }) },
-  "pricing.starter.desc": { en: "A focused foundation for a smaller search scope", ar: "أساس مركز لنطاق بحث أصغر" },
-  "pricing.starter.f1": { en: "15 target keywords", ar: "15 كلمة مفتاحية مستهدفة" },
-  "pricing.starter.f2": { en: "Monthly SEO audit", ar: "تدقيق SEO شهري" },
-  "pricing.starter.f3": { en: "Basic performance reporting", ar: "تقارير أداء أساسية" },
-  "pricing.starter.f4": { en: "Google Search Console setup", ar: "إعداد Google Search Console" },
-  "pricing.starter.f5": { en: "Technical SEO fixes", ar: "إصلاحات SEO التقنية" },
-  "pricing.starter.f6": { en: "1 blog post per month", ar: "مقال واحد شهرياً" },
-  "pricing.starter.f7": { en: "Email support", ar: "دعم عبر البريد الإلكتروني" },
-
-  "pricing.growth.name": { en: "Growth", ar: "النمو" },
-  "pricing.growth.price": { en: formatPrice(seoTiers.growth.aed), ar: formatPrice(seoTiers.growth.aed, { lang: "ar" }) },
-  "pricing.growth.desc": { en: "A broader recurring scope across technical, content, and local search", ar: "نطاق دوري أوسع عبر البحث التقني والمحتوى والبحث المحلي" },
-  "pricing.growth.f1": { en: "50 target keywords", ar: "50 كلمة مفتاحية مستهدفة" },
-  "pricing.growth.f2": { en: "Weekly optimization cycles", ar: "دورات تحسين أسبوعية" },
-  "pricing.growth.f3": { en: "AI search tracking (GEO/AEO)", ar: "تتبع بحث الذكاء الاصطناعي (GEO/AEO)" },
-  "pricing.growth.f4": { en: "Arabic content creation (4 articles / month)", ar: "إنشاء محتوى عربي (4 مقالات / شهر)" },
-  "pricing.growth.f5": { en: "Local SEO for up to 3 locations", ar: "SEO محلي لـ 3 مواقع" },
-  "pricing.growth.f7": { en: "Bi-weekly strategy calls", ar: "مكالمات استراتيجية كل أسبوعين" },
-
-  "pricing.enterprise.name": { en: "Enterprise", ar: "المؤسسي" },
-  "pricing.enterprise.price": { en: formatPrice(seoTiers.enterprise.aed), ar: formatPrice(seoTiers.enterprise.aed, { lang: "ar" }) },
-  "pricing.enterprise.desc": { en: "A coordinated multi-market scope across Google, AI platforms, Arabic, and English", ar: "نطاق منسق متعدد الأسواق عبر Google ومنصات الذكاء الاصطناعي والعربية والإنجليزية" },
-  "pricing.enterprise.f1": { en: "Unlimited target keywords", ar: "كلمات مفتاحية غير محدودة" },
-  "pricing.enterprise.f2": { en: "Dedicated SEO strategist", ar: "استراتيجي SEO مخصص" },
-  "pricing.enterprise.f3": { en: "Custom AI search dashboard", ar: "لوحة بحث AI مخصصة" },
-  "pricing.enterprise.f4": { en: "Unlimited Arabic & English content", ar: "محتوى عربي وإنجليزي غير محدود" },
-  "pricing.enterprise.f5": { en: "Full GCC local SEO coverage", ar: "تغطية SEO محلي لكامل الخليج" },
-  "pricing.enterprise.f7": { en: "Priority support (same-day response)", ar: "دعم أولوية (رد في نفس اليوم)" },
-
-  "pricing.dominance.name": { en: "Dominance", ar: "الهيمنة" },
-  "pricing.dominance.price": { en: formatPrice(seoTiers.dominance.aed), ar: formatPrice(seoTiers.dominance.aed, { lang: "ar" }) },
-  "pricing.dominance.desc": { en: "Everything in Enterprise, plus we build the website the rankings land on", ar: "كل ما في الباقة المؤسسية، بالإضافة إلى بناء الموقع الذي تصل إليه النتائج" },
-  "pricing.dominance.f1": { en: "Everything in Enterprise", ar: "كل ما في الباقة المؤسسية" },
-  "pricing.dominance.f2": { en: "Website build included in the plan", ar: "بناء الموقع ضمن الباقة" },
-  "pricing.dominance.f3": { en: "Conversion-built design, so the traffic turns into enquiries", ar: "تصميم مبني على التحويل، لتحوّل الزيارات إلى استفسارات" },
-  "pricing.dominance.f5": { en: "Bilingual build, Arabic and English as one system", ar: "بناء ثنائي اللغة، العربية والإنجليزية كنظام واحد" },
-  "pricing.dominance.f6": { en: "Quarterly strategy review with the founder", ar: "مراجعة استراتيجية ربع سنوية مع المؤسس" },
-  "pricing.dominance.studioNote": { en: "The website is built by our sister studio", ar: "الموقع يُبنى بواسطة استوديو الويب التابع لنا" },
-  "pricing.dominance.studioLink": { en: "See the website studio", ar: "شاهد استوديو المواقع" },
-
-  // ─── Why SEO, and why it is not advertising ─────────────────
   "home.notAds.eyebrow": { en: "SEO is not advertising", ar: "SEO ليس إعلانات" },
   "home.notAds.title": { en: "Ads stop the day you stop paying. *Search does not.*", ar: "الإعلانات تتوقف يوم تتوقف عن الدفع. *البحث لا يتوقف.*" },
   "home.notAds.copy": { en: "An ad rents attention. The moment the budget pauses, the traffic is gone and nothing you paid for remains. SEO compounds instead: every page, every fix, every answer you publish keeps working after it is built.", ar: "الإعلان يستأجر الانتباه. لحظة توقف الميزانية، تختفي الزيارات ولا يبقى شيء مما دفعته. أما SEO فيتراكم: كل صفحة، وكل إصلاح، وكل إجابة تنشرها تبقى تعمل بعد بنائها." },
@@ -563,8 +499,8 @@ export const translations: TranslationMap = {
 
   "faq7.q": { en: "Do you require long-term contracts?", ar: "هل تتطلبون عقوداً طويلة الأمد؟" },
   "faq7.a": {
-    en: "There is a 3-month minimum, then month to month. SEO is a long-term strategy and we are transparent about that. After the first three months you are never locked in, and we earn your business every month. We do not guarantee rankings.",
-    ar: "الحد الأدنى 3 أشهر، ثم شهر بشهر. SEO استراتيجية طويلة المدى ونحن صريحون بهذا. بعد الأشهر الثلاثة الأولى لست مقيداً، ونكسب ثقتك كل شهر. لا نضمن الترتيب."
+    en: "We agree on scope, delivery priorities, and engagement terms with each client. SEO is a long-term strategy, and we do not guarantee rankings.",
+    ar: "نتفق مع كل عميل على النطاق وأولويات التنفيذ وشروط العمل. SEO استراتيجية طويلة المدى، ولا نضمن الترتيب."
   },
 
   "faq8.q": { en: "Can you build our website too?", ar: "هل يمكنكم بناء موقعنا أيضاً؟" },
@@ -583,7 +519,6 @@ export const translations: TranslationMap = {
   "cta.bookCall": { en: "Book Strategy Call", ar: "احجز استشارة" },
   "cta.getStarted": { en: "Get Started", ar: "ابدأ الآن" },
   "cta.learnMore": { en: "Learn More", ar: "اعرف أكثر" },
-  "cta.viewPricing": { en: "View Pricing", ar: "عرض الأسعار" },
   "cta.contactUs": { en: "Contact Us", ar: "تواصل معنا" },
 
   // ─── Calendly / Booking (used by CalendlySection.tsx) ───────
@@ -684,7 +619,6 @@ export const translations: TranslationMap = {
   "footer.family.websites": { en: "Websites", ar: "المواقع" },
   "footer.family.software": { en: "Custom software", ar: "برمجيات مخصصة" },
   "footer.family.training": { en: "AI training", ar: "تدريب الذكاء الاصطناعي" },
-  "footer.family.prices": { en: "All prices", ar: "جميع الأسعار" },
   "footer.location": { en: "Dubai, UAE", ar: "دبي، الإمارات" },
   // The registered entity. The name and number themselves live in
   // `src/data/legal.ts` — only the surrounding words are translated, because a
@@ -845,11 +779,6 @@ export const translations: TranslationMap = {
   "inner.caseStudies.lede": {
     en: "Explore the context, scope, and reported outcomes behind selected SEO engagements across the GCC.",
     ar: "استكشف السياق والنطاق والنتائج المُبلّغ عنها لمشاريع SEO مختارة في دول الخليج."
-  },
-  "inner.pricing.title": { en: "Simple, Transparent Pricing", ar: "أسعار بسيطة وشفافة" },
-  "inner.pricing.lede": {
-    en: "No hidden fees or long-term lock-ins. Choose a plan that fits your business and adapt it as your needs change.",
-    ar: "لا رسوم خفية ولا التزامات طويلة الأمد. اختر باقة تناسب عملك وعدّلها مع تغيّر احتياجاتك."
   },
   "inner.blog.title": { en: "Insights & Updates", ar: "رؤى وتحديثات" },
   "inner.blog.lede": {

@@ -2,7 +2,7 @@ import { readdirSync, readFileSync, statSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 
-/* Prices, the email address, the phone number, the WhatsApp link and the opening
+/* The email address, phone number, WhatsApp link and opening
    hours live in src/data/facts.json (synced from constantlabs.ai/facts.json).
    This fails when one is typed into a component, a page or a translation. */
 

@@ -6,7 +6,7 @@
  * parentOrganization and never carries a legal name of its own.
  * City-level location only: no street, no coordinates (see CLAUDE.md, "The licence").
  */
-import { facts, openingDays, ORGANIZATION_ID, seoOffer, seoTiers } from "./facts";
+import { facts, openingDays, ORGANIZATION_ID, seoOffer } from "./facts";
 import { legal } from "./legal";
 
 export const SITE_URL = "https://seo.constantlabs.ai";
@@ -14,10 +14,6 @@ export const SEO_SERVICE_ID = `${SITE_URL}/#organization`;
 export const WEBSITE_ID = `${SITE_URL}/#website`;
 
 const seoProperty = facts.brand.properties.seo;
-const tierList = Object.values(seoTiers);
-const minAed = Math.min(...tierList.map((t) => t.aed));
-const maxAed = Math.max(...tierList.map((t) => t.aed));
-
 const constantLabs = {
   "@type": "Organization",
   "@id": ORGANIZATION_ID,
@@ -58,23 +54,6 @@ const constantSeo = {
   ],
   areaServed: facts.contact.serviceArea,
   knowsLanguage: facts.contact.languages,
-  priceRange: `AED ${minAed.toLocaleString("en-US")} to ${maxAed.toLocaleString("en-US")} / month`,
-  hasOfferCatalog: {
-    "@type": "OfferCatalog",
-    name: seoOffer.name,
-    itemListElement: tierList.map((tier) => ({
-      "@type": "Offer",
-      name: tier.label,
-      description: (tier.includes ?? []).join(", "),
-      priceSpecification: {
-        "@type": "UnitPriceSpecification",
-        price: tier.aed,
-        priceCurrency: "AED",
-        unitCode: "MON",
-        referenceQuantity: { "@type": "QuantitativeValue", value: 1, unitCode: "MON" },
-      },
-    })),
-  },
 };
 
 const website = {

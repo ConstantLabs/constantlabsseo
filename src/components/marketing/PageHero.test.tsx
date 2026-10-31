@@ -38,8 +38,6 @@ describe("PageHero", () => {
       "inner.caseStudies.eyebrow",
       "inner.caseStudies.title",
       "inner.caseStudies.lede",
-      "inner.pricing.title",
-      "inner.pricing.lede",
       "inner.blog.title",
       "inner.blog.lede",
       "inner.notFound.title",

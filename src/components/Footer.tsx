@@ -19,7 +19,6 @@ const family = [
   ["footer.family.websites", "https://websites.constantlabs.ai/"],
   ["footer.family.software", "https://constantlabs.ai/custom-software-development-dubai/"],
   ["footer.family.training", "https://constantlabs.ai/ai-training/"],
-  ["footer.family.prices", "https://constantlabs.ai/pricing/"],
 ] as const;
 
 export const Footer = () => {
@@ -38,7 +37,7 @@ export const Footer = () => {
       [
         [t("footer.aboutUs"), "/about"],
         [t("footer.caseStudies"), "/case-studies"],
-        [t("nav.pricing"), "/pricing"],
+        [t("nav.contact"), "/contact"],
       ],
     ],
     [

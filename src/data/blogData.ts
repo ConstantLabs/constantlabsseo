@@ -368,17 +368,17 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "seo-cost-riyadh",
-    title: "How Much Does SEO Cost in Riyadh?",
+    title: "Planning SEO in Riyadh",
     metaTitle:
-      "How Much Does SEO Cost in Riyadh? Saudi SEO Pricing Guide",
+      "Planning SEO in Riyadh: Scope and Priorities",
     metaDescription:
-      "A practical Riyadh SEO pricing guide covering monthly retainers, one-time audits, local SEO, ecommerce SEO, Arabic content, technical SEO, and competitive Saudi markets.",
+      "A practical Riyadh SEO planning guide covering audits, local SEO, ecommerce SEO, Arabic content, technical SEO, and competitive Saudi markets.",
     excerpt:
-      "SEO pricing in Riyadh depends on competition, language scope, content velocity, technical debt, and whether the business is targeting local customers, ecommerce sales, or Vision 2030 supplier demand.",
+      "An SEO scope in Riyadh depends on competition, languages, content needs, technical debt, and whether the business targets local customers, ecommerce sales, or Vision 2030 supplier demand.",
     author: "ConstantSEO Team",
     date: "2026-06-12",
     readTime: "7 min read",
-    category: "SEO Pricing",
+    category: "SEO Planning",
     tags: [
       "seo cost riyadh",
       "seo pricing saudi arabia",
@@ -407,7 +407,7 @@ export const blogPosts: BlogPost[] = [
     faqs: [
       {
         q: "How much does SEO cost in Riyadh?",
-        a: "A focused Riyadh SEO campaign often starts around AED 3,500 to AED 7,500 per month for local or service businesses. Competitive ecommerce, real estate, healthcare, finance, and B2B campaigns can require AED 10,000 to AED 30,000+ per month depending on scope.",
+        a: "The scope depends on competition, language requirements, technical issues, and content needs. Discuss your website and priorities with the team to agree on the work required for your business.",
       },
       {
         q: "Why is Riyadh SEO more expensive in some industries?",
@@ -420,9 +420,9 @@ export const blogPosts: BlogPost[] = [
     ],
     sections: [
       {
-        heading: "Quick Answer: What Is a Realistic SEO Budget in Riyadh?",
+        heading: "Quick Answer: How Do You Define an SEO Scope in Riyadh?",
         content:
-          "A realistic SEO budget in Riyadh starts around AED 3,500 to AED 7,500 per month for focused local or service SEO. Competitive campaigns for ecommerce, real estate, healthcare, finance, hospitality, or Vision 2030 supplier categories can require AED 10,000 to AED 30,000+ per month because they need more content, stronger technical work, and authority building.",
+          "Start by identifying your market, service areas, languages, technical issues, and content requirements. Competitive ecommerce, real estate, healthcare, finance, hospitality, and supplier markets can need deeper content, technical work, and authority building. Agree on priorities and scope after reviewing the website and its competitors.",
       },
       {
         heading: "Why Is Riyadh SEO Pricing Changing?",
@@ -458,9 +458,9 @@ export const blogPosts: BlogPost[] = [
     title: "Complete Guide to SEO in Dubai 2025",
     metaTitle: "SEO Dubai 2025: The Complete Guide for Businesses | ConstantSEO",
     metaDescription:
-      "Everything you need to know about SEO in Dubai for 2025. Covers local search, bilingual optimization, Google Maps, AI search, pricing, and timelines for the UAE market.",
+      "Everything you need to know about SEO in Dubai for 2025. Covers local search, bilingual optimization, Google Maps, AI search, scope, and timelines for the UAE market.",
     excerpt:
-      "Dubai is one of the most competitive digital markets in the Middle East. This guide covers everything from bilingual SEO and Google Maps optimization to realistic pricing and timelines for businesses in the UAE.",
+      "Dubai is one of the most competitive digital markets in the Middle East. This guide covers everything from bilingual SEO and Google Maps optimization to project scope and timelines for businesses in the UAE.",
     author: "ConstantSEO Team",
     date: "2025-03-22",
     readTime: "12 min read",
@@ -507,9 +507,9 @@ export const blogPosts: BlogPost[] = [
           "Content is the engine that drives SEO results. For Dubai businesses, the content strategy should be built around three pillars: service pages optimized for transactional keywords, location pages targeting area-specific searches, and blog content that builds topical authority.\n\nService pages should target specific, high-intent keywords like \"company formation dubai\" or \"villa painting dubai marina\" rather than broad terms. Each service deserves its own dedicated page with unique content, FAQ schema, and internal links to related services. Thin service pages that just list bullet points will not compete in Dubai's market.\n\nLocation-specific content is particularly powerful in Dubai because of its distinct neighborhoods and communities. A page targeting \"plumber in JBR\" has different intent and competition than \"plumber in Motor City.\" Creating dedicated content for each service area you cover, with genuine local knowledge and references, signals relevance to Google. Blog content should answer the questions your potential customers actually ask, targeting long-tail informational queries that bring people into your funnel.",
       },
       {
-        heading: "SEO Pricing in Dubai: What to Expect",
+        heading: "Defining an SEO Scope in Dubai",
         content:
-          "SEO pricing in Dubai varies enormously, from AED 2,000 per month to AED 50,000+ depending on the scope, competition, and agency. Understanding what you are paying for is critical because the industry unfortunately includes agencies that deliver very little for premium prices.\n\nFor a small to medium business in a moderately competitive niche, expect to invest AED 5,000 to AED 15,000 per month for a comprehensive SEO campaign that includes technical optimization, content creation, local SEO, and conversion work. Highly competitive industries like real estate, finance, and healthcare will typically require AED 15,000 to AED 30,000+ monthly.\n\nBe cautious of agencies offering SEO packages under AED 2,000 per month. At that price point, the work is typically automated, templated, or outsourced to teams with no understanding of the UAE market. Equally, be wary of agencies that lock you into 12-month contracts with no performance benchmarks. A good SEO partner should be transparent about what they deliver each month, provide clear reporting, and be willing to earn your continued business through results.",
+          "An SEO scope in Dubai depends on your website, competition, languages, content needs, and technical issues. A focused local campaign and a multi-market ecommerce project require different work, so define the requirements before choosing a provider.\n\nDiscuss which pages and markets matter most, how Arabic and English content will be handled, which technical issues need attention, and how progress will be reported. Agree on scope, deliverables, and engagement terms directly with the team.\n\nAsk an SEO partner to explain the work, show useful reporting, and set realistic expectations. Be cautious of promises of instant rankings or guaranteed outcomes. Clear priorities and measurable progress make it easier to assess the engagement.",
       },
       {
         heading: "Realistic Timelines: When Will You See Results?",

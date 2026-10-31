@@ -2,7 +2,7 @@
  * Pulls the Constant Labs business facts before every build.
  *
  * https://constantlabs.ai/facts.json is the single source of truth for name,
- * contact, hours, offers and prices across constantlabs.ai, websites. and seo.
+ * contact, hours and service metadata across constantlabs.ai, websites. and seo.
  * This script fetches it and writes src/data/facts.json, which the app, the
  * JSON-LD and llms.txt all read. If the fetch fails (offline, URL not live yet,
  * bad JSON, missing fields, or an older revision) the committed copy is kept.
@@ -30,13 +30,13 @@ export function validateFacts(facts) {
   if (!facts.contact?.email) problems.push("contact.email");
   if (!facts.contact?.phone) problems.push("contact.phone");
   if (!facts.contact?.hours?.opens || !facts.contact?.hours?.closes) problems.push("contact.hours");
-  if (typeof facts.currency?.usdPerAed !== "number") problems.push("currency.usdPerAed");
+  if ("currency" in facts) problems.push("private currency rules must not be public");
+  if ("free" in facts) problems.push("removed free-service offers must not be public");
+  if (Array.isArray(facts.offers) && facts.offers.some((offer) => "prices" in offer)) {
+    problems.push("service prices must not be public");
+  }
   const seo = Array.isArray(facts.offers) ? facts.offers.find((o) => o.id === "seo") : null;
   if (!seo) problems.push("offers[seo]");
-  for (const id of ["seo-starter", "seo-growth", "seo-enterprise", "seo-dominance"]) {
-    const price = seo?.prices?.find((p) => p.id === id);
-    if (!price || typeof price.aed !== "number") problems.push(`offers[seo].prices[${id}]`);
-  }
   return problems;
 }
 
@@ -50,7 +50,7 @@ async function fetchRemote() {
     if (!type.includes("json")) throw new Error(`content-type ${type || "missing"}`);
     const facts = await res.json();
     const problems = validateFacts(facts);
-    if (problems.length) throw new Error(`missing ${problems.join(", ")}`);
+    if (problems.length) throw new Error(`invalid facts: ${problems.join(", ")}`);
     return facts;
   } finally {
     clearTimeout(timer);
@@ -61,7 +61,7 @@ async function run() {
   const local = JSON.parse(readFileSync(LOCAL, "utf-8"));
   const localProblems = validateFacts(local);
   if (localProblems.length) {
-    throw new Error(`committed ${LOCAL} is missing ${localProblems.join(", ")}`);
+    throw new Error(`committed ${LOCAL} is invalid: ${localProblems.join(", ")}`);
   }
 
   try {

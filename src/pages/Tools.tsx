@@ -88,7 +88,7 @@ const Tools = () => {
         name: isAr ? "ما أدوات SEO التي تقدمها ConstantSEO؟" : "What SEO tools does ConstantSEO offer?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: isAr ? "تقدم ConstantSEO أدوات لبيانات الميتا والعناوين وخرائط الموقع وrobots.txt وFAQ Schema وOpen Graph وتكلفة الموقع واستهلاك البيانات وSEO يوتيوب." : "ConstantSEO offers metadata, heading, sitemap, robots.txt, FAQ schema, Open Graph, website cost, bandwidth, and YouTube SEO tools for marketers and business owners.",
+          text: isAr ? "تقدم ConstantSEO أدوات لبيانات الميتا والعناوين وخرائط الموقع وrobots.txt وFAQ Schema وOpen Graph ونطاق الموقع واستهلاك البيانات وSEO يوتيوب." : "ConstantSEO offers metadata, heading, sitemap, robots.txt, FAQ schema, Open Graph, website scope, bandwidth, and YouTube SEO tools for marketers and business owners.",
         },
       },
       {
@@ -106,7 +106,7 @@ const Tools = () => {
     <div className="min-h-screen bg-paper text-ink" dir={isAr ? "rtl" : "ltr"}>
       <SEO
         title={isAr ? "أدوات SEO لمسوقي الخليج" : "SEO Tools for GCC Marketers"}
-        description={isAr ? "استخدم أدوات ConstantSEO لفحص بيانات الميتا والعناوين وخرائط الموقع وFAQ Schema وrobots.txt وOpen Graph واستهلاك البيانات والتكلفة وSEO يوتيوب." : "Use ConstantSEO's SEO tools to check meta tags, headings, sitemaps, FAQ schema, robots.txt, Open Graph previews, website bandwidth, cost, and YouTube SEO."}
+        description={isAr ? "استخدم أدوات ConstantSEO لفحص بيانات الميتا والعناوين وخرائط الموقع وFAQ Schema وrobots.txt وOpen Graph واستهلاك البيانات والنطاق وSEO يوتيوب." : "Use ConstantSEO's SEO tools to check meta tags, headings, sitemaps, FAQ schema, robots.txt, Open Graph previews, website bandwidth, scope, and YouTube SEO."}
         path="/tools"
         breadcrumbs={[{ name: getLocalizedText(toolUiCopy.allTools, isAr), path: "/tools" }]}
       />
