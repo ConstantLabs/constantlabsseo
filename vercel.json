@@ -26,6 +26,11 @@
       "source": "/pricing",
       "destination": "/contact",
       "permanent": true
+    },
+    {
+      "source": "/pricing/",
+      "destination": "/contact",
+      "permanent": true
     }
   ]
 }
